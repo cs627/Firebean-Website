@@ -1,0 +1,5 @@
+{
+  "name": "Firebean Profile website",
+  "description": "A sophisticated AI workspace with persistent memory, SQLite-backed knowledge storage, and a refined minimal interface.",
+  "requestFramePermissions": []
+}

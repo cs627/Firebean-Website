@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2 {
+  font-family: 'Anton', sans-serif;
+}
+

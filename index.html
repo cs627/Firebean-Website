@@ -1,0 +1,1444 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Firebean Agency Portfolio</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&family=League+Spartan:wght@700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@400;500;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Noto+Sans+JP:wght@700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- Translations & Legal Content -->
+    <script src="/src/translations.js"></script>
+    
+    <!-- Lenis for smooth scroll -->
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Anton', 'sans-serif'],
+              oswald: ['Oswald', 'sans-serif'],
+              spartan: ['League Spartan', 'sans-serif'],
+              serif: ['Libre Baskerville', 'serif'],
+              playfair: ['Playfair Display', 'serif'],
+              jp: ['Noto Sans JP', 'sans-serif'],
+            },
+            colors: {
+              'brand-black': '#0a0a0a',
+              'brand-gray': '#f4f4f4',
+              'brand-red': '#ff3333',
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      body {
+        background-color: #f4f4f4;
+        color: #0a0a0a;
+        overflow-x: hidden;
+      }
+      
+      /* Mega Menu Styles */
+      .mega-menu {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        pointer-events: none; /* Prevent blocking clicks when hidden */
+      }
+      .group:hover .mega-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto; /* Enable clicks when visible */
+      }
+
+      /* 3D Logo Background */
+      .bg-3d-logo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 40vw;
+        font-family: 'Anton', sans-serif;
+        color: rgba(0,0,0,0.03);
+        z-index: 0;
+        white-space: nowrap;
+        pointer-events: none;
+      }
+
+      /* Slider */
+      .slider-container {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+      }
+      .slide {
+        min-width: 100%;
+      }
+
+      /* Smooth image loading */
+      img {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+      img.loaded {
+        opacity: 1;
+      }
+
+      /* Text Stroke Effect */
+      .stroke-text {
+        -webkit-text-stroke: 1px white;
+        color: transparent;
+      }
+      .stroke-text-black {
+        -webkit-text-stroke: 1px black;
+        color: transparent;
+      }
+
+      /* 3D Flip Utilities */
+      .perspective-1000 { perspective: 1000px; }
+      .transform-style-3d { transform-style: preserve-3d; }
+      .backface-hidden { backface-visibility: hidden; }
+      .rotate-x-180 { transform: rotateX(180deg); }
+      
+      /* L-Brackets */
+      .l-bracket { position: absolute; width: 12px; height: 12px; border-color: #ff3333; border-style: solid; pointer-events: none; z-index: 10; }
+      .l-tl { top: -4px; left: -4px; border-width: 2px 0 0 2px; }
+      .l-tr { top: -4px; right: -4px; border-width: 2px 2px 0 0; }
+      .l-bl { bottom: -4px; left: -4px; border-width: 0 0 2px 2px; }
+      .l-br { bottom: -4px; right: -4px; border-width: 0 2px 2px 0; }
+
+      /* Japanese Work Title Adjustment */
+      body.lang-jp [data-key="Index.Work.Title"] {
+        font-size: 10.8vw !important; /* 12vw * 0.9 = 10.8vw */
+        font-family: 'Noto Sans JP', sans-serif;
+        font-weight: 900;
+      }
+
+      /* Japanese Newsletter Title Adjustment */
+      body.lang-jp [data-key="Index.Newsletter.Title"] {
+        font-size: 2.7rem !important; /* text-5xl (3rem) * 0.9 = 2.7rem */
+        font-family: 'Noto Sans JP', sans-serif;
+        font-weight: 900;
+      }
+      @media (min-width: 768px) {
+        body.lang-jp [data-key="Index.Newsletter.Title"] {
+          font-size: 4.05rem !important; /* text-7xl (4.5rem) * 0.9 = 4.05rem */
+        }
+      }
+
+      /* Japanese Hero Title Specific Styles */
+      .jp-hero-title.jp .hero-line {
+        font-size: 7vw; /* Reduced 30% from 10vw */
+      }
+
+      /* Row 1: 戦略を (Left) - Photo 1 - 主導する (Right) */
+      .jp-hero-title.jp > div:nth-child(1) {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        width: 100%;
+        padding-left: 1vw; /* Reduced padding further */
+        padding-right: 1vw; /* Reduced padding further */
+      }
+
+      /* Reduce polaroid margin for Japanese */
+      .jp-hero-title.jp > div:nth-child(1) > .hidden.md\:block {
+        margin-left: 0.5vw !important;
+        margin-right: 0.5vw !important;
+      }
+
+      /* Line 1: 戦略を */
+      .jp-hero-title.jp [data-key="Index.Hero.Line1"] {
+        font-size: 10vw; /* Increased 10% from 9.1vw */
+      }
+
+      /* Line 2: 主導する - Shift a bit to left */
+      .jp-hero-title.jp [data-key="Index.Hero.Line2"] {
+        font-size: 10vw; /* Increased 10% from 9.1vw */
+        transform: translateX(-2vw); /* Reduced shift to avoid overlap */
+      }
+
+      /* Row 2: PRの - Photo 2 - Subtitle set */
+      .jp-hero-title.jp > div:nth-child(2) {
+        flex-direction: row !important;
+        justify-content: flex-start !important;
+        width: 100%;
+        padding-left: 10vw;
+      }
+
+      /* Line 3: PRの - Increase 50% */
+      .jp-hero-title.jp [data-key="Index.Hero.Line3"] {
+        font-size: 15vw;
+      }
+
+      /* Row 3: プロフェッショナル (Left) */
+      .jp-hero-title.jp > div:nth-child(3) {
+        justify-content: flex-start !important;
+        padding-left: 10vw !important;
+        padding-right: 0 !important;
+      }
+      .jp-hero-title.jp [data-key="Index.Hero.Line4"] {
+        font-size: 7vw;
+        text-align: left;
+      }
+
+      /* Chinese Specific Styles */
+      .jp-hero-title.ch {
+        line-height: 1.1 !important;
+      }
+      
+      /* Newsletter Title Adjustment for Chinese */
+      .lang-ch [data-key="Index.Newsletter.Title"] {
+        font-size: 3.5rem !important; /* Smaller than English 7xl to prevent bad wrapping */
+        line-height: 1.2 !important;
+      }
+      @media (min-width: 768px) {
+        .lang-ch [data-key="Index.Newsletter.Title"] {
+          font-size: 4.5rem !important;
+        }
+      }
+
+      .jp-hero-title.ch .hero-line {
+        font-size: 12vw; /* Adjusted by optical observation */
+        padding-bottom: 2vw;
+        padding-top: 1vw;
+      }
+      @media (min-width: 768px) {
+        .jp-hero-title.ch .hero-line {
+          font-size: 11vw; /* Adjusted by optical observation */
+        }
+      }
+      
+      /* Reduce distance between rows for Chinese */
+      .jp-hero-title.ch > div {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        margin-top: -2vw !important; /* Reduced negative margin to give more breathing room */
+      }
+      .jp-hero-title.ch > div:first-child {
+        margin-top: 0 !important;
+      }
+      
+      /* Ensure z-index stacking (Row 2 on top of Row 1, Row 3 on top of Row 2) */
+      .jp-hero-title.ch > div:nth-child(1) { z-index: 10 !important; }
+      .jp-hero-title.ch > div:nth-child(2) { z-index: 20 !important; }
+      .jp-hero-title.ch > div:nth-child(3) { z-index: 30 !important; }
+
+      /* Chinese Layout Adjustments */
+      /* Row 1: 重 (Left) - Photo 1 - 策略主導 (Right) */
+      .jp-hero-title.ch > div:nth-child(1) {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        width: 100%;
+        padding-left: 5vw;
+        padding-right: 5vw;
+      }
+      
+      /* Row 2: 為先的 (Left) - Photo 2 */
+      .jp-hero-title.ch > div:nth-child(2) {
+        flex-direction: row !important;
+        justify-content: flex-start !important;
+        width: 100%;
+        padding-left: 5vw;
+      }
+      
+      /* Row 3: PR公關 */
+      .jp-hero-title.ch > div:nth-child(3) {
+        justify-content: center !important;
+        width: 100%;
+        padding-left: 0 !important;
+      }
+      
+      /* Polaroid Adjustments for Chinese */
+      .jp-hero-title.ch > div:nth-child(1) > div.hidden.md\:block {
+        margin-top: -2vw !important;
+        width: 15vw !important; /* Keep same as English */
+      }
+      .jp-hero-title.ch > div:nth-child(2) > div.hidden.md\:block {
+        left: 40% !important; /* Move Polaroid 2 slightly to the left */
+        width: 16vw !important; /* Keep same as English */
+      }
+      
+      /* Polaroid Flip Animation */
+      @keyframes flipPolaroid {
+        0% { transform: perspective(1000px) rotateY(0deg) scale(var(--tw-scale-x, 1)); }
+        49.9% { transform: perspective(1000px) rotateY(90deg) scale(var(--tw-scale-x, 1)); }
+        50% { transform: perspective(1000px) rotateY(-90deg) scale(var(--tw-scale-x, 1)); }
+        100% { transform: perspective(1000px) rotateY(0deg) scale(var(--tw-scale-x, 1)); }
+      }
+      .flip-animate {
+        animation: flipPolaroid 0.8s ease-in-out;
+      }
+      /* Navigation Overrides */
+      #navbar {
+        z-index: 99999 !important;
+        pointer-events: auto !important;
+        isolation: isolate;
+      }
+      .lang-btn {
+        cursor: pointer !important;
+        position: relative;
+        z-index: 100000 !important;
+        pointer-events: auto !important;
+      }
+      
+      /* Ensure hero section doesn't block nav */
+      #hero {
+        z-index: 1;
+      }
+      .jp-hero-title {
+        pointer-events: none !important;
+      }
+      .jp-hero-title * {
+        pointer-events: none !important;
+      }
+      .jp-hero-title a, .jp-hero-title button {
+        pointer-events: auto !important;
+      }
+    </style>
+  </head>
+  <body class="antialiased">
+    
+    <!-- Legal Modal -->
+    <div id="legal-modal" class="hidden fixed inset-0 bg-black/60 z-[200] flex items-center justify-center p-6 font-sans">
+      <div id="modal-overlay" class="absolute inset-0"></div>
+      <div class="relative bg-brand-red text-brand-black w-full max-w-3xl max-h-[80vh] p-8 md:p-12 rounded-lg shadow-2xl overflow-y-auto">
+        <button id="modal-close-btn" class="absolute top-4 right-4 text-brand-black hover:opacity-70 transition-opacity text-3xl">&times;</button>
+        <h2 id="modal-title" class="font-oswald font-bold text-4xl uppercase mb-6"></h2>
+        <div id="modal-content" class="space-y-4 text-sm leading-relaxed"></div>
+      </div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="absolute top-0 left-0 w-full px-6 py-6 flex justify-between items-center z-[9999] text-brand-black pointer-events-auto" id="navbar" data-lenis-prevent>
+      <a href="/index.html" class="flex items-center gap-2 hover:opacity-70 transition-opacity">
+        <img src="https://drive.google.com/thumbnail?id=1d3M0KGD88nksyq8EWew8UvI9MgrTZNYl&sz=w100" class="h-6 w-auto object-contain mix-blend-multiply" alt="Firebean Logo" referrerpolicy="no-referrer">
+        <div class="font-sans font-light text-xl tracking-widest lowercase" style="font-variant: small-caps;">firebean</div>
+      </a>
+      
+      <div class="hidden md:flex gap-8 font-sans text-sm uppercase tracking-widest items-center">
+        <a href="#hero" class="hover:opacity-50 transition-opacity" data-key="Global.Navigation.Home">Home</a>
+        <a href="#about" class="hover:opacity-50 transition-opacity" data-key="Global.Navigation.About">About</a>
+        
+        <!-- Mega Menu Trigger -->
+        <div class="relative group py-4">
+          <a href="/work.html" class="hover:opacity-50 transition-opacity flex items-center gap-1">
+            <span data-key="Global.Navigation.WhatWeDo">What We Do</span> <span class="text-[10px]">▼</span>
+          </a>
+          
+          <!-- Mega Menu Dropdown -->
+          <div class="mega-menu absolute left-0 top-[60px] w-full bg-brand-black text-white px-6 py-12 shadow-2xl border-t border-white/10 z-[9999]" data-lenis-prevent>
+            <!-- Invisible bridge for hover continuity -->
+            <div class="absolute -top-[40px] left-0 w-full h-[40px] bg-transparent"></div>
+            
+            <div class="grid grid-cols-2 gap-16 w-full max-w-[600px]">
+              <div>
+                <h4 class="font-oswald text-xl mb-6 text-brand-red tracking-widest" data-key="Global.Navigation.WhoWeHelp">WHO WE HELP</h4>
+                <ul class="space-y-3 text-sm text-gray-400 font-sans tracking-wide">
+                  <li><a href="/work.html?filter=government" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.GovPublic">Government & Public Sector</a></li>
+                  <li><a href="/work.html?filter=lifestyle" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.LifestyleConsumer">Lifestyle & Consumer</a></li>
+                  <li><a href="/work.html?filter=hospitality" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.FBHospitality">F&B & Hospitality</a></li>
+                  <li><a href="/work.html?filter=venues" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.MallsVenues">Malls & Venues</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-oswald text-xl mb-6 text-brand-red tracking-widest" data-key="Global.Navigation.WhatWeDo">WHAT WE DO</h4>
+                <ul class="space-y-3 text-sm text-gray-400 font-sans tracking-wide">
+                  <li><a href="/work.html?filter=exhibitions" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.RovingExhibitions">Roving Exhibitions</a></li>
+                  <li><a href="/work.html?filter=social" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.SocialContent">Social & Content</a></li>
+                  <li><a href="/work.html?filter=tech" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.InteractiveTech">Interactive & Tech</a></li>
+                  <li><a href="/work.html?filter=pr" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.PRMedia">PR & Media</a></li>
+                  <li><a href="/work.html?filter=events" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.EventsCeremonies">Events & Ceremonies</a></li>
+                </ul>
+              </div>
+              <div class="col-span-2 border-t border-white/20 pt-6 mt-2">
+                <a href="/work.html" class="text-sm font-bold hover:text-brand-red transition-colors flex items-center gap-3 tracking-widest">
+                  <span class="text-xl">↳</span> <span data-key="Global.Navigation.ViewAllWork">VIEW ALL WORK</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="font-sans text-xs uppercase tracking-widest flex gap-2">
+        <button class="lang-btn hover:opacity-50" data-lang="en">EN</button> | 
+        <button class="lang-btn hover:opacity-50 text-gray-500" data-lang="ch">CH</button> | 
+        <button class="lang-btn hover:opacity-50 text-gray-500" data-lang="jp">JP</button>
+      </div>
+    </nav>
+
+    <!-- Session 1: Hero Section -->
+    <section class="relative min-h-screen flex flex-col justify-center items-center pt-32 pb-20 overflow-hidden" id="hero">
+      <div class="relative w-full max-w-[95vw] mx-auto flex flex-col items-center">
+        
+        <!-- Main Typography -->
+        <div class="flex flex-col items-center justify-center font-oswald font-bold text-[14vw] md:text-[13vw] leading-[0.85] text-center uppercase tracking-tighter text-brand-black relative z-10 w-full jp-hero-title pointer-events-none">
+          
+          <!-- Line 1: A [Polaroid 1] STRATEGY -->
+          <div class="flex flex-col md:flex-row items-center justify-center w-full relative z-10 md:gap-8 py-[20px]">
+            <div class="overflow-hidden pt-[2vw] -mt-[2vw] pb-[4vw] -mb-[4vw] px-[4vw] -mx-[4vw] relative z-30"><span class="hero-line block" data-key="Index.Hero.Line1">A</span></div>
+            
+            <!-- Polaroid 1 (Mobile: Absolute positioned, smaller and better placed) -->
+            <div class="block md:hidden w-[28vw] absolute top-[2vw] right-[5vw] rotate-[6deg] z-20 pointer-events-none">
+               <div class="relative w-full bg-white pt-1 px-1 pb-4 shadow-xl transform transition-transform duration-500">
+                 <div class="w-full aspect-square bg-gray-200 overflow-hidden relative">
+                   <img src="https://picsum.photos/seed/event1/600/600" class="polaroid-img-1 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Event" data-key="Index.Hero.PolaroidAlt">
+                   <img src="https://picsum.photos/seed/event2/600/600" class="polaroid-img-1 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Event" data-key="Index.Hero.PolaroidAlt">
+                 </div>
+               </div>
+            </div>
+
+            <!-- Polaroid 1 (Desktop: Reduced size by ~20%, thinner frame) -->
+            <div class="hidden md:block w-[15vw] relative -mt-[4vw] -rotate-6 z-20 mx-4">
+               <div class="relative w-full bg-white pt-1.5 px-1.5 pb-6 shadow-2xl transform transition-transform duration-500 hover:scale-105 hover:z-50">
+                 <div class="w-full aspect-square bg-gray-200 overflow-hidden relative">
+                   <img src="https://picsum.photos/seed/event1/600/600" class="polaroid-img-1 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Event" data-key="Index.Hero.PolaroidAlt">
+                   <img src="https://picsum.photos/seed/event2/600/600" class="polaroid-img-1 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Event" data-key="Index.Hero.PolaroidAlt">
+                 </div>
+               </div>
+            </div>
+            
+            <div class="overflow-hidden pt-[2vw] -mt-[2vw] pb-[4vw] -mb-[4vw] px-[4vw] -mx-[4vw] relative z-30"><span class="hero-line block" data-key="Index.Hero.Line2">STRATEGY</span></div>
+          </div>
+
+          <!-- Line 2: DRIVEN [Polaroid 2] -->
+          <!-- z-20 to be below Line 3 (z-30) so PR AGENCY covers the bottom of Polaroid 2 -->
+          <!-- Added py-[20px] and removed negative margin to prevent overlap as requested -->
+          <div class="flex flex-col md:flex-row items-center justify-start w-full relative z-20 md:pl-[5vw] py-[20px]">
+            <div class="overflow-hidden pt-[2vw] -mt-[2vw] pb-[4vw] -mb-[4vw] px-[4vw] -mx-[4vw] relative z-30"><span class="hero-line block" data-key="Index.Hero.Line3">DRIVEN</span></div>
+            
+            <!-- Polaroid 2 (Mobile: Absolute positioned, smaller and better placed) -->
+            <div class="block md:hidden w-[28vw] absolute bottom-[-5vw] left-[2vw] rotate-[-4deg] z-20 pointer-events-none">
+               <div class="relative w-full bg-white pt-1 px-1 pb-4 shadow-xl transform transition-transform duration-500">
+                 <div class="w-full aspect-square bg-gray-200 overflow-hidden relative">
+                   <img src="https://picsum.photos/seed/event3/600/600" class="polaroid-img-2 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Event" data-key="Index.Hero.PolaroidAlt">
+                   <img src="https://picsum.photos/seed/event4/600/600" class="polaroid-img-2 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Event" data-key="Index.Hero.PolaroidAlt">
+                 </div>
+               </div>
+            </div>
+
+             <!-- Polaroid 2 (Desktop: Reduced size by ~20%, vertically centered to DRIVEN) -->
+             <!-- Positioned absolute to center vertically relative to the line -->
+            <div class="hidden md:block w-[16vw] absolute left-[45%] top-1/2 -translate-y-[60%] rotate-[4deg] z-10">
+               <div class="relative w-full bg-white pt-1.5 px-1.5 pb-6 shadow-2xl transform transition-transform duration-500 hover:scale-105 hover:z-50">
+                 <div class="w-full aspect-square bg-gray-200 overflow-hidden relative">
+                   <img src="https://picsum.photos/seed/event3/600/600" class="polaroid-img-2 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Event" data-key="Index.Hero.PolaroidAlt">
+                   <img src="https://picsum.photos/seed/event4/600/600" class="polaroid-img-2 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Event" data-key="Index.Hero.PolaroidAlt">
+                 </div>
+               </div>
+            </div>
+            
+            <!-- Desktop Subtitle (Shifted left to be closer to Polaroid) -->
+            <div class="hidden md:flex flex-col items-start justify-center absolute left-[63%] top-1/2 -translate-y-[40%] max-w-[300px] text-left z-30">
+                <p class="font-playfair italic text-xl leading-tight text-brand-black font-medium normal-case tracking-normal mb-4" data-key="Index.Hero.Subtitle">
+                  Create to Engage: We don’t just stage events; we architect public engagement.
+                </p>
+                <a href="/work.html" class="font-sans text-sm font-bold uppercase tracking-widest hover:text-brand-red transition-colors flex items-center gap-2">
+                  <span class="text-xl">↳</span> <span data-key="Index.Hero.CTA">EXPLORE WHAT WE DO</span>
+                </a>
+            </div>
+
+          </div>
+
+          <!-- Line 3: PR AGENCY -->
+          <!-- z-30 to cover the bottom of Polaroid 2 -->
+          <!-- Added py-[20px] and removed negative margin to prevent overlap -->
+          <div class="flex flex-col md:flex-row items-center justify-center w-full relative z-30 py-[20px]">
+             <div class="overflow-hidden pt-[2vw] -mt-[2vw] pb-[4vw] -mb-[4vw] px-[4vw] -mx-[4vw]"><span class="hero-line block" data-key="Index.Hero.Line4">PR AGENCY</span></div>
+             
+             <!-- Mobile Subtitle -->
+             <div class="flex md:hidden flex-col items-center justify-center text-center mt-16 px-6 relative z-30">
+                <p class="font-playfair italic text-lg leading-tight text-brand-black font-medium normal-case tracking-normal mb-6" data-key="Index.Hero.Subtitle">
+                  Create to Engage: We don’t just stage events; we architect public engagement.
+                </p>
+                <a href="/work.html" class="font-sans text-sm font-bold uppercase tracking-widest hover:text-brand-red transition-colors flex items-center gap-2">
+                  <span class="text-lg">↳</span> <span data-key="Index.Hero.CTA">EXPLORE WHAT WE DO</span>
+                </a>
+             </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Session 2: Highlight Showcase (Full sliding banner) -->
+    <section class="relative w-full h-screen overflow-hidden group" id="highlights">
+      <div class="slider-container h-full w-full flex transition-transform duration-700 ease-in-out" id="main-slider">
+        <!-- Slide 1 -->
+        <a href="/profile.html" class="slide relative h-full w-full flex-shrink-0 block">
+          <div class="absolute inset-0 bg-black/40 z-10"></div>
+          <img src="https://picsum.photos/seed/project1/1920/1080" alt="Project 1" class="w-full h-full object-cover">
+          <div class="absolute inset-0 flex flex-col justify-between items-center z-20 text-white text-center py-16">
+            <div class="flex flex-col items-center gap-4 mt-8">
+              <h3 class="font-oswald text-2xl md:text-4xl uppercase tracking-tighter max-w-3xl leading-none">
+                Events & Ceremonies
+              </h3>
+              <div class="font-playfair italic text-lg opacity-80">01/03</div>
+            </div>
+            <div class="w-full overflow-hidden flex whitespace-nowrap relative">
+              <div class="animate-marquee inline-block font-oswald text-[15vw] md:text-[12vw] font-bold uppercase tracking-tighter leading-none">
+                NEON LIGHTS FESTIVAL 2025 &nbsp; NEON LIGHTS FESTIVAL 2025 &nbsp;
+              </div>
+              <div class="animate-marquee inline-block font-oswald text-[15vw] md:text-[12vw] font-bold uppercase tracking-tighter leading-none" aria-hidden="true">
+                NEON LIGHTS FESTIVAL 2025 &nbsp; NEON LIGHTS FESTIVAL 2025 &nbsp;
+              </div>
+            </div>
+            <div class="h-8"></div>
+          </div>
+        </a>
+        <!-- Slide 2 -->
+        <a href="/profile.html" class="slide relative h-full w-full flex-shrink-0 block">
+          <div class="absolute inset-0 bg-black/40 z-10"></div>
+          <img src="https://picsum.photos/seed/project2/1920/1080" alt="Project 2" class="w-full h-full object-cover">
+          <div class="absolute inset-0 flex flex-col justify-between items-center z-20 text-white text-center py-16">
+            <div class="flex flex-col items-center gap-4 mt-8">
+              <h3 class="font-oswald text-2xl md:text-4xl uppercase tracking-tighter max-w-3xl leading-none">
+                Interactive & Tech
+              </h3>
+              <div class="font-playfair italic text-lg opacity-80">02/03</div>
+            </div>
+            <div class="w-full overflow-hidden flex whitespace-nowrap relative">
+              <div class="animate-marquee inline-block font-oswald text-[15vw] md:text-[12vw] font-bold uppercase tracking-tighter leading-none">
+                TECH WEEK ASIA &nbsp; TECH WEEK ASIA &nbsp; TECH WEEK ASIA &nbsp;
+              </div>
+              <div class="animate-marquee inline-block font-oswald text-[15vw] md:text-[12vw] font-bold uppercase tracking-tighter leading-none" aria-hidden="true">
+                TECH WEEK ASIA &nbsp; TECH WEEK ASIA &nbsp; TECH WEEK ASIA &nbsp;
+              </div>
+            </div>
+            <div class="h-8"></div>
+          </div>
+        </a>
+        <!-- Slide 3 -->
+        <a href="/profile.html" class="slide relative h-full w-full flex-shrink-0 block">
+          <div class="absolute inset-0 bg-black/40 z-10"></div>
+          <img src="https://picsum.photos/seed/project3/1920/1080" alt="Project 3" class="w-full h-full object-cover">
+          <div class="absolute inset-0 flex flex-col justify-between items-center z-20 text-white text-center py-16">
+            <div class="flex flex-col items-center gap-4 mt-8">
+              <h3 class="font-oswald text-2xl md:text-4xl uppercase tracking-tighter max-w-3xl leading-none">
+                Roving Exhibitions
+              </h3>
+              <div class="font-playfair italic text-lg opacity-80">03/03</div>
+            </div>
+            <div class="w-full overflow-hidden flex whitespace-nowrap relative">
+              <div class="animate-marquee inline-block font-oswald text-[15vw] md:text-[12vw] font-bold uppercase tracking-tighter leading-none">
+                URBAN ART TRAIL &nbsp; URBAN ART TRAIL &nbsp; URBAN ART TRAIL &nbsp;
+              </div>
+              <div class="animate-marquee inline-block font-oswald text-[15vw] md:text-[12vw] font-bold uppercase tracking-tighter leading-none" aria-hidden="true">
+                URBAN ART TRAIL &nbsp; URBAN ART TRAIL &nbsp; URBAN ART TRAIL &nbsp;
+              </div>
+            </div>
+            <div class="h-8"></div>
+          </div>
+        </a>
+      </div>
+      
+      <!-- Slider Controls -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-4">
+        <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors slider-dot active" data-index="0"></button>
+        <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors slider-dot" data-index="1"></button>
+        <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors slider-dot" data-index="2"></button>
+      </div>
+    </section>
+
+    <!-- Session 3: Project Profiles -->
+    <section class="relative py-16 px-4 md:px-12 bg-brand-gray overflow-hidden" id="work">
+      <!-- 3D Logo Background (Parallax) -->
+      <!-- Moved lower (top-[25%]) to be below the title area -->
+      <div class="absolute top-[25%] right-[5%] w-[40vw] max-w-[500px] opacity-50 pointer-events-none z-0" id="parallax-logo-container">
+        <img id="bg-logo" src="https://drive.google.com/thumbnail?id=1d3M0KGD88nksyq8EWew8UvI9MgrTZNYl&sz=w1000" class="w-full h-full object-contain drop-shadow-2xl mix-blend-multiply" alt="3D Firebean Logo" referrerpolicy="no-referrer">
+      </div>
+      
+      <div class="relative z-10 max-w-7xl mx-auto">
+        <div class="text-center mb-32 flex flex-col items-center justify-center relative z-10">
+          <h3 class="font-playfair italic text-xl md:text-2xl font-medium tracking-wide text-brand-black mb-4" data-key="Index.Work.Subtitle">
+            Create to engage, policy into Play.
+          </h3>
+          <h2 class="font-oswald font-bold text-[12vw] leading-[0.9] text-center uppercase tracking-tighter text-brand-black" data-key="Index.Work.Title">
+            We Turn Mandates<br>
+            Into Memories
+          </h2>
+        </div>
+
+        <!-- Floating Profiles Grid (Scattered Arrangement) -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-y-12 gap-x-8 relative z-10">
+          
+          <!-- Profile 1 (Left) -->
+          <a href="/profile.html" class="group block project-profile md:col-span-5 md:col-start-1">
+            <div class="relative overflow-hidden aspect-[4/5] mb-1 shadow-2xl">
+              <img src="https://picsum.photos/seed/work1/600/800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Work 1">
+            </div>
+            <h3 class="font-oswald text-3xl uppercase font-bold mb-2" data-key="Work.Profile.1.Title">Harbourfront Festival</h3>
+            <p class="font-playfair text-base text-gray-600 italic" data-key="Work.Profile.1.Desc">A massive public engagement event attracting over 100k visitors.</p>
+          </a>
+
+          <!-- Profile 2 (Right, lower) -->
+          <a href="/profile.html" class="group block project-profile md:col-span-6 md:col-start-7 md:mt-16">
+            <div class="relative overflow-hidden aspect-[16/9] mb-1 shadow-2xl">
+              <img src="https://picsum.photos/seed/work2/1000/600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Work 2">
+            </div>
+            <h3 class="font-oswald text-3xl uppercase font-bold mb-2" data-key="Work.Profile.2.Title">Global Tech Summit</h3>
+            <p class="font-playfair text-base text-gray-600 italic" data-key="Work.Profile.2.Desc">Interactive tech exhibition for top industry leaders.</p>
+          </a>
+
+          <!-- Profile 3 (Center-left, much lower) -->
+          <a href="/profile.html" class="group block project-profile md:col-span-5 md:col-start-2 md:mt-16">
+            <div class="relative overflow-hidden aspect-square mb-1 shadow-2xl">
+              <img src="https://picsum.photos/seed/work3/800/800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Work 3">
+            </div>
+            <h3 class="font-oswald text-3xl uppercase font-bold mb-2" data-key="Work.Profile.3.Title">Luxury Mall Launch</h3>
+            <p class="font-playfair text-base text-gray-600 italic" data-key="Work.Profile.3.Desc">PR and media strategy for a premium lifestyle destination.</p>
+          </a>
+
+          <!-- Profile 4 (Right edge, lower) -->
+          <a href="/profile.html" class="group block project-profile md:col-span-4 md:col-start-9 md:mt-16">
+            <div class="relative overflow-hidden aspect-[3/4] mb-1 shadow-2xl">
+              <img src="https://picsum.photos/seed/work4/600/800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Work 4">
+            </div>
+            <h3 class="font-oswald text-3xl uppercase font-bold mb-2" data-key="Work.Profile.4.Title">Urban Art Trail</h3>
+            <p class="font-playfair text-base text-gray-600 italic" data-key="Work.Profile.4.Desc">Curating city-wide roving exhibitions.</p>
+          </a>
+
+          <!-- Profile 5 (Left, very low) -->
+          <a href="/profile.html" class="group block project-profile md:col-span-5 md:col-start-1 md:mt-8">
+            <div class="relative overflow-hidden aspect-[4/5] mb-1 shadow-2xl">
+              <img src="https://picsum.photos/seed/work5/600/800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Work 5">
+            </div>
+            <h3 class="font-oswald text-3xl uppercase font-bold mb-2" data-key="Work.Profile.5.Title">Cultural Exchange Program</h3>
+            <p class="font-playfair text-base text-gray-600 italic" data-key="Work.Profile.5.Desc">Facilitating international arts and culture initiatives.</p>
+          </a>
+
+          <!-- Profile 6 (Right, even lower) -->
+          <a href="/profile.html" class="group block project-profile md:col-span-6 md:col-start-7 md:mt-16">
+            <div class="relative overflow-hidden aspect-[16/9] mb-1 shadow-2xl">
+              <img src="https://picsum.photos/seed/work6/1000/600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Work 6">
+            </div>
+            <h3 class="font-oswald text-3xl uppercase font-bold mb-2" data-key="Work.Profile.6.Title">Future City Expo</h3>
+            <p class="font-playfair text-base text-gray-600 italic" data-key="Work.Profile.6.Desc">Showcasing innovative urban development solutions.</p>
+          </a>
+
+        </div>
+
+
+      </div>
+    </section>
+
+    <!-- Session 4: About Us -->
+    <section class="relative py-32 px-6 bg-brand-black text-white overflow-hidden" id="about">
+      <!-- Background Image with Overlay -->
+      <div class="absolute inset-0 z-0 h-[130%] -top-[15%]"> <!-- Enlarge container and offset -->
+        <!-- Google Drive Image -->
+        <img src="https://drive.google.com/thumbnail?id=1BcpZpL9PQjxKIH19urUv8TvBb-4GfQ8c&sz=w1920-h1080" referrerpolicy="no-referrer" class="w-full h-full object-cover opacity-100" alt="About Us Background" id="about-bg-img">
+        <div class="absolute inset-0 bg-black/60"></div> <!-- Dark overlay to ensure white text is legible -->
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto flex flex-col h-full">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-24">
+          <!-- Left: Header & Intro -->
+          <div class="lg:col-span-7 flex flex-col justify-center">
+            <h2 class="font-oswald text-5xl md:text-6xl lg:text-7xl uppercase leading-[0.9] font-bold mb-8 tracking-tighter text-white" data-key="Index.About.Title">
+              LIFESTYLE RESONANCE. <br>
+              <span class="text-brand-red">INSTITUTIONAL RIGOR.</span>
+            </h2>
+            <p class="font-playfair italic text-[18px] leading-relaxed text-white max-w-2xl" data-key="Index.About.Subtitle">
+              Shaping Hong Kong’s PR scene since 2007, we specialize in the art of the engagement. From the buzz of the city’s biggest lifestyle launches to our role as PR consultants for the Buildings Department since 2023, we create the strategies that make institutions feel human and brands feel essential.
+            </p>
+          </div>
+
+          <!-- Right: Mega Menu -->
+          <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-12 pt-4">
+            <div>
+              <h4 class="font-oswald text-sm font-bold uppercase tracking-widest text-brand-red mb-6 border-b border-white/20 pb-4" data-key="Global.Navigation.WhoWeHelp">Who We Help</h4>
+              <ul class="space-y-4 font-sans text-[14px] text-white">
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a href="/work.html?filter=government" data-key="Global.Navigation.GovPublic">Government & Public Sector</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a href="/work.html?filter=lifestyle" data-key="Global.Navigation.LifestyleConsumer">Lifestyle & Consumer</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a href="/work.html?filter=hospitality" data-key="Global.Navigation.FBHospitality">F&B & Hospitality</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a href="/work.html?filter=venues" data-key="Global.Navigation.MallsVenues">Malls & Venues</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-oswald text-sm font-bold uppercase tracking-widest text-brand-red mb-6 border-b border-white/20 pb-4" data-key="Global.Navigation.WhatWeDo">What We Do</h4>
+              <ul class="space-y-4 font-sans text-[14px] text-white">
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a href="/work.html?filter=exhibitions" data-key="Global.Navigation.RovingExhibitions">Roving Exhibitions</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a href="/work.html?filter=social" data-key="Global.Navigation.SocialContent">Social & Content</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a href="/work.html?filter=tech" data-key="Global.Navigation.InteractiveTech">Interactive & Tech</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a href="/work.html?filter=pr" data-key="Global.Navigation.PRMedia">PR & Media</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a href="/work.html?filter=events" data-key="Global.Navigation.EventsCeremonies">Events & Ceremonies</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Infographic Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-3 border-t border-l border-white/20 bg-black/40 backdrop-blur-sm">
+          <div class="border-r border-b border-white/20 p-8 flex flex-col items-center justify-center text-center">
+            <svg class="w-8 h-8 mb-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <div class="font-oswald text-4xl md:text-5xl text-white mb-2 font-bold">18+</div>
+            <div class="font-sans text-xs uppercase tracking-widest text-gray-300" data-key="Index.About.Stats1">Years Experience</div>
+          </div>
+          <div class="border-r border-b border-white/20 p-8 flex flex-col items-center justify-center text-center">
+            <svg class="w-8 h-8 mb-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            <div class="font-oswald text-4xl md:text-5xl text-white mb-2 font-bold">360+</div>
+            <div class="font-sans text-xs uppercase tracking-widest text-gray-300" data-key="Index.About.Stats2">Projects</div>
+          </div>
+          <div class="border-r border-b border-white/20 p-8 flex flex-col items-center justify-center text-center">
+            <svg class="w-8 h-8 mb-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+            <div class="font-oswald text-4xl md:text-5xl text-white mb-2 font-bold" data-key="Index.About.Stats3Num">1.5M+</div>
+            <div class="font-sans text-xs uppercase tracking-widest text-gray-300" data-key="Index.About.Stats3">People Engaged</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Session 5: Clients -->
+    <section class="py-32 px-6 bg-brand-gray text-brand-black overflow-hidden relative" id="clients">
+      <div class="max-w-[95vw] lg:max-w-7xl mx-auto text-center">
+        
+        <!-- Massive Narrative Text -->
+        <div id="narrative-default" class="flex flex-wrap justify-center items-center gap-x-3 gap-y-2 md:gap-y-4 font-oswald font-bold uppercase leading-[0.85] tracking-tighter text-[56px] md:text-[8vw] lg:text-[9vw] text-brand-black">
+          <span data-key="Index.Narrative.Line1">WE MOVE</span>
+          
+          <!-- Logo Slot 1 (Lifestyle) -->
+          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[2.5em] h-[0.8em] align-middle" data-type="lifestyle" onclick="openClientModal(this)">
+            <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
+            <div class="w-full h-full perspective-1000">
+              <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[0.15em] bg-transparent">
+                  <img src="" class="front-img max-w-full max-h-full object-contain filter grayscale contrast-200" alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
+                </div>
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[0.15em] bg-transparent rotate-x-180">
+                  <img src="" class="back-img max-w-full max-h-full object-contain filter grayscale contrast-200" alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <span data-key="Index.Narrative.Line2">BEYOND THE SCROLL,</span>
+          <span data-key="Index.Narrative.Line3">SPARK CURIOSITY FOR</span>
+
+          <!-- Logo Slot 2 (Government) -->
+          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[2.5em] h-[0.8em] align-middle" data-type="government" onclick="openClientModal(this)">
+            <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
+            <div class="w-full h-full perspective-1000">
+              <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[0.15em] bg-transparent">
+                  <img src="" class="front-img max-w-full max-h-full object-contain filter grayscale contrast-200" alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
+                </div>
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[0.15em] bg-transparent rotate-x-180">
+                  <img src="" class="back-img max-w-full max-h-full object-contain filter grayscale contrast-200" alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <span data-key="Index.Narrative.Line4">& ARCHITECT</span>
+          
+          <div class="basis-full h-0"></div>
+          
+          <span data-key="Index.Narrative.Line5">PUBLIC MOMENTS</span>
+          
+          <div class="inline-flex items-center">
+            <span data-key="Index.Narrative.Line6">FOR</span>
+            <!-- Logo Slot 3 (Lifestyle) -->
+            <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[2.5em] h-[0.8em] align-middle" data-type="lifestyle" onclick="openClientModal(this)">
+              <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
+              <div class="w-full h-full perspective-1000">
+                <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
+                  <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[0.15em] bg-transparent">
+                    <img src="" class="front-img max-w-full max-h-full object-contain filter grayscale contrast-200" alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
+                  </div>
+                  <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[0.15em] bg-transparent rotate-x-180">
+                    <img src="" class="back-img max-w-full max-h-full object-contain filter grayscale contrast-200" alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Japanese Narrative Text -->
+        <div id="narrative-jp" class="hidden flex-wrap justify-center items-center gap-x-3 gap-y-1 md:gap-y-2 font-jp font-black uppercase leading-[0.85] tracking-tighter text-[56px] md:text-[8vw] lg:text-[9vw] text-brand-black">
+          <span data-key="Index.Narrative.Line1">弊社は、</span>
+          
+          <!-- Logo Slot 1 (Lifestyle) -->
+          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[2.5em] h-[0.8em] align-middle" data-type="lifestyle" onclick="openClientModal(this)">
+            <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
+            <div class="w-full h-full perspective-1000">
+              <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[0.15em] bg-transparent">
+                  <img src="" class="front-img max-w-full max-h-full object-contain filter grayscale contrast-200" alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
+                </div>
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[0.15em] bg-transparent rotate-x-180">
+                  <img src="" class="back-img max-w-full max-h-full object-contain filter grayscale contrast-200" alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <span data-key="Index.Narrative.Line2">をデジタル</span>
+          
+          <div class="basis-full h-0"></div>
+          
+          <span data-key="Index.Narrative.Line3">空間から現実の体験</span>
+          
+          <div class="basis-full h-0"></div>
+          
+          <span data-key="Index.Narrative.Line4">へと導き、</span>
+          
+          <!-- Logo Slot 2 (Government) -->
+          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[2.5em] h-[0.8em] align-middle" data-type="government" onclick="openClientModal(this)">
+            <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
+            <div class="w-full h-full perspective-1000">
+              <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[0.15em] bg-transparent">
+                  <img src="" class="front-img max-w-full max-h-full object-contain filter grayscale contrast-200" alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
+                </div>
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[0.15em] bg-transparent rotate-x-180">
+                  <img src="" class="back-img max-w-full max-h-full object-contain filter grayscale contrast-200" alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <span data-key="Index.Narrative.Line5">好奇心</span>
+          
+          <div class="basis-full h-0"></div>
+          
+          <span data-key="Index.Narrative.Line6">を刺激し、日常を忘れら</span>
+          
+          <div class="basis-full h-0"></div>
+          
+          <span data-key="Index.Narrative.Line7">れない空間へ。</span>
+          
+          <!-- Logo Slot 3 (Lifestyle) -->
+          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[2.5em] h-[0.8em] align-middle" data-type="lifestyle" onclick="openClientModal(this)">
+            <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
+            <div class="w-full h-full perspective-1000">
+              <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[0.15em] bg-transparent">
+                  <img src="" class="front-img max-w-full max-h-full object-contain filter grayscale contrast-200" alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
+                </div>
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[0.15em] bg-transparent rotate-x-180">
+                  <img src="" class="back-img max-w-full max-h-full object-contain filter grayscale contrast-200" alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-16 text-center font-playfair italic text-xl text-gray-500" data-key="Index.Narrative.Subtitle">
+          And we’re clued up on public engagement...
+        </div>
+      </div>
+
+      <!-- Client Modal -->
+      <div id="client-modal" class="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm hidden flex items-center justify-center opacity-0 transition-opacity duration-300">
+        <div class="bg-brand-gray p-8 md:p-12 max-w-lg w-[90%] relative border border-brand-red/20 transform scale-95 transition-transform duration-300" id="client-modal-content">
+          <button onclick="closeClientModal()" class="absolute top-4 right-4 text-brand-black hover:text-brand-red text-3xl leading-none">&times;</button>
+          <img id="modal-logo" src="" class="h-16 object-contain mb-6 filter grayscale contrast-200" alt="Client Logo">
+          <p id="modal-desc" class="font-sans text-[14px] text-brand-black mb-8 leading-relaxed">
+            We helped this brand achieve unprecedented engagement through a multi-sensory roving exhibition.
+          </p>
+          <button class="bg-brand-red text-white font-oswald uppercase tracking-widest px-8 py-3 text-sm hover:bg-brand-black transition-colors">
+            View Profile
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Session 6: Newsletter (The Dispatch) -->
+    <section class="relative bg-brand-gray overflow-hidden border-t border-black/5" id="newsletter">
+      <!-- Fixed Background Logo -->
+      <div class="absolute inset-0 w-full h-full pointer-events-none z-0">
+        <div class="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=800&auto=format&fit=crop" class="w-[80vw] md:w-[40vw] h-auto opacity-10 grayscale brightness-0" style="filter: contrast(200%) brightness(0) sepia(100%) saturate(10000%) hue-rotate(-30deg);" alt="Firebean Logo Background">
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-start min-h-screen relative">
+        <!-- Left Column: Sticky -->
+        <div class="w-full md:w-[45%] md:h-screen md:sticky md:top-0 p-8 md:p-12 flex flex-col justify-center newsletter-left-col bg-brand-gray">
+          <h2 class="font-oswald text-5xl md:text-6xl lg:text-7xl font-bold uppercase leading-[0.85] mb-6 text-brand-black tracking-tighter" data-key="Index.Newsletter.Title">THE DISPATCH.<br><span class="text-3xl md:text-4xl block mt-2">Big Ideas, Better Engagement.</span></h2>
+          <p class="font-playfair italic text-base md:text-lg text-gray-600 mb-12 max-w-md leading-relaxed" data-key="Index.Newsletter.Subtitle">
+            Behind the scenes of the projects shaping the lifestyle market. We share the data, the creativity, and the "why" behind today’s most successful PR activations.
+          </p>
+          <form class="relative max-w-md group/form bg-black/5 p-2 flex items-center border border-black/10">
+            <input type="email" placeholder="YOUR EMAIL ADDRESS" data-key="Index.Newsletter.EmailPlaceholder" class="flex-grow bg-transparent px-4 h-12 font-sans text-[10px] uppercase tracking-widest outline-none focus:placeholder-transparent transition-all">
+            <button type="submit" class="bg-brand-black text-white px-6 h-12 font-oswald text-xs font-bold tracking-widest hover:bg-brand-red transition-colors whitespace-nowrap flex items-center gap-2" data-key="Index.Newsletter.CTA">
+              SIGN ME UP ↳
+            </button>
+          </form>
+        </div>
+
+        <!-- Right Column: Scrolling Feed -->
+        <div class="w-full md:w-[55%] p-8 md:p-16 space-y-24 md:py-32 relative z-20 bg-brand-gray">
+          
+          <!-- Card 01 -->
+          <div class="newsletter-card group">
+            <div class="overflow-hidden aspect-[16/9] mb-3 relative bg-gray-200 h-[130%] -top-[15%]">
+              <img src="https://picsum.photos/seed/dispatch1/1200/675" class="parallax-img w-full h-full object-cover scale-110" alt="Report" data-key="Index.Newsletter.Card1.Alt">
+            </div>
+            <div class="flex gap-6">
+              <div>
+                <h3 class="font-oswald text-3xl md:text-4xl font-bold uppercase mb-4 leading-tight text-brand-black" data-key="Index.Newsletter.Card1.Title">FROM POLICY TO PLAY: THE 2026 ROVING EXHIBITION REPORT</h3>
+                <p class="font-sans text-sm text-gray-600 leading-relaxed mb-6" data-key="Index.Newsletter.Card1.Desc">
+                  We analyze how institutional rigor meets family-first engagement. Discover why 78% of HK families now prioritize interactive digital games over static displays in public exhibitions. This issue deep-dives into sentiment analysis data from our recent Buildings Department partnership, proving that "Create to Engage" is the only metric that matters in 2026.
+                </p>
+                <div class="text-right">
+                  <a href="#" class="font-oswald text-sm font-bold tracking-widest text-brand-black hover:text-brand-red transition-colors" data-key="Index.Newsletter.ReadMore">READ →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 02 -->
+          <div class="newsletter-card group">
+            <div class="overflow-hidden aspect-[16/9] mb-3 relative bg-gray-200 h-[130%] -top-[15%]">
+              <img src="https://picsum.photos/seed/dispatch2/1200/675" class="parallax-img w-full h-full object-cover scale-110" alt="Luxury" data-key="Index.Newsletter.Card2.Alt">
+            </div>
+            <div class="flex gap-6">
+              <div>
+                <h3 class="font-oswald text-3xl md:text-4xl font-bold uppercase mb-4 leading-tight text-brand-black" data-key="Index.Newsletter.Card2.Title">LUXURY RESILIENCE: WHY F&B BRANDS CRAVE IMMERSION</h3>
+                <p class="font-sans text-sm text-gray-600 leading-relaxed mb-6" data-key="Index.Newsletter.Card2.Desc">
+                  High-energy activations are the new currency for Hong Kong’s retail core. We explore the "Tactile Maximalism" trend in Causeway Bay pop-ups and how F&B leaders like Ogawa and MaskOn are leveraging immersive storytelling to drive cultural resonance beyond the scroll. Learn how to architect moments that Hong Kong remembers.
+                </p>
+                <div class="text-right">
+                  <a href="#" class="font-oswald text-sm font-bold tracking-widest text-brand-black hover:text-brand-red transition-colors" data-key="Index.Newsletter.ReadMore">READ →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 03 -->
+          <div class="newsletter-card group">
+            <div class="overflow-hidden aspect-[16/9] mb-3 relative bg-gray-200 h-[130%] -top-[15%]">
+              <img src="https://picsum.photos/seed/dispatch3/1200/675" class="parallax-img w-full h-full object-cover scale-110" alt="AI" data-key="Index.Newsletter.Card3.Alt">
+            </div>
+            <div class="flex gap-6">
+              <div>
+                <h3 class="font-oswald text-3xl md:text-4xl font-bold uppercase mb-4 leading-tight text-brand-black" data-key="Index.Newsletter.Card3.Title">THE AI EDGE: NAVIGATING THE NEW ERA OF PUBLIC PR</h3>
+                <p class="font-sans text-sm text-gray-600 leading-relaxed mb-6" data-key="Index.Newsletter.Card3.Desc">
+                  Generative Search is changing how government tenders and lifestyle brands find partners. We break down the technical requirements for GEO (Generative Engine Optimization) and show you how Firebean’s "Intelligence Center" ensures our clients remain the first cited answer in the age of AI.
+                </p>
+                <div class="text-right">
+                  <a href="#" class="font-oswald text-sm font-bold tracking-widest text-brand-black hover:text-brand-red transition-colors" data-key="Index.Newsletter.ReadMore">READ →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Session 7: Contact & Session 8: Footer -->
+    <section class="relative bg-brand-black text-white py-32 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-24">
+          
+          <!-- Left: Contact Info -->
+          <div>
+            <h2 class="font-oswald font-bold text-[8vw] md:text-[6vw] leading-[0.9] uppercase mb-8">
+              <span data-key="Global.Contact.Title1">Ready To Talk?</span> <br>
+              <span class="text-transparent stroke-text" data-key="Global.Contact.Title2">Get In Touch.</span>
+            </h2>
+            
+            <div class="grid grid-cols-2 gap-8 font-sans text-[14px] mb-12">
+              <div>
+                <h4 class="font-bold uppercase tracking-widest mb-2 text-brand-red" data-key="Global.Contact.NewBusiness">New Business</h4>
+                <a href="mailto:hello@firebean.net" class="hover:text-brand-red transition-colors text-white block mb-4">hello@firebean.net</a>
+                
+                <div class="flex items-start gap-3 mb-3 text-gray-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 flex-shrink-0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <p class="font-sans text-[14px] whitespace-nowrap" data-key="Global.Contact.Address">Unit A, 23/F Morrison Plaza, 5-9 Morrison Hill Rd. Wan Chai, Hong Kong</p>
+                </div>
+
+                <div class="flex items-center gap-3 text-gray-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  <p class="font-sans text-[14px] whitespace-nowrap">+852 36222784</p>
+                </div>
+              </div>
+              <div>
+                <h4 class="font-bold uppercase tracking-widest mb-2 text-brand-red" data-key="Global.Contact.Careers">Careers</h4>
+                <a href="mailto:hr@firebean.net" class="hover:text-brand-red transition-colors text-white">hr@firebean.net</a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Right: Map -->
+          <div class="relative h-full min-h-[400px] border border-white/10 overflow-hidden group/map">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.954737217316!2d114.180109!3d22.277946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f17!3m3!1m2!1s0x340400b7f44472a3%3A0x6cb03204b66376e2!2sFirebean%20Limited!5e0!3m2!1sen!2sus!4v1708480000000!5m2!1sen!2sus" 
+              width="100%" 
+              height="100%" 
+              style="border:0; filter: grayscale(100%) contrast(110%);" 
+              allowfullscreen="" 
+              loading="lazy"
+              class="opacity-90 group-hover/map:opacity-100 transition-opacity">
+            </iframe>
+          </div>
+
+        </div>
+        
+        <!-- Session 8: Footer -->
+        <div class="flex flex-col md:flex-row justify-between items-center border-t border-white/10 pt-8 font-sans text-xs text-gray-400 uppercase tracking-widest gap-4">
+          <div data-key="Global.Footer.Copyright">©2026 Firebean Limited All Rights Reserved.</div>
+          <div class="flex gap-6">
+            <button id="disclaimer-btn" class="hover:text-white transition-colors" data-key="Global.Footer.Disclaimer">Disclaimer</button>
+            <button id="privacy-btn" class="hover:text-white transition-colors" data-key="Global.Footer.Privacy">Privacy Policy</button>
+            <button id="terms-btn" class="hover:text-white transition-colors" data-key="Global.Footer.Terms">Terms of Service</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scripts -->
+
+    <script>
+      // Initialize Lenis for smooth scrolling
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        direction: 'vertical',
+        gestureDirection: 'vertical',
+        smooth: true,
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // GSAP Animations
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Hero Text Reveal
+      const heroLines = document.querySelectorAll('.hero-line');
+      gsap.from(heroLines, {
+        y: 150,
+        opacity: 0,
+        duration: 1.5,
+        stagger: 0.2,
+        ease: "power4.out",
+        delay: 0.2
+      });
+
+      // About Us Section Parallax Background
+      gsap.to("#about-bg-img", {
+        yPercent: -15, // Move image up
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#about",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true
+        }
+      });
+
+      // 3D Logo Rotation on Scroll
+      gsap.to('#bg-logo', {
+        rotationY: -90,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#work",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true
+        }
+      });
+
+      // Project Profiles Reveal
+      gsap.utils.toArray('.project-profile').forEach(item => {
+        gsap.from(item, {
+          y: 100,
+          opacity: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: item,
+            start: "top 85%",
+          }
+        });
+      });
+
+      // Newsletter Parallax
+      ScrollTrigger.matchMedia({
+        "(min-width: 768px)": function() {
+          ScrollTrigger.create({
+            trigger: "#newsletter",
+            start: "top top",
+            end: "bottom bottom",
+            pin: ".newsletter-left-col",
+            pinSpacing: false,
+          });
+        }
+      });
+
+      gsap.utils.toArray('.parallax-img').forEach(img => {
+        gsap.to(img, {
+          yPercent: 20,
+          ease: "none",
+          scrollTrigger: {
+            trigger: img.parentElement,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true
+          }
+        });
+      });
+
+      // Newsletter Parallax
+      gsap.utils.toArray('.newsletter-card .parallax-img').forEach(img => {
+        gsap.to(img, {
+          yPercent: -15,
+          ease: "none",
+          scrollTrigger: {
+            trigger: img.closest('.newsletter-card'),
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true
+          }
+        });
+      });
+
+      // Image Loading
+      window.addEventListener('load', () => {
+        document.querySelectorAll('img').forEach(img => {
+          img.classList.add('loaded');
+        });
+      });
+
+      // Client Logos Data & Animation
+      const lifestyleLogos = [
+        { src: "https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg", desc: "We translated their brand ethos into a high-energy urban pop-up." },
+        { src: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg", desc: "Designed an immersive running experience for their latest drop." },
+        { src: "https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg", desc: "Created a tech-forward interactive zone for their flagship launch." },
+        { src: "https://upload.wikimedia.org/wikipedia/commons/0/08/Spotify_logo_without_text.svg", desc: "Amplified their presence with a sound-reactive roving exhibition." },
+        { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/1200px-H%26M-Logo.svg.png", desc: "Launched a sustainable fashion installation in the heart of the city." }
+      ];
+      
+      const govLogos = [
+        { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Emblem_of_Hong_Kong.svg/1200px-Emblem_of_Hong_Kong.svg.png", desc: "Partnered with the department to gamify public safety education." },
+        { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Hong_Kong_Tourism_Board_logo.svg/1200px-Hong_Kong_Tourism_Board_logo.svg.png", desc: "Revitalized local tourism with a city-wide interactive art trail." },
+        { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Invest_HK_logo.svg/1200px-Invest_HK_logo.svg.png", desc: "Built trust and engagement through strategic international PR campaigns." }
+      ];
+
+      const slots = document.querySelectorAll('.logo-slot');
+      let isFlipped = false;
+
+      // Initialize slots
+      slots.forEach((slot, index) => {
+        const type = slot.dataset.type;
+        const pool = type === 'lifestyle' ? lifestyleLogos : govLogos;
+        const logoData = pool[index % pool.length];
+        slot.dataset.desc = logoData.desc;
+        slot.dataset.currentSrc = logoData.src;
+        const frontImg = slot.querySelector('.front-img');
+        frontImg.referrerPolicy = 'no-referrer';
+        frontImg.src = logoData.src;
+      });
+
+      // Flip animation every 5 seconds
+      setInterval(() => {
+        slots.forEach(slot => {
+          const flipper = slot.querySelector('.flipper');
+          const type = slot.dataset.type;
+          const pool = type === 'lifestyle' ? lifestyleLogos : govLogos;
+          const randomLogo = pool[Math.floor(Math.random() * pool.length)];
+          
+          if (!isFlipped) {
+            const backImg = slot.querySelector('.back-img');
+            backImg.referrerPolicy = 'no-referrer';
+            backImg.src = randomLogo.src;
+            slot.dataset.desc = randomLogo.desc;
+            slot.dataset.currentSrc = randomLogo.src;
+            flipper.style.transform = 'rotateX(180deg)';
+          } else {
+            const frontImg = slot.querySelector('.front-img');
+            frontImg.referrerPolicy = 'no-referrer';
+            frontImg.src = randomLogo.src;
+            slot.dataset.desc = randomLogo.desc;
+            slot.dataset.currentSrc = randomLogo.src;
+            flipper.style.transform = 'rotateX(0deg)';
+          }
+        });
+        isFlipped = !isFlipped;
+      }, 5000);
+
+      // Modal Logic
+      const clientModal = document.getElementById('client-modal');
+      const clientModalContent = document.getElementById('client-modal-content');
+      const modalLogo = document.getElementById('modal-logo');
+      const modalDesc = document.getElementById('modal-desc');
+
+      window.openClientModal = function(slot) {
+        modalLogo.referrerPolicy = 'no-referrer';
+        modalLogo.src = slot.dataset.currentSrc;
+        modalDesc.textContent = slot.dataset.desc;
+        
+        clientModal.classList.remove('hidden');
+        // Trigger reflow
+        void clientModal.offsetWidth;
+        clientModal.classList.remove('opacity-0');
+        clientModalContent.classList.remove('scale-95');
+      }
+
+      window.closeClientModal = function() {
+        clientModal.classList.add('opacity-0');
+        clientModalContent.classList.add('scale-95');
+        setTimeout(() => {
+          clientModal.classList.add('hidden');
+        }, 300);
+      }
+
+      // Simple Auto Slider for Session 2
+      const slider = document.getElementById('main-slider');
+      const dots = document.querySelectorAll('.slider-dot');
+      let currentSlide = 0;
+      const totalSlides = 3;
+
+      function goToSlide(index) {
+        currentSlide = index;
+        slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        dots.forEach(dot => dot.classList.remove('bg-white'));
+        dots.forEach(dot => dot.classList.add('bg-white/50'));
+        dots[currentSlide].classList.remove('bg-white/50');
+        dots[currentSlide].classList.add('bg-white');
+      }
+
+      setInterval(() => {
+        let nextSlide = (currentSlide + 1) % totalSlides;
+        goToSlide(nextSlide);
+      }, 5000);
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => goToSlide(index));
+      });
+
+      // Marquee Logic with Scroll Interaction
+      const marquees = document.querySelectorAll('.animate-marquee');
+      const containers = [];
+      
+      // Group by parent
+      marquees.forEach(el => {
+        if (!containers.includes(el.parentElement)) {
+          containers.push(el.parentElement);
+        }
+      });
+      
+      let scrollVelocity = 0;
+      let lastScrollY = window.scrollY;
+      
+      window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+        scrollVelocity = currentScrollY - lastScrollY;
+        lastScrollY = currentScrollY;
+      });
+      
+      gsap.ticker.add(() => {
+        scrollVelocity *= 0.9; // Friction
+        
+        containers.forEach(container => {
+          const parts = container.children;
+          if (parts.length < 2) return;
+          
+          let currentX = parseFloat(container.dataset.x || 0);
+          const baseSpeed = 3; // Base running speed
+          
+          // Move left (negative)
+          // Add scroll influence
+          currentX -= (baseSpeed + scrollVelocity * 0.5);
+          
+          const width = parts[0].offsetWidth;
+          
+          if (width > 0) {
+            // Wrap around
+            if (currentX <= -width) {
+              currentX += width;
+            } else if (currentX > 0) {
+              currentX -= width;
+            }
+            
+            container.dataset.x = currentX;
+            
+            parts[0].style.transform = `translateX(${currentX}px)`;
+            parts[1].style.transform = `translateX(${currentX}px)`;
+          }
+        });
+      });
+
+      // Polaroid Slideshow Logic
+      const polaroidImages = [
+        'https://picsum.photos/seed/event_biz1/600/600',
+        'https://picsum.photos/seed/event_biz2/600/600',
+        'https://picsum.photos/seed/event_biz3/600/600',
+        'https://picsum.photos/seed/event_biz4/600/600',
+        'https://picsum.photos/seed/event_biz5/600/600',
+        'https://picsum.photos/seed/event_biz6/600/600',
+      ];
+
+      function startPolaroidSlideshow(selector, startIndex) {
+        const imgs = document.querySelectorAll(selector);
+        // imgs is a NodeList of all images with that selector. 
+        // In our HTML, we have duplicate blocks for mobile/desktop.
+        // We need to handle them.
+        
+        // Actually, the selector '.polaroid-img-1' selects ALL instances (mobile and desktop).
+        // Each polaroid container has 2 images: [0] is visible, [1] is hidden (opacity 0).
+        
+        // Let's group them by container.
+        const containers = [];
+        // Find all containers that have these images
+        document.querySelectorAll(selector).forEach(img => {
+            if (!containers.includes(img.parentElement)) {
+                containers.push(img.parentElement);
+            }
+        });
+
+        containers.forEach((container, containerIndex) => {
+            let localIndex = startIndex + containerIndex; // Offset slightly so they don't all change same image
+            const images = container.querySelectorAll('img');
+            let activeImg = 0; // 0 or 1
+
+            setInterval(() => {
+                localIndex = (localIndex + 1) % polaroidImages.length;
+                const nextImgIndex = (activeImg + 1) % 2;
+                
+                const currentImgEl = images[activeImg];
+                const nextImgEl = images[nextImgIndex];
+
+                const polaroidFrame = container.parentElement;
+
+                // Add flip animation class
+                polaroidFrame.classList.add('flip-animate');
+
+                setTimeout(() => {
+                    // Set next image source
+                    nextImgEl.src = polaroidImages[localIndex];
+                    
+                    // Instantly swap visibility
+                    nextImgEl.classList.remove('opacity-0', 'transition-opacity', 'duration-1000');
+                    nextImgEl.classList.add('opacity-100');
+                    
+                    currentImgEl.classList.remove('opacity-100', 'transition-opacity', 'duration-1000');
+                    currentImgEl.classList.add('opacity-0');
+
+                    // Swap active
+                    activeImg = nextImgIndex;
+                }, 400); // Swap exactly halfway through the 800ms animation
+
+                setTimeout(() => {
+                    polaroidFrame.classList.remove('flip-animate');
+                }, 800);
+            }, 4000 + (containerIndex * 1000)); // Stagger timings
+        });
+      }
+
+      startPolaroidSlideshow('.polaroid-img-1', 0);
+      startPolaroidSlideshow('.polaroid-img-2', 3);
+
+      // Parallax 3D Logo
+      gsap.to("#parallax-logo-container", {
+        yPercent: 120,
+        rotationY: -90, // 90 degree flip from right to left
+        transformOrigin: "center center", // center axis vertically
+        transformPerspective: 1000,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#work",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true
+        }
+      });
+
+    // --- Legal Modal Logic ---
+    const legalModal = document.getElementById('legal-modal');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+    const modalTitle = document.getElementById('modal-title');
+    const modalContent = document.getElementById('modal-content');
+
+    function openModal(type) {
+      if (!window.legalContent) return;
+      const currentLang = localStorage.getItem('lang') || 'en';
+      // Ensure legal content is updated for the current language
+      if (window.updateTranslations) {
+        window.updateTranslations();
+      }
+      const { title, content } = window.legalContent[type];
+      modalTitle.textContent = title;
+      modalContent.innerHTML = content;
+      legalModal.classList.remove('hidden');
+    }
+
+    function closeModal() {
+      legalModal.classList.add('hidden');
+    }
+
+    document.getElementById('disclaimer-btn').addEventListener('click', () => openModal('disclaimer'));
+    document.getElementById('privacy-btn').addEventListener('click', () => openModal('privacy'));
+    document.getElementById('terms-btn').addEventListener('click', () => openModal('terms'));
+    modalCloseBtn.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', closeModal);
+
+    // --- Page Specific UI Logic ---
+    function updatePageSpecificUI() {
+      const currentLang = localStorage.getItem('lang') || 'en';
+      
+      // Special case for Japanese and Chinese hero title styling
+      const heroTitleContainer = document.querySelector('.jp-hero-title');
+      if (heroTitleContainer) {
+        heroTitleContainer.classList.remove('jp', 'ch');
+        if (currentLang === 'jp') {
+          heroTitleContainer.classList.add('jp');
+        } else if (currentLang === 'ch') {
+          heroTitleContainer.classList.add('ch');
+        }
+      }
+
+      // Toggle Narrative Layouts
+      const narrativeDefault = document.getElementById('narrative-default');
+      const narrativeJp = document.getElementById('narrative-jp');
+      if (narrativeDefault && narrativeJp) {
+        if (currentLang === 'jp') {
+          narrativeDefault.classList.add('hidden');
+          narrativeDefault.classList.remove('flex');
+          narrativeJp.classList.remove('hidden');
+          narrativeJp.classList.add('flex');
+        } else {
+          narrativeDefault.classList.remove('hidden');
+          narrativeDefault.classList.add('flex');
+          narrativeJp.classList.add('hidden');
+          narrativeJp.classList.remove('flex');
+        }
+      }
+    }
+
+    // Listen for language changes from translations.js
+    window.addEventListener('languageChange', updatePageSpecificUI);
+    
+    // Initial UI update
+    document.addEventListener('DOMContentLoaded', updatePageSpecificUI);
+
+    </script>
+  </body>
+</html>

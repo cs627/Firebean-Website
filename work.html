@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Work - Firebean</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&family=League+Spartan:wght@700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@400;500;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Anton', 'sans-serif'],
+            oswald: ['Oswald', 'sans-serif'],
+            spartan: ['League Spartan', 'sans-serif'],
+            serif: ['Libre Baskerville', 'serif'],
+            playfair: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            'brand-black': '#0a0a0a',
+            'brand-gray': '#f4f4f4',
+            'brand-red': '#ff3333',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #f4f4f4;
+      color: #0a0a0a;
+      overflow-x: hidden;
+    }
+    .mega-menu {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+    .group:hover .mega-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .filter-btn.active {
+      color: #ff3333;
+    }
+    /* Navigation Overrides */
+    #navbar {
+      z-index: 99999 !important;
+      pointer-events: auto !important;
+      isolation: isolate;
+    }
+    .lang-btn {
+      cursor: pointer !important;
+      position: relative;
+      z-index: 100000 !important;
+      pointer-events: auto !important;
+    }
+    /* Text Stroke Effect */
+    .stroke-text {
+      -webkit-text-stroke: 1px white;
+      color: transparent;
+    }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- Navigation -->
+  <nav class="bg-brand-gray/80 backdrop-blur-md w-full px-6 py-6 flex justify-between items-center z-[9999] text-brand-black border-b border-black/5 pointer-events-auto" id="navbar" data-lenis-prevent>
+    <a href="/index.html" class="flex items-center gap-2 hover:opacity-70 transition-opacity">
+      <img src="https://drive.google.com/thumbnail?id=1d3M0KGD88nksyq8EWew8UvI9MgrTZNYl&sz=w100" class="h-6 w-auto object-contain mix-blend-multiply" alt="Firebean Logo" referrerpolicy="no-referrer">
+      <div class="font-sans font-light text-xl tracking-widest lowercase" style="font-variant: small-caps;">firebean</div>
+    </a>
+    
+      <div class="hidden md:flex gap-8 font-sans text-sm uppercase tracking-widest items-center">
+      <a href="/index.html#hero" class="hover:opacity-50 transition-opacity" data-key="Global.Navigation.Home">Home</a>
+      <a href="/index.html#about" class="hover:opacity-50 transition-opacity" data-key="Global.Navigation.About">About</a>
+      
+      <!-- Mega Menu Trigger -->
+      <div class="relative group py-4">
+        <a href="/work.html" class="hover:opacity-50 transition-opacity flex items-center gap-1">
+          <span data-key="Global.Navigation.WhatWeDo">What We Do</span> <span class="text-[10px]">▼</span>
+        </a>
+        
+        <!-- Mega Menu Dropdown -->
+        <div class="mega-menu fixed left-0 top-[85px] w-full bg-brand-black text-white px-6 py-12 shadow-2xl border-t border-white/10 z-[9999]" data-lenis-prevent>
+          <div class="absolute -top-[40px] left-0 w-full h-[40px] bg-transparent"></div>
+          <div class="grid grid-cols-2 gap-16 w-full max-w-[600px]">
+            <div>
+              <h4 class="font-oswald text-xl mb-6 text-brand-red tracking-widest" data-key="Global.Navigation.WhoWeHelp">WHO WE HELP</h4>
+              <ul class="space-y-3 text-sm text-gray-400 font-sans tracking-wide">
+                <li><a href="/work.html?filter=government" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.GovPublic">Government & Public Sector</a></li>
+                <li><a href="/work.html?filter=lifestyle" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.LifestyleConsumer">Lifestyle & Consumer</a></li>
+                <li><a href="/work.html?filter=hospitality" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.FBHospitality">F&B & Hospitality</a></li>
+                <li><a href="/work.html?filter=venues" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.MallsVenues">Malls & Venues</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-oswald text-xl mb-6 text-brand-red tracking-widest" data-key="Global.Navigation.WhatWeDo">WHAT WE DO</h4>
+              <ul class="space-y-3 text-sm text-gray-400 font-sans tracking-wide">
+                <li><a href="/work.html?filter=exhibitions" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.RovingExhibitions">Roving Exhibitions</a></li>
+                <li><a href="/work.html?filter=social" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.SocialContent">Social & Content</a></li>
+                <li><a href="/work.html?filter=tech" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.InteractiveTech">Interactive & Tech</a></li>
+                <li><a href="/work.html?filter=pr" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.PRMedia">PR & Media</a></li>
+                <li><a href="/work.html?filter=events" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.EventsCeremonies">Events & Ceremonies</a></li>
+              </ul>
+            </div>
+            <div class="col-span-2 border-t border-white/20 pt-6 mt-2">
+              <a href="/work.html" class="text-sm font-bold hover:text-brand-red transition-colors flex items-center gap-3 tracking-widest">
+                <span class="text-xl">↳</span> <span data-key="Global.Navigation.ViewAllWork">VIEW ALL WORK</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="font-sans text-xs uppercase tracking-widest flex gap-2">
+      <button class="lang-btn hover:opacity-50" data-lang="en">EN</button> | 
+      <button class="lang-btn hover:opacity-50 text-gray-500" data-lang="ch">CH</button> | 
+      <button class="lang-btn hover:opacity-50 text-gray-500" data-lang="jp">JP</button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="px-4 md:px-12 py-16 relative overflow-hidden"> <!-- Added relative and overflow-hidden -->
+    <!-- 3D Logo Background (Parallax) -->
+    <div class="absolute top-[20%] left-1/2 -translate-x-1/2 w-[50vw] max-w-[600px] opacity-10 pointer-events-none z-0" id="parallax-logo-container">
+      <img src="https://drive.google.com/thumbnail?id=1d3M0KGD88nksyq8EWew8UvI9MgrTZNYl&sz=w1000" class="w-full h-full object-contain" alt="3D Firebean Logo" referrerpolicy="no-referrer">
+    </div>
+    <div class="max-w-7xl mx-auto">
+
+      <!-- Page Header -->
+      <section class="text-center mb-16">
+        <h1 class="font-oswald font-bold text-[12vw] leading-[0.9] text-center uppercase tracking-tighter text-brand-black" data-key="Global.WorkHeader.Title">Profiles</h1>
+      </section>
+
+      <!-- Filtering Section -->
+      <section class="mb-12 z-50 py-4">
+        <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 font-oswald text-2xl font-bold uppercase tracking-wide text-brand-black">
+          <button class="filter-btn active" data-filter="all" data-key="Global.WorkFilters.All">All</button>
+          <button class="filter-btn" data-filter="government" data-key="Global.Navigation.GovPublic">Government & Public Sector</button>
+          <button class="filter-btn" data-filter="lifestyle" data-key="Global.Navigation.LifestyleConsumer">Lifestyle & Consumer</button>
+          <button class="filter-btn" data-filter="hospitality" data-key="Global.Navigation.FBHospitality">F&B & Hospitality</button>
+          <button class="filter-btn" data-filter="venues" data-key="Global.Navigation.MallsVenues">Malls & Venues</button>
+          <button class="filter-btn" data-filter="exhibitions" data-key="Global.Navigation.RovingExhibitions">Roving Exhibitions</button>
+          <button class="filter-btn" data-filter="social" data-key="Global.Navigation.SocialContent">Social & Content</button>
+          <button class="filter-btn" data-filter="tech" data-key="Global.Navigation.InteractiveTech">Interactive & Tech</button>
+          <button class="filter-btn" data-filter="pr" data-key="Global.Navigation.PRMedia">PR & Media</button>
+          <button class="filter-btn" data-filter="events" data-key="Global.Navigation.EventsCeremonies">Events & Ceremonies</button>
+        </div>
+        <div class="text-center mt-4 font-sans text-xs text-gray-400 tracking-widest">
+          <span id="profile-count">12</span> <span data-key="Global.WorkResults.Found">results found</span>
+        </div>
+      </section>
+
+      <!-- Profiles Grid -->
+      <section id="profile-grid" class="grid grid-cols-1 md:grid-cols-12 gap-y-12 gap-x-8 relative z-10">
+        <!-- Profiles will be dynamically inserted here -->
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Session 7: Contact & Session 8: Footer -->
+  <section class="relative bg-brand-black text-white py-32 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-24">
+                <!-- Left: Contact Info -->
+        <div>
+          <h2 class="font-oswald font-bold text-[8vw] md:text-[6vw] leading-[0.9] uppercase mb-8">
+            <span data-key="Global.Contact.Title1">Ready To Talk?</span> <br>
+            <span class="text-transparent stroke-text" data-key="Global.Contact.Title2">Get In Touch.</span>
+          </h2>
+          
+          <div class="grid grid-cols-2 gap-8 font-sans text-[14px] mb-12">
+            <div>
+              <h4 class="font-bold uppercase tracking-widest mb-2 text-brand-red" data-key="Global.Contact.NewBusiness">New Business</h4>
+              <a href="mailto:hello@firebean.net" class="hover:text-brand-red transition-colors text-white block mb-4">hello@firebean.net</a>
+              
+              <div class="flex items-start gap-3 mb-3 text-gray-400">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 flex-shrink-0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <p class="font-sans text-[14px] whitespace-nowrap" data-key="Global.Contact.Address">Unit A, 23/F Morrison Plaza, 5-9 Morrison Hill Rd. Wan Chai, Hong Kong</p>
+              </div>
+
+              <div class="flex items-center gap-3 text-gray-400">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <p class="font-sans text-[14px] whitespace-nowrap">+852 36222784</p>
+              </div>
+            </div>
+            <div>
+              <h4 class="font-bold uppercase tracking-widest mb-2 text-brand-red" data-key="Global.Contact.Careers">Careers</h4>
+              <a href="mailto:hr@firebean.net" class="hover:text-brand-red transition-colors text-white">hr@firebean.net</a>
+            </div>
+          </div>
+          
+          <!-- Right: Map -->
+        <div class="relative h-full min-h-[400px] border border-white/10 overflow-hidden group/map">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.954737217316!2d114.180109!3d22.277946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f17!3m3!1m2!1s0x340400b7f44472a3%3A0x6cb03204b66376e2!2sFirebean%20Limited!5e0!3m2!1sen!2sus!4v1708480000000!5m2!1sen!2sus" 
+            width="100%" 
+            height="100%" 
+            style="border:0; filter: grayscale(100%) contrast(110%);" 
+            allowfullscreen="" 
+            loading="lazy"
+            class="opacity-90 group-hover/map:opacity-100 transition-opacity">
+          </iframe>
+        </div>
+
+      </div>
+      
+      <!-- Session 8: Footer -->
+      <div class="flex flex-col md:flex-row justify-between items-center border-t border-white/10 pt-8 font-sans text-xs text-gray-400 uppercase tracking-widest gap-4">
+        <div data-key="Global.Footer.Copyright">©2026 Firebean Limited All Rights Reserved.</div>
+        <div class="flex gap-6">
+            <button id="disclaimer-btn" class="hover:text-white transition-colors" data-key="Global.Footer.Disclaimer">Disclaimer</button>
+            <button id="privacy-btn" class="hover:text-white transition-colors" data-key="Global.Footer.Privacy">Privacy Policy</button>
+            <button id="terms-btn" class="hover:text-white transition-colors" data-key="Global.Footer.Terms">Terms of Service</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Legal Modal -->
+  <div id="legal-modal" class="hidden fixed inset-0 bg-black/60 z-[200] flex items-center justify-center p-6 font-sans">
+    <div id="modal-overlay" class="absolute inset-0"></div>
+    <div class="relative bg-brand-red text-brand-black w-full max-w-3xl max-h-[80vh] p-8 md:p-12 rounded-lg shadow-2xl overflow-y-auto">
+      <button id="modal-close-btn" class="absolute top-4 right-4 text-brand-black hover:opacity-70 transition-opacity text-3xl">&times;</button>
+      <h2 id="modal-title" class="font-oswald font-bold text-4xl uppercase mb-6"></h2>
+      <div id="modal-content" class="space-y-4 text-sm leading-relaxed"></div>
+    </div>
+  </div>
+
+  <!-- GSAP -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  
+  <!-- Translations & Legal Content -->
+  <script src="/src/translations.js"></script>
+
+  <script>
+    const allProfiles = [
+      { id: 1, title: 'Harbourfront Festival', category: ['government', 'exhibitions', 'pr'], aspect: '4/5', image: 'work1/600/800', colSpan: 5, start: 1, mt: 0 },
+      { id: 2, title: 'Global Tech Summit', category: ['lifestyle', 'tech', 'events'], aspect: '16/9', image: 'work2/1000/600', colSpan: 6, start: 7, mt: 16 },
+      { id: 3, title: 'Luxury Mall Launch', category: ['venues', 'pr', 'lifestyle'], aspect: '1/1', image: 'work3/800/800', colSpan: 5, start: 2, mt: 16 },
+      { id: 4, title: 'Urban Art Trail', category: ['government', 'exhibitions'], aspect: '3/4', image: 'work4/600/800', colSpan: 4, start: 9, mt: 16 },
+      { id: 5, title: 'Cultural Exchange Program', category: ['government', 'social'], aspect: '4/5', image: 'work5/600/800', colSpan: 5, start: 1, mt: 8 },
+      { id: 6, title: 'Future City Expo', category: ['tech', 'events'], aspect: '16/9', image: 'work6/1000/600', colSpan: 6, start: 7, mt: 16 },
+      { id: 7, title: 'Rooftop Cinema Club', category: ['lifestyle', 'events', 'venues'], aspect: '16/9', image: 'work7/1000/600', colSpan: 6, start: 1, mt: 16 },
+      { id: 8, title: 'Heritage Museum Revamp', category: ['government', 'exhibitions'], aspect: '4/5', image: 'work8/600/800', colSpan: 5, start: 8, mt: 0 },
+      { id: 9, title: 'Gourmet Food Fair', category: ['hospitality', 'social'], aspect: '1/1', image: 'work9/800/800', colSpan: 5, start: 2, mt: 16 },
+      { id: 10, title: 'Fashion Week Showcase', category: ['lifestyle', 'pr'], aspect: '3/4', image: 'work10/600/800', colSpan: 4, start: 9, mt: 16 },
+      { id: 11, title: 'Public Health Campaign', category: ['government', 'pr', 'social'], aspect: '16/9', image: 'work11/1000/600', colSpan: 7, start: 1, mt: 16 },
+      { id: 12, title: 'Smart City Installation', category: ['government', 'tech'], aspect: '4/5', image: 'work12/600/800', colSpan: 4, start: 9, mt: 8 },
+    ];
+
+    const profileGrid = document.getElementById('profile-grid');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const profileCount = document.getElementById('profile-count');
+    let activeFilter = 'all';
+    let visibleProfiles = [];
+
+    function createProfileElement(profile) {
+      const element = document.createElement('a');
+      element.href = '/profile.html';
+      element.className = `group block project-profile md:col-span-${profile.colSpan} md:col-start-${profile.start} md:mt-${profile.mt}`;
+      element.dataset.category = profile.category.join(' ');
+      
+      element.innerHTML = `
+        <div class="relative overflow-hidden aspect-[${profile.aspect}] mb-1 shadow-2xl">
+          <img src="https://picsum.photos/seed/${profile.image}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="${profile.title}">
+        </div>
+        <h3 class="font-oswald text-3xl uppercase font-bold mb-2" data-key="Work.Profile.${profile.id}.Title">${profile.title}</h3>
+        <p class="font-playfair text-base text-gray-600 italic" data-key="Work.Profile.${profile.id}.Desc">A brief description of the project.</p>
+      `;
+      return element;
+    }
+
+    function renderProfiles(isFirstLoad = false) {
+      const newVisibleProfiles = allProfiles.filter(p => activeFilter === 'all' || p.category.includes(activeFilter));
+      profileCount.textContent = newVisibleProfiles.length;
+
+      const tl = gsap.timeline({
+        onComplete: () => {
+          // After fade out, replace the content
+          profileGrid.innerHTML = '';
+          newVisibleProfiles.forEach(profile => {
+            const el = createProfileElement(profile);
+            profileGrid.appendChild(el);
+          });
+          
+          // Update translations for the newly added elements
+          if (window.updateTranslations) {
+            window.updateTranslations();
+          }
+
+          // Then fade in the new items
+          gsap.fromTo(".project-profile", { opacity: 0, scale: 0.95, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.5, stagger: 0.05, ease: 'power3.out' });
+        }
+      });
+
+      if (!isFirstLoad) {
+        // Only run the fade-out animation if it's not the first load
+        tl.to(".project-profile", { opacity: 0, scale: 0.95, y: -20, duration: 0.3, stagger: 0.03, ease: 'power3.in' });
+      } else {
+        // On first load, just render and fade in
+        profileGrid.innerHTML = '';
+        newVisibleProfiles.forEach(profile => {
+            const el = createProfileElement(profile);
+            profileGrid.appendChild(el);
+        });
+        
+        // Update translations for the newly added elements
+        if (window.updateTranslations) {
+          window.updateTranslations();
+        }
+
+        gsap.fromTo(".project-profile", { opacity: 0, scale: 0.95, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.5, stagger: 0.05, ease: 'power3.out', delay: 0.2 });
+      }
+    }
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        if (button.dataset.filter === activeFilter) return;
+        
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        activeFilter = button.dataset.filter;
+        renderProfiles();
+      });
+    });
+
+    // Initial render
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.to("#parallax-logo-container", {
+      scrollTrigger: {
+        trigger: "body",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 1,
+      },
+      rotationX: 90, // Vertical flip
+      yPercent: -50, // Parallax effect
+      ease: "none"
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const filter = urlParams.get('filter');
+
+      if (filter) {
+        const button = document.querySelector(`.filter-btn[data-filter='${filter}']`);
+        if (button) {
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+          activeFilter = filter;
+        }
+      }
+      renderProfiles(true);
+    });
+
+    // --- Legal Modal Logic ---
+    const legalModal = document.getElementById('legal-modal');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+    const modalTitle = document.getElementById('modal-title');
+    const modalContent = document.getElementById('modal-content');
+
+    function openModal(type) {
+      if (!window.legalContent) return;
+      const currentLang = localStorage.getItem('lang') || 'en';
+      // Ensure legal content is updated for the current language
+      if (window.updateTranslations) {
+        window.updateTranslations();
+      }
+      const { title, content } = window.legalContent[type];
+      modalTitle.textContent = title;
+      modalContent.innerHTML = content;
+      legalModal.classList.remove('hidden');
+    }
+
+    function closeModal() {
+      legalModal.classList.add('hidden');
+    }
+
+    document.getElementById('disclaimer-btn').addEventListener('click', () => openModal('disclaimer'));
+    document.getElementById('privacy-btn').addEventListener('click', () => openModal('privacy'));
+    document.getElementById('terms-btn').addEventListener('click', () => openModal('terms'));
+    modalCloseBtn.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', closeModal);
+  </script>
+
+
+
+</body>
+</html>
