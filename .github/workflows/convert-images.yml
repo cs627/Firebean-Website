@@ -1,0 +1,58 @@
+name: Convert Images to WebP
+
+on:
+  push:
+    paths:
+      - 'data/images/**'
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install cwebp
+        run: sudo apt-get update && sudo apt-get install -y webp
+
+      - name: Convert new JPEG/PNG to WebP
+        run: |
+          cd data/images
+          converted=0
+          
+          # Find all .jpg and .png files
+          for src in *.jpg *.jpeg *.png; do
+            [ -f "$src" ] || continue
+            
+            # Target webp filename
+            base="${src%.*}"
+            webp="${base}.webp"
+            
+            # Only convert if webp doesn't exist or is older than source
+            if [ ! -f "$webp" ] || [ "$src" -nt "$webp" ]; then
+              echo "Converting: $src → $webp"
+              cwebp -q 80 -resize 1200 0 "$src" -o "$webp" 2>/dev/null
+              
+              if [ -f "$webp" ]; then
+                # Remove original to save space
+                rm "$src"
+                converted=$((converted + 1))
+              fi
+            fi
+          done
+          
+          echo "Converted $converted images to WebP"
+          echo "CONVERTED=$converted" >> $GITHUB_ENV
+
+      - name: Commit converted images
+        if: env.CONVERTED != '0'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/images/
+          git diff --staged --quiet || git commit -m "Auto-convert ${{ env.CONVERTED }} images to WebP"
+          git push
