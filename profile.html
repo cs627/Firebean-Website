@@ -391,8 +391,8 @@
 
         // Use web content if available, otherwise fallback to challenge/solution fields
         if (webContent) {
-          challengeEl.textContent = webContent;
-          solutionEl.textContent = '';
+          challengeEl.innerHTML = webContent;
+          solutionEl.innerHTML = '';
         } else {
           challengeEl.textContent = project.challenge || '';
           solutionEl.textContent = project.solution || '';
@@ -480,4 +480,4 @@
 
 
 </body>
-  </html>
+</html>
