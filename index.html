@@ -61,15 +61,15 @@
       .mega-menu {
         opacity: 0;
         visibility: hidden;
-        transform: translateY(-10px);
+        transform: translate(-50%, -10px);
         transition: all 0.3s ease;
-        pointer-events: none; /* Prevent blocking clicks when hidden */
+        pointer-events: none;
       }
-      .group:hover .mega-menu {
+      .mega-menu.open {
         opacity: 1;
         visibility: visible;
-        transform: translateY(0);
-        pointer-events: auto; /* Enable clicks when visible */
+        transform: translate(-50%, 0);
+        pointer-events: auto;
       }
 
       /* 3D Logo Background */
@@ -146,69 +146,94 @@
         }
       }
 
-      /* Japanese Hero Title Specific Styles */
-      .jp-hero-title.jp .hero-line {
-        font-size: 7vw; /* Reduced 30% from 10vw */
+      /* === Mobile CH/JP Hero: vertical text stack like EN mobile === */
+      @media (max-width: 767px) {
+        .jp-hero-title.jp .hero-line,
+        .jp-hero-title.ch .hero-line {
+          font-size: 13vw;
+          text-align: center;
+        }
+        .jp-hero-title.jp > div,
+        .jp-hero-title.ch > div {
+          flex-direction: column !important;
+          align-items: center !important;
+          justify-content: center !important;
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+          margin-top: 0 !important;
+        }
+        .jp-hero-title.ch {
+          line-height: 1.1 !important;
+        }
+        .jp-hero-title.ch > div {
+          margin-top: -1vw !important;
+        }
+        .jp-hero-title.ch > div:first-child {
+          margin-top: 0 !important;
+        }
       }
 
-      /* Row 1: 戦略を (Left) - Photo 1 - 主導する (Right) */
-      .jp-hero-title.jp > div:nth-child(1) {
-        flex-direction: row !important;
-        justify-content: space-between !important;
-        width: 100%;
-        padding-left: 1vw; /* Reduced padding further */
-        padding-right: 1vw; /* Reduced padding further */
-      }
+      /* === Desktop-only JP Hero Styles === */
+      @media (min-width: 768px) {
+        .jp-hero-title.jp .hero-line {
+          font-size: 7vw;
+        }
 
-      /* Reduce polaroid margin for Japanese */
-      .jp-hero-title.jp > div:nth-child(1) > .hidden.md\:block {
-        margin-left: 0.5vw !important;
-        margin-right: 0.5vw !important;
-      }
+        /* Row 1: 戦略を (Left) - Photo 1 - 主導する (Right) */
+        .jp-hero-title.jp > div:nth-child(1) {
+          flex-direction: row !important;
+          justify-content: space-between !important;
+          width: 100%;
+          padding-left: 1vw;
+          padding-right: 1vw;
+        }
 
-      /* Line 1: 戦略を */
-      .jp-hero-title.jp [data-key="Index.Hero.Line1"] {
-        font-size: 10vw; /* Increased 10% from 9.1vw */
-      }
+        .jp-hero-title.jp > div:nth-child(1) > .hidden.md\:block {
+          margin-left: 0.5vw !important;
+          margin-right: 0.5vw !important;
+        }
 
-      /* Line 2: 主導する - Shift a bit to left */
-      .jp-hero-title.jp [data-key="Index.Hero.Line2"] {
-        font-size: 10vw; /* Increased 10% from 9.1vw */
-        transform: translateX(-2vw); /* Reduced shift to avoid overlap */
-      }
+        .jp-hero-title.jp [data-key="Index.Hero.Line1"] {
+          font-size: 10vw;
+        }
 
-      /* Row 2: PRの - Photo 2 - Subtitle set */
-      .jp-hero-title.jp > div:nth-child(2) {
-        flex-direction: row !important;
-        justify-content: flex-start !important;
-        width: 100%;
-        padding-left: 10vw;
-      }
+        .jp-hero-title.jp [data-key="Index.Hero.Line2"] {
+          font-size: 10vw;
+          transform: translateX(-2vw);
+        }
 
-      /* Line 3: PRの - Increase 50% */
-      .jp-hero-title.jp [data-key="Index.Hero.Line3"] {
-        font-size: 15vw;
-      }
+        /* Row 2: PRの - Photo 2 - Subtitle set */
+        .jp-hero-title.jp > div:nth-child(2) {
+          flex-direction: row !important;
+          justify-content: flex-start !important;
+          width: 100%;
+          padding-left: 10vw;
+        }
 
-      /* Row 3: プロフェッショナル (Left) */
-      .jp-hero-title.jp > div:nth-child(3) {
-        justify-content: flex-start !important;
-        padding-left: 10vw !important;
-        padding-right: 0 !important;
-      }
-      .jp-hero-title.jp [data-key="Index.Hero.Line4"] {
-        font-size: 7vw;
-        text-align: left;
+        .jp-hero-title.jp [data-key="Index.Hero.Line3"] {
+          font-size: 15vw;
+        }
+
+        /* Row 3: プロフェッショナル (Left) */
+        .jp-hero-title.jp > div:nth-child(3) {
+          justify-content: flex-start !important;
+          padding-left: 10vw !important;
+          padding-right: 0 !important;
+        }
+        .jp-hero-title.jp [data-key="Index.Hero.Line4"] {
+          font-size: 7vw;
+          text-align: left;
+        }
       }
 
       /* Chinese Specific Styles */
       .jp-hero-title.ch {
         line-height: 1.1 !important;
       }
-      
+
       /* Newsletter Title Adjustment for Chinese */
       .lang-ch [data-key="Index.Newsletter.Title"] {
-        font-size: 3.5rem !important; /* Smaller than English 7xl to prevent bad wrapping */
+        font-size: 3.5rem !important;
         line-height: 1.2 !important;
       }
       @media (min-width: 768px) {
@@ -217,65 +242,56 @@
         }
       }
 
-      .jp-hero-title.ch .hero-line {
-        font-size: 12vw; /* Adjusted by optical observation */
-        padding-bottom: 2vw;
-        padding-top: 1vw;
-      }
+      /* === Desktop-only CH Hero Styles === */
       @media (min-width: 768px) {
         .jp-hero-title.ch .hero-line {
-          font-size: 11vw; /* Adjusted by optical observation */
+          font-size: 11vw;
+          padding-bottom: 2vw;
+          padding-top: 1vw;
         }
-      }
-      
-      /* Reduce distance between rows for Chinese */
-      .jp-hero-title.ch > div {
-        padding-top: 0 !important;
-        padding-bottom: 0 !important;
-        margin-top: -2vw !important; /* Reduced negative margin to give more breathing room */
-      }
-      .jp-hero-title.ch > div:first-child {
-        margin-top: 0 !important;
-      }
-      
-      /* Ensure z-index stacking (Row 2 on top of Row 1, Row 3 on top of Row 2) */
-      .jp-hero-title.ch > div:nth-child(1) { z-index: 10 !important; }
-      .jp-hero-title.ch > div:nth-child(2) { z-index: 20 !important; }
-      .jp-hero-title.ch > div:nth-child(3) { z-index: 30 !important; }
 
-      /* Chinese Layout Adjustments */
-      /* Row 1: 重 (Left) - Photo 1 - 策略主導 (Right) */
-      .jp-hero-title.ch > div:nth-child(1) {
-        flex-direction: row !important;
-        justify-content: space-between !important;
-        width: 100%;
-        padding-left: 5vw;
-        padding-right: 5vw;
-      }
-      
-      /* Row 2: 為先的 (Left) - Photo 2 */
-      .jp-hero-title.ch > div:nth-child(2) {
-        flex-direction: row !important;
-        justify-content: flex-start !important;
-        width: 100%;
-        padding-left: 5vw;
-      }
-      
-      /* Row 3: PR公關 */
-      .jp-hero-title.ch > div:nth-child(3) {
-        justify-content: center !important;
-        width: 100%;
-        padding-left: 0 !important;
-      }
-      
-      /* Polaroid Adjustments for Chinese */
-      .jp-hero-title.ch > div:nth-child(1) > div.hidden.md\:block {
-        margin-top: -2vw !important;
-        width: 15vw !important; /* Keep same as English */
-      }
-      .jp-hero-title.ch > div:nth-child(2) > div.hidden.md\:block {
-        left: 40% !important; /* Move Polaroid 2 slightly to the left */
-        width: 16vw !important; /* Keep same as English */
+        .jp-hero-title.ch > div {
+          padding-top: 0 !important;
+          padding-bottom: 0 !important;
+          margin-top: -2vw !important;
+        }
+        .jp-hero-title.ch > div:first-child {
+          margin-top: 0 !important;
+        }
+
+        .jp-hero-title.ch > div:nth-child(1) { z-index: 10 !important; }
+        .jp-hero-title.ch > div:nth-child(2) { z-index: 20 !important; }
+        .jp-hero-title.ch > div:nth-child(3) { z-index: 30 !important; }
+
+        .jp-hero-title.ch > div:nth-child(1) {
+          flex-direction: row !important;
+          justify-content: space-between !important;
+          width: 100%;
+          padding-left: 5vw;
+          padding-right: 5vw;
+        }
+
+        .jp-hero-title.ch > div:nth-child(2) {
+          flex-direction: row !important;
+          justify-content: flex-start !important;
+          width: 100%;
+          padding-left: 5vw;
+        }
+
+        .jp-hero-title.ch > div:nth-child(3) {
+          justify-content: center !important;
+          width: 100%;
+          padding-left: 0 !important;
+        }
+
+        .jp-hero-title.ch > div:nth-child(1) > div.hidden.md\:block {
+          margin-top: -2vw !important;
+          width: 15vw !important;
+        }
+        .jp-hero-title.ch > div:nth-child(2) > div.hidden.md\:block {
+          left: 40% !important;
+          width: 16vw !important;
+        }
       }
       
       /* Polaroid Flip Animation */
@@ -340,17 +356,16 @@
         <a href="#about" class="hover:opacity-50 transition-opacity" data-key="Global.Navigation.About">About</a>
         
         <!-- Mega Menu Trigger -->
-        <div class="relative group py-4">
-          <a class='hover:opacity-50 transition-opacity flex items-center gap-1' href='work.html'>
+        <div class="relative py-4">
+          <button id="mega-menu-trigger" class='hover:opacity-50 transition-opacity flex items-center gap-1 uppercase tracking-widest text-sm font-sans'>
             <span data-key="Global.Navigation.WhatWeDo">What We Do</span> <span class="text-[10px]">▼</span>
-          </a>
-          
+          </button>
+
           <!-- Mega Menu Dropdown -->
-          <div class="mega-menu fixed left-0 top-[80px] w-full bg-brand-black text-white px-6 py-12 shadow-2xl border-t border-white/10 z-[9999]" data-lenis-prevent>
-            <!-- Invisible bridge for hover continuity -->
-            <div class="absolute -top-[40px] left-0 w-full h-[40px] bg-transparent"></div>
-            
-            <div class="grid grid-cols-2 gap-16 w-full max-w-[600px]">
+          <div id="mega-menu" class="mega-menu fixed left-1/2 top-[80px] w-[90vw] max-w-[600px] bg-brand-black text-white px-6 py-10 shadow-2xl rounded-xl z-[9999]" data-lenis-prevent>
+            <button id="mega-menu-close" class="absolute top-4 right-4 text-white hover:text-brand-red transition-colors text-2xl leading-none">&times;</button>
+
+            <div class="grid grid-cols-2 gap-16 w-full">
               <div>
                 <h4 class="font-oswald text-xl mb-6 text-brand-red tracking-widest" data-key="Global.Navigation.WhoWeHelp">WHO WE HELP</h4>
                 <ul class="space-y-3 text-sm text-gray-400 font-sans tracking-wide">
@@ -1236,6 +1251,39 @@
         }
       });
 
+    // --- Category Translations ---
+    var categoryTranslations = {
+      ch: {
+        'GOVERNMENT & PUBLIC SECTOR': '政府及公營機構',
+        'LIFESTYLE & CONSUMER': '生活及消費品牌',
+        'F&B & HOSPITALITY': '餐飲及酒店',
+        'MALLS & VENUES': '商場及場地',
+        'ROVING EXHIBITIONS': '巡迴展覽',
+        'SOCIAL & CONTENT': '社交媒體及內容',
+        'INTERACTIVE & TECH': '互動及科技',
+        'PR & MEDIA': '公關及媒體',
+        'EVENTS & CEREMONIES': '活動及典禮'
+      },
+      jp: {
+        'GOVERNMENT & PUBLIC SECTOR': '政府・公共機関',
+        'LIFESTYLE & CONSUMER': 'ライフスタイル・消費者',
+        'F&B & HOSPITALITY': '飲食・ホスピタリティ',
+        'MALLS & VENUES': 'モール・会場',
+        'ROVING EXHIBITIONS': '巡回展示',
+        'SOCIAL & CONTENT': 'ソーシャル・コンテンツ',
+        'INTERACTIVE & TECH': 'インタラクティブ・テック',
+        'PR & MEDIA': 'PR・メディア',
+        'EVENTS & CEREMONIES': 'イベント・セレモニー'
+      }
+    };
+    function translateCat(cat) {
+      var lang = (window.getLang && window.getLang()) || localStorage.getItem('lang') || 'en';
+      if (lang !== 'en' && categoryTranslations[lang]) {
+        return categoryTranslations[lang][cat] || cat;
+      }
+      return cat;
+    }
+
     // --- CMS Data Integration ---
     window.addEventListener('cmsDataReady', function(e) {
       var projects = (e.detail && e.detail.projects) || [];
@@ -1253,7 +1301,7 @@
           '<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>' +
           '<div class="absolute bottom-16 left-8 md:left-16 z-20 text-white">' +
             '<h3 class="font-oswald text-4xl md:text-6xl font-bold uppercase mb-2">' + (p.project || '') + '</h3>' +
-            '<p class="font-sans text-sm uppercase tracking-widest text-white/70 mb-4">' + (p.category || '') + '</p>' +
+            '<p class="slider-category font-sans text-sm uppercase tracking-widest text-white/70 mb-4" data-cat="' + (p.category || '').replace(/"/g, '&quot;') + '">' + translateCat(p.category || '') + '</p>' +
             '<a href="profile.html?id=' + (p.projectId || '') + '" class="font-sans text-sm font-bold uppercase tracking-widest hover:text-brand-red transition-colors flex items-center gap-2">' +
               '<span class="text-xl">↳</span> View Project</a>' +
           '</div></div>';
@@ -1294,7 +1342,7 @@
           '</div>' +
           '<div class="mt-4">' +
             '<h3 class="font-oswald text-2xl md:text-3xl font-bold uppercase group-hover:text-brand-red transition-colors">' + (p.project || '') + '</h3>' +
-            '<p class="font-sans text-sm text-gray-500 uppercase tracking-widest mt-1">' + (p.category || '') + (p.whatWeDo ? ' / ' + p.whatWeDo : '') + '</p>' +
+            '<p class="grid-category font-sans text-sm text-gray-500 uppercase tracking-widest mt-1" data-cat="' + (p.category || '').replace(/"/g, '&quot;') + '" data-whatwedo="' + (p.whatWeDo || '').replace(/"/g, '&quot;') + '">' + translateCat(p.category || '') + (p.whatWeDo ? ' / ' + translateCat(p.whatWeDo) : '') + '</p>' +
           '</div></a>';
       });
       gridContainer.innerHTML = gridHTML;
@@ -1434,6 +1482,19 @@
       ScrollTrigger.refresh();
     });
 
+    // Update categories on language change
+    window.addEventListener('languageChange', function() {
+      document.querySelectorAll('.slider-category').forEach(function(el) {
+        var cat = el.getAttribute('data-cat') || '';
+        el.textContent = translateCat(cat);
+      });
+      document.querySelectorAll('.grid-category').forEach(function(el) {
+        var cat = el.getAttribute('data-cat') || '';
+        var whatWeDo = el.getAttribute('data-whatwedo') || '';
+        el.textContent = translateCat(cat) + (whatWeDo ? ' / ' + translateCat(whatWeDo) : '');
+      });
+    });
+
     // --- Legal Modal Logic ---
     const legalModal = document.getElementById('legal-modal');
     const modalOverlay = document.getElementById('modal-overlay');
@@ -1499,9 +1560,31 @@
 
     // Listen for language changes from translations.js
     window.addEventListener('languageChange', updatePageSpecificUI);
-    
+
     // Initial UI update
     document.addEventListener('DOMContentLoaded', updatePageSpecificUI);
+
+    // Mega Menu click toggle
+    (function() {
+      var trigger = document.getElementById('mega-menu-trigger');
+      var menu = document.getElementById('mega-menu');
+      var closeBtn = document.getElementById('mega-menu-close');
+      if (!trigger || !menu) return;
+      trigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        menu.classList.toggle('open');
+      });
+      closeBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        menu.classList.remove('open');
+      });
+      document.addEventListener('click', function(e) {
+        if (!menu.contains(e.target) && e.target !== trigger && !trigger.contains(e.target)) {
+          menu.classList.remove('open');
+        }
+      });
+    })();
 
     </script>
   </body>
