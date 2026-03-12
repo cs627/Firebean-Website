@@ -274,6 +274,7 @@ function doSync(changedOnly) {
       youtube: String(row[CONFIG.COL.YOUTUBE - 1] || ''),
       challenge: String(row[CONFIG.COL.CHALLENGE - 1] || ''),
       solution: String(row[CONFIG.COL.SOLUTION - 1] || ''),
+      linkedin: String(row[CONFIG.COL.LINKEDIN - 1] || ''),
       webEN: String(row[CONFIG.COL.WEB_EN - 1] || ''),
       webTC: String(row[CONFIG.COL.WEB_TC - 1] || ''),
       webJP: String(row[CONFIG.COL.WEB_JP - 1] || ''),
