@@ -597,7 +597,7 @@
           <span data-key="Index.Narrative.Line1">WE MOVE</span>
           
           <!-- Logo Slot 1 (Lifestyle) -->
-          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[2.5em] h-[0.8em] align-middle" data-type="lifestyle" onclick="openClientModal(this)">
+          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[5em] h-[1.6em] align-middle" data-type="lifestyle" onclick="openClientModal(this)">
             <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
             <div class="w-full h-full perspective-1000">
               <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
@@ -615,7 +615,7 @@
           <span data-key="Index.Narrative.Line3">SPARK CURIOSITY FOR</span>
 
           <!-- Logo Slot 2 (Government) -->
-          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[2.5em] h-[0.8em] align-middle" data-type="government" onclick="openClientModal(this)">
+          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[5em] h-[1.6em] align-middle" data-type="government" onclick="openClientModal(this)">
             <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
             <div class="w-full h-full perspective-1000">
               <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
@@ -638,7 +638,7 @@
           <div class="inline-flex items-center">
             <span data-key="Index.Narrative.Line6">FOR</span>
             <!-- Logo Slot 3 (Lifestyle) -->
-            <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[2.5em] h-[0.8em] align-middle" data-type="lifestyle" onclick="openClientModal(this)">
+            <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[5em] h-[1.6em] align-middle" data-type="lifestyle" onclick="openClientModal(this)">
               <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
               <div class="w-full h-full perspective-1000">
                 <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
@@ -659,7 +659,7 @@
           <span data-key="Index.Narrative.Line1">弊社は、</span>
           
           <!-- Logo Slot 1 (Lifestyle) -->
-          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[2.5em] h-[0.8em] align-middle" data-type="lifestyle" onclick="openClientModal(this)">
+          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[5em] h-[1.6em] align-middle" data-type="lifestyle" onclick="openClientModal(this)">
             <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
             <div class="w-full h-full perspective-1000">
               <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
@@ -684,7 +684,7 @@
           <span data-key="Index.Narrative.Line4">へと導き、</span>
           
           <!-- Logo Slot 2 (Government) -->
-          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[2.5em] h-[0.8em] align-middle" data-type="government" onclick="openClientModal(this)">
+          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[5em] h-[1.6em] align-middle" data-type="government" onclick="openClientModal(this)">
             <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
             <div class="w-full h-full perspective-1000">
               <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
@@ -709,7 +709,7 @@
           <span data-key="Index.Narrative.Line7">れない空間へ。</span>
           
           <!-- Logo Slot 3 (Lifestyle) -->
-          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[2.5em] h-[0.8em] align-middle" data-type="lifestyle" onclick="openClientModal(this)">
+          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[5em] h-[1.6em] align-middle" data-type="lifestyle" onclick="openClientModal(this)">
             <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
             <div class="w-full h-full perspective-1000">
               <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
@@ -737,9 +737,9 @@
           <p id="modal-desc" class="font-sans text-[14px] text-brand-black mb-8 leading-relaxed">
             We helped this brand achieve unprecedented engagement through a multi-sensory roving exhibition.
           </p>
-          <button class="bg-brand-red text-white font-oswald uppercase tracking-widest px-8 py-3 text-sm hover:bg-brand-black transition-colors">
+          <a id="modal-view-btn" href="#" class="inline-block bg-brand-red text-white font-oswald uppercase tracking-widest px-8 py-3 text-sm hover:bg-brand-black transition-colors">
             View Profile
-          </button>
+          </a>
         </div>
       </div>
     </section>
@@ -774,16 +774,14 @@
           <!-- Card 01 -->
           <div class="newsletter-card group">
             <div class="overflow-hidden aspect-[16/9] mb-3 relative bg-gray-200 h-[130%] -top-[15%]">
-              <img id="newsletter-img-1" src="" class="parallax-img w-full h-full object-cover scale-110" alt="Report" data-key="Index.Newsletter.Card1.Alt" referrerpolicy="no-referrer">
+              <img id="newsletter-img-1" src="" class="parallax-img w-full h-full object-cover scale-110" alt="Report" referrerpolicy="no-referrer">
             </div>
             <div class="flex gap-6">
               <div>
-                <h3 class="font-oswald text-3xl md:text-4xl font-bold uppercase mb-4 leading-tight text-brand-black" data-key="Index.Newsletter.Card1.Title">FROM POLICY TO PLAY: THE 2026 ROVING EXHIBITION REPORT</h3>
-                <p class="font-sans text-sm text-gray-600 leading-relaxed mb-6" data-key="Index.Newsletter.Card1.Desc">
-                  We analyze how institutional rigor meets family-first engagement. Discover why 78% of HK families now prioritize interactive digital games over static displays in public exhibitions. This issue deep-dives into sentiment analysis data from our recent Buildings Department partnership, proving that "Create to Engage" is the only metric that matters in 2026.
-                </p>
+                <h3 id="newsletter-title-1" class="font-oswald text-3xl md:text-4xl font-bold uppercase mb-4 leading-tight text-brand-black"></h3>
+                <p id="newsletter-desc-1" class="font-sans text-sm text-gray-600 leading-relaxed mb-6"></p>
                 <div class="text-right">
-                  <a href="#" class="font-oswald text-sm font-bold tracking-widest text-brand-black hover:text-brand-red transition-colors" data-key="Index.Newsletter.ReadMore">READ →</a>
+                  <a id="newsletter-link-1" href="#" class="font-oswald text-sm font-bold tracking-widest text-brand-black hover:text-brand-red transition-colors" data-key="Index.Newsletter.ReadMore">READ →</a>
                 </div>
               </div>
             </div>
@@ -792,37 +790,33 @@
           <!-- Card 02 -->
           <div class="newsletter-card group">
             <div class="overflow-hidden aspect-[16/9] mb-3 relative bg-gray-200 h-[130%] -top-[15%]">
-              <img id="newsletter-img-2" src="" class="parallax-img w-full h-full object-cover scale-110" alt="Luxury" data-key="Index.Newsletter.Card2.Alt" referrerpolicy="no-referrer">
+              <img id="newsletter-img-2" src="" class="parallax-img w-full h-full object-cover scale-110" alt="Luxury" referrerpolicy="no-referrer">
             </div>
             <div class="flex gap-6">
               <div>
-                <h3 class="font-oswald text-3xl md:text-4xl font-bold uppercase mb-4 leading-tight text-brand-black" data-key="Index.Newsletter.Card2.Title">LUXURY RESILIENCE: WHY F&B BRANDS CRAVE IMMERSION</h3>
-                <p class="font-sans text-sm text-gray-600 leading-relaxed mb-6" data-key="Index.Newsletter.Card2.Desc">
-                  High-energy activations are the new currency for Hong Kong’s retail core. We explore the "Tactile Maximalism" trend in Causeway Bay pop-ups and how F&B leaders like Ogawa and MaskOn are leveraging immersive storytelling to drive cultural resonance beyond the scroll. Learn how to architect moments that Hong Kong remembers.
-                </p>
+                <h3 id="newsletter-title-2" class="font-oswald text-3xl md:text-4xl font-bold uppercase mb-4 leading-tight text-brand-black"></h3>
+                <p id="newsletter-desc-2" class="font-sans text-sm text-gray-600 leading-relaxed mb-6"></p>
                 <div class="text-right">
-                  <a href="#" class="font-oswald text-sm font-bold tracking-widest text-brand-black hover:text-brand-red transition-colors" data-key="Index.Newsletter.ReadMore">READ →</a>
+                  <a id="newsletter-link-2" href="#" class="font-oswald text-sm font-bold tracking-widest text-brand-black hover:text-brand-red transition-colors" data-key="Index.Newsletter.ReadMore">READ →</a>
                 </div>
               </div>
             </div>
           </div>
-
           <!-- Card 03 -->
           <div class="newsletter-card group">
             <div class="overflow-hidden aspect-[16/9] mb-3 relative bg-gray-200 h-[130%] -top-[15%]">
-              <img id="newsletter-img-3" src="" class="parallax-img w-full h-full object-cover scale-110" alt="AI" data-key="Index.Newsletter.Card3.Alt" referrerpolicy="no-referrer">
+              <img id="newsletter-img-3" src="" class="parallax-img w-full h-full object-cover scale-110" alt="AI" referrerpolicy="no-referrer">
             </div>
             <div class="flex gap-6">
               <div>
-                <h3 class="font-oswald text-3xl md:text-4xl font-bold uppercase mb-4 leading-tight text-brand-black" data-key="Index.Newsletter.Card3.Title">THE AI EDGE: NAVIGATING THE NEW ERA OF PUBLIC PR</h3>
-                <p class="font-sans text-sm text-gray-600 leading-relaxed mb-6" data-key="Index.Newsletter.Card3.Desc">
-                  Generative Search is changing how government tenders and lifestyle brands find partners. We break down the technical requirements for GEO (Generative Engine Optimization) and show you how Firebean’s "Intelligence Center" ensures our clients remain the first cited answer in the age of AI.
-                </p>
+                <h3 id="newsletter-title-3" class="font-oswald text-3xl md:text-4xl font-bold uppercase mb-4 leading-tight text-brand-black"></h3>
+                <p id="newsletter-desc-3" class="font-sans text-sm text-gray-600 leading-relaxed mb-6"></p>
                 <div class="text-right">
-                  <a href="#" class="font-oswald text-sm font-bold tracking-widest text-brand-black hover:text-brand-red transition-colors" data-key="Index.Newsletter.ReadMore">READ →</a>
+                  <a id="newsletter-link-3" href="#" class="font-oswald text-sm font-bold tracking-widest text-brand-black hover:text-brand-red transition-colors" data-key="Index.Newsletter.ReadMore">READ →</a>
                 </div>
               </div>
             </div>
+          </div>
           </div>
 
         </div>
@@ -1060,10 +1054,20 @@
       const modalLogo = document.getElementById('modal-logo');
       const modalDesc = document.getElementById('modal-desc');
 
+      var modalViewBtn = document.getElementById('modal-view-btn');
+
       window.openClientModal = function(slot) {
         modalLogo.referrerPolicy = 'no-referrer';
         modalLogo.src = slot.dataset.currentSrc;
         modalDesc.textContent = slot.dataset.desc;
+        // Set View Profile link
+        var pid = slot.dataset.projectId;
+        if (pid) {
+          modalViewBtn.href = 'profile.html?id=' + encodeURIComponent(pid);
+          modalViewBtn.style.display = '';
+        } else {
+          modalViewBtn.style.display = 'none';
+        }
         
         clientModal.classList.remove('hidden');
         // Trigger reflow
@@ -1315,11 +1319,11 @@
         var isLifestyle = p.filterSlugs.some(function(s) { return lifestyleSlugs.indexOf(s) !== -1; });
         if (isGov && !seenGov[p.logoBlack]) {
           seenGov[p.logoBlack] = true;
-          govLogos.push({ src: p.logoBlack, desc: p.project + ' — ' + (p.scope || p.category || '') });
+          govLogos.push({ src: p.logoBlack, desc: p.project + ' — ' + (p.scope || p.category || ''), projectId: p.projectId || '' });
         }
         if ((isLifestyle || !isGov) && !seenLifestyle[p.logoBlack]) {
           seenLifestyle[p.logoBlack] = true;
-          lifestyleLogos.push({ src: p.logoBlack, desc: p.project + ' — ' + (p.scope || p.category || '') });
+          lifestyleLogos.push({ src: p.logoBlack, desc: p.project + ' — ' + (p.scope || p.category || ''), projectId: p.projectId || '' });
         }
       });
 
@@ -1333,16 +1337,34 @@
           var logoData = pool[index % pool.length];
           slot.dataset.desc = logoData.desc;
           slot.dataset.currentSrc = logoData.src;
+          slot.dataset.projectId = logoData.projectId || '';
           var frontImg = slot.querySelector('.front-img');
           if (frontImg) { frontImg.referrerPolicy = 'no-referrer'; frontImg.src = logoData.src; }
         });
       }
 
-      // --- 4. Populate Polaroid Images from CMS ---
-      var polaroidSources = projects.filter(function(p) { return p.heroPhotoSmall; })
-        .slice(0, 8).map(function(p) { return p.heroPhotoSmall; });
-      if (polaroidSources.length) {
-        polaroidImages = polaroidSources;
+      // --- 4. Populate Polaroid Images from CMS (random, non-hero) ---
+      // Collect all non-hero images: logos and gallery photos
+      var nonHeroPool = [];
+      projects.forEach(function(p) {
+        if (p.logoBlack) nonHeroPool.push(p.logoBlack);
+        if (p.logoWhite) nonHeroPool.push(p.logoWhite);
+        if (p.galleryPhotos && p.galleryPhotos.length) {
+          p.galleryPhotos.forEach(function(g) { nonHeroPool.push(g); });
+        }
+      });
+      // Fallback to heroPhotoSmall if no non-hero images yet (pre-sync)
+      if (!nonHeroPool.length) {
+        nonHeroPool = projects.filter(function(p) { return p.heroPhotoSmall; })
+          .map(function(p) { return p.heroPhotoSmall; });
+      }
+      // Shuffle using Fisher-Yates
+      for (var si = nonHeroPool.length - 1; si > 0; si--) {
+        var sj = Math.floor(Math.random() * (si + 1));
+        var tmp = nonHeroPool[si]; nonHeroPool[si] = nonHeroPool[sj]; nonHeroPool[sj] = tmp;
+      }
+      if (nonHeroPool.length) {
+        polaroidImages = nonHeroPool.slice(0, 8);
         // Set initial polaroid images
         document.querySelectorAll('.polaroid-img-1').forEach(function(img, i) {
           img.src = polaroidImages[i % polaroidImages.length];
@@ -1352,14 +1374,42 @@
         });
       }
 
-      // --- 5. Set Newsletter Card Images (next 3 after hero+profile = index 9-11) ---
+      // --- 5. Set Newsletter Cards (next 3 after hero+profile = index 9-11) ---
       var newsletterProjects = withPhotos.slice(9, 12);
-      var newsletterImg1 = document.getElementById('newsletter-img-1');
-      var newsletterImg2 = document.getElementById('newsletter-img-2');
-      var newsletterImg3 = document.getElementById('newsletter-img-3');
-      if (newsletterProjects[0] && newsletterImg1) newsletterImg1.src = newsletterProjects[0].heroPhoto;
-      if (newsletterProjects[1] && newsletterImg2) newsletterImg2.src = newsletterProjects[1].heroPhoto;
-      if (newsletterProjects[2] && newsletterImg3) newsletterImg3.src = newsletterProjects[2].heroPhoto;
+      var newsletterCards = [
+        { img: 'newsletter-img-1', title: 'newsletter-title-1', desc: 'newsletter-desc-1', link: 'newsletter-link-1' },
+        { img: 'newsletter-img-2', title: 'newsletter-title-2', desc: 'newsletter-desc-2', link: 'newsletter-link-2' },
+        { img: 'newsletter-img-3', title: 'newsletter-title-3', desc: 'newsletter-desc-3', link: 'newsletter-link-3' }
+      ];
+      newsletterCards.forEach(function(card, ci) {
+        var np = newsletterProjects[ci];
+        if (!np) return;
+        var imgEl = document.getElementById(card.img);
+        var titleEl = document.getElementById(card.title);
+        var descEl = document.getElementById(card.desc);
+        var linkEl = document.getElementById(card.link);
+        if (imgEl) imgEl.src = np.heroPhoto;
+        if (titleEl) titleEl.textContent = np.project || '';
+        // Use LinkedIn post text first 50 chars, fallback to scope
+        if (descEl) {
+          var linkedinText = np.linkedin || '';
+          if (linkedinText) {
+            descEl.textContent = linkedinText.length > 50 ? linkedinText.substring(0, 50) + '...' : linkedinText;
+          } else {
+            descEl.textContent = np.scope || np.category || '';
+          }
+        }
+        // Link to LinkedIn URL if available
+        if (linkEl) {
+          if (np.linkedin) {
+            linkEl.href = np.linkedin;
+            linkEl.target = '_blank';
+            linkEl.rel = 'noopener noreferrer';
+          } else {
+            linkEl.href = 'profile.html?id=' + encodeURIComponent(np.projectId || String(ci + 9));
+          }
+        }
+      });
 
       // --- 6. Refresh ScrollTrigger for dynamic content ---
       ScrollTrigger.refresh();
