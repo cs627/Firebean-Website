@@ -569,121 +569,83 @@
         var qaContent = document.getElementById('qa-content');
         if (!qaContainer || !qaContent) return;
 
-        var lang = (window.getLang && window.getLang()) || localStorage.getItem('lang') || 'en';
-        var webContent = '';
-        if (lang === 'ch' && project.webTC) webContent = project.webTC;
-        else if (lang === 'jp' && project.webJP) webContent = project.webJP;
-        else if (project.webEN) webContent = project.webEN;
+        // Work directly with the rendered article DOM
+        var articleEl = document.getElementById('profile-challenge');
+        if (!articleEl) { qaContainer.classList.add('hidden'); return; }
 
-        if (!webContent) {
-          qaContainer.classList.add('hidden');
-          return;
-        }
-
-        // Create a temp container to parse the HTML
-        var tempDiv = document.createElement('div');
-        tempDiv.innerHTML = webContent;
-
-        // Find FAQ section: look for heading containing "FAQ" or "Q&A"
-        var faqStart = null;
-        var allEls = tempDiv.querySelectorAll('h1, h2, h3, h4, h5, h6');
-        for (var i = 0; i < allEls.length; i++) {
-          var txt = allEls[i].textContent.toLowerCase();
+        // Find FAQ heading in the rendered article
+        var faqHeading = null;
+        var allHeadings = articleEl.querySelectorAll('h1, h2, h3, h4, h5, h6');
+        for (var i = 0; i < allHeadings.length; i++) {
+          var txt = allHeadings[i].textContent.toLowerCase();
           if (txt.indexOf('faq') !== -1 || txt.indexOf('q&a') !== -1 || txt.indexOf('q & a') !== -1) {
-            faqStart = allEls[i];
+            faqHeading = allHeadings[i];
             break;
           }
         }
 
-        if (!faqStart) {
-          qaContainer.classList.add('hidden');
-          return;
+        if (!faqHeading) { qaContainer.classList.add('hidden'); return; }
+
+        // Collect all sibling elements after the FAQ heading
+        var faqElements = [];
+        var sib = faqHeading.nextElementSibling;
+        while (sib) {
+          faqElements.push(sib);
+          sib = sib.nextElementSibling;
         }
 
-        // Collect all content after the FAQ heading
-        var faqHtml = '';
-        var sibling = faqStart.nextElementSibling;
-        while (sibling) {
-          faqHtml += sibling.outerHTML;
-          sibling = sibling.nextElementSibling;
-        }
+        // Parse Q&A pairs from the collected elements
+        var qaPairs = [];
 
-        if (!faqHtml.trim()) {
-          // Try parsing the text content for markdown-style Q&A
-          var lines = webContent.split('\n');
-          var inFaq = false;
-          var qaPairs = [];
-          var currentQ = '';
-          var currentA = '';
-          for (var j = 0; j < lines.length; j++) {
-            var line = lines[j].trim();
-            if (!inFaq) {
-              if (/faq|q\s*&\s*a/i.test(line)) { inFaq = true; continue; }
-            } else {
-              // Detect question lines
-              var qMatch = line.match(/^\*{0,2}Q\d*[.:]/i) || line.match(/^<b>Q\d*[.:]/i);
-              if (qMatch) {
-                if (currentQ) qaPairs.push({ q: currentQ, a: currentA.trim() });
-                currentQ = line.replace(/^\*{0,2}/, '').replace(/<\/?b>/g, '').replace(/^Q\d*[.:] ?/i, '').replace(/\*{0,2}$/, '').trim();
-                currentA = '';
-              } else if (currentQ && line) {
-                var aLine = line.replace(/^A\d*[.:] ?/i, '').trim();
-                currentA += (currentA ? ' ' : '') + aLine;
-              }
-            }
-          }
-          if (currentQ) qaPairs.push({ q: currentQ, a: currentA.trim() });
-
-          if (qaPairs.length) {
-            qaContent.innerHTML = '';
-            qaPairs.forEach(function(pair) {
-              var qDiv = document.createElement('div');
-              qDiv.className = 'mb-5';
-              qDiv.innerHTML = '<p class="font-sans text-sm font-semibold text-brand-black leading-snug mb-1">' + pair.q + '</p>' +
-                '<p class="font-sans text-sm text-gray-500 leading-relaxed">' + pair.a + '</p>';
-              qaContent.appendChild(qDiv);
-            });
-            qaContainer.classList.remove('hidden');
-          } else {
-            qaContainer.classList.add('hidden');
-          }
-          return;
-        }
-
-        // Parse structured FAQ HTML (ul/li with bold Q and text A)
-        var faqTemp = document.createElement('div');
-        faqTemp.innerHTML = faqHtml;
-        var qaPairsHtml = [];
-
-        // Try li-based Q&A (Row 0 pattern: <li><b>Q:</b>\nA:...)
-        var lis = faqTemp.querySelectorAll('li');
-        if (lis.length) {
+        // Strategy 1: li-based (ul/ol with bold questions)
+        for (var j = 0; j < faqElements.length; j++) {
+          var lis = faqElements[j].querySelectorAll ? faqElements[j].querySelectorAll('li') : [];
           for (var k = 0; k < lis.length; k++) {
             var li = lis[k];
             var boldEl = li.querySelector('b, strong');
-            var question = boldEl ? boldEl.textContent.replace(/^Q\d*[.:] ?/i, '').replace(/\*{0,2}$/,'').trim() : '';
-            var answer = li.textContent;
-            if (boldEl) answer = answer.replace(boldEl.textContent, '').trim();
-            answer = answer.replace(/^A\d*[.:] ?/i, '').trim();
-            if (question) qaPairsHtml.push({ q: question, a: answer });
+            if (!boldEl) continue;
+            var question = boldEl.textContent.replace(/^Q\d*[.:] ?/i, '').trim();
+            var answer = li.textContent.replace(boldEl.textContent, '').replace(/^\s*A\d*[.:] ?/i, '').trim();
+            if (question) qaPairs.push({ q: question, a: answer });
           }
         }
 
-        // Try p-based Q&A (Row 4 pattern: <p>Q1: ...A1: ...)
-        if (!qaPairsHtml.length) {
-          var ps = faqTemp.querySelectorAll('p');
-          for (var m = 0; m < ps.length; m++) {
-            var pText = ps[m].textContent.trim();
-            var qaMatch = pText.match(/Q\d*[.:] ?(.+?)(?:\s*(?:<br>|\n)\s*)?A\d*[.:] ?(.+)/is);
+        // Strategy 2: p-based with Q/A inline (Q1: ... A1: ...)
+        if (!qaPairs.length) {
+          for (var m = 0; m < faqElements.length; m++) {
+            var pText = faqElements[m].textContent.trim();
+            if (!pText) continue;
+            var qaMatch = pText.match(/Q\d*[.:]\s*(.+?)\s*A\d*[.:]\s*(.+)/is);
             if (qaMatch) {
-              qaPairsHtml.push({ q: qaMatch[1].trim(), a: qaMatch[2].trim() });
+              qaPairs.push({ q: qaMatch[1].trim(), a: qaMatch[2].trim() });
             }
           }
         }
 
-        if (qaPairsHtml.length) {
+        // Strategy 3: Markdown-style **Q:** on separate lines (parsed from text)
+        if (!qaPairs.length) {
+          var currentQ = '', currentA = '';
+          for (var n = 0; n < faqElements.length; n++) {
+            var elText = faqElements[n].textContent.trim();
+            // Strip markdown ** markers
+            elText = elText.replace(/\*\*/g, '');
+            var qStart = elText.match(/^Q\d*[.:] ?(.+)/i);
+            if (qStart) {
+              if (currentQ) qaPairs.push({ q: currentQ, a: currentA.trim() });
+              currentQ = qStart[1].trim();
+              currentA = '';
+            } else if (currentQ) {
+              var aStart = elText.match(/^A\d*[.:] ?(.+)/i);
+              currentA += (currentA ? ' ' : '') + (aStart ? aStart[1] : elText).trim();
+            }
+          }
+          if (currentQ) qaPairs.push({ q: currentQ, a: currentA.trim() });
+        }
+
+        // Render Q&A in sidebar
+        if (qaPairs.length) {
           qaContent.innerHTML = '';
-          qaPairsHtml.forEach(function(pair) {
+          qaPairs.forEach(function(pair) {
             var qDiv = document.createElement('div');
             qDiv.className = 'mb-5';
             qDiv.innerHTML = '<p class="font-sans text-sm font-semibold text-brand-black leading-snug mb-1">' + pair.q + '</p>' +
@@ -691,30 +653,14 @@
             qaContent.appendChild(qDiv);
           });
           qaContainer.classList.remove('hidden');
+
+          // Remove FAQ section from main article to avoid duplication
+          var toRemove = [faqHeading].concat(faqElements);
+          toRemove.forEach(function(el) {
+            if (el.parentNode) el.parentNode.removeChild(el);
+          });
         } else {
           qaContainer.classList.add('hidden');
-        }
-
-        // Remove FAQ section from main article to avoid duplication
-        var articleEl = document.getElementById('profile-challenge');
-        if (articleEl && qaPairsHtml.length) {
-          // Find and remove FAQ heading + subsequent content from article
-          var articleHeadings = articleEl.querySelectorAll('h1, h2, h3, h4, h5, h6');
-          for (var n = 0; n < articleHeadings.length; n++) {
-            var hText = articleHeadings[n].textContent.toLowerCase();
-            if (hText.indexOf('faq') !== -1 || hText.indexOf('q&a') !== -1 || hText.indexOf('q & a') !== -1) {
-              // Remove this heading and everything after it
-              var toRemove = [];
-              toRemove.push(articleHeadings[n]);
-              var sib = articleHeadings[n].nextElementSibling;
-              while (sib) {
-                toRemove.push(sib);
-                sib = sib.nextElementSibling;
-              }
-              toRemove.forEach(function(el) { el.parentNode.removeChild(el); });
-              break;
-            }
-          }
         }
       }
 
