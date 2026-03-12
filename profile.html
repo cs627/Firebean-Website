@@ -580,7 +580,7 @@
         var allHeadings = articleEl.querySelectorAll('h1, h2, h3, h4, h5, h6');
         for (var i = 0; i < allHeadings.length; i++) {
           var txt = allHeadings[i].textContent.toLowerCase();
-          if (txt.indexOf('faq') !== -1 || txt.indexOf('q&a') !== -1 || txt.indexOf('q & a') !== -1) {
+          if (txt.indexOf('faq') !== -1 || txt.indexOf('q&a') !== -1 || txt.indexOf('q & a') !== -1 || txt.indexOf('常見問題') !== -1 || txt.indexOf('よくある質問') !== -1) {
             faqHeading = allHeadings[i];
             break;
           }
@@ -739,12 +739,9 @@
         });
       }
 
-      // Fetch from Drive folder, fallback to hero
-      if (project.driveFolderId && window.fetchGalleryPhotos) {
-        window.fetchGalleryPhotos(project.driveFolderId, project.heroPhoto, 8)
-          .then(function(photos) {
-            buildGallery(photos);
-          });
+      // Use pre-downloaded gallery photos from CMS JSON, fallback to hero
+      if (project.galleryPhotos && project.galleryPhotos.length) {
+        buildGallery(project.galleryPhotos);
       } else {
         buildGallery([]);
       }
