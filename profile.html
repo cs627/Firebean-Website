@@ -308,11 +308,19 @@
         <div id="profile-solution" class="cms-content mt-6"></div>
       </div>
 
-      <!-- Right Column: Scope Sidebar -->
+      <!-- Right Column: Scope + Q&A Sidebar -->
       <aside class="lg:col-span-4">
-        <div id="profile-scope" class="sticky top-8 border-l-2 border-brand-red pl-6">
-          <h4 class="font-oswald text-xs uppercase tracking-[0.2em] text-gray-400 mb-4">Scope</h4>
-          <p class="font-sans text-sm text-gray-600 leading-relaxed"></p>
+        <div class="sticky top-8 space-y-10">
+          <!-- Scope -->
+          <div id="profile-scope" class="border-l-2 border-brand-red pl-6">
+            <h4 class="font-oswald text-xs uppercase tracking-[0.2em] text-gray-400 mb-4">Scope</h4>
+            <p class="font-sans text-sm text-gray-600 leading-relaxed"></p>
+          </div>
+          <!-- Q&A Section (populated from CMS FAQ content) -->
+          <div id="profile-qa" class="border-l-2 border-brand-black/10 pl-6 hidden">
+            <h4 class="font-oswald text-xs uppercase tracking-[0.2em] text-gray-400 mb-6">Q&A</h4>
+            <div id="qa-content" class="space-y-5"></div>
+          </div>
         </div>
       </aside>
     </section>
@@ -324,17 +332,9 @@
       </div>
     </section>
 
-    <!-- Image Grid Section -->
+    <!-- Image Gallery Section (dynamically populated from Drive folder) -->
     <section id="profile-gallery" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="aspect-square overflow-hidden">
-        <img id="profile-img-1" src="" alt="Detail Shot 1" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" referrerpolicy="no-referrer">
-      </div>
-      <div class="aspect-square overflow-hidden">
-        <img id="profile-img-2" src="" alt="Detail Shot 2" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" referrerpolicy="no-referrer">
-      </div>
-      <div class="aspect-[16/9] md:col-span-2 overflow-hidden">
-        <img id="profile-img-3" src="" alt="Wide Shot" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" referrerpolicy="no-referrer">
-      </div>
+      <!-- Gallery images populated by JS from Drive folder -->
     </section>
 
   </main>
@@ -563,6 +563,169 @@
       // Re-populate on language change
       window.addEventListener('languageChange', getProfileContent);
 
+      // --- Extract Q&A/FAQ from CMS content and move to sidebar ---
+      function extractAndShowQA() {
+        var qaContainer = document.getElementById('profile-qa');
+        var qaContent = document.getElementById('qa-content');
+        if (!qaContainer || !qaContent) return;
+
+        var lang = (window.getLang && window.getLang()) || localStorage.getItem('lang') || 'en';
+        var webContent = '';
+        if (lang === 'ch' && project.webTC) webContent = project.webTC;
+        else if (lang === 'jp' && project.webJP) webContent = project.webJP;
+        else if (project.webEN) webContent = project.webEN;
+
+        if (!webContent) {
+          qaContainer.classList.add('hidden');
+          return;
+        }
+
+        // Create a temp container to parse the HTML
+        var tempDiv = document.createElement('div');
+        tempDiv.innerHTML = webContent;
+
+        // Find FAQ section: look for heading containing "FAQ" or "Q&A"
+        var faqStart = null;
+        var allEls = tempDiv.querySelectorAll('h1, h2, h3, h4, h5, h6');
+        for (var i = 0; i < allEls.length; i++) {
+          var txt = allEls[i].textContent.toLowerCase();
+          if (txt.indexOf('faq') !== -1 || txt.indexOf('q&a') !== -1 || txt.indexOf('q & a') !== -1) {
+            faqStart = allEls[i];
+            break;
+          }
+        }
+
+        if (!faqStart) {
+          qaContainer.classList.add('hidden');
+          return;
+        }
+
+        // Collect all content after the FAQ heading
+        var faqHtml = '';
+        var sibling = faqStart.nextElementSibling;
+        while (sibling) {
+          faqHtml += sibling.outerHTML;
+          sibling = sibling.nextElementSibling;
+        }
+
+        if (!faqHtml.trim()) {
+          // Try parsing the text content for markdown-style Q&A
+          var lines = webContent.split('\n');
+          var inFaq = false;
+          var qaPairs = [];
+          var currentQ = '';
+          var currentA = '';
+          for (var j = 0; j < lines.length; j++) {
+            var line = lines[j].trim();
+            if (!inFaq) {
+              if (/faq|q\s*&\s*a/i.test(line)) { inFaq = true; continue; }
+            } else {
+              // Detect question lines
+              var qMatch = line.match(/^\*{0,2}Q\d*[.:]/i) || line.match(/^<b>Q\d*[.:]/i);
+              if (qMatch) {
+                if (currentQ) qaPairs.push({ q: currentQ, a: currentA.trim() });
+                currentQ = line.replace(/^\*{0,2}/, '').replace(/<\/?b>/g, '').replace(/^Q\d*[.:] ?/i, '').replace(/\*{0,2}$/, '').trim();
+                currentA = '';
+              } else if (currentQ && line) {
+                var aLine = line.replace(/^A\d*[.:] ?/i, '').trim();
+                currentA += (currentA ? ' ' : '') + aLine;
+              }
+            }
+          }
+          if (currentQ) qaPairs.push({ q: currentQ, a: currentA.trim() });
+
+          if (qaPairs.length) {
+            qaContent.innerHTML = '';
+            qaPairs.forEach(function(pair) {
+              var qDiv = document.createElement('div');
+              qDiv.className = 'mb-5';
+              qDiv.innerHTML = '<p class="font-sans text-sm font-semibold text-brand-black leading-snug mb-1">' + pair.q + '</p>' +
+                '<p class="font-sans text-sm text-gray-500 leading-relaxed">' + pair.a + '</p>';
+              qaContent.appendChild(qDiv);
+            });
+            qaContainer.classList.remove('hidden');
+          } else {
+            qaContainer.classList.add('hidden');
+          }
+          return;
+        }
+
+        // Parse structured FAQ HTML (ul/li with bold Q and text A)
+        var faqTemp = document.createElement('div');
+        faqTemp.innerHTML = faqHtml;
+        var qaPairsHtml = [];
+
+        // Try li-based Q&A (Row 0 pattern: <li><b>Q:</b>\nA:...)
+        var lis = faqTemp.querySelectorAll('li');
+        if (lis.length) {
+          for (var k = 0; k < lis.length; k++) {
+            var li = lis[k];
+            var boldEl = li.querySelector('b, strong');
+            var question = boldEl ? boldEl.textContent.replace(/^Q\d*[.:] ?/i, '').replace(/\*{0,2}$/,'').trim() : '';
+            var answer = li.textContent;
+            if (boldEl) answer = answer.replace(boldEl.textContent, '').trim();
+            answer = answer.replace(/^A\d*[.:] ?/i, '').trim();
+            if (question) qaPairsHtml.push({ q: question, a: answer });
+          }
+        }
+
+        // Try p-based Q&A (Row 4 pattern: <p>Q1: ...A1: ...)
+        if (!qaPairsHtml.length) {
+          var ps = faqTemp.querySelectorAll('p');
+          for (var m = 0; m < ps.length; m++) {
+            var pText = ps[m].textContent.trim();
+            var qaMatch = pText.match(/Q\d*[.:] ?(.+?)(?:\s*(?:<br>|\n)\s*)?A\d*[.:] ?(.+)/is);
+            if (qaMatch) {
+              qaPairsHtml.push({ q: qaMatch[1].trim(), a: qaMatch[2].trim() });
+            }
+          }
+        }
+
+        if (qaPairsHtml.length) {
+          qaContent.innerHTML = '';
+          qaPairsHtml.forEach(function(pair) {
+            var qDiv = document.createElement('div');
+            qDiv.className = 'mb-5';
+            qDiv.innerHTML = '<p class="font-sans text-sm font-semibold text-brand-black leading-snug mb-1">' + pair.q + '</p>' +
+              '<p class="font-sans text-sm text-gray-500 leading-relaxed">' + pair.a + '</p>';
+            qaContent.appendChild(qDiv);
+          });
+          qaContainer.classList.remove('hidden');
+        } else {
+          qaContainer.classList.add('hidden');
+        }
+
+        // Remove FAQ section from main article to avoid duplication
+        var articleEl = document.getElementById('profile-challenge');
+        if (articleEl && qaPairsHtml.length) {
+          // Find and remove FAQ heading + subsequent content from article
+          var articleHeadings = articleEl.querySelectorAll('h1, h2, h3, h4, h5, h6');
+          for (var n = 0; n < articleHeadings.length; n++) {
+            var hText = articleHeadings[n].textContent.toLowerCase();
+            if (hText.indexOf('faq') !== -1 || hText.indexOf('q&a') !== -1 || hText.indexOf('q & a') !== -1) {
+              // Remove this heading and everything after it
+              var toRemove = [];
+              toRemove.push(articleHeadings[n]);
+              var sib = articleHeadings[n].nextElementSibling;
+              while (sib) {
+                toRemove.push(sib);
+                sib = sib.nextElementSibling;
+              }
+              toRemove.forEach(function(el) { el.parentNode.removeChild(el); });
+              break;
+            }
+          }
+        }
+      }
+
+      // Run Q&A extraction after content is loaded
+      setTimeout(extractAndShowQA, 100);
+
+      // Re-extract Q&A on language change
+      window.addEventListener('languageChange', function() {
+        setTimeout(extractAndShowQA, 200);
+      });
+
       // YouTube embed
       if (project.youtube) {
         var videoSection = document.getElementById('profile-video-section');
@@ -575,23 +738,76 @@
         }
       }
 
-      // Gallery images — use hero as fallback for all 3
-      var img1 = document.getElementById('profile-img-1');
-      var img2 = document.getElementById('profile-img-2');
-      var img3 = document.getElementById('profile-img-3');
-      if (project.heroPhoto) {
-        img1.src = project.heroPhoto;
-        img2.src = project.heroPhoto;
-        img3.src = project.heroPhoto;
+      // --- Gallery: fetch real photos from Drive folder ---
+      var galleryEl = document.getElementById('profile-gallery');
+
+      function buildGallery(photoUrls) {
+        galleryEl.innerHTML = '';
+        if (!photoUrls || !photoUrls.length) {
+          // Fallback: show hero if no folder photos
+          if (project.heroPhoto) {
+            galleryEl.innerHTML = '<div class="aspect-[16/9] md:col-span-2 overflow-hidden"><img src="' + project.heroPhoto + '" alt="' + (project.project || '') + '" class="w-full h-full object-cover" referrerpolicy="no-referrer"></div>';
+          }
+          return;
+        }
+
+        // Dynamic masonry-style layout based on photo count
+        photoUrls.forEach(function(url, idx) {
+          var div = document.createElement('div');
+          div.className = 'overflow-hidden';
+          // Alternate aspect ratios for visual variety
+          if (photoUrls.length === 1) {
+            div.className += ' aspect-[16/9] md:col-span-2';
+          } else if (photoUrls.length === 2) {
+            div.className += ' aspect-square';
+          } else {
+            // Last image spans full width if odd count
+            if (idx === photoUrls.length - 1 && photoUrls.length % 2 === 1) {
+              div.className += ' aspect-[16/9] md:col-span-2';
+            } else {
+              div.className += ' aspect-square';
+            }
+          }
+          var img = document.createElement('img');
+          img.src = url;
+          img.alt = (project.project || 'Project') + ' photo ' + (idx + 1);
+          img.className = 'w-full h-full object-cover hover:scale-105 transition-transform duration-700';
+          img.referrerPolicy = 'no-referrer';
+          div.appendChild(img);
+          galleryEl.appendChild(div);
+        });
+
+        // Animate gallery images
+        gsap.from('#profile-gallery > div', {
+          y: 40,
+          opacity: 0,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: '#profile-gallery',
+            start: 'top 85%'
+          }
+        });
       }
 
-      // Re-trigger GSAP animations for newly loaded images
-      gsap.from("#profile-hero, #profile-img-1, #profile-img-2, #profile-img-3", {
+      // Fetch from Drive folder, fallback to hero
+      if (project.driveFolderId && window.fetchGalleryPhotos) {
+        window.fetchGalleryPhotos(project.driveFolderId, project.heroPhoto, 8)
+          .then(function(photos) {
+            buildGallery(photos);
+          });
+      } else {
+        buildGallery([]);
+      }
+
+      // Re-trigger GSAP animations for hero
+      gsap.from('#profile-hero', {
         scale: 1.1,
         opacity: 0,
         duration: 1.5,
         delay: 0.3,
-        ease: "power2.out"
+        ease: 'power2.out'
       });
 
       ScrollTrigger.refresh();
