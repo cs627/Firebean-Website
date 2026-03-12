@@ -282,7 +282,7 @@
     function createProfileElement(profile, layoutIndex) {
       var layout = layoutPatterns[layoutIndex % layoutPatterns.length];
       const element = document.createElement('a');
-      element.href = '/profile.html?id=' + encodeURIComponent(profile.projectId || profile.index);
+      element.href = 'profile.html?id=' + encodeURIComponent(profile.projectId || profile.index);
       element.className = 'group block project-profile';
       element.style.gridColumn = 'span ' + layout.colSpan + ' / span ' + layout.colSpan;
       if (window.innerWidth >= 768) {
