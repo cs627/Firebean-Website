@@ -81,18 +81,18 @@
 
   <!-- Navigation (Non-sticky as requested) -->
   <nav class="bg-brand-gray/80 backdrop-blur-md w-full px-6 py-6 flex justify-between items-center z-[9999] text-brand-black border-b border-black/5 pointer-events-auto" id="navbar" data-lenis-prevent>
-    <a href="/index.html" class="flex items-center gap-2 hover:opacity-70 transition-opacity">
+    <a class='flex items-center gap-2 hover:opacity-70 transition-opacity' href='/'>
       <img src="https://drive.google.com/thumbnail?id=1d3M0KGD88nksyq8EWew8UvI9MgrTZNYl&sz=w100" class="h-6 w-auto object-contain mix-blend-multiply" alt="Firebean Logo" referrerpolicy="no-referrer">
       <div class="font-sans font-light text-xl tracking-widest lowercase" style="font-variant: small-caps;">firebean</div>
     </a>
     
     <div class="hidden md:flex gap-8 font-sans text-sm uppercase tracking-widest items-center">
-      <a href="/index.html" class="hover:opacity-50 transition-opacity" data-key="Global.Navigation.Home">Home</a>
-      <a href="/index.html#about" class="hover:opacity-50 transition-opacity" data-key="Global.Navigation.About">About</a>
+      <a class='hover:opacity-50 transition-opacity' data-key='Global.Navigation.Home' href='/'>Home</a>
+      <a class='hover:opacity-50 transition-opacity' data-key='Global.Navigation.About' href='/#about'>About</a>
       
       <!-- Mega Menu Trigger -->
       <div class="relative group py-4">
-        <a href="/work.html" class="hover:opacity-50 transition-opacity flex items-center gap-1">
+        <a class='hover:opacity-50 transition-opacity flex items-center gap-1' href='/work'>
           <span data-key="Global.Navigation.WhatWeDo">What We Do</span> <span class="text-[10px]">▼</span>
         </a>
         
@@ -105,24 +105,24 @@
             <div>
               <h4 class="font-oswald text-xl mb-6 text-brand-red tracking-widest" data-key="Global.Navigation.WhoWeHelp">WHO WE HELP</h4>
               <ul class="space-y-3 text-sm text-gray-400 font-sans tracking-wide">
-                <li><a href="/work.html?filter=government" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.GovPublic">Government & Public Sector</a></li>
-                <li><a href="/work.html?filter=lifestyle" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.LifestyleConsumer">Lifestyle & Consumer</a></li>
-                <li><a href="/work.html?filter=hospitality" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.FBHospitality">F&B & Hospitality</a></li>
-                <li><a href="/work.html?filter=venues" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.MallsVenues">Malls & Venues</a></li>
+                <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.GovPublic' href='/work?filter=government'>Government & Public Sector</a></li>
+                <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.LifestyleConsumer' href='/work?filter=lifestyle'>Lifestyle & Consumer</a></li>
+                <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.FBHospitality' href='/work?filter=hospitality'>F&B & Hospitality</a></li>
+                <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.MallsVenues' href='/work?filter=venues'>Malls & Venues</a></li>
               </ul>
             </div>
             <div>
               <h4 class="font-oswald text-xl mb-6 text-brand-red tracking-widest" data-key="Global.Navigation.WhatWeDo">WHAT WE DO</h4>
               <ul class="space-y-3 text-sm text-gray-400 font-sans tracking-wide">
-                <li><a href="/work.html?filter=exhibitions" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.RovingExhibitions">Roving Exhibitions</a></li>
-                <li><a href="/work.html?filter=social" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.SocialContent">Social & Content</a></li>
-                <li><a href="/work.html?filter=tech" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.InteractiveTech">Interactive & Tech</a></li>
-                <li><a href="/work.html?filter=pr" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.PRMedia">PR & Media</a></li>
-                <li><a href="/work.html?filter=events" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.EventsCeremonies">Events & Ceremonies</a></li>
+                <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.RovingExhibitions' href='/work?filter=exhibitions'>Roving Exhibitions</a></li>
+                <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.SocialContent' href='/work?filter=social'>Social & Content</a></li>
+                <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.InteractiveTech' href='/work?filter=tech'>Interactive & Tech</a></li>
+                <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.PRMedia' href='/work?filter=pr'>PR & Media</a></li>
+                <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.EventsCeremonies' href='/work?filter=events'>Events & Ceremonies</a></li>
               </ul>
             </div>
             <div class="col-span-2 border-t border-white/20 pt-6 mt-2">
-              <a href="/work.html" class="text-sm font-bold hover:text-brand-red transition-colors flex items-center gap-3 tracking-widest">
+              <a class='text-sm font-bold hover:text-brand-red transition-colors flex items-center gap-3 tracking-widest' href='/work'>
                 <span class="text-xl">↳</span> <span data-key="Global.Navigation.ViewAllWork">VIEW ALL WORK</span>
               </a>
             </div>
@@ -148,17 +148,12 @@
     
     <!-- Header Section -->
     <header class="text-center mb-24">
-      <h1 class="font-oswald font-bold text-[10vw] md:text-[8vw] leading-[0.9] uppercase text-brand-black mb-6" data-key="Profile.Header.Title">
-        HARBOURFRONT FESTIVAL
+      <h1 id="profile-title" class="font-oswald font-bold text-[10vw] md:text-[8vw] leading-[0.9] uppercase text-brand-black mb-6">
+        Loading...
       </h1>
-      <h2 class="font-oswald font-bold text-xl md:text-3xl uppercase max-w-4xl mx-auto leading-tight mb-8" data-key="Profile.Header.Subtitle">
-        WE LED THE FULL REVIVAL OF HARBOURFRONT, GROUNDED IN STORY, CULTURE AND LOCAL SPIRIT.
+      <h2 id="profile-subtitle" class="font-oswald font-bold text-xl md:text-3xl uppercase max-w-4xl mx-auto leading-tight mb-8">
       </h2>
-      <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 font-oswald text-2xl font-bold uppercase tracking-wide text-brand-black">
-        <a href="/work.html?filter=government" class="hover:text-brand-red transition-colors" data-key="Global.Navigation.GovPublic">Government & Public Sector</a>
-        <a href="/work.html?filter=exhibitions" class="hover:text-brand-red transition-colors" data-key="Global.Navigation.RovingExhibitions">Roving Exhibitions</a>
-        <a href="/work.html?filter=pr" class="hover:text-brand-red transition-colors" data-key="Global.Navigation.PRMedia">PR & Media</a>
-        <a href="/work.html?filter=events" class="hover:text-brand-red transition-colors" data-key="Global.Navigation.EventsCeremonies">Events & Ceremonies</a>
+      <div id="profile-categories" class="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 font-oswald text-2xl font-bold uppercase tracking-wide text-brand-black">
       </div>
     </header>
 
@@ -166,35 +161,41 @@
     <section class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-32">
       <!-- Left: Hero Image -->
       <div class="relative aspect-[4/5] w-full overflow-hidden shadow-2xl">
-        <img src="https://picsum.photos/seed/work1/800/1000" alt="Project Hero Image" class="w-full h-full object-cover">
+        <img id="profile-hero" src="" alt="Project Hero Image" class="w-full h-full object-cover" referrerpolicy="no-referrer">
       </div>
 
       <!-- Right: Description -->
       <div class="flex flex-col justify-center">
-        <h3 class="font-oswald text-4xl md:text-5xl uppercase font-bold leading-none mb-8" data-key="Profile.Content.MainHeading">
-          WHEN THE HARBOURFRONT CHANGED HANDS AFTER FORTY YEARS, FIREBEAN REIMAGINED THE VENUE BY CELEBRATING ITS DEEP TIES TO THE CITY.
+        <h3 id="profile-challenge" class="font-oswald text-4xl md:text-5xl uppercase font-bold leading-none mb-8">
         </h3>
         <div class="font-playfair text-lg leading-relaxed text-gray-700 space-y-6">
-          <p data-key="Profile.Content.Para1">
-            The ground floor was transformed into a laidback haven for locals, from long lunches to sundown sessions. Next, a 70s-inspired beach bar will open on the second floor, followed by a recording studio and boutique hotel.
+          <p id="profile-solution">
           </p>
-          <p data-key="Profile.Content.Para2">
-            Firebean led the venue’s full brand evolution, from concept to branding, community engagement to PR. The project was named Event of the Year at the 2024 Industry Awards and has been accredited for its sustainable practices.
-          </p>
+          <div id="profile-scope" class="mt-8 pt-8 border-t border-black/10">
+            <h4 class="font-oswald text-sm uppercase tracking-widest text-gray-400 mb-3">Scope</h4>
+            <p class="font-sans text-sm text-gray-600"></p>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- YouTube Embed (hidden if no video) -->
+    <section id="profile-video-section" class="mb-16 hidden">
+      <div class="aspect-video w-full overflow-hidden shadow-2xl">
+        <iframe id="profile-youtube" class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section>
+
     <!-- Image Grid Section -->
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <section id="profile-gallery" class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div class="aspect-square overflow-hidden">
-        <img src="https://picsum.photos/seed/detail1/800/800" alt="Detail Shot 1" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+        <img id="profile-img-1" src="" alt="Detail Shot 1" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" referrerpolicy="no-referrer">
       </div>
       <div class="aspect-square overflow-hidden">
-        <img src="https://picsum.photos/seed/detail2/800/800" alt="Detail Shot 2" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+        <img id="profile-img-2" src="" alt="Detail Shot 2" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" referrerpolicy="no-referrer">
       </div>
       <div class="aspect-[16/9] md:col-span-2 overflow-hidden">
-        <img src="https://picsum.photos/seed/detail3/1600/900" alt="Wide Shot" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+        <img id="profile-img-3" src="" alt="Wide Shot" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" referrerpolicy="no-referrer">
       </div>
     </section>
 
@@ -277,6 +278,9 @@
   <!-- Translations & Legal Content -->
   <script src="/src/translations.js"></script>
 
+  <!-- CMS Data from Google Sheets -->
+  <script src="/src/cms.js"></script>
+
   <script>
     // Simple animation for page load
     gsap.from("header h1, header h2, header div", {
@@ -305,6 +309,141 @@
         end: "bottom bottom",
         scrub: true
       }
+    });
+
+    // --- CMS Profile Population ---
+    window.addEventListener('cmsDataReady', function(e) {
+      var projects = (e.detail && e.detail.projects) || [];
+      if (!projects.length) return;
+
+      // Read ?id= from URL
+      var params = new URLSearchParams(window.location.search);
+      var projectId = params.get('id');
+      var project = null;
+
+      if (projectId) {
+        // Find by projectId field
+        for (var i = 0; i < projects.length; i++) {
+          if (projects[i].projectId === projectId) {
+            project = projects[i];
+            break;
+          }
+        }
+        // Fallback: find by index
+        if (!project) {
+          var idx = parseInt(projectId, 10);
+          if (!isNaN(idx) && idx >= 0 && idx < projects.length) {
+            project = projects[idx];
+          }
+        }
+      }
+
+      // Default to first project if no match
+      if (!project) {
+        project = projects[0];
+      }
+
+      // Update page title
+      document.title = project.project + ' - Firebean Agency';
+
+      // Populate header
+      var titleEl = document.getElementById('profile-title');
+      var subtitleEl = document.getElementById('profile-subtitle');
+      var categoriesEl = document.getElementById('profile-categories');
+
+      titleEl.textContent = project.project || '';
+      subtitleEl.textContent = project.client ? project.client + (project.venue ? ' — ' + project.venue : '') : '';
+
+      // Populate categories
+      categoriesEl.innerHTML = '';
+      if (project.categories && project.categories.length) {
+        project.categories.forEach(function(cat, idx) {
+          if (idx > 0) {
+            var sep = document.createElement('span');
+            sep.className = 'text-brand-red text-3xl leading-none';
+            sep.textContent = '·';
+            categoriesEl.appendChild(sep);
+          }
+          var span = document.createElement('span');
+          span.textContent = cat;
+          categoriesEl.appendChild(span);
+        });
+      }
+
+      // Populate hero image
+      var heroEl = document.getElementById('profile-hero');
+      if (project.heroPhoto) {
+        heroEl.src = project.heroPhoto;
+        heroEl.alt = project.project;
+      }
+
+      // Populate challenge/solution text (language-aware)
+      var challengeEl = document.getElementById('profile-challenge');
+      var solutionEl = document.getElementById('profile-solution');
+      var scopeEl = document.getElementById('profile-scope');
+
+      function getProfileContent() {
+        var lang = (window.getLang && window.getLang()) || localStorage.getItem('lang') || 'en';
+        var webContent = '';
+        if (lang === 'ch' && project.webTC) webContent = project.webTC;
+        else if (lang === 'jp' && project.webJP) webContent = project.webJP;
+        else if (project.webEN) webContent = project.webEN;
+
+        // Use web content if available, otherwise fallback to challenge/solution fields
+        if (webContent) {
+          challengeEl.textContent = webContent;
+          solutionEl.textContent = '';
+        } else {
+          challengeEl.textContent = project.challenge || '';
+          solutionEl.textContent = project.solution || '';
+        }
+
+        // Scope
+        if (project.scope) {
+          scopeEl.style.display = '';
+          scopeEl.querySelector('p').textContent = project.scope;
+        } else {
+          scopeEl.style.display = 'none';
+        }
+      }
+
+      getProfileContent();
+
+      // Re-populate on language change
+      window.addEventListener('languageChange', getProfileContent);
+
+      // YouTube embed
+      if (project.youtube) {
+        var videoSection = document.getElementById('profile-video-section');
+        var youtubeFrame = document.getElementById('profile-youtube');
+        // Extract video ID from YouTube URL
+        var ytMatch = project.youtube.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([a-zA-Z0-9_-]{11})/);
+        if (ytMatch && ytMatch[1]) {
+          youtubeFrame.src = 'https://www.youtube.com/embed/' + ytMatch[1];
+          videoSection.classList.remove('hidden');
+        }
+      }
+
+      // Gallery images — use hero as fallback for all 3
+      var img1 = document.getElementById('profile-img-1');
+      var img2 = document.getElementById('profile-img-2');
+      var img3 = document.getElementById('profile-img-3');
+      if (project.heroPhoto) {
+        img1.src = project.heroPhoto;
+        img2.src = project.heroPhoto;
+        img3.src = project.heroPhoto;
+      }
+
+      // Re-trigger GSAP animations for newly loaded images
+      gsap.from("#profile-hero, #profile-img-1, #profile-img-2, #profile-img-3", {
+        scale: 1.1,
+        opacity: 0,
+        duration: 1.5,
+        delay: 0.3,
+        ease: "power2.out"
+      });
+
+      ScrollTrigger.refresh();
     });
 
     // --- Legal Modal Logic ---
@@ -341,4 +480,4 @@
 
 
 </body>
-</html>
+  </html>
