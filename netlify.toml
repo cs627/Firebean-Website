@@ -1,5 +1,5 @@
 [build]
-  command = "mkdir -p dist && cp index.html work.html profile.html dist/ && cp -r public/* dist/ 2>/dev/null; mkdir -p dist/src && cp src/cms.js src/translations.js dist/src/"
+  command = "mkdir -p dist && cp index.html work.html profile.html dist/ && cp -r public/* dist/ 2>/dev/null; mkdir -p dist/src && cp src/cms.js src/translations.js dist/src/; mkdir -p dist/data && cp -r data/* dist/data/"
   publish = "dist"
   edge_functions = "netlify/edge-functions"
 
