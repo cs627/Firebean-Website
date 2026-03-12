@@ -47,14 +47,14 @@
     .mega-menu {
       opacity: 0;
       visibility: hidden;
-      transform: translateY(-10px);
+      transform: translate(-50%, -10px);
       transition: all 0.3s ease;
       pointer-events: none;
     }
-    .group:hover .mega-menu {
+    .mega-menu.open {
       opacity: 1;
       visibility: visible;
-      transform: translateY(0);
+      transform: translate(-50%, 0);
       pointer-events: auto;
     }
 
@@ -227,17 +227,16 @@
       <a class='hover:opacity-50 transition-opacity' data-key='Global.Navigation.About' href='index.html#about'>About</a>
       
       <!-- Mega Menu Trigger -->
-      <div class="relative group py-4">
-        <a class='hover:opacity-50 transition-opacity flex items-center gap-1' href='work.html'>
+      <div class="relative py-4">
+        <button id="mega-menu-trigger" class='hover:opacity-50 transition-opacity flex items-center gap-1 uppercase tracking-widest text-sm font-sans'>
           <span data-key="Global.Navigation.WhatWeDo">What We Do</span> <span class="text-[10px]">▼</span>
-        </a>
-        
+        </button>
+
         <!-- Mega Menu Dropdown -->
-        <div class="mega-menu fixed left-0 top-[80px] w-full bg-brand-black text-white px-6 py-12 shadow-2xl border-t border-white/10 z-[9999]" data-lenis-prevent>
-          <!-- Invisible bridge for hover continuity -->
-          <div class="absolute -top-[40px] left-0 w-full h-[40px] bg-transparent"></div>
-          
-          <div class="grid grid-cols-2 gap-16 w-full max-w-[600px]">
+        <div id="mega-menu" class="mega-menu fixed left-1/2 top-[80px] w-[90vw] max-w-[600px] bg-brand-black text-white px-6 py-10 shadow-2xl rounded-xl z-[9999]" data-lenis-prevent>
+          <button id="mega-menu-close" class="absolute top-4 right-4 text-white hover:text-brand-red transition-colors text-2xl leading-none">&times;</button>
+
+          <div class="grid grid-cols-2 gap-16 w-full">
             <div>
               <h4 class="font-oswald text-xl mb-6 text-brand-red tracking-widest" data-key="Global.Navigation.WhoWeHelp">WHO WE HELP</h4>
               <ul class="space-y-3 text-sm text-gray-400 font-sans tracking-wide">
@@ -494,21 +493,62 @@
       titleEl.textContent = project.project || '';
       subtitleEl.textContent = project.client ? project.client + (project.venue ? ' — ' + project.venue : '') : '';
 
-      // Populate categories
-      categoriesEl.innerHTML = '';
-      if (project.categories && project.categories.length) {
-        project.categories.forEach(function(cat, idx) {
-          if (idx > 0) {
-            var sep = document.createElement('span');
-            sep.className = 'text-brand-red text-3xl leading-none';
-            sep.textContent = '·';
-            categoriesEl.appendChild(sep);
-          }
-          var span = document.createElement('span');
-          span.textContent = cat;
-          categoriesEl.appendChild(span);
-        });
+      // Category translations
+      var categoryTranslations = {
+        ch: {
+          'GOVERNMENT & PUBLIC SECTOR': '政府及公營機構',
+          'LIFESTYLE & CONSUMER': '生活及消費品牌',
+          'F&B & HOSPITALITY': '餐飲及酒店',
+          'MALLS & VENUES': '商場及場地',
+          'ROVING EXHIBITIONS': '巡迴展覽',
+          'SOCIAL & CONTENT': '社交媒體及內容',
+          'INTERACTIVE & TECH': '互動及科技',
+          'PR & MEDIA': '公關及媒體',
+          'EVENTS & CEREMONIES': '活動及典禮'
+        },
+        jp: {
+          'GOVERNMENT & PUBLIC SECTOR': '政府・公共機関',
+          'LIFESTYLE & CONSUMER': 'ライフスタイル・消費者',
+          'F&B & HOSPITALITY': '飲食・ホスピタリティ',
+          'MALLS & VENUES': 'モール・会場',
+          'ROVING EXHIBITIONS': '巡回展示',
+          'SOCIAL & CONTENT': 'ソーシャル・コンテンツ',
+          'INTERACTIVE & TECH': 'インタラクティブ・テック',
+          'PR & MEDIA': 'PR・メディア',
+          'EVENTS & CEREMONIES': 'イベント・セレモニー'
+        }
+      };
+
+      function translateCategory(cat) {
+        var lang = (window.getLang && window.getLang()) || localStorage.getItem('lang') || 'en';
+        if (lang !== 'en' && categoryTranslations[lang] && categoryTranslations[lang][cat]) {
+          return categoryTranslations[lang][cat];
+        }
+        return cat;
       }
+
+      function renderCategories() {
+        categoriesEl.innerHTML = '';
+        if (project.categories && project.categories.length) {
+          project.categories.forEach(function(cat, idx) {
+            if (idx > 0) {
+              var sep = document.createElement('span');
+              sep.className = 'text-brand-red text-3xl leading-none';
+              sep.textContent = '·';
+              categoriesEl.appendChild(sep);
+            }
+            var span = document.createElement('span');
+            span.textContent = translateCategory(cat);
+            categoriesEl.appendChild(span);
+          });
+        }
+      }
+
+      // Populate categories
+      renderCategories();
+
+      // Re-render categories on language change
+      window.addEventListener('languageChange', renderCategories);
 
       // Populate hero image
       var heroEl = document.getElementById('profile-hero');
@@ -532,14 +572,30 @@
         // Use web content if available, otherwise fallback to challenge/solution fields
         if (webContent) {
           // Wrap bare text lines (not inside tags) in <p> tags for proper styling
+          // Also convert basic markdown to HTML
           var processed = webContent.replace(/\n{2,}/g, '\n').split('\n').map(function(line) {
             var trimmed = line.trim();
             if (!trimmed) return '';
             // If line already starts with an HTML tag, leave it
             if (/^<(h[1-6]|p|ul|ol|li|div|blockquote|figure|img|iframe|br)/i.test(trimmed)) return trimmed;
-            // Otherwise wrap in <p>
-            return '<p>' + trimmed + '</p>';
+            // Convert markdown headings to HTML
+            var headingMatch = trimmed.match(/^(#{1,6})\s+(.+)$/);
+            if (headingMatch) {
+              var level = headingMatch[1].length;
+              var text = headingMatch[2].replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+              return '<h' + level + '>' + text + '</h' + level + '>';
+            }
+            // Convert markdown list items
+            if (/^[-*]\s+/.test(trimmed)) {
+              var liText = trimmed.replace(/^[-*]\s+/, '').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+              return '<li>' + liText + '</li>';
+            }
+            // Convert **bold** within paragraphs
+            var withBold = trimmed.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+            return '<p>' + withBold + '</p>';
           }).join('\n');
+          // Wrap consecutive <li> elements in <ul>
+          processed = processed.replace(/((?:<li>.*<\/li>\n?)+)/g, '<ul>$1</ul>');
           challengeEl.innerHTML = processed;
           solutionEl.innerHTML = '';
           // Mark the first h3 as the lead/subtitle (Playfair italic style)
@@ -580,7 +636,7 @@
         var allHeadings = articleEl.querySelectorAll('h1, h2, h3, h4, h5, h6');
         for (var i = 0; i < allHeadings.length; i++) {
           var txt = allHeadings[i].textContent.toLowerCase();
-          if (txt.indexOf('faq') !== -1 || txt.indexOf('q&a') !== -1 || txt.indexOf('q & a') !== -1 || txt.indexOf('常見問題') !== -1 || txt.indexOf('よくある質問') !== -1) {
+          if (txt.indexOf('faq') !== -1 || txt.indexOf('q&a') !== -1 || txt.indexOf('q & a') !== -1 || txt.indexOf('常見問題') !== -1 || txt.indexOf('よくある質問') !== -1 || txt.indexOf('fast recap') !== -1 || txt.indexOf('快速回顧') !== -1 || txt.indexOf('クイック振り返り') !== -1) {
             faqHeading = allHeadings[i];
             break;
           }
@@ -789,7 +845,29 @@
     modalOverlay.addEventListener('click', closeModal);
   </script>
 
-
+  <script>
+    // Mega Menu click toggle
+    (function() {
+      var trigger = document.getElementById('mega-menu-trigger');
+      var menu = document.getElementById('mega-menu');
+      var closeBtn = document.getElementById('mega-menu-close');
+      if (!trigger || !menu) return;
+      trigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        menu.classList.toggle('open');
+      });
+      closeBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        menu.classList.remove('open');
+      });
+      document.addEventListener('click', function(e) {
+        if (!menu.contains(e.target) && e.target !== trigger && !trigger.contains(e.target)) {
+          menu.classList.remove('open');
+        }
+      });
+    })();
+  </script>
 
 </body>
 </html>
