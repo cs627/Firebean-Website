@@ -142,6 +142,14 @@
       return lower.replace(/[^a-z0-9]/g, '');
     });
 
+    // Extract Drive folder ID from folder link
+    var driveFolderUrl = (row[COL.DRIVE_FOLDER] || '').trim();
+    var driveFolderId = '';
+    if (driveFolderUrl) {
+      var folderMatch = driveFolderUrl.match(/\/folders\/([a-zA-Z0-9_-]+)/);
+      if (folderMatch) driveFolderId = folderMatch[1];
+    }
+
     return {
       index: index,
       client: (row[COL.CLIENT] || '').trim(),
@@ -164,7 +172,8 @@
       projectId: (row[COL.PROJECT_ID] || '').trim(),
       sortDate: (row[COL.SORT_DATE] || '').trim(),
       categories: categories,
-      filterSlugs: filterSlugs
+      filterSlugs: filterSlugs,
+      driveFolderId: driveFolderId
     };
   }
 
@@ -216,8 +225,62 @@
       });
   }
 
+  /**
+   * Fetch gallery photo IDs from a Google Drive folder's public embed page.
+   * Returns a Promise that resolves to an array of thumbnail URLs.
+   * Filters out Logo files and the hero photo to show only gallery images.
+   */
+  function fetchGalleryPhotos(folderId, heroPhotoUrl, maxPhotos) {
+    maxPhotos = maxPhotos || 12;
+    if (!folderId) return Promise.resolve([]);
+
+    var embedUrl = 'https://drive.google.com/embeddedfolderview?id=' + folderId;
+    return fetch(embedUrl)
+      .then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.text();
+      })
+      .then(function (html) {
+        // Parse entries: id="entry-{FILE_ID}" with title in flip-entry-title
+        var entries = [];
+        var entryRegex = /id="entry-([a-zA-Z0-9_-]+)"[\s\S]*?flip-entry-title">([^<]+)</g;
+        var m;
+        while ((m = entryRegex.exec(html)) !== null) {
+          entries.push({ id: m[1], name: m[2] });
+        }
+
+        // Extract hero photo file ID for comparison
+        var heroId = '';
+        if (heroPhotoUrl) {
+          var hm = heroPhotoUrl.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+          if (hm) heroId = hm[1];
+        }
+
+        // Filter: only image files, exclude logos, exclude hero
+        var photos = [];
+        for (var i = 0; i < entries.length; i++) {
+          var e = entries[i];
+          var lower = e.name.toLowerCase();
+          // Skip logos
+          if (lower.indexOf('logo') !== -1) continue;
+          // Skip non-image files
+          if (!/\.(jpg|jpeg|png|webp|gif)$/i.test(lower)) continue;
+          // Skip hero photo (already shown as main hero)
+          if (heroId && e.id === heroId) continue;
+          photos.push('https://drive.google.com/thumbnail?id=' + e.id + '&sz=w1200');
+        }
+
+        return photos.slice(0, maxPhotos);
+      })
+      .catch(function (err) {
+        console.warn('[CMS] Gallery fetch failed for folder ' + folderId + ':', err);
+        return [];
+      });
+  }
+
   // Expose utilities
   window.driveToThumbnail = driveToThumbnail;
+  window.fetchGalleryPhotos = fetchGalleryPhotos;
   window.cmsData = { projects: [], loaded: false };
 
   // Start fetching
