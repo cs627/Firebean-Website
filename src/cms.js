@@ -226,28 +226,23 @@
   }
 
   /**
-   * Fetch gallery photo IDs from a Google Drive folder's public embed page.
+   * Fetch gallery photo IDs from a Google Drive folder via Edge Function proxy.
    * Returns a Promise that resolves to an array of thumbnail URLs.
-   * Filters out Logo files and the hero photo to show only gallery images.
+   * Filters out the hero photo to show only different gallery images.
    */
   function fetchGalleryPhotos(folderId, heroPhotoUrl, maxPhotos) {
     maxPhotos = maxPhotos || 12;
     if (!folderId) return Promise.resolve([]);
 
-    var embedUrl = 'https://drive.google.com/embeddedfolderview?id=' + folderId;
-    return fetch(embedUrl)
+    // Use Netlify Edge Function to avoid CORS issues with Drive
+    var apiUrl = '/api/gallery?folderId=' + encodeURIComponent(folderId);
+    return fetch(apiUrl)
       .then(function (res) {
         if (!res.ok) throw new Error('HTTP ' + res.status);
-        return res.text();
+        return res.json();
       })
-      .then(function (html) {
-        // Parse entries: id="entry-{FILE_ID}" with title in flip-entry-title
-        var entries = [];
-        var entryRegex = /id="entry-([a-zA-Z0-9_-]+)"[\s\S]*?flip-entry-title">([^<]+)</g;
-        var m;
-        while ((m = entryRegex.exec(html)) !== null) {
-          entries.push({ id: m[1], name: m[2] });
-        }
+      .then(function (data) {
+        if (!data.photos || !data.photos.length) return [];
 
         // Extract hero photo file ID for comparison
         var heroId = '';
@@ -256,18 +251,12 @@
           if (hm) heroId = hm[1];
         }
 
-        // Filter: only image files, exclude logos, exclude hero
+        // Convert IDs to thumbnail URLs, exclude hero photo
         var photos = [];
-        for (var i = 0; i < entries.length; i++) {
-          var e = entries[i];
-          var lower = e.name.toLowerCase();
-          // Skip logos
-          if (lower.indexOf('logo') !== -1) continue;
-          // Skip non-image files
-          if (!/\.(jpg|jpeg|png|webp|gif)$/i.test(lower)) continue;
-          // Skip hero photo (already shown as main hero)
-          if (heroId && e.id === heroId) continue;
-          photos.push('https://drive.google.com/thumbnail?id=' + e.id + '&sz=w1200');
+        for (var i = 0; i < data.photos.length; i++) {
+          var fileId = data.photos[i];
+          if (heroId && fileId === heroId) continue;
+          photos.push('https://drive.google.com/thumbnail?id=' + fileId + '&sz=w1200');
         }
 
         return photos.slice(0, maxPhotos);
