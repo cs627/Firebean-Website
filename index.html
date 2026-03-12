@@ -19,6 +19,9 @@
     
     <!-- Translations & Legal Content -->
     <script src="/src/translations.js"></script>
+
+    <!-- CMS Data from Google Sheets -->
+    <script src="/src/cms.js"></script>
     
     <!-- Lenis for smooth scroll -->
     <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
@@ -326,7 +329,7 @@
     
     <!-- Navigation -->
     <nav class="absolute top-0 left-0 w-full px-6 py-6 flex justify-between items-center z-[9999] text-brand-black pointer-events-auto" id="navbar" data-lenis-prevent>
-      <a href="/index.html" class="flex items-center gap-2 hover:opacity-70 transition-opacity">
+      <a class='flex items-center gap-2 hover:opacity-70 transition-opacity' href='/'>
         <img src="https://drive.google.com/thumbnail?id=1d3M0KGD88nksyq8EWew8UvI9MgrTZNYl&sz=w100" class="h-6 w-auto object-contain mix-blend-multiply" alt="Firebean Logo" referrerpolicy="no-referrer">
         <div class="font-sans font-light text-xl tracking-widest lowercase" style="font-variant: small-caps;">firebean</div>
       </a>
@@ -337,7 +340,7 @@
         
         <!-- Mega Menu Trigger -->
         <div class="relative group py-4">
-          <a href="/work.html" class="hover:opacity-50 transition-opacity flex items-center gap-1">
+          <a class='hover:opacity-50 transition-opacity flex items-center gap-1' href='/work'>
             <span data-key="Global.Navigation.WhatWeDo">What We Do</span> <span class="text-[10px]">▼</span>
           </a>
           
@@ -350,24 +353,24 @@
               <div>
                 <h4 class="font-oswald text-xl mb-6 text-brand-red tracking-widest" data-key="Global.Navigation.WhoWeHelp">WHO WE HELP</h4>
                 <ul class="space-y-3 text-sm text-gray-400 font-sans tracking-wide">
-                  <li><a href="/work.html?filter=government" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.GovPublic">Government & Public Sector</a></li>
-                  <li><a href="/work.html?filter=lifestyle" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.LifestyleConsumer">Lifestyle & Consumer</a></li>
-                  <li><a href="/work.html?filter=hospitality" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.FBHospitality">F&B & Hospitality</a></li>
-                  <li><a href="/work.html?filter=venues" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.MallsVenues">Malls & Venues</a></li>
+                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.GovPublic' href='/work?filter=government'>Government & Public Sector</a></li>
+                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.LifestyleConsumer' href='/work?filter=lifestyle'>Lifestyle & Consumer</a></li>
+                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.FBHospitality' href='/work?filter=hospitality'>F&B & Hospitality</a></li>
+                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.MallsVenues' href='/work?filter=venues'>Malls & Venues</a></li>
                 </ul>
               </div>
               <div>
                 <h4 class="font-oswald text-xl mb-6 text-brand-red tracking-widest" data-key="Global.Navigation.WhatWeDo">WHAT WE DO</h4>
                 <ul class="space-y-3 text-sm text-gray-400 font-sans tracking-wide">
-                  <li><a href="/work.html?filter=exhibitions" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.RovingExhibitions">Roving Exhibitions</a></li>
-                  <li><a href="/work.html?filter=social" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.SocialContent">Social & Content</a></li>
-                  <li><a href="/work.html?filter=tech" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.InteractiveTech">Interactive & Tech</a></li>
-                  <li><a href="/work.html?filter=pr" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.PRMedia">PR & Media</a></li>
-                  <li><a href="/work.html?filter=events" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.EventsCeremonies">Events & Ceremonies</a></li>
+                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.RovingExhibitions' href='/work?filter=exhibitions'>Roving Exhibitions</a></li>
+                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.SocialContent' href='/work?filter=social'>Social & Content</a></li>
+                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.InteractiveTech' href='/work?filter=tech'>Interactive & Tech</a></li>
+                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.PRMedia' href='/work?filter=pr'>PR & Media</a></li>
+                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.EventsCeremonies' href='/work?filter=events'>Events & Ceremonies</a></li>
                 </ul>
               </div>
               <div class="col-span-2 border-t border-white/20 pt-6 mt-2">
-                <a href="/work.html" class="text-sm font-bold hover:text-brand-red transition-colors flex items-center gap-3 tracking-widest">
+                <a class='text-sm font-bold hover:text-brand-red transition-colors flex items-center gap-3 tracking-widest' href='/work'>
                   <span class="text-xl">↳</span> <span data-key="Global.Navigation.ViewAllWork">VIEW ALL WORK</span>
                 </a>
               </div>
@@ -398,8 +401,8 @@
             <div class="block md:hidden w-[28vw] absolute top-[2vw] right-[5vw] rotate-[6deg] z-20 pointer-events-none">
                <div class="relative w-full bg-white pt-1 px-1 pb-4 shadow-xl transform transition-transform duration-500">
                  <div class="w-full aspect-square bg-gray-200 overflow-hidden relative">
-                   <img src="https://picsum.photos/seed/event1/600/600" class="polaroid-img-1 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Event" data-key="Index.Hero.PolaroidAlt">
-                   <img src="https://picsum.photos/seed/event2/600/600" class="polaroid-img-1 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Event" data-key="Index.Hero.PolaroidAlt">
+                   <img src="https://picsum.photos/seed/event1/600/600" class="polaroid-img-1 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Event" data-key="Index.Hero.PolaroidAlt" referrerpolicy="no-referrer">
+                   <img src="https://picsum.photos/seed/event2/600/600" class="polaroid-img-1 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Event" data-key="Index.Hero.PolaroidAlt" referrerpolicy="no-referrer">
                  </div>
                </div>
             </div>
@@ -408,8 +411,8 @@
             <div class="hidden md:block w-[15vw] relative -mt-[4vw] -rotate-6 z-20 mx-4">
                <div class="relative w-full bg-white pt-1.5 px-1.5 pb-6 shadow-2xl transform transition-transform duration-500 hover:scale-105 hover:z-50">
                  <div class="w-full aspect-square bg-gray-200 overflow-hidden relative">
-                   <img src="https://picsum.photos/seed/event1/600/600" class="polaroid-img-1 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Event" data-key="Index.Hero.PolaroidAlt">
-                   <img src="https://picsum.photos/seed/event2/600/600" class="polaroid-img-1 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Event" data-key="Index.Hero.PolaroidAlt">
+                   <img src="https://picsum.photos/seed/event1/600/600" class="polaroid-img-1 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Event" data-key="Index.Hero.PolaroidAlt" referrerpolicy="no-referrer">
+                   <img src="https://picsum.photos/seed/event2/600/600" class="polaroid-img-1 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Event" data-key="Index.Hero.PolaroidAlt" referrerpolicy="no-referrer">
                  </div>
                </div>
             </div>
@@ -427,8 +430,8 @@
             <div class="block md:hidden w-[28vw] absolute bottom-[-5vw] left-[2vw] rotate-[-4deg] z-20 pointer-events-none">
                <div class="relative w-full bg-white pt-1 px-1 pb-4 shadow-xl transform transition-transform duration-500">
                  <div class="w-full aspect-square bg-gray-200 overflow-hidden relative">
-                   <img src="https://picsum.photos/seed/event3/600/600" class="polaroid-img-2 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Event" data-key="Index.Hero.PolaroidAlt">
-                   <img src="https://picsum.photos/seed/event4/600/600" class="polaroid-img-2 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Event" data-key="Index.Hero.PolaroidAlt">
+                   <img src="https://picsum.photos/seed/event3/600/600" class="polaroid-img-2 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Event" data-key="Index.Hero.PolaroidAlt" referrerpolicy="no-referrer">
+                   <img src="https://picsum.photos/seed/event4/600/600" class="polaroid-img-2 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Event" data-key="Index.Hero.PolaroidAlt" referrerpolicy="no-referrer">
                  </div>
                </div>
             </div>
@@ -438,8 +441,8 @@
             <div class="hidden md:block w-[16vw] absolute left-[45%] top-1/2 -translate-y-[60%] rotate-[4deg] z-10">
                <div class="relative w-full bg-white pt-1.5 px-1.5 pb-6 shadow-2xl transform transition-transform duration-500 hover:scale-105 hover:z-50">
                  <div class="w-full aspect-square bg-gray-200 overflow-hidden relative">
-                   <img src="https://picsum.photos/seed/event3/600/600" class="polaroid-img-2 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Event" data-key="Index.Hero.PolaroidAlt">
-                   <img src="https://picsum.photos/seed/event4/600/600" class="polaroid-img-2 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Event" data-key="Index.Hero.PolaroidAlt">
+                   <img src="https://picsum.photos/seed/event3/600/600" class="polaroid-img-2 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Event" data-key="Index.Hero.PolaroidAlt" referrerpolicy="no-referrer">
+                   <img src="https://picsum.photos/seed/event4/600/600" class="polaroid-img-2 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Event" data-key="Index.Hero.PolaroidAlt" referrerpolicy="no-referrer">
                  </div>
                </div>
             </div>
@@ -449,7 +452,7 @@
                 <p class="font-playfair italic text-xl leading-tight text-brand-black font-medium normal-case tracking-normal mb-4" data-key="Index.Hero.Subtitle">
                   Create to Engage: We don’t just stage events; we architect public engagement.
                 </p>
-                <a href="/work.html" class="font-sans text-sm font-bold uppercase tracking-widest hover:text-brand-red transition-colors flex items-center gap-2">
+                <a class='font-sans text-sm font-bold uppercase tracking-widest hover:text-brand-red transition-colors flex items-center gap-2' href='/work'>
                   <span class="text-xl">↳</span> <span data-key="Index.Hero.CTA">EXPLORE WHAT WE DO</span>
                 </a>
             </div>
@@ -467,7 +470,7 @@
                 <p class="font-playfair italic text-lg leading-tight text-brand-black font-medium normal-case tracking-normal mb-6" data-key="Index.Hero.Subtitle">
                   Create to Engage: We don’t just stage events; we architect public engagement.
                 </p>
-                <a href="/work.html" class="font-sans text-sm font-bold uppercase tracking-widest hover:text-brand-red transition-colors flex items-center gap-2">
+                <a class='font-sans text-sm font-bold uppercase tracking-widest hover:text-brand-red transition-colors flex items-center gap-2' href='/work'>
                   <span class="text-lg">↳</span> <span data-key="Index.Hero.CTA">EXPLORE WHAT WE DO</span>
                 </a>
              </div>
@@ -480,79 +483,11 @@
     <!-- Session 2: Highlight Showcase (Full sliding banner) -->
     <section class="relative w-full h-screen overflow-hidden group" id="highlights">
       <div class="slider-container h-full w-full flex transition-transform duration-700 ease-in-out" id="main-slider">
-        <!-- Slide 1 -->
-        <a href="/profile.html" class="slide relative h-full w-full flex-shrink-0 block">
-          <div class="absolute inset-0 bg-black/40 z-10"></div>
-          <img src="https://picsum.photos/seed/project1/1920/1080" alt="Project 1" class="w-full h-full object-cover">
-          <div class="absolute inset-0 flex flex-col justify-between items-center z-20 text-white text-center py-16">
-            <div class="flex flex-col items-center gap-4 mt-8">
-              <h3 class="font-oswald text-2xl md:text-4xl uppercase tracking-tighter max-w-3xl leading-none">
-                Events & Ceremonies
-              </h3>
-              <div class="font-playfair italic text-lg opacity-80">01/03</div>
-            </div>
-            <div class="w-full overflow-hidden flex whitespace-nowrap relative">
-              <div class="animate-marquee inline-block font-oswald text-[15vw] md:text-[12vw] font-bold uppercase tracking-tighter leading-none">
-                NEON LIGHTS FESTIVAL 2025 &nbsp; NEON LIGHTS FESTIVAL 2025 &nbsp;
-              </div>
-              <div class="animate-marquee inline-block font-oswald text-[15vw] md:text-[12vw] font-bold uppercase tracking-tighter leading-none" aria-hidden="true">
-                NEON LIGHTS FESTIVAL 2025 &nbsp; NEON LIGHTS FESTIVAL 2025 &nbsp;
-              </div>
-            </div>
-            <div class="h-8"></div>
-          </div>
-        </a>
-        <!-- Slide 2 -->
-        <a href="/profile.html" class="slide relative h-full w-full flex-shrink-0 block">
-          <div class="absolute inset-0 bg-black/40 z-10"></div>
-          <img src="https://picsum.photos/seed/project2/1920/1080" alt="Project 2" class="w-full h-full object-cover">
-          <div class="absolute inset-0 flex flex-col justify-between items-center z-20 text-white text-center py-16">
-            <div class="flex flex-col items-center gap-4 mt-8">
-              <h3 class="font-oswald text-2xl md:text-4xl uppercase tracking-tighter max-w-3xl leading-none">
-                Interactive & Tech
-              </h3>
-              <div class="font-playfair italic text-lg opacity-80">02/03</div>
-            </div>
-            <div class="w-full overflow-hidden flex whitespace-nowrap relative">
-              <div class="animate-marquee inline-block font-oswald text-[15vw] md:text-[12vw] font-bold uppercase tracking-tighter leading-none">
-                TECH WEEK ASIA &nbsp; TECH WEEK ASIA &nbsp; TECH WEEK ASIA &nbsp;
-              </div>
-              <div class="animate-marquee inline-block font-oswald text-[15vw] md:text-[12vw] font-bold uppercase tracking-tighter leading-none" aria-hidden="true">
-                TECH WEEK ASIA &nbsp; TECH WEEK ASIA &nbsp; TECH WEEK ASIA &nbsp;
-              </div>
-            </div>
-            <div class="h-8"></div>
-          </div>
-        </a>
-        <!-- Slide 3 -->
-        <a href="/profile.html" class="slide relative h-full w-full flex-shrink-0 block">
-          <div class="absolute inset-0 bg-black/40 z-10"></div>
-          <img src="https://picsum.photos/seed/project3/1920/1080" alt="Project 3" class="w-full h-full object-cover">
-          <div class="absolute inset-0 flex flex-col justify-between items-center z-20 text-white text-center py-16">
-            <div class="flex flex-col items-center gap-4 mt-8">
-              <h3 class="font-oswald text-2xl md:text-4xl uppercase tracking-tighter max-w-3xl leading-none">
-                Roving Exhibitions
-              </h3>
-              <div class="font-playfair italic text-lg opacity-80">03/03</div>
-            </div>
-            <div class="w-full overflow-hidden flex whitespace-nowrap relative">
-              <div class="animate-marquee inline-block font-oswald text-[15vw] md:text-[12vw] font-bold uppercase tracking-tighter leading-none">
-                URBAN ART TRAIL &nbsp; URBAN ART TRAIL &nbsp; URBAN ART TRAIL &nbsp;
-              </div>
-              <div class="animate-marquee inline-block font-oswald text-[15vw] md:text-[12vw] font-bold uppercase tracking-tighter leading-none" aria-hidden="true">
-                URBAN ART TRAIL &nbsp; URBAN ART TRAIL &nbsp; URBAN ART TRAIL &nbsp;
-              </div>
-            </div>
-            <div class="h-8"></div>
-          </div>
-        </a>
+        <!-- Slides populated dynamically by CMS -->
       </div>
-      
+
       <!-- Slider Controls -->
-      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-4">
-        <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors slider-dot active" data-index="0"></button>
-        <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors slider-dot" data-index="1"></button>
-        <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors slider-dot" data-index="2"></button>
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-4" id="slider-dots">
       </div>
     </section>
 
@@ -575,65 +510,10 @@
           </h2>
         </div>
 
-        <!-- Floating Profiles Grid (Scattered Arrangement) -->
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-y-12 gap-x-8 relative z-10">
-          
-          <!-- Profile 1 (Left) -->
-          <a href="/profile.html" class="group block project-profile md:col-span-5 md:col-start-1">
-            <div class="relative overflow-hidden aspect-[4/5] mb-1 shadow-2xl">
-              <img src="https://picsum.photos/seed/work1/600/800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Work 1">
-            </div>
-            <h3 class="font-oswald text-3xl uppercase font-bold mb-2" data-key="Work.Profile.1.Title">Harbourfront Festival</h3>
-            <p class="font-playfair text-base text-gray-600 italic" data-key="Work.Profile.1.Desc">A massive public engagement event attracting over 100k visitors.</p>
-          </a>
-
-          <!-- Profile 2 (Right, lower) -->
-          <a href="/profile.html" class="group block project-profile md:col-span-6 md:col-start-7 md:mt-16">
-            <div class="relative overflow-hidden aspect-[16/9] mb-1 shadow-2xl">
-              <img src="https://picsum.photos/seed/work2/1000/600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Work 2">
-            </div>
-            <h3 class="font-oswald text-3xl uppercase font-bold mb-2" data-key="Work.Profile.2.Title">Global Tech Summit</h3>
-            <p class="font-playfair text-base text-gray-600 italic" data-key="Work.Profile.2.Desc">Interactive tech exhibition for top industry leaders.</p>
-          </a>
-
-          <!-- Profile 3 (Center-left, much lower) -->
-          <a href="/profile.html" class="group block project-profile md:col-span-5 md:col-start-2 md:mt-16">
-            <div class="relative overflow-hidden aspect-square mb-1 shadow-2xl">
-              <img src="https://picsum.photos/seed/work3/800/800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Work 3">
-            </div>
-            <h3 class="font-oswald text-3xl uppercase font-bold mb-2" data-key="Work.Profile.3.Title">Luxury Mall Launch</h3>
-            <p class="font-playfair text-base text-gray-600 italic" data-key="Work.Profile.3.Desc">PR and media strategy for a premium lifestyle destination.</p>
-          </a>
-
-          <!-- Profile 4 (Right edge, lower) -->
-          <a href="/profile.html" class="group block project-profile md:col-span-4 md:col-start-9 md:mt-16">
-            <div class="relative overflow-hidden aspect-[3/4] mb-1 shadow-2xl">
-              <img src="https://picsum.photos/seed/work4/600/800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Work 4">
-            </div>
-            <h3 class="font-oswald text-3xl uppercase font-bold mb-2" data-key="Work.Profile.4.Title">Urban Art Trail</h3>
-            <p class="font-playfair text-base text-gray-600 italic" data-key="Work.Profile.4.Desc">Curating city-wide roving exhibitions.</p>
-          </a>
-
-          <!-- Profile 5 (Left, very low) -->
-          <a href="/profile.html" class="group block project-profile md:col-span-5 md:col-start-1 md:mt-8">
-            <div class="relative overflow-hidden aspect-[4/5] mb-1 shadow-2xl">
-              <img src="https://picsum.photos/seed/work5/600/800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Work 5">
-            </div>
-            <h3 class="font-oswald text-3xl uppercase font-bold mb-2" data-key="Work.Profile.5.Title">Cultural Exchange Program</h3>
-            <p class="font-playfair text-base text-gray-600 italic" data-key="Work.Profile.5.Desc">Facilitating international arts and culture initiatives.</p>
-          </a>
-
-          <!-- Profile 6 (Right, even lower) -->
-          <a href="/profile.html" class="group block project-profile md:col-span-6 md:col-start-7 md:mt-16">
-            <div class="relative overflow-hidden aspect-[16/9] mb-1 shadow-2xl">
-              <img src="https://picsum.photos/seed/work6/1000/600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Work 6">
-            </div>
-            <h3 class="font-oswald text-3xl uppercase font-bold mb-2" data-key="Work.Profile.6.Title">Future City Expo</h3>
-            <p class="font-playfair text-base text-gray-600 italic" data-key="Work.Profile.6.Desc">Showcasing innovative urban development solutions.</p>
-          </a>
-
+        <!-- Floating Profiles Grid (Scattered Arrangement) — populated by CMS -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-y-12 gap-x-8 relative z-10" id="work-profiles-grid">
+          <!-- Populated dynamically by cmsDataReady listener -->
         </div>
-
 
       </div>
     </section>
@@ -666,20 +546,20 @@
             <div>
               <h4 class="font-oswald text-sm font-bold uppercase tracking-widest text-brand-red mb-6 border-b border-white/20 pb-4" data-key="Global.Navigation.WhoWeHelp">Who We Help</h4>
               <ul class="space-y-4 font-sans text-[14px] text-white">
-                <li class="hover:text-brand-red transition-colors cursor-pointer"><a href="/work.html?filter=government" data-key="Global.Navigation.GovPublic">Government & Public Sector</a></li>
-                <li class="hover:text-brand-red transition-colors cursor-pointer"><a href="/work.html?filter=lifestyle" data-key="Global.Navigation.LifestyleConsumer">Lifestyle & Consumer</a></li>
-                <li class="hover:text-brand-red transition-colors cursor-pointer"><a href="/work.html?filter=hospitality" data-key="Global.Navigation.FBHospitality">F&B & Hospitality</a></li>
-                <li class="hover:text-brand-red transition-colors cursor-pointer"><a href="/work.html?filter=venues" data-key="Global.Navigation.MallsVenues">Malls & Venues</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.GovPublic' href='/work?filter=government'>Government & Public Sector</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.LifestyleConsumer' href='/work?filter=lifestyle'>Lifestyle & Consumer</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.FBHospitality' href='/work?filter=hospitality'>F&B & Hospitality</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.MallsVenues' href='/work?filter=venues'>Malls & Venues</a></li>
               </ul>
             </div>
             <div>
               <h4 class="font-oswald text-sm font-bold uppercase tracking-widest text-brand-red mb-6 border-b border-white/20 pb-4" data-key="Global.Navigation.WhatWeDo">What We Do</h4>
               <ul class="space-y-4 font-sans text-[14px] text-white">
-                <li class="hover:text-brand-red transition-colors cursor-pointer"><a href="/work.html?filter=exhibitions" data-key="Global.Navigation.RovingExhibitions">Roving Exhibitions</a></li>
-                <li class="hover:text-brand-red transition-colors cursor-pointer"><a href="/work.html?filter=social" data-key="Global.Navigation.SocialContent">Social & Content</a></li>
-                <li class="hover:text-brand-red transition-colors cursor-pointer"><a href="/work.html?filter=tech" data-key="Global.Navigation.InteractiveTech">Interactive & Tech</a></li>
-                <li class="hover:text-brand-red transition-colors cursor-pointer"><a href="/work.html?filter=pr" data-key="Global.Navigation.PRMedia">PR & Media</a></li>
-                <li class="hover:text-brand-red transition-colors cursor-pointer"><a href="/work.html?filter=events" data-key="Global.Navigation.EventsCeremonies">Events & Ceremonies</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.RovingExhibitions' href='/work?filter=exhibitions'>Roving Exhibitions</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.SocialContent' href='/work?filter=social'>Social & Content</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.InteractiveTech' href='/work?filter=tech'>Interactive & Tech</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.PRMedia' href='/work?filter=pr'>PR & Media</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.EventsCeremonies' href='/work?filter=events'>Events & Ceremonies</a></li>
               </ul>
             </div>
           </div>
@@ -893,7 +773,7 @@
           <!-- Card 01 -->
           <div class="newsletter-card group">
             <div class="overflow-hidden aspect-[16/9] mb-3 relative bg-gray-200 h-[130%] -top-[15%]">
-              <img src="https://picsum.photos/seed/dispatch1/1200/675" class="parallax-img w-full h-full object-cover scale-110" alt="Report" data-key="Index.Newsletter.Card1.Alt">
+              <img id="newsletter-img-1" src="" class="parallax-img w-full h-full object-cover scale-110" alt="Report" data-key="Index.Newsletter.Card1.Alt" referrerpolicy="no-referrer">
             </div>
             <div class="flex gap-6">
               <div>
@@ -911,7 +791,7 @@
           <!-- Card 02 -->
           <div class="newsletter-card group">
             <div class="overflow-hidden aspect-[16/9] mb-3 relative bg-gray-200 h-[130%] -top-[15%]">
-              <img src="https://picsum.photos/seed/dispatch2/1200/675" class="parallax-img w-full h-full object-cover scale-110" alt="Luxury" data-key="Index.Newsletter.Card2.Alt">
+              <img id="newsletter-img-2" src="" class="parallax-img w-full h-full object-cover scale-110" alt="Luxury" data-key="Index.Newsletter.Card2.Alt" referrerpolicy="no-referrer">
             </div>
             <div class="flex gap-6">
               <div>
@@ -929,7 +809,7 @@
           <!-- Card 03 -->
           <div class="newsletter-card group">
             <div class="overflow-hidden aspect-[16/9] mb-3 relative bg-gray-200 h-[130%] -top-[15%]">
-              <img src="https://picsum.photos/seed/dispatch3/1200/675" class="parallax-img w-full h-full object-cover scale-110" alt="AI" data-key="Index.Newsletter.Card3.Alt">
+              <img id="newsletter-img-3" src="" class="parallax-img w-full h-full object-cover scale-110" alt="AI" data-key="Index.Newsletter.Card3.Alt" referrerpolicy="no-referrer">
             </div>
             <div class="flex gap-6">
               <div>
@@ -1126,35 +1006,26 @@
         });
       });
 
-      // Client Logos Data & Animation
-      const lifestyleLogos = [
-        { src: "https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg", desc: "We translated their brand ethos into a high-energy urban pop-up." },
-        { src: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg", desc: "Designed an immersive running experience for their latest drop." },
-        { src: "https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg", desc: "Created a tech-forward interactive zone for their flagship launch." },
-        { src: "https://upload.wikimedia.org/wikipedia/commons/0/08/Spotify_logo_without_text.svg", desc: "Amplified their presence with a sound-reactive roving exhibition." },
-        { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/1200px-H%26M-Logo.svg.png", desc: "Launched a sustainable fashion installation in the heart of the city." }
-      ];
-      
-      const govLogos = [
-        { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Emblem_of_Hong_Kong.svg/1200px-Emblem_of_Hong_Kong.svg.png", desc: "Partnered with the department to gamify public safety education." },
-        { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Hong_Kong_Tourism_Board_logo.svg/1200px-Hong_Kong_Tourism_Board_logo.svg.png", desc: "Revitalized local tourism with a city-wide interactive art trail." },
-        { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Invest_HK_logo.svg/1200px-Invest_HK_logo.svg.png", desc: "Built trust and engagement through strategic international PR campaigns." }
-      ];
+      // Client Logos Data & Animation (populated by CMS, with fallbacks)
+      let lifestyleLogos = [];
+      let govLogos = [];
 
       const slots = document.querySelectorAll('.logo-slot');
       let isFlipped = false;
 
-      // Initialize slots
-      slots.forEach((slot, index) => {
-        const type = slot.dataset.type;
-        const pool = type === 'lifestyle' ? lifestyleLogos : govLogos;
-        const logoData = pool[index % pool.length];
-        slot.dataset.desc = logoData.desc;
-        slot.dataset.currentSrc = logoData.src;
-        const frontImg = slot.querySelector('.front-img');
-        frontImg.referrerPolicy = 'no-referrer';
-        frontImg.src = logoData.src;
-      });
+      // Initialize slots (deferred — logos populated by cmsDataReady)
+      function initLogoSlots() {
+        slots.forEach((slot, index) => {
+          const type = slot.dataset.type;
+          const pool = type === 'lifestyle' ? lifestyleLogos : govLogos;
+          if (!pool.length) return;
+          const logoData = pool[index % pool.length];
+          slot.dataset.desc = logoData.desc;
+          slot.dataset.currentSrc = logoData.src;
+          const frontImg = slot.querySelector('.front-img');
+          if (frontImg) { frontImg.referrerPolicy = 'no-referrer'; frontImg.src = logoData.src; }
+        });
+      }
 
       // Flip animation every 5 seconds
       setInterval(() => {
@@ -1162,19 +1033,18 @@
           const flipper = slot.querySelector('.flipper');
           const type = slot.dataset.type;
           const pool = type === 'lifestyle' ? lifestyleLogos : govLogos;
+          if (!pool.length) return;
           const randomLogo = pool[Math.floor(Math.random() * pool.length)];
-          
+
           if (!isFlipped) {
             const backImg = slot.querySelector('.back-img');
-            backImg.referrerPolicy = 'no-referrer';
-            backImg.src = randomLogo.src;
+            if (backImg) { backImg.referrerPolicy = 'no-referrer'; backImg.src = randomLogo.src; }
             slot.dataset.desc = randomLogo.desc;
             slot.dataset.currentSrc = randomLogo.src;
             flipper.style.transform = 'rotateX(180deg)';
           } else {
             const frontImg = slot.querySelector('.front-img');
-            frontImg.referrerPolicy = 'no-referrer';
-            frontImg.src = randomLogo.src;
+            if (frontImg) { frontImg.referrerPolicy = 'no-referrer'; frontImg.src = randomLogo.src; }
             slot.dataset.desc = randomLogo.desc;
             slot.dataset.currentSrc = randomLogo.src;
             flipper.style.transform = 'rotateX(0deg)';
@@ -1209,29 +1079,27 @@
         }, 300);
       }
 
-      // Simple Auto Slider for Session 2
+      // Auto Slider for Session 2 (initialized after CMS data loads)
       const slider = document.getElementById('main-slider');
-      const dots = document.querySelectorAll('.slider-dot');
       let currentSlide = 0;
-      const totalSlides = 3;
+      let totalSlides = 0;
+      let sliderInterval = null;
 
       function goToSlide(index) {
+        if (totalSlides === 0) return;
         currentSlide = index;
         slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-        dots.forEach(dot => dot.classList.remove('bg-white'));
-        dots.forEach(dot => dot.classList.add('bg-white/50'));
-        dots[currentSlide].classList.remove('bg-white/50');
-        dots[currentSlide].classList.add('bg-white');
+        const dots = document.querySelectorAll('.slider-dot');
+        dots.forEach(dot => { dot.classList.remove('bg-white'); dot.classList.add('bg-white/50'); });
+        if (dots[currentSlide]) { dots[currentSlide].classList.remove('bg-white/50'); dots[currentSlide].classList.add('bg-white'); }
       }
 
-      setInterval(() => {
-        let nextSlide = (currentSlide + 1) % totalSlides;
-        goToSlide(nextSlide);
-      }, 5000);
-
-      dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => goToSlide(index));
-      });
+      function startSliderAutoplay() {
+        if (sliderInterval) clearInterval(sliderInterval);
+        sliderInterval = setInterval(() => {
+          goToSlide((currentSlide + 1) % totalSlides);
+        }, 5000);
+      }
 
       // Marquee Logic with Scroll Interaction
       const marquees = document.querySelectorAll('.animate-marquee');
@@ -1285,15 +1153,8 @@
         });
       });
 
-      // Polaroid Slideshow Logic
-      const polaroidImages = [
-        'https://picsum.photos/seed/event_biz1/600/600',
-        'https://picsum.photos/seed/event_biz2/600/600',
-        'https://picsum.photos/seed/event_biz3/600/600',
-        'https://picsum.photos/seed/event_biz4/600/600',
-        'https://picsum.photos/seed/event_biz5/600/600',
-        'https://picsum.photos/seed/event_biz6/600/600',
-      ];
+      // Polaroid Slideshow Logic (populated by CMS)
+      let polaroidImages = [];
 
       function startPolaroidSlideshow(selector, startIndex) {
         const imgs = document.querySelectorAll(selector);
@@ -1369,6 +1230,135 @@
           scrub: true
         }
       });
+
+    // --- CMS Data Integration ---
+    window.addEventListener('cmsDataReady', function(e) {
+      var projects = (e.detail && e.detail.projects) || [];
+      if (!projects.length) return;
+
+      // --- 1. Populate Slider (top 5 projects with hero photos) ---
+      var sliderProjects = projects.filter(function(p) { return p.heroPhoto; }).slice(0, 5);
+      var sliderHTML = '';
+      sliderProjects.forEach(function(p) {
+        sliderHTML += '<div class="relative w-full h-full flex-shrink-0">' +
+          '<img src="' + p.heroPhoto + '" class="absolute inset-0 w-full h-full object-cover" alt="' + (p.project || '') + '" referrerpolicy="no-referrer">' +
+          '<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>' +
+          '<div class="absolute bottom-16 left-8 md:left-16 z-20 text-white">' +
+            '<h3 class="font-oswald text-4xl md:text-6xl font-bold uppercase mb-2">' + (p.project || '') + '</h3>' +
+            '<p class="font-sans text-sm uppercase tracking-widest text-white/70 mb-4">' + (p.category || '') + '</p>' +
+            '<a href="/profile.html?id=' + (p.projectId || '') + '" class="font-sans text-sm font-bold uppercase tracking-widest hover:text-brand-red transition-colors flex items-center gap-2">' +
+              '<span class="text-xl">↳</span> View Project</a>' +
+          '</div></div>';
+      });
+      slider.innerHTML = sliderHTML;
+      totalSlides = sliderProjects.length;
+
+      // Build dots
+      var dotsContainer = document.getElementById('slider-dots');
+      dotsContainer.innerHTML = '';
+      for (var di = 0; di < totalSlides; di++) {
+        var dot = document.createElement('button');
+        dot.className = 'slider-dot w-3 h-3 rounded-full transition-colors ' + (di === 0 ? 'bg-white' : 'bg-white/50');
+        dot.dataset.index = di;
+        dot.addEventListener('click', function() { goToSlide(parseInt(this.dataset.index)); });
+        dotsContainer.appendChild(dot);
+      }
+      if (totalSlides > 1) startSliderAutoplay();
+
+      // --- 2. Populate Work Profiles Grid (6 projects) ---
+      var gridProjects = projects.filter(function(p) { return p.heroPhoto; }).slice(0, 6);
+      var gridContainer = document.getElementById('work-profiles-grid');
+      // Scattered layout column configs
+      var layouts = [
+        { cols: 'md:col-span-7', aspect: 'aspect-[4/5]', mt: '' },
+        { cols: 'md:col-span-5', aspect: 'aspect-[3/4]', mt: 'md:mt-24' },
+        { cols: 'md:col-span-5 md:col-start-2', aspect: 'aspect-[3/4]', mt: '' },
+        { cols: 'md:col-span-6 md:col-start-7', aspect: 'aspect-[4/5]', mt: 'md:-mt-16' },
+        { cols: 'md:col-span-7', aspect: 'aspect-[4/5]', mt: '' },
+        { cols: 'md:col-span-5', aspect: 'aspect-[3/4]', mt: 'md:mt-16' }
+      ];
+      var gridHTML = '';
+      gridProjects.forEach(function(p, i) {
+        var layout = layouts[i] || layouts[0];
+        gridHTML += '<a href="/profile.html?id=' + (p.projectId || '') + '" class="project-profile ' + layout.cols + ' ' + layout.mt + ' group block">' +
+          '<div class="' + layout.aspect + ' w-full overflow-hidden relative bg-gray-200">' +
+            '<img src="' + p.heroPhoto + '" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="' + (p.project || '') + '" referrerpolicy="no-referrer">' +
+          '</div>' +
+          '<div class="mt-4">' +
+            '<h3 class="font-oswald text-2xl md:text-3xl font-bold uppercase group-hover:text-brand-red transition-colors">' + (p.project || '') + '</h3>' +
+            '<p class="font-sans text-sm text-gray-500 uppercase tracking-widest mt-1">' + (p.category || '') + (p.whatWeDo ? ' / ' + p.whatWeDo : '') + '</p>' +
+          '</div></a>';
+      });
+      gridContainer.innerHTML = gridHTML;
+
+      // Re-trigger GSAP for dynamically added profiles
+      gsap.utils.toArray('.project-profile').forEach(function(item) {
+        gsap.from(item, {
+          y: 100, opacity: 0, duration: 1, ease: "power3.out",
+          scrollTrigger: { trigger: item, start: "top 85%" }
+        });
+      });
+
+      // --- 3. Populate Client Logos from CMS ---
+      var govSlugs = ['government'];
+      var lifestyleSlugs = ['lifestyle', 'hospitality', 'venues', 'exhibitions', 'social', 'tech', 'pr', 'events'];
+      var seenLifestyle = {};
+      var seenGov = {};
+
+      projects.forEach(function(p) {
+        if (!p.logoBlack) return;
+        var isGov = p.filterSlugs.some(function(s) { return govSlugs.indexOf(s) !== -1; });
+        var isLifestyle = p.filterSlugs.some(function(s) { return lifestyleSlugs.indexOf(s) !== -1; });
+        if (isGov && !seenGov[p.logoBlack]) {
+          seenGov[p.logoBlack] = true;
+          govLogos.push({ src: p.logoBlack, desc: p.project + ' — ' + (p.scope || p.category || '') });
+        }
+        if ((isLifestyle || !isGov) && !seenLifestyle[p.logoBlack]) {
+          seenLifestyle[p.logoBlack] = true;
+          lifestyleLogos.push({ src: p.logoBlack, desc: p.project + ' — ' + (p.scope || p.category || '') });
+        }
+      });
+
+      // Re-initialize logo slots with CMS data
+      if (lifestyleLogos.length || govLogos.length) {
+        var allSlots = document.querySelectorAll('.logo-slot');
+        allSlots.forEach(function(slot, index) {
+          var type = slot.dataset.type;
+          var pool = type === 'lifestyle' ? lifestyleLogos : govLogos;
+          if (!pool.length) return;
+          var logoData = pool[index % pool.length];
+          slot.dataset.desc = logoData.desc;
+          slot.dataset.currentSrc = logoData.src;
+          var frontImg = slot.querySelector('.front-img');
+          if (frontImg) { frontImg.referrerPolicy = 'no-referrer'; frontImg.src = logoData.src; }
+        });
+      }
+
+      // --- 4. Populate Polaroid Images from CMS ---
+      var polaroidSources = projects.filter(function(p) { return p.heroPhotoSmall; })
+        .slice(0, 8).map(function(p) { return p.heroPhotoSmall; });
+      if (polaroidSources.length) {
+        polaroidImages = polaroidSources;
+        // Set initial polaroid images
+        document.querySelectorAll('.polaroid-img-1').forEach(function(img, i) {
+          img.src = polaroidImages[i % polaroidImages.length];
+        });
+        document.querySelectorAll('.polaroid-img-2').forEach(function(img, i) {
+          img.src = polaroidImages[(i + 2) % polaroidImages.length];
+        });
+      }
+
+      // --- 5. Set Newsletter Card Images ---
+      var newsletterImg1 = document.getElementById('newsletter-img-1');
+      var newsletterImg2 = document.getElementById('newsletter-img-2');
+      var newsletterImg3 = document.getElementById('newsletter-img-3');
+      if (projects[0] && projects[0].heroPhoto && newsletterImg1) newsletterImg1.src = projects[0].heroPhoto;
+      if (projects[1] && projects[1].heroPhoto && newsletterImg2) newsletterImg2.src = projects[1].heroPhoto;
+      if (projects[2] && projects[2].heroPhoto && newsletterImg3) newsletterImg3.src = projects[2].heroPhoto;
+
+      // --- 6. Refresh ScrollTrigger for dynamic content ---
+      ScrollTrigger.refresh();
+    });
 
     // --- Legal Modal Logic ---
     const legalModal = document.getElementById('legal-modal');
