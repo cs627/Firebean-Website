@@ -6,7 +6,12 @@
 (function () {
   'use strict';
 
-  var JSON_URL = 'data/projects.json';
+  // Detect base path from <base> tag or page URL for GitHub Pages subdirectory hosting
+  var baseEl = document.querySelector('base[href]');
+  var BASE_PATH = baseEl ? baseEl.getAttribute('href') : '/';
+  if (BASE_PATH.charAt(BASE_PATH.length - 1) !== '/') BASE_PATH += '/';
+
+  var JSON_URL = BASE_PATH + 'data/projects.json';
 
   /**
    * Fetch gallery photo IDs from a Google Drive folder via Edge Function proxy.
@@ -60,6 +65,17 @@
         var projects = data.projects || [];
         if (!projects.length) {
           console.warn('[CMS] No projects in JSON');
+        }
+
+        // Prepend base path to relative image URLs
+        var imgKeys = ['heroPhoto', 'heroPhotoSmall', 'logoBlack', 'logoWhite'];
+        for (var i = 0; i < projects.length; i++) {
+          for (var k = 0; k < imgKeys.length; k++) {
+            var val = projects[i][imgKeys[k]];
+            if (val && val.indexOf('http') !== 0 && val.charAt(0) !== '/') {
+              projects[i][imgKeys[k]] = BASE_PATH + val;
+            }
+          }
         }
 
         window.cmsData = {
