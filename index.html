@@ -122,10 +122,10 @@
       
       /* L-Brackets */
       .l-bracket { position: absolute; width: 12px; height: 12px; border-color: #ff3333; border-style: solid; pointer-events: none; z-index: 10; }
-      .l-tl { top: -4px; left: -4px; border-width: 2px 0 0 2px; }
-      .l-tr { top: -4px; right: -4px; border-width: 2px 2px 0 0; }
-      .l-bl { bottom: -4px; left: -4px; border-width: 0 0 2px 2px; }
-      .l-br { bottom: -4px; right: -4px; border-width: 0 2px 2px 0; }
+      .l-tl { top: 0.15em; left: 0.15em; border-width: 2px 0 0 2px; }
+      .l-tr { top: 0.15em; right: 0.15em; border-width: 2px 2px 0 0; }
+      .l-bl { bottom: 0.15em; left: 0.15em; border-width: 0 0 2px 2px; }
+      .l-br { bottom: 0.15em; right: 0.15em; border-width: 0 2px 2px 0; }
 
       /* Japanese Work Title Adjustment */
       body.lang-jp [data-key="Index.Work.Title"] {
@@ -1391,21 +1391,32 @@
         if (imgEl) imgEl.src = np.heroPhoto;
         // Hide the title element — newsletter cards show content only
         if (titleEl) titleEl.style.display = 'none';
-        // Show first 50 chars of webEN content (stripped of HTML), fallback to LinkedIn or scope
+        // Show first 150 words of LinkedIn content, fallback to webEN/TC/JP
         if (descEl) {
           var currentLang = localStorage.getItem('lang') || 'en';
           var rawContent = '';
-          if (currentLang === 'ch' && np.webTC) rawContent = np.webTC;
-          else if (currentLang === 'jp' && np.webJP) rawContent = np.webJP;
-          else rawContent = np.webEN || '';
+          // Use LinkedIn text first if available
+          var linkedinText = np.linkedin || '';
+          if (linkedinText) {
+            rawContent = linkedinText;
+          } else if (currentLang === 'ch' && np.webTC) {
+            rawContent = np.webTC;
+          } else if (currentLang === 'jp' && np.webJP) {
+            rawContent = np.webJP;
+          } else {
+            rawContent = np.webEN || '';
+          }
           // Strip HTML tags to get plain text
           var tempDiv = document.createElement('div');
           tempDiv.innerHTML = rawContent;
           var plainText = (tempDiv.textContent || tempDiv.innerText || '').trim();
-          // Use LinkedIn text if available, otherwise use webEN plain text
-          var linkedinText = np.linkedin || '';
-          var displayText = linkedinText || plainText;
-          descEl.textContent = displayText.length > 50 ? displayText.substring(0, 50) + '...' : displayText;
+          // Truncate to first 150 words
+          var words = plainText.split(/\s+/);
+          if (words.length > 150) {
+            descEl.textContent = words.slice(0, 150).join(' ') + '...';
+          } else {
+            descEl.textContent = plainText;
+          }
         }
         // Link to LinkedIn URL if available
         if (linkEl) {
