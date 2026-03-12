@@ -1343,28 +1343,28 @@
         });
       }
 
-      // --- 4. Populate Polaroid Images from CMS (random, non-hero) ---
-      // Collect all non-hero images: logos and gallery photos
-      var nonHeroPool = [];
+      // --- 4. Populate Polaroid Images from CMS (random, excluding hero & logos) ---
+      // Primary source: gallery photos from each project
+      var polaroidPool = [];
       projects.forEach(function(p) {
-        if (p.logoBlack) nonHeroPool.push(p.logoBlack);
-        if (p.logoWhite) nonHeroPool.push(p.logoWhite);
         if (p.galleryPhotos && p.galleryPhotos.length) {
-          p.galleryPhotos.forEach(function(g) { nonHeroPool.push(g); });
+          p.galleryPhotos.forEach(function(g) { polaroidPool.push(g); });
         }
       });
-      // Fallback to heroPhotoSmall if no non-hero images yet (pre-sync)
-      if (!nonHeroPool.length) {
-        nonHeroPool = projects.filter(function(p) { return p.heroPhotoSmall; })
-          .map(function(p) { return p.heroPhotoSmall; });
+      // Fallback: if no gallery photos yet (pre-sync), use heroPhotoSmall
+      if (!polaroidPool.length) {
+        projects.forEach(function(p) {
+          if (p.heroPhotoSmall) polaroidPool.push(p.heroPhotoSmall);
+        });
       }
       // Shuffle using Fisher-Yates
-      for (var si = nonHeroPool.length - 1; si > 0; si--) {
+      for (var si = polaroidPool.length - 1; si > 0; si--) {
         var sj = Math.floor(Math.random() * (si + 1));
-        var tmp = nonHeroPool[si]; nonHeroPool[si] = nonHeroPool[sj]; nonHeroPool[sj] = tmp;
+        var tmp = polaroidPool[si]; polaroidPool[si] = polaroidPool[sj]; polaroidPool[sj] = tmp;
       }
-      if (nonHeroPool.length) {
-        polaroidImages = nonHeroPool.slice(0, 8);
+      // Pre-select 20 random photos for the rotation pool
+      if (polaroidPool.length) {
+        polaroidImages = polaroidPool.slice(0, 20);
         // Set initial polaroid images
         document.querySelectorAll('.polaroid-img-1').forEach(function(img, i) {
           img.src = polaroidImages[i % polaroidImages.length];
@@ -1389,15 +1389,23 @@
         var descEl = document.getElementById(card.desc);
         var linkEl = document.getElementById(card.link);
         if (imgEl) imgEl.src = np.heroPhoto;
-        if (titleEl) titleEl.textContent = np.project || '';
-        // Use LinkedIn post text first 50 chars, fallback to scope
+        // Hide the title element — newsletter cards show content only
+        if (titleEl) titleEl.style.display = 'none';
+        // Show first 50 chars of webEN content (stripped of HTML), fallback to LinkedIn or scope
         if (descEl) {
+          var currentLang = localStorage.getItem('lang') || 'en';
+          var rawContent = '';
+          if (currentLang === 'ch' && np.webTC) rawContent = np.webTC;
+          else if (currentLang === 'jp' && np.webJP) rawContent = np.webJP;
+          else rawContent = np.webEN || '';
+          // Strip HTML tags to get plain text
+          var tempDiv = document.createElement('div');
+          tempDiv.innerHTML = rawContent;
+          var plainText = (tempDiv.textContent || tempDiv.innerText || '').trim();
+          // Use LinkedIn text if available, otherwise use webEN plain text
           var linkedinText = np.linkedin || '';
-          if (linkedinText) {
-            descEl.textContent = linkedinText.length > 50 ? linkedinText.substring(0, 50) + '...' : linkedinText;
-          } else {
-            descEl.textContent = np.scope || np.category || '';
-          }
+          var displayText = linkedinText || plainText;
+          descEl.textContent = displayText.length > 50 ? displayText.substring(0, 50) + '...' : displayText;
         }
         // Link to LinkedIn URL if available
         if (linkEl) {
