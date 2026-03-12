@@ -75,6 +75,122 @@
       -webkit-text-stroke: 1px white;
       color: transparent;
     }
+
+    /* === CMS Article Content Typography === */
+    /* h2 = Article Main Title (Oswald, bold, large) */
+    .cms-content h2 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 2rem;
+      line-height: 1.15;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: #0a0a0a;
+      margin-bottom: 1rem;
+    }
+    @media (min-width: 768px) {
+      .cms-content h2 {
+        font-size: 2.75rem;
+      }
+    }
+
+    /* h3 = Article Subtitle / Lead (Playfair Display, italic) */
+    .cms-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: 1.25rem;
+      line-height: 1.5;
+      color: #555;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    @media (min-width: 768px) {
+      .cms-content h3 {
+        font-size: 1.4rem;
+      }
+    }
+
+    /* h4 = Section Heading (Oswald, medium weight, red accent) */
+    .cms-content h4 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 500;
+      font-size: 1.1rem;
+      line-height: 1.3;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #ff3333;
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+    @media (min-width: 768px) {
+      .cms-content h4 {
+        font-size: 1.25rem;
+      }
+    }
+
+    /* Paragraphs = Body text (Libre Baskerville, readable) */
+    .cms-content p {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1rem;
+      line-height: 1.85;
+      color: #444;
+      margin-bottom: 1.25rem;
+    }
+    @media (min-width: 768px) {
+      .cms-content p {
+        font-size: 1.05rem;
+      }
+    }
+
+    /* Plain text nodes (not wrapped in tags) rendered as paragraphs */
+    .cms-content {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1rem;
+      line-height: 1.85;
+      color: #444;
+    }
+    @media (min-width: 768px) {
+      .cms-content {
+        font-size: 1.05rem;
+      }
+    }
+
+    /* First paragraph after h3 subtitle — no extra top margin */
+    .cms-content h3 + p,
+    .cms-content h3 + h4 {
+      margin-top: 0;
+    }
+
+    /* Lists inside CMS content */
+    .cms-content ul, .cms-content ol {
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1rem;
+      line-height: 1.85;
+      color: #444;
+    }
+    .cms-content li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Links inside CMS content */
+    .cms-content a {
+      color: #ff3333;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .cms-content a:hover {
+      opacity: 0.7;
+    }
+
+    /* Strong / Bold */
+    .cms-content strong, .cms-content b {
+      font-weight: 700;
+      color: #0a0a0a;
+    }
   </style>
 </head>
 <body class="antialiased">
@@ -157,26 +273,29 @@
       </div>
     </header>
 
-    <!-- Split Content Section -->
-    <section class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-32">
-      <!-- Left: Hero Image -->
-      <div class="relative aspect-[4/5] w-full overflow-hidden shadow-2xl">
+    <!-- Hero Image (Full Width) -->
+    <section class="mb-16">
+      <div class="relative aspect-[16/9] md:aspect-[2/1] w-full overflow-hidden shadow-2xl">
         <img id="profile-hero" src="" alt="Project Hero Image" class="w-full h-full object-cover" referrerpolicy="no-referrer">
       </div>
+    </section>
 
-      <!-- Right: Description -->
-      <div class="flex flex-col justify-center">
-        <h3 id="profile-challenge" class="font-oswald text-4xl md:text-5xl uppercase font-bold leading-none mb-8">
-        </h3>
-        <div class="font-playfair text-lg leading-relaxed text-gray-700 space-y-6">
-          <p id="profile-solution">
-          </p>
-          <div id="profile-scope" class="mt-8 pt-8 border-t border-black/10">
-            <h4 class="font-oswald text-sm uppercase tracking-widest text-gray-400 mb-3">Scope</h4>
-            <p class="font-sans text-sm text-gray-600"></p>
-          </div>
-        </div>
+    <!-- Article Content -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-32">
+      <!-- Left Column: CMS Article -->
+      <div class="lg:col-span-8">
+        <article id="profile-challenge" class="cms-content">
+        </article>
+        <div id="profile-solution" class="cms-content mt-6"></div>
       </div>
+
+      <!-- Right Column: Scope Sidebar -->
+      <aside class="lg:col-span-4">
+        <div id="profile-scope" class="sticky top-8 border-l-2 border-brand-red pl-6">
+          <h4 class="font-oswald text-xs uppercase tracking-[0.2em] text-gray-400 mb-4">Scope</h4>
+          <p class="font-sans text-sm text-gray-600 leading-relaxed"></p>
+        </div>
+      </aside>
     </section>
 
     <!-- YouTube Embed (hidden if no video) -->
@@ -391,7 +510,16 @@
 
         // Use web content if available, otherwise fallback to challenge/solution fields
         if (webContent) {
-          challengeEl.innerHTML = webContent;
+          // Wrap bare text lines (not inside tags) in <p> tags for proper styling
+          var processed = webContent.replace(/\n{2,}/g, '\n').split('\n').map(function(line) {
+            var trimmed = line.trim();
+            if (!trimmed) return '';
+            // If line already starts with an HTML tag, leave it
+            if (/^<(h[1-6]|p|ul|ol|li|div|blockquote|figure|img|iframe|br)/i.test(trimmed)) return trimmed;
+            // Otherwise wrap in <p>
+            return '<p>' + trimmed + '</p>';
+          }).join('\n');
+          challengeEl.innerHTML = processed;
           solutionEl.innerHTML = '';
         } else {
           challengeEl.textContent = project.challenge || '';
