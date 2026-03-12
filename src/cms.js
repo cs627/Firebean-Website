@@ -6,7 +6,7 @@
 (function () {
   'use strict';
 
-  var JSON_URL = '/data/projects.json';
+  var JSON_URL = 'data/projects.json';
 
   /**
    * Fetch gallery photo IDs from a Google Drive folder via Edge Function proxy.
@@ -17,7 +17,7 @@
     maxPhotos = maxPhotos || 12;
     if (!folderId) return Promise.resolve([]);
 
-    var apiUrl = '/api/gallery?folderId=' + encodeURIComponent(folderId);
+    var apiUrl = 'api/gallery?folderId=' + encodeURIComponent(folderId);
     return fetch(apiUrl)
       .then(function (res) {
         if (!res.ok) throw new Error('HTTP ' + res.status);
