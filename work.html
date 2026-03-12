@@ -80,18 +80,18 @@
 
   <!-- Navigation -->
   <nav class="bg-brand-gray/80 backdrop-blur-md w-full px-6 py-6 flex justify-between items-center z-[9999] text-brand-black border-b border-black/5 pointer-events-auto" id="navbar" data-lenis-prevent>
-    <a href="/index.html" class="flex items-center gap-2 hover:opacity-70 transition-opacity">
+    <a class='flex items-center gap-2 hover:opacity-70 transition-opacity' href='/'>
       <img src="https://drive.google.com/thumbnail?id=1d3M0KGD88nksyq8EWew8UvI9MgrTZNYl&sz=w100" class="h-6 w-auto object-contain mix-blend-multiply" alt="Firebean Logo" referrerpolicy="no-referrer">
       <div class="font-sans font-light text-xl tracking-widest lowercase" style="font-variant: small-caps;">firebean</div>
     </a>
     
       <div class="hidden md:flex gap-8 font-sans text-sm uppercase tracking-widest items-center">
-      <a href="/index.html#hero" class="hover:opacity-50 transition-opacity" data-key="Global.Navigation.Home">Home</a>
-      <a href="/index.html#about" class="hover:opacity-50 transition-opacity" data-key="Global.Navigation.About">About</a>
+      <a class='hover:opacity-50 transition-opacity' data-key='Global.Navigation.Home' href='/#hero'>Home</a>
+      <a class='hover:opacity-50 transition-opacity' data-key='Global.Navigation.About' href='/#about'>About</a>
       
       <!-- Mega Menu Trigger -->
       <div class="relative group py-4">
-        <a href="/work.html" class="hover:opacity-50 transition-opacity flex items-center gap-1">
+        <a class='hover:opacity-50 transition-opacity flex items-center gap-1' href='/work'>
           <span data-key="Global.Navigation.WhatWeDo">What We Do</span> <span class="text-[10px]">▼</span>
         </a>
         
@@ -102,24 +102,24 @@
             <div>
               <h4 class="font-oswald text-xl mb-6 text-brand-red tracking-widest" data-key="Global.Navigation.WhoWeHelp">WHO WE HELP</h4>
               <ul class="space-y-3 text-sm text-gray-400 font-sans tracking-wide">
-                <li><a href="/work.html?filter=government" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.GovPublic">Government & Public Sector</a></li>
-                <li><a href="/work.html?filter=lifestyle" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.LifestyleConsumer">Lifestyle & Consumer</a></li>
-                <li><a href="/work.html?filter=hospitality" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.FBHospitality">F&B & Hospitality</a></li>
-                <li><a href="/work.html?filter=venues" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.MallsVenues">Malls & Venues</a></li>
+                <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.GovPublic' href='/work?filter=government'>Government & Public Sector</a></li>
+                <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.LifestyleConsumer' href='/work?filter=lifestyle'>Lifestyle & Consumer</a></li>
+                <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.FBHospitality' href='/work?filter=hospitality'>F&B & Hospitality</a></li>
+                <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.MallsVenues' href='/work?filter=venues'>Malls & Venues</a></li>
               </ul>
             </div>
             <div>
               <h4 class="font-oswald text-xl mb-6 text-brand-red tracking-widest" data-key="Global.Navigation.WhatWeDo">WHAT WE DO</h4>
               <ul class="space-y-3 text-sm text-gray-400 font-sans tracking-wide">
-                <li><a href="/work.html?filter=exhibitions" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.RovingExhibitions">Roving Exhibitions</a></li>
-                <li><a href="/work.html?filter=social" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.SocialContent">Social & Content</a></li>
-                <li><a href="/work.html?filter=tech" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.InteractiveTech">Interactive & Tech</a></li>
-                <li><a href="/work.html?filter=pr" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.PRMedia">PR & Media</a></li>
-                <li><a href="/work.html?filter=events" class="hover:text-white transition-colors block py-1" data-key="Global.Navigation.EventsCeremonies">Events & Ceremonies</a></li>
+                <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.RovingExhibitions' href='/work?filter=exhibitions'>Roving Exhibitions</a></li>
+                <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.SocialContent' href='/work?filter=social'>Social & Content</a></li>
+                <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.InteractiveTech' href='/work?filter=tech'>Interactive & Tech</a></li>
+                <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.PRMedia' href='/work?filter=pr'>PR & Media</a></li>
+                <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.EventsCeremonies' href='/work?filter=events'>Events & Ceremonies</a></li>
               </ul>
             </div>
             <div class="col-span-2 border-t border-white/20 pt-6 mt-2">
-              <a href="/work.html" class="text-sm font-bold hover:text-brand-red transition-colors flex items-center gap-3 tracking-widest">
+              <a class='text-sm font-bold hover:text-brand-red transition-colors flex items-center gap-3 tracking-widest' href='/work'>
                 <span class="text-xl">↳</span> <span data-key="Global.Navigation.ViewAllWork">VIEW ALL WORK</span>
               </a>
             </div>
@@ -252,79 +252,86 @@
   <!-- Translations & Legal Content -->
   <script src="/src/translations.js"></script>
 
+  <!-- CMS Data from Google Sheets -->
+  <script src="/src/cms.js"></script>
+
   <script>
-    const allProfiles = [
-      { id: 1, title: 'Harbourfront Festival', category: ['government', 'exhibitions', 'pr'], aspect: '4/5', image: 'work1/600/800', colSpan: 5, start: 1, mt: 0 },
-      { id: 2, title: 'Global Tech Summit', category: ['lifestyle', 'tech', 'events'], aspect: '16/9', image: 'work2/1000/600', colSpan: 6, start: 7, mt: 16 },
-      { id: 3, title: 'Luxury Mall Launch', category: ['venues', 'pr', 'lifestyle'], aspect: '1/1', image: 'work3/800/800', colSpan: 5, start: 2, mt: 16 },
-      { id: 4, title: 'Urban Art Trail', category: ['government', 'exhibitions'], aspect: '3/4', image: 'work4/600/800', colSpan: 4, start: 9, mt: 16 },
-      { id: 5, title: 'Cultural Exchange Program', category: ['government', 'social'], aspect: '4/5', image: 'work5/600/800', colSpan: 5, start: 1, mt: 8 },
-      { id: 6, title: 'Future City Expo', category: ['tech', 'events'], aspect: '16/9', image: 'work6/1000/600', colSpan: 6, start: 7, mt: 16 },
-      { id: 7, title: 'Rooftop Cinema Club', category: ['lifestyle', 'events', 'venues'], aspect: '16/9', image: 'work7/1000/600', colSpan: 6, start: 1, mt: 16 },
-      { id: 8, title: 'Heritage Museum Revamp', category: ['government', 'exhibitions'], aspect: '4/5', image: 'work8/600/800', colSpan: 5, start: 8, mt: 0 },
-      { id: 9, title: 'Gourmet Food Fair', category: ['hospitality', 'social'], aspect: '1/1', image: 'work9/800/800', colSpan: 5, start: 2, mt: 16 },
-      { id: 10, title: 'Fashion Week Showcase', category: ['lifestyle', 'pr'], aspect: '3/4', image: 'work10/600/800', colSpan: 4, start: 9, mt: 16 },
-      { id: 11, title: 'Public Health Campaign', category: ['government', 'pr', 'social'], aspect: '16/9', image: 'work11/1000/600', colSpan: 7, start: 1, mt: 16 },
-      { id: 12, title: 'Smart City Installation', category: ['government', 'tech'], aspect: '4/5', image: 'work12/600/800', colSpan: 4, start: 9, mt: 8 },
+    // Layout patterns for scattered grid (cycles through these)
+    var layoutPatterns = [
+      { aspect: '4/5', colSpan: 5, start: 1, mt: 0 },
+      { aspect: '16/9', colSpan: 6, start: 7, mt: 16 },
+      { aspect: '1/1', colSpan: 5, start: 2, mt: 16 },
+      { aspect: '3/4', colSpan: 4, start: 9, mt: 16 },
+      { aspect: '4/5', colSpan: 5, start: 1, mt: 8 },
+      { aspect: '16/9', colSpan: 6, start: 7, mt: 16 },
+      { aspect: '16/9', colSpan: 6, start: 1, mt: 16 },
+      { aspect: '4/5', colSpan: 5, start: 8, mt: 0 },
+      { aspect: '1/1', colSpan: 5, start: 2, mt: 16 },
+      { aspect: '3/4', colSpan: 4, start: 9, mt: 16 },
+      { aspect: '16/9', colSpan: 7, start: 1, mt: 16 },
+      { aspect: '4/5', colSpan: 4, start: 9, mt: 8 },
     ];
 
+    var allProfiles = [];
     const profileGrid = document.getElementById('profile-grid');
     const filterButtons = document.querySelectorAll('.filter-btn');
     const profileCount = document.getElementById('profile-count');
     let activeFilter = 'all';
-    let visibleProfiles = [];
 
-    function createProfileElement(profile) {
+    function createProfileElement(profile, layoutIndex) {
+      var layout = layoutPatterns[layoutIndex % layoutPatterns.length];
       const element = document.createElement('a');
-      element.href = '/profile.html';
-      element.className = `group block project-profile md:col-span-${profile.colSpan} md:col-start-${profile.start} md:mt-${profile.mt}`;
-      element.dataset.category = profile.category.join(' ');
-      
-      element.innerHTML = `
-        <div class="relative overflow-hidden aspect-[${profile.aspect}] mb-1 shadow-2xl">
-          <img src="https://picsum.photos/seed/${profile.image}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="${profile.title}">
-        </div>
-        <h3 class="font-oswald text-3xl uppercase font-bold mb-2" data-key="Work.Profile.${profile.id}.Title">${profile.title}</h3>
-        <p class="font-playfair text-base text-gray-600 italic" data-key="Work.Profile.${profile.id}.Desc">A brief description of the project.</p>
-      `;
+      element.href = '/profile.html?id=' + encodeURIComponent(profile.projectId || profile.index);
+      element.className = 'group block project-profile';
+      element.style.gridColumn = 'span ' + layout.colSpan + ' / span ' + layout.colSpan;
+      if (window.innerWidth >= 768) {
+        element.style.gridColumnStart = layout.start;
+        if (layout.mt) element.style.marginTop = layout.mt * 4 + 'px';
+      }
+      element.dataset.category = (profile.filterSlugs || []).join(' ');
+
+      var imgSrc = profile.heroPhoto || profile.heroPhotoSmall || '';
+      element.innerHTML =
+        '<div class="relative overflow-hidden mb-1 shadow-2xl" style="aspect-ratio: ' + layout.aspect + ';">' +
+          '<img src="' + imgSrc + '" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="' + (profile.project || '') + '" referrerpolicy="no-referrer">' +
+        '</div>' +
+        '<h3 class="font-oswald text-3xl uppercase font-bold mb-2">' + (profile.project || '') + '</h3>' +
+        '<p class="font-playfair text-base text-gray-600 italic">' + (profile.client || '') + (profile.date ? ' — ' + profile.date : '') + '</p>';
       return element;
     }
 
-    function renderProfiles(isFirstLoad = false) {
-      const newVisibleProfiles = allProfiles.filter(p => activeFilter === 'all' || p.category.includes(activeFilter));
-      profileCount.textContent = newVisibleProfiles.length;
+    function renderProfiles(isFirstLoad) {
+      var filtered = allProfiles.filter(function(p) {
+        if (activeFilter === 'all') return true;
+        return p.filterSlugs && p.filterSlugs.indexOf(activeFilter) !== -1;
+      });
+      profileCount.textContent = filtered.length;
 
-      const tl = gsap.timeline({
-        onComplete: () => {
-          // After fade out, replace the content
+      var tl = gsap.timeline({
+        onComplete: function() {
           profileGrid.innerHTML = '';
-          newVisibleProfiles.forEach(profile => {
-            const el = createProfileElement(profile);
+          filtered.forEach(function(profile, idx) {
+            var el = createProfileElement(profile, idx);
             profileGrid.appendChild(el);
           });
-          
-          // Update translations for the newly added elements
+
           if (window.updateTranslations) {
             window.updateTranslations();
           }
 
-          // Then fade in the new items
           gsap.fromTo(".project-profile", { opacity: 0, scale: 0.95, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.5, stagger: 0.05, ease: 'power3.out' });
         }
       });
 
       if (!isFirstLoad) {
-        // Only run the fade-out animation if it's not the first load
         tl.to(".project-profile", { opacity: 0, scale: 0.95, y: -20, duration: 0.3, stagger: 0.03, ease: 'power3.in' });
       } else {
-        // On first load, just render and fade in
         profileGrid.innerHTML = '';
-        newVisibleProfiles.forEach(profile => {
-            const el = createProfileElement(profile);
-            profileGrid.appendChild(el);
+        filtered.forEach(function(profile, idx) {
+          var el = createProfileElement(profile, idx);
+          profileGrid.appendChild(el);
         });
-        
-        // Update translations for the newly added elements
+
         if (window.updateTranslations) {
           window.updateTranslations();
         }
@@ -333,18 +340,16 @@
       }
     }
 
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
+    filterButtons.forEach(function(button) {
+      button.addEventListener('click', function() {
         if (button.dataset.filter === activeFilter) return;
-        
-        filterButtons.forEach(btn => btn.classList.remove('active'));
+        filterButtons.forEach(function(btn) { btn.classList.remove('active'); });
         button.classList.add('active');
         activeFilter = button.dataset.filter;
-        renderProfiles();
+        renderProfiles(false);
       });
     });
 
-    // Initial render
     gsap.registerPlugin(ScrollTrigger);
 
     gsap.to("#parallax-logo-container", {
@@ -354,23 +359,30 @@
         end: "bottom bottom",
         scrub: 1,
       },
-      rotationX: 90, // Vertical flip
-      yPercent: -50, // Parallax effect
+      rotationX: 90,
+      yPercent: -50,
       ease: "none"
     });
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const filter = urlParams.get('filter');
-
+    // Read ?filter= from URL on load
+    (function() {
+      var urlParams = new URLSearchParams(window.location.search);
+      var filter = urlParams.get('filter');
       if (filter) {
-        const button = document.querySelector(`.filter-btn[data-filter='${filter}']`);
+        var button = document.querySelector('.filter-btn[data-filter="' + filter + '"]');
         if (button) {
-          filterButtons.forEach(btn => btn.classList.remove('active'));
+          filterButtons.forEach(function(btn) { btn.classList.remove('active'); });
           button.classList.add('active');
           activeFilter = filter;
         }
       }
+    })();
+
+    // Wait for CMS data, then render
+    window.addEventListener('cmsDataReady', function(e) {
+      var projects = (e.detail && e.detail.projects) || [];
+      allProfiles = projects;
+      profileCount.textContent = projects.length;
       renderProfiles(true);
     });
 
@@ -408,4 +420,4 @@
 
 
 </body>
-</html>
+  </html>
