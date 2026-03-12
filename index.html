@@ -1237,8 +1237,11 @@
       var projects = (e.detail && e.detail.projects) || [];
       if (!projects.length) return;
 
-      // --- 1. Populate Slider (top 5 projects with hero photos) ---
-      var sliderProjects = projects.filter(function(p) { return p.heroPhoto; }).slice(0, 5);
+      // Filter projects that have hero photos (shared across all sections)
+      var withPhotos = projects.filter(function(p) { return p.heroPhoto; });
+
+      // --- 1. Populate Slider (top 3 most recent projects) ---
+      var sliderProjects = withPhotos.slice(0, 3);
       var sliderHTML = '';
       sliderProjects.forEach(function(p) {
         sliderHTML += '<div class="relative w-full h-full flex-shrink-0">' +
@@ -1266,8 +1269,8 @@
       }
       if (totalSlides > 1) startSliderAutoplay();
 
-      // --- 2. Populate Work Profiles Grid (6 projects) ---
-      var gridProjects = projects.filter(function(p) { return p.heroPhoto; }).slice(0, 6);
+      // --- 2. Populate Work Profiles Grid (next 6 projects, excluding hero 3) ---
+      var gridProjects = withPhotos.slice(3, 9);
       var gridContainer = document.getElementById('work-profiles-grid');
       // Scattered layout column configs
       var layouts = [
@@ -1349,13 +1352,14 @@
         });
       }
 
-      // --- 5. Set Newsletter Card Images ---
+      // --- 5. Set Newsletter Card Images (next 3 after hero+profile = index 9-11) ---
+      var newsletterProjects = withPhotos.slice(9, 12);
       var newsletterImg1 = document.getElementById('newsletter-img-1');
       var newsletterImg2 = document.getElementById('newsletter-img-2');
       var newsletterImg3 = document.getElementById('newsletter-img-3');
-      if (projects[0] && projects[0].heroPhoto && newsletterImg1) newsletterImg1.src = projects[0].heroPhoto;
-      if (projects[1] && projects[1].heroPhoto && newsletterImg2) newsletterImg2.src = projects[1].heroPhoto;
-      if (projects[2] && projects[2].heroPhoto && newsletterImg3) newsletterImg3.src = projects[2].heroPhoto;
+      if (newsletterProjects[0] && newsletterImg1) newsletterImg1.src = newsletterProjects[0].heroPhoto;
+      if (newsletterProjects[1] && newsletterImg2) newsletterImg2.src = newsletterProjects[1].heroPhoto;
+      if (newsletterProjects[2] && newsletterImg3) newsletterImg3.src = newsletterProjects[2].heroPhoto;
 
       // --- 6. Refresh ScrollTrigger for dynamic content ---
       ScrollTrigger.refresh();
