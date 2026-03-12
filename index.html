@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <base href="/Firebean-Website/">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Firebean Agency Portfolio</title>
@@ -18,10 +19,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     
     <!-- Translations & Legal Content -->
-    <script src="/src/translations.js"></script>
+    <script src="src/translations.js"></script>
 
     <!-- CMS Data from Google Sheets -->
-    <script src="/src/cms.js"></script>
+    <script src="src/cms.js"></script>
     
     <!-- Lenis for smooth scroll -->
     <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
@@ -329,8 +330,8 @@
     
     <!-- Navigation -->
     <nav class="absolute top-0 left-0 w-full px-6 py-6 flex justify-between items-center z-[9999] text-brand-black pointer-events-auto" id="navbar" data-lenis-prevent>
-      <a class='flex items-center gap-2 hover:opacity-70 transition-opacity' href='/'>
-        <img src="/data/images/firebean-logo-w100.webp" class="h-6 w-auto object-contain mix-blend-multiply" alt="Firebean Logo" referrerpolicy="no-referrer">
+      <a class='flex items-center gap-2 hover:opacity-70 transition-opacity' href='index.html'>
+        <img src="data/images/firebean-logo-w100.webp" class="h-6 w-auto object-contain mix-blend-multiply" alt="Firebean Logo" referrerpolicy="no-referrer">
         <div class="font-sans font-light text-xl tracking-widest lowercase" style="font-variant: small-caps;">firebean</div>
       </a>
       
@@ -340,7 +341,7 @@
         
         <!-- Mega Menu Trigger -->
         <div class="relative group py-4">
-          <a class='hover:opacity-50 transition-opacity flex items-center gap-1' href='/work'>
+          <a class='hover:opacity-50 transition-opacity flex items-center gap-1' href='work.html'>
             <span data-key="Global.Navigation.WhatWeDo">What We Do</span> <span class="text-[10px]">▼</span>
           </a>
           
@@ -353,24 +354,24 @@
               <div>
                 <h4 class="font-oswald text-xl mb-6 text-brand-red tracking-widest" data-key="Global.Navigation.WhoWeHelp">WHO WE HELP</h4>
                 <ul class="space-y-3 text-sm text-gray-400 font-sans tracking-wide">
-                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.GovPublic' href='/work?filter=government'>Government & Public Sector</a></li>
-                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.LifestyleConsumer' href='/work?filter=lifestyle'>Lifestyle & Consumer</a></li>
-                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.FBHospitality' href='/work?filter=hospitality'>F&B & Hospitality</a></li>
-                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.MallsVenues' href='/work?filter=venues'>Malls & Venues</a></li>
+                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.GovPublic' href='work.html?filter=government'>Government & Public Sector</a></li>
+                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.LifestyleConsumer' href='work.html?filter=lifestyle'>Lifestyle & Consumer</a></li>
+                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.FBHospitality' href='work.html?filter=hospitality'>F&B & Hospitality</a></li>
+                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.MallsVenues' href='work.html?filter=venues'>Malls & Venues</a></li>
                 </ul>
               </div>
               <div>
                 <h4 class="font-oswald text-xl mb-6 text-brand-red tracking-widest" data-key="Global.Navigation.WhatWeDo">WHAT WE DO</h4>
                 <ul class="space-y-3 text-sm text-gray-400 font-sans tracking-wide">
-                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.RovingExhibitions' href='/work?filter=exhibitions'>Roving Exhibitions</a></li>
-                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.SocialContent' href='/work?filter=social'>Social & Content</a></li>
-                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.InteractiveTech' href='/work?filter=tech'>Interactive & Tech</a></li>
-                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.PRMedia' href='/work?filter=pr'>PR & Media</a></li>
-                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.EventsCeremonies' href='/work?filter=events'>Events & Ceremonies</a></li>
+                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.RovingExhibitions' href='work.html?filter=exhibitions'>Roving Exhibitions</a></li>
+                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.SocialContent' href='work.html?filter=social'>Social & Content</a></li>
+                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.InteractiveTech' href='work.html?filter=tech'>Interactive & Tech</a></li>
+                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.PRMedia' href='work.html?filter=pr'>PR & Media</a></li>
+                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.EventsCeremonies' href='work.html?filter=events'>Events & Ceremonies</a></li>
                 </ul>
               </div>
               <div class="col-span-2 border-t border-white/20 pt-6 mt-2">
-                <a class='text-sm font-bold hover:text-brand-red transition-colors flex items-center gap-3 tracking-widest' href='/work'>
+                <a class='text-sm font-bold hover:text-brand-red transition-colors flex items-center gap-3 tracking-widest' href='work.html'>
                   <span class="text-xl">↳</span> <span data-key="Global.Navigation.ViewAllWork">VIEW ALL WORK</span>
                 </a>
               </div>
@@ -452,7 +453,7 @@
                 <p class="font-playfair italic text-xl leading-tight text-brand-black font-medium normal-case tracking-normal mb-4" data-key="Index.Hero.Subtitle">
                   Create to Engage: We don’t just stage events; we architect public engagement.
                 </p>
-                <a class='font-sans text-sm font-bold uppercase tracking-widest hover:text-brand-red transition-colors flex items-center gap-2' href='/work'>
+                <a class='font-sans text-sm font-bold uppercase tracking-widest hover:text-brand-red transition-colors flex items-center gap-2' href='work.html'>
                   <span class="text-xl">↳</span> <span data-key="Index.Hero.CTA">EXPLORE WHAT WE DO</span>
                 </a>
             </div>
@@ -470,7 +471,7 @@
                 <p class="font-playfair italic text-lg leading-tight text-brand-black font-medium normal-case tracking-normal mb-6" data-key="Index.Hero.Subtitle">
                   Create to Engage: We don’t just stage events; we architect public engagement.
                 </p>
-                <a class='font-sans text-sm font-bold uppercase tracking-widest hover:text-brand-red transition-colors flex items-center gap-2' href='/work'>
+                <a class='font-sans text-sm font-bold uppercase tracking-widest hover:text-brand-red transition-colors flex items-center gap-2' href='work.html'>
                   <span class="text-lg">↳</span> <span data-key="Index.Hero.CTA">EXPLORE WHAT WE DO</span>
                 </a>
              </div>
@@ -496,7 +497,7 @@
       <!-- 3D Logo Background (Parallax) -->
       <!-- Moved lower (top-[25%]) to be below the title area -->
       <div class="absolute top-[25%] right-[5%] w-[40vw] max-w-[500px] opacity-50 pointer-events-none z-0" id="parallax-logo-container">
-        <img id="bg-logo" src="/data/images/firebean-logo-w1000.webp" class="w-full h-full object-contain drop-shadow-2xl mix-blend-multiply" alt="3D Firebean Logo" referrerpolicy="no-referrer">
+        <img id="bg-logo" src="data/images/firebean-logo-w1000.webp" class="w-full h-full object-contain drop-shadow-2xl mix-blend-multiply" alt="3D Firebean Logo" referrerpolicy="no-referrer">
       </div>
       
       <div class="relative z-10 max-w-7xl mx-auto">
@@ -523,7 +524,7 @@
       <!-- Background Image with Overlay -->
       <div class="absolute inset-0 z-0 h-[130%] -top-[15%]"> <!-- Enlarge container and offset -->
         <!-- Google Drive Image -->
-        <img src="/data/images/about-bg.webp" referrerpolicy="no-referrer" class="w-full h-full object-cover opacity-100" alt="About Us Background" id="about-bg-img">
+        <img src="data/images/about-bg.webp" referrerpolicy="no-referrer" class="w-full h-full object-cover opacity-100" alt="About Us Background" id="about-bg-img">
         <div class="absolute inset-0 bg-black/60"></div> <!-- Dark overlay to ensure white text is legible -->
       </div>
 
@@ -546,20 +547,20 @@
             <div>
               <h4 class="font-oswald text-sm font-bold uppercase tracking-widest text-brand-red mb-6 border-b border-white/20 pb-4" data-key="Global.Navigation.WhoWeHelp">Who We Help</h4>
               <ul class="space-y-4 font-sans text-[14px] text-white">
-                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.GovPublic' href='/work?filter=government'>Government & Public Sector</a></li>
-                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.LifestyleConsumer' href='/work?filter=lifestyle'>Lifestyle & Consumer</a></li>
-                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.FBHospitality' href='/work?filter=hospitality'>F&B & Hospitality</a></li>
-                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.MallsVenues' href='/work?filter=venues'>Malls & Venues</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.GovPublic' href='work.html?filter=government'>Government & Public Sector</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.LifestyleConsumer' href='work.html?filter=lifestyle'>Lifestyle & Consumer</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.FBHospitality' href='work.html?filter=hospitality'>F&B & Hospitality</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.MallsVenues' href='work.html?filter=venues'>Malls & Venues</a></li>
               </ul>
             </div>
             <div>
               <h4 class="font-oswald text-sm font-bold uppercase tracking-widest text-brand-red mb-6 border-b border-white/20 pb-4" data-key="Global.Navigation.WhatWeDo">What We Do</h4>
               <ul class="space-y-4 font-sans text-[14px] text-white">
-                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.RovingExhibitions' href='/work?filter=exhibitions'>Roving Exhibitions</a></li>
-                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.SocialContent' href='/work?filter=social'>Social & Content</a></li>
-                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.InteractiveTech' href='/work?filter=tech'>Interactive & Tech</a></li>
-                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.PRMedia' href='/work?filter=pr'>PR & Media</a></li>
-                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.EventsCeremonies' href='/work?filter=events'>Events & Ceremonies</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.RovingExhibitions' href='work.html?filter=exhibitions'>Roving Exhibitions</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.SocialContent' href='work.html?filter=social'>Social & Content</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.InteractiveTech' href='work.html?filter=tech'>Interactive & Tech</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.PRMedia' href='work.html?filter=pr'>PR & Media</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.EventsCeremonies' href='work.html?filter=events'>Events & Ceremonies</a></li>
               </ul>
             </div>
           </div>
@@ -1246,7 +1247,7 @@
           '<div class="absolute bottom-16 left-8 md:left-16 z-20 text-white">' +
             '<h3 class="font-oswald text-4xl md:text-6xl font-bold uppercase mb-2">' + (p.project || '') + '</h3>' +
             '<p class="font-sans text-sm uppercase tracking-widest text-white/70 mb-4">' + (p.category || '') + '</p>' +
-            '<a href="/profile.html?id=' + (p.projectId || '') + '" class="font-sans text-sm font-bold uppercase tracking-widest hover:text-brand-red transition-colors flex items-center gap-2">' +
+            '<a href="profile.html?id=' + (p.projectId || '') + '" class="font-sans text-sm font-bold uppercase tracking-widest hover:text-brand-red transition-colors flex items-center gap-2">' +
               '<span class="text-xl">↳</span> View Project</a>' +
           '</div></div>';
       });
@@ -1280,7 +1281,7 @@
       var gridHTML = '';
       gridProjects.forEach(function(p, i) {
         var layout = layouts[i] || layouts[0];
-        gridHTML += '<a href="/profile.html?id=' + (p.projectId || '') + '" class="project-profile ' + layout.cols + ' ' + layout.mt + ' group block">' +
+        gridHTML += '<a href="profile.html?id=' + (p.projectId || '') + '" class="project-profile ' + layout.cols + ' ' + layout.mt + ' group block">' +
           '<div class="' + layout.aspect + ' w-full overflow-hidden relative bg-gray-200">' +
             '<img src="' + p.heroPhoto + '" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="' + (p.project || '') + '" referrerpolicy="no-referrer">' +
           '</div>' +
