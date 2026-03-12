@@ -85,12 +85,10 @@
           row.push(field);
           field = '';
           i++;
-        } else if (ch === '
-' || ch === '\r') {
+        } else if (ch === '\n' || ch === '\r') {
           row.push(field);
           field = '';
-          if (ch === '\r' && i + 1 < text.length && text[i + 1] === '
-') {
+          if (ch === '\r' && i + 1 < text.length && text[i + 1] === '\n') {
             i++;
           }
           rows.push(row);
