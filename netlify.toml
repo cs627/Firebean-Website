@@ -1,6 +1,7 @@
 [build]
   command = "mkdir -p dist && cp index.html work.html profile.html dist/ && cp -r public/* dist/ 2>/dev/null; mkdir -p dist/src && cp src/cms.js src/translations.js dist/src/"
   publish = "dist"
+  edge_functions = "netlify/edge-functions"
 
 [[redirects]]
   from = "/work"
