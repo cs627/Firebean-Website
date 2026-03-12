@@ -1,6 +1,6 @@
 [build]
-  publish = "."
-  command = "echo 'Static site - no build needed'"
+  command = "mkdir -p dist && cp index.html work.html profile.html dist/ && cp -r public/* dist/ 2>/dev/null; mkdir -p dist/src && cp src/cms.js src/translations.js dist/src/"
+  publish = "dist"
 
 [[redirects]]
   from = "/work"
