@@ -106,6 +106,14 @@
       .slider-marquee-animate:hover {
         animation-play-state: paused;
       }
+      /* Flow-in animation for marquee on slide change */
+      @keyframes marquee-flow-in {
+        0% { opacity: 0; transform: translateY(40px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+      .marquee-flow-in {
+        animation: marquee-flow-in 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+      }
       .slider-marquee-text {
         font-family: 'Oswald', sans-serif;
         font-weight: 700;
@@ -535,8 +543,8 @@
         <p id="slider-counter" class="font-playfair italic text-sm text-white/60 mt-1"></p>
       </div>
 
-      <!-- Bottom: Marquee ticker for project name -->
-      <div class="absolute bottom-24 left-0 w-full z-30 overflow-hidden pointer-events-none">
+      <!-- Center: Marquee ticker for project name -->
+      <div class="absolute top-1/2 -translate-y-1/2 left-0 w-full z-30 overflow-hidden pointer-events-none">
         <div id="slider-marquee" class="flex whitespace-nowrap slider-marquee-animate">
           <!-- Repeated project name text, filled by JS -->
         </div>
@@ -548,15 +556,14 @@
     </section>
 
     <!-- Session 3: Project Profiles -->
-    <section class="relative py-16 px-4 md:px-12 bg-brand-gray overflow-hidden" id="work">
-      <!-- 3D Logo Background (Parallax) -->
-      <!-- Moved lower (top-[25%]) to be below the title area -->
-      <div class="absolute top-[25%] right-[5%] w-[40vw] max-w-[500px] opacity-50 pointer-events-none z-0" id="parallax-logo-container">
+    <section class="relative py-24 md:py-32 px-6 md:px-16 bg-brand-gray overflow-hidden" id="work">
+      <!-- 3D Logo Background (Parallax) — centered, larger, more visible -->
+      <div class="absolute top-[20%] left-1/2 -translate-x-1/2 w-[60vw] max-w-[700px] opacity-40 pointer-events-none z-0" id="parallax-logo-container">
         <img id="bg-logo" src="data/images/firebean-logo-w1000.webp" class="w-full h-full object-contain drop-shadow-2xl mix-blend-multiply" alt="3D Firebean Logo" referrerpolicy="no-referrer">
       </div>
       
       <div class="relative z-10 max-w-7xl mx-auto">
-        <div class="text-center mb-32 flex flex-col items-center justify-center relative z-10">
+        <div class="text-center mb-24 md:mb-40 flex flex-col items-center justify-center relative z-10">
           <h3 class="font-playfair italic text-xl md:text-2xl font-medium tracking-wide text-brand-black mb-4" data-key="Index.Work.Subtitle">
             Create to engage, policy into Play.
           </h3>
@@ -567,7 +574,7 @@
         </div>
 
         <!-- Floating Profiles Grid (Scattered Arrangement) — populated by CMS -->
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-y-12 gap-x-8 relative z-10" id="work-profiles-grid">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-y-20 md:gap-y-32 gap-x-8 md:gap-x-12 relative z-10" id="work-profiles-grid">
           <!-- Populated dynamically by cmsDataReady listener -->
         </div>
 
@@ -1433,15 +1440,19 @@
         // Slide counter
         var counter = document.getElementById('slider-counter');
         if (counter) counter.textContent = String(index + 1).padStart(2, '0') + '/' + String(totalSlides).padStart(2, '0');
-        // Marquee project name
+        // Marquee project name with flow-in animation
+        var marqueeWrapper = document.getElementById('slider-marquee').parentElement;
         var marqueeEl = document.getElementById('slider-marquee');
-        if (marqueeEl) {
+        if (marqueeEl && marqueeWrapper) {
           var name = p.project || '';
-          // Repeat the text enough times for seamless loop (need at least 2x viewport width)
           var repeatHTML = '';
           for (var r = 0; r < 6; r++) {
             repeatHTML += '<span class="slider-marquee-text">' + name + '</span>';
           }
+          // Flow-in animation: reset and trigger
+          marqueeWrapper.classList.remove('marquee-flow-in');
+          void marqueeWrapper.offsetWidth; // force reflow
+          marqueeWrapper.classList.add('marquee-flow-in');
           marqueeEl.innerHTML = repeatHTML;
         }
       }
@@ -1462,25 +1473,45 @@
       // --- 2. Populate Work Profiles Grid (next 6 projects, excluding hero 3) ---
       var gridProjects = withPhotos.slice(3, 9);
       var gridContainer = document.getElementById('work-profiles-grid');
-      // Scattered layout column configs
+
+      // Helper: get short description from web content
+      function getGridDesc(p) {
+        var currentLang = (window.getLang && window.getLang()) || localStorage.getItem('lang') || 'en';
+        var raw = '';
+        if (currentLang === 'ch' && p.webTC) raw = p.webTC;
+        else if (currentLang === 'jp' && p.webJP) raw = p.webJP;
+        else raw = p.webEN || p.webTC || p.webJP || '';
+        if (!raw) return '';
+        var tmp = document.createElement('div');
+        tmp.innerHTML = raw;
+        // Get first <p> or <h3> subtitle text
+        var el = tmp.querySelector('h3') || tmp.querySelector('p');
+        if (el) return (el.textContent || '').trim();
+        return '';
+      }
+
+      // Scattered layout: smaller cards, more offset, breathing room
+      // Reference: ~40% left + ~55% right, alternating vertical offsets
       var layouts = [
-        { cols: 'md:col-span-7', aspect: 'aspect-[4/5]', mt: '' },
-        { cols: 'md:col-span-5', aspect: 'aspect-[3/4]', mt: 'md:mt-24' },
-        { cols: 'md:col-span-5 md:col-start-2', aspect: 'aspect-[3/4]', mt: '' },
-        { cols: 'md:col-span-6 md:col-start-7', aspect: 'aspect-[4/5]', mt: 'md:-mt-16' },
-        { cols: 'md:col-span-7', aspect: 'aspect-[4/5]', mt: '' },
-        { cols: 'md:col-span-5', aspect: 'aspect-[3/4]', mt: 'md:mt-16' }
+        { cols: 'md:col-span-5', aspect: 'aspect-[4/5]', mt: '' },
+        { cols: 'md:col-span-6 md:col-start-7', aspect: 'aspect-[3/4]', mt: 'md:mt-32' },
+        { cols: 'md:col-span-4 md:col-start-1', aspect: 'aspect-[3/4]', mt: 'md:-mt-16' },
+        { cols: 'md:col-span-6 md:col-start-7', aspect: 'aspect-[4/5]', mt: 'md:mt-20' },
+        { cols: 'md:col-span-5 md:col-start-2', aspect: 'aspect-[4/5]', mt: '' },
+        { cols: 'md:col-span-5 md:col-start-8', aspect: 'aspect-[3/4]', mt: 'md:mt-24' }
       ];
       var gridHTML = '';
       gridProjects.forEach(function(p, i) {
         var layout = layouts[i] || layouts[0];
+        var desc = getGridDesc(p);
         gridHTML += '<a href="profile.html?id=' + (p.projectId || '') + '" class="project-profile ' + layout.cols + ' ' + layout.mt + ' group block">' +
           '<div class="' + layout.aspect + ' w-full overflow-hidden relative bg-gray-200">' +
             '<img src="' + p.heroPhoto + '" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="' + (p.project || '') + '" referrerpolicy="no-referrer">' +
           '</div>' +
           '<div class="mt-4">' +
-            '<h3 class="font-oswald text-2xl md:text-3xl font-bold uppercase group-hover:text-brand-red transition-colors">' + (p.project || '') + '</h3>' +
-            '<p class="grid-category font-sans text-sm text-gray-500 uppercase tracking-widest mt-1" data-cat="' + (p.category || '').replace(/"/g, '&quot;') + '" data-whatwedo="' + (p.whatWeDo || '').replace(/"/g, '&quot;') + '">' + translateCat(p.category || '') + (p.whatWeDo ? ' / ' + translateCat(p.whatWeDo) : '') + '</p>' +
+            '<h3 class="font-oswald text-xl md:text-2xl font-bold uppercase group-hover:text-brand-red transition-colors">' + (p.project || '') + '</h3>' +
+            (desc ? '<p class="font-playfair italic text-sm md:text-base text-gray-600 mt-2 leading-relaxed max-w-md">' + desc + '</p>' : '') +
+            '<p class="grid-category font-sans text-[11px] text-gray-400 uppercase tracking-widest mt-2" data-cat="' + (p.category || '').replace(/"/g, '&quot;') + '" data-whatwedo="' + (p.whatWeDo || '').replace(/"/g, '&quot;') + '">' + translateCat(p.category || '') + (p.whatWeDo ? ' / ' + translateCat(p.whatWeDo) : '') + '</p>' +
           '</div></a>';
       });
       gridContainer.innerHTML = gridHTML;
