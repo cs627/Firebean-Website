@@ -1198,6 +1198,10 @@
         });
       }).observe(document.body, { childList: true, subtree: true });
 
+      // Helper: pick black or white logo based on current dark mode state
+      function isDarkMode() { return document.documentElement.classList.contains('dark'); }
+      function getLogoSrc(logoData) { return isDarkMode() ? (logoData.srcWhite || logoData.src) : logoData.src; }
+
       // Client Logos Data & Animation (populated by CMS, with fallbacks)
       let lifestyleLogos = [];
       let govLogos = [];
@@ -1214,8 +1218,9 @@
           const logoData = pool[index % pool.length];
           slot.dataset.desc = logoData.desc;
           slot.dataset.currentSrc = logoData.src;
+          slot.dataset.currentSrcWhite = logoData.srcWhite || '';
           const frontImg = slot.querySelector('.front-img');
-          if (frontImg) { frontImg.referrerPolicy = 'no-referrer'; frontImg.src = logoData.src; }
+          if (frontImg) { frontImg.referrerPolicy = 'no-referrer'; frontImg.src = getLogoSrc(logoData); }
         });
       }
 
@@ -1228,17 +1233,20 @@
           if (!pool.length) return;
           const randomLogo = pool[Math.floor(Math.random() * pool.length)];
 
+          var logoSrc = getLogoSrc(randomLogo);
           if (!isFlipped) {
             const backImg = slot.querySelector('.back-img');
-            if (backImg) { backImg.referrerPolicy = 'no-referrer'; backImg.src = randomLogo.src; }
+            if (backImg) { backImg.referrerPolicy = 'no-referrer'; backImg.src = logoSrc; }
             slot.dataset.desc = randomLogo.desc;
             slot.dataset.currentSrc = randomLogo.src;
+            slot.dataset.currentSrcWhite = randomLogo.srcWhite || '';
             flipper.style.transform = 'rotateX(180deg)';
           } else {
             const frontImg = slot.querySelector('.front-img');
-            if (frontImg) { frontImg.referrerPolicy = 'no-referrer'; frontImg.src = randomLogo.src; }
+            if (frontImg) { frontImg.referrerPolicy = 'no-referrer'; frontImg.src = logoSrc; }
             slot.dataset.desc = randomLogo.desc;
             slot.dataset.currentSrc = randomLogo.src;
+            slot.dataset.currentSrcWhite = randomLogo.srcWhite || '';
             flipper.style.transform = 'rotateX(0deg)';
           }
         });
@@ -1762,11 +1770,11 @@
         var isLifestyle = p.filterSlugs.some(function(s) { return lifestyleSlugs.indexOf(s) !== -1; });
         if (isGov && !seenGov[p.logoBlack]) {
           seenGov[p.logoBlack] = true;
-          govLogos.push({ src: p.logoBlack, desc: p.project + ' — ' + (p.scope || p.category || ''), projectId: p.projectId || '' });
+          govLogos.push({ src: p.logoBlack, srcWhite: p.logoWhite || '', desc: p.project + ' — ' + (p.scope || p.category || ''), projectId: p.projectId || '' });
         }
         if ((isLifestyle || !isGov) && !seenLifestyle[p.logoBlack]) {
           seenLifestyle[p.logoBlack] = true;
-          lifestyleLogos.push({ src: p.logoBlack, desc: p.project + ' — ' + (p.scope || p.category || ''), projectId: p.projectId || '' });
+          lifestyleLogos.push({ src: p.logoBlack, srcWhite: p.logoWhite || '', desc: p.project + ' — ' + (p.scope || p.category || ''), projectId: p.projectId || '' });
         }
       });
 
@@ -1780,11 +1788,27 @@
           var logoData = pool[index % pool.length];
           slot.dataset.desc = logoData.desc;
           slot.dataset.currentSrc = logoData.src;
+          slot.dataset.currentSrcWhite = logoData.srcWhite || '';
           slot.dataset.projectId = logoData.projectId || '';
           var frontImg = slot.querySelector('.front-img');
-          if (frontImg) { frontImg.referrerPolicy = 'no-referrer'; frontImg.src = logoData.src; }
+          if (frontImg) { frontImg.referrerPolicy = 'no-referrer'; frontImg.src = getLogoSrc(logoData); }
         });
       }
+
+      // Swap all visible client logos between black/white on dark mode toggle
+      window.swapClientLogos = function() {
+        var dark = isDarkMode();
+        document.querySelectorAll('.logo-slot').forEach(function(slot) {
+          var srcBlack = slot.dataset.currentSrc;
+          var srcWhite = slot.dataset.currentSrcWhite;
+          var newSrc = dark ? (srcWhite || srcBlack) : srcBlack;
+          // Update both front and back images
+          var imgs = slot.querySelectorAll('.front-img, .back-img');
+          imgs.forEach(function(img) {
+            if (img.src && img.src !== window.location.href) img.src = newSrc;
+          });
+        });
+      };
 
       // --- 4. Populate Polaroid Images from CMS (random, excluding hero & logos) ---
       // Primary source: gallery photos from each project
@@ -2021,6 +2045,8 @@
           var isDark = document.documentElement.classList.contains('dark');
           localStorage.setItem('darkMode', isDark);
           updateIcons();
+          // Swap client logos to black/white version
+          if (window.swapClientLogos) window.swapClientLogos();
         });
       }
 
@@ -2033,6 +2059,7 @@
             document.documentElement.classList.remove('dark');
           }
           updateIcons();
+          if (window.swapClientLogos) window.swapClientLogos();
         }
       });
     })();
