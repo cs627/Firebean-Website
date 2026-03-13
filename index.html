@@ -188,6 +188,17 @@
         display: block;
         margin: 0 auto;
       }
+      /* Contact section parallax background */
+      .contact-parallax-bg {
+        position: absolute;
+        top: -15%;
+        left: 0;
+        width: 100%;
+        height: 130%;
+        object-fit: cover;
+        will-change: transform;
+      }
+
       /* CH: extra top padding so match doesn't stick to Chinese text */
       .jp-hero-title.ch > .match-wrapper {
         margin-top: 6vw !important;
@@ -1041,8 +1052,13 @@
     </section>
 
     <!-- Session 7: Contact & Session 8: Footer -->
-    <section class="relative bg-brand-black text-white py-32 px-6">
-      <div class="max-w-7xl mx-auto">
+    <section class="relative text-white py-32 px-6 overflow-hidden">
+      <!-- Parallax background -->
+      <div class="absolute inset-0 z-0">
+        <img src="data/images/contact-bg.webp" alt="" class="contact-parallax-bg w-full h-[130%] object-cover object-center" referrerpolicy="no-referrer" />
+        <div class="absolute inset-0 bg-brand-black/80"></div>
+      </div>
+      <div class="max-w-7xl mx-auto relative z-10">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-24">
           
           <!-- Left: Contact Info -->
@@ -1215,6 +1231,21 @@
           }
         });
       });
+
+      // Contact section parallax background
+      const contactBg = document.querySelector('.contact-parallax-bg');
+      if (contactBg) {
+        gsap.to(contactBg, {
+          yPercent: 20,
+          ease: "none",
+          scrollTrigger: {
+            trigger: contactBg.closest('section'),
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true
+          }
+        });
+      }
 
       // Image Loading — handles both static and dynamically-added images
       function markImagesLoaded(root) {
