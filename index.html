@@ -173,6 +173,20 @@
       .marquee-flow-in {
         animation: marquee-flow-in 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
       }
+      /* Match image flow-in animation */
+      @keyframes match-flow-in {
+        0% { opacity: 0; transform: translateX(-60px); }
+        100% { opacity: 1; transform: translateX(0); }
+      }
+      .match-image {
+        opacity: 0 !important;
+        transition: none !important;
+        animation: match-flow-in 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s forwards;
+        width: clamp(120px, 18vw, 280px);
+        height: auto;
+        display: block;
+        margin: 0 auto;
+      }
       .slider-marquee-text {
         font-family: 'Oswald', sans-serif;
         font-weight: 700;
@@ -647,6 +661,10 @@
           <!-- Added py-[20px] and removed negative margin to prevent overlap -->
           <div class="flex flex-col md:flex-row items-center justify-center w-full relative z-30 py-[20px]">
              <div class="overflow-hidden pt-[2vw] -mt-[2vw] pb-[4vw] -mb-[4vw] px-[4vw] -mx-[4vw]"><span class="hero-line block" data-key="Index.Hero.Line4">PR AGENCY</span></div>
+             <!-- Match image under last hero line -->
+             <div class="w-full flex justify-center mt-[-1vw]">
+               <img src="data/images/match.webp" alt="" class="match-image" />
+             </div>
              
              <!-- Mobile Subtitle -->
              <div class="flex md:hidden flex-col items-center justify-center text-center mt-16 px-6 relative z-30">
