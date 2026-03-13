@@ -1053,12 +1053,41 @@
         });
       });
 
-      // Image Loading
-      window.addEventListener('load', () => {
-        document.querySelectorAll('img').forEach(img => {
-          img.classList.add('loaded');
+      // Image Loading — handles both static and dynamically-added images
+      function markImagesLoaded(root) {
+        (root || document).querySelectorAll('img').forEach(img => {
+          if (img.complete && img.naturalWidth > 0) {
+            img.classList.add('loaded');
+          } else {
+            img.addEventListener('load', () => img.classList.add('loaded'), { once: true });
+            img.addEventListener('error', () => img.classList.add('loaded'), { once: true });
+          }
         });
-      });
+      }
+      window.addEventListener('load', () => markImagesLoaded());
+      // Observe DOM for dynamically added images (CMS-populated sections)
+      new MutationObserver(mutations => {
+        mutations.forEach(m => {
+          m.addedNodes.forEach(node => {
+            if (node.nodeType === 1) {
+              if (node.tagName === 'IMG') {
+                if (node.complete && node.naturalWidth > 0) node.classList.add('loaded');
+                else {
+                  node.addEventListener('load', () => node.classList.add('loaded'), { once: true });
+                  node.addEventListener('error', () => node.classList.add('loaded'), { once: true });
+                }
+              }
+              node.querySelectorAll && node.querySelectorAll('img').forEach(img => {
+                if (img.complete && img.naturalWidth > 0) img.classList.add('loaded');
+                else {
+                  img.addEventListener('load', () => img.classList.add('loaded'), { once: true });
+                  img.addEventListener('error', () => img.classList.add('loaded'), { once: true });
+                }
+              });
+            }
+          });
+        });
+      }).observe(document.body, { childList: true, subtree: true });
 
       // Client Logos Data & Animation (populated by CMS, with fallbacks)
       let lifestyleLogos = [];
