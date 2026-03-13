@@ -1276,12 +1276,86 @@
         'EVENTS & CEREMONIES': 'イベント・セレモニー'
       }
     };
+    // Scope-of-work translations (EN → CH / JP)
+    var scopeTranslations = {
+      ch: {
+        'EVENT PLANNING': '活動策劃',
+        'EVENT COORDINATION': '活動統籌',
+        'EVENT PRODUCTION': '活動製作',
+        'THEME DESIGN': '主題設計',
+        'CONCEPT DEVELOPMENT': '概念開發',
+        'PR CONSULTING': '公關顧問',
+        'SOUVENIR SOURCING': '紀念品採購',
+        'SOCIAL MEDIA': '社交媒體',
+        'CONTENT CREATION': '內容創作',
+        'MEDIA PLANNING': '媒體策劃',
+        'MEDIA RELATIONS': '媒體關係',
+        'DIGITAL MARKETING': '數碼營銷',
+        'BRANDING': '品牌策劃',
+        'GRAPHIC DESIGN': '平面設計',
+        'VIDEO PRODUCTION': '影片製作',
+        'PHOTOGRAPHY': '攝影',
+        'KOL MANAGEMENT': 'KOL 管理',
+        'INTERACTIVE INSTALLATION': '互動裝置',
+        'TECHNOLOGY INTEGRATION': '科技整合',
+        'GAME DEVELOPMENT': '遊戲開發',
+        'EXHIBITION DESIGN': '展覽設計',
+        'STAGE DESIGN': '舞台設計',
+        'VENUE MANAGEMENT': '場地管理',
+        'PROJECT MANAGEMENT': '項目管理'
+      },
+      jp: {
+        'EVENT PLANNING': 'イベント企画',
+        'EVENT COORDINATION': 'イベント統括',
+        'EVENT PRODUCTION': 'イベント制作',
+        'THEME DESIGN': 'テーマデザイン',
+        'CONCEPT DEVELOPMENT': 'コンセプト開発',
+        'PR CONSULTING': 'PRコンサルティング',
+        'SOUVENIR SOURCING': '記念品調達',
+        'SOCIAL MEDIA': 'ソーシャルメディア',
+        'CONTENT CREATION': 'コンテンツ制作',
+        'MEDIA PLANNING': 'メディアプランニング',
+        'MEDIA RELATIONS': 'メディアリレーション',
+        'DIGITAL MARKETING': 'デジタルマーケティング',
+        'BRANDING': 'ブランディング',
+        'GRAPHIC DESIGN': 'グラフィックデザイン',
+        'VIDEO PRODUCTION': '映像制作',
+        'PHOTOGRAPHY': '写真撮影',
+        'KOL MANAGEMENT': 'KOL管理',
+        'INTERACTIVE INSTALLATION': 'インタラクティブ装置',
+        'TECHNOLOGY INTEGRATION': 'テクノロジー統合',
+        'GAME DEVELOPMENT': 'ゲーム開発',
+        'EXHIBITION DESIGN': '展示デザイン',
+        'STAGE DESIGN': 'ステージデザイン',
+        'VENUE MANAGEMENT': '会場管理',
+        'PROJECT MANAGEMENT': 'プロジェクト管理'
+      }
+    };
+
     function translateCat(cat) {
       var lang = (window.getLang && window.getLang()) || localStorage.getItem('lang') || 'en';
       if (lang !== 'en' && categoryTranslations[lang]) {
+        // Handle comma-separated categories
+        if (cat.indexOf(',') !== -1) {
+          return cat.split(',').map(function(c) {
+            var trimmed = c.trim();
+            return categoryTranslations[lang][trimmed] || trimmed;
+          }).join(', ');
+        }
         return categoryTranslations[lang][cat] || cat;
       }
       return cat;
+    }
+
+    function translateScope(scope) {
+      var lang = (window.getLang && window.getLang()) || localStorage.getItem('lang') || 'en';
+      if (lang !== 'en' && scopeTranslations[lang]) {
+        return scope.split(',').map(function(s) {
+          var trimmed = s.trim().toUpperCase();
+          return scopeTranslations[lang][trimmed] || s.trim();
+        }).join(', ');
+      }
+      return scope;
     }
 
     // --- CMS Data Integration ---
@@ -1429,54 +1503,74 @@
         { img: 'newsletter-img-2', title: 'newsletter-title-2', desc: 'newsletter-desc-2', link: 'newsletter-link-2' },
         { img: 'newsletter-img-3', title: 'newsletter-title-3', desc: 'newsletter-desc-3', link: 'newsletter-link-3' }
       ];
-      newsletterCards.forEach(function(card, ci) {
-        var np = newsletterProjects[ci];
-        if (!np) return;
-        var imgEl = document.getElementById(card.img);
-        var titleEl = document.getElementById(card.title);
-        var descEl = document.getElementById(card.desc);
-        var linkEl = document.getElementById(card.link);
-        if (imgEl) imgEl.src = np.heroPhoto;
-        // Hide the title element — newsletter cards show content only
-        if (titleEl) titleEl.style.display = 'none';
-        // Show first 150 words of LinkedIn content, fallback to webEN/TC/JP
-        if (descEl) {
-          var currentLang = localStorage.getItem('lang') || 'en';
-          var rawContent = '';
-          // Use LinkedIn text first if available
-          var linkedinText = np.linkedin || '';
-          if (linkedinText) {
-            rawContent = linkedinText;
-          } else if (currentLang === 'ch' && np.webTC) {
-            rawContent = np.webTC;
-          } else if (currentLang === 'jp' && np.webJP) {
-            rawContent = np.webJP;
-          } else {
-            rawContent = np.webEN || '';
-          }
-          // Strip HTML tags to get plain text
-          var tempDiv = document.createElement('div');
-          tempDiv.innerHTML = rawContent;
-          var plainText = (tempDiv.textContent || tempDiv.innerText || '').trim();
-          // Truncate to first 150 words
-          var words = plainText.split(/\s+/);
-          if (words.length > 150) {
-            descEl.textContent = words.slice(0, 150).join(' ') + '...';
-          } else {
-            descEl.textContent = plainText;
-          }
+      // Helper: get web content for current language
+      function getWebContent(np) {
+        var currentLang = (window.getLang && window.getLang()) || localStorage.getItem('lang') || 'en';
+        if (currentLang === 'ch' && np.webTC) return np.webTC;
+        if (currentLang === 'jp' && np.webJP) return np.webJP;
+        return np.webEN || np.webTC || np.webJP || '';
+      }
+
+      // Helper: extract title (first h1/h2) and first paragraph from HTML content
+      function extractTitleAndParagraph(html) {
+        var tempDiv = document.createElement('div');
+        tempDiv.innerHTML = html;
+        // Extract title from first h1 or h2
+        var titleEl = tempDiv.querySelector('h1, h2');
+        var title = titleEl ? (titleEl.textContent || '').trim() : '';
+        // Extract first <p> text
+        var firstP = tempDiv.querySelector('p');
+        var paragraph = firstP ? (firstP.textContent || '').trim() : '';
+        // If no <p>, fallback to stripping all text after the title
+        if (!paragraph) {
+          if (titleEl) titleEl.remove();
+          paragraph = (tempDiv.textContent || '').trim();
         }
-        // Link to LinkedIn URL if available
-        if (linkEl) {
-          if (np.linkedin) {
-            linkEl.href = np.linkedin;
-            linkEl.target = '_blank';
-            linkEl.rel = 'noopener noreferrer';
-          } else {
+        return { title: title, paragraph: paragraph };
+      }
+
+      function populateNewsletterCards() {
+        newsletterCards.forEach(function(card, ci) {
+          var np = newsletterProjects[ci];
+          if (!np) return;
+          var imgEl = document.getElementById(card.img);
+          var titleEl = document.getElementById(card.title);
+          var descEl = document.getElementById(card.desc);
+          var linkEl = document.getElementById(card.link);
+          if (imgEl) imgEl.src = np.heroPhoto;
+
+          // Get language-aware web content
+          var webContent = getWebContent(np);
+          var extracted = extractTitleAndParagraph(webContent);
+
+          // Show title from web content
+          if (titleEl) {
+            titleEl.style.display = '';
+            titleEl.textContent = extracted.title || np.project || '';
+          }
+
+          // Show first paragraph ending with '....'
+          if (descEl) {
+            var text = extracted.paragraph;
+            if (text.length > 200) {
+              // Truncate at ~200 chars to keep it clean, find nearest space
+              var cut = text.lastIndexOf(' ', 200);
+              if (cut < 100) cut = 200;
+              text = text.substring(0, cut);
+            }
+            descEl.textContent = text ? text + ' ....' : '';
+          }
+
+          // Link to profile page
+          if (linkEl) {
             linkEl.href = 'profile.html?id=' + encodeURIComponent(np.projectId || String(ci + 9));
           }
-        }
-      });
+        });
+      }
+      populateNewsletterCards();
+
+      // Re-populate newsletter on language change
+      window.addEventListener('languageChange', populateNewsletterCards);
 
       // --- 6. Refresh ScrollTrigger for dynamic content ---
       ScrollTrigger.refresh();
