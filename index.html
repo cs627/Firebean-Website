@@ -987,20 +987,30 @@
         }
       });
 
-      // 3D Logo Rotation on Scroll — front-facing when section center is at viewport center
-      gsap.fromTo('#bg-logo', 
-        { rotationY: 50 },
-        {
-          rotationY: -50,
-          ease: "none",
-          scrollTrigger: {
-            trigger: "#work",
-            start: "center bottom",
-            end: "center top",
-            scrub: true
+      // 3D Logo Rotation — front-facing (0°) when logo center is at viewport center
+      // Uses ScrollTrigger onUpdate to compute rotation based on logo’s actual screen position
+      (function() {
+        var logoEl = document.getElementById('bg-logo');
+        var containerEl = document.getElementById('parallax-logo-container');
+        ScrollTrigger.create({
+          trigger: '#work',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+          onUpdate: function() {
+            // Get logo’s actual visual center Y on screen
+            var rect = containerEl.getBoundingClientRect();
+            var logoCenterY = rect.top + rect.height / 2;
+            var vh = window.innerHeight;
+            // Map logoCenterY: 0 (top of viewport) → negative angle, vh (bottom) → positive angle
+            // Center (vh/2) → 0°
+            var t = (logoCenterY - vh / 2) / (vh / 2); // range ~ -1 to +1
+            t = Math.max(-1, Math.min(1, t)); // clamp
+            var angle = t * 45; // ±45° range
+            gsap.set(logoEl, { rotationY: angle });
           }
-        }
-      );
+        });
+      })();
 
       // Project Profiles Reveal (placeholder for static HTML profiles)
       gsap.utils.toArray('.project-profile').forEach(item => {
