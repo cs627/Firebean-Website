@@ -188,6 +188,10 @@
         display: block;
         margin: 0 auto;
       }
+      /* CH: extra top padding so match doesn't stick to Chinese text */
+      .jp-hero-title.ch ~ .match-wrapper {
+        margin-top: 5vw;
+      }
       .slider-marquee-text {
         font-family: 'Oswald', sans-serif;
         font-weight: 700;
@@ -675,7 +679,7 @@
           </div>
 
           <!-- Match image under last hero line -->
-          <div class="w-full flex justify-start relative z-30 mt-[2vw] pl-[8vw]">
+          <div class="match-wrapper w-full flex justify-start relative z-30 mt-[2vw] pl-[8vw]">
             <img src="data/images/match.webp" alt="" class="match-image" />
           </div>
 
