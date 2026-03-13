@@ -95,6 +95,33 @@
         min-width: 100%;
       }
 
+      /* Slider marquee ticker */
+      @keyframes slider-marquee-scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .slider-marquee-animate {
+        animation: slider-marquee-scroll 20s linear infinite;
+      }
+      .slider-marquee-animate:hover {
+        animation-play-state: paused;
+      }
+      .slider-marquee-text {
+        font-family: 'Oswald', sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.95);
+        font-size: 12vw;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        padding-right: 0.3em;
+        white-space: nowrap;
+        text-shadow: 0 2px 40px rgba(0,0,0,0.3);
+      }
+      @media (min-width: 768px) {
+        .slider-marquee-text { font-size: 10vw; }
+      }
+
       /* Smooth image loading */
       img {
         opacity: 0;
@@ -502,8 +529,21 @@
         <!-- Slides populated dynamically by CMS -->
       </div>
 
-      <!-- Slider Controls -->
-      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-4" id="slider-dots">
+      <!-- Top-center: Category label + slide counter -->
+      <div class="absolute top-12 left-1/2 -translate-x-1/2 z-30 text-center">
+        <p id="slider-category-label" class="font-oswald text-base md:text-lg font-bold uppercase tracking-[0.25em] text-white/90"></p>
+        <p id="slider-counter" class="font-playfair italic text-sm text-white/60 mt-1"></p>
+      </div>
+
+      <!-- Bottom: Marquee ticker for project name -->
+      <div class="absolute bottom-16 left-0 w-full z-30 overflow-hidden pointer-events-none">
+        <div id="slider-marquee" class="flex whitespace-nowrap slider-marquee-animate">
+          <!-- Repeated project name text, filled by JS -->
+        </div>
+      </div>
+
+      <!-- Slider Dots -->
+      <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-3" id="slider-dots">
       </div>
     </section>
 
@@ -1112,6 +1152,8 @@
         const dots = document.querySelectorAll('.slider-dot');
         dots.forEach(dot => { dot.classList.remove('bg-white'); dot.classList.add('bg-white/50'); });
         if (dots[currentSlide]) { dots[currentSlide].classList.remove('bg-white/50'); dots[currentSlide].classList.add('bg-white'); }
+        // Update overlay (category, counter, marquee)
+        if (window.updateSliderOverlay) window.updateSliderOverlay(currentSlide);
       }
 
       function startSliderAutoplay() {
@@ -1372,16 +1414,38 @@
       sliderProjects.forEach(function(p) {
         sliderHTML += '<div class="relative w-full h-full flex-shrink-0">' +
           '<img src="' + p.heroPhoto + '" class="absolute inset-0 w-full h-full object-cover" alt="' + (p.project || '') + '" referrerpolicy="no-referrer">' +
-          '<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>' +
-          '<div class="absolute bottom-16 left-8 md:left-16 z-20 text-white">' +
-            '<h3 class="font-oswald text-4xl md:text-6xl font-bold uppercase mb-2">' + (p.project || '') + '</h3>' +
-            '<p class="slider-category font-sans text-sm uppercase tracking-widest text-white/70 mb-4" data-cat="' + (p.category || '').replace(/"/g, '&quot;') + '">' + translateCat(p.category || '') + '</p>' +
-            '<a href="profile.html?id=' + (p.projectId || '') + '" class="font-sans text-sm font-bold uppercase tracking-widest hover:text-brand-red transition-colors flex items-center gap-2">' +
-              '<span class="text-xl">↳</span> View Project</a>' +
-          '</div></div>';
+          '<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/30"></div>' +
+        '</div>';
       });
       slider.innerHTML = sliderHTML;
       totalSlides = sliderProjects.length;
+
+      // Store slider project data for category/marquee updates
+      window._sliderProjects = sliderProjects;
+
+      // Update category label, counter, and marquee for current slide
+      window.updateSliderOverlay = function updateSliderOverlay(index) {
+        var p = sliderProjects[index];
+        if (!p) return;
+        // Category label (who we help) — translated
+        var catLabel = document.getElementById('slider-category-label');
+        if (catLabel) catLabel.textContent = translateCat(p.category || '');
+        // Slide counter
+        var counter = document.getElementById('slider-counter');
+        if (counter) counter.textContent = String(index + 1).padStart(2, '0') + '/' + String(totalSlides).padStart(2, '0');
+        // Marquee project name
+        var marqueeEl = document.getElementById('slider-marquee');
+        if (marqueeEl) {
+          var name = p.project || '';
+          // Repeat the text enough times for seamless loop (need at least 2x viewport width)
+          var repeatHTML = '';
+          for (var r = 0; r < 6; r++) {
+            repeatHTML += '<span class="slider-marquee-text">' + name + '</span>';
+          }
+          marqueeEl.innerHTML = repeatHTML;
+        }
+      }
+      updateSliderOverlay(0);
 
       // Build dots
       var dotsContainer = document.getElementById('slider-dots');
@@ -1578,10 +1642,10 @@
 
     // Update categories on language change
     window.addEventListener('languageChange', function() {
-      document.querySelectorAll('.slider-category').forEach(function(el) {
-        var cat = el.getAttribute('data-cat') || '';
-        el.textContent = translateCat(cat);
-      });
+      // Update slider hero banner category label
+      if (window.updateSliderOverlay && typeof currentSlide !== 'undefined') {
+        window.updateSliderOverlay(currentSlide);
+      }
       document.querySelectorAll('.grid-category').forEach(function(el) {
         var cat = el.getAttribute('data-cat') || '';
         var whatWeDo = el.getAttribute('data-whatwedo') || '';
