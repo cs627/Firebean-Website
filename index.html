@@ -1270,6 +1270,7 @@
             slot.dataset.desc = randomLogo.desc;
             slot.dataset.currentSrc = randomLogo.src;
             slot.dataset.currentSrcWhite = randomLogo.srcWhite || '';
+            slot.dataset.projectId = randomLogo.projectId || '';
             flipper.style.transform = 'rotateX(180deg)';
           } else {
             const frontImg = slot.querySelector('.front-img');
@@ -1277,6 +1278,7 @@
             slot.dataset.desc = randomLogo.desc;
             slot.dataset.currentSrc = randomLogo.src;
             slot.dataset.currentSrcWhite = randomLogo.srcWhite || '';
+            slot.dataset.projectId = randomLogo.projectId || '';
             flipper.style.transform = 'rotateX(0deg)';
           }
         });
