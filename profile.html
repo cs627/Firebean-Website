@@ -295,13 +295,12 @@
     /* Contact section parallax background */
     .contact-parallax-bg {
       position: absolute;
-      top: 0;
+      top: -25%;
       left: 0;
       width: 100%;
       height: 150%;
       object-fit: cover;
       will-change: transform;
-      transform: translateY(-20%);
     }
   </style>
 
@@ -1062,9 +1061,9 @@
       var contactBg = document.querySelector('.contact-parallax-bg');
       if (contactBg) {
         gsap.fromTo(contactBg, 
-          { yPercent: -25 },
+          { top: '-25%' },
           {
-            yPercent: -5,
+            top: '0%',
             ease: "none",
             scrollTrigger: {
               trigger: contactBg.closest('section'),
