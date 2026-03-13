@@ -144,10 +144,10 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 130%;
+      height: 150%;
       object-fit: cover;
       will-change: transform;
-      transform: translateY(-10%);
+      transform: translateY(-20%);
     }
   </style>
 
@@ -273,7 +273,7 @@
   <!-- Session 7: Contact & Session 8: Footer -->
   <section class="relative text-white py-32 px-6 overflow-hidden">
     <div class="absolute inset-0 z-0">
-      <img src="data/images/contact-bg.webp" alt="" class="contact-parallax-bg w-full h-[130%] object-cover object-center" referrerpolicy="no-referrer" />
+      <img src="data/images/contact-bg.webp" alt="" class="contact-parallax-bg w-full h-[150%] object-cover object-center" referrerpolicy="no-referrer" />
       <div class="absolute inset-0 bg-brand-black/40"></div>
     </div>
     <div class="max-w-7xl mx-auto relative z-10">
@@ -494,9 +494,9 @@
     var contactBg = document.querySelector('.contact-parallax-bg');
     if (contactBg) {
       gsap.fromTo(contactBg, 
-        { yPercent: -10 },
+        { yPercent: -25 },
         {
-          yPercent: -20,
+          yPercent: -5,
           ease: "none",
           scrollTrigger: {
             trigger: contactBg.closest('section'),
