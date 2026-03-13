@@ -112,13 +112,53 @@
         pointer-events: none;
       }
 
-      /* Slider */
+      /* Slider — crossfade mode (stacked slides) */
       .slider-container {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
+        position: relative;
+        width: 100%;
+        height: 100%;
       }
-      .slide {
-        min-width: 100%;
+      .slider-container > a {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: opacity 0.8s ease;
+        will-change: opacity;
+      }
+      .slider-container > a.slide-active {
+        opacity: 1;
+        z-index: 1;
+      }
+      .slider-container > a:not(.slide-active) {
+        z-index: 0;
+      }
+      /* Slide image entrance animation */
+      @keyframes slide-flow-in {
+        0% { opacity: 0; transform: translateY(60px) scale(1); }
+        100% { opacity: 1; transform: translateY(0) scale(1); }
+      }
+      @keyframes slide-slow-zoom {
+        0% { transform: scale(1); }
+        100% { transform: scale(1.08); }
+      }
+      .slide-active img {
+        animation: slide-flow-in 1s cubic-bezier(0.25,0.46,0.45,0.94) forwards,
+                   slide-slow-zoom 6s ease-out 0.8s forwards;
+      }
+      /* Progress bar */
+      .slider-progress-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 3px;
+        background: rgba(255,255,255,0.85);
+        z-index: 40;
+        width: 0%;
+        transition: none;
+      }
+      .slider-progress-bar.animating {
+        transition: width 5s linear;
+        width: 100%;
       }
 
       /* Slider marquee ticker — driven by GSAP + scroll velocity */
@@ -625,7 +665,7 @@
 
     <!-- Session 2: Highlight Showcase (Full sliding banner) -->
     <section class="relative w-full h-screen overflow-hidden group" id="highlights">
-      <div class="slider-container h-full w-full flex transition-transform duration-700 ease-in-out" id="main-slider">
+      <div class="slider-container h-full w-full" id="main-slider">
         <!-- Slides populated dynamically by CMS -->
       </div>
 
@@ -642,9 +682,8 @@
         </div>
       </div>
 
-      <!-- Slider Dots -->
-      <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-3" id="slider-dots">
-      </div>
+      <!-- Slider Progress Bar -->
+      <div class="slider-progress-bar" id="slider-progress"></div>
     </section>
 
     <!-- Session 3: Project Profiles -->
@@ -909,7 +948,7 @@
 
       <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-start relative">
         <!-- Left Column: Sticky within newsletter section -->
-        <div class="w-full md:w-[45%] md:sticky md:top-0 md:self-start p-8 md:p-12 md:py-24 flex flex-col justify-center newsletter-left-col bg-brand-gray">
+        <div class="w-full md:w-[45%] md:sticky md:top-0 md:self-start md:h-screen p-8 md:p-12 md:py-24 flex flex-col justify-center newsletter-left-col bg-brand-gray z-10">
           <h2 class="font-oswald text-5xl md:text-6xl lg:text-7xl font-bold uppercase leading-[0.85] mb-6 text-brand-black tracking-tighter" data-key="Index.Newsletter.Title">THE DISPATCH.<br><span class="text-3xl md:text-4xl block mt-2">Big Ideas, Better Engagement.</span></h2>
           <p class="font-playfair italic text-base md:text-lg text-gray-600 mb-12 max-w-md leading-relaxed" data-key="Index.Newsletter.Subtitle">
             Behind the scenes of the projects shaping the lifestyle market. We share the data, the creativity, and the "why" behind today’s most successful PR activations.
@@ -1122,18 +1161,9 @@
 
       // (Profile card animations are handled after CMS data loads)
 
-      // Newsletter Parallax
-      ScrollTrigger.matchMedia({
-        "(min-width: 768px)": function() {
-          ScrollTrigger.create({
-            trigger: "#newsletter",
-            start: "top top",
-            end: "bottom bottom",
-            pin: ".newsletter-left-col",
-            pinSpacing: false,
-          });
-        }
-      });
+      // Newsletter Parallax — use CSS sticky instead of ScrollTrigger pin
+      // (CSS sticky is already applied via md:sticky md:top-0 in the HTML class)
+      // No JS pin needed — removed to fix reverse-scroll positioning glitch
 
       gsap.utils.toArray('.parallax-img').forEach(img => {
         gsap.to(img, {
@@ -1298,17 +1328,40 @@
       function goToSlide(index) {
         if (totalSlides === 0) return;
         currentSlide = index;
-        slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-        const dots = document.querySelectorAll('.slider-dot');
-        dots.forEach(dot => { dot.classList.remove('bg-white'); dot.classList.add('bg-white/50'); });
-        if (dots[currentSlide]) { dots[currentSlide].classList.remove('bg-white/50'); dots[currentSlide].classList.add('bg-white'); }
+        // Crossfade: toggle .slide-active on stacked slides
+        var slides = slider.querySelectorAll(':scope > a');
+        slides.forEach(function(s, i) {
+          if (i === currentSlide) {
+            s.classList.add('slide-active');
+            // Re-trigger image animation by cloning
+            var img = s.querySelector('img');
+            if (img) {
+              img.style.animation = 'none';
+              void img.offsetWidth;
+              img.style.animation = '';
+            }
+          } else {
+            s.classList.remove('slide-active');
+          }
+        });
         // Update overlay (category, counter, marquee)
         if (window.updateSliderOverlay) window.updateSliderOverlay(currentSlide);
+        // Restart progress bar
+        resetProgressBar();
       }
 
+      var progressBar = document.getElementById('slider-progress');
+      function resetProgressBar() {
+        if (!progressBar) return;
+        progressBar.classList.remove('animating');
+        progressBar.style.width = '0%';
+        void progressBar.offsetWidth; // force reflow
+        progressBar.classList.add('animating');
+      }
       function startSliderAutoplay() {
         if (sliderInterval) clearInterval(sliderInterval);
-        sliderInterval = setInterval(() => {
+        resetProgressBar();
+        sliderInterval = setInterval(function() {
           goToSlide((currentSlide + 1) % totalSlides);
         }, 5000);
       }
@@ -1370,7 +1423,7 @@
         var sliderMarqueeEl = document.getElementById('slider-marquee');
         if (!sliderMarqueeEl) return;
         var sliderMarqueeX = 0;
-        var sliderBaseSpeed = 2.5; // pixels per frame
+        var sliderBaseSpeed = 1.0; // pixels per frame (slowed down)
         var sliderScrollVel = 0;
 
         // Track scroll velocity for slider marquee
@@ -1609,8 +1662,8 @@
       // --- 1. Populate Slider (top 3 most recent projects) ---
       var sliderProjects = withPhotos.slice(0, 3);
       var sliderHTML = '';
-      sliderProjects.forEach(function(p) {
-        sliderHTML += '<a href="profile.html?id=' + encodeURIComponent(p.projectId || '') + '" class="relative w-full h-full flex-shrink-0 block cursor-pointer">' +
+      sliderProjects.forEach(function(p, idx) {
+        sliderHTML += '<a href="profile.html?id=' + encodeURIComponent(p.projectId || '') + '" class="relative w-full h-full block cursor-pointer' + (idx === 0 ? ' slide-active' : '') + '">' +
           '<img src="' + p.heroPhoto + '" class="absolute inset-0 w-full h-full object-cover" alt="' + (p.project || '') + '" referrerpolicy="no-referrer">' +
           '<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/30"></div>' +
         '</a>';
@@ -1625,12 +1678,22 @@
       window.updateSliderOverlay = function updateSliderOverlay(index) {
         var p = sliderProjects[index];
         if (!p) return;
-        // Top: Project name (bold uppercase)
+        // Top: Project name (bold uppercase) — with flow-in
         var nameLabel = document.getElementById('slider-project-name');
-        if (nameLabel) nameLabel.textContent = p.project || '';
-        // Slide counter
+        if (nameLabel) {
+          nameLabel.textContent = p.project || '';
+          nameLabel.classList.remove('marquee-flow-in');
+          void nameLabel.offsetWidth;
+          nameLabel.classList.add('marquee-flow-in');
+        }
+        // Slide counter — with flow-in
         var counter = document.getElementById('slider-counter');
-        if (counter) counter.textContent = String(index + 1).padStart(2, '0') + '/' + String(totalSlides).padStart(2, '0');
+        if (counter) {
+          counter.textContent = String(index + 1).padStart(2, '0') + '/' + String(totalSlides).padStart(2, '0');
+          counter.classList.remove('marquee-flow-in');
+          void counter.offsetWidth;
+          counter.classList.add('marquee-flow-in');
+        }
         // Reset marquee scroll position on slide change
         if (window._resetSliderMarqueeX) window._resetSliderMarqueeX();
         // Marquee: category (Who We Help) with flow-in animation
@@ -1651,16 +1714,7 @@
       }
       updateSliderOverlay(0);
 
-      // Build dots
-      var dotsContainer = document.getElementById('slider-dots');
-      dotsContainer.innerHTML = '';
-      for (var di = 0; di < totalSlides; di++) {
-        var dot = document.createElement('button');
-        dot.className = 'slider-dot w-3 h-3 rounded-full transition-colors ' + (di === 0 ? 'bg-white' : 'bg-white/50');
-        dot.dataset.index = di;
-        dot.addEventListener('click', function() { goToSlide(parseInt(this.dataset.index)); });
-        dotsContainer.appendChild(dot);
-      }
+      // Start autoplay with progress bar
       if (totalSlides > 1) startSliderAutoplay();
 
       // --- 2. Populate Work Profiles Grid (next 6 projects, excluding hero 3) ---
