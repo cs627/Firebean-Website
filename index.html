@@ -1012,13 +1012,7 @@
         });
       })();
 
-      // Project Profiles Reveal (placeholder for static HTML profiles)
-      gsap.utils.toArray('.project-profile').forEach(item => {
-        gsap.from(item, {
-          y: 80, opacity: 0, scale: 0.97, duration: 1.2, ease: "power3.out",
-          scrollTrigger: { trigger: item, start: "top 90%" }
-        });
-      });
+      // (Profile card animations are handled after CMS data loads)
 
       // Newsletter Parallax
       ScrollTrigger.matchMedia({
@@ -1611,30 +1605,41 @@
       });
       gridContainer.innerHTML = gridHTML;
 
-      // Lazy load-in animation for each profile card
+      // Progressive scroll-driven profile card reveal
+      // Cards appear gradually as user scrolls — each triggers individually
       gsap.utils.toArray('.project-profile').forEach(function(item, i) {
-        // Image zoom-in reveal
+        // Start hidden
+        gsap.set(item, { opacity: 0, y: 80 });
         var imgEl = item.querySelector('img');
-        if (imgEl) {
-          gsap.from(imgEl, {
-            scale: 1.15, duration: 1.4, ease: "power2.out",
-            scrollTrigger: { trigger: item, start: "top 88%" }
-          });
-        }
-        // Card slide-up + fade
-        gsap.from(item, {
-          y: 60, opacity: 0, duration: 1, ease: "power3.out",
-          scrollTrigger: { trigger: item, start: "top 88%" }
-        });
-        // Text elements stagger in
+        if (imgEl) gsap.set(imgEl, { scale: 1.18 });
         var textEls = item.querySelectorAll('h3, p');
-        if (textEls.length) {
-          gsap.from(textEls, {
-            y: 20, opacity: 0, duration: 0.7, ease: "power2.out",
-            stagger: 0.1, delay: 0.3,
-            scrollTrigger: { trigger: item, start: "top 88%" }
-          });
-        }
+        if (textEls.length) gsap.set(textEls, { opacity: 0, y: 25 });
+
+        // Create a ScrollTrigger per card — each card reveals when it enters
+        ScrollTrigger.create({
+          trigger: item,
+          start: 'top 85%',
+          once: true,
+          onEnter: function() {
+            // Phase 1: Card slides up + fades in
+            gsap.to(item, {
+              opacity: 1, y: 0, duration: 0.9, ease: 'power3.out'
+            });
+            // Phase 2: Image zoom settles (slightly delayed)
+            if (imgEl) {
+              gsap.to(imgEl, {
+                scale: 1, duration: 1.3, ease: 'power2.out', delay: 0.15
+              });
+            }
+            // Phase 3: Text elements stagger in after card is visible
+            if (textEls.length) {
+              gsap.to(textEls, {
+                opacity: 1, y: 0, duration: 0.6, ease: 'power2.out',
+                stagger: 0.12, delay: 0.35
+              });
+            }
+          }
+        });
       });
 
       // --- 3. Populate Client Logos from CMS ---
