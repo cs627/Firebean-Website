@@ -939,12 +939,7 @@
 
     <!-- Session 6: Newsletter (The Dispatch) -->
     <section class="relative bg-brand-gray overflow-hidden border-t border-black/5" id="newsletter">
-      <!-- Fixed Background Logo -->
-      <div class="absolute inset-0 w-full h-full pointer-events-none z-0">
-        <div class="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=800&auto=format&fit=crop" class="w-[80vw] md:w-[40vw] h-auto opacity-10 grayscale brightness-0" style="filter: contrast(200%) brightness(0) sepia(100%) saturate(10000%) hue-rotate(-30deg);" alt="Firebean Logo Background">
-        </div>
-      </div>
+
 
       <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-start relative">
         <!-- Left Column: Sticky within newsletter section -->
@@ -953,11 +948,16 @@
           <p class="font-playfair italic text-base md:text-lg text-gray-600 mb-12 max-w-md leading-relaxed" data-key="Index.Newsletter.Subtitle">
             Behind the scenes of the projects shaping the lifestyle market. We share the data, the creativity, and the "why" behind today’s most successful PR activations.
           </p>
-          <form class="relative max-w-md group/form bg-black/5 p-2 flex items-center border border-black/10">
-            <input type="email" placeholder="YOUR EMAIL ADDRESS" data-key="Index.Newsletter.EmailPlaceholder" class="flex-grow bg-transparent px-4 h-12 font-sans text-[10px] uppercase tracking-widest outline-none focus:placeholder-transparent transition-all">
-            <button type="submit" class="bg-brand-black text-white px-6 h-12 font-oswald text-xs font-bold tracking-widest hover:bg-brand-red transition-colors whitespace-nowrap flex items-center gap-2" data-key="Index.Newsletter.CTA">
-              SIGN ME UP ↳
-            </button>
+          <form id="newsletter-form" class="relative max-w-md group/form" autocomplete="off" novalidate>
+            <div class="bg-black/5 p-2 flex items-center border border-black/10">
+              <input id="nl-email" type="email" placeholder="YOUR EMAIL ADDRESS" data-key="Index.Newsletter.EmailPlaceholder" class="flex-grow bg-transparent px-4 h-12 font-sans text-[10px] uppercase tracking-widest outline-none focus:placeholder-transparent transition-all" required>
+              <!-- Honeypot — hidden from humans, bots fill it -->
+              <input type="text" name="website" id="nl-honeypot" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" tabindex="-1" autocomplete="off">
+              <button type="submit" id="nl-submit-btn" class="bg-brand-black text-white px-6 h-12 font-oswald text-xs font-bold tracking-widest hover:bg-brand-red transition-colors whitespace-nowrap flex items-center gap-2" data-key="Index.Newsletter.CTA">
+                SIGN ME UP ↳
+              </button>
+            </div>
+            <p id="nl-message" class="mt-3 font-sans text-xs tracking-wide hidden"></p>
           </form>
         </div>
 
@@ -2116,6 +2116,143 @@
           if (window.swapClientLogos) window.swapClientLogos();
         }
       });
+    })();
+
+    // === Newsletter Email Subscription ===
+    (function() {
+      // IMPORTANT: Replace this URL with the deployed Google Apps Script web app URL
+      var SUBSCRIBE_ENDPOINT = '';
+
+      var form = document.getElementById('newsletter-form');
+      var emailInput = document.getElementById('nl-email');
+      var honeypot = document.getElementById('nl-honeypot');
+      var submitBtn = document.getElementById('nl-submit-btn');
+      var msgEl = document.getElementById('nl-message');
+      if (!form || !emailInput) return;
+
+      // Multilingual messages
+      var messages = {
+        en: {
+          invalid_email: 'Please enter a valid email address.',
+          already_subscribed: 'This email is already subscribed.',
+          rate_limited: 'Too many attempts. Please try again later.',
+          capacity_full: 'Subscription list is currently full.',
+          server_error: 'Something went wrong. Please try again.',
+          success: 'Thank you for subscribing!',
+          submitting: 'SUBMITTING...'
+        },
+        tc: {
+          invalid_email: '\u8ACB\u8F38\u5165\u6709\u6548\u7684\u96FB\u90F5\u5730\u5740\u3002',
+          already_subscribed: '\u6B64\u96FB\u90F5\u5DF2\u8A02\u95B1\u3002',
+          rate_limited: '\u5617\u8A66\u6B21\u6578\u904E\u591A\uFF0C\u8ACB\u7A0D\u5F8C\u518D\u8A66\u3002',
+          capacity_full: '\u8A02\u95B1\u540D\u55AE\u5DF2\u6EFF\u3002',
+          server_error: '\u51FA\u4E86\u9EDE\u554F\u984C\uFF0C\u8ACB\u7A0D\u5F8C\u518D\u8A66\u3002',
+          success: '\u611F\u8B1D\u60A8\u7684\u8A02\u95B1\uFF01',
+          submitting: '\u63D0\u4EA4\u4E2D...'
+        },
+        jp: {
+          invalid_email: '\u6709\u52B9\u306A\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044\u3002',
+          already_subscribed: '\u3053\u306E\u30E1\u30FC\u30EB\u306F\u65E2\u306B\u767B\u9332\u3055\u308C\u3066\u3044\u307E\u3059\u3002',
+          rate_limited: '\u8A66\u884C\u56DE\u6570\u304C\u591A\u3059\u304E\u307E\u3059\u3002\u5F8C\u3067\u3082\u3046\u4E00\u5EA6\u304A\u8A66\u3057\u304F\u3060\u3055\u3044\u3002',
+          capacity_full: '\u8CFC\u8AAD\u30EA\u30B9\u30C8\u306F\u73FE\u5728\u6E80\u5458\u3067\u3059\u3002',
+          server_error: '\u554F\u984C\u304C\u767A\u751F\u3057\u307E\u3057\u305F\u3002\u5F8C\u3067\u3082\u3046\u4E00\u5EA6\u304A\u8A66\u3057\u304F\u3060\u3055\u3044\u3002',
+          success: '\u3054\u8CFC\u8AAD\u3042\u308A\u304C\u3068\u3046\u3054\u3056\u3044\u307E\u3059\uFF01',
+          submitting: '\u9001\u4FE1\u4E2D...'
+        }
+      };
+
+      function getLangMsgs() {
+        var lang = (window.getLang && window.getLang()) || localStorage.getItem('lang') || 'en';
+        return messages[lang] || messages.en;
+      }
+
+      function showMsg(text, isError) {
+        msgEl.textContent = text;
+        msgEl.className = 'mt-3 font-sans text-xs tracking-wide ' + (isError ? 'text-brand-red' : 'text-green-600');
+        msgEl.classList.remove('hidden');
+      }
+
+      function hideMsg() {
+        msgEl.classList.add('hidden');
+      }
+
+      // Simple client-side email regex
+      function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && email.length <= 254;
+      }
+
+      // Generate a simple browser fingerprint for rate limiting
+      function getFingerprint() {
+        var nav = navigator;
+        var str = [nav.userAgent, nav.language, screen.width, screen.height, new Date().getTimezoneOffset()].join('|');
+        var hash = 0;
+        for (var i = 0; i < str.length; i++) {
+          hash = ((hash << 5) - hash) + str.charCodeAt(i);
+          hash |= 0;
+        }
+        return 'fp_' + Math.abs(hash).toString(36);
+      }
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        hideMsg();
+        var msgs = getLangMsgs();
+
+        // Check if endpoint is configured
+        if (!SUBSCRIBE_ENDPOINT) {
+          showMsg('Newsletter subscription is not yet configured.', true);
+          return;
+        }
+
+        var email = emailInput.value.trim();
+
+        // Client-side validation
+        if (!email || !isValidEmail(email)) {
+          showMsg(msgs.invalid_email, true);
+          emailInput.focus();
+          return;
+        }
+
+        // Disable button
+        submitBtn.disabled = true;
+        submitBtn.textContent = msgs.submitting;
+
+        var payload = {
+          email: email,
+          name: '',
+          website: honeypot ? honeypot.value : '',
+          _ip: getFingerprint(),
+          _origin: window.location.origin
+        };
+
+        fetch(SUBSCRIBE_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify(payload)
+        })
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+          if (data.success) {
+            showMsg(msgs.success, false);
+            emailInput.value = '';
+          } else {
+            var errKey = data.error || 'server_error';
+            showMsg(msgs[errKey] || msgs.server_error, true);
+          }
+        })
+        .catch(function() {
+          showMsg(msgs.server_error, true);
+        })
+        .finally(function() {
+          submitBtn.disabled = false;
+          // Restore button text from data-key translation or default
+          var translated = submitBtn.getAttribute('data-original-text');
+          submitBtn.textContent = translated || 'SIGN ME UP \u21b3';
+        });
+      });
+
+      // Store original button text for restore after submit
+      submitBtn.setAttribute('data-original-text', submitBtn.textContent.trim());
     })();
 
     </script>
