@@ -141,12 +141,13 @@
     /* Contact section parallax background */
     .contact-parallax-bg {
       position: absolute;
-      top: -15%;
+      top: 0;
       left: 0;
       width: 100%;
       height: 130%;
       object-fit: cover;
       will-change: transform;
+      transform: translateY(-10%);
     }
   </style>
 
@@ -492,16 +493,19 @@
     // Contact section parallax background
     var contactBg = document.querySelector('.contact-parallax-bg');
     if (contactBg) {
-      gsap.to(contactBg, {
-        yPercent: 20,
-        ease: "none",
-        scrollTrigger: {
-          trigger: contactBg.closest('section'),
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true
+      gsap.fromTo(contactBg, 
+        { yPercent: -10 },
+        {
+          yPercent: -20,
+          ease: "none",
+          scrollTrigger: {
+            trigger: contactBg.closest('section'),
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 0.5
+          }
         }
-      });
+      );
     }
 
     // --- Legal Modal Logic ---
