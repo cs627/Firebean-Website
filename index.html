@@ -1528,11 +1528,23 @@
         else if (currentLang === 'jp' && p.webJP) raw = p.webJP;
         else raw = p.webEN || p.webTC || p.webJP || '';
         if (!raw) return '';
+        // Try HTML parsing first
         var tmp = document.createElement('div');
         tmp.innerHTML = raw;
-        // Get first <p> or <h3> subtitle text
         var el = tmp.querySelector('h3') || tmp.querySelector('p');
         if (el) return (el.textContent || '').trim();
+        // Fallback: content may be Markdown — extract first heading or first paragraph line
+        var lines = raw.split('\n').map(function(l) { return l.trim(); }).filter(function(l) { return l.length > 0; });
+        for (var li = 0; li < lines.length; li++) {
+          var line = lines[li];
+          // Skip markdown headings (## or ###)
+          if (/^#{1,4}\s/.test(line)) {
+            // Return the heading text (stripped of #)
+            return line.replace(/^#{1,4}\s+/, '');
+          }
+          // Return the first non-empty, non-heading line as subtitle
+          return line;
+        }
         return '';
       }
 
