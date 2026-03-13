@@ -95,16 +95,9 @@
         min-width: 100%;
       }
 
-      /* Slider marquee ticker */
-      @keyframes slider-marquee-scroll {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
-      }
+      /* Slider marquee ticker — driven by GSAP + scroll velocity */
       .slider-marquee-animate {
-        animation: slider-marquee-scroll 20s linear infinite;
-      }
-      .slider-marquee-animate:hover {
-        animation-play-state: paused;
+        will-change: transform;
       }
       /* Flow-in animation for marquee on slide change */
       @keyframes marquee-flow-in {
@@ -119,7 +112,7 @@
         font-weight: 700;
         text-transform: uppercase;
         color: rgba(255,255,255,0.95);
-        font-size: 12vw;
+        font-size: 16vw;
         line-height: 1;
         letter-spacing: -0.02em;
         padding-right: 0.3em;
@@ -127,7 +120,11 @@
         text-shadow: 0 2px 40px rgba(0,0,0,0.3);
       }
       @media (min-width: 768px) {
-        .slider-marquee-text { font-size: 10vw; }
+        .slider-marquee-text { font-size: 13vw; }
+      }
+      /* Top title text-shadow for readability */
+      .slider-top-title {
+        text-shadow: 0 2px 30px rgba(0,0,0,0.5), 0 1px 6px rgba(0,0,0,0.3);
       }
 
       /* Smooth image loading */
@@ -537,16 +534,16 @@
         <!-- Slides populated dynamically by CMS -->
       </div>
 
-      <!-- Top-center: Category label + slide counter -->
-      <div class="absolute top-12 left-1/2 -translate-x-1/2 z-30 text-center">
-        <p id="slider-category-label" class="font-oswald text-base md:text-lg font-bold uppercase tracking-[0.25em] text-white/90"></p>
-        <p id="slider-counter" class="font-playfair italic text-sm text-white/60 mt-1"></p>
+      <!-- Top-center: Project name (bold uppercase) + slide counter -->
+      <div class="absolute top-8 md:top-12 left-1/2 -translate-x-1/2 z-30 text-center w-[85%] md:w-[70%] max-w-[900px]">
+        <p id="slider-project-name" class="slider-top-title font-oswald font-bold uppercase text-white leading-[1.05] tracking-tight text-[6vw] md:text-[3.2vw]"></p>
+        <p id="slider-counter" class="font-playfair italic text-sm text-white/60 mt-3"></p>
       </div>
 
-      <!-- Center: Marquee ticker for project name -->
-      <div class="absolute top-1/2 -translate-y-1/2 left-0 w-full z-30 overflow-hidden pointer-events-none">
+      <!-- Center-bottom: Marquee ticker for category (Who We Help) -->
+      <div class="absolute bottom-[15%] md:bottom-[18%] left-0 w-full z-30 overflow-hidden pointer-events-none" id="slider-marquee-wrapper">
         <div id="slider-marquee" class="flex whitespace-nowrap slider-marquee-animate">
-          <!-- Repeated project name text, filled by JS -->
+          <!-- Repeated category text, filled by JS -->
         </div>
       </div>
 
@@ -1222,6 +1219,53 @@
         });
       });
 
+      // --- Slider Marquee: GSAP-driven scroll-velocity acceleration ---
+      (function() {
+        var sliderMarqueeEl = document.getElementById('slider-marquee');
+        if (!sliderMarqueeEl) return;
+        var sliderMarqueeX = 0;
+        var sliderBaseSpeed = 2.5; // pixels per frame
+        var sliderScrollVel = 0;
+
+        // Track scroll velocity for slider marquee
+        var sliderLastScrollY = window.scrollY;
+        window.addEventListener('scroll', function() {
+          var curY = window.scrollY;
+          sliderScrollVel = curY - sliderLastScrollY;
+          sliderLastScrollY = curY;
+        });
+
+        // Also respond to mouse wheel events directly on the highlights section
+        var highlightsSection = document.getElementById('highlights');
+        if (highlightsSection) {
+          highlightsSection.addEventListener('wheel', function(e) {
+            // Use deltaY to boost marquee speed on mouse scroll
+            sliderScrollVel += e.deltaY * 0.3;
+          }, { passive: true });
+        }
+
+        gsap.ticker.add(function() {
+          sliderScrollVel *= 0.92; // friction decay
+          var speed = sliderBaseSpeed + Math.abs(sliderScrollVel) * 0.4;
+          sliderMarqueeX -= speed;
+
+          // Get total width of one set of spans (half the content since we repeat 6x)
+          var spans = sliderMarqueeEl.querySelectorAll('.slider-marquee-text');
+          if (spans.length === 0) return;
+          var halfWidth = 0;
+          for (var i = 0; i < Math.floor(spans.length / 2); i++) {
+            halfWidth += spans[i].offsetWidth;
+          }
+          if (halfWidth > 0 && sliderMarqueeX <= -halfWidth) {
+            sliderMarqueeX += halfWidth;
+          }
+          sliderMarqueeEl.style.transform = 'translateX(' + sliderMarqueeX + 'px)';
+        });
+
+        // Expose reset function for slide changes
+        window._resetSliderMarqueeX = function() { sliderMarqueeX = 0; };
+      })();
+
       // Polaroid Slideshow Logic (populated by CMS)
       let polaroidImages = [];
 
@@ -1430,29 +1474,31 @@
       // Store slider project data for category/marquee updates
       window._sliderProjects = sliderProjects;
 
-      // Update category label, counter, and marquee for current slide
+      // Update project name (top), counter, and category marquee (center) for current slide
       window.updateSliderOverlay = function updateSliderOverlay(index) {
         var p = sliderProjects[index];
         if (!p) return;
-        // Category label (who we help) — translated
-        var catLabel = document.getElementById('slider-category-label');
-        if (catLabel) catLabel.textContent = translateCat(p.category || '');
+        // Top: Project name (bold uppercase)
+        var nameLabel = document.getElementById('slider-project-name');
+        if (nameLabel) nameLabel.textContent = p.project || '';
         // Slide counter
         var counter = document.getElementById('slider-counter');
         if (counter) counter.textContent = String(index + 1).padStart(2, '0') + '/' + String(totalSlides).padStart(2, '0');
-        // Marquee project name with flow-in animation
-        var marqueeWrapper = document.getElementById('slider-marquee').parentElement;
+        // Reset marquee scroll position on slide change
+        if (window._resetSliderMarqueeX) window._resetSliderMarqueeX();
+        // Marquee: category (Who We Help) with flow-in animation
+        var marqueeOuterWrapper = document.getElementById('slider-marquee-wrapper');
         var marqueeEl = document.getElementById('slider-marquee');
-        if (marqueeEl && marqueeWrapper) {
-          var name = p.project || '';
+        if (marqueeEl && marqueeOuterWrapper) {
+          var catText = translateCat(p.category || '');
           var repeatHTML = '';
           for (var r = 0; r < 6; r++) {
-            repeatHTML += '<span class="slider-marquee-text">' + name + '</span>';
+            repeatHTML += '<span class="slider-marquee-text">' + catText + '</span>';
           }
           // Flow-in animation: reset and trigger
-          marqueeWrapper.classList.remove('marquee-flow-in');
-          void marqueeWrapper.offsetWidth; // force reflow
-          marqueeWrapper.classList.add('marquee-flow-in');
+          marqueeOuterWrapper.classList.remove('marquee-flow-in');
+          void marqueeOuterWrapper.offsetWidth; // force reflow
+          marqueeOuterWrapper.classList.add('marquee-flow-in');
           marqueeEl.innerHTML = repeatHTML;
         }
       }
