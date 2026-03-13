@@ -243,6 +243,7 @@
     html.dark .text-brand-black { color: var(--text-primary) !important; }
     html.dark .text-gray-600 { color: var(--text-secondary) !important; }
     html.dark .text-gray-400 { color: var(--text-tertiary) !important; }
+    html.dark .text-gray-500 { color: #999 !important; }
     html.dark .bg-gray-200 { background-color: var(--bg-card) !important; }
     html.dark .border-black\/5 { border-color: var(--border-subtle) !important; }
     html.dark .stroke-text-black { -webkit-text-stroke-color: #e5e5e5; }
@@ -276,8 +277,17 @@
     html.dark #profile-categories span { color: var(--text-primary) !important; }
 
     /* CMS content dark mode */
-    html.dark .cms-content { color: var(--text-secondary); }
-    html.dark .cms-content strong, html.dark .cms-content b { color: var(--text-primary); }
+    html.dark .cms-content { color: #bbb; }
+    html.dark .cms-content h1,
+    html.dark .cms-content h2 { color: #ff3333; }
+    html.dark .cms-content h3,
+    html.dark .cms-content h4 { color: #ff3333; }
+    html.dark .cms-content h3.cms-lead { color: #aaa; border-bottom-color: rgba(255,255,255,0.1); }
+    html.dark .cms-content .cms-lead { color: #aaa; border-bottom-color: rgba(255,255,255,0.1); }
+    html.dark .cms-content p { color: #bbb; }
+    html.dark .cms-content ul, html.dark .cms-content ol { color: #bbb; }
+    html.dark .cms-content strong, html.dark .cms-content b { color: #e5e5e5; }
+    html.dark .cms-content a { color: #ff3333; }
 
     /* Google Maps dark mode */
     html.dark iframe[src*="google.com/maps"] { filter: invert(0.9) hue-rotate(180deg); }
