@@ -51,10 +51,36 @@
     </script>
 
     <style>
+      /* Dark Mode Variables */
+      :root {
+        --bg-primary: #f4f4f4;
+        --bg-secondary: #ffffff;
+        --bg-card: #e5e7eb;
+        --text-primary: #0a0a0a;
+        --text-secondary: #4b5563;
+        --text-tertiary: #9ca3af;
+        --border-subtle: rgba(0,0,0,0.05);
+        --logo-ghost: rgba(0,0,0,0.03);
+        --nav-bg: rgba(244,244,244,0.8);
+      }
+
+      html.dark {
+        --bg-primary: #111111;
+        --bg-secondary: #1a1a1a;
+        --bg-card: #1a1a1a;
+        --text-primary: #e5e5e5;
+        --text-secondary: #999999;
+        --text-tertiary: #777777;
+        --border-subtle: rgba(255,255,255,0.1);
+        --logo-ghost: rgba(255,255,255,0.03);
+        --nav-bg: rgba(17,17,17,0.8);
+      }
+
       body {
-        background-color: #f4f4f4;
-        color: #0a0a0a;
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
         overflow-x: hidden;
+        transition: background-color 0.3s ease, color 0.3s ease;
       }
       
       /* Mega Menu Styles */
@@ -362,7 +388,68 @@
       .jp-hero-title a, .jp-hero-title button {
         pointer-events: auto !important;
       }
+
+      /* Dark mode overrides for specific elements */
+      html.dark .bg-brand-gray { background-color: var(--bg-primary) !important; }
+      html.dark .text-brand-black { color: var(--text-primary) !important; }
+      html.dark .text-gray-600 { color: var(--text-secondary) !important; }
+      html.dark .text-gray-400 { color: var(--text-tertiary) !important; }
+      html.dark .bg-gray-200 { background-color: var(--bg-card) !important; }
+      html.dark .border-black\/5 { border-color: var(--border-subtle) !important; }
+      html.dark .stroke-text-black { -webkit-text-stroke-color: #e5e5e5; }
+      html.dark .bg-3d-logo { color: var(--logo-ghost); }
+      html.dark .mix-blend-multiply { mix-blend-mode: normal; filter: brightness(10); }
+
+      /* Nav dark mode */
+      html.dark #navbar { color: var(--text-primary); }
+      html.dark nav#navbar { color: var(--text-primary); }
+
+      /* Profile page & work page nav with backdrop */
+      html.dark .bg-brand-gray\/80 { background-color: var(--nav-bg) !important; }
+
+      /* Work section heading text */
+      html.dark [data-key="Index.Work.Title"] { color: var(--text-primary) !important; }
+
+      /* Dark mode toggle button */
+      .dark-toggle {
+        cursor: pointer;
+        position: relative;
+        z-index: 100000;
+        pointer-events: auto;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+      }
+      .dark-toggle:hover { opacity: 1; }
+      .dark-toggle svg { width: 16px; height: 16px; }
+
+      /* Newsletter card text in dark mode */
+      html.dark .newsletter-card h3 { color: var(--text-primary) !important; }
+      html.dark .newsletter-card p { color: var(--text-secondary) !important; }
+      html.dark .newsletter-card a { color: var(--text-primary) !important; }
+
+      /* Profile hero text dark mode */
+      html.dark #profile-title { color: var(--text-primary) !important; }
+      html.dark #profile-categories span { color: var(--text-primary) !important; }
+
+      /* Google Maps dark mode */
+      html.dark iframe[src*="google.com/maps"] { filter: invert(0.9) hue-rotate(180deg); }
     </style>
+
+    <script>
+      // Dark mode: check localStorage first, then system preference
+      (function() {
+        var stored = localStorage.getItem('darkMode');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (stored === 'true' || (stored === null && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
   </head>
   <body class="antialiased">
     
@@ -427,10 +514,18 @@
         </div>
       </div>
 
-    <div class="font-sans text-xs uppercase tracking-widest flex gap-2">
-        <button class="lang-btn hover:opacity-50" data-lang="en">EN</button> | 
-        <button class="lang-btn hover:opacity-50 text-gray-500" data-lang="ch">CH</button> | 
-        <button class="lang-btn hover:opacity-50 text-gray-500" data-lang="jp">JP</button>
+    <div class="font-sans text-xs uppercase tracking-widest flex gap-2 items-center">
+        <button class="lang-btn hover:opacity-50" data-lang="en">EN</button> |
+        <button class="lang-btn hover:opacity-50 text-gray-500" data-lang="ch">CH</button> |
+        <button class="lang-btn hover:opacity-50 text-gray-500" data-lang="jp">JP</button> |
+        <button class="dark-toggle" id="dark-toggle" title="Toggle dark mode">
+          <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+          <svg id="icon-sun" style="display:none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+        </button>
       </div>
     </nav>
 
@@ -960,6 +1055,19 @@
         requestAnimationFrame(raf);
       }
       requestAnimationFrame(raf);
+
+      // Handle anchor link clicks with Lenis smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          var targetId = this.getAttribute('href');
+          if (!targetId || targetId === '#') return;
+          var targetEl = document.querySelector(targetId);
+          if (targetEl) {
+            e.preventDefault();
+            lenis.scrollTo(targetEl, { offset: 0 });
+          }
+        });
+      });
 
       // GSAP Animations
       gsap.registerPlugin(ScrollTrigger);
@@ -1889,6 +1997,42 @@
       document.addEventListener('click', function(e) {
         if (!menu.contains(e.target) && e.target !== trigger && !trigger.contains(e.target)) {
           menu.classList.remove('open');
+        }
+      });
+    })();
+
+    // Dark mode toggle
+    (function() {
+      var toggle = document.getElementById('dark-toggle');
+      var moonIcon = document.getElementById('icon-moon');
+      var sunIcon = document.getElementById('icon-sun');
+
+      function updateIcons() {
+        var isDark = document.documentElement.classList.contains('dark');
+        if (moonIcon) moonIcon.style.display = isDark ? 'none' : 'block';
+        if (sunIcon) sunIcon.style.display = isDark ? 'block' : 'none';
+      }
+
+      updateIcons();
+
+      if (toggle) {
+        toggle.addEventListener('click', function() {
+          document.documentElement.classList.toggle('dark');
+          var isDark = document.documentElement.classList.contains('dark');
+          localStorage.setItem('darkMode', isDark);
+          updateIcons();
+        });
+      }
+
+      // Listen for system preference changes
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+        if (localStorage.getItem('darkMode') === null) {
+          if (e.matches) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+          updateIcons();
         }
       });
     })();
