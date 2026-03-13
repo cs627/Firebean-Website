@@ -2198,18 +2198,18 @@
         hideMsg();
         var msgs = getLangMsgs();
 
-        // Check if endpoint is configured
-        if (!SUBSCRIBE_ENDPOINT) {
-          showMsg('Newsletter subscription is not yet configured.', true);
-          return;
-        }
-
         var email = emailInput.value.trim();
 
-        // Client-side validation
+        // Client-side validation first
         if (!email || !isValidEmail(email)) {
           showMsg(msgs.invalid_email, true);
           emailInput.focus();
+          return;
+        }
+
+        // Check if endpoint is configured
+        if (!SUBSCRIBE_ENDPOINT) {
+          showMsg('Newsletter subscription is not yet configured.', true);
           return;
         }
 
