@@ -987,17 +987,16 @@
         }
       });
 
-      // 3D Logo Rotation on Scroll — front-facing at viewport center
-      // Uses fromTo: starts rotated +60°, passes through 0° (front) at center, ends at -60°
+      // 3D Logo Rotation on Scroll — front-facing when section center is at viewport center
       gsap.fromTo('#bg-logo', 
-        { rotationY: 60 },
+        { rotationY: 50 },
         {
-          rotationY: -60,
+          rotationY: -50,
           ease: "none",
           scrollTrigger: {
             trigger: "#work",
-            start: "top bottom",
-            end: "bottom top",
+            start: "center bottom",
+            end: "center top",
             scrub: true
           }
         }
