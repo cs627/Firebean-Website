@@ -173,20 +173,25 @@
       .marquee-flow-in {
         animation: marquee-flow-in 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
       }
-      /* Match image: bypass global img loading system, animation controls visibility */
-      @keyframes match-flow-in {
-        0% { opacity: 0; transform: translateX(-60px); }
-        100% { opacity: 1; transform: translateX(0); }
+      /* Hero matchstick images — positioned outside hero, fly in on scroll via GSAP */
+      .hero-match {
+        position: absolute;
+        z-index: 0; /* behind all text */
+        pointer-events: none;
+        will-change: transform, opacity;
       }
-      img.match-image,
-      img.match-image.loaded {
-        opacity: 0;
-        transition: none;
-        animation: match-flow-in 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s forwards;
-        width: clamp(156px, 23.4vw, 364px);
+      .hero-match img {
+        width: 100%;
         height: auto;
         display: block;
-        margin: 0 auto;
+        opacity: 1 !important;
+        transition: none !important;
+      }
+      /* Override global img loading system for match images */
+      img.match-img-override,
+      img.match-img-override.loaded {
+        opacity: 1 !important;
+        transition: none !important;
       }
       /* Contact section parallax background */
       .contact-parallax-bg {
@@ -199,9 +204,16 @@
         will-change: transform;
       }
 
-      /* CH: extra top padding so match doesn't stick to Chinese text */
-      .jp-hero-title.ch > .match-wrapper {
-        margin-top: 6vw !important;
+      /* Polaroid flow-in from bottom */
+      @keyframes polaroidFlowIn {
+        0% { opacity: 0; transform: translateY(80px) rotate(var(--polaroid-rotate, 0deg)); }
+        100% { opacity: 1; transform: translateY(0) rotate(var(--polaroid-rotate, 0deg)); }
+      }
+      .polaroid-flow-in {
+        opacity: 0;
+      }
+      .polaroid-flow-in.animate-in {
+        animation: polaroidFlowIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
       }
       .slider-marquee-text {
         font-family: 'Oswald', sans-serif;
@@ -611,8 +623,8 @@
             <div class="overflow-hidden pt-[2vw] -mt-[2vw] pb-[4vw] -mb-[4vw] px-[4vw] -mx-[4vw] relative z-30"><span class="hero-line block" data-key="Index.Hero.Line1">A</span></div>
             
             <!-- Polaroid 1 (Mobile: Absolute positioned, smaller and better placed) -->
-            <div class="block md:hidden w-[28vw] absolute top-[2vw] right-[5vw] rotate-[6deg] z-20 pointer-events-none">
-               <div class="relative w-full bg-white pt-1 px-1 pb-4 shadow-xl transform transition-transform duration-500">
+            <div class="block md:hidden w-[28vw] absolute top-[2vw] right-[5vw] z-20 pointer-events-none polaroid-flow-in" style="--polaroid-rotate:6deg">
+               <div class="relative w-full bg-white pt-1 px-1 pb-4 shadow-xl transform rotate-[6deg] transition-transform duration-500">
                  <div class="w-full aspect-square bg-gray-200 overflow-hidden relative">
                    <img src="https://picsum.photos/seed/event1/600/600" class="polaroid-img-1 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Event" data-key="Index.Hero.PolaroidAlt" referrerpolicy="no-referrer">
                    <img src="https://picsum.photos/seed/event2/600/600" class="polaroid-img-1 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Event" data-key="Index.Hero.PolaroidAlt" referrerpolicy="no-referrer">
@@ -621,8 +633,8 @@
             </div>
 
             <!-- Polaroid 1 (Desktop: Reduced size by ~20%, thinner frame) -->
-            <div class="hidden md:block w-[15vw] relative -mt-[4vw] -rotate-6 z-20 mx-4">
-               <div class="relative w-full bg-white pt-1.5 px-1.5 pb-6 shadow-2xl transform transition-transform duration-500 hover:scale-105 hover:z-50">
+            <div class="hidden md:block w-[15vw] relative -mt-[4vw] z-20 mx-4 polaroid-flow-in" style="--polaroid-rotate:-6deg">
+               <div class="relative w-full bg-white pt-1.5 px-1.5 pb-6 shadow-2xl transform -rotate-6 transition-transform duration-500 hover:scale-105 hover:z-50">
                  <div class="w-full aspect-square bg-gray-200 overflow-hidden relative">
                    <img src="https://picsum.photos/seed/event1/600/600" class="polaroid-img-1 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Event" data-key="Index.Hero.PolaroidAlt" referrerpolicy="no-referrer">
                    <img src="https://picsum.photos/seed/event2/600/600" class="polaroid-img-1 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Event" data-key="Index.Hero.PolaroidAlt" referrerpolicy="no-referrer">
@@ -640,8 +652,8 @@
             <div class="overflow-hidden pt-[2vw] -mt-[2vw] pb-[4vw] -mb-[4vw] px-[4vw] -mx-[4vw] relative z-30"><span class="hero-line block" data-key="Index.Hero.Line3">DRIVEN</span></div>
             
             <!-- Polaroid 2 (Mobile: Absolute positioned, smaller and better placed) -->
-            <div class="block md:hidden w-[28vw] absolute bottom-[-5vw] left-[2vw] rotate-[-4deg] z-20 pointer-events-none">
-               <div class="relative w-full bg-white pt-1 px-1 pb-4 shadow-xl transform transition-transform duration-500">
+            <div class="block md:hidden w-[28vw] absolute bottom-[-5vw] left-[2vw] z-20 pointer-events-none polaroid-flow-in" style="--polaroid-rotate:-4deg">
+               <div class="relative w-full bg-white pt-1 px-1 pb-4 shadow-xl transform rotate-[-4deg] transition-transform duration-500">
                  <div class="w-full aspect-square bg-gray-200 overflow-hidden relative">
                    <img src="https://picsum.photos/seed/event3/600/600" class="polaroid-img-2 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Event" data-key="Index.Hero.PolaroidAlt" referrerpolicy="no-referrer">
                    <img src="https://picsum.photos/seed/event4/600/600" class="polaroid-img-2 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Event" data-key="Index.Hero.PolaroidAlt" referrerpolicy="no-referrer">
@@ -651,8 +663,8 @@
 
              <!-- Polaroid 2 (Desktop: Reduced size by ~20%, vertically centered to DRIVEN) -->
              <!-- Positioned absolute to center vertically relative to the line -->
-            <div class="hidden md:block w-[16vw] absolute left-[45%] top-1/2 -translate-y-[60%] rotate-[4deg] z-10">
-               <div class="relative w-full bg-white pt-1.5 px-1.5 pb-6 shadow-2xl transform transition-transform duration-500 hover:scale-105 hover:z-50">
+            <div class="hidden md:block w-[16vw] absolute left-[45%] top-1/2 -translate-y-[60%] z-10 polaroid-flow-in" style="--polaroid-rotate:4deg">
+               <div class="relative w-full bg-white pt-1.5 px-1.5 pb-6 shadow-2xl transform rotate-[4deg] transition-transform duration-500 hover:scale-105 hover:z-50">
                  <div class="w-full aspect-square bg-gray-200 overflow-hidden relative">
                    <img src="https://picsum.photos/seed/event3/600/600" class="polaroid-img-2 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Event" data-key="Index.Hero.PolaroidAlt" referrerpolicy="no-referrer">
                    <img src="https://picsum.photos/seed/event4/600/600" class="polaroid-img-2 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Event" data-key="Index.Hero.PolaroidAlt" referrerpolicy="no-referrer">
@@ -689,12 +701,23 @@
              </div>
           </div>
 
-          <!-- Match image under last hero line -->
-          <div class="match-wrapper w-full flex justify-start relative z-30 mt-[2vw] pl-[8vw]">
-            <img src="data/images/match.webp" alt="" class="match-image" />
-          </div>
-
         </div>
+      </div>
+
+      <!-- Matchsticks — absolute inside hero, behind text (z-0), fly in on scroll -->
+      <!-- Left side matches -->
+      <div class="hero-match" id="match-left-1" style="left:-6%; top:12%; width:clamp(120px,18vw,280px); transform:rotate(-25deg);">
+        <img src="data/images/match.webp" alt="" class="match-img-override" />
+      </div>
+      <div class="hero-match" id="match-left-2" style="left:-4%; bottom:18%; width:clamp(100px,15vw,240px); transform:rotate(15deg);">
+        <img src="data/images/match.webp" alt="" class="match-img-override" />
+      </div>
+      <!-- Right side matches -->
+      <div class="hero-match" id="match-right-1" style="right:-6%; top:20%; width:clamp(120px,18vw,280px); transform:rotate(155deg);">
+        <img src="data/images/match.webp" alt="" class="match-img-override" />
+      </div>
+      <div class="hero-match" id="match-right-2" style="right:-4%; bottom:10%; width:clamp(100px,15vw,240px); transform:rotate(-160deg);">
+        <img src="data/images/match.webp" alt="" class="match-img-override" />
       </div>
     </section>
 
@@ -1587,6 +1610,47 @@
 
       startPolaroidSlideshow('.polaroid-img-1', 0);
       startPolaroidSlideshow('.polaroid-img-2', 3);
+
+      // === Polaroid flow-in from bottom on first appear ===
+      (function() {
+        var polaroids = document.querySelectorAll('.polaroid-flow-in');
+        polaroids.forEach(function(el, i) {
+          // Stagger: polaroid-1 at 0.6s, polaroid-2 at 1.0s
+          setTimeout(function() {
+            el.classList.add('animate-in');
+          }, 600 + (i * 400));
+        });
+      })();
+
+      // === Matchstick scroll-driven fly-in from edges ===
+      (function() {
+        // Left matches: fly in from further left
+        gsap.fromTo('#match-left-1',
+          { x: -200, opacity: 0 },
+          { x: 0, opacity: 1, ease: 'power2.out',
+            scrollTrigger: { trigger: '#hero', start: 'top center', end: '60% center', scrub: 1 }
+          }
+        );
+        gsap.fromTo('#match-left-2',
+          { x: -180, opacity: 0 },
+          { x: 0, opacity: 1, ease: 'power2.out',
+            scrollTrigger: { trigger: '#hero', start: '10% center', end: '70% center', scrub: 1 }
+          }
+        );
+        // Right matches: fly in from further right
+        gsap.fromTo('#match-right-1',
+          { x: 200, opacity: 0 },
+          { x: 0, opacity: 1, ease: 'power2.out',
+            scrollTrigger: { trigger: '#hero', start: 'top center', end: '60% center', scrub: 1 }
+          }
+        );
+        gsap.fromTo('#match-right-2',
+          { x: 180, opacity: 0 },
+          { x: 0, opacity: 1, ease: 'power2.out',
+            scrollTrigger: { trigger: '#hero', start: '10% center', end: '70% center', scrub: 1 }
+          }
+        );
+      })();
 
       // Parallax 3D Logo — vertical drift only (rotation handled by #bg-logo)
       gsap.fromTo("#parallax-logo-container", 
