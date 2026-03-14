@@ -449,7 +449,9 @@
       #navbar {
         z-index: 99999 !important;
         pointer-events: auto !important;
-        isolation: isolate;
+      }
+      #mega-menu {
+        z-index: 100001 !important;
       }
       .lang-btn {
         cursor: pointer !important;
@@ -1376,7 +1378,9 @@
 
       window.openClientModal = function(slot) {
         modalLogo.referrerPolicy = 'no-referrer';
-        modalLogo.src = slot.dataset.currentSrc;
+        var dark = isDarkMode();
+        var srcWhite = slot.dataset.currentSrcWhite;
+        modalLogo.src = (dark && srcWhite) ? srcWhite : slot.dataset.currentSrc;
         modalDesc.textContent = slot.dataset.desc;
         // Set View Profile link
         var pid = slot.dataset.projectId;
