@@ -707,15 +707,15 @@
 
       <!-- Matchsticks — 3 total: 1 left, 2 right. Positions match reference design exactly -->
       <!-- Left: 1 match, lower-left area, angled ~30° pointing up-right, red head at bottom-left -->
-      <div class="hero-match" id="match-left-1" style="left:-1%; bottom:8%; width:clamp(140px,20vw,320px); transform:rotate(32deg); transform-origin:left bottom;">
+      <div class="hero-match" id="match-left-1" style="left:2%; bottom:6%; width:clamp(140px,20vw,320px); transform:rotate(32deg); transform-origin:center center;">
         <img src="data/images/match.webp" alt="" class="match-img-override" />
       </div>
-      <!-- Right top: 1 match, upper-right area, angled ~-30° pointing down-left, red head at top-right -->
-      <div class="hero-match" id="match-right-1" style="right:-1%; top:5%; width:clamp(140px,20vw,320px); transform:rotate(-148deg); transform-origin:right top;">
+      <!-- Right top: 1 match, upper-right area -->
+      <div class="hero-match" id="match-right-1" style="right:2%; top:3%; width:clamp(140px,20vw,320px); transform:rotate(-148deg); transform-origin:center center;">
         <img src="data/images/match.webp" alt="" class="match-img-override" />
       </div>
-      <!-- Right bottom: 1 match, lower-right area, angled pointing up-left, red head at bottom-right -->
-      <div class="hero-match" id="match-right-2" style="right:0%; bottom:5%; width:clamp(130px,18vw,290px); transform:rotate(-155deg); transform-origin:right bottom;">
+      <!-- Right bottom: 1 match, lower-right area -->
+      <div class="hero-match" id="match-right-2" style="right:3%; bottom:3%; width:clamp(130px,18vw,290px); transform:rotate(-155deg); transform-origin:center center;">
         <img src="data/images/match.webp" alt="" class="match-img-override" />
       </div>
     </section>
@@ -1629,37 +1629,37 @@
       })();
 
       // === Matchstick animation: 2 phases ===
-      // Phase 1: Auto fly-in on page load (timed animation, not scroll)
+      // Phase 1: Auto fly-in on page load (timed, not scroll-driven)
       // Phase 2: On scroll down, matchsticks push outward from resting position
       (function() {
-        // Set initial off-screen positions
-        gsap.set('#match-left-1', { x: -280, opacity: 0 });
-        gsap.set('#match-right-1', { x: 280, opacity: 0 });
-        gsap.set('#match-right-2', { x: 250, opacity: 0 });
+        // Set initial off-screen positions (large offset to start fully outside viewport)
+        gsap.set('#match-left-1', { x: -400, opacity: 0 });
+        gsap.set('#match-right-1', { x: 400, opacity: 0 });
+        gsap.set('#match-right-2', { x: 350, opacity: 0 });
 
         // Phase 1: Fly-in on page load (auto timeline, staggered)
-        var flyInTL = gsap.timeline({ delay: 0.8 });
-        flyInTL.to('#match-left-1', { x: 0, opacity: 1, duration: 1.0, ease: 'power3.out' }, 0);
-        flyInTL.to('#match-right-1', { x: 0, opacity: 1, duration: 1.0, ease: 'power3.out' }, 0.15);
-        flyInTL.to('#match-right-2', { x: 0, opacity: 1, duration: 1.0, ease: 'power3.out' }, 0.3);
+        var flyInTL = gsap.timeline({ delay: 0.6 });
+        flyInTL.to('#match-left-1', { x: 0, opacity: 1, duration: 1.2, ease: 'power3.out' }, 0);
+        flyInTL.to('#match-right-1', { x: 0, opacity: 1, duration: 1.2, ease: 'power3.out' }, 0.1);
+        flyInTL.to('#match-right-2', { x: 0, opacity: 1, duration: 1.2, ease: 'power3.out' }, 0.25);
 
-        // Phase 2: On scroll down, push matchsticks outward from their resting position
-        // Left match pushes further left
+        // Phase 2: On scroll down, push matchsticks outward from resting position
         flyInTL.then(function() {
+          // Left match pushes further left
           gsap.to('#match-left-1', {
-            x: -120, opacity: 0.3,
+            x: -150, opacity: 0.2,
             ease: 'none',
             scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.8 }
           });
           // Right top match pushes further right
           gsap.to('#match-right-1', {
-            x: 120, opacity: 0.3,
+            x: 150, opacity: 0.2,
             ease: 'none',
             scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.8 }
           });
           // Right bottom match pushes further right
           gsap.to('#match-right-2', {
-            x: 100, opacity: 0.3,
+            x: 130, opacity: 0.2,
             ease: 'none',
             scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.8 }
           });
