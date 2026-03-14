@@ -173,14 +173,13 @@
       .marquee-flow-in {
         animation: marquee-flow-in 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
       }
-      /* Hero matchstick images — positioned outside hero, fly in on scroll via GSAP */
+      /* Hero matchstick images — fly in on load, then pushed outward on scroll */
       .hero-match {
         position: absolute;
         z-index: 0; /* behind all text */
         pointer-events: none;
         will-change: transform, opacity;
-        opacity: 0; /* Start completely hidden — GSAP ScrollTrigger animates in on scroll */
-        visibility: hidden; /* Extra safety: invisible until GSAP takes over */
+        opacity: 0; /* Start hidden — GSAP auto-animates fly-in on load */
       }
       .hero-match img {
         width: 100%;
@@ -665,7 +664,7 @@
 
              <!-- Polaroid 2 (Desktop: Reduced size by ~20%, vertically centered to DRIVEN) -->
              <!-- Positioned absolute to center vertically relative to the line -->
-            <div class="hidden md:block w-[16vw] absolute left-[45%] top-1/2 -translate-y-[60%] z-10 polaroid-flow-in" style="--polaroid-rotate:4deg">
+            <div class="hidden md:block w-[16vw] absolute left-[45%] top-1/2 -translate-y-[75%] z-10 polaroid-flow-in" style="--polaroid-rotate:4deg">
                <div class="relative w-full bg-white pt-1.5 px-1.5 pb-6 shadow-2xl transform rotate-[4deg] transition-transform duration-500 hover:scale-105 hover:z-50">
                  <div class="w-full aspect-square bg-gray-200 overflow-hidden relative">
                    <img src="https://picsum.photos/seed/event3/600/600" class="polaroid-img-2 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Event" data-key="Index.Hero.PolaroidAlt" referrerpolicy="no-referrer">
@@ -1629,38 +1628,42 @@
         });
       })();
 
-      // === Matchstick scroll-driven fly-in from edges (3 matches: 1 left, 2 right) ===
-      // Matches start completely off-screen/hidden, fly in ONLY when user scrolls.
-      // Key fix: trigger starts at '10% top' (not 'top top') so at scroll=0 the
-      // animation progress is before the start → matchsticks stay fully hidden.
+      // === Matchstick animation: 2 phases ===
+      // Phase 1: Auto fly-in on page load (timed animation, not scroll)
+      // Phase 2: On scroll down, matchsticks push outward from resting position
       (function() {
-        // Explicitly set initial state so there's zero flash on load
-        gsap.set('.hero-match', { opacity: 0, visibility: 'hidden' });
-        gsap.set('#match-left-1', { x: -280 });
-        gsap.set('#match-right-1', { x: 280 });
-        gsap.set('#match-right-2', { x: 250 });
+        // Set initial off-screen positions
+        gsap.set('#match-left-1', { x: -280, opacity: 0 });
+        gsap.set('#match-right-1', { x: 280, opacity: 0 });
+        gsap.set('#match-right-2', { x: 250, opacity: 0 });
 
-        // Left match: fly in from the left
-        gsap.fromTo('#match-left-1',
-          { x: -280, opacity: 0, visibility: 'hidden' },
-          { x: 0, opacity: 1, visibility: 'visible', ease: 'power2.out', immediateRender: false,
-            scrollTrigger: { trigger: '#hero', start: '10% top', end: 'bottom top', scrub: 0.8 }
-          }
-        );
-        // Right top match: fly in from the right
-        gsap.fromTo('#match-right-1',
-          { x: 280, opacity: 0, visibility: 'hidden' },
-          { x: 0, opacity: 1, visibility: 'visible', ease: 'power2.out', immediateRender: false,
-            scrollTrigger: { trigger: '#hero', start: '10% top', end: '70% top', scrub: 0.8 }
-          }
-        );
-        // Right bottom match: fly in from the right (slightly delayed start)
-        gsap.fromTo('#match-right-2',
-          { x: 250, opacity: 0, visibility: 'hidden' },
-          { x: 0, opacity: 1, visibility: 'visible', ease: 'power2.out', immediateRender: false,
-            scrollTrigger: { trigger: '#hero', start: '20% top', end: 'bottom top', scrub: 0.8 }
-          }
-        );
+        // Phase 1: Fly-in on page load (auto timeline, staggered)
+        var flyInTL = gsap.timeline({ delay: 0.8 });
+        flyInTL.to('#match-left-1', { x: 0, opacity: 1, duration: 1.0, ease: 'power3.out' }, 0);
+        flyInTL.to('#match-right-1', { x: 0, opacity: 1, duration: 1.0, ease: 'power3.out' }, 0.15);
+        flyInTL.to('#match-right-2', { x: 0, opacity: 1, duration: 1.0, ease: 'power3.out' }, 0.3);
+
+        // Phase 2: On scroll down, push matchsticks outward from their resting position
+        // Left match pushes further left
+        flyInTL.then(function() {
+          gsap.to('#match-left-1', {
+            x: -120, opacity: 0.3,
+            ease: 'none',
+            scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.8 }
+          });
+          // Right top match pushes further right
+          gsap.to('#match-right-1', {
+            x: 120, opacity: 0.3,
+            ease: 'none',
+            scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.8 }
+          });
+          // Right bottom match pushes further right
+          gsap.to('#match-right-2', {
+            x: 100, opacity: 0.3,
+            ease: 'none',
+            scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.8 }
+          });
+        });
       })();
 
       // Parallax 3D Logo — vertical drift only (rotation handled by #bg-logo)
