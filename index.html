@@ -748,12 +748,22 @@
 
     <!-- Session 3: Project Profiles -->
     <section class="relative py-24 md:py-32 px-6 md:px-16 bg-brand-gray overflow-hidden" id="work">
-      <!-- 3D Logo Background — scroll-driven centred parallax -->
-      <!-- JS calculates translateY each frame so the logo stays viewport-centred
-           for the full height of the #work section, including the last project cards -->
-      <div class="pointer-events-none" id="parallax-logo-sticky-wrap" style="position:absolute;inset:0;overflow:hidden;z-index:0;">
-        <div id="parallax-logo-container" style="position:absolute;top:0;left:0;width:100%;height:100vh;display:flex;align-items:center;justify-content:center;perspective:1200px;padding-left:100px;will-change:transform;">
-          <img id="bg-logo" src="data/images/firebean-logo-w1000.webp" class="object-contain drop-shadow-2xl mix-blend-multiply" alt="3D Firebean Logo" referrerpolicy="no-referrer" style="width:55vw;max-width:680px;opacity:0.38;transform-origin:center center;transform-style:preserve-3d;will-change:transform;">
+      <!-- 3D Logo Background — 3 independent parallax logos, right-side, different sizes & speeds -->
+      <div class="pointer-events-none" style="position:absolute;inset:0;overflow:hidden;z-index:0;">
+        <!-- Logo 1: large, slow drift, strong flip -->
+        <div id="bg-logo-wrap-1" style="position:absolute;right:-4%;top:5%;will-change:transform;">
+          <img id="bg-logo-1" src="data/images/firebean-logo-w1000.webp" alt="" referrerpolicy="no-referrer"
+            style="width:clamp(260px,36vw,480px);opacity:0.30;mix-blend-mode:multiply;transform-style:preserve-3d;will-change:transform;display:block;">
+        </div>
+        <!-- Logo 2: medium, medium drift, medium flip -->
+        <div id="bg-logo-wrap-2" style="position:absolute;right:8%;top:38%;will-change:transform;">
+          <img id="bg-logo-2" src="data/images/firebean-logo-w1000.webp" alt="" referrerpolicy="no-referrer"
+            style="width:clamp(180px,24vw,320px);opacity:0.22;mix-blend-mode:multiply;transform-style:preserve-3d;will-change:transform;display:block;">
+        </div>
+        <!-- Logo 3: small, fast drift, subtle flip -->
+        <div id="bg-logo-wrap-3" style="position:absolute;right:2%;top:65%;will-change:transform;">
+          <img id="bg-logo-3" src="data/images/firebean-logo-w1000.webp" alt="" referrerpolicy="no-referrer"
+            style="width:clamp(120px,16vw,220px);opacity:0.18;mix-blend-mode:multiply;transform-style:preserve-3d;will-change:transform;display:block;">
         </div>
       </div>
       
@@ -1203,50 +1213,68 @@
         }
       });
 
-      // 3D Logo — rAF scroll-driven: translateY keeps it viewport-centred for the
-      // full #work section height; rotateY/X add the gentle ±10°/±5° 3D tilt.
+      // 3D Logo Parallax — 3 independent logos, right side, different drift speeds & flip angles
+      // Logo 1: large, slow (0.25x), strong flip ±14° rotateY
+      // Logo 2: medium, medium (0.45x), medium flip ±10° rotateY
+      // Logo 3: small, fast (0.70x), subtle flip ±7° rotateY
       (function() {
-        var containerEl = document.getElementById('parallax-logo-container');
-        var logoEl      = document.getElementById('bg-logo');
         var workSection = document.getElementById('work');
-        if (!containerEl || !logoEl || !workSection) return;
+        if (!workSection) return;
 
-        var currentY  = 0;  // smoothed translateY for the container
-        var targetY   = 0;
-        var currentRY = 0;  // smoothed rotateY for the logo
-        var targetRY  = 0;
-        var currentRX = 0;
-        var targetRX  = 0;
+        var logos = [
+          {
+            wrap: document.getElementById('bg-logo-wrap-1'),
+            img:  document.getElementById('bg-logo-1'),
+            speed: 0.25,   // slow drift
+            maxRY: 14,     // strong flip
+            maxRX: 6,
+            curY: 0, tgtY: 0, curRY: 0, tgtRY: 0, curRX: 0, tgtRX: 0,
+            lerpY: 0.06, lerpR: 0.05
+          },
+          {
+            wrap: document.getElementById('bg-logo-wrap-2'),
+            img:  document.getElementById('bg-logo-2'),
+            speed: 0.45,   // medium drift
+            maxRY: 10,
+            maxRX: 4,
+            curY: 0, tgtY: 0, curRY: 0, tgtRY: 0, curRX: 0, tgtRX: 0,
+            lerpY: 0.08, lerpR: 0.07
+          },
+          {
+            wrap: document.getElementById('bg-logo-wrap-3'),
+            img:  document.getElementById('bg-logo-3'),
+            speed: 0.70,   // fast drift
+            maxRY: 7,
+            maxRX: 3,
+            curY: 0, tgtY: 0, curRY: 0, tgtRY: 0, curRX: 0, tgtRX: 0,
+            lerpY: 0.12, lerpR: 0.10
+          }
+        ];
 
         function tick() {
-          var rect   = workSection.getBoundingClientRect();
-          var vh     = window.innerHeight;
+          var rect     = workSection.getBoundingClientRect();
           var sectionH = workSection.offsetHeight;
-
-          // How far the section top is above the viewport top (positive = scrolled past)
-          var scrolledIn = -rect.top;  // 0 when section top hits viewport top
-
-          // translateY: offset the container so its vertical centre tracks the viewport centre.
-          // Container starts at top:0 of the section; we push it down by scrolledIn
-          // but clamp so it never goes below (sectionH - vh) — the last valid position.
-          var maxY = Math.max(0, sectionH - vh);
-          targetY  = Math.min(Math.max(scrolledIn, 0), maxY);
-
-          // Tilt: map scroll progress (0→1) to ±10° / ±5°
-          var progress = sectionH > vh
-            ? Math.min(Math.max(scrolledIn / (sectionH - vh), 0), 1)
-            : 0.5;
+          var scrolledIn = -rect.top; // px scrolled past section top
+          var progress = sectionH > 0
+            ? Math.min(Math.max(scrolledIn / sectionH, 0), 1)
+            : 0;
           var t = (progress - 0.5) * 2; // −1 to +1
-          targetRY = t * 10;
-          targetRX = -t * 5;
 
-          // Smooth lerp (0.1 = gentle lag)
-          currentY  += (targetY  - currentY)  * 0.1;
-          currentRY += (targetRY - currentRY) * 0.08;
-          currentRX += (targetRX - currentRX) * 0.08;
+          logos.forEach(function(l) {
+            if (!l.wrap || !l.img) return;
+            // Vertical parallax: each logo drifts at its own speed
+            l.tgtY  = scrolledIn * l.speed;
+            // Flip: stronger angle, each logo at different rate
+            l.tgtRY = t * l.maxRY;
+            l.tgtRX = -t * l.maxRX;
 
-          containerEl.style.transform = 'translateY(' + currentY + 'px)';
-          logoEl.style.transform = 'perspective(1200px) rotateY(' + currentRY + 'deg) rotateX(' + currentRX + 'deg)';
+            l.curY  += (l.tgtY  - l.curY)  * l.lerpY;
+            l.curRY += (l.tgtRY - l.curRY) * l.lerpR;
+            l.curRX += (l.tgtRX - l.curRX) * l.lerpR;
+
+            l.wrap.style.transform = 'translateY(' + l.curY + 'px)';
+            l.img.style.transform  = 'perspective(1200px) rotateY(' + l.curRY + 'deg) rotateX(' + l.curRX + 'deg)';
+          });
 
           requestAnimationFrame(tick);
         }
