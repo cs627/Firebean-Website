@@ -122,7 +122,7 @@
         position: absolute;
         inset: 0;
         opacity: 0;
-        transition: opacity 0.8s ease;
+        transition: opacity 0.4s ease;
         will-change: opacity;
       }
       .slider-container > a.slide-active {
@@ -142,8 +142,8 @@
         100% { transform: scale(1.08); }
       }
       .slide-active img {
-        animation: slide-flow-in 1s cubic-bezier(0.25,0.46,0.45,0.94) forwards,
-                   slide-slow-zoom 6s ease-out 0.8s forwards;
+        animation: slide-flow-in 0.5s cubic-bezier(0.25,0.46,0.45,0.94) forwards,
+                   slide-slow-zoom 3s ease-out 0.4s forwards;
       }
       /* Progress bar */
       .slider-progress-bar {
@@ -157,7 +157,7 @@
         transition: none;
       }
       .slider-progress-bar.animating {
-        transition: width 5s linear;
+        transition: width 3s linear;
         width: 100%;
       }
 
@@ -1450,7 +1450,7 @@
         resetProgressBar();
         sliderInterval = setInterval(function() {
           goToSlide((currentSlide + 1) % totalSlides);
-        }, 5000);
+        }, 3000);
       }
 
       // Marquee Logic with Scroll Interaction
