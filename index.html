@@ -1619,65 +1619,61 @@
       // Polaroid Slideshow Logic (populated by CMS)
       let polaroidImages = [];
 
-      function startPolaroidSlideshow(selector, startIndex) {
-        const imgs = document.querySelectorAll(selector);
-        // imgs is a NodeList of all images with that selector. 
-        // In our HTML, we have duplicate blocks for mobile/desktop.
-        // We need to handle them.
-        
-        // Actually, the selector '.polaroid-img-1' selects ALL instances (mobile and desktop).
-        // Each polaroid container has 2 images: [0] is visible, [1] is hidden (opacity 0).
-        
-        // Let's group them by container.
+      // Scroll-driven flip for Polaroids (left-to-right as you scroll down)
+      (function() {
+        var heroEl = document.getElementById('hero');
+        if (!heroEl) return;
+        var polaroid1 = document.querySelector('.polaroid-img-1')?.closest('.polaroid-flow-in');
+        var polaroid2 = document.querySelector('.polaroid-img-2')?.closest('.polaroid-flow-in');
+        if (!polaroid1 || !polaroid2) return;
+
+        function tick() {
+          var rect = heroEl.getBoundingClientRect();
+          var scrolledIn = Math.max(0, -rect.top);
+          var sectionH = heroEl.offsetHeight;
+          var progress = sectionH > 0 ? Math.min(Math.max(scrolledIn / sectionH, 0), 1) : 0;
+          var rotY = (progress - 0.5) * 90;
+          
+          if (polaroid1) polaroid1.style.transform = 'perspective(1000px) rotateY(' + rotY + 'deg)';
+          if (polaroid2) polaroid2.style.transform = 'perspective(1000px) rotateY(' + rotY + 'deg)';
+          requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      })();
+
+      // 3-second random photo slideshow (fade-in, no flip)
+      function startPolaroidSlideshow(selector) {
         const containers = [];
-        // Find all containers that have these images
         document.querySelectorAll(selector).forEach(img => {
-            if (!containers.includes(img.parentElement)) {
-                containers.push(img.parentElement);
-            }
+          const container = img.parentElement;
+          if (container && !containers.find(c => c.container === container)) {
+            containers.push({ container, images: container.querySelectorAll('img') });
+          }
         });
 
-        containers.forEach((container, containerIndex) => {
-            let localIndex = startIndex + containerIndex; // Offset slightly so they don't all change same image
-            const images = container.querySelectorAll('img');
-            let activeImg = 0; // 0 or 1
-
-            setInterval(() => {
-                localIndex = (localIndex + 1) % polaroidImages.length;
-                const nextImgIndex = (activeImg + 1) % 2;
-                
-                const currentImgEl = images[activeImg];
-                const nextImgEl = images[nextImgIndex];
-
-                const polaroidFrame = container.parentElement;
-
-                // Add flip animation class
-                polaroidFrame.classList.add('flip-animate');
-
-                setTimeout(() => {
-                    // Set next image source
-                    nextImgEl.src = polaroidImages[localIndex];
-                    
-                    // Instantly swap visibility
-                    nextImgEl.classList.remove('opacity-0', 'transition-opacity', 'duration-1000');
-                    nextImgEl.classList.add('opacity-100');
-                    
-                    currentImgEl.classList.remove('opacity-100', 'transition-opacity', 'duration-1000');
-                    currentImgEl.classList.add('opacity-0');
-
-                    // Swap active
-                    activeImg = nextImgIndex;
-                }, 400); // Swap exactly halfway through the 800ms animation
-
-                setTimeout(() => {
-                    polaroidFrame.classList.remove('flip-animate');
-                }, 800);
-            }, 4000 + (containerIndex * 1000)); // Stagger timings
+        containers.forEach((c, containerIndex) => {
+          let localIndex = containerIndex;
+          setInterval(() => {
+            if (!polaroidImages.length) return;
+            localIndex = (localIndex + 1) % polaroidImages.length;
+            const img1 = c.images[0];
+            const img2 = c.images[1];
+            if (img1 && img2) {
+              img1.style.opacity = '0';
+              img2.src = polaroidImages[localIndex];
+              img2.style.opacity = '1';
+              setTimeout(() => {
+                img1.src = polaroidImages[(localIndex + 1) % polaroidImages.length];
+                img1.style.opacity = '1';
+                img2.style.opacity = '0';
+              }, 1500);
+            }
+          }, 3000);
         });
       }
 
-      startPolaroidSlideshow('.polaroid-img-1', 0);
-      startPolaroidSlideshow('.polaroid-img-2', 3);
+      startPolaroidSlideshow('.polaroid-img-1');
+      startPolaroidSlideshow('.polaroid-img-2');
 
       // === Polaroid flow-in from bottom on first appear ===
       (function() {
