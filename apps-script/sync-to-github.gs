@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * FIREBEAN CMS → GITHUB SYNC PIPELINE  v2.0
+ * FIREBEAN CMS → GITHUB SYNC PIPELINE  v3.0
  * ============================================================
  * 
  * Reads project data from the Firebean Master DB Google Sheet,
@@ -8,11 +8,18 @@
  * (where possible), and pushes everything to GitHub in a
  * single commit using the Git Tree API.
  *
+ * v3.0 CHANGES:
+ *   - Smart sync: skips image download if only text columns changed
+ *   - onEditTrigger now records WHICH column was edited
+ *   - Progress toast messages during sync
+ *   - "Pending" = text only, "Pending (images)" = image columns changed
+ *
  * FLOW:
- *   Sheet edit → onEditTrigger marks row "Pending"
+ *   Sheet edit → onEditTrigger marks row "Pending" or "Pending (images)"
  *   User clicks "Sync Changed" or runs manually
  *   → Reads all rows, builds projects.json
- *   → For "Pending" rows: downloads hero, logos, gallery photos
+ *   → For "Pending (images)" rows: downloads hero, logos, gallery photos
+ *   → For "Pending" rows: skips image download (text-only, fast!)
  *   → Compares file hashes to avoid re-uploading unchanged images
  *   → Pushes ALL changes in one commit via Git Tree API
  *   → GitHub Action converts any new .jpg to .webp automatically
@@ -74,6 +81,14 @@ var CONFIG = {
   }
 };
 
+// Columns that contain image/Drive references — editing these requires image re-sync
+var IMAGE_COLUMNS_ = [
+  CONFIG.COL.DRIVE_FOLDER,  // 22
+  CONFIG.COL.HERO_PHOTO,    // 23
+  CONFIG.COL.LOGO_BLACK,    // 24
+  CONFIG.COL.LOGO_WHITE     // 25
+];
+
 // ─── MENU ──────────────────────────────────────────────────
 
 function onOpen() {
@@ -115,7 +130,19 @@ function onEditTrigger(e) {
   var row = e.range.getRow();
   if (row <= 1) return; // Skip header
 
-  sheet.getRange(row, CONFIG.COL.SYNC_STATUS).setValue('Pending');
+  var col = e.range.getColumn();
+  var currentStatus = String(sheet.getRange(row, CONFIG.COL.SYNC_STATUS).getValue() || '').trim();
+
+  // Check if an image-related column was edited
+  var isImageCol = IMAGE_COLUMNS_.indexOf(col) !== -1;
+
+  if (isImageCol) {
+    // Image column changed — mark for full image re-sync
+    sheet.getRange(row, CONFIG.COL.SYNC_STATUS).setValue('Pending (images)');
+  } else if (currentStatus !== 'Pending (images)') {
+    // Text-only change — but don't downgrade if images are already pending
+    sheet.getRange(row, CONFIG.COL.SYNC_STATUS).setValue('Pending');
+  }
 }
 
 // ─── MAIN SYNC FUNCTIONS ──────────────────────────────────
@@ -133,11 +160,28 @@ function syncChangedToGitHub() {
   doSync(true);
 }
 
+// ─── PROGRESS TOAST ────────────────────────────────────────
+
+/**
+ * Show a toast message at bottom-right of the spreadsheet.
+ * Non-blocking — script continues immediately.
+ */
+function showProgress_(message, title) {
+  try {
+    SpreadsheetApp.getActive().toast(message, title || '🔥 Syncing...', 30);
+  } catch(e) {
+    // toast may fail in time-driven triggers — ignore
+  }
+}
+
 /**
  * Core sync logic
- * @param {boolean} changedOnly - if true, only process rows with status "Pending"
+ * @param {boolean} changedOnly - if true, only process rows with status "Pending" or "Pending (images)"
  */
 function doSync(changedOnly) {
+  var syncStart = new Date();
+  showProgress_('Starting sync...', '🔥 CMS Sync');
+
   var token = getGitHubToken_();
   if (!token) {
     try {
@@ -156,13 +200,30 @@ function doSync(changedOnly) {
 
   var data = sheet.getDataRange().getValues();
   var projects = [];
-  var imagesToPush = []; // {path, bytes} pairs
+  var imagesToPush = []; // {path, base64} pairs
+
+  // Count pending rows for progress
+  var pendingCount = 0;
+  var pendingImageCount = 0;
+  if (changedOnly) {
+    for (var c = 1; c < data.length; c++) {
+      var st = String(data[c][CONFIG.COL.SYNC_STATUS - 1] || '').trim();
+      if (st === 'Pending (images)') pendingImageCount++;
+      else if (st === 'Pending' || st === '') pendingCount++;
+    }
+    showProgress_(
+      'Found ' + pendingCount + ' text change(s), ' + pendingImageCount + ' image change(s)',
+      '🔥 CMS Sync'
+    );
+  }
 
   // Load existing image hashes from GitHub (for change detection)
+  showProgress_('Loading image hashes from GitHub...', '🔥 CMS Sync');
   var existingHashes = loadImageHashes_(token);
   var newHashes = {};
 
   Logger.log('Processing ' + (data.length - 1) + ' rows...');
+  var processedCount = 0;
 
   for (var i = 1; i < data.length; i++) {
     var row = data[i];
@@ -209,11 +270,36 @@ function doSync(changedOnly) {
     var logoBlackPath = logoBlackFileId ? CONFIG.IMAGES_PATH + '/' + pid + '-logo-black.webp' : '';
     var logoWhitePath = logoWhiteFileId ? CONFIG.IMAGES_PATH + '/' + pid + '-logo-white.webp' : '';
 
-    // Determine if this row needs image sync
-    var needsSync = !changedOnly || syncStatus === 'Pending' || syncStatus === '';
+    // ── Determine sync mode for this row ──
+    // "Pending (images)" → full sync (re-download images + update JSON)
+    // "Pending"          → text-only sync (skip image download, reuse existing hashes)
+    // ""                 → new row, treat as full sync
+    // anything else      → already synced (e.g. "Synced 3/14/2026...")
+    var needsImageSync = false;
+    var needsTextSync = false;
 
-    if (needsSync) {
-      Logger.log('Syncing row ' + (i + 1) + ': ' + projectName);
+    if (!changedOnly) {
+      // "Sync ALL" mode — always do full sync
+      needsImageSync = true;
+      needsTextSync = true;
+    } else if (syncStatus === 'Pending (images)' || syncStatus === '') {
+      // Image columns changed OR new row — full sync
+      needsImageSync = true;
+      needsTextSync = true;
+    } else if (syncStatus === 'Pending') {
+      // Text-only change — skip expensive image downloads
+      needsTextSync = true;
+      needsImageSync = false;
+    }
+    // else: already synced, no action needed for images
+
+    if (needsImageSync) {
+      processedCount++;
+      showProgress_(
+        'Processing images: ' + projectName + ' (' + processedCount + '/' + (pendingImageCount || (data.length - 1)) + ')',
+        '🔥 CMS Sync'
+      );
+      Logger.log('Syncing images for row ' + (i + 1) + ': ' + projectName);
 
       // Download hero
       if (heroFileId) {
@@ -232,8 +318,14 @@ function doSync(changedOnly) {
         pushIfChanged_(imagesToPush, existingHashes, newHashes,
           logoWhitePath, logoWhiteFileId, CONFIG.LOGO_WIDTH);
       }
+    } else if (needsTextSync) {
+      // Text-only change — carry forward ALL existing hashes (no download needed)
+      Logger.log('Text-only sync for row ' + (i + 1) + ': ' + projectName + ' (skipping images)');
+      [heroPath, heroSmPath, logoBlackPath, logoWhitePath].forEach(function(p) {
+        if (p && existingHashes[p]) newHashes[p] = existingHashes[p];
+      });
     } else {
-      // Even if not syncing, carry forward existing hashes
+      // Not pending — carry forward existing hashes
       [heroPath, heroSmPath, logoBlackPath, logoWhitePath].forEach(function(p) {
         if (p && existingHashes[p]) newHashes[p] = existingHashes[p];
       });
@@ -242,46 +334,61 @@ function doSync(changedOnly) {
     // ── Gallery photos from Drive folder ──
     var galleryPhotos = [];
     if (driveFolderId) {
-      try {
-        var folder = DriveApp.getFolderById(driveFolderId);
-        var files = folder.getFiles();
-        var photoFiles = [];
+      if (needsImageSync) {
+        // Full sync — list Drive folder and check each image
+        try {
+          var folder = DriveApp.getFolderById(driveFolderId);
+          var files = folder.getFiles();
+          var photoFiles = [];
 
-        while (files.hasNext()) {
-          var file = files.next();
-          var fileName = file.getName();
-          var mime = file.getMimeType();
+          while (files.hasNext()) {
+            var file = files.next();
+            var fileName = file.getName();
+            var mime = file.getMimeType();
 
-          // Include image files that are NOT logos
-          if (mime.indexOf('image/') !== 0) continue;
-          if (fileName.match(/^Logo_/i)) continue;
-          if (fileName.match(/^Hero_/i)) continue; // Hero handled separately
+            // Include image files that are NOT logos or hero
+            if (mime.indexOf('image/') !== 0) continue;
+            if (fileName.match(/^Logo_/i)) continue;
+            if (fileName.match(/^Hero_/i)) continue;
 
-          photoFiles.push({
-            name: fileName,
-            id: file.getId(),
-            updated: file.getLastUpdated().getTime()
-          });
-        }
+            photoFiles.push({
+              name: fileName,
+              id: file.getId(),
+              updated: file.getLastUpdated().getTime()
+            });
+          }
 
-        // Sort by filename for consistent ordering
-        photoFiles.sort(function(a, b) { return a.name.localeCompare(b.name); });
+          // Sort by filename for consistent ordering
+          photoFiles.sort(function(a, b) { return a.name.localeCompare(b.name); });
 
-        for (var g = 0; g < photoFiles.length; g++) {
-          var galleryPath = CONFIG.IMAGES_PATH + '/' + pid + '-gallery-' + g + '.webp';
-          galleryPhotos.push(galleryPath);
+          showProgress_(
+            projectName + ': checking ' + photoFiles.length + ' gallery photos...',
+            '🔥 CMS Sync'
+          );
 
-          if (needsSync) {
+          for (var g = 0; g < photoFiles.length; g++) {
+            var galleryPath = CONFIG.IMAGES_PATH + '/' + pid + '-gallery-' + g + '.webp';
+            galleryPhotos.push(galleryPath);
             pushIfChanged_(imagesToPush, existingHashes, newHashes,
               galleryPath, photoFiles[g].id, CONFIG.GALLERY_WIDTH);
+          }
+        } catch (e) {
+          Logger.log('Error accessing Drive folder for ' + projectName + ': ' + e.message);
+        }
+      } else {
+        // Text-only or not pending — reuse existing gallery paths from hashes
+        // Reconstruct gallery paths from existing hashes
+        var gIdx = 0;
+        while (true) {
+          var gPath = CONFIG.IMAGES_PATH + '/' + pid + '-gallery-' + gIdx + '.webp';
+          if (existingHashes[gPath]) {
+            galleryPhotos.push(gPath);
+            newHashes[gPath] = existingHashes[gPath];
+            gIdx++;
           } else {
-            if (existingHashes[galleryPath]) {
-              newHashes[galleryPath] = existingHashes[galleryPath];
-            }
+            break;
           }
         }
-      } catch (e) {
-        Logger.log('Error accessing Drive folder for ' + projectName + ': ' + e.message);
       }
     }
 
@@ -338,6 +445,11 @@ function doSync(changedOnly) {
   Logger.log('New/updated images to push: ' + imagesToPush.length);
 
   // ── Push everything to GitHub in a single commit ──
+  showProgress_(
+    'Pushing to GitHub: ' + imagesToPush.length + ' image(s) + projects.json',
+    '🔥 Uploading'
+  );
+
   try {
     var filesPushed = pushToGitHubBatch_(token, imagesToPush, projectsJson, hashesJson);
     Logger.log('Pushed ' + filesPushed + ' files in single commit');
@@ -350,19 +462,21 @@ function doSync(changedOnly) {
   }
 
   // Update sync status
+  showProgress_('Updating sync status...', '🔥 Almost done');
   for (var k = 1; k < data.length; k++) {
     var rowPN = String(data[k][CONFIG.COL.PROJECT - 1] || '').trim();
     if (!rowPN) continue;
     var rowSS = String(data[k][CONFIG.COL.SYNC_STATUS - 1] || '').trim();
-    if (!changedOnly || rowSS === 'Pending' || rowSS === '') {
+    if (!changedOnly || rowSS === 'Pending' || rowSS === 'Pending (images)' || rowSS === '') {
       sheet.getRange(k + 1, CONFIG.COL.SYNC_STATUS).setValue('Synced ' + new Date().toLocaleString());
     }
   }
 
+  var elapsed = Math.round((new Date() - syncStart) / 1000);
   var totalGallery = 0;
   projects.forEach(function(p) { totalGallery += (p.galleryPhotos || []).length; });
 
-  var msg = 'Sync complete!\n\n' +
+  var msg = 'Sync complete! (' + elapsed + ' seconds)\n\n' +
     '• Projects: ' + projects.length + '\n' +
     '• Total gallery photos: ' + totalGallery + '\n' +
     '• New/updated images pushed: ' + imagesToPush.length + '\n\n' +
@@ -398,6 +512,12 @@ function pushToGitHubBatch_(token, images, projectsJson, hashesJson) {
   // 2a. Image blobs
   for (var i = 0; i < images.length; i++) {
     var img = images[i];
+
+    showProgress_(
+      'Uploading image ' + (i + 1) + ' of ' + images.length + '...',
+      '🔥 Uploading'
+    );
+
     var blobSha = createBlob_(baseUrl, headers, img.base64, 'base64');
     if (blobSha) {
       treeItems.push({
@@ -415,6 +535,7 @@ function pushToGitHubBatch_(token, images, projectsJson, hashesJson) {
   }
 
   // 2b. projects.json blob
+  showProgress_('Uploading projects.json...', '🔥 Uploading');
   var jsonBlobSha = createBlob_(baseUrl, headers, projectsJson, 'utf-8');
   if (jsonBlobSha) {
     treeItems.push({
@@ -442,6 +563,7 @@ function pushToGitHubBatch_(token, images, projectsJson, hashesJson) {
   }
 
   // 3. Create new tree
+  showProgress_('Creating commit...', '🔥 Uploading');
   var treeResp = ghPost_(baseUrl + '/git/trees', headers, {
     base_tree: baseTreeSha,
     tree: treeItems
