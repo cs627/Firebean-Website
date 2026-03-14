@@ -664,7 +664,7 @@
 
              <!-- Polaroid 2 (Desktop: Reduced size by ~20%, vertically centered to DRIVEN) -->
              <!-- Positioned absolute to center vertically relative to the line -->
-            <div class="hidden md:block w-[16vw] absolute left-[45%] top-1/2 -translate-y-[75%] z-10 polaroid-flow-in" style="--polaroid-rotate:4deg">
+            <div class="hidden md:block w-[16vw] absolute left-[45%] bottom-0 translate-y-[10%] z-10 polaroid-flow-in" style="--polaroid-rotate:4deg">
                <div class="relative w-full bg-white pt-1.5 px-1.5 pb-6 shadow-2xl transform rotate-[4deg] transition-transform duration-500 hover:scale-105 hover:z-50">
                  <div class="w-full aspect-square bg-gray-200 overflow-hidden relative">
                    <img src="https://picsum.photos/seed/event3/600/600" class="polaroid-img-2 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Event" data-key="Index.Hero.PolaroidAlt" referrerpolicy="no-referrer">
@@ -705,17 +705,20 @@
         </div>
       </div>
 
-      <!-- Matchsticks — 3 total: 1 left, 2 right. Positions match reference design exactly -->
-      <!-- Left: 1 match, lower-left area, angled ~30° pointing up-right, red head at bottom-left -->
-      <div class="hero-match" id="match-left-1" style="left:-3%; bottom:8%; width:clamp(140px,20vw,320px); transform:rotate(32deg); transform-origin:left bottom;">
+      <!-- Matchsticks — 3 total: 1 left, 2 right -->
+      <!-- Left match: red head at lower-left pointing toward DRIVEN. Stick body goes upper-right.
+           Match img has head on RIGHT. rotate(210deg) flips head to lower-left, body upper-right. -->
+      <div class="hero-match" id="match-left-1" style="left:-4%; bottom:15%; width:clamp(180px,24vw,380px); transform:rotate(210deg); transform-origin:center center;">
         <img src="data/images/match.webp" alt="" class="match-img-override" />
       </div>
-      <!-- Right top: 1 match, upper-right area -->
-      <div class="hero-match" id="match-right-1" style="right:5%; top:8%; width:clamp(140px,20vw,320px); transform:rotate(-148deg); transform-origin:center center;">
+      <!-- Right top match: red head at upper-right, pointing down-left toward AGENCY.
+           rotate(30deg) keeps head on right side angled slightly down-left. -->
+      <div class="hero-match" id="match-right-1" style="right:-2%; top:2%; width:clamp(180px,24vw,380px); transform:rotate(30deg); transform-origin:center center;">
         <img src="data/images/match.webp" alt="" class="match-img-override" />
       </div>
-      <!-- Right bottom: 1 match, lower-right area -->
-      <div class="hero-match" id="match-right-2" style="right:4%; bottom:8%; width:clamp(130px,18vw,290px); transform:rotate(-155deg); transform-origin:center center;">
+      <!-- Right bottom match: red head at lower-right, pointing up-left toward Y of AGENCY.
+           rotate(150deg) flips head to left... need rotate(-30deg) to keep head on right pointing upper-left. -->
+      <div class="hero-match" id="match-right-2" style="right:-2%; bottom:10%; width:clamp(170px,22vw,350px); transform:rotate(-30deg); transform-origin:center center;">
         <img src="data/images/match.webp" alt="" class="match-img-override" />
       </div>
     </section>
