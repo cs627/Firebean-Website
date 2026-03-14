@@ -710,15 +710,15 @@
       <!-- Matchsticks — 3 total: 1 left, 2 right -->
       <!-- Left match: red head at lower-left pointing toward DRIVEN. Stick body goes upper-right.
            Match img has head on RIGHT. rotate(210deg) flips head to lower-left, body upper-right. -->
-      <div class="hero-match" id="match-left-1" style="left:-6%; bottom:15%; width:clamp(200px,28vw,420px); transform:rotate(235deg); transform-origin:center center;">
+      <div class="hero-match" id="match-left-1" style="left:2%; bottom:15%; width:clamp(200px,28vw,420px); transform:rotate(235deg); transform-origin:center center;">
         <img src="data/images/match.webp" alt="" class="match-img-override" />
       </div>
       <!-- Right top match: red head at upper-right, angled down-left toward AGENCY -->
-      <div class="hero-match" id="match-right-1" style="right:-4%; top:0%; width:clamp(200px,28vw,420px); transform:rotate(30deg); transform-origin:center center;">
+      <div class="hero-match" id="match-right-1" style="right:2%; top:0%; width:clamp(200px,28vw,420px); transform:rotate(30deg); transform-origin:center center;">
         <img src="data/images/match.webp" alt="" class="match-img-override" />
       </div>
       <!-- Right bottom match: red head at lower-right, angled up-left toward Y of AGENCY -->
-      <div class="hero-match" id="match-right-2" style="right:-4%; bottom:8%; width:clamp(190px,26vw,400px); transform:rotate(-30deg); transform-origin:center center;">
+      <div class="hero-match" id="match-right-2" style="right:2%; bottom:8%; width:clamp(190px,26vw,400px); transform:rotate(-30deg); transform-origin:center center;">
         <img src="data/images/match.webp" alt="" class="match-img-override" />
       </div>
     </section>
@@ -1667,9 +1667,9 @@
       // Phase 2: On scroll down, matchsticks push outward from resting position
       (function() {
         // Set initial off-screen positions
-        gsap.set('#match-left-1', { x: -400, opacity: 0 });
-        gsap.set('#match-right-1', { x: 400, opacity: 0 });
-        gsap.set('#match-right-2', { x: 350, opacity: 0 });
+        gsap.set('#match-left-1', { x: -500, opacity: 0 });
+        gsap.set('#match-right-1', { x: 500, opacity: 0 });
+        gsap.set('#match-right-2', { x: 450, opacity: 0 });
 
         // Phase 1: Fly-in on page load (auto timeline, staggered)
         var flyInTL = gsap.timeline({
@@ -1677,15 +1677,15 @@
           onComplete: function() {
             // Phase 2: After fly-in completes, create scroll-driven push-outward animations
             gsap.to('#match-left-1', {
-              x: -150, opacity: 0.2, ease: 'none',
+              x: -280, opacity: 0.2, ease: 'none',
               scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.8 }
             });
             gsap.to('#match-right-1', {
-              x: 150, opacity: 0.2, ease: 'none',
+              x: 280, opacity: 0.2, ease: 'none',
               scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.8 }
             });
             gsap.to('#match-right-2', {
-              x: 130, opacity: 0.2, ease: 'none',
+              x: 260, opacity: 0.2, ease: 'none',
               scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.8 }
             });
           }
