@@ -1613,12 +1613,19 @@
 
       // === Polaroid flow-in from bottom on first appear ===
       (function() {
-        var polaroids = document.querySelectorAll('.polaroid-flow-in');
-        polaroids.forEach(function(el, i) {
-          // Stagger: polaroid-1 at 0.6s, polaroid-2 at 1.0s
-          setTimeout(function() {
-            el.classList.add('animate-in');
-          }, 600 + (i * 400));
+        // Polaroid 1 containers (mobile + desktop)
+        document.querySelectorAll('.polaroid-img-1').forEach(function(img) {
+          var container = img.closest('.polaroid-flow-in');
+          if (container) {
+            setTimeout(function() { container.classList.add('animate-in'); }, 600);
+          }
+        });
+        // Polaroid 2 containers (mobile + desktop) — delayed
+        document.querySelectorAll('.polaroid-img-2').forEach(function(img) {
+          var container = img.closest('.polaroid-flow-in');
+          if (container) {
+            setTimeout(function() { container.classList.add('animate-in'); }, 1200);
+          }
         });
       })();
 
