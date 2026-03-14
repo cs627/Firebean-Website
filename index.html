@@ -1688,48 +1688,59 @@
           return next;
         }
 
-        // crossfade: swap images inside a given frame element
-        function crossfadeFrame(frameEl, selector, newSrc) {
-          if (!frameEl) return;
-          var imgs = frameEl.querySelectorAll(selector);
-          if (imgs.length < 2) return;
-          var img0 = imgs[0]; // currently visible
-          var img1 = imgs[1]; // hidden layer
-          img1.src = newSrc;
-          img1.style.opacity = '1';
-          img0.style.opacity = '0';
-          // After fade completes, sync img0 and hide img1
+        // Fade-swap: fade out the visible img, swap src, fade back in
+        function fadeSwap(imgEl, newSrc) {
+          if (!imgEl) return;
+          imgEl.style.transition = 'opacity 0.7s ease';
+          imgEl.style.opacity = '0';
           setTimeout(function() {
-            img0.src = newSrc;
-            img0.style.opacity = '1';
-            img1.style.opacity = '0';
-          }, 1000);
+            imgEl.src = newSrc;
+            imgEl.onload = function() {
+              imgEl.style.opacity = '1';
+            };
+            // Fallback in case onload doesn't fire (cached image)
+            setTimeout(function() { imgEl.style.opacity = '1'; }, 100);
+          }, 700);
         }
 
         function startSlideshow() {
           if (!polaroidImages || !polaroidImages.length) {
-            setTimeout(startSlideshow, 500);
+            setTimeout(startSlideshow, 300);
             return;
           }
-          // Also set initial images so they don't show placeholder
-          if (polaroidImages[idx1]) {
-            var f1imgs = frame1 && frame1.querySelectorAll('.polaroid-img-1');
-            if (f1imgs && f1imgs[0]) f1imgs[0].src = polaroidImages[idx1];
+          // Wait for frames to be ready
+          if (!frame1 || !frame2) {
+            setTimeout(startSlideshow, 300);
+            return;
           }
-          if (polaroidImages[idx2]) {
-            var f2imgs = frame2 && frame2.querySelectorAll('.polaroid-img-2');
-            if (f2imgs && f2imgs[0]) f2imgs[0].src = polaroidImages[idx2];
-          }
+
+          // Get the single visible img in each frame
+          var img1el = frame1.querySelector('.polaroid-img-1');
+          var img2el = frame2.querySelector('.polaroid-img-2');
+
+          // Hide the second (duplicate) img elements — only use first
+          frame1.querySelectorAll('.polaroid-img-1').forEach(function(img, i) {
+            if (i > 0) img.style.display = 'none';
+          });
+          frame2.querySelectorAll('.polaroid-img-2').forEach(function(img, i) {
+            if (i > 0) img.style.display = 'none';
+          });
+
+          // Set initial images from pool
+          if (img1el && polaroidImages[idx1]) img1el.src = polaroidImages[idx1];
+          if (img2el && polaroidImages[idx2]) img2el.src = polaroidImages[idx2];
+
           // Polaroid 1 cycles every 3s
           setInterval(function() {
             idx1 = getUniqueNext(idx1, idx2, polaroidImages);
-            crossfadeFrame(frame1, '.polaroid-img-1', polaroidImages[idx1]);
+            fadeSwap(img1el, polaroidImages[idx1]);
           }, 3000);
+
           // Polaroid 2 cycles every 3s, staggered by 1.5s
           setTimeout(function() {
             setInterval(function() {
               idx2 = getUniqueNext(idx2, idx1, polaroidImages);
-              crossfadeFrame(frame2, '.polaroid-img-2', polaroidImages[idx2]);
+              fadeSwap(img2el, polaroidImages[idx2]);
             }, 3000);
           }, 1500);
         }
