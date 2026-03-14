@@ -758,7 +758,7 @@
         <!-- Logo 2: large, left side, medium drift, medium flip -->
         <div id="bg-logo-wrap-2" style="position:absolute;left:-4%;top:30%;will-change:transform;">
           <img id="bg-logo-2" src="data/images/firebean-logo-w1000.webp" alt="" referrerpolicy="no-referrer"
-            style="width:clamp(300px,42vw,560px);opacity:0.22;mix-blend-mode:multiply;transform-style:preserve-3d;will-change:transform;display:block;">
+            style="width:clamp(390px,55vw,730px);opacity:0.22;mix-blend-mode:multiply;transform-style:preserve-3d;will-change:transform;display:block;">
         </div>
         <!-- Logo 3: small, centre, fast drift, subtle flip -->
         <div id="bg-logo-wrap-3" style="position:absolute;left:50%;transform:translateX(-50%);top:58%;will-change:transform;">
@@ -1213,80 +1213,74 @@
         }
       });
 
-      // 3D Logo Parallax — scroll-velocity-driven flip so rotation is clearly visible
-      // Each logo tilts based on how fast you scroll (velocity), not just position.
-      // Flip decays back to 0 when scrolling stops, giving a satisfying spring feel.
+      // 3D Logo Parallax — scroll-accumulated rotateY, no spring-back
+      // Logo 1 (right): rotates right→left (positive→negative rotateY) as you scroll down
+      // Logo 2 (left):  rotates left→right (negative→positive rotateY) as you scroll down
+      // Logo 3 (centre): same direction as Logo 1
+      // Rotation accumulates with scroll and HOLDS when scrolling stops — no bounce-back.
       (function() {
         var workSection = document.getElementById('work');
         if (!workSection) return;
 
+        // direction: -1 = right→left (Logo1,3), +1 = left→right (Logo2)
         var logos = [
           {
             wrap: document.getElementById('bg-logo-wrap-1'),
             img:  document.getElementById('bg-logo-1'),
-            driftSpeed: 0.25,   // vertical parallax multiplier
-            velScale:   0.18,   // how much scroll velocity maps to rotateY
-            maxRY:      60,     // hard cap on rotateY (degrees)
-            maxRX:      20,
-            decayR:     0.88,   // how quickly rotation springs back (lower = faster decay)
-            lerpY:      0.07,
-            curY: 0, tgtY: 0, curRY: 0, curRX: 0
+            driftSpeed: 0.25,
+            rotPerPx:   0.025,   // degrees of rotateY per pixel scrolled
+            direction:  -1,      // right → left
+            maxRY:      70,
+            lerpY: 0.07, lerpR: 0.10,
+            curY: 0, tgtY: 0, curRY: 0, tgtRY: 0
           },
           {
             wrap: document.getElementById('bg-logo-wrap-2'),
             img:  document.getElementById('bg-logo-2'),
-            driftSpeed: 0.45,
-            velScale:   0.12,
-            maxRY:      45,
-            maxRX:      15,
-            decayR:     0.84,
-            lerpY:      0.09,
-            curY: 0, tgtY: 0, curRY: 0, curRX: 0
+            driftSpeed: 0.40,
+            rotPerPx:   0.020,
+            direction:  +1,      // left → right
+            maxRY:      70,
+            lerpY: 0.08, lerpR: 0.09,
+            curY: 0, tgtY: 0, curRY: 0, tgtRY: 0
           },
           {
             wrap: document.getElementById('bg-logo-wrap-3'),
             img:  document.getElementById('bg-logo-3'),
-            driftSpeed: 0.65,
-            velScale:   0.08,
-            maxRY:      35,
-            maxRX:      12,
-            decayR:     0.80,
-            lerpY:      0.12,
-            curY: 0, tgtY: 0, curRY: 0, curRX: 0
+            driftSpeed: 0.60,
+            rotPerPx:   0.015,
+            direction:  -1,      // same as Logo 1
+            maxRY:      70,
+            lerpY: 0.11, lerpR: 0.12,
+            curY: 0, tgtY: 0, curRY: 0, tgtRY: 0
           }
         ];
 
-        var lastScrollY = window.scrollY;
-        var scrollVel   = 0;  // pixels/frame, positive = scrolling down
-
         function tick() {
-          // Compute scroll velocity this frame
-          var sy = window.scrollY;
-          scrollVel = sy - lastScrollY;
-          lastScrollY = sy;
-
           var rect      = workSection.getBoundingClientRect();
           var sectionH  = workSection.offsetHeight;
-          var scrolledIn = -rect.top;
+          // scrolledIn: 0 at section top, grows as user scrolls down through section
+          var scrolledIn = Math.max(0, -rect.top);
 
           logos.forEach(function(l) {
             if (!l.wrap || !l.img) return;
 
-            // Vertical parallax drift
+            // Vertical parallax drift (smooth)
             l.tgtY = scrolledIn * l.driftSpeed;
             l.curY += (l.tgtY - l.curY) * l.lerpY;
             l.wrap.style.transform = 'translateY(' + l.curY + 'px)';
 
-            // Velocity-driven rotateY: scrolling down = positive tilt, up = negative
-            var tgtRY = scrollVel * l.velScale * 60; // amplify velocity to degrees
-            tgtRY = Math.max(-l.maxRY, Math.min(l.maxRY, tgtRY));
-            var tgtRX = -tgtRY * (l.maxRX / l.maxRY); // proportional X tilt
+            // Accumulated rotation: maps total scroll distance to rotateY
+            // direction -1: starts at 0, goes negative (right→left)
+            // direction +1: starts at 0, goes positive (left→right)
+            l.tgtRY = l.direction * scrolledIn * l.rotPerPx;
+            // Clamp to maxRY so it doesn’t over-rotate
+            l.tgtRY = Math.max(-l.maxRY, Math.min(l.maxRY, l.tgtRY));
 
-            // Spring: blend toward target then decay back toward 0
-            l.curRY = l.curRY * l.decayR + tgtRY * (1 - l.decayR);
-            l.curRX = l.curRX * l.decayR + tgtRX * (1 - l.decayR);
+            // Smooth lerp toward target — holds position when scroll stops
+            l.curRY += (l.tgtRY - l.curRY) * l.lerpR;
 
-            l.img.style.transform = 'perspective(900px) rotateY(' + l.curRY + 'deg) rotateX(' + l.curRX + 'deg)';
+            l.img.style.transform = 'perspective(900px) rotateY(' + l.curRY + 'deg)';
           });
 
           requestAnimationFrame(tick);
