@@ -1213,10 +1213,9 @@
         }
       });
 
-      // 3D Logo Parallax — 3 independent logos, right side, different drift speeds & flip angles
-      // Logo 1: large, slow (0.25x), strong flip ±14° rotateY
-      // Logo 2: medium, medium (0.45x), medium flip ±10° rotateY
-      // Logo 3: small, fast (0.70x), subtle flip ±7° rotateY
+      // 3D Logo Parallax — scroll-velocity-driven flip so rotation is clearly visible
+      // Each logo tilts based on how fast you scroll (velocity), not just position.
+      // Flip decays back to 0 when scrolling stops, giving a satisfying spring feel.
       (function() {
         var workSection = document.getElementById('work');
         if (!workSection) return;
@@ -1225,55 +1224,69 @@
           {
             wrap: document.getElementById('bg-logo-wrap-1'),
             img:  document.getElementById('bg-logo-1'),
-            speed: 0.25,   // slow drift
-            maxRY: 14,     // strong flip
-            maxRX: 6,
-            curY: 0, tgtY: 0, curRY: 0, tgtRY: 0, curRX: 0, tgtRX: 0,
-            lerpY: 0.06, lerpR: 0.05
+            driftSpeed: 0.25,   // vertical parallax multiplier
+            velScale:   0.18,   // how much scroll velocity maps to rotateY
+            maxRY:      60,     // hard cap on rotateY (degrees)
+            maxRX:      20,
+            decayR:     0.88,   // how quickly rotation springs back (lower = faster decay)
+            lerpY:      0.07,
+            curY: 0, tgtY: 0, curRY: 0, curRX: 0
           },
           {
             wrap: document.getElementById('bg-logo-wrap-2'),
             img:  document.getElementById('bg-logo-2'),
-            speed: 0.45,   // medium drift
-            maxRY: 10,
-            maxRX: 4,
-            curY: 0, tgtY: 0, curRY: 0, tgtRY: 0, curRX: 0, tgtRX: 0,
-            lerpY: 0.08, lerpR: 0.07
+            driftSpeed: 0.45,
+            velScale:   0.12,
+            maxRY:      45,
+            maxRX:      15,
+            decayR:     0.84,
+            lerpY:      0.09,
+            curY: 0, tgtY: 0, curRY: 0, curRX: 0
           },
           {
             wrap: document.getElementById('bg-logo-wrap-3'),
             img:  document.getElementById('bg-logo-3'),
-            speed: 0.70,   // fast drift
-            maxRY: 7,
-            maxRX: 3,
-            curY: 0, tgtY: 0, curRY: 0, tgtRY: 0, curRX: 0, tgtRX: 0,
-            lerpY: 0.12, lerpR: 0.10
+            driftSpeed: 0.65,
+            velScale:   0.08,
+            maxRY:      35,
+            maxRX:      12,
+            decayR:     0.80,
+            lerpY:      0.12,
+            curY: 0, tgtY: 0, curRY: 0, curRX: 0
           }
         ];
 
+        var lastScrollY = window.scrollY;
+        var scrollVel   = 0;  // pixels/frame, positive = scrolling down
+
         function tick() {
-          var rect     = workSection.getBoundingClientRect();
-          var sectionH = workSection.offsetHeight;
-          var scrolledIn = -rect.top; // px scrolled past section top
-          var progress = sectionH > 0
-            ? Math.min(Math.max(scrolledIn / sectionH, 0), 1)
-            : 0;
-          var t = (progress - 0.5) * 2; // −1 to +1
+          // Compute scroll velocity this frame
+          var sy = window.scrollY;
+          scrollVel = sy - lastScrollY;
+          lastScrollY = sy;
+
+          var rect      = workSection.getBoundingClientRect();
+          var sectionH  = workSection.offsetHeight;
+          var scrolledIn = -rect.top;
 
           logos.forEach(function(l) {
             if (!l.wrap || !l.img) return;
-            // Vertical parallax: each logo drifts at its own speed
-            l.tgtY  = scrolledIn * l.speed;
-            // Flip: stronger angle, each logo at different rate
-            l.tgtRY = t * l.maxRY;
-            l.tgtRX = -t * l.maxRX;
 
-            l.curY  += (l.tgtY  - l.curY)  * l.lerpY;
-            l.curRY += (l.tgtRY - l.curRY) * l.lerpR;
-            l.curRX += (l.tgtRX - l.curRX) * l.lerpR;
-
+            // Vertical parallax drift
+            l.tgtY = scrolledIn * l.driftSpeed;
+            l.curY += (l.tgtY - l.curY) * l.lerpY;
             l.wrap.style.transform = 'translateY(' + l.curY + 'px)';
-            l.img.style.transform  = 'perspective(1200px) rotateY(' + l.curRY + 'deg) rotateX(' + l.curRX + 'deg)';
+
+            // Velocity-driven rotateY: scrolling down = positive tilt, up = negative
+            var tgtRY = scrollVel * l.velScale * 60; // amplify velocity to degrees
+            tgtRY = Math.max(-l.maxRY, Math.min(l.maxRY, tgtRY));
+            var tgtRX = -tgtRY * (l.maxRX / l.maxRY); // proportional X tilt
+
+            // Spring: blend toward target then decay back toward 0
+            l.curRY = l.curRY * l.decayR + tgtRY * (1 - l.decayR);
+            l.curRX = l.curRX * l.decayR + tgtRX * (1 - l.decayR);
+
+            l.img.style.transform = 'perspective(900px) rotateY(' + l.curRY + 'deg) rotateX(' + l.curRX + 'deg)';
           });
 
           requestAnimationFrame(tick);
