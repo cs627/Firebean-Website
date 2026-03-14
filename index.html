@@ -748,11 +748,11 @@
 
     <!-- Session 3: Project Profiles -->
     <section class="relative py-24 md:py-32 px-6 md:px-16 bg-brand-gray overflow-hidden" id="work">
-      <!-- 3D Logo Background — GSAP-pinned parallax wrapper -->
-      <!-- The inner container is pinned via JS (ScrollTrigger pin) so it stays centred
+      <!-- 3D Logo Background — scroll-driven centred parallax -->
+      <!-- JS calculates translateY each frame so the logo stays viewport-centred
            for the full height of the #work section, including the last project cards -->
-      <div class="pointer-events-none" id="parallax-logo-sticky-wrap" style="position:absolute;inset:0;overflow:visible;z-index:0;">
-        <div id="parallax-logo-container" style="position:absolute;top:0;left:0;width:100%;height:100vh;display:flex;align-items:center;justify-content:center;perspective:1200px;padding-left:100px;">
+      <div class="pointer-events-none" id="parallax-logo-sticky-wrap" style="position:absolute;inset:0;overflow:hidden;z-index:0;">
+        <div id="parallax-logo-container" style="position:absolute;top:0;left:0;width:100%;height:100vh;display:flex;align-items:center;justify-content:center;perspective:1200px;padding-left:100px;will-change:transform;">
           <img id="bg-logo" src="data/images/firebean-logo-w1000.webp" class="object-contain drop-shadow-2xl mix-blend-multiply" alt="3D Firebean Logo" referrerpolicy="no-referrer" style="width:55vw;max-width:680px;opacity:0.38;transform-origin:center center;transform-style:preserve-3d;will-change:transform;">
         </div>
       </div>
@@ -1203,37 +1203,54 @@
         }
       });
 
-      // 3D Logo — GSAP pin keeps it centred for the full #work section
-      // + gentle ±10° rotateY / ±5° rotateX tilt driven by scroll progress
+      // 3D Logo — rAF scroll-driven: translateY keeps it viewport-centred for the
+      // full #work section height; rotateY/X add the gentle ±10°/±5° 3D tilt.
       (function() {
-        var logoEl = document.getElementById('bg-logo');
         var containerEl = document.getElementById('parallax-logo-container');
-        if (!logoEl || !containerEl) return;
+        var logoEl      = document.getElementById('bg-logo');
+        var workSection = document.getElementById('work');
+        if (!containerEl || !logoEl || !workSection) return;
 
-        // Pin the logo container so it stays viewport-centred from section top to section bottom
-        ScrollTrigger.create({
-          trigger: '#work',
-          start: 'top top',
-          end: 'bottom bottom',
-          pin: containerEl,
-          pinSpacing: false
-        });
+        var currentY  = 0;  // smoothed translateY for the container
+        var targetY   = 0;
+        var currentRY = 0;  // smoothed rotateY for the logo
+        var targetRY  = 0;
+        var currentRX = 0;
+        var targetRX  = 0;
 
-        // Tilt animation driven by scroll progress across the whole section
-        ScrollTrigger.create({
-          trigger: '#work',
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1.5,
-          onUpdate: function(self) {
-            var t = (self.progress - 0.5) * 2; // −1 to +1
-            gsap.set(logoEl, {
-              rotationY: t * 10,
-              rotationX: -t * 5,
-              transformPerspective: 1200
-            });
-          }
-        });
+        function tick() {
+          var rect   = workSection.getBoundingClientRect();
+          var vh     = window.innerHeight;
+          var sectionH = workSection.offsetHeight;
+
+          // How far the section top is above the viewport top (positive = scrolled past)
+          var scrolledIn = -rect.top;  // 0 when section top hits viewport top
+
+          // translateY: offset the container so its vertical centre tracks the viewport centre.
+          // Container starts at top:0 of the section; we push it down by scrolledIn
+          // but clamp so it never goes below (sectionH - vh) — the last valid position.
+          var maxY = Math.max(0, sectionH - vh);
+          targetY  = Math.min(Math.max(scrolledIn, 0), maxY);
+
+          // Tilt: map scroll progress (0→1) to ±10° / ±5°
+          var progress = sectionH > vh
+            ? Math.min(Math.max(scrolledIn / (sectionH - vh), 0), 1)
+            : 0.5;
+          var t = (progress - 0.5) * 2; // −1 to +1
+          targetRY = t * 10;
+          targetRX = -t * 5;
+
+          // Smooth lerp (0.1 = gentle lag)
+          currentY  += (targetY  - currentY)  * 0.1;
+          currentRY += (targetRY - currentRY) * 0.08;
+          currentRX += (targetRX - currentRX) * 0.08;
+
+          containerEl.style.transform = 'translateY(' + currentY + 'px)';
+          logoEl.style.transform = 'perspective(1200px) rotateY(' + currentRY + 'deg) rotateX(' + currentRX + 'deg)';
+
+          requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
       })();
 
       // (Profile card animations are handled after CMS data loads)
