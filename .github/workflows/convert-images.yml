@@ -1,40 +1,65 @@
-  - name: Install cwebp
-    run: sudo apt-get update && sudo apt-get install -y webp
+name: Convert Images to WebP
 
-  - name: Convert new JPEG/PNG to WebP
-    run: |
-      cd data/images
-      converted=0
-      
-      for src in *.jpg *.jpeg *.png; do
-        [ -f "$src" ] || continue
-        base="${src%.*}"
-        webp="${base}.webp"
-        if [ ! -f "$webp" ] || [ "$src" -nt "$webp" ]; then
-          echo "Converting: $src → $webp"
-          cwebp -q 80 -resize 1200 0 "$src" -o "$webp" 2>/dev/null
-          if [ -f "$webp" ]; then
-            rm "$src"
-            converted=$((converted + 1))
-          fi
-        fi
-      done
-      
-      echo "Converted $converted images to WebP"
-      echo "CONVERTED=$converted" >> $GITHUB_ENV
+on:
+  push:
+    paths:
+      - 'data/images/**'
+    branches:
+      - main
 
-  - name: Commit converted images
-    if: env.CONVERTED != '0'
-    run: |
-      git config user.name "github-actions[bot]"
-      git config user.email "github-actions[bot]@users.noreply.github.com"
-      git add data/images/
-      git diff --staged --quiet && exit 0
-      git commit -m "Auto-convert ${{ env.CONVERTED }} images to WebP"
-      for i in 1 2 3; do
-        git pull --rebase origin main && git push && exit 0
-        echo "Push attempt $i failed, retrying..."
-        sleep 5
-      done
-      echo "All push attempts failed"
-      exit 1
+# Only ONE run at a time — queue the rest
+concurrency:
+  group: convert-images
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install cwebp
+        run: sudo apt-get update && sudo apt-get install -y webp
+
+      - name: Convert new JPEG/PNG to WebP
+        run: |
+          cd data/images
+          converted=0
+          
+          for src in *.jpg *.jpeg *.png; do
+            [ -f "$src" ] || continue
+            base="${src%.*}"
+            webp="${base}.webp"
+            if [ ! -f "$webp" ] || [ "$src" -nt "$webp" ]; then
+              echo "Converting: $src → $webp"
+              cwebp -q 80 -resize 1200 0 "$src" -o "$webp" 2>/dev/null
+              if [ -f "$webp" ]; then
+                rm "$src"
+                converted=$((converted + 1))
+              fi
+            fi
+          done
+          
+          echo "Converted $converted images to WebP"
+          echo "CONVERTED=$converted" >> $GITHUB_ENV
+
+      - name: Commit converted images
+        if: env.CONVERTED != '0'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/images/
+          git diff --staged --quiet && exit 0
+          git commit -m "Auto-convert ${{ env.CONVERTED }} images to WebP"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            echo "Push attempt $i failed, retrying..."
+            sleep 5
+          done
+          echo "All push attempts failed"
+          exit 1
