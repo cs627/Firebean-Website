@@ -26,16 +26,23 @@ jobs:
       - name: Install cwebp
         run: sudo apt-get update && sudo apt-get install -y webp
 
-      - name: Convert new JPEG/PNG to WebP
+      - name: Convert and clean up images
         run: |
           cd data/images
           converted=0
+          cleaned=0
           
           for src in *.jpg *.jpeg *.png; do
             [ -f "$src" ] || continue
             base="${src%.*}"
             webp="${base}.webp"
-            if [ ! -f "$webp" ] || [ "$src" -nt "$webp" ]; then
+            
+            if [ -f "$webp" ]; then
+              # WebP already exists — just remove the source
+              rm "$src"
+              cleaned=$((cleaned + 1))
+            else
+              # Convert to WebP
               echo "Converting: $src → $webp"
               cwebp -q 80 -resize 1200 0 "$src" -o "$webp" 2>/dev/null
               if [ -f "$webp" ]; then
@@ -45,8 +52,11 @@ jobs:
             fi
           done
           
-          echo "Converted $converted images to WebP"
-          echo "CONVERTED=$converted" >> $GITHUB_ENV
+          echo "Converted $converted new images, cleaned $cleaned orphans"
+          total=$((converted + cleaned))
+          echo "CONVERTED=$total" >> $GITHUB_ENV
+          echo "NEW_CONVERTED=$converted" >> $GITHUB_ENV
+          echo "CLEANED=$cleaned" >> $GITHUB_ENV
 
       - name: Commit converted images
         if: env.CONVERTED != '0'
@@ -55,7 +65,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/images/
           git diff --staged --quiet && exit 0
-          git commit -m "Auto-convert ${{ env.CONVERTED }} images to WebP"
+          git commit -m "Auto-convert ${{ env.NEW_CONVERTED }} images, clean ${{ env.CLEANED }} orphans"
           for i in 1 2 3; do
             git pull --rebase origin main && git push && exit 0
             echo "Push attempt $i failed, retrying..."
