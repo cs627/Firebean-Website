@@ -179,6 +179,8 @@
         z-index: 0; /* behind all text */
         pointer-events: none;
         will-change: transform, opacity;
+        opacity: 0; /* Start completely hidden — GSAP ScrollTrigger animates in on scroll */
+        visibility: hidden; /* Extra safety: invisible until GSAP takes over */
       }
       .hero-match img {
         width: 100%;
@@ -1628,27 +1630,35 @@
       })();
 
       // === Matchstick scroll-driven fly-in from edges (3 matches: 1 left, 2 right) ===
-      // Matches start off-screen and gradually fly in as user scrolls down through the hero
+      // Matches start completely off-screen/hidden, fly in ONLY when user scrolls.
+      // Key fix: trigger starts at '10% top' (not 'top top') so at scroll=0 the
+      // animation progress is before the start → matchsticks stay fully hidden.
       (function() {
+        // Explicitly set initial state so there's zero flash on load
+        gsap.set('.hero-match', { opacity: 0, visibility: 'hidden' });
+        gsap.set('#match-left-1', { x: -280 });
+        gsap.set('#match-right-1', { x: 280 });
+        gsap.set('#match-right-2', { x: 250 });
+
         // Left match: fly in from the left
         gsap.fromTo('#match-left-1',
-          { x: -280, opacity: 0 },
-          { x: 0, opacity: 1, ease: 'power2.out',
-            scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.8 }
+          { x: -280, opacity: 0, visibility: 'hidden' },
+          { x: 0, opacity: 1, visibility: 'visible', ease: 'power2.out', immediateRender: false,
+            scrollTrigger: { trigger: '#hero', start: '10% top', end: 'bottom top', scrub: 0.8 }
           }
         );
         // Right top match: fly in from the right
         gsap.fromTo('#match-right-1',
-          { x: 280, opacity: 0 },
-          { x: 0, opacity: 1, ease: 'power2.out',
-            scrollTrigger: { trigger: '#hero', start: 'top top', end: '70% top', scrub: 0.8 }
+          { x: 280, opacity: 0, visibility: 'hidden' },
+          { x: 0, opacity: 1, visibility: 'visible', ease: 'power2.out', immediateRender: false,
+            scrollTrigger: { trigger: '#hero', start: '10% top', end: '70% top', scrub: 0.8 }
           }
         );
-        // Right bottom match: fly in from the right (slightly delayed)
+        // Right bottom match: fly in from the right (slightly delayed start)
         gsap.fromTo('#match-right-2',
-          { x: 250, opacity: 0 },
-          { x: 0, opacity: 1, ease: 'power2.out',
-            scrollTrigger: { trigger: '#hero', start: '15% top', end: 'bottom top', scrub: 0.8 }
+          { x: 250, opacity: 0, visibility: 'hidden' },
+          { x: 0, opacity: 1, visibility: 'visible', ease: 'power2.out', immediateRender: false,
+            scrollTrigger: { trigger: '#hero', start: '20% top', end: 'bottom top', scrub: 0.8 }
           }
         );
       })();
