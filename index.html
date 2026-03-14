@@ -704,19 +704,17 @@
         </div>
       </div>
 
-      <!-- Matchsticks — absolute inside hero, behind text (z-0), fly in on scroll -->
-      <!-- Left side matches -->
-      <div class="hero-match" id="match-left-1" style="left:-6%; top:12%; width:clamp(120px,18vw,280px); transform:rotate(-25deg);">
+      <!-- Matchsticks — 3 total: 1 left, 2 right. Positions match reference design exactly -->
+      <!-- Left: 1 match, lower-left area, angled ~30° pointing up-right, red head at bottom-left -->
+      <div class="hero-match" id="match-left-1" style="left:-3%; bottom:8%; width:clamp(140px,20vw,320px); transform:rotate(32deg); transform-origin:left bottom;">
         <img src="data/images/match.webp" alt="" class="match-img-override" />
       </div>
-      <div class="hero-match" id="match-left-2" style="left:-4%; bottom:18%; width:clamp(100px,15vw,240px); transform:rotate(15deg);">
+      <!-- Right top: 1 match, upper-right area, angled ~-30° pointing down-left, red head at top-right -->
+      <div class="hero-match" id="match-right-1" style="right:-3%; top:5%; width:clamp(140px,20vw,320px); transform:rotate(-148deg); transform-origin:right top;">
         <img src="data/images/match.webp" alt="" class="match-img-override" />
       </div>
-      <!-- Right side matches -->
-      <div class="hero-match" id="match-right-1" style="right:-6%; top:20%; width:clamp(120px,18vw,280px); transform:rotate(155deg);">
-        <img src="data/images/match.webp" alt="" class="match-img-override" />
-      </div>
-      <div class="hero-match" id="match-right-2" style="right:-4%; bottom:10%; width:clamp(100px,15vw,240px); transform:rotate(-160deg);">
+      <!-- Right bottom: 1 match, lower-right area, angled pointing up-left, red head at bottom-right -->
+      <div class="hero-match" id="match-right-2" style="right:-2%; bottom:5%; width:clamp(130px,18vw,290px); transform:rotate(-155deg); transform-origin:right bottom;">
         <img src="data/images/match.webp" alt="" class="match-img-override" />
       </div>
     </section>
@@ -1629,31 +1627,26 @@
         });
       })();
 
-      // === Matchstick scroll-driven fly-in from edges ===
+      // === Matchstick scroll-driven fly-in from edges (3 matches: 1 left, 2 right) ===
       // Matches start off-screen and gradually fly in as user scrolls down through the hero
       (function() {
-        // Left matches: fly in from the left edge
+        // Left match: fly in from the left
         gsap.fromTo('#match-left-1',
-          { x: -250, opacity: 0 },
+          { x: -280, opacity: 0 },
           { x: 0, opacity: 1, ease: 'power2.out',
             scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.8 }
           }
         );
-        gsap.fromTo('#match-left-2',
-          { x: -220, opacity: 0 },
-          { x: 0, opacity: 1, ease: 'power2.out',
-            scrollTrigger: { trigger: '#hero', start: '15% top', end: 'bottom top', scrub: 0.8 }
-          }
-        );
-        // Right matches: fly in from the right edge
+        // Right top match: fly in from the right
         gsap.fromTo('#match-right-1',
-          { x: 250, opacity: 0 },
+          { x: 280, opacity: 0 },
           { x: 0, opacity: 1, ease: 'power2.out',
-            scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.8 }
+            scrollTrigger: { trigger: '#hero', start: 'top top', end: '70% top', scrub: 0.8 }
           }
         );
+        // Right bottom match: fly in from the right (slightly delayed)
         gsap.fromTo('#match-right-2',
-          { x: 220, opacity: 0 },
+          { x: 250, opacity: 0 },
           { x: 0, opacity: 1, ease: 'power2.out',
             scrollTrigger: { trigger: '#hero', start: '15% top', end: 'bottom top', scrub: 0.8 }
           }
