@@ -1,8 +1,11 @@
 /**
  * ============================================================
- * FIREBEAN CMS → GITHUB SYNC PIPELINE  v3.1
+ * FIREBEAN CMS → GITHUB SYNC PIPELINE  v3.2
  * ============================================================
  * 
+ * v3.2: Smart Hero Photo picker — staff can type a number (1-8),
+ *       filename, or leave blank to auto-detect Hero_ file from Drive.
+ *       No more copying complex Drive links for hero photos!
  * v3.1: Added "🖼️ Re-sync Images for Selected Row" menu button
  * v3.0: Smart sync, progress toasts, text-only optimization
  *
@@ -73,7 +76,7 @@ var CONFIG = {
 
 var IMAGE_COLUMNS_ = [
   CONFIG.COL.DRIVE_FOLDER,
-  CONFIG.COL.HERO_PHOTO,
+  CONFIG.COL.HERO_PHOTO,   // Column W – smart hero picker
   CONFIG.COL.LOGO_BLACK,
   CONFIG.COL.LOGO_WHITE
 ];
@@ -268,13 +271,11 @@ function doSync(changedOnly) {
       });
     }
 
-    var heroFileId = extractDriveFileId_(row[CONFIG.COL.HERO_PHOTO - 1]);
     var logoBlackFileId = extractDriveFileId_(row[CONFIG.COL.LOGO_BLACK - 1]);
     var logoWhiteFileId = extractDriveFileId_(row[CONFIG.COL.LOGO_WHITE - 1]);
     var driveFolderId = extractDriveFolderId_(row[CONFIG.COL.DRIVE_FOLDER - 1]);
+    var heroColValue = String(row[CONFIG.COL.HERO_PHOTO - 1] || '').trim();
 
-    var heroPath = heroFileId ? CONFIG.IMAGES_PATH + '/' + pid + '-hero.webp' : '';
-    var heroSmPath = heroFileId ? CONFIG.IMAGES_PATH + '/' + pid + '-hero-sm.webp' : '';
     var logoBlackPath = logoBlackFileId ? CONFIG.IMAGES_PATH + '/' + pid + '-logo-black.webp' : '';
     var logoWhitePath = logoWhiteFileId ? CONFIG.IMAGES_PATH + '/' + pid + '-logo-white.webp' : '';
 
@@ -291,6 +292,50 @@ function doSync(changedOnly) {
       needsTextSync = true;
       needsImageSync = false;
     }
+
+    // ── List all files from Drive folder (used for hero resolution + gallery) ──
+    var allFolderFiles = [];   // { name, id, updated, isHero, isLogo }
+    var galleryFiles = [];     // excludes Hero_ and Logo_ prefixed files
+    var heroFileId = '';
+
+    if (driveFolderId && needsImageSync) {
+      try {
+        var folder = DriveApp.getFolderById(driveFolderId);
+        var files = folder.getFiles();
+        while (files.hasNext()) {
+          var file = files.next();
+          var fileName = file.getName();
+          var mime = file.getMimeType();
+          if (mime.indexOf('image/') !== 0) continue;
+          var entry = {
+            name: fileName,
+            id: file.getId(),
+            updated: file.getLastUpdated().getTime(),
+            isHero: !!fileName.match(/^Hero_/i),
+            isLogo: !!fileName.match(/^Logo_/i)
+          };
+          allFolderFiles.push(entry);
+          if (!entry.isHero && !entry.isLogo) {
+            galleryFiles.push(entry);
+          }
+        }
+        galleryFiles.sort(function(a, b) { return a.name.localeCompare(b.name); });
+      } catch (e) {
+        Logger.log('Error listing Drive folder for ' + projectName + ': ' + e.message);
+      }
+    }
+
+    // ── Resolve Hero Photo (smart picker) ──
+    // Column W accepts:
+    //   ""  (empty)      → auto-detect: use Hero_*.jpg from Drive folder, or first gallery photo
+    //   "1" - "99"       → pick the Nth gallery photo (1-based) as hero
+    //   "Photo_03.jpg"   → match by filename in the Drive folder
+    //   "https://..."    → legacy full Google Drive link (backward compatible)
+    //   Raw file ID      → also works as before
+    heroFileId = resolveHeroFileId_(heroColValue, allFolderFiles, galleryFiles, projectName);
+
+    var heroPath = heroFileId ? CONFIG.IMAGES_PATH + '/' + pid + '-hero.webp' : '';
+    var heroSmPath = heroFileId ? CONFIG.IMAGES_PATH + '/' + pid + '-hero-sm.webp' : '';
 
     if (needsImageSync) {
       processedCount++;
@@ -317,54 +362,41 @@ function doSync(changedOnly) {
       }
     } else if (needsTextSync) {
       Logger.log('Text-only sync for row ' + (i + 1) + ': ' + projectName + ' (skipping images)');
+      // For text-only sync, hero resolution can't access Drive, so use legacy link if available
+      if (!heroFileId) {
+        heroFileId = extractDriveFileId_(heroColValue);
+        heroPath = heroFileId ? CONFIG.IMAGES_PATH + '/' + pid + '-hero.webp' : '';
+        heroSmPath = heroFileId ? CONFIG.IMAGES_PATH + '/' + pid + '-hero-sm.webp' : '';
+      }
       [heroPath, heroSmPath, logoBlackPath, logoWhitePath].forEach(function(p) {
         if (p && existingHashes[p]) newHashes[p] = existingHashes[p];
       });
     } else {
+      // Unchanged row — preserve existing hashes
+      if (!heroFileId) {
+        heroFileId = extractDriveFileId_(heroColValue);
+        heroPath = heroFileId ? CONFIG.IMAGES_PATH + '/' + pid + '-hero.webp' : '';
+        heroSmPath = heroFileId ? CONFIG.IMAGES_PATH + '/' + pid + '-hero-sm.webp' : '';
+      }
       [heroPath, heroSmPath, logoBlackPath, logoWhitePath].forEach(function(p) {
         if (p && existingHashes[p]) newHashes[p] = existingHashes[p];
       });
     }
 
+    // ── Gallery Photos ──
     var galleryPhotos = [];
     if (driveFolderId) {
       if (needsImageSync) {
-        try {
-          var folder = DriveApp.getFolderById(driveFolderId);
-          var files = folder.getFiles();
-          var photoFiles = [];
+        showProgress_(
+          projectName + ': checking ' + galleryFiles.length + ' gallery photos...',
+          '🔥 CMS Sync'
+        );
 
-          while (files.hasNext()) {
-            var file = files.next();
-            var fileName = file.getName();
-            var mime = file.getMimeType();
-
-            if (mime.indexOf('image/') !== 0) continue;
-            if (fileName.match(/^Logo_/i)) continue;
-            if (fileName.match(/^Hero_/i)) continue;
-
-            photoFiles.push({
-              name: fileName,
-              id: file.getId(),
-              updated: file.getLastUpdated().getTime()
-            });
-          }
-
-          photoFiles.sort(function(a, b) { return a.name.localeCompare(b.name); });
-
-          showProgress_(
-            projectName + ': checking ' + photoFiles.length + ' gallery photos...',
-            '🔥 CMS Sync'
-          );
-
-          for (var g = 0; g < photoFiles.length; g++) {
-            var galleryPath = CONFIG.IMAGES_PATH + '/' + pid + '-gallery-' + g + '.webp';
-            galleryPhotos.push(galleryPath);
-            pushIfChanged_(imagesToPush, existingHashes, newHashes,
-              galleryPath, photoFiles[g].id, CONFIG.GALLERY_WIDTH);
-          }
-        } catch (e) {
-          Logger.log('Error accessing Drive folder for ' + projectName + ': ' + e.message);
+        for (var g = 0; g < galleryFiles.length; g++) {
+          var galleryPath = CONFIG.IMAGES_PATH + '/' + pid + '-gallery-' + g + '.webp';
+          galleryPhotos.push(galleryPath);
+          pushIfChanged_(imagesToPush, existingHashes, newHashes,
+            galleryPath, galleryFiles[g].id, CONFIG.GALLERY_WIDTH);
         }
       } else {
         var gIdx = 0;
@@ -715,6 +747,99 @@ function createBlob_(baseUrl, headers, content, encoding) {
 function getGitHubToken_() {
   return PropertiesService.getScriptProperties().getProperty('GITHUB_TOKEN');
 }
+
+/**
+ * Resolve the hero photo from Column W value.
+ *
+ * Accepts (in order of priority):
+ *   ""  (empty)          → auto-detect: use Hero_*.jpg from the Drive folder, fallback to first gallery file
+ *   "1" - "99"           → pick the Nth gallery photo (1-based index) as hero
+ *   "Photo_03.jpg"       → match by filename (case-insensitive) in the Drive folder
+ *   "https://drive..."   → legacy full Google Drive URL (backward compatible)
+ *   Raw Drive file ID    → also works as before
+ *
+ * @param {string}  heroColValue   – raw value from Column W
+ * @param {Array}   allFolderFiles – all image files from the Drive folder [{name, id, isHero, isLogo}]
+ * @param {Array}   galleryFiles   – gallery files only (no Hero_/Logo_ prefix) sorted by name
+ * @param {string}  projectName    – for logging
+ * @return {string} Google Drive file ID, or '' if nothing found
+ */
+function resolveHeroFileId_(heroColValue, allFolderFiles, galleryFiles, projectName) {
+  var val = String(heroColValue || '').trim();
+
+  // ── Case 1: Empty → auto-detect Hero_* file, or fallback to first gallery photo ──
+  if (!val) {
+    // Look for a file named Hero_* in the Drive folder
+    for (var i = 0; i < allFolderFiles.length; i++) {
+      if (allFolderFiles[i].isHero) {
+        Logger.log('  [HERO] ' + projectName + ': auto-detected "' + allFolderFiles[i].name + '"');
+        return allFolderFiles[i].id;
+      }
+    }
+    // No Hero_* file found — use first gallery photo as fallback
+    if (galleryFiles.length > 0) {
+      Logger.log('  [HERO] ' + projectName + ': no Hero_ file, using first gallery photo "' + galleryFiles[0].name + '"');
+      return galleryFiles[0].id;
+    }
+    Logger.log('  [HERO] ' + projectName + ': no hero photo found');
+    return '';
+  }
+
+  // ── Case 2: Pure number → pick Nth gallery photo (1-based) ──
+  if (val.match(/^\d+$/)) {
+    var idx = parseInt(val, 10) - 1;  // convert to 0-based
+    if (idx >= 0 && idx < galleryFiles.length) {
+      Logger.log('  [HERO] ' + projectName + ': picked gallery photo #' + val + ' → "' + galleryFiles[idx].name + '"');
+      return galleryFiles[idx].id;
+    }
+    // Number out of range — log warning, fallback to auto-detect
+    Logger.log('  [HERO] ' + projectName + ': ⚠ gallery photo #' + val + ' out of range (' + galleryFiles.length + ' available). Auto-detecting...');
+    return resolveHeroFileId_('', allFolderFiles, galleryFiles, projectName);
+  }
+
+  // ── Case 3: Looks like a filename (has a dot extension) → match by name ──
+  if (val.match(/\.[a-zA-Z]{2,4}$/)) {
+    var lowerVal = val.toLowerCase();
+    for (var j = 0; j < allFolderFiles.length; j++) {
+      if (allFolderFiles[j].name.toLowerCase() === lowerVal) {
+        Logger.log('  [HERO] ' + projectName + ': matched filename "' + allFolderFiles[j].name + '"');
+        return allFolderFiles[j].id;
+      }
+    }
+    // Partial match (without extension or case)
+    var baseVal = lowerVal.replace(/\.[a-zA-Z]{2,4}$/, '');
+    for (var k = 0; k < allFolderFiles.length; k++) {
+      var baseName = allFolderFiles[k].name.toLowerCase().replace(/\.[a-zA-Z]{2,4}$/, '');
+      if (baseName === baseVal) {
+        Logger.log('  [HERO] ' + projectName + ': matched filename (base) "' + allFolderFiles[k].name + '"');
+        return allFolderFiles[k].id;
+      }
+    }
+    Logger.log('  [HERO] ' + projectName + ': ⚠ filename "' + val + '" not found in Drive folder. Auto-detecting...');
+    return resolveHeroFileId_('', allFolderFiles, galleryFiles, projectName);
+  }
+
+  // ── Case 4: Legacy Drive URL or raw file ID → use existing extractor ──
+  var fileId = extractDriveFileId_(val);
+  if (fileId) {
+    Logger.log('  [HERO] ' + projectName + ': resolved Drive link/ID → ' + fileId);
+    return fileId;
+  }
+
+  // ── Case 5: Nothing matched — try as filename without extension ──
+  var lowerVal2 = val.toLowerCase();
+  for (var m = 0; m < allFolderFiles.length; m++) {
+    var baseName2 = allFolderFiles[m].name.toLowerCase().replace(/\.[a-zA-Z]{2,4}$/, '');
+    if (baseName2 === lowerVal2) {
+      Logger.log('  [HERO] ' + projectName + ': matched name (no ext) "' + allFolderFiles[m].name + '"');
+      return allFolderFiles[m].id;
+    }
+  }
+
+  Logger.log('  [HERO] ' + projectName + ': ⚠ could not resolve "' + val + '". Auto-detecting...');
+  return resolveHeroFileId_('', allFolderFiles, galleryFiles, projectName);
+}
+
 
 function extractDriveFileId_(url) {
   if (!url) return '';
