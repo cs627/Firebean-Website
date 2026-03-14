@@ -1688,22 +1688,22 @@
           return next;
         }
 
-        function crossfade(wrappers, selector, newSrc) {
-          wrappers.forEach(function(wrapper) {
-            var imgs = wrapper.querySelectorAll(selector);
-            if (imgs.length < 2) return;
-            var img0 = imgs[0]; // currently visible
-            var img1 = imgs[1]; // hidden layer
-            img1.src = newSrc;
-            img1.style.opacity = '1';
-            img0.style.opacity = '0';
-            // After fade completes, swap roles
-            setTimeout(function() {
-              img0.src = newSrc;
-              img0.style.opacity = '1';
-              img1.style.opacity = '0';
-            }, 1000);
-          });
+        // crossfade: swap images inside a given frame element
+        function crossfadeFrame(frameEl, selector, newSrc) {
+          if (!frameEl) return;
+          var imgs = frameEl.querySelectorAll(selector);
+          if (imgs.length < 2) return;
+          var img0 = imgs[0]; // currently visible
+          var img1 = imgs[1]; // hidden layer
+          img1.src = newSrc;
+          img1.style.opacity = '1';
+          img0.style.opacity = '0';
+          // After fade completes, sync img0 and hide img1
+          setTimeout(function() {
+            img0.src = newSrc;
+            img0.style.opacity = '1';
+            img1.style.opacity = '0';
+          }, 1000);
         }
 
         function startSlideshow() {
@@ -1711,15 +1711,25 @@
             setTimeout(startSlideshow, 500);
             return;
           }
-          // Stagger: polaroid 2 starts 1.5s after polaroid 1
+          // Also set initial images so they don't show placeholder
+          if (polaroidImages[idx1]) {
+            var f1imgs = frame1 && frame1.querySelectorAll('.polaroid-img-1');
+            if (f1imgs && f1imgs[0]) f1imgs[0].src = polaroidImages[idx1];
+          }
+          if (polaroidImages[idx2]) {
+            var f2imgs = frame2 && frame2.querySelectorAll('.polaroid-img-2');
+            if (f2imgs && f2imgs[0]) f2imgs[0].src = polaroidImages[idx2];
+          }
+          // Polaroid 1 cycles every 3s
           setInterval(function() {
             idx1 = getUniqueNext(idx1, idx2, polaroidImages);
-            crossfade(p1Wrappers, '.polaroid-img-1', polaroidImages[idx1]);
+            crossfadeFrame(frame1, '.polaroid-img-1', polaroidImages[idx1]);
           }, 3000);
+          // Polaroid 2 cycles every 3s, staggered by 1.5s
           setTimeout(function() {
             setInterval(function() {
               idx2 = getUniqueNext(idx2, idx1, polaroidImages);
-              crossfade(p2Wrappers, '.polaroid-img-2', polaroidImages[idx2]);
+              crossfadeFrame(frame2, '.polaroid-img-2', polaroidImages[idx2]);
             }, 3000);
           }, 1500);
         }
