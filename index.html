@@ -1619,61 +1619,99 @@
       // Polaroid Slideshow Logic (populated by CMS)
       let polaroidImages = [];
 
-      // Scroll-driven flip for Polaroids (left-to-right as you scroll down)
+      // ===== POLAROID: Scroll-driven flip + 3s random photo slideshow =====
       (function() {
         var heroEl = document.getElementById('hero');
         if (!heroEl) return;
-        var polaroid1 = document.querySelector('.polaroid-img-1')?.closest('.polaroid-flow-in');
-        var polaroid2 = document.querySelector('.polaroid-img-2')?.closest('.polaroid-flow-in');
-        if (!polaroid1 || !polaroid2) return;
 
-        function tick() {
+        // Collect all polaroid wrappers (mobile + desktop for each polaroid)
+        var p1Wrappers = [];
+        var p2Wrappers = [];
+        document.querySelectorAll('.polaroid-img-1').forEach(function(img) {
+          var wrapper = img.closest('.polaroid-flow-in');
+          if (wrapper && !p1Wrappers.includes(wrapper)) p1Wrappers.push(wrapper);
+        });
+        document.querySelectorAll('.polaroid-img-2').forEach(function(img) {
+          var wrapper = img.closest('.polaroid-flow-in');
+          if (wrapper && !p2Wrappers.includes(wrapper)) p2Wrappers.push(wrapper);
+        });
+
+        // Set perspective on all wrappers so rotateY works in 3D
+        [...p1Wrappers, ...p2Wrappers].forEach(function(w) {
+          w.style.perspective = '1000px';
+          w.style.transformStyle = 'preserve-3d';
+          w.style.willChange = 'transform';
+        });
+
+        // Scroll-driven flip: scroll down = left-to-right (rotateY: -40deg -> +40deg)
+        var lastScrollY = window.scrollY;
+        function tickFlip() {
           var rect = heroEl.getBoundingClientRect();
           var scrolledIn = Math.max(0, -rect.top);
-          var sectionH = heroEl.offsetHeight;
-          var progress = sectionH > 0 ? Math.min(Math.max(scrolledIn / sectionH, 0), 1) : 0;
-          var rotY = (progress - 0.5) * 90;
-          
-          if (polaroid1) polaroid1.style.transform = 'perspective(1000px) rotateY(' + rotY + 'deg)';
-          if (polaroid2) polaroid2.style.transform = 'perspective(1000px) rotateY(' + rotY + 'deg)';
-          requestAnimationFrame(tick);
+          var sectionH = heroEl.offsetHeight || window.innerHeight;
+          var progress = Math.min(Math.max(scrolledIn / sectionH, 0), 1);
+          var rotY = (progress - 0.5) * 80; // -40deg to +40deg
+          var rotX = (progress - 0.5) * -20; // slight tilt for depth
+          var tfm = 'perspective(1000px) rotateY(' + rotY + 'deg) rotateX(' + rotX + 'deg)';
+          p1Wrappers.forEach(function(w) { w.style.transform = tfm; });
+          p2Wrappers.forEach(function(w) { w.style.transform = tfm; });
+          requestAnimationFrame(tickFlip);
         }
-        requestAnimationFrame(tick);
-      })();
+        requestAnimationFrame(tickFlip);
 
-      // 3-second random photo slideshow (fade-in, no flip)
-      function startPolaroidSlideshow(selector) {
-        const containers = [];
-        document.querySelectorAll(selector).forEach(img => {
-          const container = img.parentElement;
-          if (container && !containers.find(c => c.container === container)) {
-            containers.push({ container, images: container.querySelectorAll('img') });
+        // ---- 3-second random photo slideshow ----
+        // Two independent indices, always offset by at least 3 so they show different photos
+        var idx1 = 0;
+        var idx2 = 5; // start offset to guarantee different image
+
+        function getUniqueNext(current, other, pool) {
+          var next = (current + 1) % pool.length;
+          // Ensure it doesn't match the other polaroid's current image
+          var tries = 0;
+          while (next === other && pool.length > 1 && tries < pool.length) {
+            next = (next + 1) % pool.length;
+            tries++;
           }
-        });
+          return next;
+        }
 
-        containers.forEach((c, containerIndex) => {
-          let localIndex = containerIndex;
-          setInterval(() => {
-            if (!polaroidImages.length) return;
-            localIndex = (localIndex + 1) % polaroidImages.length;
-            const img1 = c.images[0];
-            const img2 = c.images[1];
-            if (img1 && img2) {
+        function crossfade(wrappers, selector, newSrc) {
+          wrappers.forEach(function(wrapper) {
+            var imgs = wrapper.querySelectorAll(selector);
+            if (imgs.length < 2) return;
+            var img0 = imgs[0]; // currently visible
+            var img1 = imgs[1]; // hidden layer
+            img1.src = newSrc;
+            img1.style.opacity = '1';
+            img0.style.opacity = '0';
+            // After fade completes, swap roles
+            setTimeout(function() {
+              img0.src = newSrc;
+              img0.style.opacity = '1';
               img1.style.opacity = '0';
-              img2.src = polaroidImages[localIndex];
-              img2.style.opacity = '1';
-              setTimeout(() => {
-                img1.src = polaroidImages[(localIndex + 1) % polaroidImages.length];
-                img1.style.opacity = '1';
-                img2.style.opacity = '0';
-              }, 1500);
-            }
-          }, 3000);
-        });
-      }
+            }, 1000);
+          });
+        }
 
-      startPolaroidSlideshow('.polaroid-img-1');
-      startPolaroidSlideshow('.polaroid-img-2');
+        function startSlideshow() {
+          if (!polaroidImages || !polaroidImages.length) {
+            setTimeout(startSlideshow, 500);
+            return;
+          }
+          // Stagger: polaroid 2 starts 1.5s after polaroid 1
+          setInterval(function() {
+            idx1 = getUniqueNext(idx1, idx2, polaroidImages);
+            crossfade(p1Wrappers, '.polaroid-img-1', polaroidImages[idx1]);
+          }, 3000);
+          setTimeout(function() {
+            setInterval(function() {
+              idx2 = getUniqueNext(idx2, idx1, polaroidImages);
+              crossfade(p2Wrappers, '.polaroid-img-2', polaroidImages[idx2]);
+            }, 3000);
+          }, 1500);
+        }
+        startSlideshow();
+      })();
 
       // === Polaroid flow-in from bottom on first appear ===
       (function() {
