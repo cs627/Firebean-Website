@@ -1632,38 +1632,33 @@
       // Phase 1: Auto fly-in on page load (timed, not scroll-driven)
       // Phase 2: On scroll down, matchsticks push outward from resting position
       (function() {
-        // Set initial off-screen positions (large offset to start fully outside viewport)
+        // Set initial off-screen positions
         gsap.set('#match-left-1', { x: -400, opacity: 0 });
         gsap.set('#match-right-1', { x: 400, opacity: 0 });
         gsap.set('#match-right-2', { x: 350, opacity: 0 });
 
         // Phase 1: Fly-in on page load (auto timeline, staggered)
-        var flyInTL = gsap.timeline({ delay: 0.6 });
+        var flyInTL = gsap.timeline({
+          delay: 0.6,
+          onComplete: function() {
+            // Phase 2: After fly-in completes, create scroll-driven push-outward animations
+            gsap.to('#match-left-1', {
+              x: -150, opacity: 0.2, ease: 'none',
+              scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.8 }
+            });
+            gsap.to('#match-right-1', {
+              x: 150, opacity: 0.2, ease: 'none',
+              scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.8 }
+            });
+            gsap.to('#match-right-2', {
+              x: 130, opacity: 0.2, ease: 'none',
+              scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.8 }
+            });
+          }
+        });
         flyInTL.to('#match-left-1', { x: 0, opacity: 1, duration: 1.2, ease: 'power3.out' }, 0);
         flyInTL.to('#match-right-1', { x: 0, opacity: 1, duration: 1.2, ease: 'power3.out' }, 0.1);
         flyInTL.to('#match-right-2', { x: 0, opacity: 1, duration: 1.2, ease: 'power3.out' }, 0.25);
-
-        // Phase 2: On scroll down, push matchsticks outward from resting position
-        flyInTL.then(function() {
-          // Left match pushes further left
-          gsap.to('#match-left-1', {
-            x: -150, opacity: 0.2,
-            ease: 'none',
-            scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.8 }
-          });
-          // Right top match pushes further right
-          gsap.to('#match-right-1', {
-            x: 150, opacity: 0.2,
-            ease: 'none',
-            scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.8 }
-          });
-          // Right bottom match pushes further right
-          gsap.to('#match-right-2', {
-            x: 130, opacity: 0.2,
-            ease: 'none',
-            scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.8 }
-          });
-        });
       })();
 
       // Parallax 3D Logo — vertical drift only (rotation handled by #bg-logo)
