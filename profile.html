@@ -1018,6 +1018,12 @@
         var solutionEl = document.getElementById('profile-solution');
         if (!challengeEl) return;
 
+        // Clear any previously interleaved photos to avoid duplication on language change
+        var existingPairs = challengeEl.querySelectorAll('.interleaved-photo-pair');
+        existingPairs.forEach(function(el) { el.remove(); });
+        var extraPairs = document.querySelectorAll('.extra-photo-pair');
+        extraPairs.forEach(function(el) { el.remove(); });
+
         // Create photo pairs
         var photoPairs = [];
         for (var i = 0; i < photoUrls.length; i += 2) {
@@ -1025,9 +1031,9 @@
         }
 
         // Helper function to create a photo pair container
-        function createPairContainer(pair, isLargeMargin = false) {
+        function createPairContainer(pair, isLargeMargin = false, customClass = 'interleaved-photo-pair') {
           var pairContainer = document.createElement('div');
-          pairContainer.className = 'grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6 ' + (isLargeMargin ? 'my-12' : 'my-8');
+          pairContainer.className = 'grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6 ' + (isLargeMargin ? 'my-12 ' : 'my-8 ') + customClass;
           
           pair.forEach(function(url) {
             var div = document.createElement('div');
@@ -1060,31 +1066,36 @@
         // 1. Insert Photo 1 & 2 after first paragraph (before second heading)
         if (headings.length > 1 && photoPairs.length > 0) {
           challengeEl.insertBefore(createPairContainer(photoPairs[0]), headings[1]);
+        } else if (photoPairs.length > 0) {
+          // Fallback if only 1 heading: add at end of challengeEl
+          challengeEl.appendChild(createPairContainer(photoPairs[0]));
         }
 
         // 2. Insert Photo 3 & 4 after second paragraph (before third heading)
         if (headings.length > 2 && photoPairs.length > 1) {
           challengeEl.insertBefore(createPairContainer(photoPairs[1]), headings[2]);
+        } else if (photoPairs.length > 1 && headings.length <= 2) {
+          challengeEl.appendChild(createPairContainer(photoPairs[1]));
         }
 
         // 3. Insert Photo 5 & 6 after third paragraph (before fourth heading, if any)
         if (headings.length > 3 && photoPairs.length > 2) {
           challengeEl.insertBefore(createPairContainer(photoPairs[2]), headings[3]);
         } else if (photoPairs.length > 2) {
-          // If no 4th heading, just add at end of challengeEl
           challengeEl.appendChild(createPairContainer(photoPairs[2]));
         }
 
         // 4. Insert Photo 7 & 8 after "Challenge & Solution" section
         if (photoPairs.length > 3) {
           var targetEl = solutionEl || challengeEl;
-          targetEl.parentNode.insertBefore(createPairContainer(photoPairs[3], true), targetEl.nextSibling);
+          var p78 = createPairContainer(photoPairs[3], true, 'extra-photo-pair');
+          targetEl.parentNode.insertBefore(p78, targetEl.nextSibling);
         }
         
         // Handle any remaining photos beyond the 8th
         if (photoPairs.length > 4) {
           var remainingContainer = document.createElement('div');
-          remainingContainer.className = 'grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6 mt-12';
+          remainingContainer.className = 'grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6 mt-12 extra-photo-pair';
           for (var i = 4; i < photoPairs.length; i++) {
             photoPairs[i].forEach(function(url) {
               var div = document.createElement('div');
@@ -1099,15 +1110,23 @@
           }
           challengeEl.parentNode.appendChild(remainingContainer);
         }
+        
+        // Refresh ScrollTrigger to account for new content height
+        ScrollTrigger.refresh();
       }
 
       // Interleave photos with content after a short delay to ensure DOM is ready
-      setTimeout(function() {
-        if (project.galleryPhotos && project.galleryPhotos.length >= 2) {
+      // Also call it when language changes
+      function runInterleave() {
+        if (project && project.galleryPhotos && project.galleryPhotos.length >= 2) {
           interleavePhotosWithContent(project.galleryPhotos);
         }
-      }, 300);
-      // Trigger hero image reveal after CMS populates the src
+      }
+      
+      setTimeout(runInterleave, 500);
+      window.addEventListener('languageChange', function() {
+        setTimeout(runInterleave, 500);
+      });
       var heroImg = document.getElementById('profile-hero');
       if (heroImg) {
         heroImg.addEventListener('load', function() {
