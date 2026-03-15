@@ -373,7 +373,8 @@
   <script src="src/cms.js"></script>
 
   <script>
-    // Layout patterns for scattered grid (cycles through these)
+      // Layout patterns for scattered grid (cycles through these)
+      // Note: Mobile (< 768px) will override these with 6-column spans
     var layoutPatterns = [
       { aspect: '4/5', colSpan: 5, start: 1, mt: 0 },
       { aspect: '16/9', colSpan: 6, start: 7, mt: 16 },
@@ -401,20 +402,26 @@
       // Use projectId if available, otherwise fall back to array position
       element.href = 'profile.html?id=' + encodeURIComponent(profile.projectId || String(arrayIndex));
       element.className = 'group block project-profile';
-      element.style.gridColumn = 'span ' + layout.colSpan + ' / span ' + layout.colSpan;
-      if (window.innerWidth >= 768) {
+      // Mobile: 6 columns (2 cards per row in 12-column grid), Desktop: use layout pattern
+      if (window.innerWidth < 768) {
+        element.style.gridColumn = 'span 6 / span 6';
+      } else {
+        element.style.gridColumn = 'span ' + layout.colSpan + ' / span ' + layout.colSpan;
         element.style.gridColumnStart = layout.start;
         if (layout.mt) element.style.marginTop = layout.mt * 4 + 'px';
       }
       element.dataset.category = (profile.filterSlugs || []).join(' ');
 
       var imgSrc = profile.heroPhoto || profile.heroPhotoSmall || '';
+      // Mobile: use square aspect ratio, Desktop: use layout pattern aspect ratio
+      var mobileAspect = '1/1';
+      var displayAspect = window.innerWidth < 768 ? mobileAspect : layout.aspect;
       element.innerHTML =
-        '<div class="relative overflow-hidden mb-1 shadow-2xl" style="aspect-ratio: ' + layout.aspect + ';">' +
+        '<div class="relative overflow-hidden mb-1 shadow-2xl" style="aspect-ratio: ' + displayAspect + ';">' +
           '<img src="' + imgSrc + '" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="' + (profile.project || '') + '" referrerpolicy="no-referrer">' +
         '</div>' +
-        '<h3 class="font-oswald text-3xl uppercase font-bold mb-2">' + (profile.project || '') + '</h3>' +
-        '<p class="font-playfair text-base text-gray-600 italic">' + (profile.client || '') + (profile.date ? ' — ' + profile.date : '') + '</p>';
+        '<h3 class="font-oswald text-lg md:text-3xl uppercase font-bold mb-1 md:mb-2 line-clamp-2">' + (profile.project || '') + '</h3>' +
+        '<p class="font-playfair text-xs md:text-base text-gray-600 italic line-clamp-1">' + (profile.client || '') + '</p>';
       return element;
     }
 
