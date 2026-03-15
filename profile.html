@@ -441,7 +441,7 @@
     </section>
 
     <!-- Image Gallery Section (dynamically populated from Drive folder) -->
-    <section id="profile-gallery" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <section id="profile-gallery" class="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6">
       <!-- Gallery images populated by JS from Drive folder -->
     </section>
 
@@ -956,18 +956,20 @@
         }
 
         // Dynamic masonry-style layout based on photo count
+        // Mobile: always 2 columns with square aspect ratio
+        // Desktop: varied layout for visual interest
         photoUrls.forEach(function(url, idx) {
           var div = document.createElement('div');
           div.className = 'overflow-hidden';
           // Alternate aspect ratios for visual variety
           if (photoUrls.length === 1) {
-            div.className += ' aspect-[16/9] md:col-span-2';
+            div.className += ' aspect-square md:aspect-[16/9] md:col-span-2';
           } else if (photoUrls.length === 2) {
             div.className += ' aspect-square';
           } else {
-            // Last image spans full width if odd count
+            // Last image spans full width on desktop if odd count, but stays square on mobile
             if (idx === photoUrls.length - 1 && photoUrls.length % 2 === 1) {
-              div.className += ' aspect-[16/9] md:col-span-2';
+              div.className += ' aspect-square md:aspect-[16/9] md:col-span-2';
             } else {
               div.className += ' aspect-square';
             }
