@@ -83,33 +83,19 @@
         transition: background-color 0.3s ease, color 0.3s ease;
       }
       
-      /* Mega Menu Styles */
-      .mega-menu {
-        opacity: 0;
-        visibility: hidden;
-        transform: translate(-50%, -10px);
+      /* Mega Menu Styles — NO !important on opacity/visibility so inline styles can override */
+      #nav-panel {
         transition: all 0.3s ease;
-        pointer-events: none;
-        z-index: 20000;
-      }
-      .mega-menu.open {
-        opacity: 1 !important;
-        visibility: visible !important;
-        transform: translate(-50%, 0);
-        pointer-events: auto !important;
+        z-index: 100001 !important;
       }
       /* Mobile adjustment for Mega Menu */
       @media (max-width: 767px) {
-        .mega-menu {
-          left: 5%;
-          right: 5%;
-          width: 90%;
-          max-width: none;
-          transform: translateY(-10px);
-          top: 80px;
-        }
-        .mega-menu.open {
-          transform: translateY(0);
+        #nav-panel {
+          left: 5% !important;
+          right: 5% !important;
+          width: 90% !important;
+          max-width: none !important;
+          top: 80px !important;
         }
       }
 
@@ -465,7 +451,7 @@
         z-index: 99999 !important;
         pointer-events: auto !important;
       }
-      #mega-menu {
+      #nav-panel {
         z-index: 100001 !important;
       }
       .lang-btn {
@@ -583,41 +569,10 @@
         
         <!-- Mega Menu Trigger -->
         <div class="relative py-4">
-          <button id="mega-menu-trigger" class='hover:opacity-50 transition-opacity flex items-center gap-1 uppercase tracking-widest text-sm font-sans'>
+          <button id="nav-panel-trigger" class='hover:opacity-50 transition-opacity flex items-center gap-1 uppercase tracking-widest text-sm font-sans'>
             <span data-key="Global.Navigation.WhatWeDo">What We Do</span> <span class="text-[10px]">▼</span>
           </button>
 
-          <!-- Mega Menu Dropdown -->
-          <div id="mega-menu" class="mega-menu fixed left-1/2 top-[80px] w-[90vw] max-w-[600px] bg-brand-black text-white px-6 py-10 shadow-2xl rounded-xl z-[20000]" data-lenis-prevent>
-            <button id="mega-menu-close" class="absolute top-4 right-4 text-white hover:text-brand-red transition-colors text-2xl leading-none">&times;</button>
-
-            <div class="grid grid-cols-2 gap-16 w-full">
-              <div>
-                <h4 class="font-oswald text-xl mb-6 text-brand-red tracking-widest" data-key="Global.Navigation.WhoWeHelp">WHO WE HELP</h4>
-                <ul class="space-y-3 text-sm text-gray-400 font-sans tracking-wide">
-                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.GovPublic' href='work.html?filter=government'>Government & Public Sector</a></li>
-                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.LifestyleConsumer' href='work.html?filter=lifestyle'>Lifestyle & Consumer</a></li>
-                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.FBHospitality' href='work.html?filter=hospitality'>F&B & Hospitality</a></li>
-                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.MallsVenues' href='work.html?filter=venues'>Malls & Venues</a></li>
-                </ul>
-              </div>
-              <div>
-                <h4 class="font-oswald text-xl mb-6 text-brand-red tracking-widest" data-key="Global.Navigation.WhatWeDo">WHAT WE DO</h4>
-                <ul class="space-y-3 text-sm text-gray-400 font-sans tracking-wide">
-                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.RovingExhibitions' href='work.html?filter=exhibitions'>Roving Exhibitions</a></li>
-                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.SocialContent' href='work.html?filter=social'>Social & Content</a></li>
-                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.InteractiveTech' href='work.html?filter=tech'>Interactive & Tech</a></li>
-                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.PRMedia' href='work.html?filter=pr'>PR & Media</a></li>
-                  <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.EventsCeremonies' href='work.html?filter=events'>Events & Ceremonies</a></li>
-                </ul>
-              </div>
-              <div class="col-span-2 border-t border-white/20 pt-6 mt-2">
-                <a class='text-sm font-bold hover:text-brand-red transition-colors flex items-center gap-3 tracking-widest' href='work.html'>
-                  <span class="text-xl">↳</span> <span data-key="Global.Navigation.ViewAllWork">VIEW ALL WORK</span>
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -636,6 +591,37 @@
         </button>
       </div>
     </nav>
+
+    <!-- Mega Menu Dropdown (OUTSIDE nav so it renders correctly on mobile) -->
+    <div id="nav-panel" class="fixed bg-brand-black text-white px-6 py-10 shadow-2xl rounded-xl" style="opacity:0; visibility:hidden; pointer-events:none; top:80px; left:5%; right:5%; width:90%; max-width:600px; z-index:999999; transition:all 0.3s ease;" data-open="false">
+      <button id="nav-panel-close" class="absolute top-4 right-4 text-white hover:text-brand-red transition-colors text-2xl leading-none">&times;</button>
+      <div class="grid grid-cols-2 gap-8 md:gap-16 w-full">
+        <div>
+          <h4 class="font-oswald text-lg md:text-xl mb-4 md:mb-6 text-brand-red tracking-widest" data-key="Global.Navigation.WhoWeHelp">WHO WE HELP</h4>
+          <ul class="space-y-2 md:space-y-3 text-xs md:text-sm text-gray-400 font-sans tracking-wide">
+            <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.GovPublic' href='work.html?filter=government'>Government & Public Sector</a></li>
+            <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.LifestyleConsumer' href='work.html?filter=lifestyle'>Lifestyle & Consumer</a></li>
+            <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.FBHospitality' href='work.html?filter=hospitality'>F&B & Hospitality</a></li>
+            <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.MallsVenues' href='work.html?filter=venues'>Malls & Venues</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-oswald text-lg md:text-xl mb-4 md:mb-6 text-brand-red tracking-widest" data-key="Global.Navigation.WhatWeDo">WHAT WE DO</h4>
+          <ul class="space-y-2 md:space-y-3 text-xs md:text-sm text-gray-400 font-sans tracking-wide">
+            <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.RovingExhibitions' href='work.html?filter=exhibitions'>Roving Exhibitions</a></li>
+            <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.SocialContent' href='work.html?filter=social'>Social & Content</a></li>
+            <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.InteractiveTech' href='work.html?filter=tech'>Interactive & Tech</a></li>
+            <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.PRMedia' href='work.html?filter=pr'>PR & Media</a></li>
+            <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.EventsCeremonies' href='work.html?filter=events'>Events & Ceremonies</a></li>
+          </ul>
+        </div>
+        <div class="col-span-2 border-t border-white/20 pt-4 md:pt-6 mt-2">
+          <a class='text-sm font-bold hover:text-brand-red transition-colors flex items-center gap-3 tracking-widest' href='work.html'>
+            <span class="text-xl">↳</span> <span data-key="Global.Navigation.ViewAllWork">VIEW ALL WORK</span>
+          </a>
+        </div>
+      </div>
+    </div>
 
     <!-- Session 1: Hero Section -->
     <section class="relative min-h-screen flex flex-col justify-center items-center pt-32 pb-20" id="hero" style="overflow:visible;">
@@ -2336,45 +2322,75 @@
     // Initial UI update
     document.addEventListener('DOMContentLoaded', updatePageSpecificUI);
 
-    // Mega Menu click toggle
+    // Mega Menu click toggle - DOM removal/re-insertion to break GSAP animation control
+    function reinsertMenu(menu) {
+      var parent = menu.parentElement;
+      var next = menu.nextSibling;
+      parent.removeChild(menu);
+      parent.insertBefore(menu, next);
+    }
+
     window.toggleMegaMenu = function(e) {
       if (e) {
         e.preventDefault();
         e.stopPropagation();
       }
-      var menu = document.getElementById('mega-menu');
-      if (menu) menu.classList.toggle('open');
+      var menu = document.getElementById('nav-panel');
+      if (!menu) return;
+      var isOpen = menu.getAttribute('data-open') === 'true';
+      // Re-insert into DOM to break GSAP control
+      reinsertMenu(menu);
+      if (isOpen) {
+        menu.style.cssText = 'position:fixed; top:80px; left:5%; right:5%; width:90%; max-width:600px; z-index:999999; opacity:0; visibility:hidden; pointer-events:none; background:#0a0a0a; color:white; padding:40px; border-radius:12px; box-shadow:0 25px 50px -12px rgba(0,0,0,0.25); transition:all 0.3s ease;';
+        menu.setAttribute('data-open', 'false');
+      } else {
+        menu.style.cssText = 'position:fixed; top:80px; left:5%; right:5%; width:90%; max-width:600px; z-index:999999; opacity:1; visibility:visible; pointer-events:auto; background:#0a0a0a; color:white; padding:40px; border-radius:12px; box-shadow:0 25px 50px -12px rgba(0,0,0,0.25); transition:all 0.3s ease;';
+        menu.setAttribute('data-open', 'true');
+      }
     };
 
-    (function() {
-      var trigger = document.getElementById('mega-menu-trigger');
-      var menu = document.getElementById('mega-menu');
-      var closeBtn = document.getElementById('mega-menu-close');
-      var mobileBtn = document.getElementById('mobile-menu-btn');
+    window.closeMegaMenu = function() {
+      var menu = document.getElementById('nav-panel');
       if (!menu) return;
-      
-      if (trigger) {
-        trigger.addEventListener('click', window.toggleMegaMenu);
-      }
-      
-      if (closeBtn) {
-        closeBtn.addEventListener('click', function(e) {
-          e.stopPropagation();
-          menu.classList.remove('open');
-        });
-      }
+      reinsertMenu(menu);
+      menu.style.cssText = 'position:fixed; top:80px; left:5%; right:5%; width:90%; max-width:600px; z-index:999999; opacity:0; visibility:hidden; pointer-events:none; background:#0a0a0a; color:white; padding:40px; border-radius:12px; box-shadow:0 25px 50px -12px rgba(0,0,0,0.25); transition:all 0.3s ease;';
+      menu.setAttribute('data-open', 'false');
+    };
 
-      document.addEventListener('click', function(e) {
-        if (menu.classList.contains('open')) {
-          var isClickInsideMenu = menu.contains(e.target);
-          var isClickOnTrigger = trigger && (trigger === e.target || trigger.contains(e.target));
-          var isClickOnMobileBtn = mobileBtn && (mobileBtn === e.target || mobileBtn.contains(e.target));
-          if (!isClickInsideMenu && !isClickOnTrigger && !isClickOnMobileBtn) {
-            menu.classList.remove('open');
-          }
+    // Use event delegation on document so events survive DOM re-insertion
+    document.addEventListener('click', function(e) {
+      var target = e.target;
+      
+      // Check if clicked on trigger button or its children
+      var trigger = document.getElementById('nav-panel-trigger');
+      if (trigger && (trigger === target || trigger.contains(target))) {
+        window.toggleMegaMenu(e);
+        return;
+      }
+      
+      // Check if clicked on close button
+      var closeBtn = document.getElementById('nav-panel-close');
+      if (closeBtn && (closeBtn === target || closeBtn.contains(target))) {
+        e.stopPropagation();
+        window.closeMegaMenu();
+        return;
+      }
+      
+      // Check if clicked on mobile menu button
+      var mobileBtn = document.getElementById('mobile-menu-btn');
+      if (mobileBtn && (mobileBtn === target || mobileBtn.contains(target))) {
+        window.toggleMegaMenu(e);
+        return;
+      }
+      
+      // Close menu if clicked outside
+      var menu = document.getElementById('nav-panel');
+      if (menu && menu.getAttribute('data-open') === 'true') {
+        if (!menu.contains(target)) {
+          window.closeMegaMenu();
         }
-      });
-    })();
+      }
+    });
 
     // Dark mode toggle
     (function() {
