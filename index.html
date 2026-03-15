@@ -2328,20 +2328,24 @@
       var closeBtn = document.getElementById('mega-menu-close');
       if (!trigger || !menu) return;
       
-      // Desktop trigger
-      trigger.addEventListener('click', function(e) {
+      function toggleMenu(e) {
         e.preventDefault();
         e.stopPropagation();
         menu.classList.toggle('open');
-      });
+      }
+
+      // Desktop trigger
+      trigger.addEventListener('click', toggleMenu);
       
       // Mobile button trigger
       if (mobileBtn) {
-        mobileBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          e.stopPropagation();
-          menu.classList.toggle('open');
-        });
+        mobileBtn.addEventListener('click', toggleMenu);
+        // Ensure touchstart also works for better mobile responsiveness
+        mobileBtn.addEventListener('touchstart', function(e) {
+          // Only prevent default if it's not a scroll
+          if (e.cancelable) e.preventDefault();
+          toggleMenu(e);
+        }, { passive: false });
       }
       
       closeBtn.addEventListener('click', function(e) {
@@ -2353,7 +2357,7 @@
           menu.classList.remove('open');
         }
       });
-    });
+    })();
 
     // Dark mode toggle
     (function() {
