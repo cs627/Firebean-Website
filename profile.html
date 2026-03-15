@@ -414,8 +414,7 @@
         <article id="profile-challenge" class="cms-content">
         </article>
         <div id="profile-solution" class="cms-content mt-6"></div>
-        <!-- Interleaved gallery sections will be inserted here -->
-        <div id="interleaved-gallery" class="mt-12"></div>
+        <!-- Photos will be interleaved between article paragraphs -->
       </div>
 
       <!-- Right Column: Scope + Q&A Sidebar -->
@@ -443,7 +442,7 @@
     </section>
 
     <!-- Image Gallery Section (dynamically populated from Drive folder) -->
-    <section id="profile-gallery" class="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6">
+    <section id="profile-gallery" class="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6 hidden">
       <!-- Gallery images populated by JS from Drive folder -->
     </section>
 
@@ -1011,21 +1010,31 @@
       }
 
       // === NEW: Interleave gallery photos with text paragraphs ===
-      function buildInterleavedGallery(photoUrls) {
-        var interleavedEl = document.getElementById('interleaved-gallery');
-        if (!interleavedEl || !photoUrls || photoUrls.length < 2) return;
+      // === NEW: Interleave gallery photos between article sections ===
+      function interleavePhotosWithContent(photoUrls) {
+        if (!photoUrls || photoUrls.length < 2) return;
 
-        // Split photos into pairs (every 2 photos)
+        var challengeEl = document.getElementById('profile-challenge');
+        if (!challengeEl) return;
+
+        // Get all h3 headings in the article (these mark section boundaries)
+        var headings = challengeEl.querySelectorAll('h3');
+        if (headings.length === 0) return;
+
+        // Create photo pairs
         var photoPairs = [];
         for (var i = 0; i < photoUrls.length; i += 2) {
           photoPairs.push(photoUrls.slice(i, i + 2));
         }
 
-        // Create gallery pairs and insert them
-        photoPairs.forEach(function(pair, pairIdx) {
+        // Insert photo pairs after each heading (up to the number of headings)
+        for (var h = 0; h < headings.length && h < photoPairs.length; h++) {
+          var heading = headings[h];
+          var pair = photoPairs[h];
+
+          // Create container for this photo pair
           var pairContainer = document.createElement('div');
-          pairContainer.className = 'grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6 mb-12';
-          pairContainer.style.marginTop = pairIdx === 0 ? '0' : '2rem';
+          pairContainer.className = 'grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6 my-8';
 
           pair.forEach(function(url) {
             var div = document.createElement('div');
@@ -1050,15 +1059,51 @@
             });
           });
 
-          interleavedEl.appendChild(pairContainer);
-        });
+          // Insert after the heading
+          heading.parentNode.insertBefore(pairContainer, heading.nextSibling);
+        }
+
+        // If there are remaining photos, add them at the end of the article
+        var remainingPhotos = photoPairs.slice(headings.length);
+        if (remainingPhotos.length > 0) {
+          var remainingContainer = document.createElement('div');
+          remainingContainer.className = 'grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6 mt-12';
+
+          remainingPhotos.forEach(function(pair) {
+            pair.forEach(function(url) {
+              var div = document.createElement('div');
+              div.className = 'overflow-hidden aspect-square';
+              var img = document.createElement('img');
+              img.src = url;
+              img.alt = (project.project || 'Project') + ' photo';
+              img.className = 'w-full h-full object-cover hover:scale-105 transition-transform duration-700';
+              img.referrerPolicy = 'no-referrer';
+              div.appendChild(img);
+              remainingContainer.appendChild(div);
+
+              // Add scroll-driven animation
+              gsap.set(div, { opacity: 0, y: 30 });
+              ScrollTrigger.create({
+                trigger: div,
+                start: 'top 85%',
+                once: true,
+                onEnter: function() {
+                  gsap.to(div, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' });
+                }
+              });
+            });
+          });
+
+          challengeEl.appendChild(remainingContainer);
+        }
       }
 
-      // Build interleaved gallery if we have enough photos
-      if (project.galleryPhotos && project.galleryPhotos.length >= 2) {
-        buildInterleavedGallery(project.galleryPhotos);
-      }
-
+      // Interleave photos with content after a short delay to ensure DOM is ready
+      setTimeout(function() {
+        if (project.galleryPhotos && project.galleryPhotos.length >= 2) {
+          interleavePhotosWithContent(project.galleryPhotos);
+        }
+      }, 200);
       // Trigger hero image reveal after CMS populates the src
       var heroImg = document.getElementById('profile-hero');
       if (heroImg) {
