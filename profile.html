@@ -1015,11 +1015,8 @@
         if (!photoUrls || photoUrls.length < 2) return;
 
         var challengeEl = document.getElementById('profile-challenge');
+        var solutionEl = document.getElementById('profile-solution');
         if (!challengeEl) return;
-
-        // Get all h3 headings in the article (these mark section boundaries)
-        var headings = challengeEl.querySelectorAll('h3');
-        if (headings.length === 0) return;
 
         // Create photo pairs
         var photoPairs = [];
@@ -1027,15 +1024,11 @@
           photoPairs.push(photoUrls.slice(i, i + 2));
         }
 
-        // Insert photo pairs after each heading (up to the number of headings)
-        for (var h = 0; h < headings.length && h < photoPairs.length; h++) {
-          var heading = headings[h];
-          var pair = photoPairs[h];
-
-          // Create container for this photo pair
+        // Helper function to create a photo pair container
+        function createPairContainer(pair, isLargeMargin = false) {
           var pairContainer = document.createElement('div');
-          pairContainer.className = 'grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6 my-8';
-
+          pairContainer.className = 'grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6 ' + (isLargeMargin ? 'my-12' : 'my-8');
+          
           pair.forEach(function(url) {
             var div = document.createElement('div');
             div.className = 'overflow-hidden aspect-square';
@@ -1058,43 +1051,53 @@
               }
             });
           });
-
-          // Insert after the heading
-          heading.parentNode.insertBefore(pairContainer, heading.nextSibling);
+          return pairContainer;
         }
 
-        // If there are remaining photos, add them at the end of the article
-        var remainingPhotos = photoPairs.slice(headings.length);
-        if (remainingPhotos.length > 0) {
+        // Get all h3 headings in the article
+        var headings = challengeEl.querySelectorAll('h3');
+        
+        // 1. Insert Photo 1 & 2 after first paragraph (before second heading)
+        if (headings.length > 1 && photoPairs.length > 0) {
+          challengeEl.insertBefore(createPairContainer(photoPairs[0]), headings[1]);
+        }
+
+        // 2. Insert Photo 3 & 4 after second paragraph (before third heading)
+        if (headings.length > 2 && photoPairs.length > 1) {
+          challengeEl.insertBefore(createPairContainer(photoPairs[1]), headings[2]);
+        }
+
+        // 3. Insert Photo 5 & 6 after third paragraph (before fourth heading, if any)
+        if (headings.length > 3 && photoPairs.length > 2) {
+          challengeEl.insertBefore(createPairContainer(photoPairs[2]), headings[3]);
+        } else if (photoPairs.length > 2) {
+          // If no 4th heading, just add at end of challengeEl
+          challengeEl.appendChild(createPairContainer(photoPairs[2]));
+        }
+
+        // 4. Insert Photo 7 & 8 after "Challenge & Solution" section
+        if (photoPairs.length > 3) {
+          var targetEl = solutionEl || challengeEl;
+          targetEl.parentNode.insertBefore(createPairContainer(photoPairs[3], true), targetEl.nextSibling);
+        }
+        
+        // Handle any remaining photos beyond the 8th
+        if (photoPairs.length > 4) {
           var remainingContainer = document.createElement('div');
           remainingContainer.className = 'grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6 mt-12';
-
-          remainingPhotos.forEach(function(pair) {
-            pair.forEach(function(url) {
+          for (var i = 4; i < photoPairs.length; i++) {
+            photoPairs[i].forEach(function(url) {
               var div = document.createElement('div');
               div.className = 'overflow-hidden aspect-square';
               var img = document.createElement('img');
               img.src = url;
-              img.alt = (project.project || 'Project') + ' photo';
-              img.className = 'w-full h-full object-cover hover:scale-105 transition-transform duration-700';
+              img.className = 'w-full h-full object-cover';
               img.referrerPolicy = 'no-referrer';
               div.appendChild(img);
               remainingContainer.appendChild(div);
-
-              // Add scroll-driven animation
-              gsap.set(div, { opacity: 0, y: 30 });
-              ScrollTrigger.create({
-                trigger: div,
-                start: 'top 85%',
-                once: true,
-                onEnter: function() {
-                  gsap.to(div, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' });
-                }
-              });
             });
-          });
-
-          challengeEl.appendChild(remainingContainer);
+          }
+          challengeEl.parentNode.appendChild(remainingContainer);
         }
       }
 
@@ -1103,7 +1106,7 @@
         if (project.galleryPhotos && project.galleryPhotos.length >= 2) {
           interleavePhotosWithContent(project.galleryPhotos);
         }
-      }, 200);
+      }, 300);
       // Trigger hero image reveal after CMS populates the src
       var heroImg = document.getElementById('profile-hero');
       if (heroImg) {
