@@ -263,10 +263,10 @@
       
       /* L-Brackets — Adjusted to fit 400x200px logo with 5-10px padding */
       .l-bracket { position: absolute; width: 20px; height: 20px; border-color: #ff3333; border-style: solid; pointer-events: none; z-index: 10; }
-      .l-tl { top: 7px; left: 7px; border-width: 2px 0 0 2px; }
-      .l-tr { top: 7px; right: 7px; border-width: 2px 2px 0 0; }
-      .l-bl { bottom: 7px; left: 7px; border-width: 0 0 2px 2px; }
-      .l-br { bottom: 7px; right: 7px; border-width: 0 2px 2px 0; }
+      .l-tl { top: 0px; left: 0px; border-width: 2px 0 0 2px; }
+      .l-tr { top: 0px; right: 0px; border-width: 2px 2px 0 0; }
+      .l-bl { bottom: 0px; left: 0px; border-width: 0 0 2px 2px; }
+      .l-br { bottom: 0px; right: 0px; border-width: 0 2px 2px 0; }
 
       /* Japanese Work Title Adjustment */
       body.lang-jp [data-key="Index.Work.Title"] {
@@ -864,14 +864,14 @@
           <span data-key="Index.Narrative.Line1">WE MOVE</span>
           
           <!-- Logo Slot 1 (Lifestyle) -->
-          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[5em] h-[1.6em] align-middle" data-type="lifestyle" onclick="openClientModal(this)">
+          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[120px] h-[60px] md:w-[160px] md:h-[80px] lg:w-[200px] lg:h-[100px] align-middle" data-type="lifestyle" onclick="openClientModal(this)">
             <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
             <div class="w-full h-full perspective-1000">
               <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
-                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[0.15em] bg-transparent">
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent">
                   <img src="" class="front-img max-w-full max-h-full object-contain " alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
                 </div>
-                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[0.15em] bg-transparent rotate-x-180">
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent rotate-x-180">
                   <img src="" class="back-img max-w-full max-h-full object-contain " alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
                 </div>
               </div>
@@ -882,14 +882,14 @@
           <span data-key="Index.Narrative.Line3">SPARK CURIOSITY FOR</span>
 
           <!-- Logo Slot 2 (Government) -->
-          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[5em] h-[1.6em] align-middle" data-type="government" onclick="openClientModal(this)">
+          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[120px] h-[60px] md:w-[160px] md:h-[80px] lg:w-[200px] lg:h-[100px] align-middle" data-type="government" onclick="openClientModal(this)">
             <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
             <div class="w-full h-full perspective-1000">
               <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
-                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[0.15em] bg-transparent">
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent">
                   <img src="" class="front-img max-w-full max-h-full object-contain " alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
                 </div>
-                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[0.15em] bg-transparent rotate-x-180">
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent rotate-x-180">
                   <img src="" class="back-img max-w-full max-h-full object-contain " alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
                 </div>
               </div>
@@ -905,14 +905,14 @@
           <div class="inline-flex items-center">
             <span data-key="Index.Narrative.Line6">FOR</span>
             <!-- Logo Slot 3 (Lifestyle) -->
-            <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[5em] h-[1.6em] align-middle" data-type="lifestyle" onclick="openClientModal(this)">
+            <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[120px] h-[60px] md:w-[160px] md:h-[80px] lg:w-[200px] lg:h-[100px] align-middle" data-type="lifestyle" onclick="openClientModal(this)">
               <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
               <div class="w-full h-full perspective-1000">
                 <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
-                  <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[0.15em] bg-transparent">
+                  <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent">
                     <img src="" class="front-img max-w-full max-h-full object-contain " alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
                   </div>
-                  <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[0.15em] bg-transparent rotate-x-180">
+                  <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent rotate-x-180">
                     <img src="" class="back-img max-w-full max-h-full object-contain " alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
                   </div>
                 </div>
@@ -926,14 +926,14 @@
           <span data-key="Index.Narrative.Line1">弊社は、</span>
           
           <!-- Logo Slot 1 (Lifestyle) -->
-          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[5em] h-[1.6em] align-middle" data-type="lifestyle" onclick="openClientModal(this)">
+          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[120px] h-[60px] md:w-[160px] md:h-[80px] lg:w-[200px] lg:h-[100px] align-middle" data-type="lifestyle" onclick="openClientModal(this)">
             <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
             <div class="w-full h-full perspective-1000">
               <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
-                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[0.15em] bg-transparent">
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent">
                   <img src="" class="front-img max-w-full max-h-full object-contain " alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
                 </div>
-                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[0.15em] bg-transparent rotate-x-180">
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent rotate-x-180">
                   <img src="" class="back-img max-w-full max-h-full object-contain " alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
                 </div>
               </div>
@@ -951,14 +951,14 @@
           <span data-key="Index.Narrative.Line4">へと導き、</span>
           
           <!-- Logo Slot 2 (Government) -->
-          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[5em] h-[1.6em] align-middle" data-type="government" onclick="openClientModal(this)">
+          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[120px] h-[60px] md:w-[160px] md:h-[80px] lg:w-[200px] lg:h-[100px] align-middle" data-type="government" onclick="openClientModal(this)">
             <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
             <div class="w-full h-full perspective-1000">
               <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
-                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[0.15em] bg-transparent">
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent">
                   <img src="" class="front-img max-w-full max-h-full object-contain " alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
                 </div>
-                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[0.15em] bg-transparent rotate-x-180">
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent rotate-x-180">
                   <img src="" class="back-img max-w-full max-h-full object-contain " alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
                 </div>
               </div>
@@ -976,14 +976,14 @@
           <span data-key="Index.Narrative.Line7">れない空間へ。</span>
           
           <!-- Logo Slot 3 (Lifestyle) -->
-          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[5em] h-[1.6em] align-middle" data-type="lifestyle" onclick="openClientModal(this)">
+          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[120px] h-[60px] md:w-[160px] md:h-[80px] lg:w-[200px] lg:h-[100px] align-middle" data-type="lifestyle" onclick="openClientModal(this)">
             <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
             <div class="w-full h-full perspective-1000">
               <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
-                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[0.15em] bg-transparent">
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent">
                   <img src="" class="front-img max-w-full max-h-full object-contain " alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
                 </div>
-                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[0.15em] bg-transparent rotate-x-180">
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent rotate-x-180">
                   <img src="" class="back-img max-w-full max-h-full object-contain " alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
                 </div>
               </div>
