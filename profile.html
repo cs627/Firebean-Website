@@ -69,29 +69,23 @@
       transition: background-color 0.3s ease, color 0.3s ease;
     }
     
-    /* Mega Menu Styles */
-    .mega-menu {
-      opacity: 0;
-      visibility: hidden;
-      transform: translate(-50%, -10px);
-      transition: all 0.3s ease;
-      pointer-events: none;
-    }
-    .mega-menu.open {
-      opacity: 1;
-      visibility: visible;
-      transform: translate(-50%, 0);
-      pointer-events: auto;
-    }
-
     /* Navigation Overrides */
     #navbar {
-      position: relative;
       z-index: 99999 !important;
       pointer-events: auto !important;
     }
-    #mega-menu {
-      z-index: 100001 !important;
+    #nav-panel {
+      z-index: 999999 !important;
+    }
+    /* Mobile adjustment for Nav Panel */
+    @media (max-width: 767px) {
+      #nav-panel {
+        left: 5% !important;
+        right: 5% !important;
+        width: 90% !important;
+        max-width: none !important;
+        top: 80px !important;
+      }
     }
     .lang-btn {
       cursor: pointer !important;
@@ -315,70 +309,73 @@
     <h2 class="font-display text-white text-6xl md:text-9xl tracking-tighter uppercase italic">Loading...</h2>
   </div>
 
-  <!-- Navigation -->
-  <nav id="navbar" class="fixed top-0 left-0 w-full z-[1000] px-6 py-6 flex justify-between items-center transition-all duration-500 bg-brand-gray/80 backdrop-blur-md">
-    <div class="flex items-center gap-3">
-      <a href="index.html" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 bg-brand-black rounded-full flex items-center justify-center overflow-hidden transition-transform duration-500 group-hover:rotate-12">
-          <img src="data/images/firebean-logo.png" alt="Firebean" class="w-7 h-7 object-contain" referrerpolicy="no-referrer">
-        </div>
-        <span class="font-oswald font-bold tracking-[0.2em] text-lg uppercase">Firebean</span>
-      </a>
-    </div>
+  <!-- Mobile Menu Button -->
+  <button id="mobile-menu-btn" class="md:hidden fixed top-6 right-6 z-[10000] bg-black/60 backdrop-blur-lg p-3 rounded-xl border border-white/10 shadow-xl active:scale-95 transition-all" onclick="window.toggleMegaMenu && window.toggleMegaMenu(event)">
+    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+  </button>
 
-    <div class="hidden md:flex items-center gap-12">
-      <a href="index.html" class="font-oswald text-xs uppercase tracking-[0.2em] hover:text-brand-red transition-colors">Home</a>
-      <a href="index.html#about" class="font-oswald text-xs uppercase tracking-[0.2em] hover:text-brand-red transition-colors">About</a>
-      <div class="relative group">
-        <button id="mega-menu-trigger" class="font-oswald text-xs uppercase tracking-[0.2em] flex items-center gap-1 hover:text-brand-red transition-colors">
-          What We Do <span class="text-[10px] opacity-50">▼</span>
+  <!-- Navigation -->
+  <nav class="absolute top-0 left-0 w-full px-6 py-6 flex justify-between items-center z-[9999] text-brand-black pointer-events-auto" id="navbar" data-lenis-prevent>
+    <a class='flex items-center gap-2 hover:opacity-70 transition-opacity' href='index.html'>
+      <img src="data/images/firebean-logo-w100.webp" class="h-6 w-auto object-contain mix-blend-multiply" alt="Firebean Logo" referrerpolicy="no-referrer">
+      <div class="font-sans font-light text-xl tracking-widest lowercase" style="font-variant: small-caps;">firebean</div>
+    </a>
+    
+    <div class="hidden md:flex gap-8 font-sans text-sm uppercase tracking-widest items-center">
+      <a href="index.html" class="hover:opacity-50 transition-opacity" data-key="Global.Navigation.Home">Home</a>
+      <a href="index.html#about" class="hover:opacity-50 transition-opacity" data-key="Global.Navigation.About">About</a>
+      <div class="relative py-4">
+        <button id="nav-panel-trigger" class='hover:opacity-50 transition-opacity flex items-center gap-1 uppercase tracking-widest text-sm font-sans'>
+          <span data-key="Global.Navigation.WhatWeDo">What We Do</span> <span class="text-[10px]">▼</span>
         </button>
       </div>
     </div>
 
-    <div class="flex items-center gap-6">
-      <div class="flex items-center gap-3 font-oswald text-[10px] tracking-widest uppercase border-r border-black/5 pr-6">
-        <button onclick="window.setLang && window.setLang('en')" class="lang-btn hover:text-brand-red transition-colors opacity-40 [&.active]:opacity-100" data-lang="en">EN</button>
-        <span class="opacity-20">|</span>
-        <button onclick="window.setLang && window.setLang('ch')" class="lang-btn hover:text-brand-red transition-colors opacity-40 [&.active]:opacity-100" data-lang="ch">CH</button>
-        <span class="opacity-20">|</span>
-        <button onclick="window.setLang && window.setLang('jp')" class="lang-btn hover:text-brand-red transition-colors opacity-40 [&.active]:opacity-100" data-lang="jp">JP</button>
-      </div>
-      <button id="dark-toggle" class="dark-toggle">
-        <svg id="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
-        <svg id="icon-sun" class="hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg>
+    <div class="font-sans text-xs uppercase tracking-widest flex gap-2 items-center">
+      <button class="lang-btn hover:opacity-50" data-lang="en">EN</button> |
+      <button class="lang-btn hover:opacity-50 text-gray-500" data-lang="ch">CH</button> |
+      <button class="lang-btn hover:opacity-50 text-gray-500" data-lang="jp">JP</button> |
+      <button class="dark-toggle" id="dark-toggle" title="Toggle dark mode">
+        <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+        <svg id="icon-sun" style="display:none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
       </button>
     </div>
   </nav>
 
-  <!-- Mega Menu -->
-  <div id="mega-menu" class="mega-menu fixed top-24 left-1/2 w-[90vw] max-w-5xl bg-white/95 backdrop-blur-xl z-[1001] shadow-2xl p-12 grid grid-cols-1 md:grid-cols-3 gap-12 rounded-2xl border border-black/5">
-    <button id="mega-menu-close" class="absolute top-6 right-6 text-gray-400 hover:text-brand-red transition-colors">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-    </button>
-    <div>
-      <h3 class="font-oswald text-xs uppercase tracking-[0.3em] text-brand-red mb-8">Public Relations</h3>
-      <ul class="space-y-4 font-sans text-sm text-gray-600">
-        <li><a href="work.html?cat=PR+%26+MEDIA" class="hover:text-brand-black transition-colors">Media Relations</a></li>
-        <li><a href="work.html?cat=PR+%26+MEDIA" class="hover:text-brand-black transition-colors">Crisis Management</a></li>
-        <li><a href="work.html?cat=PR+%26+MEDIA" class="hover:text-brand-black transition-colors">KOL & Influencer</a></li>
-      </ul>
-    </div>
-    <div>
-      <h3 class="font-oswald text-xs uppercase tracking-[0.3em] text-brand-red mb-8">Event Marketing</h3>
-      <ul class="space-y-4 font-sans text-sm text-gray-600">
-        <li><a href="work.html?cat=EVENTS+%26+CEREMONIES" class="hover:text-brand-black transition-colors">Brand Activation</a></li>
-        <li><a href="work.html?cat=EVENTS+%26+CEREMONIES" class="hover:text-brand-black transition-colors">Grand Openings</a></li>
-        <li><a href="work.html?cat=EXHIBITIONS" class="hover:text-brand-black transition-colors">Roving Exhibitions</a></li>
-      </ul>
-    </div>
-    <div>
-      <h3 class="font-oswald text-xs uppercase tracking-[0.3em] text-brand-red mb-8">Digital & Tech</h3>
-      <ul class="space-y-4 font-sans text-sm text-gray-600">
-        <li><a href="work.html?cat=INTERACTIVE+%26+TECH" class="hover:text-brand-black transition-colors">Interactive Installations</a></li>
-        <li><a href="work.html?cat=SOCIAL+%26+CONTENT" class="hover:text-brand-black transition-colors">Social Strategy</a></li>
-        <li><a href="work.html?cat=SOCIAL+%26+CONTENT" class="hover:text-brand-black transition-colors">Content Production</a></li>
-      </ul>
+  <!-- Nav Panel (Mega Menu) - matches index.html -->
+  <div id="nav-panel" class="fixed bg-brand-black text-white px-6 py-10 shadow-2xl rounded-xl" style="opacity:0; visibility:hidden; pointer-events:none; top:80px; left:5%; right:5%; width:90%; max-width:600px; z-index:999999; transition:all 0.3s ease;" data-open="false">
+    <button id="nav-panel-close" class="absolute top-4 right-4 text-white hover:text-brand-red transition-colors text-2xl leading-none">&times;</button>
+    <div class="grid grid-cols-2 gap-8 md:gap-16 w-full">
+      <div>
+        <h4 class="font-oswald text-lg md:text-xl mb-4 md:mb-6 text-brand-red tracking-widest" data-key="Global.Navigation.WhoWeHelp">WHO WE HELP</h4>
+        <ul class="space-y-2 md:space-y-3 text-xs md:text-sm text-gray-400 font-sans tracking-wide">
+          <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.GovPublic' href='work.html?filter=government'>Government & Public Sector</a></li>
+          <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.LifestyleConsumer' href='work.html?filter=lifestyle'>Lifestyle & Consumer</a></li>
+          <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.FBHospitality' href='work.html?filter=hospitality'>F&B & Hospitality</a></li>
+          <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.MallsVenues' href='work.html?filter=venues'>Malls & Venues</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-oswald text-lg md:text-xl mb-4 md:mb-6 text-brand-red tracking-widest" data-key="Global.Navigation.WhatWeDo">WHAT WE DO</h4>
+        <ul class="space-y-2 md:space-y-3 text-xs md:text-sm text-gray-400 font-sans tracking-wide">
+          <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.RovingExhibitions' href='work.html?filter=exhibitions'>Roving Exhibitions</a></li>
+          <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.SocialContent' href='work.html?filter=social'>Social & Content</a></li>
+          <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.InteractiveTech' href='work.html?filter=tech'>Interactive & Tech</a></li>
+          <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.PRMedia' href='work.html?filter=pr'>PR & Media</a></li>
+          <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.EventsCeremonies' href='work.html?filter=events'>Events & Ceremonies</a></li>
+        </ul>
+      </div>
+      <div class="col-span-2 border-t border-white/20 pt-4 md:pt-6 mt-2">
+        <a class='text-sm font-bold hover:text-brand-red transition-colors flex items-center gap-3 tracking-widest' href='work.html'>
+          <span class="text-xl">↳</span> <span data-key="Global.Navigation.ViewAllWork">VIEW ALL WORK</span>
+        </a>
+      </div>
     </div>
   </div>
 
@@ -725,15 +722,47 @@
       };
     })();
 
-    // Mega Menu
-    (function() {
-      var trigger = document.getElementById('mega-menu-trigger');
-      var menu = document.getElementById('mega-menu');
-      if (trigger && menu) {
-        trigger.onclick = (e) => { e.stopPropagation(); menu.classList.toggle('open'); };
-        document.getElementById('mega-menu-close').onclick = () => menu.classList.remove('open');
-        document.onclick = (e) => { if (!menu.contains(e.target) && e.target !== trigger) menu.classList.remove('open'); };
+    // Nav Panel (Mega Menu) - matches index.html toggleMegaMenu logic
+    window.toggleMegaMenu = function(e) {
+      if (e) e.stopPropagation();
+      var panel = document.getElementById('nav-panel');
+      if (!panel) return;
+      var isOpen = panel.getAttribute('data-open') === 'true';
+      if (isOpen) {
+        panel.style.opacity = '0';
+        panel.style.visibility = 'hidden';
+        panel.style.pointerEvents = 'none';
+        panel.setAttribute('data-open', 'false');
+      } else {
+        panel.style.opacity = '1';
+        panel.style.visibility = 'visible';
+        panel.style.pointerEvents = 'auto';
+        panel.setAttribute('data-open', 'true');
       }
+    };
+    (function() {
+      var trigger = document.getElementById('nav-panel-trigger');
+      var closeBtn = document.getElementById('nav-panel-close');
+      var panel = document.getElementById('nav-panel');
+      if (trigger) trigger.onclick = window.toggleMegaMenu;
+      if (closeBtn) closeBtn.onclick = function() {
+        if (panel) {
+          panel.style.opacity = '0';
+          panel.style.visibility = 'hidden';
+          panel.style.pointerEvents = 'none';
+          panel.setAttribute('data-open', 'false');
+        }
+      };
+      document.addEventListener('click', function(e) {
+        if (!panel) return;
+        if (panel.getAttribute('data-open') !== 'true') return;
+        if (!panel.contains(e.target) && e.target !== trigger && !trigger.contains(e.target)) {
+          panel.style.opacity = '0';
+          panel.style.visibility = 'hidden';
+          panel.style.pointerEvents = 'none';
+          panel.setAttribute('data-open', 'false');
+        }
+      });
     })();
 
     // Legal
