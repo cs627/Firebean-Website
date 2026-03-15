@@ -90,12 +90,27 @@
         transform: translate(-50%, -10px);
         transition: all 0.3s ease;
         pointer-events: none;
+        z-index: 20000;
       }
       .mega-menu.open {
-        opacity: 1;
-        visibility: visible;
+        opacity: 1 !important;
+        visibility: visible !important;
         transform: translate(-50%, 0);
-        pointer-events: auto;
+        pointer-events: auto !important;
+      }
+      /* Mobile adjustment for Mega Menu */
+      @media (max-width: 767px) {
+        .mega-menu {
+          left: 5%;
+          right: 5%;
+          width: 90%;
+          max-width: none;
+          transform: translateY(-10px);
+          top: 80px;
+        }
+        .mega-menu.open {
+          transform: translateY(0);
+        }
       }
 
       /* 3D Logo Background */
@@ -573,7 +588,7 @@
           </button>
 
           <!-- Mega Menu Dropdown -->
-          <div id="mega-menu" class="mega-menu fixed left-1/2 top-[80px] w-[90vw] max-w-[600px] bg-brand-black text-white px-6 py-10 shadow-2xl rounded-xl z-[9999]" data-lenis-prevent>
+          <div id="mega-menu" class="mega-menu fixed left-1/2 top-[80px] w-[90vw] max-w-[600px] bg-brand-black text-white px-6 py-10 shadow-2xl rounded-xl z-[20000]" data-lenis-prevent>
             <button id="mega-menu-close" class="absolute top-4 right-4 text-white hover:text-brand-red transition-colors text-2xl leading-none">&times;</button>
 
             <div class="grid grid-cols-2 gap-16 w-full">
