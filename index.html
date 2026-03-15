@@ -599,14 +599,13 @@
         </div>
       </div>
 
-    <!-- Mobile Menu Button (Fixed Top Right) -->
-    <button id="mobile-menu-btn" class="md:hidden fixed top-4 right-4 z-50 bg-black/40 backdrop-blur-md p-2 rounded-lg hover:bg-black/60 transition-colors">
-      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-    </button>
-
     <div class="font-sans text-xs uppercase tracking-widest flex gap-2 items-center">
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden flex bg-black/40 backdrop-blur-md p-2 rounded-lg hover:bg-black/60 transition-colors">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
         <button class="lang-btn hover:opacity-50" data-lang="en">EN</button> |
         <button class="lang-btn hover:opacity-50 text-gray-500" data-lang="ch">CH</button> |
         <button class="lang-btn hover:opacity-50 text-gray-500" data-lang="jp">JP</button> |
@@ -2326,35 +2325,48 @@
       var mobileBtn = document.getElementById('mobile-menu-btn');
       var menu = document.getElementById('mega-menu');
       var closeBtn = document.getElementById('mega-menu-close');
-      if (!trigger || !menu) return;
+      if (!menu) return;
       
       function toggleMenu(e) {
-        e.preventDefault();
-        e.stopPropagation();
+        if (e) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
         menu.classList.toggle('open');
+        console.log('Menu toggled, current classes:', menu.className);
       }
 
       // Desktop trigger
-      trigger.addEventListener('click', toggleMenu);
+      if (trigger) {
+        trigger.addEventListener('click', toggleMenu);
+      }
       
       // Mobile button trigger
       if (mobileBtn) {
         mobileBtn.addEventListener('click', toggleMenu);
         // Ensure touchstart also works for better mobile responsiveness
         mobileBtn.addEventListener('touchstart', function(e) {
-          // Only prevent default if it's not a scroll
           if (e.cancelable) e.preventDefault();
           toggleMenu(e);
         }, { passive: false });
       }
       
-      closeBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        menu.classList.remove('open');
-      });
-      document.addEventListener('click', function(e) {
-        if (!menu.contains(e.target) && e.target !== trigger && !trigger.contains(e.target) && e.target !== mobileBtn && (!mobileBtn || !mobileBtn.contains(e.target))) {
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
           menu.classList.remove('open');
+        });
+      }
+
+      document.addEventListener('click', function(e) {
+        if (menu.classList.contains('open')) {
+          var isClickInsideMenu = menu.contains(e.target);
+          var isClickOnTrigger = trigger && (trigger === e.target || trigger.contains(e.target));
+          var isClickOnMobileBtn = mobileBtn && (mobileBtn === e.target || mobileBtn.contains(e.target));
+          
+          if (!isClickInsideMenu && !isClickOnTrigger && !isClickOnMobileBtn) {
+            menu.classList.remove('open');
+          }
         }
       });
     })();
