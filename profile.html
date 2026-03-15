@@ -741,8 +741,18 @@
     }
 
     // Event Listeners
-    window.addEventListener('cmsDataReady', e => populateProfile(e.detail));
-    if (window.cmsData && window.cmsData.loaded) populateProfile(window.cmsData);
+    window.addEventListener('cmsDataReady', e => {
+      populateProfile(e.detail);
+      setTimeout(extractQA, 800);
+      setTimeout(extractQA, 2000);
+    });
+    if (window.cmsData && window.cmsData.loaded) {
+      populateProfile(window.cmsData);
+      setTimeout(extractQA, 800);
+    }
+    window.addEventListener('languageChange', () => {
+      setTimeout(extractQA, 1000);
+    });
 
     // Dark Mode
     (function() {
