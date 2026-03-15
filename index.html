@@ -549,6 +549,13 @@
     </div>
     
     <!-- Navigation -->
+    <!-- Mobile Menu Button (Absolute Top Right) -->
+    <button id="mobile-menu-btn" class="md:hidden fixed top-6 right-6 z-[10000] bg-black/60 backdrop-blur-lg p-3 rounded-xl border border-white/10 shadow-xl active:scale-95 transition-all" onclick="window.toggleMegaMenu(event)">
+      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+
     <nav class="absolute top-0 left-0 w-full px-6 py-6 flex justify-between items-center z-[9999] text-brand-black pointer-events-auto" id="navbar" data-lenis-prevent>
       <a class='flex items-center gap-2 hover:opacity-70 transition-opacity' href='index.html'>
         <img src="data/images/firebean-logo-w100.webp" class="h-6 w-auto object-contain mix-blend-multiply" alt="Firebean Logo" referrerpolicy="no-referrer">
@@ -600,12 +607,7 @@
       </div>
 
     <div class="font-sans text-xs uppercase tracking-widest flex gap-2 items-center">
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" class="md:hidden flex bg-black/40 backdrop-blur-md p-2 rounded-lg hover:bg-black/60 transition-colors">
-          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
+
         <button class="lang-btn hover:opacity-50" data-lang="en">EN</button> |
         <button class="lang-btn hover:opacity-50 text-gray-500" data-lang="ch">CH</button> |
         <button class="lang-btn hover:opacity-50 text-gray-500" data-lang="jp">JP</button> |
@@ -2320,35 +2322,24 @@
     document.addEventListener('DOMContentLoaded', updatePageSpecificUI);
 
     // Mega Menu click toggle
+    window.toggleMegaMenu = function(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      var menu = document.getElementById('mega-menu');
+      if (menu) menu.classList.toggle('open');
+    };
+
     (function() {
       var trigger = document.getElementById('mega-menu-trigger');
-      var mobileBtn = document.getElementById('mobile-menu-btn');
       var menu = document.getElementById('mega-menu');
       var closeBtn = document.getElementById('mega-menu-close');
+      var mobileBtn = document.getElementById('mobile-menu-btn');
       if (!menu) return;
       
-      function toggleMenu(e) {
-        if (e) {
-          e.preventDefault();
-          e.stopPropagation();
-        }
-        menu.classList.toggle('open');
-        console.log('Menu toggled, current classes:', menu.className);
-      }
-
-      // Desktop trigger
       if (trigger) {
-        trigger.addEventListener('click', toggleMenu);
-      }
-      
-      // Mobile button trigger
-      if (mobileBtn) {
-        mobileBtn.addEventListener('click', toggleMenu);
-        // Ensure touchstart also works for better mobile responsiveness
-        mobileBtn.addEventListener('touchstart', function(e) {
-          if (e.cancelable) e.preventDefault();
-          toggleMenu(e);
-        }, { passive: false });
+        trigger.addEventListener('click', window.toggleMegaMenu);
       }
       
       if (closeBtn) {
@@ -2363,7 +2354,6 @@
           var isClickInsideMenu = menu.contains(e.target);
           var isClickOnTrigger = trigger && (trigger === e.target || trigger.contains(e.target));
           var isClickOnMobileBtn = mobileBtn && (mobileBtn === e.target || mobileBtn.contains(e.target));
-          
           if (!isClickInsideMenu && !isClickOnTrigger && !isClickOnMobileBtn) {
             menu.classList.remove('open');
           }
