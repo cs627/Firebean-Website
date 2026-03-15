@@ -634,8 +634,8 @@
         if (!qaContainer || !qaContent || !articleEl) return;
         var faqHeading = Array.from(articleEl.querySelectorAll('h1, h2, h3, h4, h5, h6, p, strong, b')).find(h => {
           var txt = h.textContent.toLowerCase().trim();
-          // Match headings or bold lines that look like a QA section title
-          return ['faq', 'q&a', 'q & a', '常見問題', 'よくある質問', 'fast recap'].some(k => txt.includes(k)) && (h.tagName.startsWith('H') || h.tagName === 'STRONG' || h.tagName === 'B' || (h.tagName === 'P' && h.children.length === 0 && txt.length < 30));
+          var keywords = ['faq', 'q&a', 'q & a', '常見問題', 'よくある質問', 'fast recap'];
+          return keywords.some(k => txt.includes(k)) && (h.tagName.startsWith('H') || h.tagName === 'STRONG' || h.tagName === 'B' || (h.tagName === 'P' && h.innerText.length < 50));
         });
         if (!faqHeading) { qaContainer.classList.add('hidden'); return; }
         var faqElements = [];
@@ -658,13 +658,17 @@
             }
           });
           // Handle <p> structure with Q: A: pattern
-          if (el.tagName === 'P') {
-              var txt = el.textContent.trim();
-              var qMatch = txt.match(/^Q\d*[.:] ?(.*?)(?:\n|A\d*[.:]|$)/i);
-              var aMatch = txt.match(/A\d*[.:] ?(.*)$/i);
-              if (qMatch && aMatch) {
-                  qaPairs.push({ q: qMatch[1].trim(), a: aMatch[1].trim() });
-              }
+          if (el.tagName === 'P' || el.tagName === 'DIV') {
+              var txt = el.innerText.trim();
+              // Try to find multiple Q&A pairs within the same block
+              var blocks = txt.split(/\n(?=Q\d*[.:])/i);
+              blocks.forEach(block => {
+                  var qMatch = block.match(/^Q\d*[.:] ?(.*?)(?:\n|A\d*[.:]|$)/i);
+                  var aMatch = block.match(/A\d*[.:] ?([\s\S]*)$/i);
+                  if (qMatch && aMatch) {
+                      qaPairs.push({ q: qMatch[1].trim(), a: aMatch[1].trim() });
+                  }
+              });
           }
         });
         if (qaPairs.length) {
