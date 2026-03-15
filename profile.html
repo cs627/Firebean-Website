@@ -409,11 +409,13 @@
 
     <!-- Article Content -->
     <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-32">
-      <!-- Left Column: CMS Article -->
+      <!-- Left Column: CMS Article + Interleaved Gallery -->
       <div class="lg:col-span-8">
         <article id="profile-challenge" class="cms-content">
         </article>
         <div id="profile-solution" class="cms-content mt-6"></div>
+        <!-- Interleaved gallery sections will be inserted here -->
+        <div id="interleaved-gallery" class="mt-12"></div>
       </div>
 
       <!-- Right Column: Scope + Q&A Sidebar -->
@@ -1006,6 +1008,55 @@
         buildGallery(project.galleryPhotos);
       } else {
         buildGallery([]);
+      }
+
+      // === NEW: Interleave gallery photos with text paragraphs ===
+      function buildInterleavedGallery(photoUrls) {
+        var interleavedEl = document.getElementById('interleaved-gallery');
+        if (!interleavedEl || !photoUrls || photoUrls.length < 2) return;
+
+        // Split photos into pairs (every 2 photos)
+        var photoPairs = [];
+        for (var i = 0; i < photoUrls.length; i += 2) {
+          photoPairs.push(photoUrls.slice(i, i + 2));
+        }
+
+        // Create gallery pairs and insert them
+        photoPairs.forEach(function(pair, pairIdx) {
+          var pairContainer = document.createElement('div');
+          pairContainer.className = 'grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6 mb-12';
+          pairContainer.style.marginTop = pairIdx === 0 ? '0' : '2rem';
+
+          pair.forEach(function(url) {
+            var div = document.createElement('div');
+            div.className = 'overflow-hidden aspect-square';
+            var img = document.createElement('img');
+            img.src = url;
+            img.alt = (project.project || 'Project') + ' photo';
+            img.className = 'w-full h-full object-cover hover:scale-105 transition-transform duration-700';
+            img.referrerPolicy = 'no-referrer';
+            div.appendChild(img);
+            pairContainer.appendChild(div);
+
+            // Add scroll-driven animation
+            gsap.set(div, { opacity: 0, y: 30 });
+            ScrollTrigger.create({
+              trigger: div,
+              start: 'top 85%',
+              once: true,
+              onEnter: function() {
+                gsap.to(div, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' });
+              }
+            });
+          });
+
+          interleavedEl.appendChild(pairContainer);
+        });
+      }
+
+      // Build interleaved gallery if we have enough photos
+      if (project.galleryPhotos && project.galleryPhotos.length >= 2) {
+        buildInterleavedGallery(project.galleryPhotos);
       }
 
       // Trigger hero image reveal after CMS populates the src
