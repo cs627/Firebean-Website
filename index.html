@@ -787,7 +787,7 @@
     </section>
 
     <!-- Session 4: About Us -->
-    <section class="relative py-32 px-6 bg-brand-black text-white overflow-hidden" id="about">
+    <section class="relative py-16 md:py-32 px-6 bg-brand-black text-white overflow-hidden" id="about">
       <!-- Background Image with Overlay -->
       <div class="absolute inset-0 z-0 h-[130%] -top-[15%]"> <!-- Enlarge container and offset -->
         <!-- Google Drive Image -->
@@ -797,23 +797,23 @@
 
       <div class="relative z-10 max-w-7xl mx-auto flex flex-col h-full">
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 md:gap-16 mb-24">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 md:gap-16 mb-12 md:mb-24">
           <!-- Left: Header & Intro + Lists -->
           <div class="lg:col-span-7 flex flex-col justify-center">
-            <h2 class="font-oswald text-5xl md:text-6xl lg:text-7xl uppercase leading-[0.9] font-bold mb-8 tracking-tighter text-white" data-key="Index.About.Title">
+            <h2 class="font-oswald text-3xl md:text-6xl lg:text-7xl uppercase leading-[0.9] font-bold mb-3 md:mb-8 tracking-tighter text-white" data-key="Index.About.Title">
               LIFESTYLE RESONANCE. <br>
               <span class="text-brand-red">INSTITUTIONAL RIGOR.</span>
             </h2>
-            <p class="font-playfair italic text-[18px] leading-relaxed text-white max-w-2xl" data-key="Index.About.Subtitle">
-              Shaping Hong Kong’s PR scene since 2007, we specialize in the art of the engagement. From the buzz of the city’s biggest lifestyle launches to our role as PR consultants for the Buildings Department since 2023, we create the strategies that make institutions feel human and brands feel essential.
+            <p class="font-playfair italic text-[14px] md:text-[18px] leading-relaxed text-white max-w-2xl mb-4 md:mb-0" data-key="Index.About.Subtitle">
+              Shaping Hong Kong's PR scene since 2007, we specialize in the art of the engagement. From the buzz of the city's biggest lifestyle launches to our role as PR consultants for the Buildings Department since 2023, we create the strategies that make institutions feel human and brands feel essential.
             </p>
           </div>
 
           <!-- Right: Mega Menu -->
-          <div class="lg:col-span-5 grid grid-cols-1 gap-8 md:gap-12 pt-0 md:pt-4">
+          <div class="lg:col-span-5 grid grid-cols-2 gap-4 md:gap-12 pt-0 md:pt-4">
             <div>
-              <h4 class="font-oswald text-sm font-bold uppercase tracking-widest text-brand-red mb-6 border-b border-white/20 pb-4" data-key="Global.Navigation.WhoWeHelp">Who We Help</h4>
-              <ul class="space-y-4 font-sans text-[14px] text-white">
+              <h4 class="font-oswald text-xs md:text-sm font-bold uppercase tracking-widest text-brand-red mb-3 md:mb-6 border-b border-white/20 pb-2 md:pb-4" data-key="Global.Navigation.WhoWeHelp">Who We Help</h4>
+              <ul class="space-y-2 md:space-y-4 font-sans text-[12px] md:text-[14px] text-white">
                 <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.GovPublic' href='work.html?filter=government'>Government & Public Sector</a></li>
                 <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.LifestyleConsumer' href='work.html?filter=lifestyle'>Lifestyle & Consumer</a></li>
                 <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.FBHospitality' href='work.html?filter=hospitality'>F&B & Hospitality</a></li>
@@ -821,8 +821,8 @@
               </ul>
             </div>
             <div>
-              <h4 class="font-oswald text-sm font-bold uppercase tracking-widest text-brand-red mb-6 border-b border-white/20 pb-4" data-key="Global.Navigation.WhatWeDo">What We Do</h4>
-              <ul class="space-y-4 font-sans text-[14px] text-white">
+              <h4 class="font-oswald text-xs md:text-sm font-bold uppercase tracking-widest text-brand-red mb-3 md:mb-6 border-b border-white/20 pb-2 md:pb-4" data-key="Global.Navigation.WhatWeDo">What We Do</h4>
+              <ul class="space-y-2 md:space-y-4 font-sans text-[12px] md:text-[14px] text-white">
                 <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.RovingExhibitions' href='work.html?filter=exhibitions'>Roving Exhibitions</a></li>
                 <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.SocialContent' href='work.html?filter=social'>Social & Content</a></li>
                 <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.InteractiveTech' href='work.html?filter=tech'>Interactive & Tech</a></li>
@@ -833,22 +833,22 @@
           </div>
         </div>
 
-        <!-- Infographic Stats -->
-        <div class="grid grid-cols-1 md:grid-cols-3 border-t border-l border-white/20 bg-black/40 backdrop-blur-sm">
-          <div class="border-r border-b border-white/20 p-4 md:p-8 flex flex-col items-center justify-center text-center">
-            <svg class="w-6 md:w-8 h-6 md:h-8 mb-2 md:mb-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            <div class="font-oswald text-2xl md:text-5xl text-white mb-1 md:mb-2 font-bold">18+</div>
-            <div class="font-sans text-[10px] md:text-xs uppercase tracking-widest text-gray-300" data-key="Index.About.Stats1">Years Experience</div>
+        <!-- Infographic Stats — Horizontal Layout for Mobile -->
+        <div class="grid grid-cols-3 md:grid-cols-3 border-t border-l border-white/20 bg-black/40 backdrop-blur-sm">
+          <div class="border-r border-b border-white/20 p-3 md:p-8 flex flex-col items-center justify-center text-center">
+            <svg class="w-5 md:w-8 h-5 md:h-8 mb-1 md:mb-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <div class="font-oswald text-lg md:text-5xl text-white mb-0 md:mb-2 font-bold">18+</div>
+            <div class="font-sans text-[8px] md:text-xs uppercase tracking-widest text-gray-300 leading-tight" data-key="Index.About.Stats1">Years<br>Experience</div>
           </div>
-          <div class="border-r border-b border-white/20 p-4 md:p-8 flex flex-col items-center justify-center text-center">
-            <svg class="w-6 md:w-8 h-6 md:h-8 mb-2 md:mb-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-            <div class="font-oswald text-2xl md:text-5xl text-white mb-1 md:mb-2 font-bold">360+</div>
-            <div class="font-sans text-[10px] md:text-xs uppercase tracking-widest text-gray-300" data-key="Index.About.Stats2">Projects</div>
+          <div class="border-r border-b border-white/20 p-3 md:p-8 flex flex-col items-center justify-center text-center">
+            <svg class="w-5 md:w-8 h-5 md:h-8 mb-1 md:mb-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            <div class="font-oswald text-lg md:text-5xl text-white mb-0 md:mb-2 font-bold">360+</div>
+            <div class="font-sans text-[8px] md:text-xs uppercase tracking-widest text-gray-300 leading-tight" data-key="Index.About.Stats2">Projects<br>Delivered</div>
           </div>
-          <div class="border-r border-b border-white/20 p-4 md:p-8 flex flex-col items-center justify-center text-center">
-            <svg class="w-6 md:w-8 h-6 md:h-8 mb-2 md:mb-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-            <div class="font-oswald text-2xl md:text-5xl text-white mb-1 md:mb-2 font-bold" data-key="Index.About.Stats3Num">1.5M+</div>
-            <div class="font-sans text-[10px] md:text-xs uppercase tracking-widest text-gray-300" data-key="Index.About.Stats3">People Engaged</div>
+          <div class="border-r border-b border-white/20 p-3 md:p-8 flex flex-col items-center justify-center text-center">
+            <svg class="w-5 md:w-8 h-5 md:h-8 mb-1 md:mb-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+            <div class="font-oswald text-lg md:text-5xl text-white mb-0 md:mb-2 font-bold" data-key="Index.About.Stats3Num">1.5M+</div>
+            <div class="font-sans text-[8px] md:text-xs uppercase tracking-widest text-gray-300 leading-tight" data-key="Index.About.Stats3">People<br>Engaged</div>
           </div>
         </div>
 
