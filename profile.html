@@ -255,6 +255,26 @@
     html.dark .cms-content h2 { color: #ff3333; }
     html.dark .cms-content h3,
     html.dark .cms-content h4 { color: #ff3333; }
+    
+    /* Q&A Sidebar Styling */
+    #profile-qa h4 {
+      color: #999 !important; /* Force a visible gray for the "Q&A" label */
+    }
+    html.dark #profile-qa h4 {
+      color: #777 !important;
+    }
+    #qa-content p.font-semibold {
+      color: #0a0a0a !important; /* Dark black for questions in light mode */
+    }
+    html.dark #qa-content p.font-semibold {
+      color: #ff3333 !important; /* Brand red for questions in dark mode */
+    }
+    #qa-content p.text-gray-500 {
+      color: #666 !important; /* Visible gray for answers */
+    }
+    html.dark #qa-content p.text-gray-400 {
+      color: #bbb !important; /* Lighter gray for answers in dark mode */
+    }
     html.dark .cms-content h3.cms-lead { color: #aaa; border-bottom-color: rgba(255,255,255,0.1); }
     html.dark .cms-content .cms-lead { color: #aaa; border-bottom-color: rgba(255,255,255,0.1); }
     html.dark .cms-content p { color: #bbb; }
@@ -612,9 +632,10 @@
         var qaContent = document.getElementById('qa-content');
         var articleEl = document.getElementById('profile-challenge');
         if (!qaContainer || !qaContent || !articleEl) return;
-        var faqHeading = Array.from(articleEl.querySelectorAll('h1, h2, h3, h4, h5, h6')).find(h => {
-          var txt = h.textContent.toLowerCase();
-          return ['faq', 'q&a', 'q & a', '常見問題', 'よくある質問', 'fast recap'].some(k => txt.includes(k));
+        var faqHeading = Array.from(articleEl.querySelectorAll('h1, h2, h3, h4, h5, h6, p, strong, b')).find(h => {
+          var txt = h.textContent.toLowerCase().trim();
+          // Match headings or bold lines that look like a QA section title
+          return ['faq', 'q&a', 'q & a', '常見問題', 'よくある質問', 'fast recap'].some(k => txt.includes(k)) && (h.tagName.startsWith('H') || h.tagName === 'STRONG' || h.tagName === 'B' || (h.tagName === 'P' && h.children.length === 0 && txt.length < 30));
         });
         if (!faqHeading) { qaContainer.classList.add('hidden'); return; }
         var faqElements = [];
@@ -622,14 +643,29 @@
         while (sib) { faqElements.push(sib); sib = sib.nextElementSibling; }
         var qaPairs = [];
         faqElements.forEach(el => {
+          // Handle <li> structure
           el.querySelectorAll('li').forEach(li => {
             var boldEl = li.querySelector('b, strong');
             if (boldEl) {
               var q = boldEl.textContent.replace(/^Q\d*[.:] ?/i, '').trim();
               var a = li.textContent.replace(boldEl.textContent, '').replace(/^\s*A\d*[.:] ?/i, '').trim();
               if (q) qaPairs.push({ q, a });
+            } else if (li.textContent.includes(':')) {
+                var parts = li.textContent.split(':');
+                var q = parts[0].replace(/^Q\d*[.:] ?/i, '').trim();
+                var a = parts.slice(1).join(':').replace(/^\s*A\d*[.:] ?/i, '').trim();
+                if (q && a) qaPairs.push({ q, a });
             }
           });
+          // Handle <p> structure with Q: A: pattern
+          if (el.tagName === 'P') {
+              var txt = el.textContent.trim();
+              var qMatch = txt.match(/^Q\d*[.:] ?(.*?)(?:\n|A\d*[.:]|$)/i);
+              var aMatch = txt.match(/A\d*[.:] ?(.*)$/i);
+              if (qMatch && aMatch) {
+                  qaPairs.push({ q: qMatch[1].trim(), a: aMatch[1].trim() });
+              }
+          }
         });
         if (qaPairs.length) {
           qaContent.innerHTML = qaPairs.map(p => `<div class="mb-5"><p class="font-sans text-sm font-semibold text-brand-black dark:text-white leading-snug mb-1">${p.q}</p><p class="font-sans text-sm text-gray-500 dark:text-gray-400 leading-relaxed">${p.a}</p></div>`).join('');
