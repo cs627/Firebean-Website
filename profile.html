@@ -387,13 +387,10 @@
     <!-- Profile Header -->
     <header class="mb-12">
       <div id="profile-categories" class="flex flex-wrap items-center gap-4 font-oswald text-xs uppercase tracking-[0.3em] text-gray-400 mb-6">
-        <!-- Categories will be injected here -->
       </div>
       <h1 id="profile-title" class="font-display text-6xl md:text-8xl lg:text-9xl tracking-tighter uppercase leading-[0.85] mb-8">
-        <!-- Title will be injected here -->
       </h1>
       <p id="profile-subtitle" class="font-oswald text-sm md:text-lg uppercase tracking-[0.15em] text-gray-500 max-w-2xl">
-        <!-- Client / Venue will be injected here -->
       </p>
     </header>
 
@@ -406,23 +403,18 @@
 
     <!-- Article Content -->
     <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-32">
-      <!-- Left Column: CMS Article + Interleaved Gallery -->
       <div class="lg:col-span-8">
         <article id="profile-challenge" class="cms-content">
         </article>
         <div id="profile-solution" class="cms-content mt-6"></div>
-        <!-- Photos will be interleaved between article paragraphs by JS -->
       </div>
 
-      <!-- Right Column: Scope + Q&A Sidebar -->
       <aside class="lg:col-span-4">
         <div class="sticky top-8 space-y-10">
-          <!-- Scope -->
           <div id="profile-scope" class="border-l-2 border-brand-red pl-6">
             <h4 class="font-oswald text-xs uppercase tracking-[0.2em] text-gray-400 mb-4">Scope</h4>
             <p class="font-sans text-sm text-gray-600 leading-relaxed"></p>
           </div>
-          <!-- Q&A Section (populated from CMS FAQ content) -->
           <div id="profile-qa" class="border-l-2 border-brand-black/10 pl-6 hidden">
             <h4 class="font-oswald text-xs uppercase tracking-[0.2em] text-gray-400 mb-6">Q&A</h4>
             <div id="qa-content" class="space-y-5"></div>
@@ -431,20 +423,17 @@
       </aside>
     </section>
 
-    <!-- YouTube Embed (hidden if no video) -->
     <section id="profile-video-section" class="mb-16 hidden">
       <div class="aspect-video w-full overflow-hidden shadow-2xl">
         <iframe id="profile-youtube" class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </section>
 
-    <!-- Hidden Gallery Section (used for reference, but interleaved in main content) -->
     <section id="profile-gallery" class="hidden">
     </section>
 
   </main>
 
-  <!-- Session 7: Contact & Session 8: Footer -->
   <section class="relative bg-brand-black text-white py-32 px-6 overflow-hidden">
     <div class="absolute inset-0 z-0">
       <img src="data/images/contact-bg.webp" alt="" class="contact-parallax-bg w-full h-[150%] object-cover object-center" referrerpolicy="no-referrer" />
@@ -485,7 +474,6 @@
     </div>
   </footer>
 
-  <!-- Legal Modal -->
   <div id="legal-modal" class="fixed inset-0 z-[2000] flex items-center justify-center p-6 hidden">
     <div id="modal-overlay" class="absolute inset-0 bg-brand-black/80 backdrop-blur-sm"></div>
     <div class="relative bg-white dark:bg-brand-black w-full max-w-2xl max-h-[80vh] overflow-y-auto p-12 rounded-2xl shadow-2xl border border-black/5 dark:border-white/10">
@@ -498,25 +486,33 @@
   </div>
 
   <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/dist/lenis.min.js"></script>
-  <script src="data/projects.js"></script>
-  <script src="js/cms.js"></script>
-  <script src="js/translations.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+  <script src="src/translations.js"></script>
+  <script src="src/cms.js"></script>
 
   <script>
+    // Define global vars for translations
+    var categoryTranslations = {
+      ch: { 'GOVERNMENT & PUBLIC SECTOR': '政府及公營機構', 'LIFESTYLE & CONSUMER': '生活及消費品牌', 'F&B & HOSPITALITY': '餐飲及酒店', 'MALLS & VENUES': '商場及場地', 'ROVING EXHIBITIONS': '巡迴展覽', 'SOCIAL & CONTENT': '社交媒體及內容', 'INTERACTIVE & TECH': '互動及科技', 'PR & MEDIA': '公關及媒體', 'EVENTS & CEREMONIES': '活動及典禮' },
+      jp: { 'GOVERNMENT & PUBLIC SECTOR': '政府・公共機関', 'LIFESTYLE & CONSUMER': 'ライフスタイル・消費者', 'F&B & HOSPITALITY': '飲食・ホスピタリティ', 'MALLS & VENUES': 'モール・会場', 'ROVING EXHIBITIONS': '巡回展示', 'SOCIAL & CONTENT': 'ソーシャル・コンテンツ', 'INTERACTIVE & TECH': 'インタラクティブ・テック', 'PR & MEDIA': 'PR・メディア', 'EVENTS & CEREMONIES': 'イベント・セレモニー' }
+    };
+    var scopeTranslations = {
+      ch: { 'EVENT PLANNING': '活動策劃', 'EVENT COORDINATION': '活動統籌', 'EVENT PRODUCTION': '活動製作', 'THEME DESIGN': '主題設計', 'CONCEPT DEVELOPMENT': '概念開發', 'PR CONSULTING': '公關顧問', 'SOUVENIR SOURCING': '紀念品採購', 'SOCIAL MEDIA': '社交媒體', 'CONTENT CREATION': '內容創作', 'MEDIA PLANNING': '媒體策劃', 'MEDIA RELATIONS': '媒體關係', 'DIGITAL MARKETING': '數碼營銷', 'BRANDING': '品牌策劃', 'GRAPHIC DESIGN': '平面設計', 'VIDEO PRODUCTION': '影片製作', 'PHOTOGRAPHY': '攝影', 'KOL MANAGEMENT': 'KOL 管理', 'INTERACTIVE INSTALLATION': '互動裝置', 'TECHNOLOGY INTEGRATION': '科技整合', 'GAME DEVELOPMENT': '遊戲開發', 'EXHIBITION DESIGN': '展覽設計', 'STAGE DESIGN': '舞台設計', 'VENUE MANAGEMENT': '場地管理', 'PROJECT MANAGEMENT': '項目管理' },
+      jp: { 'EVENT PLANNING': 'イベント企画', 'EVENT COORDINATION': 'イベント統括', 'EVENT PRODUCTION': 'イベント制作', 'THEME DESIGN': 'テーマデザイン', 'CONCEPT DEVELOPMENT': 'コンセプト開発', 'PR CONSULTING': 'PRコンサルティング', 'SOUVENIR SOURCING': '記念品調達', 'SOCIAL MEDIA': 'ソーシャルメディア', 'CONTENT CREATION': 'コンテンツ制作', 'MEDIA PLANNING': 'メディアプランニング', 'MEDIA RELATIONS': 'メディアリレーション', 'DIGITAL MARKETING': 'デジタルマーケティング', 'BRANDING': 'ブランディング', 'GRAPHIC DESIGN': 'グラフィックデザイン', 'VIDEO PRODUCTION': '映像制作', 'PHOTOGRAPHY': '写真撮影', 'KOL MANAGEMENT': 'KOL管理', 'INTERACTIVE INSTALLATION': 'インタラクティブ装置', 'TECHNOLOGY INTEGRATION': 'テクノロジー統合', 'GAME DEVELOPMENT': 'ゲーム開発', 'EXHIBITION DESIGN': '展示デザイン', 'STAGE DESIGN': 'ステージデザイン', 'VENUE MANAGEMENT': '会場管理', 'PROJECT MANAGEMENT': 'プロジェクト管理' }
+    };
+    var scopeHeadingMap = { en: 'Scope', ch: '服務範圍', jp: '服務範囲' };
+
     // Initialize Lenis
     const lenis = new Lenis();
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
     requestAnimationFrame(raf);
 
-    // --- CMS Profile Population ---
-    window.addEventListener('cmsDataReady', function(e) {
-      var projects = (e.detail && e.detail.projects) || [];
+    // Populate function
+    function populateProfile(data) {
+      console.log('[Profile] Populating with data:', data);
+      var projects = (data && data.projects) || [];
       if (!projects.length) return;
 
       var params = new URLSearchParams(window.location.search);
@@ -524,12 +520,7 @@
       var project = null;
 
       if (projectId) {
-        for (var i = 0; i < projects.length; i++) {
-          if (projects[i].projectId === projectId) {
-            project = projects[i];
-            break;
-          }
-        }
+        project = projects.find(p => p.projectId === projectId);
         if (!project) {
           var idx = parseInt(projectId, 10);
           if (!isNaN(idx) && idx >= 0 && idx < projects.length) project = projects[idx];
@@ -537,46 +528,24 @@
       }
       if (!project) project = projects[0];
 
-      // Hide loading overlay
-      setTimeout(function() {
-        document.getElementById('loading-overlay').classList.add('hidden');
-      }, 500);
+      // Hide loading
+      document.getElementById('loading-overlay').classList.add('hidden');
 
+      // Update basic info
       document.title = project.project + ' - Firebean Agency';
-      var titleEl = document.getElementById('profile-title');
-      var subtitleEl = document.getElementById('profile-subtitle');
-      var categoriesEl = document.getElementById('profile-categories');
-      titleEl.textContent = project.project || '';
-      subtitleEl.textContent = project.client ? project.client + (project.venue ? ' — ' + project.venue : '') : '';
+      document.getElementById('profile-title').textContent = project.project || '';
+      document.getElementById('profile-subtitle').textContent = project.client ? project.client + (project.venue ? ' — ' + project.venue : '') : '';
+      
+      var heroEl = document.getElementById('profile-hero');
+      if (project.heroPhoto) { heroEl.src = project.heroPhoto; heroEl.alt = project.project; }
 
-      var categoryTranslations = {
-        ch: { 'GOVERNMENT & PUBLIC SECTOR': '政府及公營機構', 'LIFESTYLE & CONSUMER': '生活及消費品牌', 'F&B & HOSPITALITY': '餐飲及酒店', 'MALLS & VENUES': '商場及場地', 'ROVING EXHIBITIONS': '巡迴展覽', 'SOCIAL & CONTENT': '社交媒體及內容', 'INTERACTIVE & TECH': '互動及科技', 'PR & MEDIA': '公關及媒體', 'EVENTS & CEREMONIES': '活動及典禮' },
-        jp: { 'GOVERNMENT & PUBLIC SECTOR': '政府・公共機関', 'LIFESTYLE & CONSUMER': 'ライフスタイル・消費者', 'F&B & HOSPITALITY': '飲食・ホスピタリティ', 'MALLS & VENUES': 'モール・会場', 'ROVING EXHIBITIONS': '巡回展示', 'SOCIAL & CONTENT': 'ソーシャル・コンテンツ', 'INTERACTIVE & TECH': 'インタラクティブ・テック', 'PR & MEDIA': 'PR・メディア', 'EVENTS & CEREMONIES': 'イベント・セレモニー' }
-      };
-      var scopeTranslations = {
-        ch: { 'EVENT PLANNING': '活動策劃', 'EVENT COORDINATION': '活動統籌', 'EVENT PRODUCTION': '活動製作', 'THEME DESIGN': '主題設計', 'CONCEPT DEVELOPMENT': '概念開發', 'PR CONSULTING': '公關顧問', 'SOUVENIR SOURCING': '紀念品採購', 'SOCIAL MEDIA': '社交媒體', 'CONTENT CREATION': '內容創作', 'MEDIA PLANNING': '媒體策劃', 'MEDIA RELATIONS': '媒體關係', 'DIGITAL MARKETING': '數碼營銷', 'BRANDING': '品牌策劃', 'GRAPHIC DESIGN': '平面設計', 'VIDEO PRODUCTION': '影片製作', 'PHOTOGRAPHY': '攝影', 'KOL MANAGEMENT': 'KOL 管理', 'INTERACTIVE INSTALLATION': '互動裝置', 'TECHNOLOGY INTEGRATION': '科技整合', 'GAME DEVELOPMENT': '遊戲開發', 'EXHIBITION DESIGN': '展覽設計', 'STAGE DESIGN': '舞台設計', 'VENUE MANAGEMENT': '場地管理', 'PROJECT MANAGEMENT': '項目管理' },
-        jp: { 'EVENT PLANNING': 'イベント企画', 'EVENT COORDINATION': 'イベント統括', 'EVENT PRODUCTION': 'イベント制作', 'THEME DESIGN': 'テーマデザイン', 'CONCEPT DEVELOPMENT': 'コンセプト開発', 'PR CONSULTING': 'PRコンサルティング', 'SOUVENIR SOURCING': '記念品調達', 'SOCIAL MEDIA': 'ソーシャルメディア', 'CONTENT CREATION': 'コンテンツ制作', 'MEDIA PLANNING': 'メディアプランニング', 'MEDIA RELATIONS': 'メディアリレーション', 'DIGITAL MARKETING': 'デジタルマーケティング', 'BRANDING': 'ブランディング', 'GRAPHIC DESIGN': 'グラフィックデザイン', 'VIDEO PRODUCTION': '映像制作', 'PHOTOGRAPHY': '写真撮影', 'KOL MANAGEMENT': 'KOL管理', 'INTERACTIVE INSTALLATION': 'インタラクティブ装置', 'TECHNOLOGY INTEGRATION': 'テクノロジー統合', 'GAME DEVELOPMENT': 'ゲーム開発', 'EXHIBITION DESIGN': '展示デザイン', 'STAGE DESIGN': 'ステージデザイン', 'VENUE MANAGEMENT': '会場管理', 'PROJECT MANAGEMENT': 'プロジェクト管理' }
-      };
-      var scopeHeadingMap = { en: 'Scope', ch: '服務範圍', jp: '服務範囲' };
-
-      function translateCategory(cat) {
-        var lang = (window.getLang && window.getLang()) || localStorage.getItem('lang') || 'en';
-        return (lang !== 'en' && categoryTranslations[lang] && categoryTranslations[lang][cat]) ? categoryTranslations[lang][cat] : cat;
-      }
-      function translateScope(scope) {
-        var lang = (window.getLang && window.getLang()) || localStorage.getItem('lang') || 'en';
-        if (lang !== 'en' && scopeTranslations[lang]) {
-          return scope.split(',').map(function(s) {
-            var trimmed = s.trim().toUpperCase();
-            return scopeTranslations[lang][trimmed] || s.trim();
-          }).join(', ');
-        }
-        return scope;
-      }
+      // Category rendering
+      const categoriesEl = document.getElementById('profile-categories');
       function renderCategories() {
         categoriesEl.innerHTML = '';
-        if (project.categories && project.categories.length) {
-          project.categories.forEach(function(cat, idx) {
+        var lang = (window.getLang && window.getLang()) || localStorage.getItem('lang') || 'en';
+        if (project.categories) {
+          project.categories.forEach((cat, idx) => {
             if (idx > 0) {
               var sep = document.createElement('span');
               sep.className = 'text-brand-red text-3xl leading-none';
@@ -584,7 +553,7 @@
               categoriesEl.appendChild(sep);
             }
             var span = document.createElement('span');
-            span.textContent = translateCategory(cat);
+            span.textContent = (lang !== 'en' && categoryTranslations[lang] && categoryTranslations[lang][cat]) ? categoryTranslations[lang][cat] : cat;
             categoriesEl.appendChild(span);
           });
         }
@@ -592,22 +561,17 @@
       renderCategories();
       window.addEventListener('languageChange', renderCategories);
 
-      var heroEl = document.getElementById('profile-hero');
-      if (project.heroPhoto) { heroEl.src = project.heroPhoto; heroEl.alt = project.project; }
-
+      // Article content
       var challengeEl = document.getElementById('profile-challenge');
       var solutionEl = document.getElementById('profile-solution');
       var scopeEl = document.getElementById('profile-scope');
 
       function getProfileContent() {
         var lang = (window.getLang && window.getLang()) || localStorage.getItem('lang') || 'en';
-        var webContent = '';
-        if (lang === 'ch' && project.webTC) webContent = project.webTC;
-        else if (lang === 'jp' && project.webJP) webContent = project.webJP;
-        else if (project.webEN) webContent = project.webEN;
+        var webContent = (lang === 'ch' && project.webTC) ? project.webTC : (lang === 'jp' && project.webJP) ? project.webJP : project.webEN;
 
         if (webContent) {
-          var processed = webContent.replace(/\n{2,}/g, '\n').split('\n').map(function(line) {
+          var processed = webContent.replace(/\n{2,}/g, '\n').split('\n').map(line => {
             var trimmed = line.trim();
             if (!trimmed) return '';
             if (/^<(h[1-6]|p|ul|ol|li|div|blockquote|figure|img|iframe|br)/i.test(trimmed)) return trimmed;
@@ -615,20 +579,18 @@
             if (headingMatch) {
               var level = headingMatch[1].length;
               var text = headingMatch[2].replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-              return '<h' + level + '>' + text + '</h' + level + '>';
+              return `<h${level}>${text}</h${level}>`;
             }
             if (/^[-*]\s+/.test(trimmed)) {
               var liText = trimmed.replace(/^[-*]\s+/, '').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-              return '<li>' + liText + '</li>';
+              return `<li>${liText}</li>`;
             }
-            var withBold = trimmed.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-            return '<p>' + withBold + '</p>';
+            return `<p>${trimmed.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')}</p>`;
           }).join('\n');
           processed = processed.replace(/((?:<li>.*<\/li>\n?)+)/g, '<ul>$1</ul>');
           challengeEl.innerHTML = processed;
           solutionEl.innerHTML = '';
-          var firstH3 = challengeEl.querySelector('h1 + h3, h2 + h3, h3:first-child');
-          if (!firstH3) firstH3 = challengeEl.querySelector('h3');
+          var firstH3 = challengeEl.querySelector('h3');
           if (firstH3) firstH3.classList.add('cms-lead');
         } else {
           challengeEl.textContent = project.challenge || '';
@@ -637,9 +599,11 @@
 
         if (project.scope) {
           scopeEl.style.display = '';
-          var lang = (window.getLang && window.getLang()) || localStorage.getItem('lang') || 'en';
           scopeEl.querySelector('h4').textContent = scopeHeadingMap[lang] || scopeHeadingMap.en;
-          scopeEl.querySelector('p').textContent = translateScope(project.scope);
+          scopeEl.querySelector('p').textContent = project.scope.split(',').map(s => {
+            var trimmed = s.trim().toUpperCase();
+            return (lang !== 'en' && scopeTranslations[lang] && scopeTranslations[lang][trimmed]) ? scopeTranslations[lang][trimmed] : s.trim();
+          }).join(', ');
         } else {
           scopeEl.style.display = 'none';
         }
@@ -647,205 +611,146 @@
       getProfileContent();
       window.addEventListener('languageChange', getProfileContent);
 
-      function extractAndShowQA() {
+      // Q&A Extraction
+      function extractQA() {
         var qaContainer = document.getElementById('profile-qa');
         var qaContent = document.getElementById('qa-content');
-        if (!qaContainer || !qaContent) return;
         var articleEl = document.getElementById('profile-challenge');
-        if (!articleEl) { qaContainer.classList.add('hidden'); return; }
-        var faqHeading = null;
-        var allHeadings = articleEl.querySelectorAll('h1, h2, h3, h4, h5, h6');
-        for (var i = 0; i < allHeadings.length; i++) {
-          var txt = allHeadings[i].textContent.toLowerCase();
-          if (txt.indexOf('faq') !== -1 || txt.indexOf('q&a') !== -1 || txt.indexOf('q & a') !== -1 || txt.indexOf('常見問題') !== -1 || txt.indexOf('よくある質問') !== -1 || txt.indexOf('fast recap') !== -1) {
-            faqHeading = allHeadings[i]; break;
-          }
-        }
+        if (!qaContainer || !qaContent || !articleEl) return;
+        var faqHeading = Array.from(articleEl.querySelectorAll('h1, h2, h3, h4, h5, h6')).find(h => {
+          var txt = h.textContent.toLowerCase();
+          return ['faq', 'q&a', 'q & a', '常見問題', 'よくある質問', 'fast recap'].some(k => txt.includes(k));
+        });
         if (!faqHeading) { qaContainer.classList.add('hidden'); return; }
         var faqElements = [];
         var sib = faqHeading.nextElementSibling;
         while (sib) { faqElements.push(sib); sib = sib.nextElementSibling; }
         var qaPairs = [];
-        for (var j = 0; j < faqElements.length; j++) {
-          var lis = faqElements[j].querySelectorAll ? faqElements[j].querySelectorAll('li') : [];
-          for (var k = 0; k < lis.length; k++) {
-            var li = lis[k];
+        faqElements.forEach(el => {
+          el.querySelectorAll('li').forEach(li => {
             var boldEl = li.querySelector('b, strong');
-            if (!boldEl) continue;
-            var question = boldEl.textContent.replace(/^Q\d*[.:] ?/i, '').trim();
-            var answer = li.textContent.replace(boldEl.textContent, '').replace(/^\s*A\d*[.:] ?/i, '').trim();
-            if (question) qaPairs.push({ q: question, a: answer });
-          }
-        }
-        if (qaPairs.length) {
-          qaContent.innerHTML = '';
-          qaPairs.forEach(function(pair) {
-            var qDiv = document.createElement('div');
-            qDiv.className = 'mb-5';
-            qDiv.innerHTML = '<p class="font-sans text-sm font-semibold text-brand-black leading-snug mb-1">' + pair.q + '</p>' +
-              '<p class="font-sans text-sm text-gray-500 leading-relaxed">' + pair.a + '</p>';
-            qaContent.appendChild(qDiv);
+            if (boldEl) {
+              var q = boldEl.textContent.replace(/^Q\d*[.:] ?/i, '').trim();
+              var a = li.textContent.replace(boldEl.textContent, '').replace(/^\s*A\d*[.:] ?/i, '').trim();
+              if (q) qaPairs.push({ q, a });
+            }
           });
+        });
+        if (qaPairs.length) {
+          qaContent.innerHTML = qaPairs.map(p => `<div class="mb-5"><p class="font-sans text-sm font-semibold text-brand-black dark:text-white leading-snug mb-1">${p.q}</p><p class="font-sans text-sm text-gray-500 dark:text-gray-400 leading-relaxed">${p.a}</p></div>`).join('');
           qaContainer.classList.remove('hidden');
-          var toRemove = [faqHeading].concat(faqElements);
-          toRemove.forEach(function(el) { if (el.parentNode) el.parentNode.removeChild(el); });
+          [faqHeading, ...faqElements].forEach(el => el.remove());
         } else { qaContainer.classList.add('hidden'); }
       }
-      setTimeout(extractAndShowQA, 100);
-      window.addEventListener('languageChange', function() { setTimeout(extractAndShowQA, 200); });
+      setTimeout(extractQA, 100);
+      window.addEventListener('languageChange', () => setTimeout(extractQA, 200));
 
+      // Video
       if (project.youtube) {
-        var videoSection = document.getElementById('profile-video-section');
-        var youtubeFrame = document.getElementById('profile-youtube');
         var ytMatch = project.youtube.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([a-zA-Z0-9_-]{11})/);
-        if (ytMatch && ytMatch[1]) { youtubeFrame.src = 'https://www.youtube.com/embed/' + ytMatch[1]; videoSection.classList.remove('hidden'); }
+        if (ytMatch) {
+          document.getElementById('profile-youtube').src = 'https://www.youtube.com/embed/' + ytMatch[1];
+          document.getElementById('profile-video-section').classList.remove('hidden');
+        }
       }
 
-      // --- Robust Interleave gallery photos ---
-      function interleavePhotosWithContent(photoUrls) {
+      // Interleave Photos
+      function interleave() {
+        var photoUrls = project.galleryPhotos;
         if (!photoUrls || photoUrls.length < 2) return;
-        var challengeEl = document.getElementById('profile-challenge');
-        var solutionEl = document.getElementById('profile-solution');
-        if (!challengeEl) return;
-        document.querySelectorAll('.interleaved-photo-pair, .extra-photo-pair').forEach(function(el) { el.remove(); });
-        var photoPairs = [];
-        for (var i = 0; i < photoUrls.length; i += 2) { photoPairs.push(photoUrls.slice(i, i + 2)); }
+        document.querySelectorAll('.interleaved-photo-pair, .extra-photo-pair').forEach(el => el.remove());
+        var pairs = [];
+        for (var i = 0; i < photoUrls.length; i += 2) pairs.push(photoUrls.slice(i, i + 2));
 
-        function createPairContainer(pair, isLargeMargin = false, customClass = 'interleaved-photo-pair') {
-          var pairContainer = document.createElement('div');
-          pairContainer.className = 'grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6 ' + (isLargeMargin ? 'my-12 ' : 'my-8 ') + customClass;
-          pair.forEach(function(url) {
-            var div = document.createElement('div');
-            div.className = 'overflow-hidden aspect-square';
-            var img = document.createElement('img');
-            img.src = url;
-            img.alt = (project.project || 'Project') + ' photo';
-            img.className = 'w-full h-full object-cover hover:scale-105 transition-transform duration-700';
-            img.referrerPolicy = 'no-referrer';
-            div.appendChild(img);
-            pairContainer.appendChild(div);
-            gsap.set(div, { opacity: 0, y: 30 });
-            ScrollTrigger.create({ trigger: div, start: 'top 85%', once: true, onEnter: function() { gsap.to(div, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }); } });
+        function createPair(pair, large = false, cls = 'interleaved-photo-pair') {
+          var div = document.createElement('div');
+          div.className = `grid grid-cols-2 gap-3 md:gap-6 ${large ? 'my-12' : 'my-8'} ${cls}`;
+          div.innerHTML = pair.map(url => `<div class="overflow-hidden aspect-square opacity-0 translate-y-8"><img src="${url}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" referrerpolicy="no-referrer"></div>`).join('');
+          div.querySelectorAll('div').forEach(item => {
+            ScrollTrigger.create({ trigger: item, start: 'top 85%', once: true, onEnter: () => gsap.to(item, { opacity: 1, y: 0, duration: 0.8 }) });
           });
-          return pairContainer;
+          return div;
         }
 
-        var headings = challengeEl.querySelectorAll('h3');
-        var paragraphs = challengeEl.querySelectorAll('p');
-        function getInsertionPoint(index) {
-          if (headings.length > index) return headings[index];
-          if (paragraphs.length > index) return paragraphs[index].nextSibling;
-          return null;
-        }
-
-        if (photoPairs.length > 0) {
-          var t1 = getInsertionPoint(1);
-          if (t1) challengeEl.insertBefore(createPairContainer(photoPairs[0]), t1); else challengeEl.appendChild(createPairContainer(photoPairs[0]));
-        }
-        if (photoPairs.length > 1) {
-          var t2 = getInsertionPoint(2);
-          if (t2) challengeEl.insertBefore(createPairContainer(photoPairs[1]), t2); else challengeEl.appendChild(createPairContainer(photoPairs[1]));
-        }
-        if (photoPairs.length > 2) {
-          var t3 = getInsertionPoint(3);
-          if (t3) challengeEl.insertBefore(createPairContainer(photoPairs[2]), t3); else challengeEl.appendChild(createPairContainer(photoPairs[2]));
-        }
-        if (photoPairs.length > 3) {
-          var targetEl = solutionEl || challengeEl;
-          targetEl.parentNode.insertBefore(createPairContainer(photoPairs[3], true, 'extra-photo-pair'), targetEl.nextSibling);
-        }
-        if (photoPairs.length > 4) {
-          var remCont = document.createElement('div');
-          remCont.className = 'grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6 mt-12 extra-photo-pair';
-          for (var i = 4; i < photoPairs.length; i++) {
-            photoPairs[i].forEach(function(url) {
-              var div = document.createElement('div'); div.className = 'overflow-hidden aspect-square';
-              var img = document.createElement('img'); img.src = url; img.className = 'w-full h-full object-cover'; img.referrerPolicy = 'no-referrer';
-              div.appendChild(img); remCont.appendChild(div);
-            });
+        var h3s = challengeEl.querySelectorAll('h3');
+        var ps = challengeEl.querySelectorAll('p');
+        [0, 1, 2].forEach(i => {
+          if (pairs[i]) {
+            var target = h3s[i + 1] || ps[i + 1] ? (h3s[i + 1] || ps[i + 1].nextSibling) : null;
+            if (target) challengeEl.insertBefore(createPair(pairs[i]), target); else challengeEl.appendChild(createPair(pairs[i]));
           }
-          challengeEl.parentNode.appendChild(remCont);
+        });
+        if (pairs[3]) {
+          var sol = document.getElementById('profile-solution');
+          sol.parentNode.insertBefore(createPair(pairs[3], true, 'extra-photo-pair'), sol.nextSibling);
+        }
+        if (pairs.length > 4) {
+          var rem = document.createElement('div');
+          rem.className = 'grid grid-cols-2 gap-3 md:gap-6 mt-12 extra-photo-pair';
+          pairs.slice(4).flat().forEach(url => {
+            rem.innerHTML += `<div class="overflow-hidden aspect-square"><img src="${url}" class="w-full h-full object-cover" referrerpolicy="no-referrer"></div>`;
+          });
+          challengeEl.parentNode.appendChild(rem);
         }
         ScrollTrigger.refresh();
       }
+      setTimeout(interleave, 500);
+      window.addEventListener('languageChange', () => setTimeout(interleave, 500));
 
-      function runInterleave() { if (project && project.galleryPhotos && project.galleryPhotos.length >= 2) interleavePhotosWithContent(project.galleryPhotos); }
-      setTimeout(runInterleave, 500);
-      setTimeout(runInterleave, 1500);
-      window.addEventListener('languageChange', function() { setTimeout(runInterleave, 500); });
-
-      var heroImg = document.getElementById('profile-hero');
-      if (heroImg) {
-        heroImg.addEventListener('load', function() { gsap.to(heroImg, { scale: 1, opacity: 1, duration: 1.4, ease: 'power2.out' }); }, { once: true });
-        if (heroImg.complete && heroImg.naturalWidth > 0) gsap.to(heroImg, { scale: 1, opacity: 1, duration: 1.4, ease: 'power2.out' });
-      }
-
-      var contactBg = document.querySelector('.contact-parallax-bg');
-      if (contactBg) {
-        gsap.fromTo(contactBg, { top: '-25%' }, { top: '0%', ease: "none", scrollTrigger: { trigger: contactBg.closest('section'), start: "top bottom", end: "bottom top", scrub: 0.5 } });
+      // Animations
+      if (heroEl) {
+        heroEl.onload = () => gsap.to(heroEl, { scale: 1, opacity: 1, duration: 1.4 });
+        if (heroEl.complete) gsap.to(heroEl, { scale: 1, opacity: 1, duration: 1.4 });
       }
       ScrollTrigger.refresh();
-    });
-
-    // --- Legal Modal Logic ---
-    const legalModal = document.getElementById('legal-modal');
-    const modalOverlay = document.getElementById('modal-overlay');
-    const modalCloseBtn = document.getElementById('modal-close-btn');
-    const modalTitle = document.getElementById('modal-title');
-    const modalContent = document.getElementById('modal-content');
-    function openModal(type) {
-      if (!window.legalContent) return;
-      const currentLang = localStorage.getItem('lang') || 'en';
-      if (window.updateTranslations) window.updateTranslations();
-      const { title, content } = window.legalContent[type];
-      modalTitle.textContent = title;
-      modalContent.innerHTML = content;
-      legalModal.classList.remove('hidden');
     }
-    function closeModal() { legalModal.classList.add('hidden'); }
-    document.getElementById('disclaimer-btn').addEventListener('click', () => openModal('disclaimer'));
-    document.getElementById('privacy-btn').addEventListener('click', () => openModal('privacy'));
-    document.getElementById('terms-btn').addEventListener('click', () => openModal('terms'));
-    modalCloseBtn.addEventListener('click', closeModal);
-    modalOverlay.addEventListener('click', closeModal);
 
-    // Mega Menu click toggle
+    // Event Listeners
+    window.addEventListener('cmsDataReady', e => populateProfile(e.detail));
+    if (window.cmsData && window.cmsData.loaded) populateProfile(window.cmsData);
+
+    // Dark Mode
+    (function() {
+      var toggle = document.getElementById('dark-toggle');
+      var moon = document.getElementById('icon-moon');
+      var sun = document.getElementById('icon-sun');
+      function update() {
+        var isDark = document.documentElement.classList.contains('dark');
+        if (moon) moon.style.display = isDark ? 'none' : 'block';
+        if (sun) sun.style.display = isDark ? 'block' : 'none';
+      }
+      update();
+      if (toggle) toggle.onclick = () => {
+        document.documentElement.classList.toggle('dark');
+        localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+        update();
+      };
+    })();
+
+    // Mega Menu
     (function() {
       var trigger = document.getElementById('mega-menu-trigger');
       var menu = document.getElementById('mega-menu');
-      var closeBtn = document.getElementById('mega-menu-close');
-      if (!trigger || !menu) return;
-      trigger.addEventListener('click', function(e) { e.preventDefault(); e.stopPropagation(); menu.classList.toggle('open'); });
-      closeBtn.addEventListener('click', function(e) { e.stopPropagation(); menu.classList.remove('open'); });
-      document.addEventListener('click', function(e) { if (!menu.contains(e.target) && e.target !== trigger && !trigger.contains(e.target)) menu.classList.remove('open'); });
+      if (trigger && menu) {
+        trigger.onclick = (e) => { e.stopPropagation(); menu.classList.toggle('open'); };
+        document.getElementById('mega-menu-close').onclick = () => menu.classList.remove('open');
+        document.onclick = (e) => { if (!menu.contains(e.target) && e.target !== trigger) menu.classList.remove('open'); };
+      }
     })();
 
-    // Dark mode toggle
-    (function() {
-      var toggle = document.getElementById('dark-toggle');
-      var moonIcon = document.getElementById('icon-moon');
-      var sunIcon = document.getElementById('icon-sun');
-      function updateIcons() {
-        var isDark = document.documentElement.classList.contains('dark');
-        if (moonIcon) moonIcon.style.display = isDark ? 'none' : 'block';
-        if (sunIcon) sunIcon.style.display = isDark ? 'block' : 'none';
-      }
-      updateIcons();
-      if (toggle) {
-        toggle.addEventListener('click', function() {
-          document.documentElement.classList.toggle('dark');
-          var isDark = document.documentElement.classList.contains('dark');
-          localStorage.setItem('darkMode', isDark);
-          updateIcons();
-        });
-      }
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
-        if (localStorage.getItem('darkMode') === null) {
-          if (e.matches) document.documentElement.classList.add('dark'); else document.documentElement.classList.remove('dark');
-          updateIcons();
-        }
-      });
-    })();
+    // Legal
+    function openModal(type) {
+      if (!window.legalContent) return;
+      if (window.updateTranslations) window.updateTranslations();
+      const { title, content } = window.legalContent[type];
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-content').innerHTML = content;
+      document.getElementById('legal-modal').classList.remove('hidden');
+    }
+    document.getElementById('disclaimer-btn').onclick = () => openModal('disclaimer');
+    document.getElementById('privacy-btn').onclick = () => openModal('privacy');
+    document.getElementById('terms-btn').onclick = () => openModal('terms');
+    document.getElementById('modal-close-btn').onclick = document.getElementById('modal-overlay').onclick = () => document.getElementById('legal-modal').classList.add('hidden');
   </script>
 </body>
 </html>
