@@ -70,7 +70,10 @@ var CONFIG = {
     LOGO_BLACK: 24,
     LOGO_WHITE: 25,
     PROJECT_ID: 26,
-    SORT_DATE: 27
+    SORT_DATE: 27,
+    FAQ_EN: 28,
+    FAQ_TC: 29,
+    FAQ_JP: 30
   }
 };
 
@@ -432,6 +435,9 @@ function doSync(changedOnly) {
       webEN: String(row[CONFIG.COL.WEB_EN - 1] || ''),
       webTC: String(row[CONFIG.COL.WEB_TC - 1] || ''),
       webJP: String(row[CONFIG.COL.WEB_JP - 1] || ''),
+      faqEN: String(row[CONFIG.COL.FAQ_EN - 1] || ''),
+      faqTC: String(row[CONFIG.COL.FAQ_TC - 1] || ''),
+      faqJP: String(row[CONFIG.COL.FAQ_JP - 1] || ''),
       heroPhoto: heroPath,
       heroPhotoSmall: heroSmPath,
       logoBlack: logoBlackPath,

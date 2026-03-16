@@ -648,6 +648,40 @@
         var qaContent = document.getElementById('qa-content');
         var articleEl = document.getElementById('profile-challenge');
         if (!qaContainer || !qaContent || !articleEl) return;
+
+        // ── v4.4: Use dedicated FAQ fields from projects.json if available ──
+        var lang = (window.getLang && window.getLang()) || localStorage.getItem('lang') || 'en';
+        var dedicatedFaq = (lang === 'ch' && project.faqTC) ? project.faqTC
+                         : (lang === 'jp' && project.faqJP) ? project.faqJP
+                         : project.faqEN;
+
+        if (dedicatedFaq && dedicatedFaq.trim()) {
+          // Parse structured Q&A: lines starting with Q: and A:
+          var qaPairs = [];
+          var lines = dedicatedFaq.split(/\n/);
+          var currentQ = null;
+          var currentA = [];
+          lines.forEach(function(line) {
+            var qMatch = line.match(/^Q\d*[.:] ?(.+)$/i);
+            var aMatch = line.match(/^A\d*[.:] ?(.+)$/i);
+            if (qMatch) {
+              if (currentQ) qaPairs.push({ q: currentQ, a: currentA.join(' ').trim() });
+              currentQ = qMatch[1].trim();
+              currentA = [];
+            } else if (aMatch && currentQ) {
+              currentA.push(aMatch[1].trim());
+            } else if (currentQ && line.trim()) {
+              currentA.push(line.trim());
+            }
+          });
+          if (currentQ) qaPairs.push({ q: currentQ, a: currentA.join(' ').trim() });
+
+          if (qaPairs.length) {
+            qaContent.innerHTML = qaPairs.map(p => `<div class="mb-5"><p class="font-sans text-sm font-semibold text-brand-black dark:text-white leading-snug mb-1">${p.q}</p><p class="font-sans text-sm text-gray-500 dark:text-gray-400 leading-relaxed">${p.a}</p></div>`).join('');
+            qaContainer.classList.remove('hidden');
+            return; // Done — skip article body extraction
+          }
+        }
         
         var faqHeading = null;
         var h3s = Array.from(articleEl.querySelectorAll('h3'));
