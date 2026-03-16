@@ -642,14 +642,54 @@
       getProfileContent();
       window.addEventListener('languageChange', getProfileContent);
 
-      // Q&A Extraction
+      // ── v4.6: Robust Python-style single-quote FAQ parser ──
+      function parsePythonStyleFaq(str) {
+        if (!str || !str.trim()) return [];
+        var pairs = [];
+        // Extract each {key: val, key: val} block
+        var objRe = /\{([^{}]+)\}/g;
+        var om;
+        while ((om = objRe.exec(str)) !== null) {
+          var blk = om[1];
+          for (var n = 1; n <= 3; n++) {
+            // Build regex to find 'Qn': or "Qn": then capture the value
+            var qRe = new RegExp("['\"]Q" + n + "['\"]\\s*:\\s*");
+            var aRe = new RegExp("['\"]A" + n + "['\"]\\s*:\\s*");
+            function getVal(s, re) {
+              var m = s.match(re);
+              if (!m) return '';
+              var rest = s.slice(m.index + m[0].length);
+              if (rest[0] === '"') {
+                var e = rest.indexOf('"', 1);
+                return e < 0 ? rest.slice(1) : rest.slice(1, e);
+              }
+              if (rest[0] === "'") {
+                // find closing ' followed by , or }
+                for (var i = 1; i < rest.length; i++) {
+                  if (rest[i] === "'") {
+                    var nx = rest[i+1];
+                    if (nx === ',' || nx === '}' || nx === undefined) return rest.slice(1, i);
+                  }
+                }
+                return rest.slice(1);
+              }
+              return rest.trim().replace(/^['"]|['"][\s,}]*$/, '');
+            }
+            var q = getVal(blk, qRe);
+            var a = getVal(blk, aRe);
+            if (q && a) pairs.push({ q: q.trim(), a: a.trim() });
+          }
+        }
+        return pairs;
+      }
+
+      // Q&A Extraction — v4.6: Always uses dedicated faqEN/faqTC/faqJP fields first
       function extractQA() {
         var qaContainer = document.getElementById('profile-qa');
         var qaContent = document.getElementById('qa-content');
         var articleEl = document.getElementById('profile-challenge');
         if (!qaContainer || !qaContent || !articleEl) return;
 
-        // ── v4.5: Enhanced parsing for structured FAQ data from projects.json ──
         var lang = (window.getLang && window.getLang()) || localStorage.getItem('lang') || 'en';
         var dedicatedFaq = (lang === 'ch' && project.faqTC) ? project.faqTC
                          : (lang === 'jp' && project.faqJP) ? project.faqJP
@@ -657,106 +697,106 @@
 
         if (dedicatedFaq && dedicatedFaq.trim()) {
           var qaPairs = [];
-          
+
+          // Attempt 1: Standard JSON parse (double-quoted keys)
           try {
-            // Attempt 1: Parse as real JSON array if the string looks like "[{...}]"
-            var cleanJson = dedicatedFaq.trim().replace(/'/g, '"');
-            var parsed = JSON.parse(cleanJson);
+            var parsed = JSON.parse(dedicatedFaq.trim());
             if (Array.isArray(parsed)) {
-              qaPairs = parsed.map(item => {
-                // Support Q1/A1, Q2/A2, Q3/A3 keys
-                var pairs = [];
+              parsed.forEach(function(item) {
                 for (var i = 1; i <= 3; i++) {
-                  var qKey = 'Q' + i;
-                  var aKey = 'A' + i;
-                  var q = item[qKey] || (i === 1 ? (item.q || item.question) : "");
-                  var a = item[aKey] || (i === 1 ? (item.a || item.answer) : "");
-                  if (q && a) pairs.push({ q, a });
+                  var q = item['Q' + i] || (i === 1 ? (item.q || item.question || '') : '');
+                  var a = item['A' + i] || (i === 1 ? (item.a || item.answer || '') : '');
+                  if (q && a) qaPairs.push({ q: q.trim(), a: a.trim() });
                 }
-                return pairs;
-              }).flat().filter(p => p.q && p.a);
+              });
             }
           } catch (e) {
-            // Attempt 2: Fallback to manual string parsing if JSON fails
+            // Attempt 2: Python-style single-quote parser
+            qaPairs = parsePythonStyleFaq(dedicatedFaq);
+          }
+
+          // Attempt 3: Line-by-line fallback
+          if (!qaPairs.length) {
             var lines = dedicatedFaq.split(/\n/);
             var currentQ = null;
             var currentA = [];
             lines.forEach(function(line) {
-              var qMatch = line.match(/^(?:['"]?Q\d['"]?)[.:] ?(.+)$/i) || line.match(/['"]?Q\d['"]?\s*:\s*['"](.+?)['"]/i);
-              var aMatch = line.match(/^(?:['"]?A\d['"]?)[.:] ?(.+)$/i) || line.match(/['"]?A\d['"]?\s*:\s*['"](.+?)['"]/i);
-              
+              var qMatch = line.match(/^['"]?Q(\d)['"]?\s*[:.]['"]?\s*(.+)$/);
+              var aMatch = line.match(/^['"]?A(\d)['"]?\s*[:.]['"]?\s*(.+)$/);
               if (qMatch) {
                 if (currentQ) qaPairs.push({ q: currentQ, a: currentA.join(' ').trim() });
-                currentQ = qMatch[1].trim().replace(/["'],?$/, '');
+                currentQ = qMatch[2].trim().replace(/["'],?\s*$/, '');
                 currentA = [];
               } else if (aMatch && currentQ) {
-                currentA.push(aMatch[1].trim().replace(/["'],?$/, ''));
-              } else if (currentQ && line.trim() && !line.includes('}]')) {
-                var cleanedLine = line.trim().replace(/^['"]|['"],?$/g, '');
-                if (cleanedLine) currentA.push(cleanedLine);
+                currentA.push(aMatch[2].trim().replace(/["'],?\s*$/, ''));
               }
             });
             if (currentQ) qaPairs.push({ q: currentQ, a: currentA.join(' ').trim() });
           }
 
           if (qaPairs.length) {
-            qaContent.innerHTML = qaPairs.map(p => `<div class="mb-5"><p class="font-sans text-sm font-semibold text-brand-black dark:text-white leading-snug mb-1">${p.q}</p><p class="font-sans text-sm text-gray-500 dark:text-gray-400 leading-relaxed">${p.a}</p></div>`).join('');
+            qaContent.innerHTML = qaPairs.map(function(p) {
+              return '<div class="mb-5"><p class="font-sans text-sm font-semibold text-brand-black dark:text-white leading-snug mb-1">' + p.q + '</p><p class="font-sans text-sm text-gray-500 dark:text-gray-400 leading-relaxed">' + p.a + '</p></div>';
+            }).join('');
             qaContainer.classList.remove('hidden');
-            return; // Done
+            return; // Done — dedicated FAQ rendered
           }
         }
-        
-        // Fallback to legacy article body extraction
+
+        // Fallback: extract from article body (legacy)
         var faqHeading = null;
         var h3s = Array.from(articleEl.querySelectorAll('h3'));
-        faqHeading = h3s.find(h => h.textContent.toLowerCase().includes('fast recap faq') || h.textContent.includes('快速回顧 FAQ'));
-        
+        faqHeading = h3s.find(function(h) {
+          return h.textContent.toLowerCase().includes('fast recap') || h.textContent.includes('快速回顧') || h.textContent.toLowerCase().includes('faq');
+        });
         if (!faqHeading) {
-          faqHeading = Array.from(articleEl.querySelectorAll('h1, h2, h3, h4, h5, h6, p, strong, b')).find(h => {
+          faqHeading = Array.from(articleEl.querySelectorAll('h1,h2,h3,h4,h5,h6,p,strong,b')).find(function(h) {
             var txt = h.textContent.toLowerCase().trim();
-            var keywords = ['faq', 'q&a', 'q & a', '常見問題', 'よくある質問', 'fast recap'];
-            return keywords.some(k => txt.includes(k)) && (h.tagName.startsWith('H') || h.tagName === 'STRONG' || h.tagName === 'B' || (h.tagName === 'P' && h.innerText.length < 50));
+            return ['faq', 'q&a', 'q & a', '常見問題', 'よくある質問', 'fast recap'].some(function(k) { return txt.includes(k); }) &&
+              (h.tagName.startsWith('H') || h.tagName === 'STRONG' || h.tagName === 'B' || (h.tagName === 'P' && h.innerText.length < 50));
           });
         }
         if (!faqHeading) { qaContainer.classList.add('hidden'); return; }
-        
+
         var faqElements = [];
         var sib = faqHeading.nextElementSibling;
         while (sib) { faqElements.push(sib); sib = sib.nextElementSibling; }
-        
+
         var qaPairsLegacy = [];
-        faqElements.forEach(el => {
-          el.querySelectorAll('li').forEach(li => {
+        faqElements.forEach(function(el) {
+          el.querySelectorAll('li').forEach(function(li) {
             var boldEl = li.querySelector('b, strong');
             if (boldEl) {
               var q = boldEl.textContent.replace(/^Q\d*[.:] ?/i, '').trim();
               var a = li.textContent.replace(boldEl.textContent, '').replace(/^\s*A\d*[.:] ?/i, '').trim();
-              if (q) qaPairsLegacy.push({ q, a });
+              if (q) qaPairsLegacy.push({ q: q, a: a });
             } else if (li.textContent.includes(':')) {
-                var parts = li.textContent.split(':');
-                var q = parts[0].replace(/^Q\d*[.:] ?/i, '').trim();
-                var a = parts.slice(1).join(':').replace(/^\s*A\d*[.:] ?/i, '').trim();
-                if (q && a) qaPairsLegacy.push({ q, a });
+              var parts = li.textContent.split(':');
+              var q = parts[0].replace(/^Q\d*[.:] ?/i, '').trim();
+              var a = parts.slice(1).join(':').replace(/^\s*A\d*[.:] ?/i, '').trim();
+              if (q && a) qaPairsLegacy.push({ q: q, a: a });
             }
           });
           if (el.tagName === 'P' || el.tagName === 'DIV') {
-              var txt = el.innerText.trim();
-              var blocks = txt.split(/\n(?=Q\d*[.:])/i);
-              blocks.forEach(block => {
-                  var qMatch = block.match(/^Q\d*[.:] ?(.*?)(?:\n|A\d*[.:]|$)/i);
-                  var aMatch = block.match(/A\d*[.:] ?([\s\S]*)$/i);
-                  if (qMatch && aMatch) {
-                      qaPairsLegacy.push({ q: qMatch[1].trim(), a: aMatch[1].trim() });
-                  }
-              });
+            var txt = el.innerText.trim();
+            var blocks = txt.split(/\n(?=Q\d*[.:])/i);
+            blocks.forEach(function(block) {
+              var qm = block.match(/^Q\d*[.:] ?(.*?)(?:\n|A\d*[.:]|$)/i);
+              var am = block.match(/A\d*[.:] ?([\s\S]*)$/i);
+              if (qm && am) qaPairsLegacy.push({ q: qm[1].trim(), a: am[1].trim() });
+            });
           }
         });
-        
+
         if (qaPairsLegacy.length) {
-          qaContent.innerHTML = qaPairsLegacy.map(p => `<div class="mb-5"><p class="font-sans text-sm font-semibold text-brand-black dark:text-white leading-snug mb-1">${p.q}</p><p class="font-sans text-sm text-gray-500 dark:text-gray-400 leading-relaxed">${p.a}</p></div>`).join('');
+          qaContent.innerHTML = qaPairsLegacy.map(function(p) {
+            return '<div class="mb-5"><p class="font-sans text-sm font-semibold text-brand-black dark:text-white leading-snug mb-1">' + p.q + '</p><p class="font-sans text-sm text-gray-500 dark:text-gray-400 leading-relaxed">' + p.a + '</p></div>';
+          }).join('');
           qaContainer.classList.remove('hidden');
-          [faqHeading, ...faqElements].forEach(el => el.remove());
-        } else { qaContainer.classList.add('hidden'); }
+          [faqHeading].concat(faqElements).forEach(function(el) { el.remove(); });
+        } else {
+          qaContainer.classList.add('hidden');
+        }
       }
 
       // Photo Interleaving
