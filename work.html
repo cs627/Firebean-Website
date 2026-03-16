@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="/Firebean-Website/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Work - Firebean</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&family=League+Spartan:wght@700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@400;500;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Anton', 'sans-serif'],
+            oswald: ['Oswald', 'sans-serif'],
+            spartan: ['League Spartan', 'sans-serif'],
+            serif: ['Libre Baskerville', 'serif'],
+            playfair: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            'brand-black': '#0a0a0a',
+            'brand-gray': '#f4f4f4',
+            'brand-red': '#ff3333',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Dark Mode Variables */
+    :root {
+      --bg-primary: #f4f4f4;
+      --bg-secondary: #ffffff;
+      --bg-card: #e5e7eb;
+      --text-primary: #0a0a0a;
+      --text-secondary: #4b5563;
+      --text-tertiary: #9ca3af;
+      --border-subtle: rgba(0,0,0,0.05);
+      --logo-ghost: rgba(0,0,0,0.03);
+      --nav-bg: rgba(244,244,244,0.8);
+    }
+
+    html.dark {
+      --bg-primary: #111111;
+      --bg-secondary: #1a1a1a;
+      --bg-card: #1a1a1a;
+      --text-primary: #e5e5e5;
+      --text-secondary: #999999;
+      --text-tertiary: #777777;
+      --border-subtle: rgba(255,255,255,0.1);
+      --logo-ghost: rgba(255,255,255,0.03);
+      --nav-bg: rgba(17,17,17,0.8);
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .mega-menu {
+      opacity: 0;
+      visibility: hidden;
+      transform: translate(-50%, -10px);
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+    .mega-menu.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, 0);
+      pointer-events: auto;
+    }
+    .filter-btn.active {
+      color: #ff3333;
+    }
+    /* Navigation Overrides */
+    #navbar {
+      position: relative;
+      z-index: 99999 !important;
+      pointer-events: auto !important;
+    }
+    #mega-menu {
+      z-index: 100001 !important;
+    }
+    .lang-btn {
+      cursor: pointer !important;
+      position: relative;
+      z-index: 100000 !important;
+      pointer-events: auto !important;
+    }
+    /* Text Stroke Effect */
+    .stroke-text {
+      -webkit-text-stroke: 1px white;
+      color: transparent;
+    }
+
+    /* Dark mode overrides for specific elements */
+    html.dark .bg-brand-gray { background-color: var(--bg-primary) !important; }
+    html.dark .text-brand-black { color: var(--text-primary) !important; }
+    html.dark .text-gray-600 { color: var(--text-secondary) !important; }
+    html.dark .text-gray-400 { color: var(--text-tertiary) !important; }
+    html.dark .bg-gray-200 { background-color: var(--bg-card) !important; }
+    html.dark .border-black\/5 { border-color: var(--border-subtle) !important; }
+    html.dark .stroke-text-black { -webkit-text-stroke-color: #e5e5e5; }
+    html.dark .bg-3d-logo { color: var(--logo-ghost); }
+
+
+    /* Nav dark mode */
+    html.dark #navbar { color: var(--text-primary); }
+    html.dark nav#navbar { color: var(--text-primary); }
+    html.dark .bg-brand-gray\/80 { background-color: var(--nav-bg) !important; }
+
+    /* Work section heading text */
+    html.dark [data-key="Index.Work.Title"] { color: var(--text-primary) !important; }
+
+    /* Dark mode toggle button */
+    .dark-toggle {
+      cursor: pointer;
+      position: relative;
+      z-index: 100000;
+      pointer-events: auto;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .dark-toggle:hover { opacity: 1; }
+    .dark-toggle svg { width: 16px; height: 16px; }
+
+    /* Contact section parallax background */
+    .contact-parallax-bg {
+      position: absolute;
+      top: -25%;
+      left: 0;
+      width: 100%;
+      height: 150%;
+      object-fit: cover;
+      will-change: transform;
+    }
+  </style>
+
+  <script>
+    // Dark mode: check localStorage first, then system preference
+    (function() {
+      var stored = localStorage.getItem('darkMode');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (stored === 'true' || (stored === null && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+</head>
+<body class="antialiased">
+
+  <!-- Navigation -->
+  <nav class="bg-brand-gray/80 backdrop-blur-md w-full px-6 py-6 flex justify-between items-center z-[9999] text-brand-black border-b border-black/5 pointer-events-auto" id="navbar" data-lenis-prevent>
+    <a class='flex items-center gap-2 hover:opacity-70 transition-opacity' href='index.html'>
+      <img src="data/images/firebean-logo-w100.webp" class="h-6 w-auto object-contain mix-blend-multiply" alt="Firebean Logo">
+      <div class="font-sans font-light text-xl tracking-widest lowercase" style="font-variant: small-caps;">firebean</div>
+    </a>
+    
+      <div class="hidden md:flex gap-8 font-sans text-sm uppercase tracking-widest items-center">
+      <a class='hover:opacity-50 transition-opacity' data-key='Global.Navigation.Home' href='index.html#hero'>Home</a>
+      <a class='hover:opacity-50 transition-opacity' data-key='Global.Navigation.About' href='index.html#about'>About</a>
+      
+      <!-- Mega Menu Trigger -->
+      <div class="relative py-4">
+        <button id="mega-menu-trigger" class='hover:opacity-50 transition-opacity flex items-center gap-1 uppercase tracking-widest text-sm font-sans'>
+          <span data-key="Global.Navigation.WhatWeDo">What We Do</span> <span class="text-[10px]">▼</span>
+        </button>
+
+        <!-- Mega Menu Dropdown -->
+        <div id="mega-menu" class="mega-menu fixed left-1/2 top-[80px] w-[90vw] max-w-[600px] bg-brand-black text-white px-6 py-10 shadow-2xl rounded-xl z-[9999]" data-lenis-prevent>
+          <button id="mega-menu-close" class="absolute top-4 right-4 text-white hover:text-brand-red transition-colors text-2xl leading-none">&times;</button>
+
+          <div class="grid grid-cols-2 gap-16 w-full">
+            <div>
+              <h4 class="font-oswald text-xl mb-6 text-brand-red tracking-widest" data-key="Global.Navigation.WhoWeHelp">WHO WE HELP</h4>
+              <ul class="space-y-3 text-sm text-gray-400 font-sans tracking-wide">
+                <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.GovPublic' href='work.html?filter=government'>Government & Public Sector</a></li>
+                <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.LifestyleConsumer' href='work.html?filter=lifestyle'>Lifestyle & Consumer</a></li>
+                <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.FBHospitality' href='work.html?filter=hospitality'>F&B & Hospitality</a></li>
+                <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.MallsVenues' href='work.html?filter=venues'>Malls & Venues</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-oswald text-xl mb-6 text-brand-red tracking-widest" data-key="Global.Navigation.WhatWeDo">WHAT WE DO</h4>
+              <ul class="space-y-3 text-sm text-gray-400 font-sans tracking-wide">
+                <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.RovingExhibitions' href='work.html?filter=exhibitions'>Roving Exhibitions</a></li>
+                <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.SocialContent' href='work.html?filter=social'>Social & Content</a></li>
+                <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.InteractiveTech' href='work.html?filter=tech'>Interactive & Tech</a></li>
+                <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.PRMedia' href='work.html?filter=pr'>PR & Media</a></li>
+                <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.EventsCeremonies' href='work.html?filter=events'>Events & Ceremonies</a></li>
+              </ul>
+            </div>
+            <div class="col-span-2 border-t border-white/20 pt-6 mt-2">
+              <a class='text-sm font-bold hover:text-brand-red transition-colors flex items-center gap-3 tracking-widest' href='work.html'>
+                <span class="text-xl">↳</span> <span data-key="Global.Navigation.ViewAllWork">VIEW ALL WORK</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="font-sans text-xs uppercase tracking-widest flex gap-2 items-center">
+      <button class="lang-btn hover:opacity-50" data-lang="en">EN</button> |
+      <button class="lang-btn hover:opacity-50 text-gray-500" data-lang="ch">CH</button> |
+      <button class="lang-btn hover:opacity-50 text-gray-500" data-lang="jp">JP</button> |
+      <button class="dark-toggle" id="dark-toggle" title="Toggle dark mode">
+        <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+        <svg id="icon-sun" style="display:none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="px-4 md:px-12 py-16 relative overflow-hidden"> <!-- Added relative and overflow-hidden -->
+    <!-- 3D Logo Background — 3-layer parallax, scroll-driven flip -->
+    <div class="pointer-events-none" style="position:absolute;inset:0;overflow:hidden;z-index:0;">
+      <!-- Logo 1: right side, large, fast rotation right→left -->
+      <div id="bg-logo-wrap-1" style="position:absolute;right:-4%;top:5%;will-change:transform;">
+        <img id="bg-logo-1" src="data/images/firebean-logo-w1000.webp" alt="" referrerpolicy="no-referrer"
+          style="width:clamp(260px,36vw,480px);opacity:0.30;mix-blend-mode:multiply;transform-style:preserve-3d;will-change:transform;display:block;">
+      </div>
+      <!-- Logo 2: left side, bigger, slow rotation left→right -->
+      <div id="bg-logo-wrap-2" style="position:absolute;left:-4%;top:30%;will-change:transform;">
+        <img id="bg-logo-2" src="data/images/firebean-logo-w1000.webp" alt="" referrerpolicy="no-referrer"
+          style="width:clamp(390px,55vw,730px);opacity:0.22;mix-blend-mode:multiply;transform-style:preserve-3d;will-change:transform;display:block;">
+      </div>
+      <!-- Logo 3: right side, small, medium rotation right→left -->
+      <div id="bg-logo-wrap-3" style="position:absolute;right:2%;top:62%;will-change:transform;">
+        <img id="bg-logo-3" src="data/images/firebean-logo-w1000.webp" alt="" referrerpolicy="no-referrer"
+          style="width:clamp(100px,13vw,180px);opacity:0.16;mix-blend-mode:multiply;transform-style:preserve-3d;will-change:transform;display:block;">
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto">
+
+      <!-- Page Header -->
+      <section class="text-center mb-16">
+        <h1 class="font-oswald font-bold text-[12vw] leading-[0.9] text-center uppercase tracking-tighter text-brand-black" data-key="Global.WorkHeader.Title">Profiles</h1>
+      </section>
+
+      <!-- Filtering Section -->
+      <section class="mb-12 z-50 py-4">
+        <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 font-oswald text-2xl font-bold uppercase tracking-wide text-brand-black">
+          <button class="filter-btn active" data-filter="all" data-key="Global.WorkFilters.All">All</button>
+          <button class="filter-btn" data-filter="government" data-key="Global.Navigation.GovPublic">Government & Public Sector</button>
+          <button class="filter-btn" data-filter="lifestyle" data-key="Global.Navigation.LifestyleConsumer">Lifestyle & Consumer</button>
+          <button class="filter-btn" data-filter="hospitality" data-key="Global.Navigation.FBHospitality">F&B & Hospitality</button>
+          <button class="filter-btn" data-filter="venues" data-key="Global.Navigation.MallsVenues">Malls & Venues</button>
+          <button class="filter-btn" data-filter="exhibitions" data-key="Global.Navigation.RovingExhibitions">Roving Exhibitions</button>
+          <button class="filter-btn" data-filter="social" data-key="Global.Navigation.SocialContent">Social & Content</button>
+          <button class="filter-btn" data-filter="tech" data-key="Global.Navigation.InteractiveTech">Interactive & Tech</button>
+          <button class="filter-btn" data-filter="pr" data-key="Global.Navigation.PRMedia">PR & Media</button>
+          <button class="filter-btn" data-filter="events" data-key="Global.Navigation.EventsCeremonies">Events & Ceremonies</button>
+        </div>
+        <div class="text-center mt-4 font-sans text-xs text-gray-400 tracking-widest">
+          <span id="profile-count">12</span> <span data-key="Global.WorkResults.Found">results found</span>
+        </div>
+      </section>
+
+      <!-- Profiles Grid -->
+      <section id="profile-grid" class="grid grid-cols-2 md:grid-cols-12 gap-y-8 md:gap-y-12 gap-x-4 md:gap-x-8 relative z-10">
+        <!-- Profiles will be dynamically inserted here -->
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Session 7: Contact & Session 8: Footer -->
+  <section class="relative bg-brand-black text-white py-32 px-6 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="data/images/contact-bg.webp" alt="" class="contact-parallax-bg w-full h-[150%] object-cover object-center" referrerpolicy="no-referrer" />
+      <div class="absolute inset-0 bg-brand-black/40"></div>
+    </div>
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-24">
+        
+        <!-- Left: Contact Info -->
+        <div>
+          <h2 class="font-oswald font-bold text-[8vw] md:text-[6vw] leading-[0.9] uppercase mb-8">
+            <span data-key="Global.Contact.Title1">Ready To Talk?</span> <br>
+            <span class="text-transparent stroke-text" data-key="Global.Contact.Title2">Get In Touch.</span>
+          </h2>
+          
+          <div class="grid grid-cols-2 gap-8 font-sans text-[14px] mb-12">
+            <div>
+              <h4 class="font-bold uppercase tracking-widest mb-2 text-brand-red" data-key="Global.Contact.NewBusiness">New Business</h4>
+              <a href="mailto:hello@firebean.net" class="hover:text-brand-red transition-colors text-white block mb-4">hello@firebean.net</a>
+              
+              <div class="flex items-start gap-3 mb-3 text-gray-400">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 flex-shrink-0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <p class="font-sans text-[14px] whitespace-nowrap" data-key="Global.Contact.Address">Unit A, 23/F Morrison Plaza, 5-9 Morrison Hill Rd. Wan Chai, Hong Kong</p>
+              </div>
+
+              <div class="flex items-center gap-3 text-gray-400">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <p class="font-sans text-[14px] whitespace-nowrap">+852 36222784</p>
+              </div>
+            </div>
+            <div>
+              <h4 class="font-bold uppercase tracking-widest mb-2 text-brand-red" data-key="Global.Contact.Careers">Careers</h4>
+              <a href="mailto:hr@firebean.net" class="hover:text-brand-red transition-colors text-white">hr@firebean.net</a>
+            </div>
+          </div>
+        </div>
+          
+        <!-- Right: Map -->
+        <div class="relative h-full min-h-[400px] border border-white/10 overflow-hidden group/map">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.954737217316!2d114.180109!3d22.277946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f17!3m3!1m2!1s0x340400b7f44472a3%3A0x6cb03204b66376e2!2sFirebean%20Limited!5e0!3m2!1sen!2sus!4v1708480000000!5m2!1sen!2sus" 
+            width="100%" 
+            height="100%" 
+            style="border:0; filter: grayscale(100%) contrast(110%);" 
+            allowfullscreen="" 
+            loading="lazy"
+            class="opacity-90 group-hover/map:opacity-100 transition-opacity">
+          </iframe>
+        </div>
+
+      </div>
+      
+      <!-- Session 8: Footer -->
+      <div class="flex flex-col md:flex-row justify-between items-center border-t border-white/10 pt-8 font-sans text-xs text-gray-400 uppercase tracking-widest gap-4">
+        <div data-key="Global.Footer.Copyright">©2026 Firebean Limited All Rights Reserved.</div>
+        <div class="flex gap-6">
+            <button id="disclaimer-btn" class="hover:text-white transition-colors" data-key="Global.Footer.Disclaimer">Disclaimer</button>
+            <button id="privacy-btn" class="hover:text-white transition-colors" data-key="Global.Footer.Privacy">Privacy Policy</button>
+            <button id="terms-btn" class="hover:text-white transition-colors" data-key="Global.Footer.Terms">Terms of Service</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Legal Modal -->
+  <div id="legal-modal" class="hidden fixed inset-0 bg-black/60 z-[200] flex items-center justify-center p-6 font-sans">
+    <div id="modal-overlay" class="absolute inset-0"></div>
+    <div class="relative bg-brand-red text-brand-black w-full max-w-3xl max-h-[80vh] p-8 md:p-12 rounded-lg shadow-2xl overflow-y-auto">
+      <button id="modal-close-btn" class="absolute top-4 right-4 text-brand-black hover:opacity-70 transition-opacity text-3xl">&times;</button>
+      <h2 id="modal-title" class="font-oswald font-bold text-4xl uppercase mb-6"></h2>
+      <div id="modal-content" class="space-y-4 text-sm leading-relaxed"></div>
+    </div>
+  </div>
+
+  <!-- GSAP -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  
+  <!-- Translations & Legal Content -->
+  <script src="src/translations.js"></script>
+
+  <!-- CMS Data from Google Sheets -->
+  <script src="src/cms.js"></script>
+
+  <script>
+      // Layout patterns for scattered grid (cycles through these)
+      // Note: Mobile (< 768px) will override these with 6-column spans
+    var layoutPatterns = [
+      { aspect: '4/5', colSpan: 5, start: 1, mt: 0 },
+      { aspect: '16/9', colSpan: 6, start: 7, mt: 16 },
+      { aspect: '1/1', colSpan: 5, start: 2, mt: 16 },
+      { aspect: '3/4', colSpan: 4, start: 9, mt: 16 },
+      { aspect: '4/5', colSpan: 5, start: 1, mt: 8 },
+      { aspect: '16/9', colSpan: 6, start: 7, mt: 16 },
+      { aspect: '16/9', colSpan: 6, start: 1, mt: 16 },
+      { aspect: '4/5', colSpan: 5, start: 8, mt: 0 },
+      { aspect: '1/1', colSpan: 5, start: 2, mt: 16 },
+      { aspect: '3/4', colSpan: 4, start: 9, mt: 16 },
+      { aspect: '16/9', colSpan: 7, start: 1, mt: 16 },
+      { aspect: '4/5', colSpan: 4, start: 9, mt: 8 },
+    ];
+
+    var allProfiles = [];
+    const profileGrid = document.getElementById('profile-grid');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const profileCount = document.getElementById('profile-count');
+    let activeFilter = 'all';
+
+    function createProfileElement(profile, layoutIndex, arrayIndex) {
+      var layout = layoutPatterns[layoutIndex % layoutPatterns.length];
+      const element = document.createElement('a');
+      // Use projectId if available, otherwise fall back to array position
+      element.href = 'profile.html?id=' + encodeURIComponent(profile.projectId || String(arrayIndex));
+      element.className = 'group block project-profile';
+      // Mobile: 6 columns (2 cards per row in 12-column grid), Desktop: use layout pattern
+      if (window.innerWidth < 768) {
+        element.style.gridColumn = 'span 6 / span 6';
+      } else {
+        element.style.gridColumn = 'span ' + layout.colSpan + ' / span ' + layout.colSpan;
+        element.style.gridColumnStart = layout.start;
+        if (layout.mt) element.style.marginTop = layout.mt * 4 + 'px';
+      }
+      element.dataset.category = (profile.filterSlugs || []).join(' ');
+
+      var imgSrc = profile.heroPhoto || profile.heroPhotoSmall || '';
+      // Mobile: use square aspect ratio, Desktop: use layout pattern aspect ratio
+      var mobileAspect = '1/1';
+      var displayAspect = window.innerWidth < 768 ? mobileAspect : layout.aspect;
+      element.innerHTML =
+        '<div class="relative overflow-hidden mb-1 shadow-2xl" style="aspect-ratio: ' + displayAspect + ';">' +
+          '<img src="' + imgSrc + '" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="' + (profile.project || '') + '" referrerpolicy="no-referrer">' +
+        '</div>' +
+        '<h3 class="font-oswald text-lg md:text-3xl uppercase font-bold mb-1 md:mb-2 line-clamp-2">' + (profile.project || '') + '</h3>' +
+        '<p class="font-playfair text-xs md:text-base text-gray-600 italic line-clamp-1">' + (profile.client || '') + '</p>';
+      return element;
+    }
+
+    function renderProfiles(isFirstLoad) {
+      var filtered = allProfiles.filter(function(p) {
+        if (activeFilter === 'all') return true;
+        return p.filterSlugs && p.filterSlugs.indexOf(activeFilter) !== -1;
+      });
+      profileCount.textContent = filtered.length;
+
+      var tl = gsap.timeline({
+        onComplete: function() {
+          profileGrid.innerHTML = '';
+          filtered.forEach(function(profile, idx) {
+            var el = createProfileElement(profile, idx, profile._arrayIndex);
+            profileGrid.appendChild(el);
+          });
+
+          if (window.updateTranslations) {
+            window.updateTranslations();
+          }
+
+          gsap.fromTo(".project-profile", { opacity: 0, scale: 0.95, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.5, stagger: 0.05, ease: 'power3.out' });
+        }
+      });
+
+      if (!isFirstLoad) {
+        tl.to(".project-profile", { opacity: 0, scale: 0.95, y: -20, duration: 0.3, stagger: 0.03, ease: 'power3.in' });
+      } else {
+        profileGrid.innerHTML = '';
+        filtered.forEach(function(profile, idx) {
+          var el = createProfileElement(profile, idx, profile._arrayIndex);
+          profileGrid.appendChild(el);
+        });
+
+        if (window.updateTranslations) {
+          window.updateTranslations();
+        }
+
+        gsap.fromTo(".project-profile", { opacity: 0, scale: 0.95, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.5, stagger: 0.05, ease: 'power3.out', delay: 0.2 });
+      }
+    }
+
+    filterButtons.forEach(function(button) {
+      button.addEventListener('click', function() {
+        if (button.dataset.filter === activeFilter) return;
+        filterButtons.forEach(function(btn) { btn.classList.remove('active'); });
+        button.classList.add('active');
+        activeFilter = button.dataset.filter;
+        renderProfiles(false);
+      });
+    });
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // 3D Logo Parallax — 3-layer scroll-driven flip (same as homepage work section)
+    (function() {
+      var pageEl = document.querySelector('main');
+      if (!pageEl) return;
+      var logos = [
+        { wrap: document.getElementById('bg-logo-wrap-1'), img: document.getElementById('bg-logo-1'),
+          driftSpeed: 0.25, rotPerPx: 0.055, direction: -1, maxRY: 70,
+          lerpY: 0.07, lerpR: 0.10, curY: 0, tgtY: 0, curRY: 0, tgtRY: 0 },
+        { wrap: document.getElementById('bg-logo-wrap-2'), img: document.getElementById('bg-logo-2'),
+          driftSpeed: 0.40, rotPerPx: 0.008, direction: +1, maxRY: 70,
+          lerpY: 0.08, lerpR: 0.09, curY: 0, tgtY: 0, curRY: 0, tgtRY: 0 },
+        { wrap: document.getElementById('bg-logo-wrap-3'), img: document.getElementById('bg-logo-3'),
+          driftSpeed: 0.60, rotPerPx: 0.015, direction: -1, maxRY: 70,
+          lerpY: 0.11, lerpR: 0.12, curY: 0, tgtY: 0, curRY: 0, tgtRY: 0 }
+      ];
+      function tick() {
+        var scrolledIn = Math.max(0, window.scrollY);
+        logos.forEach(function(l) {
+          if (!l.wrap || !l.img) return;
+          l.tgtY = scrolledIn * l.driftSpeed;
+          l.curY += (l.tgtY - l.curY) * l.lerpY;
+          l.wrap.style.transform = 'translateY(' + l.curY + 'px)';
+          l.tgtRY = Math.max(-l.maxRY, Math.min(l.maxRY, l.direction * scrolledIn * l.rotPerPx));
+          l.curRY += (l.tgtRY - l.curRY) * l.lerpR;
+          l.img.style.transform = 'perspective(900px) rotateY(' + l.curRY + 'deg)';
+        });
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    })();
+
+    // Read ?filter= from URL on load
+    (function() {
+      var urlParams = new URLSearchParams(window.location.search);
+      var filter = urlParams.get('filter');
+      if (filter) {
+        var button = document.querySelector('.filter-btn[data-filter="' + filter + '"]');
+        if (button) {
+          filterButtons.forEach(function(btn) { btn.classList.remove('active'); });
+          button.classList.add('active');
+          activeFilter = filter;
+        }
+      }
+    })();
+
+    // Wait for CMS data, then render
+    window.addEventListener('cmsDataReady', function(e) {
+      var projects = (e.detail && e.detail.projects) || [];
+      // Stamp each project with its array position for reliable profile links
+      projects.forEach(function(p, i) { p._arrayIndex = i; });
+      allProfiles = projects;
+      profileCount.textContent = projects.length;
+      renderProfiles(true);
+    });
+
+    // Contact section parallax background
+    var contactBg = document.querySelector('.contact-parallax-bg');
+    if (contactBg) {
+      gsap.fromTo(contactBg, 
+        { top: '-25%' },
+        {
+          top: '0%',
+          ease: "none",
+          scrollTrigger: {
+            trigger: contactBg.closest('section'),
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 0.5
+          }
+        }
+      );
+    }
+
+    // --- Legal Modal Logic ---
+    const legalModal = document.getElementById('legal-modal');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+    const modalTitle = document.getElementById('modal-title');
+    const modalContent = document.getElementById('modal-content');
+
+    function openModal(type) {
+      if (!window.legalContent) return;
+      const currentLang = localStorage.getItem('lang') || 'en';
+      // Ensure legal content is updated for the current language
+      if (window.updateTranslations) {
+        window.updateTranslations();
+      }
+      const { title, content } = window.legalContent[type];
+      modalTitle.textContent = title;
+      modalContent.innerHTML = content;
+      legalModal.classList.remove('hidden');
+    }
+
+    function closeModal() {
+      legalModal.classList.add('hidden');
+    }
+
+    document.getElementById('disclaimer-btn').addEventListener('click', () => openModal('disclaimer'));
+    document.getElementById('privacy-btn').addEventListener('click', () => openModal('privacy'));
+    document.getElementById('terms-btn').addEventListener('click', () => openModal('terms'));
+    modalCloseBtn.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', closeModal);
+  </script>
+
+  <script>
+    // Mega Menu click toggle
+    (function() {
+      var trigger = document.getElementById('mega-menu-trigger');
+      var menu = document.getElementById('mega-menu');
+      var closeBtn = document.getElementById('mega-menu-close');
+      if (!trigger || !menu) return;
+      trigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        menu.classList.toggle('open');
+      });
+      closeBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        menu.classList.remove('open');
+      });
+      document.addEventListener('click', function(e) {
+        if (!menu.contains(e.target) && e.target !== trigger && !trigger.contains(e.target)) {
+          menu.classList.remove('open');
+        }
+      });
+    })();
+
+    // Dark mode toggle
+    (function() {
+      var toggle = document.getElementById('dark-toggle');
+      var moonIcon = document.getElementById('icon-moon');
+      var sunIcon = document.getElementById('icon-sun');
+
+      function updateIcons() {
+        var isDark = document.documentElement.classList.contains('dark');
+        if (moonIcon) moonIcon.style.display = isDark ? 'none' : 'block';
+        if (sunIcon) sunIcon.style.display = isDark ? 'block' : 'none';
+      }
+
+      updateIcons();
+
+      if (toggle) {
+        toggle.addEventListener('click', function() {
+          document.documentElement.classList.toggle('dark');
+          var isDark = document.documentElement.classList.contains('dark');
+          localStorage.setItem('darkMode', isDark);
+          updateIcons();
+        });
+      }
+
+      // Listen for system preference changes
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+        if (localStorage.getItem('darkMode') === null) {
+          if (e.matches) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+          updateIcons();
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
