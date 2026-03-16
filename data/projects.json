@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-03-16T11:23:00.749Z",
+  "lastSync": "2026-03-16T11:24:22.891Z",
   "projects": [
     {
       "index": 0,
@@ -270,7 +270,16 @@
       "heroPhotoSmall": "data/images/fb2024007-hero-sm.webp",
       "logoBlack": "data/images/fb2024007-logo-black.webp",
       "logoWhite": "data/images/fb2024007-logo-white.webp",
-      "galleryPhotos": [],
+      "galleryPhotos": [
+        "data/images/fb2024007-gallery-0.webp",
+        "data/images/fb2024007-gallery-1.webp",
+        "data/images/fb2024007-gallery-2.webp",
+        "data/images/fb2024007-gallery-3.webp",
+        "data/images/fb2024007-gallery-4.webp",
+        "data/images/fb2024007-gallery-5.webp",
+        "data/images/fb2024007-gallery-6.webp",
+        "data/images/fb2024007-gallery-7.webp"
+      ],
       "projectId": "FB2024007",
       "faqEN": "[{'Q1': \"What is the 'Anti-drug Info Zone: Stride Ahead Into A Drug-free Future' roving exhibition?\", 'A1': \"The 'Anti-drug Info Zone: Stride Ahead Into A Drug-free Future' is a roving exhibition organized by the Narcotics Division (ND) of Hong Kong's Security Bureau. It aims to educate the public, especially youth, about the dangers of drug abuse through innovative and engaging public displays. The exhibition uses interactive and radical engagement methods to break away from traditional anti-drug messaging.\"}, {'Q2': 'Where and when is the second stop of the anti-drug exhibition being held in Hong Kong?', 'A2': \"The second stop of the 'Anti-drug Info Zone' roving exhibition is being staged at the 34th Hong Kong Book Fair, specifically within the 'Children’s Paradise' area. This event is part of the Security Bureau's initiative to reach different community segments through accessible venues.\"}, {'Q3': \"What services did Firebean provide for the 'Anti-drug Info Zone' exhibition at the Hong Kong Book Fair?\", 'A3': \"Firebean was responsible for comprehensive event planning, coordination, and production, including theme design and concept development. Additionally, Firebean provided PR consulting to ensure effective communication and public engagement for the Narcotics Division's anti-drug campaign.\"}]",
       "faqTC": "[{'Q1': '「禁毒資訊區：邁向無毒未來」流動展覽是什麼？', 'A1': '「禁毒資訊區：邁向無毒未來」是由香港保安局禁毒處（ND）主辦的流動展覽，旨在透過創新和互動的方式向公眾，尤其是青年，宣傳吸毒的危害，打破傳統禁毒宣傳的刻板印象，提升反毒信息的傳播效力。'}, {'Q2': '流動展覽第二站在哪裡舉行及何時舉行？', 'A2': '流動展覽的第二站於第34屆香港書展舉行，地點設於書展內的「兒童天地」區。此舉是保安局禁毒處為了以方便及貼近社區的方式傳遞禁毒訊息而安排的活動。'}, {'Q3': 'Firebean 在禁毒資訊區流動展覽中提供了哪些服務？', 'A3': 'Firebean 負責整體活動策劃、協調及製作工作，包括主題設計及構思發展。此外，Firebean 提供公關諮詢服務，確保禁毒處的反毒宣傳能有效接觸及吸引目標群體。'}]",
