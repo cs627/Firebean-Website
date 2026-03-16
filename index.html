@@ -1047,29 +1047,32 @@
 
           <div class="basis-full h-0"></div>
 
-          <!-- Last two lines: 並為 [Logo] 精心構築難忘的公共時刻。 -->
-          <!-- Use a single flex row that wraps naturally: 並為 + logo + text all inline -->
+          <!-- Line: 並為 -->
           <div class="basis-full h-0"></div>
-          <div class="w-full flex flex-wrap justify-center items-center gap-x-2 gap-y-1">
-            <span>並為</span>
-            <!-- Logo Slot 3 — sized to match 1 character height so it stays inline -->
-            <div class="logo-slot relative cursor-pointer inline-flex items-center justify-center align-middle flex-shrink-0"
-                 style="width:0.9em; height:0.55em; min-width:60px; min-height:36px; max-width:120px; max-height:72px;"
+          <span>並為</span>
+
+          <!-- Line: [Logo] 精心構築難忘的公共時刻。 -->
+          <!-- Logo is inline-block inside the text span so it flows with the text -->
+          <div class="basis-full h-0"></div>
+          <span class="inline-flex items-center justify-center gap-x-2 flex-wrap">
+            <!-- Logo Slot 3 — sized relative to font size using em units -->
+            <span class="logo-slot relative cursor-pointer inline-flex items-center justify-center align-middle flex-shrink-0"
+                 style="width:1.8em; height:1.1em; min-width:80px; min-height:48px;"
                  data-type="lifestyle" onclick="openClientModal(this)">
-              <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
-              <div class="w-full h-full perspective-1000">
-                <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
-                  <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[4px] bg-transparent">
+              <span class="l-bracket l-tl"></span><span class="l-bracket l-tr"></span><span class="l-bracket l-bl"></span><span class="l-bracket l-br"></span>
+              <span class="w-full h-full perspective-1000">
+                <span class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d" style="display:block;">
+                  <span class="absolute inset-0 backface-hidden flex items-center justify-center p-[4px] bg-transparent" style="display:flex;">
                     <img src="" class="front-img max-w-full max-h-full object-contain" alt="Client Logo" referrerpolicy="no-referrer">
-                  </div>
-                  <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[4px] bg-transparent rotate-x-180">
+                  </span>
+                  <span class="absolute inset-0 backface-hidden flex items-center justify-center p-[4px] bg-transparent rotate-x-180" style="display:flex;">
                     <img src="" class="back-img max-w-full max-h-full object-contain" alt="Client Logo" referrerpolicy="no-referrer">
-                  </div>
-                </div>
-              </div>
-            </div>
+                  </span>
+                </span>
+              </span>
+            </span>
             <span>精心構築難忘的公共時刻。</span>
-          </div>
+          </span>
         </div>
 
         <div class="mt-16 text-center font-playfair italic text-xl text-gray-500" data-key="Index.Narrative.Subtitle">
