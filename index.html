@@ -1,0 +1,2584 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <base href="/Firebean-Website/">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Firebean Agency Portfolio</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&family=League+Spartan:wght@700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@400;500;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Noto+Sans+JP:wght@700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- Translations & Legal Content -->
+    <script src="src/translations.js"></script>
+
+    <!-- CMS Data from Google Sheets -->
+    <script src="src/cms.js"></script>
+    
+    <!-- Lenis for smooth scroll -->
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Anton', 'sans-serif'],
+              oswald: ['Oswald', 'sans-serif'],
+              spartan: ['League Spartan', 'sans-serif'],
+              serif: ['Libre Baskerville', 'serif'],
+              playfair: ['Playfair Display', 'serif'],
+              jp: ['Noto Sans JP', 'sans-serif'],
+            },
+            colors: {
+              'brand-black': '#0a0a0a',
+              'brand-gray': '#f4f4f4',
+              'brand-red': '#ff3333',
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      /* Dark Mode Variables */
+      :root {
+        --bg-primary: #f4f4f4;
+        --bg-secondary: #ffffff;
+        --bg-card: #e5e7eb;
+        --text-primary: #0a0a0a;
+        --text-secondary: #4b5563;
+        --text-tertiary: #9ca3af;
+        --border-subtle: rgba(0,0,0,0.05);
+        --logo-ghost: rgba(0,0,0,0.03);
+        --nav-bg: rgba(244,244,244,0.8);
+      }
+
+      html.dark {
+        --bg-primary: #111111;
+        --bg-secondary: #1a1a1a;
+        --bg-card: #1a1a1a;
+        --text-primary: #e5e5e5;
+        --text-secondary: #999999;
+        --text-tertiary: #777777;
+        --border-subtle: rgba(255,255,255,0.1);
+        --logo-ghost: rgba(255,255,255,0.03);
+        --nav-bg: rgba(17,17,17,0.8);
+      }
+
+      html, body {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+      }
+      
+      body {
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      
+      /* Mega Menu Styles — NO !important on opacity/visibility so inline styles can override */
+      #nav-panel {
+        transition: all 0.3s ease;
+        z-index: 100001 !important;
+      }
+      /* Mobile adjustment for Mega Menu */
+      @media (max-width: 767px) {
+        #nav-panel {
+          left: 5% !important;
+          right: 5% !important;
+          width: 90% !important;
+          max-width: none !important;
+          top: 80px !important;
+        }
+      }
+
+      /* 3D Logo Background */
+      .bg-3d-logo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 40vw;
+        font-family: 'Anton', sans-serif;
+        color: rgba(0,0,0,0.03);
+        z-index: 0;
+        white-space: nowrap;
+        pointer-events: none;
+      }
+
+      /* Slider — crossfade mode (stacked slides) */
+      .slider-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+      .slider-container > a {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        will-change: opacity;
+      }
+      .slider-container > a.slide-active {
+        opacity: 1;
+        z-index: 1;
+      }
+      .slider-container > a:not(.slide-active) {
+        z-index: 0;
+      }
+      /* Slide image entrance animation */
+      @keyframes slide-flow-in {
+        0% { opacity: 0; transform: translateY(60px) scale(1); }
+        100% { opacity: 1; transform: translateY(0) scale(1); }
+      }
+      @keyframes slide-slow-zoom {
+        0% { transform: scale(1); }
+        100% { transform: scale(1.08); }
+      }
+      .slide-active img {
+        animation: slide-flow-in 0.5s cubic-bezier(0.25,0.46,0.45,0.94) forwards,
+                   slide-slow-zoom 3s ease-out 0.4s forwards;
+      }
+      /* Progress bar */
+      .slider-progress-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 3px;
+        background: rgba(255,255,255,0.85);
+        z-index: 40;
+        width: 0%;
+        transition: none;
+      }
+      .slider-progress-bar.animating {
+        transition: width 3s linear;
+        width: 100%;
+      }
+
+      /* Slider marquee ticker — driven by GSAP + scroll velocity */
+      .slider-marquee-animate {
+        will-change: transform;
+      }
+      /* Flow-in animation for marquee on slide change */
+      @keyframes marquee-flow-in {
+        0% { opacity: 0; transform: translateY(40px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+      .marquee-flow-in {
+        animation: marquee-flow-in 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+      }
+      /* Hero matchstick images — fly in on load, then pushed outward on scroll */
+      .hero-match {
+        position: absolute;
+        z-index: 0; /* behind all text */
+        pointer-events: none;
+        will-change: transform, opacity;
+        opacity: 0; /* Start hidden — GSAP auto-animates fly-in on load */
+      }
+      .hero-match img {
+        width: 100%;
+        height: auto;
+        display: block;
+        opacity: 1 !important;
+        transition: none !important;
+      }
+      /* Override global img loading system for match images */
+      img.match-img-override,
+      img.match-img-override.loaded {
+        opacity: 1 !important;
+        transition: none !important;
+      }
+      /* Contact section parallax background */
+      .contact-parallax-bg {
+        position: absolute;
+        top: -25%;
+        left: 0;
+        width: 100%;
+        height: 150%;
+        object-fit: cover;
+        will-change: transform;
+      }
+
+      /* Polaroid flow-in from bottom */
+      @keyframes polaroidFlowIn {
+        0% { opacity: 0; transform: translateY(80px) rotate(var(--polaroid-rotate, 0deg)); }
+        100% { opacity: 1; transform: translateY(0) rotate(var(--polaroid-rotate, 0deg)); }
+      }
+      .polaroid-flow-in {
+        opacity: 0;
+      }
+      .polaroid-flow-in.animate-in {
+        animation: polaroidFlowIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+      }
+      .slider-marquee-text {
+        font-family: 'Oswald', sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.95);
+        font-size: 16vw;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        padding-right: 0.3em;
+        white-space: nowrap;
+        text-shadow: 0 2px 40px rgba(0,0,0,0.3);
+      }
+      @media (min-width: 768px) {
+        .slider-marquee-text { font-size: 13vw; }
+      }
+      /* Top title text-shadow for readability */
+      .slider-top-title {
+        text-shadow: 0 2px 30px rgba(0,0,0,0.5), 0 1px 6px rgba(0,0,0,0.3);
+      }
+
+      /* Smooth image loading */
+      img {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+      img.loaded {
+        opacity: 1;
+      }
+
+      /* Text Stroke Effect */
+      .stroke-text {
+        -webkit-text-stroke: 1px white;
+        color: transparent;
+      }
+      .stroke-text-black {
+        -webkit-text-stroke: 1px black;
+        color: transparent;
+      }
+
+      /* 3D Flip Utilities */
+      .perspective-1000 { perspective: 1000px; }
+      .transform-style-3d { transform-style: preserve-3d; }
+      .backface-hidden { backface-visibility: hidden; }
+      .rotate-x-180 { transform: rotateX(180deg); }
+      
+      /* L-Brackets — Adjusted to fit 400x200px logo with 5-10px padding */
+      .l-bracket { position: absolute; width: 20px; height: 20px; border-color: #ff3333; border-style: solid; pointer-events: none; z-index: 10; }
+      .l-tl { top: 0px; left: 0px; border-width: 2px 0 0 2px; }
+      .l-tr { top: 0px; right: 0px; border-width: 2px 2px 0 0; }
+      .l-bl { bottom: 0px; left: 0px; border-width: 0 0 2px 2px; }
+      .l-br { bottom: 0px; right: 0px; border-width: 0 2px 2px 0; }
+
+      /* Japanese Work Title Adjustment */
+      body.lang-jp [data-key="Index.Work.Title"] {
+        font-size: 10.8vw !important; /* 12vw * 0.9 = 10.8vw */
+        font-family: 'Noto Sans JP', sans-serif;
+        font-weight: 900;
+      }
+
+      /* Japanese Newsletter Title Adjustment */
+      body.lang-jp [data-key="Index.Newsletter.Title"] {
+        font-size: 2.7rem !important; /* text-5xl (3rem) * 0.9 = 2.7rem */
+        font-family: 'Noto Sans JP', sans-serif;
+        font-weight: 900;
+      }
+      @media (min-width: 768px) {
+        body.lang-jp [data-key="Index.Newsletter.Title"] {
+          font-size: 4.05rem !important; /* text-7xl (4.5rem) * 0.9 = 4.05rem */
+        }
+      }
+
+      /* === Mobile CH/JP Hero: vertical text stack like EN mobile === */
+      @media (max-width: 767px) {
+        .jp-hero-title.jp .hero-line,
+        .jp-hero-title.ch .hero-line {
+          font-size: 13vw;
+          text-align: center;
+        }
+        .jp-hero-title.jp > div,
+        .jp-hero-title.ch > div {
+          flex-direction: column !important;
+          align-items: center !important;
+          justify-content: center !important;
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+          margin-top: 0 !important;
+        }
+        .jp-hero-title.ch {
+          line-height: 1.1 !important;
+        }
+        .jp-hero-title.ch > div {
+          margin-top: -1vw !important;
+        }
+        .jp-hero-title.ch > div:first-child {
+          margin-top: 0 !important;
+        }
+      }
+
+      /* === Desktop-only JP Hero Styles === */
+      @media (min-width: 768px) {
+        .jp-hero-title.jp .hero-line {
+          font-size: 7vw;
+        }
+
+        /* Row 1: 戦略を (Left) - Photo 1 - 主導する (Right) */
+        .jp-hero-title.jp > div:nth-child(1) {
+          flex-direction: row !important;
+          justify-content: space-between !important;
+          width: 100%;
+          padding-left: 1vw;
+          padding-right: 1vw;
+        }
+
+        .jp-hero-title.jp > div:nth-child(1) > .hidden.md\:block {
+          margin-left: 0.5vw !important;
+          margin-right: 0.5vw !important;
+        }
+
+        .jp-hero-title.jp [data-key="Index.Hero.Line1"] {
+          font-size: 10vw;
+        }
+
+        .jp-hero-title.jp [data-key="Index.Hero.Line2"] {
+          font-size: 10vw;
+          transform: translateX(-2vw);
+        }
+
+        /* Row 2: PRの - Photo 2 - Subtitle set */
+        .jp-hero-title.jp > div:nth-child(2) {
+          flex-direction: row !important;
+          justify-content: flex-start !important;
+          width: 100%;
+          padding-left: 10vw;
+        }
+
+        .jp-hero-title.jp [data-key="Index.Hero.Line3"] {
+          font-size: 15vw;
+        }
+
+        /* Row 3: プロフェッショナル (Left) */
+        .jp-hero-title.jp > div:nth-child(3) {
+          justify-content: flex-start !important;
+          padding-left: 10vw !important;
+          padding-right: 0 !important;
+        }
+        .jp-hero-title.jp [data-key="Index.Hero.Line4"] {
+          font-size: 7vw;
+          text-align: left;
+        }
+      }
+
+      /* Chinese Specific Styles */
+      .jp-hero-title.ch {
+        line-height: 1.1 !important;
+      }
+
+      /* Newsletter Title Adjustment for Chinese */
+      .lang-ch [data-key="Index.Newsletter.Title"] {
+        font-size: 3.5rem !important;
+        line-height: 1.2 !important;
+      }
+      @media (min-width: 768px) {
+        .lang-ch [data-key="Index.Newsletter.Title"] {
+          font-size: 4.5rem !important;
+        }
+      }
+
+      /* === Desktop-only CH Hero Styles === */
+      @media (min-width: 768px) {
+        .jp-hero-title.ch .hero-line {
+          font-size: 11vw;
+          padding-bottom: 2vw;
+          padding-top: 1vw;
+        }
+
+        .jp-hero-title.ch > div {
+          padding-top: 0 !important;
+          padding-bottom: 0 !important;
+          margin-top: -2vw !important;
+        }
+        .jp-hero-title.ch > div:first-child {
+          margin-top: 0 !important;
+        }
+
+        .jp-hero-title.ch > div:nth-child(1) { z-index: 10 !important; }
+        .jp-hero-title.ch > div:nth-child(2) { z-index: 20 !important; }
+        .jp-hero-title.ch > div:nth-child(3) { z-index: 30 !important; }
+
+        .jp-hero-title.ch > div:nth-child(1) {
+          flex-direction: row !important;
+          justify-content: space-between !important;
+          width: 100%;
+          padding-left: 5vw;
+          padding-right: 5vw;
+        }
+
+        .jp-hero-title.ch > div:nth-child(2) {
+          flex-direction: row !important;
+          justify-content: flex-start !important;
+          width: 100%;
+          padding-left: 5vw;
+        }
+
+        .jp-hero-title.ch > div:nth-child(3) {
+          justify-content: center !important;
+          width: 100%;
+          padding-left: 0 !important;
+        }
+
+        .jp-hero-title.ch > div:nth-child(1) > div.hidden.md\:block {
+          margin-top: -2vw !important;
+          width: 15vw !important;
+        }
+        .jp-hero-title.ch > div:nth-child(2) > div.hidden.md\:block {
+          left: 40% !important;
+          width: 16vw !important;
+        }
+      }
+      
+      /* Polaroid Flip Animation */
+      @keyframes flipPolaroid {
+        0% { transform: perspective(1000px) rotateY(0deg) scale(var(--tw-scale-x, 1)); }
+        49.9% { transform: perspective(1000px) rotateY(90deg) scale(var(--tw-scale-x, 1)); }
+        50% { transform: perspective(1000px) rotateY(-90deg) scale(var(--tw-scale-x, 1)); }
+        100% { transform: perspective(1000px) rotateY(0deg) scale(var(--tw-scale-x, 1)); }
+      }
+      .flip-animate {
+        animation: flipPolaroid 0.8s ease-in-out;
+      }
+      /* Navigation Overrides */
+      #navbar {
+        z-index: 99999 !important;
+        pointer-events: auto !important;
+      }
+      #nav-panel {
+        z-index: 100001 !important;
+      }
+      .lang-btn {
+        cursor: pointer !important;
+        position: relative;
+        z-index: 100000 !important;
+        pointer-events: auto !important;
+      }
+      
+      /* Ensure hero section doesn't block nav */
+      #hero {
+        z-index: 1;
+      }
+      .jp-hero-title {
+        pointer-events: none !important;
+      }
+      .jp-hero-title * {
+        pointer-events: none !important;
+      }
+      .jp-hero-title a, .jp-hero-title button {
+        pointer-events: auto !important;
+      }
+
+      /* Dark mode overrides for specific elements */
+      html.dark .bg-brand-gray { background-color: var(--bg-primary) !important; }
+      html.dark .text-brand-black { color: var(--text-primary) !important; }
+      html.dark .text-gray-600 { color: var(--text-secondary) !important; }
+      html.dark .text-gray-400 { color: var(--text-tertiary) !important; }
+      html.dark .bg-gray-200 { background-color: var(--bg-card) !important; }
+      html.dark .border-black\/5 { border-color: var(--border-subtle) !important; }
+      html.dark .stroke-text-black { -webkit-text-stroke-color: #e5e5e5; }
+      html.dark .bg-3d-logo { color: var(--logo-ghost); }
+
+
+      /* Nav dark mode */
+      html.dark #navbar { color: var(--text-primary); }
+      html.dark nav#navbar { color: var(--text-primary); }
+
+      /* Profile page & work page nav with backdrop */
+      html.dark .bg-brand-gray\/80 { background-color: var(--nav-bg) !important; }
+
+      /* Work section heading text */
+      html.dark [data-key="Index.Work.Title"] { color: var(--text-primary) !important; }
+
+      /* Dark mode toggle button */
+      .dark-toggle {
+        cursor: pointer;
+        position: relative;
+        z-index: 100000;
+        pointer-events: auto;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+      }
+      .dark-toggle:hover { opacity: 1; }
+      .dark-toggle svg { width: 16px; height: 16px; }
+
+      /* Newsletter card text in dark mode */
+      html.dark .newsletter-card h3 { color: var(--text-primary) !important; }
+      html.dark .newsletter-card p { color: var(--text-secondary) !important; }
+      html.dark .newsletter-card a { color: var(--text-primary) !important; }
+
+      /* Profile hero text dark mode */
+      html.dark #profile-title { color: var(--text-primary) !important; }
+      html.dark #profile-categories span { color: var(--text-primary) !important; }
+
+      /* Google Maps dark mode */
+      html.dark iframe[src*="google.com/maps"] { filter: invert(0.9) hue-rotate(180deg); }
+    </style>
+
+    <script>
+      // Dark mode: check localStorage first, then system preference
+      (function() {
+        var stored = localStorage.getItem('darkMode');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (stored === 'true' || (stored === null && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+  </head>
+  <body class="antialiased">
+    
+    <!-- Legal Modal -->
+    <div id="legal-modal" class="hidden fixed inset-0 bg-black/60 z-[200] flex items-center justify-center p-6 font-sans">
+      <div id="modal-overlay" class="absolute inset-0"></div>
+      <div class="relative bg-brand-red text-brand-black w-full max-w-3xl max-h-[80vh] p-8 md:p-12 rounded-lg shadow-2xl overflow-y-auto">
+        <button id="modal-close-btn" class="absolute top-4 right-4 text-brand-black hover:opacity-70 transition-opacity text-3xl">&times;</button>
+        <h2 id="modal-title" class="font-oswald font-bold text-4xl uppercase mb-6"></h2>
+        <div id="modal-content" class="space-y-4 text-sm leading-relaxed"></div>
+      </div>
+    </div>
+    
+    <!-- Navigation -->
+    <!-- Mobile Menu Button (Absolute Top Right) -->
+    <button id="mobile-menu-btn" class="md:hidden fixed top-6 right-6 z-[10000] bg-black/60 backdrop-blur-lg p-3 rounded-xl border border-white/10 shadow-xl active:scale-95 transition-all" onclick="window.toggleMegaMenu(event)">
+      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+
+    <nav class="absolute top-0 left-0 w-full px-6 py-6 flex justify-between items-center z-[9999] text-brand-black pointer-events-auto" id="navbar" data-lenis-prevent>
+      <a class='flex items-center gap-2 hover:opacity-70 transition-opacity' href='index.html'>
+        <img src="data/images/firebean-logo-w100.webp" class="h-6 w-auto object-contain mix-blend-multiply" alt="Firebean Logo" referrerpolicy="no-referrer">
+        <div class="font-sans font-light text-xl tracking-widest lowercase" style="font-variant: small-caps;">firebean</div>
+      </a>
+      
+      <div class="hidden md:flex gap-8 font-sans text-sm uppercase tracking-widest items-center">
+        <a href="#hero" class="hover:opacity-50 transition-opacity" data-key="Global.Navigation.Home">Home</a>
+        <a href="#about" class="hover:opacity-50 transition-opacity" data-key="Global.Navigation.About">About</a>
+        
+        <!-- Mega Menu Trigger -->
+        <div class="relative py-4">
+          <button id="nav-panel-trigger" class='hover:opacity-50 transition-opacity flex items-center gap-1 uppercase tracking-widest text-sm font-sans'>
+            <span data-key="Global.Navigation.WhatWeDo">What We Do</span> <span class="text-[10px]">▼</span>
+          </button>
+
+        </div>
+      </div>
+
+    <div class="font-sans text-xs uppercase tracking-widest flex gap-2 items-center">
+
+        <button class="lang-btn hover:opacity-50" data-lang="en">EN</button> |
+        <button class="lang-btn hover:opacity-50 text-gray-500" data-lang="ch">CH</button> |
+        <button class="lang-btn hover:opacity-50 text-gray-500" data-lang="jp">JP</button> |
+        <button class="dark-toggle" id="dark-toggle" title="Toggle dark mode">
+          <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+          <svg id="icon-sun" style="display:none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mega Menu Dropdown (OUTSIDE nav so it renders correctly on mobile) -->
+    <div id="nav-panel" class="fixed bg-brand-black text-white px-6 py-10 shadow-2xl rounded-xl" style="opacity:0; visibility:hidden; pointer-events:none; top:80px; left:5%; right:5%; width:90%; max-width:600px; z-index:999999; transition:all 0.3s ease;" data-open="false">
+      <button id="nav-panel-close" class="absolute top-4 right-4 text-white hover:text-brand-red transition-colors text-2xl leading-none">&times;</button>
+      <div class="grid grid-cols-2 gap-8 md:gap-16 w-full">
+        <div>
+          <h4 class="font-oswald text-lg md:text-xl mb-4 md:mb-6 text-brand-red tracking-widest" data-key="Global.Navigation.WhoWeHelp">WHO WE HELP</h4>
+          <ul class="space-y-2 md:space-y-3 text-xs md:text-sm text-gray-400 font-sans tracking-wide">
+            <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.GovPublic' href='work.html?filter=government'>Government & Public Sector</a></li>
+            <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.LifestyleConsumer' href='work.html?filter=lifestyle'>Lifestyle & Consumer</a></li>
+            <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.FBHospitality' href='work.html?filter=hospitality'>F&B & Hospitality</a></li>
+            <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.MallsVenues' href='work.html?filter=venues'>Malls & Venues</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-oswald text-lg md:text-xl mb-4 md:mb-6 text-brand-red tracking-widest" data-key="Global.Navigation.WhatWeDo">WHAT WE DO</h4>
+          <ul class="space-y-2 md:space-y-3 text-xs md:text-sm text-gray-400 font-sans tracking-wide">
+            <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.RovingExhibitions' href='work.html?filter=exhibitions'>Roving Exhibitions</a></li>
+            <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.SocialContent' href='work.html?filter=social'>Social & Content</a></li>
+            <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.InteractiveTech' href='work.html?filter=tech'>Interactive & Tech</a></li>
+            <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.PRMedia' href='work.html?filter=pr'>PR & Media</a></li>
+            <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.EventsCeremonies' href='work.html?filter=events'>Events & Ceremonies</a></li>
+          </ul>
+        </div>
+        <div class="col-span-2 border-t border-white/20 pt-4 md:pt-6 mt-2">
+          <a class='text-sm font-bold hover:text-brand-red transition-colors flex items-center gap-3 tracking-widest' href='work.html'>
+            <span class="text-xl">↳</span> <span data-key="Global.Navigation.ViewAllWork">VIEW ALL WORK</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Session 1: Hero Section -->
+    <section class="relative min-h-screen flex flex-col justify-center items-center pt-32 pb-20" id="hero" style="overflow:visible;">
+      <div class="relative w-full max-w-[95vw] mx-auto flex flex-col items-center">
+        
+        <!-- Main Typography -->
+        <div class="flex flex-col items-center justify-center font-oswald font-bold text-[14vw] md:text-[13vw] leading-[0.85] text-center uppercase tracking-tighter text-brand-black relative z-10 w-full jp-hero-title pointer-events-none">
+          
+          <!-- Line 1: A [Polaroid 1] STRATEGY -->
+          <div class="flex flex-col md:flex-row items-center justify-center w-full relative z-10 md:gap-8 py-[20px]">
+            <div class="overflow-hidden pt-[2vw] -mt-[2vw] pb-[4vw] -mb-[4vw] px-[4vw] md:-mx-[4vw] relative z-30"><span class="hero-line block" data-key="Index.Hero.Line1">A</span></div>
+            
+            <!-- Polaroid 1 (Mobile: Absolute positioned, smaller and better placed) -->
+            <div class="block md:hidden w-[28vw] absolute top-[2vw] right-[5vw] z-20 pointer-events-none polaroid-flow-in" style="--polaroid-rotate:6deg">
+               <div class="relative w-full bg-white pt-1 px-1 pb-4 shadow-xl transform rotate-[6deg] transition-transform duration-500">
+                 <div class="w-full aspect-square bg-gray-200 overflow-hidden relative">
+                   <img src="https://picsum.photos/seed/event1/600/600" class="polaroid-img-1 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Event" data-key="Index.Hero.PolaroidAlt" referrerpolicy="no-referrer">
+                   <img src="https://picsum.photos/seed/event2/600/600" class="polaroid-img-1 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Event" data-key="Index.Hero.PolaroidAlt" referrerpolicy="no-referrer">
+                 </div>
+               </div>
+            </div>
+
+            <!-- Polaroid 1 (Desktop: Reduced size by ~20%, thinner frame) -->
+            <div class="hidden md:block w-[15vw] relative -mt-[4vw] z-20 mx-4 polaroid-flow-in" style="--polaroid-rotate:-6deg">
+               <div id="polaroid-frame-1" class="relative w-full bg-white pt-1.5 px-1.5 pb-6 shadow-2xl transition-transform duration-500 hover:scale-105 hover:z-50" style="transform: rotate(-6deg); transform-origin: center center;">
+                 <div class="w-full aspect-square bg-gray-200 overflow-hidden relative">
+                   <img src="https://picsum.photos/seed/event1/600/600" class="polaroid-img-1 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Event" data-key="Index.Hero.PolaroidAlt" referrerpolicy="no-referrer">
+                   <img src="https://picsum.photos/seed/event2/600/600" class="polaroid-img-1 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Event" data-key="Index.Hero.PolaroidAlt" referrerpolicy="no-referrer">
+                 </div>
+               </div>
+            </div>
+            
+            <div class="overflow-hidden pt-[2vw] -mt-[2vw] pb-[4vw] -mb-[4vw] px-[4vw] md:-mx-[4vw] relative z-30"><span class="hero-line block" data-key="Index.Hero.Line2">STRATEGY</span></div>
+          </div>
+
+          <!-- Line 2: DRIVEN [Polaroid 2] -->
+          <!-- z-20 to be below Line 3 (z-30) so PR AGENCY covers the bottom of Polaroid 2 -->
+          <!-- Added py-[20px] and removed negative margin to prevent overlap as requested -->
+          <div class="flex flex-col md:flex-row items-center justify-start w-full relative z-20 md:pl-[5vw] py-[20px]">
+            <div class="overflow-hidden pt-[2vw] -mt-[2vw] pb-[4vw] -mb-[4vw] px-[4vw] md:-mx-[4vw] relative z-30"><span class="hero-line block" data-key="Index.Hero.Line3">DRIVEN</span></div>
+            
+            <!-- Polaroid 2 (Mobile: Absolute positioned, smaller and better placed) -->
+            <div class="block md:hidden w-[28vw] absolute bottom-[-5vw] left-[2vw] z-20 pointer-events-none polaroid-flow-in" style="--polaroid-rotate:-4deg">
+               <div class="relative w-full bg-white pt-1 px-1 pb-4 shadow-xl transform rotate-[-4deg] transition-transform duration-500">
+                 <div class="w-full aspect-square bg-gray-200 overflow-hidden relative">
+                   <img src="https://picsum.photos/seed/event3/600/600" class="polaroid-img-2 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Event" data-key="Index.Hero.PolaroidAlt" referrerpolicy="no-referrer">
+                   <img src="https://picsum.photos/seed/event4/600/600" class="polaroid-img-2 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Event" data-key="Index.Hero.PolaroidAlt" referrerpolicy="no-referrer">
+                 </div>
+               </div>
+            </div>
+
+             <!-- Polaroid 2 (Desktop: Reduced size by ~20%, vertically centered to DRIVEN) -->
+             <!-- Positioned absolute to center vertically relative to the line -->
+            <div class="hidden md:block w-[16vw] absolute left-[45%] bottom-0 translate-y-[10%] z-10 polaroid-flow-in" style="--polaroid-rotate:4deg">
+               <div id="polaroid-frame-2" class="relative w-full bg-white pt-1.5 px-1.5 pb-6 shadow-2xl transition-transform duration-500 hover:scale-105 hover:z-50" style="transform: rotate(4deg); transform-origin: center center;">
+                 <div class="w-full aspect-square bg-gray-200 overflow-hidden relative">
+                   <img src="https://picsum.photos/seed/event3/600/600" class="polaroid-img-2 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Event" data-key="Index.Hero.PolaroidAlt" referrerpolicy="no-referrer">
+                   <img src="https://picsum.photos/seed/event4/600/600" class="polaroid-img-2 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Event" data-key="Index.Hero.PolaroidAlt" referrerpolicy="no-referrer">
+                 </div>
+               </div>
+            </div>
+            
+            <!-- Desktop Subtitle (Shifted left to be closer to Polaroid) -->
+            <div class="hidden md:flex flex-col items-start justify-center absolute left-[63%] top-1/2 -translate-y-[40%] max-w-[300px] text-left z-30">
+                <p class="font-playfair italic text-xl leading-tight text-brand-black font-medium normal-case tracking-normal mb-4" data-key="Index.Hero.Subtitle">
+                  Create to Engage: We don’t just stage events; we architect public engagement.
+                </p>
+                <a class='font-sans text-sm font-bold uppercase tracking-widest hover:text-brand-red transition-colors flex items-center gap-2' href='work.html'>
+                  <span class="text-xl">↳</span> <span data-key="Index.Hero.CTA">EXPLORE WHAT WE DO</span>
+                </a>
+            </div>
+
+          </div>
+
+          <!-- Line 3: PR AGENCY -->
+          <!-- z-30 to cover the bottom of Polaroid 2 -->
+          <!-- Added py-[20px] and removed negative margin to prevent overlap -->
+          <div class="flex flex-col md:flex-row items-center justify-center w-full relative z-30 py-[20px]">
+             <div class="overflow-hidden pt-[2vw] -mt-[2vw] pb-[4vw] -mb-[4vw] px-[4vw] md:-mx-[4vw]"><span class="hero-line block" data-key="Index.Hero.Line4">PR AGENCY</span></div>
+             
+             <!-- Mobile Subtitle -->
+             <div class="flex md:hidden flex-col items-center justify-center text-center mt-16 px-6 relative z-30">
+                <p class="font-playfair italic text-lg leading-tight text-brand-black font-medium normal-case tracking-normal mb-6" data-key="Index.Hero.Subtitle">
+                  Create to Engage: We don’t just stage events; we architect public engagement.
+                </p>
+                <a class='font-sans text-sm font-bold uppercase tracking-widest hover:text-brand-red transition-colors flex items-center gap-2' href='work.html'>
+                  <span class="text-lg">↳</span> <span data-key="Index.Hero.CTA">EXPLORE WHAT WE DO</span>
+                </a>
+             </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Matchsticks — 3 total: 1 left, 2 right -->
+      <!-- Left match: red head at lower-left pointing toward DRIVEN. Stick body goes upper-right.
+           Match img has head on RIGHT. rotate(210deg) flips head to lower-left, body upper-right. -->
+      <div class="hero-match" id="match-left-1" style="left:2%; bottom:15%; width:clamp(200px,28vw,420px); transform:rotate(235deg); transform-origin:center center;">
+        <img src="data/images/match.webp" alt="" class="match-img-override" />
+      </div>
+      <!-- Right top match: red head at upper-right, angled down-left toward AGENCY -->
+      <div class="hero-match" id="match-right-1" style="right:2%; top:0%; width:clamp(200px,28vw,420px); transform:rotate(30deg); transform-origin:center center;">
+        <img src="data/images/match.webp" alt="" class="match-img-override" />
+      </div>
+      <!-- Right bottom match: red head at lower-right, angled up-left toward Y of AGENCY -->
+      <div class="hero-match" id="match-right-2" style="right:2%; bottom:8%; width:clamp(190px,26vw,400px); transform:rotate(-30deg); transform-origin:center center;">
+        <img src="data/images/match.webp" alt="" class="match-img-override" />
+      </div>
+    </section>
+
+    <!-- Session 2: Highlight Showcase (Full sliding banner) -->
+    <section class="relative w-full h-screen overflow-hidden group" id="highlights">
+      <div class="slider-container h-full w-full" id="main-slider">
+        <!-- Slides populated dynamically by CMS -->
+      </div>
+
+      <!-- Top-center: Project name (bold uppercase) + slide counter -->
+      <div class="absolute top-8 md:top-12 left-1/2 -translate-x-1/2 z-30 text-center w-[85%] md:w-[70%] max-w-[900px]">
+        <p id="slider-project-name" class="slider-top-title font-oswald font-bold uppercase text-white leading-[1.05] tracking-tight text-[6vw] md:text-[3.2vw]"></p>
+        <p id="slider-counter" class="font-playfair italic text-sm text-white/60 mt-3"></p>
+      </div>
+
+      <!-- Center-bottom: Marquee ticker for category (Who We Help) -->
+      <div class="absolute bottom-[15%] md:bottom-[18%] left-0 w-full z-30 overflow-hidden pointer-events-none" id="slider-marquee-wrapper">
+        <div id="slider-marquee" class="flex whitespace-nowrap slider-marquee-animate">
+          <!-- Repeated category text, filled by JS -->
+        </div>
+      </div>
+
+      <!-- Slider Progress Bar -->
+      <div class="slider-progress-bar" id="slider-progress"></div>
+    </section>
+
+    <!-- Session 3: Project Profiles -->
+    <section class="relative py-24 md:py-32 px-6 md:px-16 bg-brand-gray overflow-hidden" id="work">
+      <!-- 3D Logo Background — 3 independent parallax logos, right-side, different sizes & speeds -->
+      <div class="pointer-events-none" style="position:absolute;inset:0;overflow:hidden;z-index:0;">
+        <!-- Logo 1: large, slow drift, strong flip -->
+        <div id="bg-logo-wrap-1" style="position:absolute;right:-4%;top:5%;will-change:transform;">
+          <img id="bg-logo-1" src="data/images/firebean-logo-w1000.webp" alt="" referrerpolicy="no-referrer"
+            style="width:clamp(260px,36vw,480px);opacity:0.30;mix-blend-mode:multiply;transform-style:preserve-3d;will-change:transform;display:block;">
+        </div>
+        <!-- Logo 2: large, left side, medium drift, medium flip -->
+        <div id="bg-logo-wrap-2" style="position:absolute;left:-4%;top:30%;will-change:transform;">
+          <img id="bg-logo-2" src="data/images/firebean-logo-w1000.webp" alt="" referrerpolicy="no-referrer"
+            style="width:clamp(390px,55vw,730px);opacity:0.22;mix-blend-mode:multiply;transform-style:preserve-3d;will-change:transform;display:block;">
+        </div>
+        <!-- Logo 3: small, right side, fast drift, subtle flip -->
+        <div id="bg-logo-wrap-3" style="position:absolute;right:2%;top:62%;will-change:transform;">
+          <img id="bg-logo-3" src="data/images/firebean-logo-w1000.webp" alt="" referrerpolicy="no-referrer"
+            style="width:clamp(100px,13vw,180px);opacity:0.16;mix-blend-mode:multiply;transform-style:preserve-3d;will-change:transform;display:block;">
+        </div>
+      </div>
+      
+      <div class="relative z-10 max-w-7xl mx-auto">
+        <div class="text-center mb-24 md:mb-40 flex flex-col items-center justify-center relative z-10">
+          <h3 class="font-playfair italic text-xl md:text-2xl font-medium tracking-wide text-brand-black mb-4" data-key="Index.Work.Subtitle">
+            Create to engage, policy into Play.
+          </h3>
+          <h2 class="font-oswald font-bold text-[12vw] leading-[0.9] text-center uppercase tracking-tighter text-brand-black" data-key="Index.Work.Title">
+            We Turn Mandates<br>
+            Into Memories
+          </h2>
+        </div>
+
+        <!-- Floating Profiles Grid (Scattered Arrangement) — populated by CMS -->
+        <div class="grid grid-cols-2 md:grid-cols-12 gap-y-12 md:gap-y-20 gap-x-4 md:gap-x-8 relative z-10" id="work-profiles-grid">
+          <!-- Populated dynamically by cmsDataReady listener -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Session 4: About Us -->
+    <section class="relative py-16 md:py-32 px-6 bg-brand-black text-white overflow-hidden" id="about">
+      <!-- Background Image with Overlay -->
+      <div class="absolute inset-0 z-0 h-[130%] -top-[15%]"> <!-- Enlarge container and offset -->
+        <!-- Google Drive Image -->
+        <img src="data/images/about-bg.webp" referrerpolicy="no-referrer" class="w-full h-full object-cover opacity-100" alt="About Us Background" id="about-bg-img">
+        <div class="absolute inset-0 bg-black/60"></div> <!-- Dark overlay to ensure white text is legible -->
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto flex flex-col h-full">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 md:gap-16 mb-12 md:mb-24">
+          <!-- Left: Header & Intro + Lists -->
+          <div class="lg:col-span-7 flex flex-col justify-center">
+            <h2 class="font-oswald text-3xl md:text-6xl lg:text-7xl uppercase leading-[0.9] font-bold mb-3 md:mb-8 tracking-tighter text-white" data-key="Index.About.Title">
+              LIFESTYLE RESONANCE. <br>
+              <span class="text-brand-red">INSTITUTIONAL RIGOR.</span>
+            </h2>
+            <p class="font-playfair italic text-[14px] md:text-[18px] leading-relaxed text-white max-w-2xl mb-4 md:mb-0" data-key="Index.About.Subtitle">
+              Shaping Hong Kong's PR scene since 2007, we specialize in the art of the engagement. From the buzz of the city's biggest lifestyle launches to our role as PR consultants for the Buildings Department since 2023, we create the strategies that make institutions feel human and brands feel essential.
+            </p>
+          </div>
+
+          <!-- Right: Mega Menu — Card Layout for Mobile -->
+          <div class="lg:col-span-5 grid grid-cols-2 gap-4 md:gap-12 pt-0 md:pt-4">
+            <div class="bg-black/40 backdrop-blur-md p-5 md:p-0 rounded-2xl md:rounded-none border border-white/10 md:border-none">
+              <h4 class="font-oswald text-xs md:text-sm font-bold uppercase tracking-widest text-brand-red mb-3 md:mb-6 border-b border-white/20 pb-2 md:pb-4" data-key="Global.Navigation.WhoWeHelp">Who We Help</h4>
+              <ul class="space-y-2 md:space-y-4 font-sans text-[11px] md:text-[14px] text-white">
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.GovPublic' href='work.html?filter=government'>Government & Public Sector</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.LifestyleConsumer' href='work.html?filter=lifestyle'>Lifestyle & Consumer</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.FBHospitality' href='work.html?filter=hospitality'>F&B & Hospitality</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.MallsVenues' href='work.html?filter=venues'>Malls & Venues</a></li>
+              </ul>
+            </div>
+            <div class="bg-black/40 backdrop-blur-md p-5 md:p-0 rounded-2xl md:rounded-none border border-white/10 md:border-none">
+              <h4 class="font-oswald text-xs md:text-sm font-bold uppercase tracking-widest text-brand-red mb-3 md:mb-6 border-b border-white/20 pb-2 md:pb-4" data-key="Global.Navigation.WhatWeDo">What We Do</h4>
+              <ul class="space-y-2 md:space-y-4 font-sans text-[11px] md:text-[14px] text-white">
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.RovingExhibitions' href='work.html?filter=exhibitions'>Roving Exhibitions</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.SocialContent' href='work.html?filter=social'>Social & Content</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.InteractiveTech' href='work.html?filter=tech'>Interactive & Tech</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.PRMedia' href='work.html?filter=pr'>PR & Media</a></li>
+                <li class="hover:text-brand-red transition-colors cursor-pointer"><a data-key='Global.Navigation.EventsCeremonies' href='work.html?filter=events'>Events & Ceremonies</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Infographic Stats — Card Layout for Mobile -->
+        <div class="grid grid-cols-3 md:grid-cols-3 border border-white/10 md:border-t md:border-l md:border-white/20 bg-black/40 backdrop-blur-md md:backdrop-blur-sm rounded-2xl md:rounded-none overflow-hidden">
+          <div class="border-r border-white/10 md:border-white/20 p-3 md:p-8 flex flex-col items-center justify-center text-center">
+            <svg class="w-5 md:w-8 h-5 md:h-8 mb-1 md:mb-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <div class="font-oswald text-lg md:text-5xl text-white mb-0 md:mb-2 font-bold">18+</div>
+            <div class="font-sans text-[8px] md:text-xs uppercase tracking-widest text-gray-300 leading-tight" data-key="Index.About.Stats1">Years<br>Experience</div>
+          </div>
+          <div class="border-r border-white/10 md:border-white/20 p-3 md:p-8 flex flex-col items-center justify-center text-center">
+            <svg class="w-5 md:w-8 h-5 md:h-8 mb-1 md:mb-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            <div class="font-oswald text-lg md:text-5xl text-white mb-0 md:mb-2 font-bold">360+</div>
+            <div class="font-sans text-[8px] md:text-xs uppercase tracking-widest text-gray-300 leading-tight" data-key="Index.About.Stats2">Projects<br>Delivered</div>
+          </div>
+          <div class="p-3 md:p-8 flex flex-col items-center justify-center text-center">
+            <svg class="w-5 md:w-8 h-5 md:h-8 mb-1 md:mb-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+            <div class="font-oswald text-lg md:text-5xl text-white mb-0 md:mb-2 font-bold" data-key="Index.About.Stats3Num">1.5M+</div>
+            <div class="font-sans text-[8px] md:text-xs uppercase tracking-widest text-gray-300 leading-tight" data-key="Index.About.Stats3">People<br>Engaged</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Session 5: Clients -->
+    <section class="py-32 px-6 bg-brand-gray text-brand-black overflow-hidden relative" id="clients">
+      <div class="max-w-[95vw] lg:max-w-7xl mx-auto text-center">
+        
+        <!-- Massive Narrative Text -->
+        <div id="narrative-default" class="flex flex-wrap justify-center items-center gap-x-3 gap-y-2 md:gap-y-4 font-oswald font-bold uppercase leading-[0.85] tracking-tighter text-[56px] md:text-[8vw] lg:text-[9vw] text-brand-black">
+          <span data-key="Index.Narrative.Line1">WE MOVE</span>
+          
+          <!-- Logo Slot 1 (Lifestyle) -->
+          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[120px] h-[60px] md:w-[160px] md:h-[80px] lg:w-[200px] lg:h-[100px] align-middle" data-type="lifestyle" onclick="openClientModal(this)">
+            <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
+            <div class="w-full h-full perspective-1000">
+              <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent">
+                  <img src="" class="front-img max-w-full max-h-full object-contain " alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
+                </div>
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent rotate-x-180">
+                  <img src="" class="back-img max-w-full max-h-full object-contain " alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <span data-key="Index.Narrative.Line2">BEYOND THE SCROLL,</span>
+          <span data-key="Index.Narrative.Line3">SPARK CURIOSITY FOR</span>
+
+          <!-- Logo Slot 2 (Government) -->
+          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[120px] h-[60px] md:w-[160px] md:h-[80px] lg:w-[200px] lg:h-[100px] align-middle" data-type="government" onclick="openClientModal(this)">
+            <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
+            <div class="w-full h-full perspective-1000">
+              <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent">
+                  <img src="" class="front-img max-w-full max-h-full object-contain " alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
+                </div>
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent rotate-x-180">
+                  <img src="" class="back-img max-w-full max-h-full object-contain " alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <span data-key="Index.Narrative.Line4">& ARCHITECT</span>
+          
+          <div class="basis-full h-0"></div>
+          
+          <span data-key="Index.Narrative.Line5">PUBLIC MOMENTS</span>
+          
+          <div class="inline-flex items-center">
+            <span data-key="Index.Narrative.Line6">FOR</span>
+            <!-- Logo Slot 3 (Lifestyle) -->
+            <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[120px] h-[60px] md:w-[160px] md:h-[80px] lg:w-[200px] lg:h-[100px] align-middle" data-type="lifestyle" onclick="openClientModal(this)">
+              <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
+              <div class="w-full h-full perspective-1000">
+                <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
+                  <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent">
+                    <img src="" class="front-img max-w-full max-h-full object-contain " alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
+                  </div>
+                  <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent rotate-x-180">
+                    <img src="" class="back-img max-w-full max-h-full object-contain " alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Japanese Narrative Text -->
+        <div id="narrative-jp" class="hidden flex-wrap justify-center items-center gap-x-3 gap-y-1 md:gap-y-2 font-jp font-black uppercase leading-[0.85] tracking-tighter text-[56px] md:text-[8vw] lg:text-[9vw] text-brand-black">
+          <span data-key="Index.Narrative.Line1">弊社は、</span>
+          
+          <!-- Logo Slot 1 (Lifestyle) -->
+          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[120px] h-[60px] md:w-[160px] md:h-[80px] lg:w-[200px] lg:h-[100px] align-middle" data-type="lifestyle" onclick="openClientModal(this)">
+            <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
+            <div class="w-full h-full perspective-1000">
+              <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent">
+                  <img src="" class="front-img max-w-full max-h-full object-contain " alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
+                </div>
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent rotate-x-180">
+                  <img src="" class="back-img max-w-full max-h-full object-contain " alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <span data-key="Index.Narrative.Line2">をデジタル</span>
+          
+          <div class="basis-full h-0"></div>
+          
+          <span data-key="Index.Narrative.Line3">空間から現実の体験</span>
+          
+          <div class="basis-full h-0"></div>
+          
+          <span data-key="Index.Narrative.Line4">へと導き、</span>
+          
+          <!-- Logo Slot 2 (Government) -->
+          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[120px] h-[60px] md:w-[160px] md:h-[80px] lg:w-[200px] lg:h-[100px] align-middle" data-type="government" onclick="openClientModal(this)">
+            <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
+            <div class="w-full h-full perspective-1000">
+              <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent">
+                  <img src="" class="front-img max-w-full max-h-full object-contain " alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
+                </div>
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent rotate-x-180">
+                  <img src="" class="back-img max-w-full max-h-full object-contain " alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <span data-key="Index.Narrative.Line5">好奇心</span>
+          
+          <div class="basis-full h-0"></div>
+          
+          <span data-key="Index.Narrative.Line6">を刺激し、日常を忘れら</span>
+          
+          <div class="basis-full h-0"></div>
+          
+          <span data-key="Index.Narrative.Line7">れない空間へ。</span>
+          
+          <!-- Logo Slot 3 (Lifestyle) -->
+          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[120px] h-[60px] md:w-[160px] md:h-[80px] lg:w-[200px] lg:h-[100px] align-middle" data-type="lifestyle" onclick="openClientModal(this)">
+            <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
+            <div class="w-full h-full perspective-1000">
+              <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent">
+                  <img src="" class="front-img max-w-full max-h-full object-contain " alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
+                </div>
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent rotate-x-180">
+                  <img src="" class="back-img max-w-full max-h-full object-contain " alt="Client Logo" data-key="Global.ClientLogoAlt" referrerpolicy="no-referrer">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-16 text-center font-playfair italic text-xl text-gray-500" data-key="Index.Narrative.Subtitle">
+          And we’re clued up on public engagement...
+        </div>
+      </div>
+
+      <!-- Client Modal -->
+      <div id="client-modal" class="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm hidden flex items-center justify-center opacity-0 transition-opacity duration-300">
+        <div class="bg-brand-gray p-8 md:p-12 max-w-lg w-[90%] relative border border-brand-red/20 transform scale-95 transition-transform duration-300" id="client-modal-content">
+          <button onclick="closeClientModal()" class="absolute top-4 right-4 text-brand-black hover:text-brand-red text-3xl leading-none">&times;</button>
+          <img id="modal-logo" src="" class="h-16 object-contain mb-6" alt="Client Logo">
+          <p id="modal-desc" class="font-sans text-[14px] text-brand-black mb-8 leading-relaxed">
+            We helped this brand achieve unprecedented engagement through a multi-sensory roving exhibition.
+          </p>
+          <a id="modal-view-btn" href="#" class="inline-block bg-brand-red text-white font-oswald uppercase tracking-widest px-8 py-3 text-sm hover:bg-brand-black transition-colors">
+            View Profile
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Session 6: Newsletter (The Dispatch) -->
+    <section class="relative bg-brand-gray border-t border-black/5" id="newsletter">
+
+
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-start relative">
+        <!-- Left Column: Sticky within newsletter section -->
+        <div class="w-full md:w-[45%] md:sticky md:top-0 md:self-start md:h-screen p-8 md:p-12 md:py-24 flex flex-col justify-center newsletter-left-col bg-brand-gray z-10">
+          <h2 class="font-oswald text-5xl md:text-6xl lg:text-7xl font-bold uppercase leading-[0.85] mb-6 text-brand-black tracking-tighter" data-key="Index.Newsletter.Title">THE DISPATCH.<br><span class="text-3xl md:text-4xl block mt-2">Big Ideas, Better Engagement.</span></h2>
+          <p class="font-playfair italic text-base md:text-lg text-gray-600 mb-12 max-w-md leading-relaxed" data-key="Index.Newsletter.Subtitle">
+            Behind the scenes of the projects shaping the lifestyle market. We share the data, the creativity, and the "why" behind today’s most successful PR activations.
+          </p>
+          <form id="newsletter-form" class="relative max-w-md group/form" autocomplete="off" novalidate>
+            <div class="bg-black/5 p-2 flex items-center border border-black/10">
+              <input id="nl-email" type="email" placeholder="YOUR EMAIL ADDRESS" data-key="Index.Newsletter.EmailPlaceholder" class="flex-grow bg-transparent px-4 h-12 font-sans text-[10px] uppercase tracking-widest outline-none focus:placeholder-transparent transition-all" required>
+              <!-- Honeypot — hidden from humans, bots fill it -->
+              <input type="text" name="website" id="nl-honeypot" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" tabindex="-1" autocomplete="off">
+              <button type="submit" id="nl-submit-btn" class="bg-brand-black text-white px-6 h-12 font-oswald text-xs font-bold tracking-widest hover:bg-brand-red transition-colors whitespace-nowrap flex items-center gap-2" data-key="Index.Newsletter.CTA">
+                SIGN ME UP ↳
+              </button>
+            </div>
+            <p id="nl-message" class="mt-3 font-sans text-xs tracking-wide hidden"></p>
+          </form>
+        </div>
+
+        <!-- Right Column: Scrolling Feed -->
+        <div class="w-full md:w-[55%] p-8 md:p-16 space-y-24 md:py-32 relative z-20 bg-brand-gray">
+          
+          <!-- Card 01 -->
+          <div class="newsletter-card group">
+            <div class="overflow-hidden aspect-[16/9] mb-3 relative bg-gray-200 h-[130%] -top-[15%]">
+              <img id="newsletter-img-1" src="" class="parallax-img w-full h-full object-cover scale-110" alt="Report" referrerpolicy="no-referrer">
+            </div>
+            <div class="flex gap-6">
+              <div>
+                <h3 id="newsletter-title-1" class="font-oswald text-3xl md:text-4xl font-bold uppercase mb-4 leading-tight text-brand-black"></h3>
+                <p id="newsletter-desc-1" class="font-sans text-sm text-gray-600 leading-relaxed mb-6"></p>
+                <div class="text-right">
+                  <a id="newsletter-link-1" href="#" class="font-oswald text-sm font-bold tracking-widest text-brand-black hover:text-brand-red transition-colors" data-key="Index.Newsletter.ReadMore">READ →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 02 -->
+          <div class="newsletter-card group">
+            <div class="overflow-hidden aspect-[16/9] mb-3 relative bg-gray-200 h-[130%] -top-[15%]">
+              <img id="newsletter-img-2" src="" class="parallax-img w-full h-full object-cover scale-110" alt="Luxury" referrerpolicy="no-referrer">
+            </div>
+            <div class="flex gap-6">
+              <div>
+                <h3 id="newsletter-title-2" class="font-oswald text-3xl md:text-4xl font-bold uppercase mb-4 leading-tight text-brand-black"></h3>
+                <p id="newsletter-desc-2" class="font-sans text-sm text-gray-600 leading-relaxed mb-6"></p>
+                <div class="text-right">
+                  <a id="newsletter-link-2" href="#" class="font-oswald text-sm font-bold tracking-widest text-brand-black hover:text-brand-red transition-colors" data-key="Index.Newsletter.ReadMore">READ →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Card 03 -->
+          <div class="newsletter-card group">
+            <div class="overflow-hidden aspect-[16/9] mb-3 relative bg-gray-200 h-[130%] -top-[15%]">
+              <img id="newsletter-img-3" src="" class="parallax-img w-full h-full object-cover scale-110" alt="AI" referrerpolicy="no-referrer">
+            </div>
+            <div class="flex gap-6">
+              <div>
+                <h3 id="newsletter-title-3" class="font-oswald text-3xl md:text-4xl font-bold uppercase mb-4 leading-tight text-brand-black"></h3>
+                <p id="newsletter-desc-3" class="font-sans text-sm text-gray-600 leading-relaxed mb-6"></p>
+                <div class="text-right">
+                  <a id="newsletter-link-3" href="#" class="font-oswald text-sm font-bold tracking-widest text-brand-black hover:text-brand-red transition-colors" data-key="Index.Newsletter.ReadMore">READ →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Session 7: Contact & Session 8: Footer -->
+    <section class="relative bg-brand-black text-white py-32 px-6 overflow-hidden">
+      <!-- Parallax background -->
+      <div class="absolute inset-0 z-0">
+        <img src="data/images/contact-bg.webp" alt="" class="contact-parallax-bg w-full h-[150%] object-cover object-center" referrerpolicy="no-referrer" />
+        <div class="absolute inset-0 bg-brand-black/40"></div>
+      </div>
+      <div class="max-w-7xl mx-auto relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-24">
+          
+          <!-- Left: Contact Info -->
+          <div>
+            <h2 class="font-oswald font-bold text-[8vw] md:text-[6vw] leading-[0.9] uppercase mb-8">
+              <span data-key="Global.Contact.Title1">Ready To Talk?</span> <br>
+              <span class="text-transparent stroke-text" data-key="Global.Contact.Title2">Get In Touch.</span>
+            </h2>
+            
+            <div class="grid grid-cols-2 gap-8 font-sans text-[14px] mb-12">
+              <div>
+                <h4 class="font-bold uppercase tracking-widest mb-2 text-brand-red" data-key="Global.Contact.NewBusiness">New Business</h4>
+                <a href="mailto:hello@firebean.net" class="hover:text-brand-red transition-colors text-white block mb-4">hello@firebean.net</a>
+                
+                <div class="flex items-start gap-3 mb-3 text-gray-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 flex-shrink-0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <p class="font-sans text-[14px] whitespace-nowrap" data-key="Global.Contact.Address">Unit A, 23/F Morrison Plaza, 5-9 Morrison Hill Rd. Wan Chai, Hong Kong</p>
+                </div>
+
+                <div class="flex items-center gap-3 text-gray-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  <p class="font-sans text-[14px] whitespace-nowrap">+852 36222784</p>
+                </div>
+              </div>
+              <div>
+                <h4 class="font-bold uppercase tracking-widest mb-2 text-brand-red" data-key="Global.Contact.Careers">Careers</h4>
+                <a href="mailto:hr@firebean.net" class="hover:text-brand-red transition-colors text-white">hr@firebean.net</a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Right: Map -->
+          <div class="relative h-full min-h-[400px] border border-white/10 overflow-hidden group/map">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.954737217316!2d114.180109!3d22.277946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f17!3m3!1m2!1s0x340400b7f44472a3%3A0x6cb03204b66376e2!2sFirebean%20Limited!5e0!3m2!1sen!2sus!4v1708480000000!5m2!1sen!2sus" 
+              width="100%" 
+              height="100%" 
+              style="border:0; filter: grayscale(100%) contrast(110%);" 
+              allowfullscreen="" 
+              loading="lazy"
+              class="opacity-90 group-hover/map:opacity-100 transition-opacity">
+            </iframe>
+          </div>
+
+        </div>
+        
+        <!-- Session 8: Footer -->
+        <div class="flex flex-col md:flex-row justify-between items-center border-t border-white/10 pt-8 font-sans text-xs text-gray-400 uppercase tracking-widest gap-4">
+          <div data-key="Global.Footer.Copyright">©2026 Firebean Limited All Rights Reserved.</div>
+          <div class="flex gap-6">
+            <button id="disclaimer-btn" class="hover:text-white transition-colors" data-key="Global.Footer.Disclaimer">Disclaimer</button>
+            <button id="privacy-btn" class="hover:text-white transition-colors" data-key="Global.Footer.Privacy">Privacy Policy</button>
+            <button id="terms-btn" class="hover:text-white transition-colors" data-key="Global.Footer.Terms">Terms of Service</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scripts -->
+
+    <script>
+      // Initialize Lenis for smooth scrolling
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        direction: 'vertical',
+        gestureDirection: 'vertical',
+        smooth: true,
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // Handle anchor link clicks with Lenis smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          var targetId = this.getAttribute('href');
+          if (!targetId || targetId === '#') return;
+          var targetEl = document.querySelector(targetId);
+          if (targetEl) {
+            e.preventDefault();
+            lenis.scrollTo(targetEl, { offset: 0 });
+          }
+        });
+      });
+
+      // GSAP Animations
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Hero Text Reveal
+      const heroLines = document.querySelectorAll('.hero-line');
+      gsap.from(heroLines, {
+        y: 150,
+        opacity: 0,
+        duration: 1.5,
+        stagger: 0.2,
+        ease: "power4.out",
+        delay: 0.2
+      });
+
+      // About Us Section Parallax Background
+      gsap.to("#about-bg-img", {
+        yPercent: -15, // Move image up
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#about",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true
+        }
+      });
+
+      // 3D Logo Parallax — scroll-accumulated rotateY, no spring-back
+      // Logo 1 (right): rotates right→left (positive→negative rotateY) as you scroll down
+      // Logo 2 (left):  rotates left→right (negative→positive rotateY) as you scroll down
+      // Logo 3 (centre): same direction as Logo 1
+      // Rotation accumulates with scroll and HOLDS when scrolling stops — no bounce-back.
+      (function() {
+        var workSection = document.getElementById('work');
+        if (!workSection) return;
+
+        // direction: -1 = right→left (Logo1,3), +1 = left→right (Logo2)
+        var logos = [
+          {
+            wrap: document.getElementById('bg-logo-wrap-1'),
+            img:  document.getElementById('bg-logo-1'),
+            driftSpeed: 0.25,
+            rotPerPx:   0.055,   // degrees of rotateY per pixel scrolled — faster
+            direction:  -1,      // right → left
+            maxRY:      70,
+            lerpY: 0.07, lerpR: 0.10,
+            curY: 0, tgtY: 0, curRY: 0, tgtRY: 0
+          },
+          {
+            wrap: document.getElementById('bg-logo-wrap-2'),
+            img:  document.getElementById('bg-logo-2'),
+            driftSpeed: 0.40,
+            rotPerPx:   0.008,   // slower
+            direction:  +1,      // left → right
+            maxRY:      70,
+            lerpY: 0.08, lerpR: 0.09,
+            curY: 0, tgtY: 0, curRY: 0, tgtRY: 0
+          },
+          {
+            wrap: document.getElementById('bg-logo-wrap-3'),
+            img:  document.getElementById('bg-logo-3'),
+            driftSpeed: 0.60,
+            rotPerPx:   0.015,
+            direction:  -1,      // same as Logo 1
+            maxRY:      70,
+            lerpY: 0.11, lerpR: 0.12,
+            curY: 0, tgtY: 0, curRY: 0, tgtRY: 0
+          }
+        ];
+
+        function tick() {
+          var rect      = workSection.getBoundingClientRect();
+          var sectionH  = workSection.offsetHeight;
+          // scrolledIn: 0 at section top, grows as user scrolls down through section
+          var scrolledIn = Math.max(0, -rect.top);
+
+          logos.forEach(function(l) {
+            if (!l.wrap || !l.img) return;
+
+            // Vertical parallax drift (smooth)
+            l.tgtY = scrolledIn * l.driftSpeed;
+            l.curY += (l.tgtY - l.curY) * l.lerpY;
+            l.wrap.style.transform = 'translateY(' + l.curY + 'px)';
+
+            // Accumulated rotation: maps total scroll distance to rotateY
+            // direction -1: starts at 0, goes negative (right→left)
+            // direction +1: starts at 0, goes positive (left→right)
+            l.tgtRY = l.direction * scrolledIn * l.rotPerPx;
+            // Clamp to maxRY so it doesn’t over-rotate
+            l.tgtRY = Math.max(-l.maxRY, Math.min(l.maxRY, l.tgtRY));
+
+            // Smooth lerp toward target — holds position when scroll stops
+            l.curRY += (l.tgtRY - l.curRY) * l.lerpR;
+
+            l.img.style.transform = 'perspective(900px) rotateY(' + l.curRY + 'deg)';
+          });
+
+          requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      })();
+
+      // (Profile card animations are handled after CMS data loads)
+
+      // Newsletter Parallax — use CSS sticky instead of ScrollTrigger pin
+      // (CSS sticky is already applied via md:sticky md:top-0 in the HTML class)
+      // No JS pin needed — removed to fix reverse-scroll positioning glitch
+
+      gsap.utils.toArray('.parallax-img').forEach(img => {
+        gsap.to(img, {
+          yPercent: 20,
+          ease: "none",
+          scrollTrigger: {
+            trigger: img.parentElement,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true
+          }
+        });
+      });
+
+      // Newsletter Parallax
+      gsap.utils.toArray('.newsletter-card .parallax-img').forEach(img => {
+        gsap.to(img, {
+          yPercent: -15,
+          ease: "none",
+          scrollTrigger: {
+            trigger: img.closest('.newsletter-card'),
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true
+          }
+        });
+      });
+
+      // Contact section parallax background
+      const contactBg = document.querySelector('.contact-parallax-bg');
+      if (contactBg) {
+        gsap.fromTo(contactBg, 
+          { top: '-25%' },
+          {
+            top: '0%',
+            ease: "none",
+            scrollTrigger: {
+              trigger: contactBg.closest('section'),
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 0.5
+            }
+          }
+        );
+      }
+
+      // Image Loading — handles both static and dynamically-added images
+      function markImagesLoaded(root) {
+        (root || document).querySelectorAll('img').forEach(img => {
+          if (img.complete && img.naturalWidth > 0) {
+            img.classList.add('loaded');
+          } else {
+            img.addEventListener('load', () => img.classList.add('loaded'), { once: true });
+            img.addEventListener('error', () => img.classList.add('loaded'), { once: true });
+          }
+        });
+      }
+      window.addEventListener('load', () => markImagesLoaded());
+      // Observe DOM for dynamically added images (CMS-populated sections)
+      new MutationObserver(mutations => {
+        mutations.forEach(m => {
+          m.addedNodes.forEach(node => {
+            if (node.nodeType === 1) {
+              if (node.tagName === 'IMG') {
+                if (node.complete && node.naturalWidth > 0) node.classList.add('loaded');
+                else {
+                  node.addEventListener('load', () => node.classList.add('loaded'), { once: true });
+                  node.addEventListener('error', () => node.classList.add('loaded'), { once: true });
+                }
+              }
+              node.querySelectorAll && node.querySelectorAll('img').forEach(img => {
+                if (img.complete && img.naturalWidth > 0) img.classList.add('loaded');
+                else {
+                  img.addEventListener('load', () => img.classList.add('loaded'), { once: true });
+                  img.addEventListener('error', () => img.classList.add('loaded'), { once: true });
+                }
+              });
+            }
+          });
+        });
+      }).observe(document.body, { childList: true, subtree: true });
+
+      // Helper: pick black or white logo based on current dark mode state
+      function isDarkMode() { return document.documentElement.classList.contains('dark'); }
+      function getLogoSrc(logoData) { return isDarkMode() ? (logoData.srcWhite || logoData.src) : logoData.src; }
+
+      // Client Logos Data & Animation (populated by CMS, with fallbacks)
+      let lifestyleLogos = [];
+      let govLogos = [];
+
+      const slots = document.querySelectorAll('.logo-slot');
+      let isFlipped = false;
+
+      // Initialize slots (deferred — logos populated by cmsDataReady)
+      function initLogoSlots() {
+        slots.forEach((slot, index) => {
+          const type = slot.dataset.type;
+          const pool = type === 'lifestyle' ? lifestyleLogos : govLogos;
+          if (!pool.length) return;
+          const logoData = pool[index % pool.length];
+          slot.dataset.desc = logoData.desc;
+          slot.dataset.currentSrc = logoData.src;
+          slot.dataset.currentSrcWhite = logoData.srcWhite || '';
+          const frontImg = slot.querySelector('.front-img');
+          if (frontImg) { frontImg.referrerPolicy = 'no-referrer'; frontImg.src = getLogoSrc(logoData); }
+        });
+      }
+
+      // Flip animation every 5 seconds
+      setInterval(() => {
+        slots.forEach(slot => {
+          const flipper = slot.querySelector('.flipper');
+          const type = slot.dataset.type;
+          const pool = type === 'lifestyle' ? lifestyleLogos : govLogos;
+          if (!pool.length) return;
+          const randomLogo = pool[Math.floor(Math.random() * pool.length)];
+
+          var logoSrc = getLogoSrc(randomLogo);
+          if (!isFlipped) {
+            const backImg = slot.querySelector('.back-img');
+            if (backImg) { backImg.referrerPolicy = 'no-referrer'; backImg.src = logoSrc; }
+            slot.dataset.desc = randomLogo.desc;
+            slot.dataset.currentSrc = randomLogo.src;
+            slot.dataset.currentSrcWhite = randomLogo.srcWhite || '';
+            slot.dataset.projectId = randomLogo.projectId || '';
+            flipper.style.transform = 'rotateX(180deg)';
+          } else {
+            const frontImg = slot.querySelector('.front-img');
+            if (frontImg) { frontImg.referrerPolicy = 'no-referrer'; frontImg.src = logoSrc; }
+            slot.dataset.desc = randomLogo.desc;
+            slot.dataset.currentSrc = randomLogo.src;
+            slot.dataset.currentSrcWhite = randomLogo.srcWhite || '';
+            slot.dataset.projectId = randomLogo.projectId || '';
+            flipper.style.transform = 'rotateX(0deg)';
+          }
+        });
+        isFlipped = !isFlipped;
+      }, 5000);
+
+      // Modal Logic
+      const clientModal = document.getElementById('client-modal');
+      const clientModalContent = document.getElementById('client-modal-content');
+      const modalLogo = document.getElementById('modal-logo');
+      const modalDesc = document.getElementById('modal-desc');
+
+      var modalViewBtn = document.getElementById('modal-view-btn');
+
+      window.openClientModal = function(slot) {
+        modalLogo.referrerPolicy = 'no-referrer';
+        var dark = isDarkMode();
+        var srcWhite = slot.dataset.currentSrcWhite;
+        modalLogo.src = (dark && srcWhite) ? srcWhite : slot.dataset.currentSrc;
+        modalDesc.textContent = slot.dataset.desc;
+        // Set View Profile link
+        var pid = slot.dataset.projectId;
+        if (pid) {
+          modalViewBtn.href = 'profile.html?id=' + encodeURIComponent(pid);
+          modalViewBtn.style.display = '';
+        } else {
+          modalViewBtn.style.display = 'none';
+        }
+        
+        clientModal.classList.remove('hidden');
+        // Trigger reflow
+        void clientModal.offsetWidth;
+        clientModal.classList.remove('opacity-0');
+        clientModalContent.classList.remove('scale-95');
+      }
+
+      window.closeClientModal = function() {
+        clientModal.classList.add('opacity-0');
+        clientModalContent.classList.add('scale-95');
+        setTimeout(() => {
+          clientModal.classList.add('hidden');
+        }, 300);
+      }
+
+      // Auto Slider for Session 2 (initialized after CMS data loads)
+      const slider = document.getElementById('main-slider');
+      let currentSlide = 0;
+      let totalSlides = 0;
+      let sliderInterval = null;
+
+      function goToSlide(index) {
+        if (totalSlides === 0) return;
+        currentSlide = index;
+        // Crossfade: toggle .slide-active on stacked slides
+        var slides = slider.querySelectorAll(':scope > a');
+        slides.forEach(function(s, i) {
+          if (i === currentSlide) {
+            s.classList.add('slide-active');
+            // Re-trigger image animation by cloning
+            var img = s.querySelector('img');
+            if (img) {
+              img.style.animation = 'none';
+              void img.offsetWidth;
+              img.style.animation = '';
+            }
+          } else {
+            s.classList.remove('slide-active');
+          }
+        });
+        // Update overlay (category, counter, marquee)
+        if (window.updateSliderOverlay) window.updateSliderOverlay(currentSlide);
+        // Restart progress bar
+        resetProgressBar();
+      }
+
+      var progressBar = document.getElementById('slider-progress');
+      function resetProgressBar() {
+        if (!progressBar) return;
+        progressBar.classList.remove('animating');
+        progressBar.style.width = '0%';
+        void progressBar.offsetWidth; // force reflow
+        progressBar.classList.add('animating');
+      }
+      function startSliderAutoplay() {
+        if (sliderInterval) clearInterval(sliderInterval);
+        resetProgressBar();
+        sliderInterval = setInterval(function() {
+          goToSlide((currentSlide + 1) % totalSlides);
+        }, 3000);
+      }
+
+      // Marquee Logic with Scroll Interaction
+      const marquees = document.querySelectorAll('.animate-marquee');
+      const containers = [];
+      
+      // Group by parent
+      marquees.forEach(el => {
+        if (!containers.includes(el.parentElement)) {
+          containers.push(el.parentElement);
+        }
+      });
+      
+      let scrollVelocity = 0;
+      let lastScrollY = window.scrollY;
+      
+      window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+        scrollVelocity = currentScrollY - lastScrollY;
+        lastScrollY = currentScrollY;
+      });
+      
+      gsap.ticker.add(() => {
+        scrollVelocity *= 0.9; // Friction
+        
+        containers.forEach(container => {
+          const parts = container.children;
+          if (parts.length < 2) return;
+          
+          let currentX = parseFloat(container.dataset.x || 0);
+          const baseSpeed = 3; // Base running speed
+          
+          // Move left (negative)
+          // Add scroll influence
+          currentX -= (baseSpeed + scrollVelocity * 0.5);
+          
+          const width = parts[0].offsetWidth;
+          
+          if (width > 0) {
+            // Wrap around
+            if (currentX <= -width) {
+              currentX += width;
+            } else if (currentX > 0) {
+              currentX -= width;
+            }
+            
+            container.dataset.x = currentX;
+            
+            parts[0].style.transform = `translateX(${currentX}px)`;
+            parts[1].style.transform = `translateX(${currentX}px)`;
+          }
+        });
+      });
+
+      // --- Slider Marquee: GSAP-driven scroll-velocity acceleration ---
+      (function() {
+        var sliderMarqueeEl = document.getElementById('slider-marquee');
+        if (!sliderMarqueeEl) return;
+        var sliderMarqueeX = 0;
+        var sliderBaseSpeed = 1.0; // pixels per frame (slowed down)
+        var sliderScrollVel = 0;
+
+        // Track scroll velocity for slider marquee
+        var sliderLastScrollY = window.scrollY;
+        window.addEventListener('scroll', function() {
+          var curY = window.scrollY;
+          sliderScrollVel = curY - sliderLastScrollY;
+          sliderLastScrollY = curY;
+        });
+
+        // Also respond to mouse wheel events directly on the highlights section
+        var highlightsSection = document.getElementById('highlights');
+        if (highlightsSection) {
+          highlightsSection.addEventListener('wheel', function(e) {
+            // Use deltaY to boost marquee speed on mouse scroll
+            sliderScrollVel += e.deltaY * 0.3;
+          }, { passive: true });
+        }
+
+        gsap.ticker.add(function() {
+          sliderScrollVel *= 0.92; // friction decay
+          var speed = sliderBaseSpeed + Math.abs(sliderScrollVel) * 0.4;
+          sliderMarqueeX -= speed;
+
+          // Get total width of one set of spans (half the content since we repeat 6x)
+          var spans = sliderMarqueeEl.querySelectorAll('.slider-marquee-text');
+          if (spans.length === 0) return;
+          var halfWidth = 0;
+          for (var i = 0; i < Math.floor(spans.length / 2); i++) {
+            halfWidth += spans[i].offsetWidth;
+          }
+          if (halfWidth > 0 && sliderMarqueeX <= -halfWidth) {
+            sliderMarqueeX += halfWidth;
+          }
+          sliderMarqueeEl.style.transform = 'translateX(' + sliderMarqueeX + 'px)';
+        });
+
+        // Expose reset function for slide changes
+        window._resetSliderMarqueeX = function() { sliderMarqueeX = 0; };
+      })();
+
+      // Polaroid Slideshow Logic (populated by CMS)
+      let polaroidImages = [];
+
+      // ===== POLAROID: Scroll-velocity-driven flip + 3s random photo slideshow =====
+      (function() {
+        // Target the inner white frame divs directly (avoids conflict with wrapper animations)
+        var frame1 = null;
+        var frame2 = null;
+
+        // Wait for DOM to settle, then grab frames
+        function initFrames() {
+          frame1 = document.getElementById('polaroid-frame-1');
+          frame2 = document.getElementById('polaroid-frame-2');
+          if (!frame1 || !frame2) { setTimeout(initFrames, 100); return; }
+          // Set perspective on parent wrapper for 3D context
+          if (frame1.parentElement) frame1.parentElement.style.perspective = '800px';
+          if (frame2.parentElement) frame2.parentElement.style.perspective = '800px';
+          frame1.style.willChange = 'transform';
+          frame2.style.willChange = 'transform';
+          startFlip();
+        }
+        initFrames();
+
+        // Scroll-velocity driven flip
+        // rotY accumulates based on scroll delta, decays slowly when not scrolling
+        var rotY1 = -6;  // start at natural tilt angle
+        var rotY2 = 4;   // start at natural tilt angle
+        var targetRotY1 = -6;
+        var targetRotY2 = 4;
+        var lastScrollY = window.scrollY;
+        var maxRot = 45;
+
+        window.addEventListener('scroll', function() {
+          var delta = window.scrollY - lastScrollY;
+          lastScrollY = window.scrollY;
+          // Scroll down: flip left-to-right (positive rotY)
+          // Polaroid 1: rotates right when scrolling down
+          targetRotY1 = Math.min(maxRot, Math.max(-maxRot, targetRotY1 + delta * 0.4));
+          // Polaroid 2: rotates left when scrolling down (opposite direction)
+          targetRotY2 = Math.min(maxRot, Math.max(-maxRot, targetRotY2 - delta * 0.3));
+        }, { passive: true });
+
+        function startFlip() {
+          function tick() {
+            if (!frame1 || !frame2) { requestAnimationFrame(tick); return; }
+            // Lerp toward target (smooth but keeps position when stopped)
+            rotY1 += (targetRotY1 - rotY1) * 0.08;
+            rotY2 += (targetRotY2 - rotY2) * 0.08;
+            // Apply: combine base tilt with scroll-driven rotateY
+            frame1.style.transform = 'perspective(800px) rotateY(' + rotY1 + 'deg) rotateX(-3deg)';
+            frame2.style.transform = 'perspective(800px) rotateY(' + rotY2 + 'deg) rotateX(2deg)';
+            requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        }
+
+        // ---- 3-second random photo slideshow ----
+        // Two independent indices, always offset by at least 3 so they show different photos
+        var idx1 = 0;
+        var idx2 = 5; // start offset to guarantee different image
+
+        function getUniqueNext(current, other, pool) {
+          var next = (current + 1) % pool.length;
+          // Ensure it doesn't match the other polaroid's current image
+          var tries = 0;
+          while (next === other && pool.length > 1 && tries < pool.length) {
+            next = (next + 1) % pool.length;
+            tries++;
+          }
+          return next;
+        }
+
+        // Fade-swap: fade out the visible img, swap src, fade back in
+        function fadeSwap(imgEl, newSrc) {
+          if (!imgEl) return;
+          imgEl.style.transition = 'opacity 0.7s ease';
+          imgEl.style.opacity = '0';
+          setTimeout(function() {
+            imgEl.src = newSrc;
+            imgEl.onload = function() {
+              imgEl.style.opacity = '1';
+            };
+            // Fallback in case onload doesn't fire (cached image)
+            setTimeout(function() { imgEl.style.opacity = '1'; }, 100);
+          }, 700);
+        }
+
+        function startSlideshow() {
+          if (!polaroidImages || !polaroidImages.length) {
+            setTimeout(startSlideshow, 300);
+            return;
+          }
+          // Wait for frames to be ready
+          if (!frame1 || !frame2) {
+            setTimeout(startSlideshow, 300);
+            return;
+          }
+
+          // Get the single visible img in each frame
+          var img1el = frame1.querySelector('.polaroid-img-1');
+          var img2el = frame2.querySelector('.polaroid-img-2');
+
+          // Hide the second (duplicate) img elements — only use first
+          frame1.querySelectorAll('.polaroid-img-1').forEach(function(img, i) {
+            if (i > 0) img.style.display = 'none';
+          });
+          frame2.querySelectorAll('.polaroid-img-2').forEach(function(img, i) {
+            if (i > 0) img.style.display = 'none';
+          });
+
+          // Set initial images from pool
+          if (img1el && polaroidImages[idx1]) img1el.src = polaroidImages[idx1];
+          if (img2el && polaroidImages[idx2]) img2el.src = polaroidImages[idx2];
+
+          // Polaroid 1 cycles every 3s
+          setInterval(function() {
+            idx1 = getUniqueNext(idx1, idx2, polaroidImages);
+            fadeSwap(img1el, polaroidImages[idx1]);
+          }, 3000);
+
+          // Polaroid 2 cycles every 3s, staggered by 1.5s
+          setTimeout(function() {
+            setInterval(function() {
+              idx2 = getUniqueNext(idx2, idx1, polaroidImages);
+              fadeSwap(img2el, polaroidImages[idx2]);
+            }, 3000);
+          }, 1500);
+        }
+        startSlideshow();
+      })();
+
+      // === Polaroid flow-in from bottom on first appear ===
+      (function() {
+        // Polaroid 1 containers (mobile + desktop)
+        document.querySelectorAll('.polaroid-img-1').forEach(function(img) {
+          var container = img.closest('.polaroid-flow-in');
+          if (container) {
+            setTimeout(function() { container.classList.add('animate-in'); }, 600);
+          }
+        });
+        // Polaroid 2 containers (mobile + desktop) — delayed
+        document.querySelectorAll('.polaroid-img-2').forEach(function(img) {
+          var container = img.closest('.polaroid-flow-in');
+          if (container) {
+            setTimeout(function() { container.classList.add('animate-in'); }, 1200);
+          }
+        });
+      })();
+
+      // === Matchstick animation: 2 phases ===
+      // Phase 1: Auto fly-in on page load (timed, not scroll-driven)
+      // Phase 2: On scroll down, matchsticks push outward from resting position
+      (function() {
+        // Set initial off-screen positions
+        gsap.set('#match-left-1', { x: -500, opacity: 0 });
+        gsap.set('#match-right-1', { x: 500, opacity: 0 });
+        gsap.set('#match-right-2', { x: 450, opacity: 0 });
+
+        // Phase 1: Fly-in on page load (auto timeline, staggered)
+        var flyInTL = gsap.timeline({
+          delay: 0.6,
+          onComplete: function() {
+            // Phase 2: After fly-in completes, create scroll-driven push-outward animations
+            gsap.to('#match-left-1', {
+              x: -280, opacity: 0.2, ease: 'none',
+              scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.8 }
+            });
+            gsap.to('#match-right-1', {
+              x: 280, opacity: 0.2, ease: 'none',
+              scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.8 }
+            });
+            gsap.to('#match-right-2', {
+              x: 260, opacity: 0.2, ease: 'none',
+              scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.8 }
+            });
+          }
+        });
+        flyInTL.to('#match-left-1', { x: 0, opacity: 1, duration: 1.2, ease: 'power3.out' }, 0);
+        flyInTL.to('#match-right-1', { x: 0, opacity: 1, duration: 1.2, ease: 'power3.out' }, 0.1);
+        flyInTL.to('#match-right-2', { x: 0, opacity: 1, duration: 1.2, ease: 'power3.out' }, 0.25);
+      })();
+
+      // 3D Logo sticky wrapper — no additional drift needed; sticky CSS handles centering
+
+    // --- Category Translations ---
+    var categoryTranslations = {
+      ch: {
+        'GOVERNMENT & PUBLIC SECTOR': '政府及公營機構',
+        'LIFESTYLE & CONSUMER': '生活及消費品牌',
+        'F&B & HOSPITALITY': '餐飲及酒店',
+        'MALLS & VENUES': '商場及場地',
+        'ROVING EXHIBITIONS': '巡迴展覽',
+        'SOCIAL & CONTENT': '社交媒體及內容',
+        'INTERACTIVE & TECH': '互動及科技',
+        'PR & MEDIA': '公關及媒體',
+        'EVENTS & CEREMONIES': '活動及典禮'
+      },
+      jp: {
+        'GOVERNMENT & PUBLIC SECTOR': '政府・公共機関',
+        'LIFESTYLE & CONSUMER': 'ライフスタイル・消費者',
+        'F&B & HOSPITALITY': '飲食・ホスピタリティ',
+        'MALLS & VENUES': 'モール・会場',
+        'ROVING EXHIBITIONS': '巡回展示',
+        'SOCIAL & CONTENT': 'ソーシャル・コンテンツ',
+        'INTERACTIVE & TECH': 'インタラクティブ・テック',
+        'PR & MEDIA': 'PR・メディア',
+        'EVENTS & CEREMONIES': 'イベント・セレモニー'
+      }
+    };
+    // Scope-of-work translations (EN → CH / JP)
+    var scopeTranslations = {
+      ch: {
+        'EVENT PLANNING': '活動策劃',
+        'EVENT COORDINATION': '活動統籌',
+        'EVENT PRODUCTION': '活動製作',
+        'THEME DESIGN': '主題設計',
+        'CONCEPT DEVELOPMENT': '概念開發',
+        'PR CONSULTING': '公關顧問',
+        'SOUVENIR SOURCING': '紀念品採購',
+        'SOCIAL MEDIA': '社交媒體',
+        'CONTENT CREATION': '內容創作',
+        'MEDIA PLANNING': '媒體策劃',
+        'MEDIA RELATIONS': '媒體關係',
+        'DIGITAL MARKETING': '數碼營銷',
+        'BRANDING': '品牌策劃',
+        'GRAPHIC DESIGN': '平面設計',
+        'VIDEO PRODUCTION': '影片製作',
+        'PHOTOGRAPHY': '攝影',
+        'KOL MANAGEMENT': 'KOL 管理',
+        'INTERACTIVE INSTALLATION': '互動裝置',
+        'TECHNOLOGY INTEGRATION': '科技整合',
+        'GAME DEVELOPMENT': '遊戲開發',
+        'EXHIBITION DESIGN': '展覽設計',
+        'STAGE DESIGN': '舞台設計',
+        'VENUE MANAGEMENT': '場地管理',
+        'PROJECT MANAGEMENT': '項目管理'
+      },
+      jp: {
+        'EVENT PLANNING': 'イベント企画',
+        'EVENT COORDINATION': 'イベント統括',
+        'EVENT PRODUCTION': 'イベント制作',
+        'THEME DESIGN': 'テーマデザイン',
+        'CONCEPT DEVELOPMENT': 'コンセプト開発',
+        'PR CONSULTING': 'PRコンサルティング',
+        'SOUVENIR SOURCING': '記念品調達',
+        'SOCIAL MEDIA': 'ソーシャルメディア',
+        'CONTENT CREATION': 'コンテンツ制作',
+        'MEDIA PLANNING': 'メディアプランニング',
+        'MEDIA RELATIONS': 'メディアリレーション',
+        'DIGITAL MARKETING': 'デジタルマーケティング',
+        'BRANDING': 'ブランディング',
+        'GRAPHIC DESIGN': 'グラフィックデザイン',
+        'VIDEO PRODUCTION': '映像制作',
+        'PHOTOGRAPHY': '写真撮影',
+        'KOL MANAGEMENT': 'KOL管理',
+        'INTERACTIVE INSTALLATION': 'インタラクティブ装置',
+        'TECHNOLOGY INTEGRATION': 'テクノロジー統合',
+        'GAME DEVELOPMENT': 'ゲーム開発',
+        'EXHIBITION DESIGN': '展示デザイン',
+        'STAGE DESIGN': 'ステージデザイン',
+        'VENUE MANAGEMENT': '会場管理',
+        'PROJECT MANAGEMENT': 'プロジェクト管理'
+      }
+    };
+
+    function translateCat(cat) {
+      var lang = (window.getLang && window.getLang()) || localStorage.getItem('lang') || 'en';
+      if (lang !== 'en' && categoryTranslations[lang]) {
+        // Handle comma-separated categories
+        if (cat.indexOf(',') !== -1) {
+          return cat.split(',').map(function(c) {
+            var trimmed = c.trim();
+            return categoryTranslations[lang][trimmed] || trimmed;
+          }).join(', ');
+        }
+        return categoryTranslations[lang][cat] || cat;
+      }
+      return cat;
+    }
+
+    function translateScope(scope) {
+      var lang = (window.getLang && window.getLang()) || localStorage.getItem('lang') || 'en';
+      if (lang !== 'en' && scopeTranslations[lang]) {
+        return scope.split(',').map(function(s) {
+          var trimmed = s.trim().toUpperCase();
+          return scopeTranslations[lang][trimmed] || s.trim();
+        }).join(', ');
+      }
+      return scope;
+    }
+
+    // --- CMS Data Integration ---
+    window.addEventListener('cmsDataReady', function(e) {
+      var projects = (e.detail && e.detail.projects) || [];
+      if (!projects.length) return;
+
+      // Filter projects that have hero photos (shared across all sections)
+      var withPhotos = projects.filter(function(p) { return p.heroPhoto; });
+
+      // --- 1. Populate Slider (top 3 most recent projects) ---
+      var sliderProjects = withPhotos.slice(0, 3);
+      var sliderHTML = '';
+      sliderProjects.forEach(function(p, idx) {
+        sliderHTML += '<a href="profile.html?id=' + encodeURIComponent(p.projectId || '') + '" class="relative w-full h-full block cursor-pointer' + (idx === 0 ? ' slide-active' : '') + '">' +
+          '<img src="' + p.heroPhoto + '" class="absolute inset-0 w-full h-full object-cover" alt="' + (p.project || '') + '" referrerpolicy="no-referrer">' +
+          '<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/30"></div>' +
+        '</a>';
+      });
+      slider.innerHTML = sliderHTML;
+      totalSlides = sliderProjects.length;
+
+      // Store slider project data for category/marquee updates
+      window._sliderProjects = sliderProjects;
+
+      // Update project name (top), counter, and category marquee (center) for current slide
+      window.updateSliderOverlay = function updateSliderOverlay(index) {
+        var p = sliderProjects[index];
+        if (!p) return;
+        // Top: Project name (bold uppercase) — with flow-in
+        var nameLabel = document.getElementById('slider-project-name');
+        if (nameLabel) {
+          nameLabel.textContent = p.project || '';
+          nameLabel.classList.remove('marquee-flow-in');
+          void nameLabel.offsetWidth;
+          nameLabel.classList.add('marquee-flow-in');
+        }
+        // Slide counter — with flow-in
+        var counter = document.getElementById('slider-counter');
+        if (counter) {
+          counter.textContent = String(index + 1).padStart(2, '0') + '/' + String(totalSlides).padStart(2, '0');
+          counter.classList.remove('marquee-flow-in');
+          void counter.offsetWidth;
+          counter.classList.add('marquee-flow-in');
+        }
+        // Reset marquee scroll position on slide change
+        if (window._resetSliderMarqueeX) window._resetSliderMarqueeX();
+        // Marquee: category (Who We Help) with flow-in animation
+        var marqueeOuterWrapper = document.getElementById('slider-marquee-wrapper');
+        var marqueeEl = document.getElementById('slider-marquee');
+        if (marqueeEl && marqueeOuterWrapper) {
+          var catText = translateCat(p.category || '');
+          var repeatHTML = '';
+          for (var r = 0; r < 6; r++) {
+            repeatHTML += '<span class="slider-marquee-text">' + catText + '</span>';
+          }
+          // Flow-in animation: reset and trigger
+          marqueeOuterWrapper.classList.remove('marquee-flow-in');
+          void marqueeOuterWrapper.offsetWidth; // force reflow
+          marqueeOuterWrapper.classList.add('marquee-flow-in');
+          marqueeEl.innerHTML = repeatHTML;
+        }
+      }
+      updateSliderOverlay(0);
+
+      // Start autoplay with progress bar
+      if (totalSlides > 1) startSliderAutoplay();
+
+      // --- 2. Populate Work Profiles Grid (next 6 projects, excluding hero 3) ---
+      var gridProjects = withPhotos.slice(3, 9);
+      var gridContainer = document.getElementById('work-profiles-grid');
+
+      // Helper: get short description from web content
+      function getGridDesc(p) {
+        var currentLang = (window.getLang && window.getLang()) || localStorage.getItem('lang') || 'en';
+        var raw = '';
+        if (currentLang === 'ch' && p.webTC) raw = p.webTC;
+        else if (currentLang === 'jp' && p.webJP) raw = p.webJP;
+        else raw = p.webEN || p.webTC || p.webJP || '';
+        if (!raw) return '';
+        // Try HTML parsing first
+        var tmp = document.createElement('div');
+        tmp.innerHTML = raw;
+        var el = tmp.querySelector('h3') || tmp.querySelector('p');
+        if (el) return (el.textContent || '').trim();
+        // Fallback: content may be Markdown — extract first heading or first paragraph line
+        var lines = raw.split('\n').map(function(l) { return l.trim(); }).filter(function(l) { return l.length > 0; });
+        for (var li = 0; li < lines.length; li++) {
+          var line = lines[li];
+          // Skip markdown headings (## or ###)
+          if (/^#{1,4}\s/.test(line)) {
+            // Return the heading text (stripped of #)
+            return line.replace(/^#{1,4}\s+/, '');
+          }
+          // Return the first non-empty, non-heading line as subtitle
+          return line;
+        }
+        return '';
+      }
+
+      // Editorial 3-card-per-row layout: 2 rows × 3 cards, each row has LARGE / MEDIUM / SMALL sizes
+      // Row 1: Large (5 cols) | Medium (4 cols) | Small (3 cols)
+      // Row 2: Small (3 cols) | Large (5 cols) | Medium (4 cols)  — reversed rhythm
+      var layouts = [
+        // Row 1
+        { cols: 'col-span-2 md:col-span-5', aspect: 'aspect-[4/5]',  label: 'LARGE',  mt: '' },
+        { cols: 'col-span-2 md:col-span-4', aspect: 'aspect-[3/4]',  label: 'MEDIUM', mt: 'md:mt-16' },
+        { cols: 'col-span-2 md:col-span-3', aspect: 'aspect-[1/1]',  label: 'SMALL',  mt: 'md:mt-32' },
+        // Row 2
+        { cols: 'col-span-2 md:col-span-3', aspect: 'aspect-[1/1]',  label: 'SMALL',  mt: '' },
+        { cols: 'col-span-2 md:col-span-5', aspect: 'aspect-[4/5]',  label: 'LARGE',  mt: 'md:-mt-16' },
+        { cols: 'col-span-2 md:col-span-4', aspect: 'aspect-[3/4]',  label: 'MEDIUM', mt: 'md:mt-8' }
+      ];
+      var gridHTML = '';
+      gridProjects.forEach(function(p, i) {
+        var layout = layouts[i] || layouts[0];
+        var desc = getGridDesc(p);
+        var isLarge = layout.label === 'LARGE';
+        var titleSize = isLarge ? 'text-xl md:text-3xl' : 'text-base md:text-xl';
+        var descSize = isLarge ? 'text-sm md:text-base' : 'text-xs md:text-sm';
+        gridHTML += '<a href="profile.html?id=' + (p.projectId || '') + '" class="project-profile ' + layout.cols + ' ' + layout.mt + ' group block">' +
+          '<div class="' + layout.aspect + ' w-full overflow-hidden relative bg-gray-200">' +
+            '<img src="' + p.heroPhoto + '" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="' + (p.project || '') + '" referrerpolicy="no-referrer">' +
+            '<div class="absolute inset-0 bg-brand-black/0 group-hover:bg-brand-black/20 transition-all duration-500"></div>' +
+          '</div>' +
+          '<div class="mt-4">' +
+            '<h3 class="font-oswald ' + titleSize + ' font-bold uppercase group-hover:text-brand-red transition-colors leading-tight">' + (p.project || '') + '</h3>' +
+            (desc && isLarge ? '<p class="font-playfair italic ' + descSize + ' text-gray-600 mt-2 leading-relaxed max-w-md">' + desc + '</p>' : '') +
+            '<p class="grid-category font-sans text-[10px] text-gray-400 uppercase tracking-widest mt-2" data-cat="' + (p.category || '').replace(/"/g, '&quot;') + '" data-whatwedo="' + (p.whatWeDo || '').replace(/"/g, '&quot;') + '">' + translateCat(p.category || '') + (p.whatWeDo ? ' · ' + translateCat(p.whatWeDo) : '') + '</p>' +
+          '</div></a>';
+      });
+      gridContainer.innerHTML = gridHTML;
+
+      // Progressive scroll-driven profile card reveal
+      // Cards appear gradually as user scrolls — each triggers individually
+      gsap.utils.toArray('.project-profile').forEach(function(item, i) {
+        // Start hidden
+        gsap.set(item, { opacity: 0, y: 80 });
+        var imgEl = item.querySelector('img');
+        if (imgEl) gsap.set(imgEl, { scale: 1.18 });
+        var textEls = item.querySelectorAll('h3, p');
+        if (textEls.length) gsap.set(textEls, { opacity: 0, y: 25 });
+
+        // Create a ScrollTrigger per card — each card reveals when it enters
+        ScrollTrigger.create({
+          trigger: item,
+          start: 'top 85%',
+          once: true,
+          onEnter: function() {
+            // Phase 1: Card slides up + fades in
+            gsap.to(item, {
+              opacity: 1, y: 0, duration: 0.9, ease: 'power3.out'
+            });
+            // Phase 2: Image zoom settles (slightly delayed)
+            if (imgEl) {
+              gsap.to(imgEl, {
+                scale: 1, duration: 1.3, ease: 'power2.out', delay: 0.15
+              });
+            }
+            // Phase 3: Text elements stagger in after card is visible
+            if (textEls.length) {
+              gsap.to(textEls, {
+                opacity: 1, y: 0, duration: 0.6, ease: 'power2.out',
+                stagger: 0.12, delay: 0.35
+              });
+            }
+          }
+        });
+      });
+
+      // --- 3. Populate Client Logos from CMS ---
+      var govSlugs = ['government'];
+      var lifestyleSlugs = ['lifestyle', 'hospitality', 'venues', 'exhibitions', 'social', 'tech', 'pr', 'events'];
+      var seenLifestyle = {};
+      var seenGov = {};
+
+      projects.forEach(function(p) {
+        if (!p.logoBlack) return;
+        var isGov = p.filterSlugs.some(function(s) { return govSlugs.indexOf(s) !== -1; });
+        var isLifestyle = p.filterSlugs.some(function(s) { return lifestyleSlugs.indexOf(s) !== -1; });
+        if (isGov && !seenGov[p.logoBlack]) {
+          seenGov[p.logoBlack] = true;
+          govLogos.push({ src: p.logoBlack, srcWhite: p.logoWhite || '', desc: p.project + ' — ' + (p.scope || p.category || ''), projectId: p.projectId || '' });
+        }
+        if ((isLifestyle || !isGov) && !seenLifestyle[p.logoBlack]) {
+          seenLifestyle[p.logoBlack] = true;
+          lifestyleLogos.push({ src: p.logoBlack, srcWhite: p.logoWhite || '', desc: p.project + ' — ' + (p.scope || p.category || ''), projectId: p.projectId || '' });
+        }
+      });
+
+      // Re-initialize logo slots with CMS data
+      if (lifestyleLogos.length || govLogos.length) {
+        var allSlots = document.querySelectorAll('.logo-slot');
+        allSlots.forEach(function(slot, index) {
+          var type = slot.dataset.type;
+          var pool = type === 'lifestyle' ? lifestyleLogos : govLogos;
+          if (!pool.length) return;
+          var logoData = pool[index % pool.length];
+          slot.dataset.desc = logoData.desc;
+          slot.dataset.currentSrc = logoData.src;
+          slot.dataset.currentSrcWhite = logoData.srcWhite || '';
+          slot.dataset.projectId = logoData.projectId || '';
+          var frontImg = slot.querySelector('.front-img');
+          if (frontImg) { frontImg.referrerPolicy = 'no-referrer'; frontImg.src = getLogoSrc(logoData); }
+        });
+      }
+
+      // Swap all visible client logos between black/white on dark mode toggle
+      window.swapClientLogos = function() {
+        var dark = isDarkMode();
+        document.querySelectorAll('.logo-slot').forEach(function(slot) {
+          var srcBlack = slot.dataset.currentSrc;
+          var srcWhite = slot.dataset.currentSrcWhite;
+          var newSrc = dark ? (srcWhite || srcBlack) : srcBlack;
+          // Update both front and back images
+          var imgs = slot.querySelectorAll('.front-img, .back-img');
+          imgs.forEach(function(img) {
+            if (img.src && img.src !== window.location.href) img.src = newSrc;
+          });
+        });
+      };
+
+      // --- 4. Populate Polaroid Images from CMS (random, excluding hero & logos) ---
+      // Primary source: gallery photos from each project
+      var polaroidPool = [];
+      projects.forEach(function(p) {
+        if (p.galleryPhotos && p.galleryPhotos.length) {
+          p.galleryPhotos.forEach(function(g) { polaroidPool.push(g); });
+        }
+      });
+      // Fallback: if no gallery photos yet (pre-sync), use heroPhotoSmall
+      if (!polaroidPool.length) {
+        projects.forEach(function(p) {
+          if (p.heroPhotoSmall) polaroidPool.push(p.heroPhotoSmall);
+        });
+      }
+      // Shuffle using Fisher-Yates
+      for (var si = polaroidPool.length - 1; si > 0; si--) {
+        var sj = Math.floor(Math.random() * (si + 1));
+        var tmp = polaroidPool[si]; polaroidPool[si] = polaroidPool[sj]; polaroidPool[sj] = tmp;
+      }
+      // Pre-select 20 random photos for the rotation pool
+      if (polaroidPool.length) {
+        polaroidImages = polaroidPool.slice(0, 20);
+        // Set initial polaroid images
+        document.querySelectorAll('.polaroid-img-1').forEach(function(img, i) {
+          img.src = polaroidImages[i % polaroidImages.length];
+        });
+        document.querySelectorAll('.polaroid-img-2').forEach(function(img, i) {
+          img.src = polaroidImages[(i + 2) % polaroidImages.length];
+        });
+      }
+
+      // --- 5. Set Newsletter Cards (next 3 after hero+profile = index 9-11) ---
+      var newsletterProjects = withPhotos.slice(9, 12);
+      var newsletterCards = [
+        { img: 'newsletter-img-1', title: 'newsletter-title-1', desc: 'newsletter-desc-1', link: 'newsletter-link-1' },
+        { img: 'newsletter-img-2', title: 'newsletter-title-2', desc: 'newsletter-desc-2', link: 'newsletter-link-2' },
+        { img: 'newsletter-img-3', title: 'newsletter-title-3', desc: 'newsletter-desc-3', link: 'newsletter-link-3' }
+      ];
+      // Helper: get web content for current language
+      function getWebContent(np) {
+        var currentLang = (window.getLang && window.getLang()) || localStorage.getItem('lang') || 'en';
+        if (currentLang === 'ch' && np.webTC) return np.webTC;
+        if (currentLang === 'jp' && np.webJP) return np.webJP;
+        return np.webEN || np.webTC || np.webJP || '';
+      }
+
+      // Helper: extract title (first h1/h2) and first paragraph from HTML content
+      function extractTitleAndParagraph(html) {
+        var tempDiv = document.createElement('div');
+        tempDiv.innerHTML = html;
+        // Extract title from first h1 or h2
+        var titleEl = tempDiv.querySelector('h1, h2');
+        var title = titleEl ? (titleEl.textContent || '').trim() : '';
+        // Extract first <p> text
+        var firstP = tempDiv.querySelector('p');
+        var paragraph = firstP ? (firstP.textContent || '').trim() : '';
+        // If no <p>, fallback to stripping all text after the title
+        if (!paragraph) {
+          if (titleEl) titleEl.remove();
+          paragraph = (tempDiv.textContent || '').trim();
+        }
+        return { title: title, paragraph: paragraph };
+      }
+
+      function populateNewsletterCards() {
+        newsletterCards.forEach(function(card, ci) {
+          var np = newsletterProjects[ci];
+          if (!np) return;
+          var imgEl = document.getElementById(card.img);
+          var titleEl = document.getElementById(card.title);
+          var descEl = document.getElementById(card.desc);
+          var linkEl = document.getElementById(card.link);
+          if (imgEl) imgEl.src = np.heroPhoto;
+
+          // Get language-aware web content
+          var webContent = getWebContent(np);
+          var extracted = extractTitleAndParagraph(webContent);
+
+          // Show title from web content
+          if (titleEl) {
+            titleEl.style.display = '';
+            titleEl.textContent = extracted.title || np.project || '';
+          }
+
+          // Show first paragraph ending with '....'
+          if (descEl) {
+            var text = extracted.paragraph;
+            if (text.length > 200) {
+              // Truncate at ~200 chars to keep it clean, find nearest space
+              var cut = text.lastIndexOf(' ', 200);
+              if (cut < 100) cut = 200;
+              text = text.substring(0, cut);
+            }
+            descEl.textContent = text ? text + ' ....' : '';
+          }
+
+          // Link to profile page
+          if (linkEl) {
+            linkEl.href = 'profile.html?id=' + encodeURIComponent(np.projectId || String(ci + 9));
+          }
+        });
+      }
+      populateNewsletterCards();
+
+      // Re-populate newsletter on language change
+      window.addEventListener('languageChange', populateNewsletterCards);
+
+      // --- 6. Refresh ScrollTrigger for dynamic content ---
+      ScrollTrigger.refresh();
+    });
+
+    // Update categories on language change
+    window.addEventListener('languageChange', function() {
+      // Update slider hero banner category label
+      if (window.updateSliderOverlay && typeof currentSlide !== 'undefined') {
+        window.updateSliderOverlay(currentSlide);
+      }
+      document.querySelectorAll('.grid-category').forEach(function(el) {
+        var cat = el.getAttribute('data-cat') || '';
+        var whatWeDo = el.getAttribute('data-whatwedo') || '';
+        el.textContent = translateCat(cat) + (whatWeDo ? ' / ' + translateCat(whatWeDo) : '');
+      });
+    });
+
+    // --- Legal Modal Logic ---
+    const legalModal = document.getElementById('legal-modal');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+    const modalTitle = document.getElementById('modal-title');
+    const modalContent = document.getElementById('modal-content');
+
+    function openModal(type) {
+      if (!window.legalContent) return;
+      const currentLang = localStorage.getItem('lang') || 'en';
+      // Ensure legal content is updated for the current language
+      if (window.updateTranslations) {
+        window.updateTranslations();
+      }
+      const { title, content } = window.legalContent[type];
+      modalTitle.textContent = title;
+      modalContent.innerHTML = content;
+      legalModal.classList.remove('hidden');
+    }
+
+    function closeModal() {
+      legalModal.classList.add('hidden');
+    }
+
+    document.getElementById('disclaimer-btn').addEventListener('click', () => openModal('disclaimer'));
+    document.getElementById('privacy-btn').addEventListener('click', () => openModal('privacy'));
+    document.getElementById('terms-btn').addEventListener('click', () => openModal('terms'));
+    modalCloseBtn.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', closeModal);
+
+    // --- Page Specific UI Logic ---
+    function updatePageSpecificUI() {
+      const currentLang = localStorage.getItem('lang') || 'en';
+      
+      // Special case for Japanese and Chinese hero title styling
+      const heroTitleContainer = document.querySelector('.jp-hero-title');
+      if (heroTitleContainer) {
+        heroTitleContainer.classList.remove('jp', 'ch');
+        if (currentLang === 'jp') {
+          heroTitleContainer.classList.add('jp');
+        } else if (currentLang === 'ch') {
+          heroTitleContainer.classList.add('ch');
+        }
+      }
+
+      // Toggle Narrative Layouts
+      const narrativeDefault = document.getElementById('narrative-default');
+      const narrativeJp = document.getElementById('narrative-jp');
+      if (narrativeDefault && narrativeJp) {
+        if (currentLang === 'jp') {
+          narrativeDefault.classList.add('hidden');
+          narrativeDefault.classList.remove('flex');
+          narrativeJp.classList.remove('hidden');
+          narrativeJp.classList.add('flex');
+        } else {
+          narrativeDefault.classList.remove('hidden');
+          narrativeDefault.classList.add('flex');
+          narrativeJp.classList.add('hidden');
+          narrativeJp.classList.remove('flex');
+        }
+      }
+    }
+
+    // Listen for language changes from translations.js
+    window.addEventListener('languageChange', updatePageSpecificUI);
+
+    // Initial UI update
+    document.addEventListener('DOMContentLoaded', updatePageSpecificUI);
+
+    // Mega Menu click toggle - DOM removal/re-insertion to break GSAP animation control
+    function reinsertMenu(menu) {
+      var parent = menu.parentElement;
+      var next = menu.nextSibling;
+      parent.removeChild(menu);
+      parent.insertBefore(menu, next);
+    }
+
+    window.toggleMegaMenu = function(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      var menu = document.getElementById('nav-panel');
+      if (!menu) return;
+      var isOpen = menu.getAttribute('data-open') === 'true';
+      // Re-insert into DOM to break GSAP control
+      reinsertMenu(menu);
+      if (isOpen) {
+        menu.style.cssText = 'position:fixed; top:80px; left:5%; right:5%; width:90%; max-width:600px; z-index:999999; opacity:0; visibility:hidden; pointer-events:none; background:#0a0a0a; color:white; padding:40px; border-radius:12px; box-shadow:0 25px 50px -12px rgba(0,0,0,0.25); transition:all 0.3s ease;';
+        menu.setAttribute('data-open', 'false');
+      } else {
+        menu.style.cssText = 'position:fixed; top:80px; left:5%; right:5%; width:90%; max-width:600px; z-index:999999; opacity:1; visibility:visible; pointer-events:auto; background:#0a0a0a; color:white; padding:40px; border-radius:12px; box-shadow:0 25px 50px -12px rgba(0,0,0,0.25); transition:all 0.3s ease;';
+        menu.setAttribute('data-open', 'true');
+      }
+    };
+
+    window.closeMegaMenu = function() {
+      var menu = document.getElementById('nav-panel');
+      if (!menu) return;
+      reinsertMenu(menu);
+      menu.style.cssText = 'position:fixed; top:80px; left:5%; right:5%; width:90%; max-width:600px; z-index:999999; opacity:0; visibility:hidden; pointer-events:none; background:#0a0a0a; color:white; padding:40px; border-radius:12px; box-shadow:0 25px 50px -12px rgba(0,0,0,0.25); transition:all 0.3s ease;';
+      menu.setAttribute('data-open', 'false');
+    };
+
+    // Use event delegation on document so events survive DOM re-insertion
+    document.addEventListener('click', function(e) {
+      var target = e.target;
+      
+      // Check if clicked on trigger button or its children
+      var trigger = document.getElementById('nav-panel-trigger');
+      if (trigger && (trigger === target || trigger.contains(target))) {
+        window.toggleMegaMenu(e);
+        return;
+      }
+      
+      // Check if clicked on close button
+      var closeBtn = document.getElementById('nav-panel-close');
+      if (closeBtn && (closeBtn === target || closeBtn.contains(target))) {
+        e.stopPropagation();
+        window.closeMegaMenu();
+        return;
+      }
+      
+      // Check if clicked on mobile menu button
+      var mobileBtn = document.getElementById('mobile-menu-btn');
+      if (mobileBtn && (mobileBtn === target || mobileBtn.contains(target))) {
+        window.toggleMegaMenu(e);
+        return;
+      }
+      
+      // Close menu if clicked outside
+      var menu = document.getElementById('nav-panel');
+      if (menu && menu.getAttribute('data-open') === 'true') {
+        if (!menu.contains(target)) {
+          window.closeMegaMenu();
+        }
+      }
+    });
+
+    // Dark mode toggle
+    (function() {
+      var toggle = document.getElementById('dark-toggle');
+      var moonIcon = document.getElementById('icon-moon');
+      var sunIcon = document.getElementById('icon-sun');
+
+      function updateIcons() {
+        var isDark = document.documentElement.classList.contains('dark');
+        if (moonIcon) moonIcon.style.display = isDark ? 'none' : 'block';
+        if (sunIcon) sunIcon.style.display = isDark ? 'block' : 'none';
+      }
+
+      updateIcons();
+
+      if (toggle) {
+        toggle.addEventListener('click', function() {
+          document.documentElement.classList.toggle('dark');
+          var isDark = document.documentElement.classList.contains('dark');
+          localStorage.setItem('darkMode', isDark);
+          updateIcons();
+          // Swap client logos to black/white version
+          if (window.swapClientLogos) window.swapClientLogos();
+        });
+      }
+
+      // Listen for system preference changes
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+        if (localStorage.getItem('darkMode') === null) {
+          if (e.matches) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+          updateIcons();
+          if (window.swapClientLogos) window.swapClientLogos();
+        }
+      });
+    })();
+
+    // === Newsletter Email Subscription ===
+    (function() {
+      var SUBSCRIBE_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzhcI7mHa1gDczg94SskPJDs6hECG8ohHllYz4kN4ouBs4gtxYpVJ--rP2YJm-fruy3/exec';
+
+      var form = document.getElementById('newsletter-form');
+      var emailInput = document.getElementById('nl-email');
+      var honeypot = document.getElementById('nl-honeypot');
+      var submitBtn = document.getElementById('nl-submit-btn');
+      var msgEl = document.getElementById('nl-message');
+      if (!form || !emailInput) return;
+
+      // Multilingual messages
+      var messages = {
+        en: {
+          invalid_email: 'Please enter a valid email address.',
+          already_subscribed: 'This email is already subscribed.',
+          rate_limited: 'Too many attempts. Please try again later.',
+          capacity_full: 'Subscription list is currently full.',
+          server_error: 'Something went wrong. Please try again.',
+          success: 'Thank you for subscribing!',
+          submitting: 'SUBMITTING...'
+        },
+        tc: {
+          invalid_email: '\u8ACB\u8F38\u5165\u6709\u6548\u7684\u96FB\u90F5\u5730\u5740\u3002',
+          already_subscribed: '\u6B64\u96FB\u90F5\u5DF2\u8A02\u95B1\u3002',
+          rate_limited: '\u5617\u8A66\u6B21\u6578\u904E\u591A\uFF0C\u8ACB\u7A0D\u5F8C\u518D\u8A66\u3002',
+          capacity_full: '\u8A02\u95B1\u540D\u55AE\u5DF2\u6EFF\u3002',
+          server_error: '\u51FA\u4E86\u9EDE\u554F\u984C\uFF0C\u8ACB\u7A0D\u5F8C\u518D\u8A66\u3002',
+          success: '\u611F\u8B1D\u60A8\u7684\u8A02\u95B1\uFF01',
+          submitting: '\u63D0\u4EA4\u4E2D...'
+        },
+        jp: {
+          invalid_email: '\u6709\u52B9\u306A\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044\u3002',
+          already_subscribed: '\u3053\u306E\u30E1\u30FC\u30EB\u306F\u65E2\u306B\u767B\u9332\u3055\u308C\u3066\u3044\u307E\u3059\u3002',
+          rate_limited: '\u8A66\u884C\u56DE\u6570\u304C\u591A\u3059\u304E\u307E\u3059\u3002\u5F8C\u3067\u3082\u3046\u4E00\u5EA6\u304A\u8A66\u3057\u304F\u3060\u3055\u3044\u3002',
+          capacity_full: '\u8CFC\u8AAD\u30EA\u30B9\u30C8\u306F\u73FE\u5728\u6E80\u5458\u3067\u3059\u3002',
+          server_error: '\u554F\u984C\u304C\u767A\u751F\u3057\u307E\u3057\u305F\u3002\u5F8C\u3067\u3082\u3046\u4E00\u5EA6\u304A\u8A66\u3057\u304F\u3060\u3055\u3044\u3002',
+          success: '\u3054\u8CFC\u8AAD\u3042\u308A\u304C\u3068\u3046\u3054\u3056\u3044\u307E\u3059\uFF01',
+          submitting: '\u9001\u4FE1\u4E2D...'
+        }
+      };
+
+      function getLangMsgs() {
+        var lang = (window.getLang && window.getLang()) || localStorage.getItem('lang') || 'en';
+        return messages[lang] || messages.en;
+      }
+
+      function showMsg(text, isError) {
+        msgEl.textContent = text;
+        msgEl.className = 'mt-3 font-sans text-xs tracking-wide ' + (isError ? 'text-brand-red' : 'text-green-600');
+        msgEl.classList.remove('hidden');
+      }
+
+      function hideMsg() {
+        msgEl.classList.add('hidden');
+      }
+
+      // Simple client-side email regex
+      function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && email.length <= 254;
+      }
+
+      // Generate a simple browser fingerprint for rate limiting
+      function getFingerprint() {
+        var nav = navigator;
+        var str = [nav.userAgent, nav.language, screen.width, screen.height, new Date().getTimezoneOffset()].join('|');
+        var hash = 0;
+        for (var i = 0; i < str.length; i++) {
+          hash = ((hash << 5) - hash) + str.charCodeAt(i);
+          hash |= 0;
+        }
+        return 'fp_' + Math.abs(hash).toString(36);
+      }
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        hideMsg();
+        var msgs = getLangMsgs();
+
+        var email = emailInput.value.trim();
+
+        // Client-side validation first
+        if (!email || !isValidEmail(email)) {
+          showMsg(msgs.invalid_email, true);
+          emailInput.focus();
+          return;
+        }
+
+        // Check if endpoint is configured
+        if (!SUBSCRIBE_ENDPOINT) {
+          showMsg('Newsletter subscription is not yet configured.', true);
+          return;
+        }
+
+        // Disable button
+        submitBtn.disabled = true;
+        submitBtn.textContent = msgs.submitting;
+
+        var payload = {
+          email: email,
+          name: '',
+          website: honeypot ? honeypot.value : '',
+          _ip: getFingerprint(),
+          _origin: window.location.origin
+        };
+
+        fetch(SUBSCRIBE_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify(payload)
+        })
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+          if (data.success) {
+            showMsg(msgs.success, false);
+            emailInput.value = '';
+          } else {
+            var errKey = data.error || 'server_error';
+            showMsg(msgs[errKey] || msgs.server_error, true);
+          }
+        })
+        .catch(function() {
+          showMsg(msgs.server_error, true);
+        })
+        .finally(function() {
+          submitBtn.disabled = false;
+          // Restore button text from data-key translation or default
+          var translated = submitBtn.getAttribute('data-original-text');
+          submitBtn.textContent = translated || 'SIGN ME UP \u21b3';
+        });
+      });
+
+      // Store original button text for restore after submit
+      submitBtn.setAttribute('data-original-text', submitBtn.textContent.trim());
+    })();
+
+    </script>
+  </body>
+</html>
