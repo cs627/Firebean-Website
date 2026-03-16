@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="/Firebean-Website/">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Profile - Firebean Agency</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&family=League+Spartan:wght@700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@400;500;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Anton', 'sans-serif'],
+            oswald: ['Oswald', 'sans-serif'],
+            spartan: ['League Spartan', 'sans-serif'],
+            serif: ['Libre Baskerville', 'serif'],
+            playfair: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            'brand-black': '#0a0a0a',
+            'brand-gray': '#f4f4f4',
+            'brand-red': '#ff3333',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Dark Mode Variables */
+    :root {
+      --bg-primary: #f4f4f4;
+      --bg-secondary: #ffffff;
+      --bg-card: #e5e7eb;
+      --text-primary: #0a0a0a;
+      --text-secondary: #4b5563;
+      --text-tertiary: #9ca3af;
+      --border-subtle: rgba(0,0,0,0.05);
+      --logo-ghost: rgba(0,0,0,0.03);
+      --nav-bg: rgba(244,244,244,0.8);
+    }
+
+    html.dark {
+      --bg-primary: #111111;
+      --bg-secondary: #1a1a1a;
+      --bg-card: #1a1a1a;
+      --text-primary: #e5e5e5;
+      --text-secondary: #999999;
+      --text-tertiary: #777777;
+      --border-subtle: rgba(255,255,255,0.1);
+      --logo-ghost: rgba(255,255,255,0.03);
+      --nav-bg: rgba(17,17,17,0.8);
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    /* Navigation Overrides */
+    #navbar {
+      z-index: 99999 !important;
+      pointer-events: auto !important;
+    }
+    #nav-panel {
+      z-index: 999999 !important;
+    }
+    /* Mobile adjustment for Nav Panel */
+    @media (max-width: 767px) {
+      #nav-panel {
+        left: 5% !important;
+        right: 5% !important;
+        width: 90% !important;
+        max-width: none !important;
+        top: 80px !important;
+      }
+    }
+    .lang-btn {
+      cursor: pointer !important;
+      position: relative;
+      z-index: 100000 !important;
+      pointer-events: auto !important;
+    }
+
+    /* Text Stroke Effect */
+    .stroke-text {
+      -webkit-text-stroke: 1px white;
+      color: transparent;
+    }
+
+    /* === CMS Article Content Typography === */
+    .cms-content {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1rem;
+      line-height: 1.85;
+      color: #444;
+    }
+    @media (min-width: 768px) {
+      .cms-content {
+        font-size: 1.05rem;
+      }
+    }
+
+    .cms-content h1,
+    .cms-content h2 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 1.75rem;
+      line-height: 1.15;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: #0a0a0a;
+      margin-bottom: 1rem;
+    }
+    @media (min-width: 768px) {
+      .cms-content h1,
+      .cms-content h2 {
+        font-size: 2.5rem;
+      }
+    }
+
+    .cms-content .cms-lead {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: 1.15rem;
+      line-height: 1.55;
+      color: #666;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    @media (min-width: 768px) {
+      .cms-content .cms-lead {
+        font-size: 1.3rem;
+      }
+    }
+
+    .cms-content h3,
+    .cms-content h4 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 500;
+      font-size: 1.05rem;
+      line-height: 1.3;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #ff3333;
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+    @media (min-width: 768px) {
+      .cms-content h3,
+      .cms-content h4 {
+        font-size: 1.2rem;
+      }
+    }
+
+    .cms-content h3.cms-lead {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-style: italic;
+      text-transform: none;
+      letter-spacing: normal;
+      color: #666;
+    }
+
+    .cms-content p {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1rem;
+      line-height: 1.85;
+      color: #444;
+      margin-bottom: 1.25rem;
+    }
+    @media (min-width: 768px) {
+      .cms-content p {
+        font-size: 1.05rem;
+      }
+    }
+
+    .cms-content ul, .cms-content ol {
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1rem;
+      line-height: 1.85;
+      color: #444;
+    }
+    .cms-content ul { list-style-type: disc; }
+    .cms-content li {
+      margin-bottom: 0.5rem;
+    }
+
+    .cms-content a {
+      color: #ff3333;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .cms-content a:hover {
+      opacity: 0.7;
+    }
+
+    .cms-content strong, .cms-content b {
+      font-weight: 700;
+      color: #0a0a0a;
+    }
+
+    html.dark .bg-brand-gray { background-color: var(--bg-primary) !important; }
+    html.dark .text-brand-black { color: var(--text-primary) !important; }
+    html.dark .text-gray-600 { color: var(--text-secondary) !important; }
+    html.dark .text-gray-400 { color: var(--text-tertiary) !important; }
+    html.dark .text-gray-500 { color: #999 !important; }
+    html.dark .bg-gray-200 { background-color: var(--bg-card) !important; }
+    html.dark .border-black\/5 { border-color: var(--border-subtle) !important; }
+    html.dark .stroke-text-black { -webkit-text-stroke-color: #e5e5e5; }
+    html.dark .bg-3d-logo { color: var(--logo-ghost); }
+
+    html.dark #navbar { color: var(--text-primary); }
+    html.dark nav#navbar { color: var(--text-primary); }
+    html.dark .bg-brand-gray\/80 { background-color: var(--nav-bg) !important; }
+
+    .dark-toggle {
+      cursor: pointer;
+      position: relative;
+      z-index: 100000;
+      pointer-events: auto;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .dark-toggle:hover { opacity: 1; }
+    .dark-toggle svg { width: 16px; height: 16px; }
+
+    /* Mobile title spacing fix */
+    @media (max-width: 767px) {
+      #profile-title {
+        font-size: clamp(2.5rem, 10vw, 3.5rem);
+        line-height: 1.15;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
+        word-break: break-word;
+        overflow-wrap: break-word;
+      }
+      #profile-categories {
+        margin-bottom: 1.25rem;
+        gap: 0.5rem;
+      }
+      #profile-subtitle {
+        margin-top: 0.5rem;
+      }
+    }
+
+    html.dark #profile-title { color: var(--text-primary) !important; }
+    html.dark #profile-categories span { color: var(--text-primary) !important; }
+
+    html.dark .cms-content { color: #bbb; }
+    html.dark .cms-content h1,
+    html.dark .cms-content h2 { color: #ff3333; }
+    html.dark .cms-content h3,
+    html.dark .cms-content h4 { color: #ff3333; }
+    
+    /* Q&A Sidebar Styling */
+    #profile-qa h4 {
+      color: #999 !important; /* Force a visible gray for the "Q&A" label */
+    }
+    html.dark #profile-qa h4 {
+      color: #777 !important;
+    }
+    #qa-content p.font-semibold {
+      color: #0a0a0a !important; /* Dark black for questions in light mode */
+    }
+    html.dark #qa-content p.font-semibold {
+      color: #ff3333 !important; /* Brand red for questions in dark mode */
+    }
+    #qa-content p.text-gray-500 {
+      color: #666 !important; /* Visible gray for answers */
+    }
+    html.dark #qa-content p.text-gray-400 {
+      color: #bbb !important; /* Lighter gray for answers in dark mode */
+    }
+    html.dark .cms-content h3.cms-lead { color: #aaa; border-bottom-color: rgba(255,255,255,0.1); }
+    html.dark .cms-content .cms-lead { color: #aaa; border-bottom-color: rgba(255,255,255,0.1); }
+    html.dark .cms-content p { color: #bbb; }
+    html.dark .cms-content ul, html.dark .cms-content ol { color: #bbb; }
+    html.dark .cms-content strong, html.dark .cms-content b { color: #e5e5e5; }
+    html.dark .cms-content a { color: #ff3333; }
+
+    html.dark iframe[src*="google.com/maps"] { filter: invert(0.9) hue-rotate(180deg); }
+
+    .contact-parallax-bg {
+      position: absolute;
+      top: -25%;
+      left: 0;
+      width: 100%;
+      height: 150%;
+      object-fit: cover;
+      will-change: transform;
+    }
+
+    /* Loading Overlay */
+    #loading-overlay {
+      position: fixed;
+      inset: 0;
+      background: #0a0a0a;
+      z-index: 999999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+    #loading-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+  </style>
+
+  <script>
+    (function() {
+      var stored = localStorage.getItem('darkMode');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (stored === 'true' || (stored === null && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+</head>
+<body class="antialiased">
+
+  <!-- Loading Overlay -->
+  <div id="loading-overlay">
+    <h2 class="font-display text-white text-6xl md:text-9xl tracking-tighter uppercase italic">Loading...</h2>
+  </div>
+
+  <!-- Mobile Menu Button -->
+  <button id="mobile-menu-btn" class="md:hidden fixed top-6 right-6 z-[10000] bg-black/60 backdrop-blur-lg p-3 rounded-xl border border-white/10 shadow-xl active:scale-95 transition-all" onclick="window.toggleMegaMenu && window.toggleMegaMenu(event)">
+    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+  </button>
+
+  <!-- Navigation -->
+  <nav class="absolute top-0 left-0 w-full px-6 py-6 flex justify-between items-center z-[9999] text-brand-black pointer-events-auto" id="navbar" data-lenis-prevent>
+    <a class='flex items-center gap-2 hover:opacity-70 transition-opacity' href='index.html'>
+      <img src="data/images/firebean-logo-w100.webp" class="h-6 w-auto object-contain mix-blend-multiply" alt="Firebean Logo" referrerpolicy="no-referrer">
+      <div class="font-sans font-light text-xl tracking-widest lowercase" style="font-variant: small-caps;">firebean</div>
+    </a>
+    
+    <div class="hidden md:flex gap-8 font-sans text-sm uppercase tracking-widest items-center">
+      <a href="index.html" class="hover:opacity-50 transition-opacity" data-key="Global.Navigation.Home">Home</a>
+      <a href="index.html#about" class="hover:opacity-50 transition-opacity" data-key="Global.Navigation.About">About</a>
+      <div class="relative py-4">
+        <button id="nav-panel-trigger" class='hover:opacity-50 transition-opacity flex items-center gap-1 uppercase tracking-widest text-sm font-sans'>
+          <span data-key="Global.Navigation.WhatWeDo">What We Do</span> <span class="text-[10px]">▼</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="font-sans text-xs uppercase tracking-widest flex gap-2 items-center">
+      <button class="lang-btn hover:opacity-50" data-lang="en">EN</button> |
+      <button class="lang-btn hover:opacity-50 text-gray-500" data-lang="ch">CH</button> |
+      <button class="lang-btn hover:opacity-50 text-gray-500" data-lang="jp">JP</button> |
+      <button class="dark-toggle" id="dark-toggle" title="Toggle dark mode">
+        <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+        <svg id="icon-sun" style="display:none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Nav Panel (Mega Menu) - matches index.html -->
+  <div id="nav-panel" class="fixed bg-brand-black text-white px-6 py-10 shadow-2xl rounded-xl" style="opacity:0; visibility:hidden; pointer-events:none; top:80px; left:5%; right:5%; width:90%; max-width:600px; z-index:999999; transition:all 0.3s ease;" data-open="false">
+    <button id="nav-panel-close" class="absolute top-4 right-4 text-white hover:text-brand-red transition-colors text-2xl leading-none">&times;</button>
+    <div class="grid grid-cols-2 gap-8 md:gap-16 w-full">
+      <div>
+        <h4 class="font-oswald text-lg md:text-xl mb-4 md:mb-6 text-brand-red tracking-widest" data-key="Global.Navigation.WhoWeHelp">WHO WE HELP</h4>
+        <ul class="space-y-2 md:space-y-3 text-xs md:text-sm text-gray-400 font-sans tracking-wide">
+          <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.GovPublic' href='work.html?filter=government'>Government & Public Sector</a></li>
+          <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.LifestyleConsumer' href='work.html?filter=lifestyle'>Lifestyle & Consumer</a></li>
+          <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.FBHospitality' href='work.html?filter=hospitality'>F&B & Hospitality</a></li>
+          <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.MallsVenues' href='work.html?filter=venues'>Malls & Venues</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-oswald text-lg md:text-xl mb-4 md:mb-6 text-brand-red tracking-widest" data-key="Global.Navigation.WhatWeDo">WHAT WE DO</h4>
+        <ul class="space-y-2 md:space-y-3 text-xs md:text-sm text-gray-400 font-sans tracking-wide">
+          <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.RovingExhibitions' href='work.html?filter=exhibitions'>Roving Exhibitions</a></li>
+          <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.SocialContent' href='work.html?filter=social'>Social & Content</a></li>
+          <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.InteractiveTech' href='work.html?filter=tech'>Interactive & Tech</a></li>
+          <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.PRMedia' href='work.html?filter=pr'>PR & Media</a></li>
+          <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.EventsCeremonies' href='work.html?filter=events'>Events & Ceremonies</a></li>
+        </ul>
+      </div>
+      <div class="col-span-2 border-t border-white/20 pt-4 md:pt-6 mt-2">
+        <a class='text-sm font-bold hover:text-brand-red transition-colors flex items-center gap-3 tracking-widest' href='work.html'>
+          <span class="text-xl">↳</span> <span data-key="Global.Navigation.AllProjects">View All Projects</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main class="pt-32 px-6 max-w-7xl mx-auto">
+    
+    <!-- Profile Header -->
+    <header class="mb-12">
+      <div id="profile-categories" class="flex flex-wrap items-center gap-4 font-oswald text-xs uppercase tracking-[0.3em] text-gray-400 mb-6">
+      </div>
+      <h1 id="profile-title" class="font-display text-5xl md:text-8xl lg:text-9xl tracking-tighter uppercase leading-[1.1] md:leading-[0.85] mb-8 md:mb-12 py-2 md:py-0">
+      </h1>
+      <p id="profile-subtitle" class="font-oswald text-sm md:text-lg uppercase tracking-[0.15em] text-gray-500 max-w-2xl">
+      </p>
+    </header>
+
+    <!-- Hero Image (Full Width) -->
+    <section class="mb-16">
+      <div class="relative aspect-[16/9] md:aspect-[2/1] w-full overflow-hidden shadow-2xl">
+        <img id="profile-hero" src="" alt="Project Hero Image" class="w-full h-full object-cover" referrerpolicy="no-referrer">
+      </div>
+    </section>
+
+    <!-- Article Content -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-32">
+      <div class="lg:col-span-8">
+        <article id="profile-challenge" class="cms-content">
+        </article>
+        <div id="profile-solution" class="cms-content mt-6"></div>
+      </div>
+
+      <aside class="lg:col-span-4">
+        <div class="sticky top-8 space-y-10">
+          <div id="profile-scope" class="border-l-2 border-brand-red pl-6">
+            <h4 class="font-oswald text-xs uppercase tracking-[0.2em] text-gray-400 mb-4">Scope</h4>
+            <p class="font-sans text-sm text-gray-600 leading-relaxed"></p>
+          </div>
+          <div id="profile-qa" class="border-l-2 border-brand-black/10 pl-6 hidden">
+            <h4 class="font-oswald text-xs uppercase tracking-[0.2em] text-gray-400 mb-6">Q&A</h4>
+            <div id="qa-content" class="space-y-5"></div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="profile-video-section" class="mb-16 hidden">
+      <div class="aspect-video w-full overflow-hidden shadow-2xl">
+        <iframe id="profile-youtube" class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section id="profile-gallery" class="hidden">
+    </section>
+
+  </main>
+
+  <section class="relative bg-brand-black text-white py-32 px-6 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="data/images/contact-bg.webp" alt="" class="contact-parallax-bg w-full h-[150%] object-cover object-center" referrerpolicy="no-referrer" />
+      <div class="absolute inset-0 bg-brand-black/40"></div>
+    </div>
+    
+    <div class="relative z-10 max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-end">
+        <div>
+          <h2 class="font-display text-7xl md:text-9xl tracking-tighter uppercase leading-none mb-12">Ready to talk?<br/><span class="stroke-text">Get in touch.</span></h2>
+          <div class="flex flex-wrap gap-12">
+            <div>
+              <p class="font-oswald text-[10px] uppercase tracking-[0.3em] text-gray-400 mb-4">New Business</p>
+              <a href="mailto:hello@firebean.net" class="font-sans text-lg hover:text-brand-red transition-colors">hello@firebean.net</a>
+            </div>
+            <div>
+              <p class="font-oswald text-[10px] uppercase tracking-[0.3em] text-gray-400 mb-4">Careers</p>
+              <a href="mailto:hr@firebean.net" class="font-sans text-lg hover:text-brand-red transition-colors">hr@firebean.net</a>
+            </div>
+          </div>
+        </div>
+        <div class="text-right">
+          <p class="font-sans text-gray-400 max-w-xs ml-auto mb-8">Unit B, 15/F Morrison Plaza, 5-9 Morrison Hill Rd, Wan Chai, HK</p>
+          <a href="tel:+85235211754" class="font-oswald text-3xl font-bold hover:text-brand-red transition-colors">+852 3521 1754</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-brand-black text-white py-12 px-6 border-t border-white/5">
+    <div class="max-w-7xl mx-auto flex flex-col md:row justify-between items-center gap-8">
+      <p class="font-oswald text-[10px] uppercase tracking-[0.2em] text-gray-500">© 2026 Firebean Limited. All Rights Reserved.</p>
+      <div class="flex gap-8 font-oswald text-[10px] uppercase tracking-[0.2em]">
+        <button id="disclaimer-btn" class="hover:text-brand-red transition-colors">Disclaimer</button>
+        <button id="privacy-btn" class="hover:text-brand-red transition-colors">Privacy Policy</button>
+        <button id="terms-btn" class="hover:text-brand-red transition-colors">Terms of Service</button>
+      </div>
+    </div>
+  </footer>
+
+  <div id="legal-modal" class="fixed inset-0 z-[2000] flex items-center justify-center p-6 hidden">
+    <div id="modal-overlay" class="absolute inset-0 bg-brand-black/80 backdrop-blur-sm"></div>
+    <div class="relative bg-white dark:bg-brand-black w-full max-w-2xl max-h-[80vh] overflow-y-auto p-12 rounded-2xl shadow-2xl border border-black/5 dark:border-white/10">
+      <button id="modal-close-btn" class="absolute top-6 right-6 text-gray-400 hover:text-brand-red transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+      <h2 id="modal-title" class="font-oswald text-2xl uppercase tracking-widest mb-8 text-brand-red"></h2>
+      <div id="modal-content" class="font-sans text-gray-600 dark:text-gray-400 leading-relaxed space-y-4"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script src="src/translations.js"></script>
+  <script src="src/cms.js"></script>
+
+  <script>
+    // Define global vars for translations
+    var categoryTranslations = {
+      ch: { 'GOVERNMENT & PUBLIC SECTOR': '政府及公營機構', 'LIFESTYLE & CONSUMER': '生活及消費品牌', 'F&B & HOSPITALITY': '餐飲及酒店', 'MALLS & VENUES': '商場及場地', 'ROVING EXHIBITIONS': '巡迴展覽', 'SOCIAL & CONTENT': '社交媒體及內容', 'INTERACTIVE & TECH': '互動及科技', 'PR & MEDIA': '公關及媒體', 'EVENTS & CEREMONIES': '活動及典禮' },
+      jp: { 'GOVERNMENT & PUBLIC SECTOR': '政府・公共機関', 'LIFESTYLE & CONSUMER': 'ライフスタイル・消費者', 'F&B & HOSPITALITY': '飲食・ホスピタリティ', 'MALLS & VENUES': 'モール・会場', 'ROVING EXHIBITIONS': '巡回展示', 'SOCIAL & CONTENT': 'ソーシャル・コンテンツ', 'INTERACTIVE & TECH': 'インタラクティブ・テック', 'PR & MEDIA': 'PR・メディア', 'EVENTS & CEREMONIES': 'イベント・セレモニー' }
+    };
+    var scopeTranslations = {
+      ch: { 'EVENT PLANNING': '活動策劃', 'EVENT COORDINATION': '活動統籌', 'EVENT PRODUCTION': '活動製作', 'THEME DESIGN': '主題設計', 'CONCEPT DEVELOPMENT': '概念開發', 'PR CONSULTING': '公關顧問', 'SOUVENIR SOURCING': '紀念品採購', 'SOCIAL MEDIA': '社交媒體', 'CONTENT CREATION': '內容創作', 'MEDIA PLANNING': '媒體策劃', 'MEDIA RELATIONS': '媒體關係', 'DIGITAL MARKETING': '數碼營銷', 'BRANDING': '品牌策劃', 'GRAPHIC DESIGN': '平面設計', 'VIDEO PRODUCTION': '影片製作', 'PHOTOGRAPHY': '攝影', 'KOL MANAGEMENT': 'KOL 管理', 'INTERACTIVE INSTALLATION': '互動裝置', 'TECHNOLOGY INTEGRATION': '科技整合', 'GAME DEVELOPMENT': '遊戲開發', 'EXHIBITION DESIGN': '展覽設計', 'STAGE DESIGN': '舞台設計', 'VENUE MANAGEMENT': '場地管理', 'PROJECT MANAGEMENT': '項目管理' },
+      jp: { 'EVENT PLANNING': 'イベント企画', 'EVENT COORDINATION': 'イベント統括', 'EVENT PRODUCTION': 'イベント制作', 'THEME DESIGN': 'テーマデザイン', 'CONCEPT DEVELOPMENT': 'コンセプト開発', 'PR CONSULTING': 'PRコンサルティング', 'SOUVENIR SOURCING': '記念品調達', 'SOCIAL MEDIA': 'ソーシャルメディア', 'CONTENT CREATION': 'コンテンツ制作', 'MEDIA PLANNING': 'メディアプランニング', 'MEDIA RELATIONS': 'メディアリレーション', 'DIGITAL MARKETING': 'デジタルマーケティング', 'BRANDING': 'ブランディング', 'GRAPHIC DESIGN': 'グラフィックデザイン', 'VIDEO PRODUCTION': '映像制作', 'PHOTOGRAPHY': '写真撮影', 'KOL MANAGEMENT': 'KOL管理', 'INTERACTIVE INSTALLATION': 'インタラクティブ装置', 'TECHNOLOGY INTEGRATION': 'テクノロジー統合', 'GAME DEVELOPMENT': 'ゲーム開発', 'EXHIBITION DESIGN': '展示デザイン', 'STAGE DESIGN': 'ステージデザイン', 'VENUE MANAGEMENT': '会場管理', 'PROJECT MANAGEMENT': 'プロジェクト管理' }
+    };
+    var scopeHeadingMap = { en: 'Scope', ch: '服務範圍', jp: '服務範囲' };
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    function populateProfile(data) {
+      console.log('[Profile] Populating with data:', data);
+      var projects = (data && data.projects) || [];
+      if (!projects.length) return;
+
+      var params = new URLSearchParams(window.location.search);
+      var projectId = params.get('id');
+      var project = null;
+
+      if (projectId) {
+        project = projects.find(p => p.projectId === projectId);
+        if (!project) {
+          var idx = parseInt(projectId, 10);
+          if (!isNaN(idx) && idx >= 0 && idx < projects.length) project = projects[idx];
+        }
+      }
+      if (!project) project = projects[0];
+
+      // Hide loading
+      document.getElementById('loading-overlay').classList.add('hidden');
+
+      // Update basic info
+      document.title = project.project + ' - Firebean Agency';
+      document.getElementById('profile-title').textContent = project.project || '';
+      document.getElementById('profile-subtitle').textContent = project.client ? project.client + (project.venue ? ' — ' + project.venue : '') : '';
+      
+      var heroEl = document.getElementById('profile-hero');
+      if (project.heroPhoto) { heroEl.src = project.heroPhoto; heroEl.alt = project.project; }
+
+      // Category rendering
+      const categoriesEl = document.getElementById('profile-categories');
+      function renderCategories() {
+        categoriesEl.innerHTML = '';
+        var lang = (window.getLang && window.getLang()) || localStorage.getItem('lang') || 'en';
+        if (project.categories) {
+          project.categories.forEach((cat, idx) => {
+            if (idx > 0) {
+              var sep = document.createElement('span');
+              sep.className = 'text-brand-red text-3xl leading-none';
+              sep.textContent = '·';
+              categoriesEl.appendChild(sep);
+            }
+            var span = document.createElement('span');
+            span.textContent = (lang !== 'en' && categoryTranslations[lang] && categoryTranslations[lang][cat]) ? categoryTranslations[lang][cat] : cat;
+            categoriesEl.appendChild(span);
+          });
+        }
+      }
+      renderCategories();
+      window.addEventListener('languageChange', renderCategories);
+
+      // Article content
+      var challengeEl = document.getElementById('profile-challenge');
+      var solutionEl = document.getElementById('profile-solution');
+      var scopeEl = document.getElementById('profile-scope');
+
+      function getProfileContent() {
+        var lang = (window.getLang && window.getLang()) || localStorage.getItem('lang') || 'en';
+        var webContent = (lang === 'ch' && project.webTC) ? project.webTC : (lang === 'jp' && project.webJP) ? project.webJP : project.webEN;
+
+        if (webContent) {
+          var processed = webContent.replace(/\n{2,}/g, '\n').split('\n').map(line => {
+            var trimmed = line.trim();
+            if (!trimmed) return '';
+            if (/^<(h[1-6]|p|ul|ol|li|div|blockquote|figure|img|iframe|br)/i.test(trimmed)) return trimmed;
+            var headingMatch = trimmed.match(/^(#{1,6})\s+(.+)$/);
+            if (headingMatch) {
+              var level = headingMatch[1].length;
+              var text = headingMatch[2].replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+              return `<h${level}>${text}</h${level}>`;
+            }
+            if (/^[-*]\s+/.test(trimmed)) {
+                return `<li>${trimmed.substring(2).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')}</li>`;
+            }
+            return `<p>${trimmed.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')}</p>`;
+          }).join('\n');
+          processed = processed.replace(/((?:<li>.*<\/li>\n?)+)/g, '<ul>$1</ul>');
+          challengeEl.innerHTML = processed;
+          solutionEl.innerHTML = '';
+          var firstH3 = challengeEl.querySelector('h3');
+          if (firstH3) firstH3.classList.add('cms-lead');
+        } else {
+          challengeEl.textContent = project.challenge || '';
+          solutionEl.textContent = project.solution || '';
+        }
+
+        if (project.scope) {
+          scopeEl.style.display = '';
+          scopeEl.querySelector('h4').textContent = scopeHeadingMap[lang] || scopeHeadingMap.en;
+          scopeEl.querySelector('p').textContent = project.scope.split(',').map(s => {
+            var trimmed = s.trim().toUpperCase();
+            return (lang !== 'en' && scopeTranslations[lang] && scopeTranslations[lang][trimmed]) ? scopeTranslations[lang][trimmed] : s.trim();
+          }).join(', ');
+        } else {
+          scopeEl.style.display = 'none';
+        }
+      }
+      getProfileContent();
+      window.addEventListener('languageChange', getProfileContent);
+
+      // Q&A Extraction
+      function extractQA() {
+        var qaContainer = document.getElementById('profile-qa');
+        var qaContent = document.getElementById('qa-content');
+        var articleEl = document.getElementById('profile-challenge');
+        if (!qaContainer || !qaContent || !articleEl) return;
+        
+        var faqHeading = null;
+        var h3s = Array.from(articleEl.querySelectorAll('h3'));
+        faqHeading = h3s.find(h => h.textContent.toLowerCase().includes('fast recap faq') || h.textContent.includes('快速回顧 FAQ'));
+        
+        if (!faqHeading) {
+          faqHeading = Array.from(articleEl.querySelectorAll('h1, h2, h3, h4, h5, h6, p, strong, b')).find(h => {
+            var txt = h.textContent.toLowerCase().trim();
+            var keywords = ['faq', 'q&a', 'q & a', '常見問題', 'よくある質問', 'fast recap'];
+            return keywords.some(k => txt.includes(k)) && (h.tagName.startsWith('H') || h.tagName === 'STRONG' || h.tagName === 'B' || (h.tagName === 'P' && h.innerText.length < 50));
+          });
+        }
+        if (!faqHeading) { qaContainer.classList.add('hidden'); return; }
+        
+        var faqElements = [];
+        var sib = faqHeading.nextElementSibling;
+        while (sib) { faqElements.push(sib); sib = sib.nextElementSibling; }
+        
+        var qaPairs = [];
+        faqElements.forEach(el => {
+          el.querySelectorAll('li').forEach(li => {
+            var boldEl = li.querySelector('b, strong');
+            if (boldEl) {
+              var q = boldEl.textContent.replace(/^Q\d*[.:] ?/i, '').trim();
+              var a = li.textContent.replace(boldEl.textContent, '').replace(/^\s*A\d*[.:] ?/i, '').trim();
+              if (q) qaPairs.push({ q, a });
+            } else if (li.textContent.includes(':')) {
+                var parts = li.textContent.split(':');
+                var q = parts[0].replace(/^Q\d*[.:] ?/i, '').trim();
+                var a = parts.slice(1).join(':').replace(/^\s*A\d*[.:] ?/i, '').trim();
+                if (q && a) qaPairs.push({ q, a });
+            }
+          });
+          if (el.tagName === 'P' || el.tagName === 'DIV') {
+              var txt = el.innerText.trim();
+              var blocks = txt.split(/\n(?=Q\d*[.:])/i);
+              blocks.forEach(block => {
+                  var qMatch = block.match(/^Q\d*[.:] ?(.*?)(?:\n|A\d*[.:]|$)/i);
+                  var aMatch = block.match(/A\d*[.:] ?([\s\S]*)$/i);
+                  if (qMatch && aMatch) {
+                      qaPairs.push({ q: qMatch[1].trim(), a: aMatch[1].trim() });
+                  }
+              });
+          }
+        });
+        
+        if (qaPairs.length) {
+          qaContent.innerHTML = qaPairs.map(p => `<div class="mb-5"><p class="font-sans text-sm font-semibold text-brand-black dark:text-white leading-snug mb-1">${p.q}</p><p class="font-sans text-sm text-gray-500 dark:text-gray-400 leading-relaxed">${p.a}</p></div>`).join('');
+          qaContainer.classList.remove('hidden');
+          [faqHeading, ...faqElements].forEach(el => el.remove());
+        } else { qaContainer.classList.add('hidden'); }
+      }
+
+      // Photo Interleaving
+      function interleave() {
+        var photoUrls = project.galleryPhotos;
+        if (!photoUrls || photoUrls.length < 2) return;
+        document.querySelectorAll('.interleaved-photo-pair, .extra-photo-pair').forEach(el => el.remove());
+        var pairs = [];
+        for (var i = 0; i < photoUrls.length; i += 2) pairs.push(photoUrls.slice(i, i + 2));
+
+        function createPair(pair, large = false, cls = 'interleaved-photo-pair') {
+          var div = document.createElement('div');
+          div.className = `grid grid-cols-2 gap-3 md:gap-6 ${large ? 'my-12' : 'my-8'} ${cls}`;
+          div.innerHTML = pair.map(url => `<div class="overflow-hidden aspect-square opacity-0 translate-y-8"><img src="${url}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" referrerpolicy="no-referrer"></div>`).join('');
+          div.querySelectorAll('div').forEach(item => {
+            ScrollTrigger.create({ trigger: item, start: 'top 85%', once: true, onEnter: () => gsap.to(item, { opacity: 1, y: 0, duration: 0.8 }) });
+          });
+          return div;
+        }
+
+        var h3s = challengeEl.querySelectorAll('h3');
+        var ps = challengeEl.querySelectorAll('p');
+        [0, 1, 2].forEach(i => {
+          if (pairs[i]) {
+            var target = h3s[i + 1] || ps[i + 1] ? (h3s[i + 1] || ps[i + 1].nextSibling) : null;
+            if (target) challengeEl.insertBefore(createPair(pairs[i]), target); else challengeEl.appendChild(createPair(pairs[i]));
+          }
+        });
+        if (pairs[3]) {
+          var sol = document.getElementById('profile-solution');
+          sol.parentNode.insertBefore(createPair(pairs[3], true, 'extra-photo-pair'), sol.nextSibling);
+        }
+        if (pairs.length > 4) {
+          var rem = document.createElement('div');
+          rem.className = 'grid grid-cols-2 gap-3 md:gap-6 mt-12 extra-photo-pair';
+          pairs.slice(4).flat().forEach(url => {
+            rem.innerHTML += `<div class="overflow-hidden aspect-square"><img src="${url}" class="w-full h-full object-cover" referrerpolicy="no-referrer"></div>`;
+          });
+          challengeEl.parentNode.appendChild(rem);
+        }
+        ScrollTrigger.refresh();
+      }
+
+      // YouTube
+      if (project.youtube) {
+        var ytMatch = project.youtube.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([a-zA-Z0-9_-]{11})/);
+        if (ytMatch) {
+          document.getElementById('profile-youtube').src = 'https://www.youtube.com/embed/' + ytMatch[1];
+          document.getElementById('profile-video-section').classList.remove('hidden');
+        }
+      }
+
+      // Initial execution
+      setTimeout(() => {
+        extractQA();
+        setTimeout(interleave, 200);
+      }, 100);
+
+      window.addEventListener('languageChange', () => {
+        setTimeout(() => {
+          extractQA();
+          setTimeout(interleave, 200);
+        }, 100);
+      });
+
+      // Animations
+      if (heroEl) {
+        heroEl.onload = () => gsap.to(heroEl, { scale: 1, opacity: 1, duration: 1.4 });
+        if (heroEl.complete) gsap.to(heroEl, { scale: 1, opacity: 1, duration: 1.4 });
+      }
+      ScrollTrigger.refresh();
+    }
+
+    // Event Listeners
+    window.addEventListener('cmsDataReady', e => {
+      populateProfile(e.detail);
+    });
+    if (window.cmsData && window.cmsData.loaded) {
+      populateProfile(window.cmsData);
+    }
+
+    // Dark Mode
+    (function() {
+      var toggle = document.getElementById('dark-toggle');
+      var moon = document.getElementById('icon-moon');
+      var sun = document.getElementById('icon-sun');
+      function update() {
+        var isDark = document.documentElement.classList.contains('dark');
+        if (moon) moon.style.display = isDark ? 'none' : 'block';
+        if (sun) sun.style.display = isDark ? 'block' : 'none';
+      }
+      update();
+      if (toggle) toggle.onclick = () => {
+        document.documentElement.classList.toggle('dark');
+        localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+        update();
+      };
+    })();
+
+    // Nav Panel (Mega Menu)
+    window.toggleMegaMenu = function(e) {
+      if (e) e.stopPropagation();
+      var panel = document.getElementById('nav-panel');
+      if (!panel) return;
+      var isOpen = panel.getAttribute('data-open') === 'true';
+      if (isOpen) {
+        panel.style.opacity = '0';
+        panel.style.visibility = 'hidden';
+        panel.style.pointerEvents = 'none';
+        panel.setAttribute('data-open', 'false');
+      } else {
+        panel.style.opacity = '1';
+        panel.style.visibility = 'visible';
+        panel.style.pointerEvents = 'auto';
+        panel.setAttribute('data-open', 'true');
+      }
+    };
+    (function() {
+      var trigger = document.getElementById('nav-panel-trigger');
+      var closeBtn = document.getElementById('nav-panel-close');
+      var panel = document.getElementById('nav-panel');
+      if (trigger) trigger.onclick = window.toggleMegaMenu;
+      if (closeBtn) closeBtn.onclick = function() {
+        if (panel) {
+          panel.style.opacity = '0';
+          panel.style.visibility = 'hidden';
+          panel.style.pointerEvents = 'none';
+          panel.setAttribute('data-open', 'false');
+        }
+      };
+      document.addEventListener('click', function(e) {
+        if (!panel) return;
+        if (panel.getAttribute('data-open') !== 'true') return;
+        if (!panel.contains(e.target) && e.target !== trigger && !trigger.contains(e.target)) {
+          panel.style.opacity = '0';
+          panel.style.visibility = 'hidden';
+          panel.style.pointerEvents = 'none';
+          panel.setAttribute('data-open', 'false');
+        }
+      });
+    })();
+
+    // Legal
+    function openModal(type) {
+      if (!window.legalContent) return;
+      if (window.updateTranslations) window.updateTranslations();
+      const { title, content } = window.legalContent[type];
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-content').innerHTML = content;
+      document.getElementById('legal-modal').classList.remove('hidden');
+    }
+    document.getElementById('disclaimer-btn').onclick = () => openModal('disclaimer');
+    document.getElementById('privacy-btn').onclick = () => openModal('privacy');
+    document.getElementById('terms-btn').onclick = () => openModal('terms');
+    document.getElementById('modal-close-btn').onclick = document.getElementById('modal-overlay').onclick = () => document.getElementById('legal-modal').classList.add('hidden');
+  </script>
+</body>
+</html>
