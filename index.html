@@ -1005,6 +1005,68 @@
           </div>
         </div>
 
+        <!-- Chinese Narrative Text (CH only) -->
+        <div id="narrative-ch" class="hidden flex-wrap justify-center items-center gap-x-3 gap-y-1 md:gap-y-2 font-noto font-black leading-[0.9] tracking-tighter text-[56px] md:text-[8vw] lg:text-[9vw] text-brand-black">
+          <span>我們引領</span>
+
+          <!-- Logo Slot 1 (Lifestyle) -->
+          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[120px] h-[60px] md:w-[160px] md:h-[80px] lg:w-[200px] lg:h-[100px] align-middle" data-type="lifestyle" onclick="openClientModal(this)">
+            <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
+            <div class="w-full h-full perspective-1000">
+              <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent">
+                  <img src="" class="front-img max-w-full max-h-full object-contain" alt="Client Logo" referrerpolicy="no-referrer">
+                </div>
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent rotate-x-180">
+                  <img src="" class="back-img max-w-full max-h-full object-contain" alt="Client Logo" referrerpolicy="no-referrer">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <span>打破螢幕框架，為</span>
+
+          <!-- Logo Slot 2 (Government) -->
+          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[120px] h-[60px] md:w-[160px] md:h-[80px] lg:w-[200px] lg:h-[100px] align-middle" data-type="government" onclick="openClientModal(this)">
+            <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
+            <div class="w-full h-full perspective-1000">
+              <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent">
+                  <img src="" class="front-img max-w-full max-h-full object-contain" alt="Client Logo" referrerpolicy="no-referrer">
+                </div>
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent rotate-x-180">
+                  <img src="" class="back-img max-w-full max-h-full object-contain" alt="Client Logo" referrerpolicy="no-referrer">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="basis-full h-0"></div>
+
+          <span>激發大眾好奇，</span>
+
+          <div class="basis-full h-0"></div>
+
+          <div class="inline-flex items-center flex-wrap justify-center gap-x-2">
+            <span>並為</span>
+            <!-- Logo Slot 3 (Lifestyle) — inline after 並為 -->
+            <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[120px] h-[60px] md:w-[160px] md:h-[80px] lg:w-[200px] lg:h-[100px] align-middle" data-type="lifestyle" onclick="openClientModal(this)">
+              <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
+              <div class="w-full h-full perspective-1000">
+                <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
+                  <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent">
+                    <img src="" class="front-img max-w-full max-h-full object-contain" alt="Client Logo" referrerpolicy="no-referrer">
+                  </div>
+                  <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent rotate-x-180">
+                    <img src="" class="back-img max-w-full max-h-full object-contain" alt="Client Logo" referrerpolicy="no-referrer">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span>精心構築難忘的公共時刻。</span>
+          </div>
+        </div>
+
         <div class="mt-16 text-center font-playfair italic text-xl text-gray-500" data-key="Index.Narrative.Subtitle">
           And we’re clued up on public engagement...
         </div>
@@ -2313,18 +2375,22 @@
       // Toggle Narrative Layouts
       const narrativeDefault = document.getElementById('narrative-default');
       const narrativeJp = document.getElementById('narrative-jp');
-      if (narrativeDefault && narrativeJp) {
-        if (currentLang === 'jp') {
-          narrativeDefault.classList.add('hidden');
-          narrativeDefault.classList.remove('flex');
-          narrativeJp.classList.remove('hidden');
-          narrativeJp.classList.add('flex');
-        } else {
-          narrativeDefault.classList.remove('hidden');
-          narrativeDefault.classList.add('flex');
-          narrativeJp.classList.add('hidden');
-          narrativeJp.classList.remove('flex');
-        }
+      const narrativeCh = document.getElementById('narrative-ch');
+      // Helper to show/hide narrative blocks
+      function showNarrative(el) { if(el){ el.classList.remove('hidden'); el.classList.add('flex'); } }
+      function hideNarrative(el) { if(el){ el.classList.add('hidden'); el.classList.remove('flex'); } }
+      if (currentLang === 'jp') {
+        hideNarrative(narrativeDefault);
+        hideNarrative(narrativeCh);
+        showNarrative(narrativeJp);
+      } else if (currentLang === 'ch') {
+        hideNarrative(narrativeDefault);
+        hideNarrative(narrativeJp);
+        showNarrative(narrativeCh);
+      } else {
+        showNarrative(narrativeDefault);
+        hideNarrative(narrativeJp);
+        hideNarrative(narrativeCh);
       }
     }
 
