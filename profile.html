@@ -603,7 +603,12 @@
         var webContent = (lang === 'ch' && project.webTC) ? project.webTC : (lang === 'jp' && project.webJP) ? project.webJP : project.webEN;
 
         if (webContent) {
-          var processed = webContent.replace(/\n{2,}/g, '\n').split('\n').map(line => {
+          // ── v4.7: Normalise literal \n escape sequences from Google Sheets export ──
+          // Some rows store '\n' as two characters (backslash + n) instead of real newlines.
+          // Replace literal \n with real newline so the line-splitter works correctly.
+          var normalised = webContent.replace(/\\n/g, '\n');
+
+          var processed = normalised.replace(/\n{2,}/g, '\n').split('\n').map(function(line) {
             var trimmed = line.trim();
             if (!trimmed) return '';
             if (/^<(h[1-6]|p|ul|ol|li|div|blockquote|figure|img|iframe|br)/i.test(trimmed)) return trimmed;
@@ -611,18 +616,33 @@
             if (headingMatch) {
               var level = headingMatch[1].length;
               var text = headingMatch[2].replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-              return `<h${level}>${text}</h${level}>`;
+              return '<h' + level + '>' + text + '</h' + level + '>';
             }
             if (/^[-*]\s+/.test(trimmed)) {
-                return `<li>${trimmed.substring(2).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')}</li>`;
+              return '<li>' + trimmed.substring(2).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>') + '</li>';
             }
-            return `<p>${trimmed.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')}</p>`;
+            return '<p>' + trimmed.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>') + '</p>';
           }).join('\n');
           processed = processed.replace(/((?:<li>.*<\/li>\n?)+)/g, '<ul>$1</ul>');
           challengeEl.innerHTML = processed;
           solutionEl.innerHTML = '';
           var firstH3 = challengeEl.querySelector('h3');
           if (firstH3) firstH3.classList.add('cms-lead');
+
+          // ── v4.7: Strip FAST RECAP / FAQ section from article body ──
+          // The dedicated faqEN/faqTC/faqJP sidebar handles Q&A; remove any inline FAQ heading + content.
+          var allEls = Array.from(challengeEl.querySelectorAll('h1,h2,h3,h4,h5,h6,p,ul,ol'));
+          var faqStart = allEls.find(function(el) {
+            var t = el.textContent.toLowerCase().trim();
+            return t.includes('fast recap') || t.includes('faq') || t.includes('q&a') ||
+                   t.includes('\u5e38\u898b\u554f\u984c') || t.includes('\u3088\u304f\u3042\u308b\u8cea\u554f');
+          });
+          if (faqStart) {
+            var toRemove = [faqStart];
+            var sib = faqStart.nextElementSibling;
+            while (sib) { toRemove.push(sib); sib = sib.nextElementSibling; }
+            toRemove.forEach(function(el) { el.remove(); });
+          }
         } else {
           challengeEl.textContent = project.challenge || '';
           solutionEl.textContent = project.solution || '';
@@ -799,41 +819,64 @@
         }
       }
 
-      // Photo Interleaving
+      // Photo Interleaving — v4.7
       function interleave() {
         var photoUrls = project.galleryPhotos;
         if (!photoUrls || photoUrls.length < 2) return;
-        document.querySelectorAll('.interleaved-photo-pair, .extra-photo-pair').forEach(el => el.remove());
+        document.querySelectorAll('.interleaved-photo-pair, .extra-photo-pair').forEach(function(el) { el.remove(); });
         var pairs = [];
         for (var i = 0; i < photoUrls.length; i += 2) pairs.push(photoUrls.slice(i, i + 2));
 
-        function createPair(pair, large = false, cls = 'interleaved-photo-pair') {
+        function createPair(pair, large, cls) {
+          if (large === undefined) large = false;
+          if (!cls) cls = 'interleaved-photo-pair';
           var div = document.createElement('div');
-          div.className = `grid grid-cols-2 gap-3 md:gap-6 ${large ? 'my-12' : 'my-8'} ${cls}`;
-          div.innerHTML = pair.map(url => `<div class="overflow-hidden aspect-square opacity-0 translate-y-8"><img src="${url}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" referrerpolicy="no-referrer"></div>`).join('');
-          div.querySelectorAll('div').forEach(item => {
-            ScrollTrigger.create({ trigger: item, start: 'top 85%', once: true, onEnter: () => gsap.to(item, { opacity: 1, y: 0, duration: 0.8 }) });
+          div.className = 'grid grid-cols-2 gap-3 md:gap-6 ' + (large ? 'my-12' : 'my-8') + ' ' + cls;
+          div.innerHTML = pair.map(function(url) {
+            return '<div class="overflow-hidden aspect-square opacity-0 translate-y-8"><img src="' + url + '" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" referrerpolicy="no-referrer"></div>';
+          }).join('');
+          div.querySelectorAll('div').forEach(function(item) {
+            ScrollTrigger.create({ trigger: item, start: 'top 85%', once: true, onEnter: function() { gsap.to(item, { opacity: 1, y: 0, duration: 0.8 }); } });
           });
           return div;
         }
 
-        var h3s = challengeEl.querySelectorAll('h3');
-        var ps = challengeEl.querySelectorAll('p');
-        [0, 1, 2].forEach(i => {
-          if (pairs[i]) {
-            var target = h3s[i + 1] || ps[i + 1] ? (h3s[i + 1] || ps[i + 1].nextSibling) : null;
-            if (target) challengeEl.insertBefore(createPair(pairs[i]), target); else challengeEl.appendChild(createPair(pairs[i]));
+        // Collect all block-level children (headings + paragraphs) as insertion anchors
+        // Insert photo pair AFTER every Nth section heading or paragraph
+        var blocks = Array.from(challengeEl.querySelectorAll('h1,h2,h3,h4,h5,h6,p'));
+        // We want to insert pairs[0] after block[1], pairs[1] after block[3], pairs[2] after block[5]
+        // i.e. after every 2nd block element, up to 3 pairs
+        var insertAfter = [1, 3, 5]; // 0-indexed block positions
+        insertAfter.forEach(function(blockIdx, pairIdx) {
+          if (pairs[pairIdx] && blocks[blockIdx]) {
+            var anchor = blocks[blockIdx];
+            var nextEl = anchor.nextElementSibling;
+            if (nextEl) {
+              challengeEl.insertBefore(createPair(pairs[pairIdx]), nextEl);
+            } else {
+              challengeEl.appendChild(createPair(pairs[pairIdx]));
+            }
+            // Refresh blocks list after insertion so indices stay correct
+            blocks = Array.from(challengeEl.querySelectorAll('h1,h2,h3,h4,h5,h6,p'));
           }
         });
+
+        // pairs[3] goes after the article, before profile-solution
         if (pairs[3]) {
           var sol = document.getElementById('profile-solution');
-          sol.parentNode.insertBefore(createPair(pairs[3], true, 'extra-photo-pair'), sol.nextSibling);
+          if (sol && sol.parentNode) {
+            sol.parentNode.insertBefore(createPair(pairs[3], true, 'extra-photo-pair'), sol);
+          } else {
+            challengeEl.appendChild(createPair(pairs[3], true, 'extra-photo-pair'));
+          }
         }
+
+        // Any remaining pairs (pairs[4]+) appended at the very end
         if (pairs.length > 4) {
           var rem = document.createElement('div');
           rem.className = 'grid grid-cols-2 gap-3 md:gap-6 mt-12 extra-photo-pair';
-          pairs.slice(4).flat().forEach(url => {
-            rem.innerHTML += `<div class="overflow-hidden aspect-square"><img src="${url}" class="w-full h-full object-cover" referrerpolicy="no-referrer"></div>`;
+          pairs.slice(4).flat().forEach(function(url) {
+            rem.innerHTML += '<div class="overflow-hidden aspect-square"><img src="' + url + '" class="w-full h-full object-cover" loading="lazy" referrerpolicy="no-referrer"></div>';
           });
           challengeEl.parentNode.appendChild(rem);
         }
