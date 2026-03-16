@@ -664,10 +664,17 @@
             var parsed = JSON.parse(cleanJson);
             if (Array.isArray(parsed)) {
               qaPairs = parsed.map(item => {
-                var q = item.Q1 || item.q || item.question || "";
-                var a = item.A1 || item.a || item.answer || "";
-                return { q, a };
-              }).filter(p => p.q && p.a);
+                // Support Q1/A1, Q2/A2, Q3/A3 keys
+                var pairs = [];
+                for (var i = 1; i <= 3; i++) {
+                  var qKey = 'Q' + i;
+                  var aKey = 'A' + i;
+                  var q = item[qKey] || (i === 1 ? (item.q || item.question) : "");
+                  var a = item[aKey] || (i === 1 ? (item.a || item.answer) : "");
+                  if (q && a) pairs.push({ q, a });
+                }
+                return pairs;
+              }).flat().filter(p => p.q && p.a);
             }
           } catch (e) {
             // Attempt 2: Fallback to manual string parsing if JSON fails
@@ -675,8 +682,8 @@
             var currentQ = null;
             var currentA = [];
             lines.forEach(function(line) {
-              var qMatch = line.match(/^(?:['"]?Q\d*['"]?)[.:] ?(.+)$/i) || line.match(/['"]?Q\d*['"]?\s*:\s*['"](.+?)['"]/i);
-              var aMatch = line.match(/^(?:['"]?A\d*['"]?)[.:] ?(.+)$/i) || line.match(/['"]?A\d*['"]?\s*:\s*['"](.+?)['"]/i);
+              var qMatch = line.match(/^(?:['"]?Q\d['"]?)[.:] ?(.+)$/i) || line.match(/['"]?Q\d['"]?\s*:\s*['"](.+?)['"]/i);
+              var aMatch = line.match(/^(?:['"]?A\d['"]?)[.:] ?(.+)$/i) || line.match(/['"]?A\d['"]?\s*:\s*['"](.+?)['"]/i);
               
               if (qMatch) {
                 if (currentQ) qaPairs.push({ q: currentQ, a: currentA.join(' ').trim() });
