@@ -649,40 +649,57 @@
         var articleEl = document.getElementById('profile-challenge');
         if (!qaContainer || !qaContent || !articleEl) return;
 
-        // ── v4.4: Use dedicated FAQ fields from projects.json if available ──
+        // ── v4.5: Enhanced parsing for structured FAQ data from projects.json ──
         var lang = (window.getLang && window.getLang()) || localStorage.getItem('lang') || 'en';
         var dedicatedFaq = (lang === 'ch' && project.faqTC) ? project.faqTC
                          : (lang === 'jp' && project.faqJP) ? project.faqJP
                          : project.faqEN;
 
         if (dedicatedFaq && dedicatedFaq.trim()) {
-          // Parse structured Q&A: lines starting with Q: and A:
           var qaPairs = [];
-          var lines = dedicatedFaq.split(/\n/);
-          var currentQ = null;
-          var currentA = [];
-          lines.forEach(function(line) {
-            var qMatch = line.match(/^Q\d*[.:] ?(.+)$/i);
-            var aMatch = line.match(/^A\d*[.:] ?(.+)$/i);
-            if (qMatch) {
-              if (currentQ) qaPairs.push({ q: currentQ, a: currentA.join(' ').trim() });
-              currentQ = qMatch[1].trim();
-              currentA = [];
-            } else if (aMatch && currentQ) {
-              currentA.push(aMatch[1].trim());
-            } else if (currentQ && line.trim()) {
-              currentA.push(line.trim());
+          
+          try {
+            // Attempt 1: Parse as real JSON array if the string looks like "[{...}]"
+            var cleanJson = dedicatedFaq.trim().replace(/'/g, '"');
+            var parsed = JSON.parse(cleanJson);
+            if (Array.isArray(parsed)) {
+              qaPairs = parsed.map(item => {
+                var q = item.Q1 || item.q || item.question || "";
+                var a = item.A1 || item.a || item.answer || "";
+                return { q, a };
+              }).filter(p => p.q && p.a);
             }
-          });
-          if (currentQ) qaPairs.push({ q: currentQ, a: currentA.join(' ').trim() });
+          } catch (e) {
+            // Attempt 2: Fallback to manual string parsing if JSON fails
+            var lines = dedicatedFaq.split(/\n/);
+            var currentQ = null;
+            var currentA = [];
+            lines.forEach(function(line) {
+              var qMatch = line.match(/^(?:['"]?Q\d*['"]?)[.:] ?(.+)$/i) || line.match(/['"]?Q\d*['"]?\s*:\s*['"](.+?)['"]/i);
+              var aMatch = line.match(/^(?:['"]?A\d*['"]?)[.:] ?(.+)$/i) || line.match(/['"]?A\d*['"]?\s*:\s*['"](.+?)['"]/i);
+              
+              if (qMatch) {
+                if (currentQ) qaPairs.push({ q: currentQ, a: currentA.join(' ').trim() });
+                currentQ = qMatch[1].trim().replace(/["'],?$/, '');
+                currentA = [];
+              } else if (aMatch && currentQ) {
+                currentA.push(aMatch[1].trim().replace(/["'],?$/, ''));
+              } else if (currentQ && line.trim() && !line.includes('}]')) {
+                var cleanedLine = line.trim().replace(/^['"]|['"],?$/g, '');
+                if (cleanedLine) currentA.push(cleanedLine);
+              }
+            });
+            if (currentQ) qaPairs.push({ q: currentQ, a: currentA.join(' ').trim() });
+          }
 
           if (qaPairs.length) {
             qaContent.innerHTML = qaPairs.map(p => `<div class="mb-5"><p class="font-sans text-sm font-semibold text-brand-black dark:text-white leading-snug mb-1">${p.q}</p><p class="font-sans text-sm text-gray-500 dark:text-gray-400 leading-relaxed">${p.a}</p></div>`).join('');
             qaContainer.classList.remove('hidden');
-            return; // Done — skip article body extraction
+            return; // Done
           }
         }
         
+        // Fallback to legacy article body extraction
         var faqHeading = null;
         var h3s = Array.from(articleEl.querySelectorAll('h3'));
         faqHeading = h3s.find(h => h.textContent.toLowerCase().includes('fast recap faq') || h.textContent.includes('快速回顧 FAQ'));
@@ -700,19 +717,19 @@
         var sib = faqHeading.nextElementSibling;
         while (sib) { faqElements.push(sib); sib = sib.nextElementSibling; }
         
-        var qaPairs = [];
+        var qaPairsLegacy = [];
         faqElements.forEach(el => {
           el.querySelectorAll('li').forEach(li => {
             var boldEl = li.querySelector('b, strong');
             if (boldEl) {
               var q = boldEl.textContent.replace(/^Q\d*[.:] ?/i, '').trim();
               var a = li.textContent.replace(boldEl.textContent, '').replace(/^\s*A\d*[.:] ?/i, '').trim();
-              if (q) qaPairs.push({ q, a });
+              if (q) qaPairsLegacy.push({ q, a });
             } else if (li.textContent.includes(':')) {
                 var parts = li.textContent.split(':');
                 var q = parts[0].replace(/^Q\d*[.:] ?/i, '').trim();
                 var a = parts.slice(1).join(':').replace(/^\s*A\d*[.:] ?/i, '').trim();
-                if (q && a) qaPairs.push({ q, a });
+                if (q && a) qaPairsLegacy.push({ q, a });
             }
           });
           if (el.tagName === 'P' || el.tagName === 'DIV') {
@@ -722,14 +739,14 @@
                   var qMatch = block.match(/^Q\d*[.:] ?(.*?)(?:\n|A\d*[.:]|$)/i);
                   var aMatch = block.match(/A\d*[.:] ?([\s\S]*)$/i);
                   if (qMatch && aMatch) {
-                      qaPairs.push({ q: qMatch[1].trim(), a: aMatch[1].trim() });
+                      qaPairsLegacy.push({ q: qMatch[1].trim(), a: aMatch[1].trim() });
                   }
               });
           }
         });
         
-        if (qaPairs.length) {
-          qaContent.innerHTML = qaPairs.map(p => `<div class="mb-5"><p class="font-sans text-sm font-semibold text-brand-black dark:text-white leading-snug mb-1">${p.q}</p><p class="font-sans text-sm text-gray-500 dark:text-gray-400 leading-relaxed">${p.a}</p></div>`).join('');
+        if (qaPairsLegacy.length) {
+          qaContent.innerHTML = qaPairsLegacy.map(p => `<div class="mb-5"><p class="font-sans text-sm font-semibold text-brand-black dark:text-white leading-snug mb-1">${p.q}</p><p class="font-sans text-sm text-gray-500 dark:text-gray-400 leading-relaxed">${p.a}</p></div>`).join('');
           qaContainer.classList.remove('hidden');
           [faqHeading, ...faqElements].forEach(el => el.remove());
         } else { qaContainer.classList.add('hidden'); }
