@@ -1047,23 +1047,22 @@
 
           <div class="basis-full h-0"></div>
 
-          <!-- Line: 並為 -->  
-          <span>並為</span>
-
-          <!-- Force line break -->
+          <!-- Last two lines: 並為 [Logo] 精心構築難忘的公共時刻。 -->
+          <!-- Use a single flex row that wraps naturally: 並為 + logo + text all inline -->
           <div class="basis-full h-0"></div>
-
-          <!-- Line: [Logo] 精心構築難忘的公共時刻。 -->
-          <div class="inline-flex items-center flex-nowrap justify-center gap-x-2">
-            <!-- Logo Slot 3 (Lifestyle) — inline before 精心構築 -->
-            <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[100px] h-[50px] md:w-[140px] md:h-[70px] lg:w-[180px] lg:h-[90px] align-middle flex-shrink-0" data-type="lifestyle" onclick="openClientModal(this)">
+          <div class="w-full flex flex-wrap justify-center items-center gap-x-2 gap-y-1">
+            <span>並為</span>
+            <!-- Logo Slot 3 — sized to match 1 character height so it stays inline -->
+            <div class="logo-slot relative cursor-pointer inline-flex items-center justify-center align-middle flex-shrink-0"
+                 style="width:0.9em; height:0.55em; min-width:60px; min-height:36px; max-width:120px; max-height:72px;"
+                 data-type="lifestyle" onclick="openClientModal(this)">
               <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
               <div class="w-full h-full perspective-1000">
                 <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
-                  <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent">
+                  <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[4px] bg-transparent">
                     <img src="" class="front-img max-w-full max-h-full object-contain" alt="Client Logo" referrerpolicy="no-referrer">
                   </div>
-                  <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent rotate-x-180">
+                  <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[4px] bg-transparent rotate-x-180">
                     <img src="" class="back-img max-w-full max-h-full object-contain" alt="Client Logo" referrerpolicy="no-referrer">
                   </div>
                 </div>
