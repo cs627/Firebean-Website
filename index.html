@@ -1006,73 +1006,58 @@
         </div>
 
         <!-- Chinese Narrative Text (CH only) -->
-        <div id="narrative-ch" class="hidden flex-wrap justify-center items-center gap-x-3 gap-y-1 md:gap-y-2 font-noto font-black leading-[0.9] tracking-tighter text-[56px] md:text-[8vw] lg:text-[9vw] text-brand-black">
-          <span>我們引領</span>
+        <!-- Uses text-align center + inline elements so logos flow naturally within text -->
+        <div id="narrative-ch" class="hidden text-center font-noto font-black leading-[1.1] tracking-tighter text-[56px] md:text-[8vw] lg:text-[9vw] text-brand-black">
 
-          <!-- Logo Slot 1 (Lifestyle) -->
-          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[120px] h-[60px] md:w-[160px] md:h-[80px] lg:w-[200px] lg:h-[100px] align-middle" data-type="lifestyle" onclick="openClientModal(this)">
-            <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
-            <div class="w-full h-full perspective-1000">
-              <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
-                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent">
-                  <img src="" class="front-img max-w-full max-h-full object-contain" alt="Client Logo" referrerpolicy="no-referrer">
-                </div>
-                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent rotate-x-180">
-                  <img src="" class="back-img max-w-full max-h-full object-contain" alt="Client Logo" referrerpolicy="no-referrer">
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <span>打破螢幕框架，為</span>
-
-          <!-- Logo Slot 2 (Government) -->
-          <div class="logo-slot relative cursor-pointer mx-[0.15em] inline-flex items-center justify-center w-[120px] h-[60px] md:w-[160px] md:h-[80px] lg:w-[200px] lg:h-[100px] align-middle" data-type="government" onclick="openClientModal(this)">
-            <div class="l-bracket l-tl"></div><div class="l-bracket l-tr"></div><div class="l-bracket l-bl"></div><div class="l-bracket l-br"></div>
-            <div class="w-full h-full perspective-1000">
-              <div class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d">
-                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent">
-                  <img src="" class="front-img max-w-full max-h-full object-contain" alt="Client Logo" referrerpolicy="no-referrer">
-                </div>
-                <div class="absolute inset-0 backface-hidden flex items-center justify-center p-[5px] md:p-[8px] lg:p-[10px] bg-transparent rotate-x-180">
-                  <img src="" class="back-img max-w-full max-h-full object-contain" alt="Client Logo" referrerpolicy="no-referrer">
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="basis-full h-0"></div>
-
-          <span>激發大眾好奇，</span>
-
-          <div class="basis-full h-0"></div>
-
-          <!-- Line: 並為 -->
-          <div class="basis-full h-0"></div>
-          <span>並為</span>
-
-          <!-- Line: [Logo] 精心構築難忘的公共時刻。 -->
-          <!-- Logo is inline-block inside the text span so it flows with the text -->
-          <div class="basis-full h-0"></div>
-          <span class="inline-flex items-center justify-center gap-x-2 flex-wrap">
-            <!-- Logo Slot 3 — sized relative to font size using em units -->
-            <span class="logo-slot relative cursor-pointer inline-flex items-center justify-center align-middle flex-shrink-0"
-                 style="width:1.8em; height:1.1em; min-width:80px; min-height:48px;"
-                 data-type="lifestyle" onclick="openClientModal(this)">
+          <!-- Line 1: 我們引領 [Logo1] -->
+          <div class="block">
+            <span>我們引領</span>
+            <span class="logo-slot relative cursor-pointer align-middle mx-[0.1em]"
+                  style="display:inline-flex; align-items:center; justify-content:center; width:1.8em; height:1.1em; min-width:80px; min-height:48px; vertical-align:middle;"
+                  data-type="lifestyle" onclick="openClientModal(this)">
               <span class="l-bracket l-tl"></span><span class="l-bracket l-tr"></span><span class="l-bracket l-bl"></span><span class="l-bracket l-br"></span>
-              <span class="w-full h-full perspective-1000">
-                <span class="flipper w-full h-full relative transition-transform duration-700 transform-style-3d" style="display:block;">
-                  <span class="absolute inset-0 backface-hidden flex items-center justify-center p-[4px] bg-transparent" style="display:flex;">
-                    <img src="" class="front-img max-w-full max-h-full object-contain" alt="Client Logo" referrerpolicy="no-referrer">
-                  </span>
-                  <span class="absolute inset-0 backface-hidden flex items-center justify-center p-[4px] bg-transparent rotate-x-180" style="display:flex;">
-                    <img src="" class="back-img max-w-full max-h-full object-contain" alt="Client Logo" referrerpolicy="no-referrer">
-                  </span>
+              <span style="display:block; width:100%; height:100%; position:relative;">
+                <span style="display:flex; position:absolute; inset:0; align-items:center; justify-content:center; padding:5px;">
+                  <img src="" class="front-img" style="max-width:100%; max-height:100%; object-fit:contain;" alt="Client Logo" referrerpolicy="no-referrer">
+                </span>
+              </span>
+            </span>
+          </div>
+
+          <!-- Line 2: 打破螢幕框架，為 [Logo2] -->
+          <div class="block">
+            <span>打破螢幕框架，為</span>
+            <span class="logo-slot relative cursor-pointer align-middle mx-[0.1em]"
+                  style="display:inline-flex; align-items:center; justify-content:center; width:1.8em; height:1.1em; min-width:80px; min-height:48px; vertical-align:middle;"
+                  data-type="government" onclick="openClientModal(this)">
+              <span class="l-bracket l-tl"></span><span class="l-bracket l-tr"></span><span class="l-bracket l-bl"></span><span class="l-bracket l-br"></span>
+              <span style="display:block; width:100%; height:100%; position:relative;">
+                <span style="display:flex; position:absolute; inset:0; align-items:center; justify-content:center; padding:5px;">
+                  <img src="" class="front-img" style="max-width:100%; max-height:100%; object-fit:contain;" alt="Client Logo" referrerpolicy="no-referrer">
+                </span>
+              </span>
+            </span>
+          </div>
+
+          <!-- Line 3: 激發大眾好奇， -->
+          <div class="block"><span>激發大眾好奇，</span></div>
+
+          <!-- Line 4: 並為 [Logo3] 精心構築難忘的公共時刻。 -->
+          <div class="block">
+            <span>並為</span>
+            <span class="logo-slot relative cursor-pointer align-middle mx-[0.1em]"
+                  style="display:inline-flex; align-items:center; justify-content:center; width:1.8em; height:1.1em; min-width:80px; min-height:48px; vertical-align:middle;"
+                  data-type="lifestyle" onclick="openClientModal(this)">
+              <span class="l-bracket l-tl"></span><span class="l-bracket l-tr"></span><span class="l-bracket l-bl"></span><span class="l-bracket l-br"></span>
+              <span style="display:block; width:100%; height:100%; position:relative;">
+                <span style="display:flex; position:absolute; inset:0; align-items:center; justify-content:center; padding:5px;">
+                  <img src="" class="front-img" style="max-width:100%; max-height:100%; object-fit:contain;" alt="Client Logo" referrerpolicy="no-referrer">
                 </span>
               </span>
             </span>
             <span>精心構築難忘的公共時刻。</span>
-          </span>
+          </div>
+
         </div>
 
         <div class="mt-16 text-center font-playfair italic text-xl text-gray-500" data-key="Index.Narrative.Subtitle">
