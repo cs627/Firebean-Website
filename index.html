@@ -2371,7 +2371,9 @@
       const narrativeCh = document.getElementById('narrative-ch');
       // Helper to show/hide narrative blocks
       function showNarrative(el) { if(el){ el.classList.remove('hidden'); el.classList.add('flex'); } }
-      function hideNarrative(el) { if(el){ el.classList.add('hidden'); el.classList.remove('flex'); } }
+      function hideNarrative(el) { if(el){ el.classList.add('hidden'); el.classList.remove('flex', 'block'); } }
+      // narrative-ch uses block layout (not flex) so logos flow inline with text
+      function showNarrativeCh(el) { if(el){ el.classList.remove('hidden'); el.classList.add('block'); el.classList.remove('flex'); } }
       if (currentLang === 'jp') {
         hideNarrative(narrativeDefault);
         hideNarrative(narrativeCh);
@@ -2379,7 +2381,7 @@
       } else if (currentLang === 'ch') {
         hideNarrative(narrativeDefault);
         hideNarrative(narrativeJp);
-        showNarrative(narrativeCh);
+        showNarrativeCh(narrativeCh);
       } else {
         showNarrative(narrativeDefault);
         hideNarrative(narrativeJp);
