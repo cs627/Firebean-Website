@@ -522,6 +522,12 @@
       html.dark .newsletter-card h3 { color: var(--text-primary) !important; }
       html.dark .newsletter-card p { color: var(--text-secondary) !important; }
       html.dark .newsletter-card a { color: var(--text-primary) !important; }
+      /* Newsletter email input dark mode */
+      html.dark #newsletter-form .bg-black\/5 { background-color: rgba(255,255,255,0.08) !important; border-color: rgba(255,255,255,0.15) !important; }
+      html.dark #nl-email { color: #e5e5e5 !important; }
+      html.dark #nl-email::placeholder { color: rgba(229,229,229,0.45) !important; }
+      html.dark #nl-submit-btn { background-color: #e5e5e5 !important; color: #0a0a0a !important; }
+      html.dark #nl-submit-btn:hover { background-color: #ff3333 !important; color: #ffffff !important; }
 
       /* Profile hero text dark mode */
       html.dark #profile-title { color: var(--text-primary) !important; }
@@ -1086,7 +1092,7 @@
 
       <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-start relative" style="align-items: flex-start;">
         <!-- Left Column: Sticky within newsletter section -->
-        <div class="w-full md:w-[45%] p-8 md:p-12 md:py-24 flex flex-col justify-center newsletter-left-col bg-brand-gray z-10" style="position: sticky; top: 0; align-self: flex-start; height: 100vh;">
+        <div class="w-full md:w-[45%] p-8 md:p-12 md:py-24 flex flex-col justify-center newsletter-left-col bg-brand-gray z-10" style="position: sticky; top: 0; align-self: flex-start; min-height: 100vh;">
           <h2 class="font-oswald text-5xl md:text-6xl lg:text-7xl font-bold uppercase leading-[0.85] mb-6 text-brand-black tracking-tighter" data-key="Index.Newsletter.Title">THE DISPATCH.<br><span class="text-3xl md:text-4xl block mt-2">Big Ideas, Better Engagement.</span></h2>
           <p class="font-playfair italic text-base md:text-lg text-gray-600 mb-12 max-w-md leading-relaxed" data-key="Index.Newsletter.Subtitle">
             Behind the scenes of the projects shaping the lifestyle market. We share the data, the creativity, and the "why" behind today’s most successful PR activations.
