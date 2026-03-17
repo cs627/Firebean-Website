@@ -501,6 +501,26 @@
       /* Work section heading text */
       html.dark [data-key="Index.Work.Title"] { color: var(--text-primary) !important; }
 
+      /* Curtain Animation for Big Titles */
+      .curtain-title-container {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+        width: 100%;
+      }
+      .curtain-title {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                    transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .curtain-title.animate-in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      /* Optional: Add a sliding curtain overlay effect if desired, 
+         but here we'll stick to a clean reveal to match existing aesthetic. */
+
       /* Dark mode toggle button */
       .dark-toggle {
         cursor: pointer;
@@ -792,10 +812,12 @@
           <h3 class="font-playfair italic text-xl md:text-2xl font-medium tracking-wide text-brand-black mb-4" data-key="Index.Work.Subtitle">
             Create to engage, policy into Play.
           </h3>
-          <h2 class="font-oswald font-bold text-[12vw] leading-[0.9] text-center uppercase tracking-tighter text-brand-black" data-key="Index.Work.Title">
-            We Turn Mandates<br>
-            Into Memories
-          </h2>
+          <div class="curtain-title-container">
+            <h2 class="font-oswald font-bold text-[12vw] leading-[0.9] text-center uppercase tracking-tighter text-brand-black curtain-title" data-key="Index.Work.Title">
+              We Turn Mandates<br>
+              Into Memories
+            </h2>
+          </div>
         </div>
 
         <!-- Floating Profiles Grid (Scattered Arrangement) — populated by CMS -->
@@ -1847,6 +1869,28 @@
           if (container) {
             setTimeout(function() { container.classList.add('animate-in'); }, 1200);
           }
+        });
+      })();
+
+      // === Curtain Reveal Animation for Big Titles on Scroll ===
+      (function() {
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.2 // Trigger when 20% of the title is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate-in');
+              observer.unobserve(entry.target); // Only animate once
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll('.curtain-title').forEach(title => {
+          observer.observe(title);
         });
       })();
 
