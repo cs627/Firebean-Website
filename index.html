@@ -1968,7 +1968,7 @@
         });
       })();
 
-      // === Slot Machine Animation for Stats Numbers on Scroll ===
+      // === Slot Machine Animation for Stats Numbers on Scroll (Counter-based) ===
       (function() {
         const observerOptions = {
           root: null,
@@ -1980,29 +1980,44 @@
           entries.forEach(entry => {
             if (entry.isIntersecting) {
               const statNumber = entry.target;
-              const startVal = parseInt(statNumber.dataset.start);
-              const endVal = parseInt(statNumber.dataset.end);
+              const startVal = parseFloat(statNumber.dataset.start);
+              const endVal = parseFloat(statNumber.dataset.end);
               const duration = parseFloat(statNumber.dataset.duration) * 1000; // Convert to ms
               const suffix = statNumber.dataset.suffix || '+';
+              const inner = statNumber.querySelector('.stat-number-inner');
 
-              // Calculate the offset for the slot machine effect
-              const range = endVal - startVal;
-              const finalOffset = -(range * 1.2) + 'em'; // Negative to scroll down
-
-              // Set CSS variables for animation
-              statNumber.style.setProperty('--duration', statNumber.dataset.duration);
-              statNumber.style.setProperty('--final-offset', finalOffset);
-
-              // Trigger animation
-              statNumber.classList.add('animate-slot');
-
-              // Update the displayed number after animation completes
-              setTimeout(() => {
-                const inner = statNumber.querySelector('.stat-number-inner');
-                if (inner) {
-                  inner.textContent = endVal + suffix;
-                }
-              }, duration);
+              if (inner) {
+                // Animate the counter from start to end value
+                const startTime = Date.now();
+                const animate = () => {
+                  const elapsed = Date.now() - startTime;
+                  const progress = Math.min(elapsed / duration, 1);
+                  
+                  // Easing function for smooth animation
+                  const easeOutQuad = 1 - Math.pow(1 - progress, 2);
+                  
+                  // Calculate current value
+                  const currentVal = startVal + (endVal - startVal) * easeOutQuad;
+                  
+                  // Format the number (handle decimals)
+                  let displayVal;
+                  if (currentVal < 10) {
+                    displayVal = currentVal.toFixed(1);
+                  } else if (currentVal < 100) {
+                    displayVal = Math.round(currentVal);
+                  } else {
+                    displayVal = Math.round(currentVal);
+                  }
+                  
+                  inner.textContent = displayVal + suffix;
+                  
+                  if (progress < 1) {
+                    requestAnimationFrame(animate);
+                  }
+                };
+                
+                animate();
+              }
 
               observer.unobserve(statNumber); // Only animate once
             }
