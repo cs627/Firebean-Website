@@ -844,21 +844,35 @@
         }
       }
 
-      // Photo Interleaving — v4.7
+      // Photo Interleaving — v5.6
+      // Only display photo1-photo8 (gallery-0 to gallery-7, max 8 photos)
+      // Logos are excluded — only galleryPhotos are used here
       function interleave() {
-        var photoUrls = project.galleryPhotos;
-        if (!photoUrls || photoUrls.length < 2) return;
+        var allPhotos = project.galleryPhotos || [];
+        // Cap at 8 photos (photo1-photo8 per guideline)
+        var photoUrls = allPhotos.slice(0, 8).filter(function(url) {
+          // Exclude any logo images that may have been included by mistake
+          return url && !url.match(/-logo-/i);
+        });
+        if (!photoUrls || photoUrls.length < 1) return;
         document.querySelectorAll('.interleaved-photo-pair, .extra-photo-pair').forEach(function(el) { el.remove(); });
         var pairs = [];
-        for (var i = 0; i < photoUrls.length; i += 2) pairs.push(photoUrls.slice(i, i + 2));
+        for (var i = 0; i < photoUrls.length; i += 2) {
+          var pair = photoUrls.slice(i, i + 2);
+          // If last pair has only 1 photo, don't create a broken empty slot
+          // Only add pair if it has 2 photos, OR if it's the only pair
+          if (pair.length === 2 || pairs.length === 0) {
+            pairs.push(pair);
+          }
+        }
 
         function createPair(pair, large, cls) {
           if (large === undefined) large = false;
           if (!cls) cls = 'interleaved-photo-pair';
           var div = document.createElement('div');
           div.className = 'grid grid-cols-2 gap-3 md:gap-6 ' + (large ? 'my-12' : 'my-8') + ' ' + cls;
-          div.innerHTML = pair.map(function(url) {
-            return '<div class="overflow-hidden aspect-square opacity-0 translate-y-8"><img src="' + url + '" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" referrerpolicy="no-referrer"></div>';
+          div.innerHTML = pair.filter(function(url) { return !!url; }).map(function(url) {
+            return '<div class="overflow-hidden aspect-square opacity-0 translate-y-8"><img src="' + url + '" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.style.display=\'none\'"></div>';
           }).join('');
           div.querySelectorAll('div').forEach(function(item) {
             ScrollTrigger.create({ trigger: item, start: 'top 85%', once: true, onEnter: function() { gsap.to(item, { opacity: 1, y: 0, duration: 0.8 }); } });
@@ -900,8 +914,8 @@
         if (pairs.length > 4) {
           var rem = document.createElement('div');
           rem.className = 'grid grid-cols-2 gap-3 md:gap-6 mt-12 extra-photo-pair';
-          pairs.slice(4).flat().forEach(function(url) {
-            rem.innerHTML += '<div class="overflow-hidden aspect-square"><img src="' + url + '" class="w-full h-full object-cover" loading="lazy" referrerpolicy="no-referrer"></div>';
+          pairs.slice(4).flat().filter(function(url) { return !!url; }).forEach(function(url) {
+            rem.innerHTML += '<div class="overflow-hidden aspect-square"><img src="' + url + '" class="w-full h-full object-cover" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.style.display=\'none\'"></div>';
           });
           challengeEl.parentNode.appendChild(rem);
         }
