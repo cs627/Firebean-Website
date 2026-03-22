@@ -3,203 +3,261 @@
     "id": "FB2016024",
     "projectName": "Levi's x Szabotage Graffiti Workshop",
     "client": "Graffiti Company",
+    "venue": "California Tower",
     "heroPhoto": "data/images/fb2016024-hero.webp",
-    "logoBlack": "data/images/fb2016024-logo-black.webp"
+    "logoBlack": "data/images/fb2016024-logo-black.webp",
+    "galleryPhotos": []
   },
   {
     "id": "FB2016027",
     "projectName": "Pagani Hong Kong Opening",
     "client": "Pagani",
+    "venue": "Hong Kong",
     "heroPhoto": "data/images/fb2016027-hero.webp",
-    "logoBlack": "data/images/fb2016027-logo-black.webp"
+    "logoBlack": "data/images/fb2016027-logo-black.webp",
+    "galleryPhotos": []
   },
   {
     "id": "FB2016004",
     "projectName": "Eyewear Facebook Page Maintenance",
     "client": "Agnès b.",
+    "venue": "Hong Kong",
     "heroPhoto": "data/images/fb2016004-hero.webp",
-    "logoBlack": "data/images/fb2016004-logo-black.webp"
+    "logoBlack": "data/images/fb2016004-logo-black.webp",
+    "galleryPhotos": []
   },
   {
     "id": "FB2017012",
     "projectName": "agnès b. eyewear Preview Event",
     "client": "agnès b.",
+    "venue": "Tsim Sha Tsui",
     "heroPhoto": "data/images/fb2017012-hero.webp",
-    "logoBlack": "data/images/fb2017012-logo-black.webp"
+    "logoBlack": "data/images/fb2017012-logo-black.webp",
+    "galleryPhotos": []
   },
   {
     "id": "FB2017014",
     "projectName": "One day Shop Manager Joycelin",
     "client": "agnès b.",
+    "venue": "Image Optical @ MOSTown",
     "heroPhoto": "data/images/fb2017014-hero.webp",
-    "logoBlack": "data/images/fb2017014-logo-black.webp"
+    "logoBlack": "data/images/fb2017014-logo-black.webp",
+    "galleryPhotos": []
   },
   {
     "id": "FB2017008",
     "projectName": "Eyewear Summertime 2017",
     "client": "agnès b.",
+    "venue": "Tsim Sha Tsui Optical 88 Shop",
     "heroPhoto": "data/images/fb2017008-hero.webp",
-    "logoBlack": "data/images/fb2017008-logo-black.webp"
+    "logoBlack": "data/images/fb2017008-logo-black.webp",
+    "galleryPhotos": []
   },
   {
     "id": "FB2017015",
     "projectName": "Levi's Eyewear Social Media",
     "client": "Levi's",
+    "venue": "Hong Kong",
     "heroPhoto": "data/images/fb2017015-hero.webp",
-    "logoBlack": "data/images/fb2017015-logo-black.webp"
+    "logoBlack": "data/images/fb2017015-logo-black.webp",
+    "galleryPhotos": []
   },
   {
     "id": "FB2017999",
     "projectName": "Levi's Eyewear One Day Shop Manager",
     "client": "Levi's Eyewear",
+    "venue": "Tsim Sha Tsui",
     "heroPhoto": "data/images/fb2017999-hero.webp",
-    "logoBlack": "data/images/fb2017999-logo-black.webp"
+    "logoBlack": "data/images/fb2017999-logo-black.webp",
+    "galleryPhotos": []
   },
   {
     "id": "FB2017006",
     "projectName": "agnès b. LUNETTES Popup Store",
     "client": "Agnès b. x Optical 88",
+    "venue": "Metroplaza",
     "heroPhoto": "data/images/fb2017006-hero.webp",
-    "logoBlack": "data/images/fb2017006-logo-black.webp"
+    "logoBlack": "data/images/fb2017006-logo-black.webp",
+    "galleryPhotos": []
   },
   {
     "id": "FB2019030",
     "projectName": "CMAB Basic Law Parent-child Workshop 2019",
     "client": "Constitutional and Mainland Affairs Bureau",
+    "venue": "shopping malls (inc. Amoy Plaza, Olympian City etc.)",
     "heroPhoto": "data/images/fb2019030-hero.webp",
-    "logoBlack": "data/images/fb2019030-logo-black.webp"
+    "logoBlack": "data/images/fb2019030-logo-black.webp",
+    "galleryPhotos": []
   },
   {
     "id": "FB2020029",
     "projectName": "Constitution and Basic Law Parent-child Workshop 2020",
     "client": "政制及內地事務局",
+    "venue": "Shopping malls (inc. SPOT, Amoy Plaza, CityWalk etc.)",
     "heroPhoto": "data/images/fb2020029-hero.webp",
-    "logoBlack": "data/images/fb2020029-logo-black.webp"
+    "logoBlack": "data/images/fb2020029-logo-black.webp",
+    "galleryPhotos": []
   },
   {
     "id": "FB2021027",
     "projectName": "Constitution and Basic Law Roving Exhibition 2021",
     "client": "Constitutional and Mainland Affairs Bureau",
+    "venue": "(inc. Amoy Plaza, the Westwood, Citywalk2 etc.)",
     "heroPhoto": "data/images/fb2021027-hero.webp",
-    "logoBlack": "data/images/fb2021027-logo-black.webp"
+    "logoBlack": "data/images/fb2021027-logo-black.webp",
+    "galleryPhotos": []
   },
   {
     "id": "FB2021028",
     "projectName": "CMAB Basic Law Parent-child Workshop 2021",
     "client": "Constitutional and Mainland Affairs Bureau",
+    "venue": "Shopping malls (inc. Megabox, SPOT, MOSTown, Olympian City, etc.)",
     "heroPhoto": "data/images/fb2021028-hero.webp",
-    "logoBlack": "data/images/fb2021028-logo-black.webp"
+    "logoBlack": "data/images/fb2021028-logo-black.webp",
+    "galleryPhotos": []
   },
   {
     "id": "FB2023022",
     "projectName": "Constitution and Basic Law Roving Exhibition 2023",
     "client": "政制及內地事務局",
+    "venue": "Shopping malls (inc. TKO Plaza, Central Market etc.)",
     "heroPhoto": "data/images/fb2023022-hero.webp",
-    "logoBlack": "data/images/fb2023022-logo-black.webp"
+    "logoBlack": "data/images/fb2023022-logo-black.webp",
+    "galleryPhotos": []
   },
   {
     "id": "FB2023026",
     "projectName": "Constitution and Basic Law Parent-child Worlshop 2023",
     "client": "政制及內地事務局",
+    "venue": "Shopping Malls (inc. Citywalk, etc.)",
     "heroPhoto": "data/images/fb2023026-hero.webp",
-    "logoBlack": "data/images/fb2023026-logo-black.webp"
+    "logoBlack": "data/images/fb2023026-logo-black.webp",
+    "galleryPhotos": []
   },
   {
     "id": "FB2023020",
     "projectName": "區選夜繽紛 2024",
     "client": "政制及內地事務局",
+    "venue": "戶外場地 (例如灣仔海濱、觀塘海濱等)",
     "heroPhoto": "data/images/fb2023020-hero.webp",
-    "logoBlack": "data/images/fb2023020-logo-black.webp"
+    "logoBlack": "data/images/fb2023020-logo-black.webp",
+    "galleryPhotos": []
   },
   {
     "id": "FB2024001",
     "projectName": "Grand Opening",
     "client": "Outback Steakhouse",
+    "venue": "Central",
     "heroPhoto": "data/images/fb2024001-hero.webp",
-    "logoBlack": "data/images/fb2024001-logo-black.webp"
+    "logoBlack": "data/images/fb2024001-logo-black.webp",
+    "galleryPhotos": []
   },
   {
     "id": "FB2024005",
     "projectName": "“Anti-drug Info Zone: Stride Ahead Into A Drug-free Future” Roving Exhibition",
     "client": "Narcotics Division (ND) of the Security Bureau",
+    "venue": "Central Market, The University of Hong Kong, MegaBox, etc.",
     "heroPhoto": "data/images/fb2024005-hero.webp",
-    "logoBlack": "data/images/fb2024005-logo-black.webp"
+    "logoBlack": "data/images/fb2024005-logo-black.webp",
+    "galleryPhotos": []
   },
   {
     "id": "FB2024016",
     "projectName": "完善選舉制度巡迴展覽 2024",
     "client": "政制及內地事務局",
+    "venue": "室外 (例如沙田公園、城門谷運動場) 及室內場地 (例如社區客廳、政府大樓)",
     "heroPhoto": "data/images/fb2024016-hero.webp",
-    "logoBlack": "data/images/fb2024016-logo-black.webp"
+    "logoBlack": "data/images/fb2024016-logo-black.webp",
+    "galleryPhotos": []
   },
   {
     "id": "FB2024018",
     "projectName": "Constitution and Basic Law Roving Exhibition 2024",
     "client": "Constitutional and Mainland Affairs Bureau",
+    "venue": "Shopping malls (inc. CityWalk2, Yoho Mall II, Amoy Plaza, etc.)",
     "heroPhoto": "data/images/fb2024018-hero.webp",
-    "logoBlack": "data/images/fb2024018-logo-black.webp"
+    "logoBlack": "data/images/fb2024018-logo-black.webp",
+    "galleryPhotos": []
   },
   {
     "id": "FB2024019",
     "projectName": "Constitution and Basic Law Parent-child Workshop 2024",
     "client": "Constitutional and Mainland Affairs Bureau",
+    "venue": "Shopping malls (inc. SPOT, Amoy Plaza, CityWalk etc.)",
     "heroPhoto": "data/images/fb2024019-hero.webp",
-    "logoBlack": "data/images/fb2024019-logo-black.webp"
+    "logoBlack": "data/images/fb2024019-logo-black.webp",
+    "galleryPhotos": []
   },
   {
     "id": "FB2024002",
     "projectName": "Okinawa Food Trade Fair",
     "client": "沖繩縣貿易協會",
+    "venue": "CulinArt 1867",
     "heroPhoto": "data/images/fb2024002-hero.webp",
-    "logoBlack": "data/images/fb2024002-logo-black.webp"
+    "logoBlack": "data/images/fb2024002-logo-black.webp",
+    "galleryPhotos": []
   },
   {
     "id": "FB2025003",
     "projectName": "Roving exhibition in commemoration of the 60th anniversary of Action Committee Against Narcotics",
     "client": "Narcotics Division (ND) of the Security Bureau",
+    "venue": "Hong Kong City Hall, Hong Kong Baptist University, Times Square, etc.",
     "heroPhoto": "data/images/fb2025003-hero.webp",
-    "logoBlack": "data/images/fb2025003-logo-black.webp"
+    "logoBlack": "data/images/fb2025003-logo-black.webp",
+    "galleryPhotos": []
   },
   {
     "id": "FB2025013",
     "projectName": "2025「選舉進社區」巡迴互動展覽",
     "client": "政制及內地事務局",
+    "venue": "各大商場 (例如)",
     "heroPhoto": "data/images/fb2025013-hero.webp",
-    "logoBlack": "data/images/fb2025013-logo-black.webp"
+    "logoBlack": "data/images/fb2025013-logo-black.webp",
+    "galleryPhotos": []
   },
   {
     "id": "FB2025012",
     "projectName": "Constitution and Basic Law Roving Exhibition 2025",
     "client": "Constitutional and Mainland Affairs Bureau",
+    "venue": "Shopping malls (inc. Citywalk2, Olympian City 2, The Wai, etc.)",
     "heroPhoto": "data/images/fb2025012-hero.webp",
-    "logoBlack": "data/images/fb2025012-logo-black.webp"
+    "logoBlack": "data/images/fb2025012-logo-black.webp",
+    "galleryPhotos": []
   },
   {
     "id": "FB2025017",
     "projectName": "Constitution and Basic Law Parent-child Workshop 2025",
     "client": "Constitutional and Mainland Affairs Bureau",
+    "venue": "Shopping malls (inc. Lok Fu Plaza, Central Market, Cheung Fat Plaza, etc.)",
     "heroPhoto": "data/images/fb2025017-hero.webp",
-    "logoBlack": "data/images/fb2025017-logo-black.webp"
+    "logoBlack": "data/images/fb2025017-logo-black.webp",
+    "galleryPhotos": []
   },
   {
     "id": "FB2026010",
     "projectName": "《科技提升職業安全與健康》2025-26 巡迴展覽",
     "client": "公務員事務局",
+    "venue": "政府大樓 (例如政府總部、工業貿易大樓等等)",
     "heroPhoto": "data/images/fb2026010-hero.webp",
-    "logoBlack": "data/images/fb2026010-logo-black.webp"
+    "logoBlack": "data/images/fb2026010-logo-black.webp",
+    "galleryPhotos": []
   },
   {
     "id": "FB2026025",
     "projectName": "ZANUSSI 100 Year Anniversary",
     "client": "Zanussi",
+    "venue": "Olympian City 2",
     "heroPhoto": "data/images/fb2026025-hero.webp",
-    "logoBlack": "data/images/fb2026025-logo-black.webp"
+    "logoBlack": "data/images/fb2026025-logo-black.webp",
+    "galleryPhotos": []
   },
   {
     "id": "FB2024031",
     "projectName": "Stride Ahead Into A Drug-free Future 34th Hong Kong Book Fair",
     "client": "ACAN",
+    "venue": "Hong Kong Book Fair",
     "heroPhoto": "data/images/fb2024031-hero.webp",
-    "logoBlack": "data/images/fb2024031-logo-black.webp"
+    "logoBlack": "data/images/fb2024031-logo-black.webp",
+    "galleryPhotos": []
   }
 ]
