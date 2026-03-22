@@ -400,7 +400,7 @@
       var layout = layoutPatterns[layoutIndex % layoutPatterns.length];
       const element = document.createElement('a');
       // Use projectId if available, otherwise fall back to array position
-      element.href = 'profile.html?id=' + encodeURIComponent(profile.projectId || String(arrayIndex));
+      element.href = 'profile.html?id=' + encodeURIComponent(profile.id || profile.projectId || String(arrayIndex));
       element.className = 'group block project-profile';
       // Mobile: 6 columns (2 cards per row in 12-column grid), Desktop: use layout pattern
       if (window.innerWidth < 768) {
@@ -420,7 +420,7 @@
         '<div class="relative overflow-hidden mb-1 shadow-2xl" style="aspect-ratio: ' + displayAspect + ';">' +
           '<img src="' + imgSrc + '" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="' + (profile.project || '') + '" referrerpolicy="no-referrer">' +
         '</div>' +
-        '<h3 class="font-oswald text-lg md:text-3xl uppercase font-bold mb-1 md:mb-2 line-clamp-2">' + (profile.project || '') + '</h3>' +
+        '<h3 class="font-oswald text-lg md:text-3xl uppercase font-bold mb-1 md:mb-2 line-clamp-2">' + (profile.projectName || profile.project || '') + '</h3>' +
         '<p class="font-playfair text-xs md:text-base text-gray-600 italic line-clamp-1">' + (profile.client || '') + '</p>';
       return element;
     }

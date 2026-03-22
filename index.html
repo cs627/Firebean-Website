@@ -2183,8 +2183,8 @@
       var sliderProjects = withPhotos.slice(0, 3);
       var sliderHTML = '';
       sliderProjects.forEach(function(p, idx) {
-        sliderHTML += '<a href="profile.html?id=' + encodeURIComponent(p.projectId || '') + '" class="relative w-full h-full block cursor-pointer' + (idx === 0 ? ' slide-active' : '') + '">' +
-          '<img src="' + p.heroPhoto + '" class="absolute inset-0 w-full h-full object-cover" alt="' + (p.project || '') + '" referrerpolicy="no-referrer">' +
+        sliderHTML += '<a href="profile.html?id=' + encodeURIComponent(p.id || p.projectId || '') + '" class="relative w-full h-full block cursor-pointer' + (idx === 0 ? ' slide-active' : '') + '">' +
+          '<img src="' + p.heroPhoto + '" class="absolute inset-0 w-full h-full object-cover" alt="' + (p.projectName || p.project || '') + '" referrerpolicy="no-referrer"> +
           '<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/30"></div>' +
         '</a>';
       });
@@ -2201,7 +2201,7 @@
         // Top: Project name (bold uppercase) — with flow-in
         var nameLabel = document.getElementById('slider-project-name');
         if (nameLabel) {
-          nameLabel.textContent = p.project || '';
+          nameLabel.textContent = p.projectName || p.project || '';
           nameLabel.classList.remove('marquee-flow-in');
           void nameLabel.offsetWidth;
           nameLabel.classList.add('marquee-flow-in');
@@ -2289,13 +2289,13 @@
         var isLarge = layout.label === 'LARGE';
         var titleSize = isLarge ? 'text-xl md:text-3xl' : 'text-base md:text-xl';
         var descSize = isLarge ? 'text-sm md:text-base' : 'text-xs md:text-sm';
-        gridHTML += '<a href="profile.html?id=' + (p.projectId || '') + '" class="project-profile ' + layout.cols + ' ' + layout.mt + ' group block">' +
+        gridHTML += '<a href="profile.html?id=' + (p.id || p.projectId || '') + '" class="project-profile ' + layout.cols + ' ' + layout.mt + ' group block">' +
           '<div class="' + layout.aspect + ' w-full overflow-hidden relative bg-gray-200">' +
-            '<img src="' + p.heroPhoto + '" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="' + (p.project || '') + '" referrerpolicy="no-referrer">' +
+            '<img src="' + p.heroPhoto + '" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="' + (p.projectName || p.project || '') + '" referrerpolicy="no-referrer"> +
             '<div class="absolute inset-0 bg-brand-black/0 group-hover:bg-brand-black/20 transition-all duration-500"></div>' +
           '</div>' +
           '<div class="mt-4">' +
-            '<h3 class="font-oswald ' + titleSize + ' font-bold uppercase group-hover:text-brand-red transition-colors leading-tight">' + (p.project || '') + '</h3>' +
+            '<h3 class="font-oswald ' + titleSize + ' font-bold uppercase group-hover:text-brand-red transition-colors leading-tight">' + (p.projectName || p.project || '') + '</h3>' +
             (desc && isLarge ? '<p class="font-playfair italic ' + descSize + ' text-gray-600 mt-2 leading-relaxed max-w-md">' + desc + '</p>' : '') +
             '<p class="grid-category font-sans text-[10px] text-gray-400 uppercase tracking-widest mt-2" data-cat="' + (p.category || '').replace(/"/g, '&quot;') + '" data-whatwedo="' + (p.whatWeDo || '').replace(/"/g, '&quot;') + '">' + translateCat(p.category || '') + (p.whatWeDo ? ' · ' + translateCat(p.whatWeDo) : '') + '</p>' +
           '</div></a>';
@@ -2351,11 +2351,11 @@
         var isLifestyle = p.filterSlugs.some(function(s) { return lifestyleSlugs.indexOf(s) !== -1; });
         if (isGov && !seenGov[p.logoBlack]) {
           seenGov[p.logoBlack] = true;
-          govLogos.push({ src: p.logoBlack, srcWhite: p.logoWhite || '', desc: p.project + ' — ' + (p.scope || p.category || ''), projectId: p.projectId || '' });
+          govLogos.push({ src: p.logoBlack, srcWhite: p.logoWhite || '', desc: (p.projectName || p.project || '') + ' — ' + (p.scope || p.category || ''), projectId: p.id || p.projectId || '' });
         }
         if ((isLifestyle || !isGov) && !seenLifestyle[p.logoBlack]) {
           seenLifestyle[p.logoBlack] = true;
-          lifestyleLogos.push({ src: p.logoBlack, srcWhite: p.logoWhite || '', desc: p.project + ' — ' + (p.scope || p.category || ''), projectId: p.projectId || '' });
+          lifestyleLogos.push({ src: p.logoBlack, srcWhite: p.logoWhite || '', desc: (p.projectName || p.project || '') + ' — ' + (p.scope || p.category || ''), projectId: p.id || p.projectId || '' });
         }
       });
 
@@ -2472,7 +2472,7 @@
           // Show title from web content
           if (titleEl) {
             titleEl.style.display = '';
-            titleEl.textContent = extracted.title || np.project || '';
+            titleEl.textContent = extracted.title || np.projectName || np.project || '';
           }
 
           // Show first paragraph ending with '....'
@@ -2489,7 +2489,7 @@
 
           // Link to profile page
           if (linkEl) {
-            linkEl.href = 'profile.html?id=' + encodeURIComponent(np.projectId || String(ci + 9));
+            linkEl.href = 'profile.html?id=' + encodeURIComponent(np.id || np.projectId || String(ci + 9));
           }
         });
       }

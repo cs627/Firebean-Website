@@ -575,7 +575,8 @@
       var project = null;
 
       if (projectId) {
-        project = projects.find(p => p.projectId === projectId);
+        // Try matching by id field first, then projectId field
+        project = projects.find(p => (p.id === projectId) || (p.projectId === projectId));
         if (!project) {
           var idx = parseInt(projectId, 10);
           if (!isNaN(idx) && idx >= 0 && idx < projects.length) project = projects[idx];
@@ -587,8 +588,9 @@
       document.getElementById('loading-overlay').classList.add('hidden');
 
       // Update basic info
-      document.title = project.project + ' - Firebean Agency';
-      document.getElementById('profile-title').textContent = project.project || '';
+      var projectDisplayName = project.projectName || project.project || '';
+      document.title = projectDisplayName + ' - Firebean Agency';
+      document.getElementById('profile-title').textContent = projectDisplayName;
       document.getElementById('profile-subtitle').textContent = project.client ? project.client + (project.venue ? ' — ' + project.venue : '') : '';
       
       var heroEl = document.getElementById('profile-hero');
