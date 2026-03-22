@@ -1,27 +1,31 @@
 /**
  * ============================================================
- * FIREBEAN CMS → GITHUB SYNC PIPELINE  v3.2
+ * FIREBEAN CMS → GITHUB SYNC PIPELINE  v5.6 (COMPLETE)
  * ============================================================
- * 
- * v3.2: Smart Hero Photo picker — staff can type a number (1-8),
- *       filename, or leave blank to auto-detect Hero_ file from Drive.
- *       No more copying complex Drive links for hero photos!
- * v3.1: Added "🖼️ Re-sync Images for Selected Row" menu button
- * v3.0: Smart sync, progress toasts, text-only optimization
+ *
+ * v5.6: Merged v3.2 original image upload logic with v5.x features
+ *       - FIXED: Image upload was broken in v5.5 (imagesToPush was never populated)
+ *       - FIXED: Restored resolveHeroFileId_() smart hero picker
+ *       - FIXED: Restored pushIfChanged_() image hash comparison
+ *       - FIXED: Restored downloadDriveImage_() actual image download
+ *       - FIXED: JSON structure wraps projects in { "projects": [...] }
+ *       - ADDED: doPost() for Streamlit auto-save integration
+ *       - ADDED: saveRawInput() for Raw_Input_DB
+ *       - ADDED: cleanSheetValue_() Mac clipboard noise removal
+ *       - ADDED: Timeout protection (5-min guard)
  *
  * FLOW:
  *   Sheet edit → onEditTrigger marks row "Pending" or "Pending (images)"
- *   User clicks "Sync Changed" or runs manually
+ *   User clicks "Sync Changed" or "Sync ALL"
  *   → Reads all rows, builds projects.json
- *   → For "Pending (images)" rows: downloads hero, logos, gallery photos
+ *   → For "Pending (images)" rows: downloads hero, logos, gallery photos from Drive
  *   → For "Pending" rows: skips image download (text-only, fast!)
  *   → Compares file hashes to avoid re-uploading unchanged images
  *   → Pushes ALL changes in one commit via Git Tree API
- *   → GitHub Action converts any new .jpg to .webp automatically
  *
  * SETUP:
  *   1. Open Google Sheet → Extensions > Apps Script
- *   2. Paste this script
+ *   2. Paste this entire script (replace all existing code)
  *   3. Project Settings > Script Properties → add GITHUB_TOKEN
  *   4. Run setupTriggers() once
  *
@@ -79,7 +83,7 @@ var CONFIG = {
 
 var IMAGE_COLUMNS_ = [
   CONFIG.COL.DRIVE_FOLDER,
-  CONFIG.COL.HERO_PHOTO,   // Column W – smart hero picker
+  CONFIG.COL.HERO_PHOTO,
   CONFIG.COL.LOGO_BLACK,
   CONFIG.COL.LOGO_WHITE
 ];
@@ -97,11 +101,78 @@ function onOpen() {
     .addToUi();
 }
 
-/**
- * Mark the currently selected row(s) for image re-sync.
- * Use this when you've updated photos in Google Drive
- * but the Drive links in the sheet haven't changed.
- */
+function setupTriggers() {
+  var triggers = ScriptApp.getProjectTriggers();
+  triggers.forEach(function(t) { ScriptApp.deleteTrigger(t); });
+
+  ScriptApp.newTrigger('onEditTrigger')
+    .forSpreadsheet(SpreadsheetApp.getActive())
+    .onEdit()
+    .create();
+
+  ScriptApp.newTrigger('onOpen')
+    .forSpreadsheet(SpreadsheetApp.getActive())
+    .onOpen()
+    .create();
+
+  SpreadsheetApp.getUi().alert('✅ v5.6 Auto-sync triggers installed successfully.');
+}
+
+// ─── STREAMLIT AUTO-SAVE ENDPOINT ──────────────────────────
+
+function doPost(e) {
+  try {
+    var data = JSON.parse(e.postData.contents);
+    if (data.action === 'sync_project') return syncProjectFromStreamlit(data);
+    if (data.action === 'save_raw_input') return saveRawInput(data);
+    return ContentService.createTextOutput(JSON.stringify({status: 'error', message: 'Unknown action'}))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch (err) {
+    return ContentService.createTextOutput(JSON.stringify({status: 'error', message: err.toString()}))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+function saveRawInput(data) {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheetByName('Raw_Input_DB') || ss.insertSheet('Raw_Input_DB');
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow(['Timestamp', 'Client', 'Project', 'Venue', 'ID']);
+  }
+  sheet.appendRow([
+    new Date(),
+    cleanSheetValue_(data.client_name),
+    cleanSheetValue_(data.project_name),
+    data.venue,
+    data.project_id
+  ]);
+  return ContentService.createTextOutput(JSON.stringify({status: 'success'}))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+function syncProjectFromStreamlit(data) {
+  var sheet = SpreadsheetApp.getActive().getSheetByName(CONFIG.SHEET_NAME);
+  var sheetData = sheet.getDataRange().getValues();
+  var targetRow = -1;
+  for (var i = 1; i < sheetData.length; i++) {
+    if (String(sheetData[i][CONFIG.COL.PROJECT_ID - 1]) === String(data.project_id)) {
+      targetRow = i + 1;
+      break;
+    }
+  }
+  if (targetRow === -1) {
+    targetRow = sheetData.length + 1;
+    sheet.getRange(targetRow, CONFIG.COL.PROJECT_ID).setValue(data.project_id);
+  }
+  sheet.getRange(targetRow, CONFIG.COL.CLIENT).setValue(cleanSheetValue_(data.client_name));
+  sheet.getRange(targetRow, CONFIG.COL.PROJECT).setValue(cleanSheetValue_(data.project_name));
+  sheet.getRange(targetRow, CONFIG.COL.SYNC_STATUS).setValue(data.photos ? 'Pending (images)' : 'Pending');
+  return ContentService.createTextOutput(JSON.stringify({status: 'success'}))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+// ─── MARK ROWS FOR IMAGE RE-SYNC ───────────────────────────
+
 function markSelectedRowForImageSync() {
   var sheet = SpreadsheetApp.getActive().getSheetByName(CONFIG.SHEET_NAME);
   if (!sheet) {
@@ -134,23 +205,6 @@ function markSelectedRowForImageSync() {
   msg += markedRows.map(function(n) { return '• ' + n; }).join('\n');
   msg += '\n\nNow click "Sync Changed Only" to push updates.';
   SpreadsheetApp.getUi().alert(msg);
-}
-
-function setupTriggers() {
-  var triggers = ScriptApp.getProjectTriggers();
-  triggers.forEach(function(t) { ScriptApp.deleteTrigger(t); });
-
-  ScriptApp.newTrigger('onEditTrigger')
-    .forSpreadsheet(SpreadsheetApp.getActive())
-    .onEdit()
-    .create();
-
-  ScriptApp.newTrigger('onOpen')
-    .forSpreadsheet(SpreadsheetApp.getActive())
-    .onOpen()
-    .create();
-
-  SpreadsheetApp.getUi().alert('Auto-sync triggers installed successfully.');
 }
 
 // ─── EDIT TRIGGER ──────────────────────────────────────────
@@ -189,8 +243,6 @@ function syncAllToGitHub() {
 function syncChangedToGitHub() {
   doSync(true);
 }
-
-// ─── PROGRESS TOAST ────────────────────────────────────────
 
 function showProgress_(message, title) {
   try {
@@ -244,6 +296,14 @@ function doSync(changedOnly) {
   var processedCount = 0;
 
   for (var i = 1; i < data.length; i++) {
+
+    // ── Timeout Guard (5 min) ──
+    if (new Date().getTime() - syncStart.getTime() > 300000) {
+      showProgress_('⚠️ Approaching 6-min limit. Saving progress so far...', '⚠️ Timeout Guard');
+      Logger.log('Timeout guard triggered at row ' + (i + 1));
+      break;
+    }
+
     var row = data[i];
     var syncStatus = String(row[CONFIG.COL.SYNC_STATUS - 1] || '').trim();
     var projectName = cleanSheetValue_(String(row[CONFIG.COL.PROJECT - 1] || '').trim());
@@ -296,9 +356,9 @@ function doSync(changedOnly) {
       needsImageSync = false;
     }
 
-    // ── List all files from Drive folder (used for hero resolution + gallery) ──
-    var allFolderFiles = [];   // { name, id, updated, isHero, isLogo }
-    var galleryFiles = [];     // excludes Hero_ and Logo_ prefixed files
+    // ── List all files from Drive folder ──
+    var allFolderFiles = [];
+    var galleryFiles = [];
     var heroFileId = '';
 
     if (driveFolderId && needsImageSync) {
@@ -329,12 +389,6 @@ function doSync(changedOnly) {
     }
 
     // ── Resolve Hero Photo (smart picker) ──
-    // Column W accepts:
-    //   ""  (empty)      → auto-detect: use Hero_*.jpg from Drive folder, or first gallery photo
-    //   "1" - "99"       → pick the Nth gallery photo (1-based) as hero
-    //   "Photo_03.jpg"   → match by filename in the Drive folder
-    //   "https://..."    → legacy full Google Drive link (backward compatible)
-    //   Raw file ID      → also works as before
     heroFileId = resolveHeroFileId_(heroColValue, allFolderFiles, galleryFiles, projectName);
 
     var heroPath = heroFileId ? CONFIG.IMAGES_PATH + '/' + pid + '-hero.webp' : '';
@@ -365,7 +419,6 @@ function doSync(changedOnly) {
       }
     } else if (needsTextSync) {
       Logger.log('Text-only sync for row ' + (i + 1) + ': ' + projectName + ' (skipping images)');
-      // For text-only sync, hero resolution can't access Drive, so use legacy link if available
       if (!heroFileId) {
         heroFileId = extractDriveFileId_(heroColValue);
         heroPath = heroFileId ? CONFIG.IMAGES_PATH + '/' + pid + '-hero.webp' : '';
@@ -394,7 +447,6 @@ function doSync(changedOnly) {
           projectName + ': checking ' + galleryFiles.length + ' gallery photos...',
           '🔥 CMS Sync'
         );
-
         for (var g = 0; g < galleryFiles.length; g++) {
           var galleryPath = CONFIG.IMAGES_PATH + '/' + pid + '-gallery-' + g + '.webp';
           galleryPhotos.push(galleryPath);
@@ -418,16 +470,21 @@ function doSync(changedOnly) {
 
     var project = {
       index: i - 1,
-      client: String(row[CONFIG.COL.CLIENT - 1] || ''),
+      id: projectId,
+      projectId: projectId,
+      client: cleanSheetValue_(String(row[CONFIG.COL.CLIENT - 1] || '')),
       project: projectName,
+      projectName: projectName,
       date: String(row[CONFIG.COL.DATE - 1] || ''),
-      venue: String(row[CONFIG.COL.VENUE - 1] || ''),
+      venue: cleanSheetValue_(String(row[CONFIG.COL.VENUE - 1] || '')),
       category: category,
       whatWeDo: whatWeDo,
       scope: String(row[CONFIG.COL.SCOPE - 1] || ''),
       youtube: String(row[CONFIG.COL.YOUTUBE - 1] || ''),
+      openQuestion: String(row[CONFIG.COL.OPEN_QUESTION - 1] || ''),
       challenge: String(row[CONFIG.COL.CHALLENGE - 1] || ''),
       solution: String(row[CONFIG.COL.SOLUTION - 1] || ''),
+      googleSlide: String(row[CONFIG.COL.GOOGLE_SLIDE - 1] || ''),
       linkedin: String(row[CONFIG.COL.LINKEDIN - 1] || ''),
       facebook: String(row[CONFIG.COL.FACEBOOK - 1] || ''),
       threads: String(row[CONFIG.COL.THREADS - 1] || ''),
@@ -443,7 +500,6 @@ function doSync(changedOnly) {
       logoBlack: logoBlackPath,
       logoWhite: logoWhitePath,
       galleryPhotos: galleryPhotos,
-      projectId: projectId,
       sortDate: String(row[CONFIG.COL.SORT_DATE - 1] || ''),
       driveFolderId: driveFolderId || '',
       categories: categories,
@@ -498,7 +554,7 @@ function doSync(changedOnly) {
   var totalGallery = 0;
   projects.forEach(function(p) { totalGallery += (p.galleryPhotos || []).length; });
 
-  var msg = 'Sync complete! (' + elapsed + ' seconds)\n\n' +
+  var msg = '✅ Sync complete! (' + elapsed + ' seconds)\n\n' +
     '• Projects: ' + projects.length + '\n' +
     '• Total gallery photos: ' + totalGallery + '\n' +
     '• New/updated images pushed: ' + imagesToPush.length + '\n\n' +
@@ -581,7 +637,7 @@ function pushToGitHubBatch_(token, images, projectsJson, hashesJson) {
   });
   var newTreeSha = treeResp.sha;
 
-  var commitMsg = 'CMS sync: ' + images.length + ' images, ' +
+  var commitMsg = 'CMS v5.6 sync: ' + images.length + ' images, ' +
     new Date().toISOString().replace('T', ' ').substring(0, 19);
   var newCommitResp = ghPost_(baseUrl + '/git/commits', headers, {
     message: commitMsg,
@@ -756,33 +812,24 @@ function getGitHubToken_() {
 
 /**
  * Resolve the hero photo from Column W value.
- *
- * Accepts (in order of priority):
- *   ""  (empty)          → auto-detect: use Hero_*.jpg from the Drive folder, fallback to first gallery file
- *   "1" - "99"           → pick the Nth gallery photo (1-based index) as hero
- *   "Photo_03.jpg"       → match by filename (case-insensitive) in the Drive folder
- *   "https://drive..."   → legacy full Google Drive URL (backward compatible)
- *   Raw Drive file ID    → also works as before
- *
- * @param {string}  heroColValue   – raw value from Column W
- * @param {Array}   allFolderFiles – all image files from the Drive folder [{name, id, isHero, isLogo}]
- * @param {Array}   galleryFiles   – gallery files only (no Hero_/Logo_ prefix) sorted by name
- * @param {string}  projectName    – for logging
- * @return {string} Google Drive file ID, or '' if nothing found
+ * Accepts:
+ *   ""  (empty)       → auto-detect Hero_* file, or fallback to first gallery photo
+ *   "1" - "99"        → pick the Nth gallery photo (1-based)
+ *   "Photo_03.jpg"    → match by filename in the Drive folder
+ *   "https://..."     → legacy full Google Drive link
+ *   Raw Drive file ID → also works
  */
 function resolveHeroFileId_(heroColValue, allFolderFiles, galleryFiles, projectName) {
   var val = String(heroColValue || '').trim();
 
-  // ── Case 1: Empty → auto-detect Hero_* file, or fallback to first gallery photo ──
+  // Case 1: Empty → auto-detect Hero_* file, or fallback to first gallery photo
   if (!val) {
-    // Look for a file named Hero_* in the Drive folder
     for (var i = 0; i < allFolderFiles.length; i++) {
       if (allFolderFiles[i].isHero) {
         Logger.log('  [HERO] ' + projectName + ': auto-detected "' + allFolderFiles[i].name + '"');
         return allFolderFiles[i].id;
       }
     }
-    // No Hero_* file found — use first gallery photo as fallback
     if (galleryFiles.length > 0) {
       Logger.log('  [HERO] ' + projectName + ': no Hero_ file, using first gallery photo "' + galleryFiles[0].name + '"');
       return galleryFiles[0].id;
@@ -791,19 +838,18 @@ function resolveHeroFileId_(heroColValue, allFolderFiles, galleryFiles, projectN
     return '';
   }
 
-  // ── Case 2: Pure number → pick Nth gallery photo (1-based) ──
+  // Case 2: Pure number → pick Nth gallery photo (1-based)
   if (val.match(/^\d+$/)) {
-    var idx = parseInt(val, 10) - 1;  // convert to 0-based
+    var idx = parseInt(val, 10) - 1;
     if (idx >= 0 && idx < galleryFiles.length) {
       Logger.log('  [HERO] ' + projectName + ': picked gallery photo #' + val + ' → "' + galleryFiles[idx].name + '"');
       return galleryFiles[idx].id;
     }
-    // Number out of range — log warning, fallback to auto-detect
-    Logger.log('  [HERO] ' + projectName + ': ⚠ gallery photo #' + val + ' out of range (' + galleryFiles.length + ' available). Auto-detecting...');
+    Logger.log('  [HERO] ' + projectName + ': ⚠ gallery photo #' + val + ' out of range. Auto-detecting...');
     return resolveHeroFileId_('', allFolderFiles, galleryFiles, projectName);
   }
 
-  // ── Case 3: Looks like a filename (has a dot extension) → match by name ──
+  // Case 3: Looks like a filename (has a dot extension)
   if (val.match(/\.[a-zA-Z]{2,4}$/)) {
     var lowerVal = val.toLowerCase();
     for (var j = 0; j < allFolderFiles.length; j++) {
@@ -812,7 +858,6 @@ function resolveHeroFileId_(heroColValue, allFolderFiles, galleryFiles, projectN
         return allFolderFiles[j].id;
       }
     }
-    // Partial match (without extension or case)
     var baseVal = lowerVal.replace(/\.[a-zA-Z]{2,4}$/, '');
     for (var k = 0; k < allFolderFiles.length; k++) {
       var baseName = allFolderFiles[k].name.toLowerCase().replace(/\.[a-zA-Z]{2,4}$/, '');
@@ -821,18 +866,18 @@ function resolveHeroFileId_(heroColValue, allFolderFiles, galleryFiles, projectN
         return allFolderFiles[k].id;
       }
     }
-    Logger.log('  [HERO] ' + projectName + ': ⚠ filename "' + val + '" not found in Drive folder. Auto-detecting...');
+    Logger.log('  [HERO] ' + projectName + ': ⚠ filename "' + val + '" not found. Auto-detecting...');
     return resolveHeroFileId_('', allFolderFiles, galleryFiles, projectName);
   }
 
-  // ── Case 4: Legacy Drive URL or raw file ID → use existing extractor ──
+  // Case 4: Legacy Drive URL or raw file ID
   var fileId = extractDriveFileId_(val);
   if (fileId) {
     Logger.log('  [HERO] ' + projectName + ': resolved Drive link/ID → ' + fileId);
     return fileId;
   }
 
-  // ── Case 5: Nothing matched — try as filename without extension ──
+  // Case 5: Try as filename without extension
   var lowerVal2 = val.toLowerCase();
   for (var m = 0; m < allFolderFiles.length; m++) {
     var baseName2 = allFolderFiles[m].name.toLowerCase().replace(/\.[a-zA-Z]{2,4}$/, '');
@@ -869,7 +914,6 @@ function extractDriveFolderId_(url) {
 
 /**
  * Strip Google Sheets clipboard noise from a cell value.
- * Handles paste artifacts from Mac (sheet name, zoom %, cell refs, screen-reader strings).
  */
 function cleanSheetValue_(value) {
   if (!value) return value;
@@ -886,7 +930,6 @@ function cleanSheetValue_(value) {
   var cleaned = value;
   noisePatterns.forEach(function(p) { cleaned = cleaned.replace(p, ' '); });
   cleaned = cleaned.replace(/  +/g, ' ').trim();
-  // Deduplicate: if same text appears twice, keep first occurrence
   var words = cleaned.split(' ');
   var half = Math.floor(words.length / 2);
   if (half > 2 && words.slice(0, half).join(' ') === words.slice(half).join(' ')) {
