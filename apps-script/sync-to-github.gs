@@ -164,11 +164,140 @@ function syncProjectFromStreamlit(data) {
     targetRow = sheetData.length + 1;
     sheet.getRange(targetRow, CONFIG.COL.PROJECT_ID).setValue(data.project_id);
   }
-  sheet.getRange(targetRow, CONFIG.COL.CLIENT).setValue(cleanSheetValue_(data.client_name));
-  sheet.getRange(targetRow, CONFIG.COL.PROJECT).setValue(cleanSheetValue_(data.project_name));
-  sheet.getRange(targetRow, CONFIG.COL.SYNC_STATUS).setValue(data.photos ? 'Pending (images)' : 'Pending');
-  return ContentService.createTextOutput(JSON.stringify({status: 'success'}))
+
+  // ── Basic Info ──
+  sheet.getRange(targetRow, CONFIG.COL.CLIENT).setValue(cleanSheetValue_(data.client_name || ''));
+  sheet.getRange(targetRow, CONFIG.COL.PROJECT).setValue(cleanSheetValue_(data.project_name || ''));
+  sheet.getRange(targetRow, CONFIG.COL.DATE).setValue(data.date || '');
+  sheet.getRange(targetRow, CONFIG.COL.VENUE).setValue(cleanSheetValue_(data.venue || ''));
+  sheet.getRange(targetRow, CONFIG.COL.CATEGORY).setValue(data.category || '');
+  sheet.getRange(targetRow, CONFIG.COL.WHAT_WE_DO).setValue(data.category_what || '');
+  sheet.getRange(targetRow, CONFIG.COL.SCOPE).setValue(data.scope || '');
+  sheet.getRange(targetRow, CONFIG.COL.YOUTUBE).setValue(data.youtube || '');
+  sheet.getRange(targetRow, CONFIG.COL.OPEN_QUESTION).setValue(data.open_question || '');
+  sheet.getRange(targetRow, CONFIG.COL.SORT_DATE).setValue(data.sort_date || '');
+
+  // ── Challenge & Solution (English) ──
+  sheet.getRange(targetRow, CONFIG.COL.CHALLENGE).setValue(data.challenge || '');
+  sheet.getRange(targetRow, CONFIG.COL.SOLUTION).setValue(data.solution || '');
+
+  // ── AI-Generated Content (from ai_content object) ──
+  var ai = data.ai_content || {};
+  sheet.getRange(targetRow, CONFIG.COL.GOOGLE_SLIDE).setValue(ai['1_google_slide'] || '');
+  sheet.getRange(targetRow, CONFIG.COL.LINKEDIN).setValue(ai['5_linkedin_post'] || '');
+  sheet.getRange(targetRow, CONFIG.COL.FACEBOOK).setValue(ai['2_facebook_post'] || '');
+  sheet.getRange(targetRow, CONFIG.COL.THREADS).setValue(ai['3_threads_post'] || '');
+  sheet.getRange(targetRow, CONFIG.COL.INSTAGRAM).setValue(ai['4_instagram_post'] || '');
+
+  // ── Website Content (WEB_EN/TC/JP — Cols 18/19/20) ──
+  var website = ai['6_website'] || {};
+  if (typeof website === 'object') {
+    sheet.getRange(targetRow, CONFIG.COL.WEB_EN).setValue(website['en'] || '');
+    sheet.getRange(targetRow, CONFIG.COL.WEB_TC).setValue(website['tc'] || '');
+    sheet.getRange(targetRow, CONFIG.COL.WEB_JP).setValue(website['jp'] || '');
+  } else if (typeof website === 'string') {
+    sheet.getRange(targetRow, CONFIG.COL.WEB_EN).setValue(website);
+  }
+
+  // ── Dedicated FAQ (FAQ_EN/TC/JP — Cols 28/29/30) ──
+  // These come from the separate '7_faq' field in ai_content OR from direct faq_en/tc/jp fields
+  var faqEn = data.faq_en || (ai['7_faq'] && ai['7_faq']['en']) || '';
+  var faqTc = data.faq_tc || (ai['7_faq'] && ai['7_faq']['tc']) || '';
+  var faqJp = data.faq_jp || (ai['7_faq'] && ai['7_faq']['jp']) || '';
+  sheet.getRange(targetRow, CONFIG.COL.FAQ_EN).setValue(faqEn);
+  sheet.getRange(targetRow, CONFIG.COL.FAQ_TC).setValue(faqTc);
+  sheet.getRange(targetRow, CONFIG.COL.FAQ_JP).setValue(faqJp);
+
+  // ── Images: Upload base64 to Drive if provided ──
+  var hasImages = data.images && Array.isArray(data.images) && data.images.length > 0;
+  var hasLogos = data.logo_white || data.logo_black;
+  var needsImageSync = hasImages || hasLogos;
+
+  if (needsImageSync) {
+    try {
+      var folderId = uploadImagesToNewDriveFolder_(data);
+      if (folderId) {
+        sheet.getRange(targetRow, CONFIG.COL.DRIVE_FOLDER).setValue('https://drive.google.com/drive/folders/' + folderId);
+      }
+    } catch (imgErr) {
+      Logger.log('Image upload error: ' + imgErr.message);
+    }
+  }
+
+  // ── Sync Status ──
+  sheet.getRange(targetRow, CONFIG.COL.SYNC_STATUS).setValue(needsImageSync ? 'Pending (images)' : 'Pending');
+
+  return ContentService.createTextOutput(JSON.stringify({status: 'success', project_id: data.project_id}))
     .setMimeType(ContentService.MimeType.JSON);
+}
+
+// ── Upload base64 images to a new Google Drive folder ──
+function uploadImagesToNewDriveFolder_(data) {
+  var folderName = 'Firebean_' + (data.client_name || 'Client') + '_' + (data.project_id || 'Project');
+  var parentFolder = DriveApp.getRootFolder();
+  var folder = parentFolder.createFolder(folderName);
+  var folderId = folder.getId();
+
+  // Upload Hero (first image) with Hero_ prefix
+  var images = data.images || [];
+  for (var i = 0; i < images.length; i++) {
+    if (!images[i]) continue;
+    try {
+      var bytes = Utilities.base64Decode(images[i]);
+      var blob = Utilities.newBlob(bytes, 'image/jpeg', (i === 0 ? 'Hero_' : 'Gallery_') + (i + 1) + '.jpg');
+      folder.createFile(blob);
+    } catch (e) {
+      Logger.log('Error uploading image ' + i + ': ' + e.message);
+    }
+  }
+
+  // Upload logos
+  if (data.logo_black) {
+    try {
+      var lbBytes = Utilities.base64Decode(data.logo_black);
+      var lbBlob = Utilities.newBlob(lbBytes, 'image/png', 'Logo_Black.png');
+      var lbFile = folder.createFile(lbBlob);
+      sheet_setLogoBlack_(data, lbFile.getId());
+    } catch (e) {
+      Logger.log('Error uploading logo_black: ' + e.message);
+    }
+  }
+  if (data.logo_white) {
+    try {
+      var lwBytes = Utilities.base64Decode(data.logo_white);
+      var lwBlob = Utilities.newBlob(lwBytes, 'image/png', 'Logo_White.png');
+      var lwFile = folder.createFile(lwBlob);
+      sheet_setLogoWhite_(data, lwFile.getId());
+    } catch (e) {
+      Logger.log('Error uploading logo_white: ' + e.message);
+    }
+  }
+
+  return folderId;
+}
+
+// Helper: set logo black file ID in sheet (called from uploadImagesToNewDriveFolder_)
+function sheet_setLogoBlack_(data, fileId) {
+  var sheet = SpreadsheetApp.getActive().getSheetByName(CONFIG.SHEET_NAME);
+  var sheetData = sheet.getDataRange().getValues();
+  for (var i = 1; i < sheetData.length; i++) {
+    if (String(sheetData[i][CONFIG.COL.PROJECT_ID - 1]) === String(data.project_id)) {
+      sheet.getRange(i + 1, CONFIG.COL.LOGO_BLACK).setValue('https://drive.google.com/file/d/' + fileId + '/view');
+      break;
+    }
+  }
+}
+
+// Helper: set logo white file ID in sheet (called from uploadImagesToNewDriveFolder_)
+function sheet_setLogoWhite_(data, fileId) {
+  var sheet = SpreadsheetApp.getActive().getSheetByName(CONFIG.SHEET_NAME);
+  var sheetData = sheet.getDataRange().getValues();
+  for (var i = 1; i < sheetData.length; i++) {
+    if (String(sheetData[i][CONFIG.COL.PROJECT_ID - 1]) === String(data.project_id)) {
+      sheet.getRange(i + 1, CONFIG.COL.LOGO_WHITE).setValue('https://drive.google.com/file/d/' + fileId + '/view');
+      break;
+    }
+  }
 }
 
 // ─── MARK ROWS FOR IMAGE RE-SYNC ───────────────────────────
