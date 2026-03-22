@@ -523,6 +523,12 @@ function doSync(changedOnly) {
     var heroPath = heroFileId ? CONFIG.IMAGES_PATH + '/' + pid + '-hero.webp' : '';
     var heroSmPath = heroFileId ? CONFIG.IMAGES_PATH + '/' + pid + '-hero-sm.webp' : '';
 
+    // Fallback: If no heroPath yet but we have a heroFileId, ensure we have a WebP path
+    if (!heroPath && heroFileId) {
+       heroPath = CONFIG.IMAGES_PATH + '/' + pid + '-hero.webp';
+       heroSmPath = CONFIG.IMAGES_PATH + '/' + pid + '-hero-sm.webp';
+    }
+
     if (needsImageSync) {
       processedCount++;
       showProgress_(
@@ -624,7 +630,7 @@ function doSync(changedOnly) {
       faqEN: String(row[CONFIG.COL.FAQ_EN - 1] || ''),
       faqTC: String(row[CONFIG.COL.FAQ_TC - 1] || ''),
       faqJP: String(row[CONFIG.COL.FAQ_JP - 1] || ''),
-      heroPhoto: heroPath,
+      heroPhoto: heroPath || String(row[CONFIG.COL.HERO_PHOTO - 1] || '').trim(),
       heroPhotoSmall: heroSmPath,
       logoBlack: logoBlackPath,
       logoWhite: logoWhitePath,
