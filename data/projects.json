@@ -6,6 +6,18 @@
       "client": "Graffiti Company",
       "venue": "California Tower",
       "date": "2016-10-31T16:00:00.000Z",
+      "categories": [
+        "LIFESTYLE & CONSUMER",
+        "SOCIAL & CONTENT",
+        "PR & MEDIA",
+        "EVENTS & CEREMONIES"
+      ],
+      "filterSlugs": [
+        "lifestyle",
+        "social",
+        "pr",
+        "events"
+      ],
       "category": "LIFESTYLE & CONSUMER",
       "whatWeDo": "SOCIAL & CONTENT, PR & MEDIA, EVENTS & CEREMONIES",
       "scope": "Event Planning, Event Coordination, Social Media Management",
@@ -47,6 +59,14 @@
       "client": "Pagani",
       "venue": "Hong Kong",
       "date": "2016-10-31T16:00:00.000Z",
+      "categories": [
+        "LIFESTYLE & CONSUMER",
+        "EVENTS & CEREMONIES"
+      ],
+      "filterSlugs": [
+        "lifestyle",
+        "events"
+      ],
       "category": "LIFESTYLE & CONSUMER",
       "whatWeDo": "EVENTS & CEREMONIES",
       "scope": "Event Planning, Event Production, Theme Design, Concept Development, Souvenir Sourcing",
@@ -89,6 +109,16 @@
       "client": "Agnès b.",
       "venue": "Hong Kong",
       "date": "2016-11-30T16:00:00.000Z",
+      "categories": [
+        "LIFESTYLE & CONSUMER",
+        "SOCIAL & CONTENT",
+        "PR & MEDIA"
+      ],
+      "filterSlugs": [
+        "lifestyle",
+        "social",
+        "pr"
+      ],
       "category": "LIFESTYLE & CONSUMER",
       "whatWeDo": "SOCIAL & CONTENT, PR & MEDIA",
       "scope": "Concept Development, Social Media Management, KOL / MI Line up, Artist Endorsement, Media Pitching",
@@ -131,6 +161,18 @@
       "client": "agnès b.",
       "venue": "Tsim Sha Tsui",
       "date": "2016-12-31T16:00:00.000Z",
+      "categories": [
+        "LIFESTYLE & CONSUMER",
+        "INTERACTIVE & TECH",
+        "PR & MEDIA",
+        "EVENTS & CEREMONIES"
+      ],
+      "filterSlugs": [
+        "lifestyle",
+        "tech",
+        "pr",
+        "events"
+      ],
       "category": "LIFESTYLE & CONSUMER",
       "whatWeDo": "INTERACTIVE & TECH, PR & MEDIA, EVENTS & CEREMONIES",
       "scope": "Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, KOL / MI Line up, Media Pitching",
@@ -172,6 +214,18 @@
       "client": "agnès b.",
       "venue": "Image Optical @ MOSTown",
       "date": "2017-01-31T16:00:00.000Z",
+      "categories": [
+        "GOVERNMENT & PUBLIC SECTOR",
+        "SOCIAL & CONTENT",
+        "PR & MEDIA",
+        "EVENTS & CEREMONIES"
+      ],
+      "filterSlugs": [
+        "government",
+        "social",
+        "pr",
+        "events"
+      ],
       "category": "GOVERNMENT & PUBLIC SECTOR",
       "whatWeDo": "SOCIAL & CONTENT, PR & MEDIA, EVENTS & CEREMONIES",
       "scope": "Event Coordination, Social Media Management, Artist Endorsement, Media Pitching, PR Consulting",
@@ -212,6 +266,18 @@
       "client": "agnès b.",
       "venue": "Tsim Sha Tsui Optical 88 Shop",
       "date": "2017-04-30T16:00:00.000Z",
+      "categories": [
+        "LIFESTYLE & CONSUMER",
+        "SOCIAL & CONTENT",
+        "PR & MEDIA",
+        "EVENTS & CEREMONIES"
+      ],
+      "filterSlugs": [
+        "lifestyle",
+        "social",
+        "pr",
+        "events"
+      ],
       "category": "LIFESTYLE & CONSUMER",
       "whatWeDo": "SOCIAL & CONTENT, PR & MEDIA, EVENTS & CEREMONIES",
       "scope": "Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, KOL / MI Line up, Artist Endorsement, Media Pitching, PR Consulting",
@@ -254,6 +320,14 @@
       "client": "Levi's",
       "venue": "Hong Kong",
       "date": "2017-04-30T16:00:00.000Z",
+      "categories": [
+        "LIFESTYLE & CONSUMER",
+        "SOCIAL & CONTENT"
+      ],
+      "filterSlugs": [
+        "lifestyle",
+        "social"
+      ],
       "category": "LIFESTYLE & CONSUMER",
       "whatWeDo": "SOCIAL & CONTENT",
       "scope": "Social Media Management, KOL / MI Line up",
@@ -296,6 +370,16 @@
       "client": "Levi's Eyewear",
       "venue": "Tsim Sha Tsui",
       "date": "2017-04-30T16:00:00.000Z",
+      "categories": [
+        "LIFESTYLE & CONSUMER",
+        "PR & MEDIA",
+        "EVENTS & CEREMONIES"
+      ],
+      "filterSlugs": [
+        "lifestyle",
+        "pr",
+        "events"
+      ],
       "category": "LIFESTYLE & CONSUMER",
       "whatWeDo": "PR & MEDIA, EVENTS & CEREMONIES",
       "scope": "Event Planning, Event Coordination, Event Production, Concept Development, KOL / MI Line up, Artist Endorsement, Media Pitching, PR Consulting",
@@ -340,6 +424,16 @@
       "client": "Agnès b. x Optical 88",
       "venue": "Metroplaza",
       "date": "2017-11-30T16:00:00.000Z",
+      "categories": [
+        "LIFESTYLE & CONSUMER",
+        "SOCIAL & CONTENT",
+        "PR & MEDIA"
+      ],
+      "filterSlugs": [
+        "lifestyle",
+        "social",
+        "pr"
+      ],
       "category": "LIFESTYLE & CONSUMER",
       "whatWeDo": "SOCIAL & CONTENT, PR & MEDIA",
       "scope": "Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, KOL / MI Line up, Media Pitching, PR Consulting",
@@ -381,6 +475,14 @@
       "client": "Constitutional and Mainland Affairs Bureau",
       "venue": "shopping malls (inc. Amoy Plaza, Olympian City etc.)",
       "date": "2019-02-28T16:00:00.000Z",
+      "categories": [
+        "GOVERNMENT & PUBLIC SECTOR",
+        "ROVING EXHIBITIONS"
+      ],
+      "filterSlugs": [
+        "government",
+        "exhibitions"
+      ],
       "category": "GOVERNMENT & PUBLIC SECTOR",
       "whatWeDo": "ROVING EXHIBITIONS",
       "scope": "Event Planning, Event Coordination, Event Production, Theme Design, Concept Development",
@@ -423,6 +525,14 @@
       "client": "政制及內地事務局",
       "venue": "Shopping malls (inc. SPOT, Amoy Plaza, CityWalk etc.)",
       "date": "2020-09-30T16:00:00.000Z",
+      "categories": [
+        "GOVERNMENT & PUBLIC SECTOR",
+        "ROVING EXHIBITIONS"
+      ],
+      "filterSlugs": [
+        "government",
+        "exhibitions"
+      ],
       "category": "GOVERNMENT & PUBLIC SECTOR",
       "whatWeDo": "ROVING EXHIBITIONS",
       "scope": "Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, Souvenir Sourcing",
@@ -465,6 +575,14 @@
       "client": "Constitutional and Mainland Affairs Bureau",
       "venue": "(inc. Amoy Plaza, the Westwood, Citywalk2 etc.)",
       "date": "2021-11-30T16:00:00.000Z",
+      "categories": [
+        "GOVERNMENT & PUBLIC SECTOR",
+        "ROVING EXHIBITIONS"
+      ],
+      "filterSlugs": [
+        "government",
+        "exhibitions"
+      ],
       "category": "GOVERNMENT & PUBLIC SECTOR",
       "whatWeDo": "ROVING EXHIBITIONS",
       "scope": "Event Planning, Event Coordination, Event Production, Concept Development",
@@ -506,6 +624,14 @@
       "client": "Constitutional and Mainland Affairs Bureau",
       "venue": "Shopping malls (inc. Megabox, SPOT, MOSTown, Olympian City, etc.)",
       "date": "2021-11-30T16:00:00.000Z",
+      "categories": [
+        "GOVERNMENT & PUBLIC SECTOR",
+        "ROVING EXHIBITIONS"
+      ],
+      "filterSlugs": [
+        "government",
+        "exhibitions"
+      ],
       "category": "GOVERNMENT & PUBLIC SECTOR",
       "whatWeDo": "ROVING EXHIBITIONS",
       "scope": "Event Planning, Event Coordination, Event Production, Theme Design, Concept Development",
@@ -547,6 +673,14 @@
       "client": "政制及內地事務局",
       "venue": "Shopping malls (inc. TKO Plaza, Central Market etc.)",
       "date": "2023-04-30T16:00:00.000Z",
+      "categories": [
+        "GOVERNMENT & PUBLIC SECTOR",
+        "ROVING EXHIBITIONS"
+      ],
+      "filterSlugs": [
+        "government",
+        "exhibitions"
+      ],
       "category": "GOVERNMENT & PUBLIC SECTOR",
       "whatWeDo": "ROVING EXHIBITIONS",
       "scope": "Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, Souvenir Sourcing",
@@ -589,6 +723,14 @@
       "client": "政制及內地事務局",
       "venue": "Shopping Malls (inc. Citywalk, etc.)",
       "date": "2023-04-30T16:00:00.000Z",
+      "categories": [
+        "GOVERNMENT & PUBLIC SECTOR",
+        "ROVING EXHIBITIONS"
+      ],
+      "filterSlugs": [
+        "government",
+        "exhibitions"
+      ],
       "category": "GOVERNMENT & PUBLIC SECTOR",
       "whatWeDo": "ROVING EXHIBITIONS",
       "scope": "Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, Souvenir Sourcing",
@@ -631,6 +773,16 @@
       "client": "政制及內地事務局",
       "venue": "戶外場地 (例如灣仔海濱、觀塘海濱等)",
       "date": "2023-09-30T16:00:00.000Z",
+      "categories": [
+        "GOVERNMENT & PUBLIC SECTOR",
+        "ROVING EXHIBITIONS",
+        "EVENTS & CEREMONIES"
+      ],
+      "filterSlugs": [
+        "government",
+        "exhibitions",
+        "events"
+      ],
       "category": "GOVERNMENT & PUBLIC SECTOR",
       "whatWeDo": "ROVING EXHIBITIONS, EVENTS & CEREMONIES",
       "scope": "Event Coordination, Event Production, Theme Design, Concept Development",
@@ -669,6 +821,16 @@
       "client": "Outback Steakhouse",
       "venue": "Central",
       "date": "2024-03-31T16:00:00.000Z",
+      "categories": [
+        "F&B & HOSPITALITY",
+        "PR & MEDIA",
+        "EVENTS & CEREMONIES"
+      ],
+      "filterSlugs": [
+        "hospitality",
+        "pr",
+        "events"
+      ],
       "category": "F&B & HOSPITALITY",
       "whatWeDo": "PR & MEDIA, EVENTS & CEREMONIES",
       "scope": "Event Planning, Event Coordination, Event Production, Theme Design, Souvenir Sourcing",
@@ -711,6 +873,20 @@
       "client": "Narcotics Division (ND) of the Security Bureau",
       "venue": "Central Market, The University of Hong Kong, MegaBox, etc.",
       "date": "2024-05-31T16:00:00.000Z",
+      "categories": [
+        "GOVERNMENT & PUBLIC SECTOR",
+        "ROVING EXHIBITIONS",
+        "SOCIAL & CONTENT",
+        "INTERACTIVE & TECH",
+        "EVENTS & CEREMONIES"
+      ],
+      "filterSlugs": [
+        "government",
+        "exhibitions",
+        "social",
+        "tech",
+        "events"
+      ],
       "category": "GOVERNMENT & PUBLIC SECTOR",
       "whatWeDo": "ROVING EXHIBITIONS, SOCIAL & CONTENT, INTERACTIVE & TECH, EVENTS & CEREMONIES",
       "scope": "Event Planning, Event Coordination, Event Production, Theme Design, Concept Development",
@@ -753,6 +929,14 @@
       "client": "政制及內地事務局",
       "venue": "室外 (例如沙田公園、城門谷運動場) 及室內場地 (例如社區客廳、政府大樓)",
       "date": "2024-08-31T16:00:00.000Z",
+      "categories": [
+        "GOVERNMENT & PUBLIC SECTOR",
+        "ROVING EXHIBITIONS"
+      ],
+      "filterSlugs": [
+        "government",
+        "exhibitions"
+      ],
       "category": "GOVERNMENT & PUBLIC SECTOR",
       "whatWeDo": "ROVING EXHIBITIONS",
       "scope": "Event Coordination, Event Production, Theme Design, Concept Development, Souvenir Sourcing",
@@ -795,6 +979,20 @@
       "client": "Constitutional and Mainland Affairs Bureau",
       "venue": "Shopping malls (inc. CityWalk2, Yoho Mall II, Amoy Plaza, etc.)",
       "date": "2024-08-31T16:00:00.000Z",
+      "categories": [
+        "GOVERNMENT & PUBLIC SECTOR",
+        "ROVING EXHIBITIONS",
+        "SOCIAL & CONTENT",
+        "INTERACTIVE & TECH",
+        "EVENTS & CEREMONIES"
+      ],
+      "filterSlugs": [
+        "government",
+        "exhibitions",
+        "social",
+        "tech",
+        "events"
+      ],
       "category": "GOVERNMENT & PUBLIC SECTOR",
       "whatWeDo": "ROVING EXHIBITIONS, SOCIAL & CONTENT, INTERACTIVE & TECH, EVENTS & CEREMONIES",
       "scope": "Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, Souvenir Sourcing",
@@ -837,6 +1035,20 @@
       "client": "Constitutional and Mainland Affairs Bureau",
       "venue": "Shopping malls (inc. SPOT, Amoy Plaza, CityWalk etc.)",
       "date": "2024-08-31T16:00:00.000Z",
+      "categories": [
+        "GOVERNMENT & PUBLIC SECTOR",
+        "ROVING EXHIBITIONS",
+        "SOCIAL & CONTENT",
+        "INTERACTIVE & TECH",
+        "EVENTS & CEREMONIES"
+      ],
+      "filterSlugs": [
+        "government",
+        "exhibitions",
+        "social",
+        "tech",
+        "events"
+      ],
       "category": "GOVERNMENT & PUBLIC SECTOR",
       "whatWeDo": "ROVING EXHIBITIONS, SOCIAL & CONTENT, INTERACTIVE & TECH, EVENTS & CEREMONIES",
       "scope": "Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, Souvenir Sourcing",
@@ -879,6 +1091,16 @@
       "client": "沖繩縣貿易協會",
       "venue": "CulinArt 1867",
       "date": "2024-09-30T16:00:00.000Z",
+      "categories": [
+        "F&B & HOSPITALITY",
+        "PR & MEDIA",
+        "EVENTS & CEREMONIES"
+      ],
+      "filterSlugs": [
+        "hospitality",
+        "pr",
+        "events"
+      ],
       "category": "F&B & HOSPITALITY",
       "whatWeDo": "PR & MEDIA, EVENTS & CEREMONIES",
       "scope": "Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, KOL / MI Line up, Media Pitching, PR Consulting",
@@ -921,6 +1143,18 @@
       "client": "Narcotics Division (ND) of the Security Bureau",
       "venue": "Hong Kong City Hall, Hong Kong Baptist University, Times Square, etc.",
       "date": "2025-01-31T16:00:00.000Z",
+      "categories": [
+        "GOVERNMENT & PUBLIC SECTOR",
+        "ROVING EXHIBITIONS",
+        "SOCIAL & CONTENT",
+        "INTERACTIVE & TECH"
+      ],
+      "filterSlugs": [
+        "government",
+        "exhibitions",
+        "social",
+        "tech"
+      ],
       "category": "GOVERNMENT & PUBLIC SECTOR",
       "whatWeDo": "ROVING EXHIBITIONS, SOCIAL & CONTENT, INTERACTIVE & TECH",
       "scope": "Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, PR Consulting",
@@ -963,6 +1197,16 @@
       "client": "政制及內地事務局",
       "venue": "各大商場 (例如)",
       "date": "2025-05-31T16:00:00.000Z",
+      "categories": [
+        "GOVERNMENT & PUBLIC SECTOR",
+        "ROVING EXHIBITIONS",
+        "EVENTS & CEREMONIES"
+      ],
+      "filterSlugs": [
+        "government",
+        "exhibitions",
+        "events"
+      ],
       "category": "GOVERNMENT & PUBLIC SECTOR",
       "whatWeDo": "ROVING EXHIBITIONS, EVENTS & CEREMONIES",
       "scope": "Event Planning, Event Coordination, Event Production, Theme Design, Concept Development",
@@ -1005,6 +1249,20 @@
       "client": "Constitutional and Mainland Affairs Bureau",
       "venue": "Shopping malls (inc. Citywalk2, Olympian City 2, The Wai, etc.)",
       "date": "2025-08-31T16:00:00.000Z",
+      "categories": [
+        "GOVERNMENT & PUBLIC SECTOR",
+        "ROVING EXHIBITIONS",
+        "SOCIAL & CONTENT",
+        "INTERACTIVE & TECH",
+        "EVENTS & CEREMONIES"
+      ],
+      "filterSlugs": [
+        "government",
+        "exhibitions",
+        "social",
+        "tech",
+        "events"
+      ],
       "category": "GOVERNMENT & PUBLIC SECTOR",
       "whatWeDo": "ROVING EXHIBITIONS, SOCIAL & CONTENT, INTERACTIVE & TECH, EVENTS & CEREMONIES",
       "scope": "Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, PR Consulting",
@@ -1047,6 +1305,20 @@
       "client": "Constitutional and Mainland Affairs Bureau",
       "venue": "Shopping malls (inc. Lok Fu Plaza, Central Market, Cheung Fat Plaza, etc.)",
       "date": "2025-08-31T16:00:00.000Z",
+      "categories": [
+        "GOVERNMENT & PUBLIC SECTOR",
+        "ROVING EXHIBITIONS",
+        "SOCIAL & CONTENT",
+        "INTERACTIVE & TECH",
+        "EVENTS & CEREMONIES"
+      ],
+      "filterSlugs": [
+        "government",
+        "exhibitions",
+        "social",
+        "tech",
+        "events"
+      ],
       "category": "GOVERNMENT & PUBLIC SECTOR",
       "whatWeDo": "ROVING EXHIBITIONS, SOCIAL & CONTENT, INTERACTIVE & TECH, EVENTS & CEREMONIES",
       "scope": "Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, PR Consulting",
@@ -1089,6 +1361,16 @@
       "client": "公務員事務局",
       "venue": "政府大樓 (例如政府總部、工業貿易大樓等等)",
       "date": "2026-01-31T16:00:00.000Z",
+      "categories": [
+        "GOVERNMENT & PUBLIC SECTOR",
+        "ROVING EXHIBITIONS",
+        "INTERACTIVE & TECH"
+      ],
+      "filterSlugs": [
+        "government",
+        "exhibitions",
+        "tech"
+      ],
       "category": "GOVERNMENT & PUBLIC SECTOR",
       "whatWeDo": "ROVING EXHIBITIONS, INTERACTIVE & TECH",
       "scope": "Event Coordination, Event Production, Theme Design, Concept Development, Souvenir Sourcing",
@@ -1122,6 +1404,16 @@
       "client": "Zanussi",
       "venue": "Olympian City 2",
       "date": "2026-05-31T16:00:00.000Z",
+      "categories": [
+        "LIFESTYLE & CONSUMER",
+        "PR & MEDIA",
+        "EVENTS & CEREMONIES"
+      ],
+      "filterSlugs": [
+        "lifestyle",
+        "pr",
+        "events"
+      ],
       "category": "LIFESTYLE & CONSUMER",
       "whatWeDo": "PR & MEDIA, EVENTS & CEREMONIES",
       "scope": "Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, Media Pitching",
@@ -1164,6 +1456,14 @@
       "client": "ACAN",
       "venue": "Hong Kong Book Fair",
       "date": "2024-05-31T16:00:00.000Z",
+      "categories": [
+        "GOVERNMENT & PUBLIC SECTOR",
+        "EVENTS & CEREMONIES"
+      ],
+      "filterSlugs": [
+        "government",
+        "events"
+      ],
       "category": "GOVERNMENT & PUBLIC SECTOR",
       "whatWeDo": "EVENTS & CEREMONIES",
       "scope": "Event Planning, Event Coordination, Event Production, Theme Design, KOL / MI Line up, Artist Endorsement",
