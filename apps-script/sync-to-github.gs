@@ -520,14 +520,8 @@ function doSync(changedOnly) {
     // ── Resolve Hero Photo (smart picker) ──
     heroFileId = resolveHeroFileId_(heroColValue, allFolderFiles, galleryFiles, projectName);
 
-    var heroPath = heroFileId ? CONFIG.IMAGES_PATH + '/' + pid + '-hero.webp' : '';
-    var heroSmPath = heroFileId ? CONFIG.IMAGES_PATH + '/' + pid + '-hero-sm.webp' : '';
-
-    // Fallback: If no heroPath yet but we have a heroFileId, ensure we have a WebP path
-    if (!heroPath && heroFileId) {
-       heroPath = CONFIG.IMAGES_PATH + '/' + pid + '-hero.webp';
-       heroSmPath = CONFIG.IMAGES_PATH + '/' + pid + '-hero-sm.webp';
-    }
+    var heroPath = (heroFileId || extractDriveFileId_(heroColValue)) ? CONFIG.IMAGES_PATH + '/' + pid + '-hero.webp' : '';
+    var heroSmPath = (heroFileId || extractDriveFileId_(heroColValue)) ? CONFIG.IMAGES_PATH + '/' + pid + '-hero-sm.webp' : '';
 
     if (needsImageSync) {
       processedCount++;
