@@ -246,7 +246,7 @@ function doSync(changedOnly) {
   for (var i = 1; i < data.length; i++) {
     var row = data[i];
     var syncStatus = String(row[CONFIG.COL.SYNC_STATUS - 1] || '').trim();
-    var projectName = String(row[CONFIG.COL.PROJECT - 1] || '').trim();
+    var projectName = cleanSheetValue_(String(row[CONFIG.COL.PROJECT - 1] || '').trim());
 
     if (!projectName) continue;
 
@@ -865,6 +865,34 @@ function extractDriveFolderId_(url) {
   if (match) return match[1];
   if (url.match(/^[a-zA-Z0-9_-]{10,}$/)) return url;
   return '';
+}
+
+/**
+ * Strip Google Sheets clipboard noise from a cell value.
+ * Handles paste artifacts from Mac (sheet name, zoom %, cell refs, screen-reader strings).
+ */
+function cleanSheetValue_(value) {
+  if (!value) return value;
+  var noisePatterns = [
+    /Firebean_Master_DB\s*/gi,
+    /\b\d{1,3}%\s*/g,
+    /\b[A-Z]{1,2}\d{1,3}\b\s*/g,
+    /Summarize this data\s*/gi,
+    /Turn on screen reader support\s*/gi,
+    /To enable screen reader support[^.]*\.?\s*/gi,
+    /To learn about keyboard shortcuts[^.]*\.?\s*/gi,
+    /press [\u2318Ctrl]\+\S+\s*/gi
+  ];
+  var cleaned = value;
+  noisePatterns.forEach(function(p) { cleaned = cleaned.replace(p, ' '); });
+  cleaned = cleaned.replace(/  +/g, ' ').trim();
+  // Deduplicate: if same text appears twice, keep first occurrence
+  var words = cleaned.split(' ');
+  var half = Math.floor(words.length / 2);
+  if (half > 2 && words.slice(0, half).join(' ') === words.slice(half).join(' ')) {
+    cleaned = words.slice(0, half).join(' ');
+  }
+  return cleaned;
 }
 
 function categoryToSlugs_(cat) {
