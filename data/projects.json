@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-03-23T15:06:30.984Z",
+  "lastSync": "2026-03-23T15:08:13.699Z",
   "projects": [
     {
       "id": "FB2017014",
@@ -76,7 +76,15 @@
       "heroPhotoSmall": "data/images/fb2021027-hero-sm.webp",
       "logoBlack": "data/images/fb2021027-logo-black.webp",
       "logoWhite": "data/images/fb2021027-logo-white.webp",
-      "galleryPhotos": [],
+      "galleryPhotos": [
+        "data/images/fb2021027-gallery-0.webp",
+        "data/images/fb2021027-gallery-1.webp",
+        "data/images/fb2021027-gallery-2.webp",
+        "data/images/fb2021027-gallery-3.webp",
+        "data/images/fb2021027-gallery-4.webp",
+        "data/images/fb2021027-gallery-5.webp",
+        "data/images/fb2021027-gallery-6.webp"
+      ],
       "sortDate": "Wed Dec 01 2021 00:00:00 GMT+0800 (Hong Kong Standard Time)",
       "categories": [
         "GOVERNMENT & PUBLIC SECTOR",
@@ -117,7 +125,15 @@
       "heroPhotoSmall": "data/images/fb2021028-hero-sm.webp",
       "logoBlack": "data/images/fb2021028-logo-black.webp",
       "logoWhite": "data/images/fb2021028-logo-white.webp",
-      "galleryPhotos": [],
+      "galleryPhotos": [
+        "data/images/fb2021028-gallery-0.webp",
+        "data/images/fb2021028-gallery-1.webp",
+        "data/images/fb2021028-gallery-2.webp",
+        "data/images/fb2021028-gallery-3.webp",
+        "data/images/fb2021028-gallery-4.webp",
+        "data/images/fb2021028-gallery-5.webp",
+        "data/images/fb2021028-gallery-6.webp"
+      ],
       "sortDate": "Wed Dec 01 2021 00:00:00 GMT+0800 (Hong Kong Standard Time)",
       "categories": [
         "GOVERNMENT & PUBLIC SECTOR",
@@ -435,7 +451,16 @@
       "heroPhotoSmall": "data/images/fb2020029-hero-sm.webp",
       "logoBlack": "data/images/fb2020029-logo-black.webp",
       "logoWhite": "data/images/fb2020029-logo-white.webp",
-      "galleryPhotos": [],
+      "galleryPhotos": [
+        "data/images/fb2020029-gallery-0.webp",
+        "data/images/fb2020029-gallery-1.webp",
+        "data/images/fb2020029-gallery-2.webp",
+        "data/images/fb2020029-gallery-3.webp",
+        "data/images/fb2020029-gallery-4.webp",
+        "data/images/fb2020029-gallery-5.webp",
+        "data/images/fb2020029-gallery-6.webp",
+        "data/images/fb2020029-gallery-7.webp"
+      ],
       "sortDate": "Thu Oct 01 2020 00:00:00 GMT+0800 (Hong Kong Standard Time)",
       "categories": [
         "GOVERNMENT & PUBLIC SECTOR",
@@ -654,7 +679,12 @@
       "heroPhotoSmall": "data/images/fb2023020-hero-sm.webp",
       "logoBlack": "data/images/fb2023020-logo-black.webp",
       "logoWhite": "data/images/fb2023020-logo-white.webp",
-      "galleryPhotos": [],
+      "galleryPhotos": [
+        "data/images/fb2023020-gallery-0.webp",
+        "data/images/fb2023020-gallery-1.webp",
+        "data/images/fb2023020-gallery-2.webp",
+        "data/images/fb2023020-gallery-3.webp"
+      ],
       "sortDate": "Sun Oct 01 2023 00:00:00 GMT+0800 (Hong Kong Standard Time)",
       "categories": [
         "GOVERNMENT & PUBLIC SECTOR",
@@ -1105,7 +1135,16 @@
       "heroPhotoSmall": "data/images/fb2023022-hero-sm.webp",
       "logoBlack": "data/images/fb2023022-logo-black.webp",
       "logoWhite": "data/images/fb2023022-logo-white.webp",
-      "galleryPhotos": [],
+      "galleryPhotos": [
+        "data/images/fb2023022-gallery-0.webp",
+        "data/images/fb2023022-gallery-1.webp",
+        "data/images/fb2023022-gallery-2.webp",
+        "data/images/fb2023022-gallery-3.webp",
+        "data/images/fb2023022-gallery-4.webp",
+        "data/images/fb2023022-gallery-5.webp",
+        "data/images/fb2023022-gallery-6.webp",
+        "data/images/fb2023022-gallery-7.webp"
+      ],
       "sortDate": "Mon May 01 2023 00:00:00 GMT+0800 (Hong Kong Standard Time)",
       "categories": [
         "GOVERNMENT & PUBLIC SECTOR",
@@ -1146,7 +1185,16 @@
       "heroPhotoSmall": "data/images/fb2023026-hero-sm.webp",
       "logoBlack": "data/images/fb2023026-logo-black.webp",
       "logoWhite": "data/images/fb2023026-logo-white.webp",
-      "galleryPhotos": [],
+      "galleryPhotos": [
+        "data/images/fb2023026-gallery-0.webp",
+        "data/images/fb2023026-gallery-1.webp",
+        "data/images/fb2023026-gallery-2.webp",
+        "data/images/fb2023026-gallery-3.webp",
+        "data/images/fb2023026-gallery-4.webp",
+        "data/images/fb2023026-gallery-5.webp",
+        "data/images/fb2023026-gallery-6.webp",
+        "data/images/fb2023026-gallery-7.webp"
+      ],
       "sortDate": "Mon May 01 2023 00:00:00 GMT+0800 (Hong Kong Standard Time)",
       "categories": [
         "GOVERNMENT & PUBLIC SECTOR",
@@ -1402,7 +1450,16 @@
       "heroPhotoSmall": "data/images/fb2019030-hero-sm.webp",
       "logoBlack": "data/images/fb2019030-logo-black.webp",
       "logoWhite": "data/images/fb2019030-logo-white.webp",
-      "galleryPhotos": [],
+      "galleryPhotos": [
+        "data/images/fb2019030-gallery-0.webp",
+        "data/images/fb2019030-gallery-1.webp",
+        "data/images/fb2019030-gallery-2.webp",
+        "data/images/fb2019030-gallery-3.webp",
+        "data/images/fb2019030-gallery-4.webp",
+        "data/images/fb2019030-gallery-5.webp",
+        "data/images/fb2019030-gallery-6.webp",
+        "data/images/fb2019030-gallery-7.webp"
+      ],
       "sortDate": "Fri Mar 01 2019 00:00:00 GMT+0800 (Hong Kong Standard Time)",
       "categories": [
         "GOVERNMENT & PUBLIC SECTOR",
