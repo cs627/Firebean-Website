@@ -1,11 +1,13 @@
 /**
  * ============================================================
- * FIREBEAN CMS — SHEET RECEIVER (Streamlit POST Target)  v4.4
+ * FIREBEAN CMS — SHEET RECEIVER (Streamlit POST Target)  v5.0
  * ============================================================
  *
+ * v5.0: Folder Persistence & Smart URL Reuse
+ *       - Detects existing Drive URLs for logos and hero photos
+ *       - Skips re-uploading if data is already a valid URL
+ *       - Preserves folder structure for project regenerations
  * v4.4: Added 3 dedicated FAQ columns (AB=28, AC=29, AD=30)
- *       for faq_en, faq_tc, faq_jp — AI-generated Q&A pairs
- *       stored separately from the website article body.
  * v4.1: Smart Hero Photo picker, Drive folder creation, image upload.
  * v3.0: Initial version.
  *
@@ -15,22 +17,12 @@
  *   Access: Anyone
  *   Deployed URL: https://script.google.com/macros/s/AKfycbzaQu2KpJ06I0yWL4dEwk0naB1FOlHkt7Ta340xH84IDwQI7jQNUI3eSmxrwKyQHNj5/exec
  *
- * AFTER UPDATING THIS FILE:
- *   1. Open Google Sheet → Extensions → Apps Script
- *   2. Replace the existing code with this file's contents
- *   3. Click Deploy → Manage Deployments → Edit (pencil icon)
- *   4. Change version to "New version"
- *   5. Click Deploy
- *   6. Copy the new URL and update SHEET_SCRIPT_URL in app.py if changed
- *
  * ============================================================
  */
 
 // ─── COLUMN MAP ────────────────────────────────────────────
-// Matches the Google Sheet "Basic Info" tab exactly.
-// Update this map whenever columns are added/reordered.
 var COL = {
-  TIMESTAMP:    1,   // A — Auto-filled on write
+  TIMESTAMP:    1,   // A
   CLIENT:       2,   // B
   PROJECT:      3,   // C
   DATE:         4,   // D
@@ -57,19 +49,18 @@ var COL = {
   LOGO_WHITE:   25,  // Y
   PROJECT_ID:   26,  // Z
   SORT_DATE:    27,  // AA
-  FAQ_EN:       28,  // AB ← NEW v4.4
-  FAQ_TC:       29,  // AC ← NEW v4.4
-  FAQ_JP:       30   // AD ← NEW v4.4
+  FAQ_EN:       28,  // AB
+  FAQ_TC:       29,  // AC
+  FAQ_JP:       30   // AD
 };
 
 var SHEET_NAME = 'Basic Info';
 var DRIVE_ROOT_FOLDER_ID = '1XT6c6zq-ipGN0sFRwpGl2GSVnaGsmSNg';
 
 // ─── CORS HELPER ───────────────────────────────────────────
-function makeResponse_(data, statusCode) {
-  var output = ContentService.createTextOutput(JSON.stringify(data))
+function makeResponse_(data) {
+  return ContentService.createTextOutput(JSON.stringify(data))
     .setMimeType(ContentService.MimeType.JSON);
-  return output;
 }
 
 // ─── ENTRY POINT ───────────────────────────────────────────
@@ -77,9 +68,8 @@ function doGet(e) {
   var action = e && e.parameter && e.parameter.action;
   if (action === 'get_row_count') {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
-    var count = Math.max(0, sheet.getLastRow() - 1); // subtract header
-    return ContentService.createTextOutput(String(count))
-      .setMimeType(ContentService.MimeType.TEXT);
+    var count = Math.max(0, sheet.getLastRow() - 1);
+    return ContentService.createTextOutput(String(count)).setMimeType(ContentService.MimeType.TEXT);
   }
   return makeResponse_({ error: 'Unknown GET action' });
 }
@@ -89,24 +79,16 @@ function doPost(e) {
     var payload = JSON.parse(e.postData.contents);
     var action = payload.action || 'sync_project';
 
-    if (action === 'get_raw_input_list') {
-      return handleGetRawInputList_();
-    }
-    if (action === 'get_raw_input_details') {
-      return handleGetRawInputDetails_(payload.project_id);
-    }
-    if (action === 'sync_project') {
-      return handleSyncProject_(payload);
-    }
+    if (action === 'get_raw_input_list') return handleGetRawInputList_();
+    if (action === 'get_raw_input_details') return handleGetRawInputDetails_(payload.project_id);
+    if (action === 'sync_project') return handleSyncProject_(payload);
 
     return makeResponse_({ success: false, error: 'Unknown action: ' + action });
   } catch (err) {
-    Logger.log('doPost error: ' + err.message);
     return makeResponse_({ success: false, error: err.message });
   }
 }
 
-// ─── GET RAW INPUT LIST ────────────────────────────────────
 function handleGetRawInputList_() {
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
   var data = sheet.getDataRange().getValues();
@@ -116,14 +98,11 @@ function handleGetRawInputList_() {
     var pid = String(row[COL.PROJECT_ID - 1] || '').trim();
     var pname = String(row[COL.PROJECT - 1] || '').trim();
     var client = String(row[COL.CLIENT - 1] || '').trim();
-    if (pid && pname) {
-      list.push({ project_id: pid, project_name: pname, client: client });
-    }
+    if (pid && pname) list.push({ project_id: pid, project_name: pname, client: client });
   }
   return makeResponse_({ success: true, projects: list });
 }
 
-// ─── GET RAW INPUT DETAILS ─────────────────────────────────
 function handleGetRawInputDetails_(projectId) {
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
   var data = sheet.getDataRange().getValues();
@@ -134,34 +113,34 @@ function handleGetRawInputDetails_(projectId) {
       return makeResponse_({
         success: true,
         project: {
-          project_id:    pid,
-          client:        String(row[COL.CLIENT - 1] || ''),
-          project_name:  String(row[COL.PROJECT - 1] || ''),
-          date:          String(row[COL.DATE - 1] || ''),
-          venue:         String(row[COL.VENUE - 1] || ''),
-          category:      String(row[COL.CATEGORY - 1] || ''),
-          what_we_do:    String(row[COL.WHAT_WE_DO - 1] || ''),
-          scope:         String(row[COL.SCOPE - 1] || ''),
-          youtube:       String(row[COL.YOUTUBE - 1] || ''),
+          project_id: pid,
+          client: String(row[COL.CLIENT - 1] || ''),
+          project_name: String(row[COL.PROJECT - 1] || ''),
+          date: String(row[COL.DATE - 1] || ''),
+          venue: String(row[COL.VENUE - 1] || ''),
+          category: String(row[COL.CATEGORY - 1] || ''),
+          what_we_do: String(row[COL.WHAT_WE_DO - 1] || ''),
+          scope: String(row[COL.SCOPE - 1] || ''),
+          youtube: String(row[COL.YOUTUBE - 1] || ''),
           open_question: String(row[COL.OPEN_QUESTION - 1] || ''),
-          challenge:     String(row[COL.CHALLENGE - 1] || ''),
-          solution:      String(row[COL.SOLUTION - 1] || ''),
-          google_slide:  String(row[COL.GOOGLE_SLIDE - 1] || ''),
-          linkedin:      String(row[COL.LINKEDIN - 1] || ''),
-          facebook:      String(row[COL.FACEBOOK - 1] || ''),
-          threads:       String(row[COL.THREADS - 1] || ''),
-          instagram:     String(row[COL.INSTAGRAM - 1] || ''),
-          web_en:        String(row[COL.WEB_EN - 1] || ''),
-          web_tc:        String(row[COL.WEB_TC - 1] || ''),
-          web_jp:        String(row[COL.WEB_JP - 1] || ''),
-          drive_folder:  String(row[COL.DRIVE_FOLDER - 1] || ''),
-          hero_photo:    String(row[COL.HERO_PHOTO - 1] || ''),
-          logo_black:    String(row[COL.LOGO_BLACK - 1] || ''),
-          logo_white:    String(row[COL.LOGO_WHITE - 1] || ''),
-          sort_date:     String(row[COL.SORT_DATE - 1] || ''),
-          faq_en:        String(row[COL.FAQ_EN - 1] || ''),  // v4.4
-          faq_tc:        String(row[COL.FAQ_TC - 1] || ''),  // v4.4
-          faq_jp:        String(row[COL.FAQ_JP - 1] || '')   // v4.4
+          challenge: String(row[COL.CHALLENGE - 1] || ''),
+          solution: String(row[COL.SOLUTION - 1] || ''),
+          google_slide: String(row[COL.GOOGLE_SLIDE - 1] || ''),
+          linkedin: String(row[COL.LINKEDIN - 1] || ''),
+          facebook: String(row[COL.FACEBOOK - 1] || ''),
+          threads: String(row[COL.THREADS - 1] || ''),
+          instagram: String(row[COL.INSTAGRAM - 1] || ''),
+          web_en: String(row[COL.WEB_EN - 1] || ''),
+          web_tc: String(row[COL.WEB_TC - 1] || ''),
+          web_jp: String(row[COL.WEB_JP - 1] || ''),
+          drive_folder: String(row[COL.DRIVE_FOLDER - 1] || ''),
+          hero_photo: String(row[COL.HERO_PHOTO - 1] || ''),
+          logo_black: String(row[COL.LOGO_BLACK - 1] || ''),
+          logo_white: String(row[COL.LOGO_WHITE - 1] || ''),
+          sort_date: String(row[COL.SORT_DATE - 1] || ''),
+          faq_en: String(row[COL.FAQ_EN - 1] || ''),
+          faq_tc: String(row[COL.FAQ_TC - 1] || ''),
+          faq_jp: String(row[COL.FAQ_JP - 1] || '')
         }
       });
     }
@@ -169,148 +148,135 @@ function handleGetRawInputDetails_(projectId) {
   return makeResponse_({ success: false, error: 'Project not found: ' + projectId });
 }
 
-// ─── SYNC PROJECT ──────────────────────────────────────────
 function handleSyncProject_(payload) {
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
+  var projectId = String(payload.project_id || '').trim();
 
-  // ── 1. Create Drive folder ──
-  var rootFolder = DriveApp.getFolderById(DRIVE_ROOT_FOLDER_ID);
-  var projectId  = String(payload.project_id || '').trim();
-  var folderName = projectId || (String(payload.project_name || '').trim() + '_' + new Date().getTime());
+  // ── 1. Handle Drive Folder (Reuse if URL provided) ──
   var folder;
-  try {
-    var existing = rootFolder.getFoldersByName(folderName);
-    folder = existing.hasNext() ? existing.next() : rootFolder.createFolder(folderName);
-  } catch (e) {
-    folder = rootFolder.createFolder(folderName);
+  var folderUrl = String(payload.drive_folder || '').trim();
+  if (folderUrl.indexOf('http') === 0) {
+    try {
+      var folderId = folderUrl.split('/folders/')[1].split('?')[0];
+      folder = DriveApp.getFolderById(folderId);
+    } catch (e) {
+      folder = getOrCreateFolder_(projectId, payload.project_name);
+    }
+  } else {
+    folder = getOrCreateFolder_(projectId, payload.project_name);
   }
-  var folderUrl = 'https://drive.google.com/drive/folders/' + folder.getId();
+  folderUrl = 'https://drive.google.com/drive/folders/' + folder.getId();
 
-  // ── 2. Upload images ──
+  // ── 2. Handle Images (Reuse or Upload) ──
+  var heroFileUrl = String(payload.hero_photo || '').trim();
   var images = payload.images || [];
-  var heroFileUrl  = '';
-  var heroIdx      = parseInt(payload.hero_photo_index || 0, 10);
+  var heroIdx = parseInt(payload.hero_photo_index || 0, 10);
 
+  // Only upload if images are provided (not just URLs)
   for (var i = 0; i < images.length; i++) {
     var imgData = images[i];
-    var base64  = imgData.base64 || imgData;
-    var ext     = imgData.ext || 'jpg';
-    var prefix  = (i === heroIdx) ? 'Hero_' : ('Gallery_' + String(i).padStart(2, '0') + '_');
-    var fname   = prefix + projectId + '.' + ext;
+    var base64 = imgData.base64 || imgData;
+    if (base64.indexOf('http') === 0) continue; // Skip if already a URL
 
     try {
       var bytes = Utilities.base64Decode(base64);
-      var blob  = Utilities.newBlob(bytes, 'image/jpeg', fname);
-      var file  = folder.createFile(blob);
+      var blob = Utilities.newBlob(bytes, 'image/jpeg', ((i === heroIdx) ? 'Hero_' : 'Gallery_') + projectId + '_' + i + '.jpg');
+      var file = folder.createFile(blob);
       file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
-      if (i === heroIdx) {
-        heroFileUrl = 'https://drive.google.com/file/d/' + file.getId() + '/view';
-      }
+      if (i === heroIdx) heroFileUrl = 'https://drive.google.com/file/d/' + file.getId() + '/view';
     } catch (e) {
-      Logger.log('Image upload error [' + i + ']: ' + e.message);
+      Logger.log('Upload error: ' + e.message);
     }
   }
 
-  // ── 3. Upload logos ──
-  var logoBlackUrl = uploadLogo_(folder, payload.logo_black, projectId + '_logo_black.png');
-  var logoWhiteUrl = uploadLogo_(folder, payload.logo_white, projectId + '_logo_white.png');
+  // ── 3. Handle Logos (Reuse or Upload) ──
+  var logoBlackUrl = handleAsset_(folder, payload.logo_black, projectId + '_logo_black.png');
+  var logoWhiteUrl = handleAsset_(folder, payload.logo_white, projectId + '_logo_white.png');
 
-  // ── 4. Extract AI content ──
+  // ── 4. Build Row Data ──
   var ai = payload.ai_content || {};
   var webContent = ai['6_website'] || {};
-
-  // ── 5. Build row (30 columns) ──
   var now = new Date();
-  var eventYear  = String(payload.event_year  || now.getFullYear());
+  var eventYear = String(payload.event_year || now.getFullYear());
   var eventMonth = String(payload.event_month || 'JAN');
-  var dateStr    = eventYear + '-' + eventMonth;
-  var sortDate   = eventYear + String(monthToNum_(eventMonth)).padStart(2, '0') + '01';
+  var sortDate = eventYear + String(monthToNum_(eventMonth)).padStart(2, '0') + '01';
 
-  var row = new Array(COL.FAQ_JP); // 30 elements
-  row[COL.TIMESTAMP    - 1] = now.toISOString();
-  row[COL.CLIENT       - 1] = String(payload.client_name   || '');
-  row[COL.PROJECT      - 1] = String(payload.project_name  || '');
-  row[COL.DATE         - 1] = dateStr;
-  row[COL.VENUE        - 1] = String(payload.venue         || '');
-  row[COL.CATEGORY     - 1] = String(payload.category      || '');
-  row[COL.WHAT_WE_DO   - 1] = Array.isArray(payload.what_we_do) ? payload.what_we_do.join(', ') : String(payload.what_we_do || '');
-  row[COL.SCOPE        - 1] = Array.isArray(payload.scope)      ? payload.scope.join(', ')      : String(payload.scope      || '');
-  row[COL.YOUTUBE      - 1] = String(payload.youtube       || '');
-  row[COL.OPEN_QUESTION- 1] = String(payload.open_question || '');
-  row[COL.CHALLENGE    - 1] = String(ai.challenge_summary  || payload.challenge || '');
-  row[COL.SOLUTION     - 1] = String(ai.solution_summary   || payload.solution  || '');
-  row[COL.GOOGLE_SLIDE - 1] = String(ai['1_google_slide']  || '');
-  row[COL.LINKEDIN     - 1] = String(ai['5_linkedin_post'] || '');
-  row[COL.FACEBOOK     - 1] = String(ai['2_facebook_post'] || '');
-  row[COL.THREADS      - 1] = String(ai['3_threads_post']  || '');
-  row[COL.INSTAGRAM    - 1] = String(ai['4_instagram_post']|| '');
-  row[COL.WEB_EN       - 1] = typeof webContent === 'object' ? String(webContent.en || '') : String(webContent || '');
-  row[COL.WEB_TC       - 1] = typeof webContent === 'object' ? String(webContent.tc || '') : '';
-  row[COL.WEB_JP       - 1] = typeof webContent === 'object' ? String(webContent.jp || '') : '';
-  row[COL.SYNC_STATUS  - 1] = 'Pending (images)';
+  var row = new Array(COL.FAQ_JP);
+  row[COL.TIMESTAMP - 1] = now.toISOString();
+  row[COL.CLIENT - 1] = String(payload.client_name || '');
+  row[COL.PROJECT - 1] = String(payload.project_name || '');
+  row[COL.DATE - 1] = eventYear + '-' + eventMonth;
+  row[COL.VENUE - 1] = String(payload.venue || '');
+  row[COL.CATEGORY - 1] = String(payload.category || '');
+  row[COL.WHAT_WE_DO - 1] = Array.isArray(payload.what_we_do) ? payload.what_we_do.join(', ') : String(payload.what_we_do || '');
+  row[COL.SCOPE - 1] = Array.isArray(payload.scope) ? payload.scope.join(', ') : String(payload.scope || '');
+  row[COL.YOUTUBE - 1] = String(payload.youtube || '');
+  row[COL.OPEN_QUESTION - 1] = String(payload.open_question || '');
+  row[COL.CHALLENGE - 1] = String(ai.challenge_summary || payload.challenge || '');
+  row[COL.SOLUTION - 1] = String(ai.solution_summary || payload.solution || '');
+  row[COL.GOOGLE_SLIDE - 1] = String(ai['1_google_slide'] || '');
+  row[COL.LINKEDIN - 1] = String(ai['5_linkedin_post'] || '');
+  row[COL.FACEBOOK - 1] = String(ai['2_facebook_post'] || '');
+  row[COL.THREADS - 1] = String(ai['3_threads_post'] || '');
+  row[COL.INSTAGRAM - 1] = String(ai['4_instagram_post'] || '');
+  row[COL.WEB_EN - 1] = typeof webContent === 'object' ? String(webContent.en || '') : String(webContent || '');
+  row[COL.WEB_TC - 1] = typeof webContent === 'object' ? String(webContent.tc || '') : '';
+  row[COL.WEB_JP - 1] = typeof webContent === 'object' ? String(webContent.jp || '') : '';
+  row[COL.SYNC_STATUS - 1] = 'Pending';
   row[COL.DRIVE_FOLDER - 1] = folderUrl;
-  row[COL.HERO_PHOTO   - 1] = heroFileUrl;
-  row[COL.LOGO_BLACK   - 1] = logoBlackUrl;
-  row[COL.LOGO_WHITE   - 1] = logoWhiteUrl;
-  row[COL.PROJECT_ID   - 1] = projectId;
-  row[COL.SORT_DATE    - 1] = sortDate;
-  // ── v4.4: Dedicated FAQ columns ──
+  row[COL.HERO_PHOTO - 1] = heroFileUrl;
+  row[COL.LOGO_BLACK - 1] = logoBlackUrl;
+  row[COL.LOGO_WHITE - 1] = logoWhiteUrl;
+  row[COL.PROJECT_ID - 1] = projectId;
+  row[COL.SORT_DATE - 1] = sortDate;
+  
   var faqData = ai['7_faq'] || {};
   row[COL.FAQ_EN - 1] = String(payload.faq_en || (typeof faqData === 'object' ? faqData.en || '' : '') || '');
   row[COL.FAQ_TC - 1] = String(payload.faq_tc || (typeof faqData === 'object' ? faqData.tc || '' : '') || '');
   row[COL.FAQ_JP - 1] = String(payload.faq_jp || (typeof faqData === 'object' ? faqData.jp || '' : '') || '');
 
-  // ── 6. Check if updating existing row or appending new ──
+  // ── 5. Write to Sheet ──
   var data = sheet.getDataRange().getValues();
   var existingRow = -1;
-  if (projectId) {
-    for (var r = 1; r < data.length; r++) {
-      if (String(data[r][COL.PROJECT_ID - 1] || '').trim() === projectId) {
-        existingRow = r + 1; // 1-based sheet row
-        break;
-      }
+  for (var r = 1; r < data.length; r++) {
+    if (String(data[r][COL.PROJECT_ID - 1] || '').trim() === projectId) {
+      existingRow = r + 1;
+      break;
     }
   }
 
   if (existingRow > 0) {
-    // Update existing row
     sheet.getRange(existingRow, 1, 1, row.length).setValues([row]);
-    Logger.log('Updated existing row ' + existingRow + ' for project: ' + projectId);
   } else {
-    // Append new row
     sheet.appendRow(row);
-    Logger.log('Appended new row for project: ' + projectId);
   }
 
-  return makeResponse_({
-    success: true,
-    project_id: projectId,
-    folder_url: folderUrl,
-    hero_url: heroFileUrl,
-    message: existingRow > 0 ? 'Updated existing project' : 'New project added'
-  });
+  return makeResponse_({ success: true, project_id: projectId, folder_url: folderUrl, message: existingRow > 0 ? 'Updated' : 'Added' });
 }
 
-// ─── HELPERS ───────────────────────────────────────────────
-function uploadLogo_(folder, base64, filename) {
-  if (!base64) return '';
+function getOrCreateFolder_(projectId, projectName) {
+  var root = DriveApp.getFolderById(DRIVE_ROOT_FOLDER_ID);
+  var name = projectId || (projectName + '_' + new Date().getTime());
+  var existing = root.getFoldersByName(name);
+  return existing.hasNext() ? existing.next() : root.createFolder(name);
+}
+
+function handleAsset_(folder, data, filename) {
+  var val = String(data || '').trim();
+  if (!val) return '';
+  if (val.indexOf('http') === 0) return val; // Reuse existing URL
   try {
-    var bytes = Utilities.base64Decode(base64);
-    var blob  = Utilities.newBlob(bytes, 'image/png', filename);
-    var file  = folder.createFile(blob);
+    var bytes = Utilities.base64Decode(val);
+    var blob = Utilities.newBlob(bytes, 'image/png', filename);
+    var file = folder.createFile(blob);
     file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
     return 'https://drive.google.com/file/d/' + file.getId() + '/view';
   } catch (e) {
-    Logger.log('Logo upload error: ' + e.message);
     return '';
   }
 }
 
-function monthToNum_(month) {
-  var map = {
-    'JAN': 1, 'FEB': 2, 'MAR': 3, 'APR': 4,
-    'MAY': 5, 'JUN': 6, 'JUL': 7, 'AUG': 8,
-    'SEP': 9, 'OCT': 10, 'NOV': 11, 'DEC': 12
-  };
-  return map[String(month).toUpperCase()] || 1;
+function monthToNum_(m) {
+  var map = {'JAN':1,'FEB':2,'MAR':3,'APR':4,'MAY':5,'JUN':6,'JUL':7,'AUG':8,'SEP':9,'OCT':10,'NOV':11,'DEC':12};
+  return map[String(m).toUpperCase()] || 1;
 }
