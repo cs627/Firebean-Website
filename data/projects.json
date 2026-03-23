@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-03-23T15:08:13.699Z",
+  "lastSync": "2026-03-23T15:10:12.445Z",
   "projects": [
     {
       "id": "FB2017014",
@@ -727,7 +727,16 @@
       "heroPhotoSmall": "data/images/fb2025013-hero-sm.webp",
       "logoBlack": "data/images/fb2025013-logo-black.webp",
       "logoWhite": "data/images/fb2025013-logo-white.webp",
-      "galleryPhotos": [],
+      "galleryPhotos": [
+        "data/images/fb2025013-gallery-0.webp",
+        "data/images/fb2025013-gallery-1.webp",
+        "data/images/fb2025013-gallery-2.webp",
+        "data/images/fb2025013-gallery-3.webp",
+        "data/images/fb2025013-gallery-4.webp",
+        "data/images/fb2025013-gallery-5.webp",
+        "data/images/fb2025013-gallery-6.webp",
+        "data/images/fb2025013-gallery-7.webp"
+      ],
       "sortDate": "Sun Jun 01 2025 00:00:00 GMT+0800 (Hong Kong Standard Time)",
       "categories": [
         "GOVERNMENT & PUBLIC SECTOR",
@@ -1041,7 +1050,16 @@
       "heroPhotoSmall": "data/images/fb2025012-hero-sm.webp",
       "logoBlack": "data/images/fb2025012-logo-black.webp",
       "logoWhite": "data/images/fb2025012-logo-white.webp",
-      "galleryPhotos": [],
+      "galleryPhotos": [
+        "data/images/fb2025012-gallery-0.webp",
+        "data/images/fb2025012-gallery-1.webp",
+        "data/images/fb2025012-gallery-2.webp",
+        "data/images/fb2025012-gallery-3.webp",
+        "data/images/fb2025012-gallery-4.webp",
+        "data/images/fb2025012-gallery-5.webp",
+        "data/images/fb2025012-gallery-6.webp",
+        "data/images/fb2025012-gallery-7.webp"
+      ],
       "sortDate": "Mon Sep 01 2025 00:00:00 GMT+0800 (Hong Kong Standard Time)",
       "categories": [
         "GOVERNMENT & PUBLIC SECTOR",
@@ -1084,11 +1102,20 @@
       "facebook": "【你同小朋友都值得擁有嘅親子時光！🦉茶樓學堂開課啦！】\n\n你係咪都試過，想同小朋友講吓啲嚴肅啲嘅嘢，但一開口就見到佢哋個樣「放空」？特別係講到《憲法》同《基本法》呢啲，真係考起好多家長！我哋都明白，要將咁重要又抽象嘅概念，變成小朋友聽得明、玩得開心嘅嘢，真係唔容易。\n\n所以，今年我哋特別為大家準備咗「貓頭鷹茶樓」親子工作坊！想像吓，你同小朋友一齊走入一個充滿香港情懷嘅茶樓，唔係淨係飲茶食點心，而係透過超好玩嘅互動遊戲，輕鬆認識《憲法》同《基本法》！\n\n有「魚樂無窮」數碼魚缸，小朋友畫嘅魚仔會即刻游入大螢幕，仲有刺激嘅「包點三分波」小遊戲，保證玩到唔捨得走！我哋將嚴肅嘅法律知識，融入生活化又有趣嘅場景，等你哋一家大細喺歡聲笑語中，建立對社會嘅基本認識。\n\n呢個巡迴展覽將會喺2025年9月，去到多個商場同大家見面，包括樂富廣場、中環街市、長發廣場等等！快啲mark實日子，帶埋屋企人一齊嚟體驗啦！\n\n👉 立即了解更多及報名：[活動連結] #憲法基本法 #親子活動 #貓頭鷹茶樓 #家庭樂 #寓教於樂 #香港文化",
       "threads": "大家參加呢類活動最怕遇到咩伏？我哋今次特登改咗呢樣嘢👇 唔再係齋聽書，而係有得玩有得學，仲要係茶樓主題！🦉點心都變咗教材，夠晒貼地！ #憲法基本法 #親子工作坊 #貓頭鷹茶樓 #玩住學 #香港特色",
       "instagram": "🦉✨ 幕後花絮大公開！為咗「貓頭鷹茶樓」親子工作坊，我哋團隊真係絞盡腦汁！🧠💡\n\n由概念設計到場地佈置，每個細節都力求完美，希望將《憲法》同《基本法》呢啲嚴肅議題，變成小朋友最愛嘅互動體驗！🎨🐠 睇吓我哋點樣將數碼魚缸同「包點三分波」遊戲融入茶樓主題，真係好期待大家嘅反應！🤩\n\n2025年9月，多個商場見！約定你哋！💖 #憲法基本法親子工作坊 #貓頭鷹茶樓 #幕後製作 #活動籌備 #互動學習 #家庭教育 #香港活動 #創意無限 #PR策略 #EventPlanning",
-      "heroPhoto": "",
-      "heroPhotoSmall": "",
+      "heroPhoto": "data/images/fb2025017-hero.webp",
+      "heroPhotoSmall": "data/images/fb2025017-hero-sm.webp",
       "logoBlack": "data/images/fb2025017-logo-black.webp",
       "logoWhite": "data/images/fb2025017-logo-white.webp",
-      "galleryPhotos": [],
+      "galleryPhotos": [
+        "data/images/fb2025017-gallery-0.webp",
+        "data/images/fb2025017-gallery-1.webp",
+        "data/images/fb2025017-gallery-2.webp",
+        "data/images/fb2025017-gallery-3.webp",
+        "data/images/fb2025017-gallery-4.webp",
+        "data/images/fb2025017-gallery-5.webp",
+        "data/images/fb2025017-gallery-6.webp",
+        "data/images/fb2025017-gallery-7.webp"
+      ],
       "sortDate": "Mon Sep 01 2025 00:00:00 GMT+0800 (Hong Kong Standard Time)",
       "categories": [
         "GOVERNMENT & PUBLIC SECTOR",
