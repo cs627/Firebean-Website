@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-03-24T16:06:16.195Z",
+  "lastSync": "2026-03-24T16:06:52.799Z",
   "projects": [
     {
       "index": 0,
@@ -1214,7 +1214,16 @@
       "heroPhotoSmall": "data/images/fb2017008-hero-sm.webp",
       "logoBlack": "data/images/fb2017008-logo-black.webp",
       "logoWhite": "data/images/fb2017008-logo-white.webp",
-      "galleryPhotos": [],
+      "galleryPhotos": [
+        "data/images/fb2017008-gallery-0.webp",
+        "data/images/fb2017008-gallery-1.webp",
+        "data/images/fb2017008-gallery-2.webp",
+        "data/images/fb2017008-gallery-3.webp",
+        "data/images/fb2017008-gallery-4.webp",
+        "data/images/fb2017008-gallery-5.webp",
+        "data/images/fb2017008-gallery-6.webp",
+        "data/images/fb2017008-gallery-7.webp"
+      ],
       "projectId": "FB2017008",
       "sortDate": "Mon May 01 2017 00:00:00 GMT+0800 (Hong Kong Standard Time)",
       "driveFolderId": "1JaTGBZ9kaC6B70IqSma-8Rckdmt3xrMX",
