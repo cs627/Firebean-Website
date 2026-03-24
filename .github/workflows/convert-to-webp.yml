@@ -1,0 +1,55 @@
+name: Convert Images to Real WebP
+
+# Triggered after every CMS sync push that touches data/images/
+# Converts JPEG/PNG files stored with .webp extension into actual WebP format
+# This reduces file size by 25-35% vs JPEG for faster website loading
+# NOTE: This workflow ONLY touches data/images/ — it never modifies app.py or any code
+
+on:
+  push:
+    paths:
+      - 'data/images/**'
+
+jobs:
+  convert-webp:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install WebP tools
+        run: sudo apt-get install -y webp
+
+      - name: Convert JPEG/PNG files stored as .webp to real WebP
+        run: |
+          find data/images -name "*.webp" | while read f; do
+            magic=$(xxd -p -l 12 "$f" 2>/dev/null || true)
+            if echo "$magic" | grep -q "^52494646" && echo "$magic" | grep -q "57454250"; then
+              continue
+            fi
+            echo "Converting: $f"
+            if echo "$magic" | grep -q "^ffd8ff"; then
+              cwebp -q 85 "$f" -o "${f}.new.webp" 2>/dev/null && mv "${f}.new.webp" "$f" && echo "  JPEG to WebP: $f"
+            elif echo "$magic" | grep -q "^89504e47"; then
+              cwebp -lossless "$f" -o "${f}.new.webp" 2>/dev/null && mv "${f}.new.webp" "$f" && echo "  PNG to WebP lossless: $f"
+            else
+              echo "  Unknown format, skipping: $f"
+            fi
+          done
+
+      - name: Commit converted WebP files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/images/
+          if git diff --staged --quiet; then
+            echo "No images needed conversion."
+          else
+            git commit -m "auto: convert images to real WebP [skip ci]"
+            git push
+            echo "Converted images committed and pushed."
+          fi
