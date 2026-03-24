@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-03-24T22:07:37.346Z",
+  "lastSync": "2026-03-24T22:08:01.877Z",
   "projects": [
     {
       "id": "fb2026025",
@@ -1211,8 +1211,8 @@
       "faqEN": "[{\"Q1\": \"What is the theme of the Constitution and Basic Law Roving Exhibition 2018?\", \"A1\": \"The exhibition features a dynamic 'racing' theme, transforming a potentially dry civic education event into an exciting and interactive edutainment platform for families.\"}, {\"Q2\": \"What interactive elements are included in the exhibition?\", \"A2\": \"The event includes a simulated racetrack environment complete with engaging booth games and custom-designed simulated driving computer games to capture the interest of both children and adults.\"}, {\"Q3\": \"What was the primary goal of using a racing theme?\", \"A3\": \"The goal was to overcome the challenge of teaching complex legal concepts in bustling shopping malls by using a fun, engaging theme that delights children while providing an unintimidating way for adults to deepen their understanding.\"}]",
       "faqTC": "[{\"Q1\": \"2018年《憲法》和《基本法》巡迴展覽的主題是什麼？\", \"A1\": \"展覽採用了充滿動感的「賽車」主題，將原本可能枯燥的公民教育活動轉化為一個刺激且互動的家庭「寓教於樂」平台。\"}, {\"Q2\": \"展覽包含哪些互動元素？\", \"A2\": \"活動設有一個模擬賽車場景，配備了引人入勝的攤位遊戲和專門設計的模擬駕駛電腦遊戲，以吸引兒童和成年人的興趣。\"}, {\"Q3\": \"使用賽車主題的主要目標是什麼？\", \"A3\": \"目標是克服在繁忙商場中教授複雜法律概念的挑戰，透過有趣的主題讓孩子們樂在其中，同時為成年人提供一個輕鬆的方式來加深對法律原則的理解。\"}]",
       "faqJP": "[{\"Q1\": \"2018年憲法と基本法巡回展のテーマは何ですか？\", \"A1\": \"展示はダイナミックな「レーシング」をテーマにしており、退屈になりがちな市民教育イベントを、家族向けの刺激的でインタラクティブなエデュテイメントプラットフォームに変えています。\"}, {\"Q2\": \"展示にはどのようなインタラクティブな要素が含まれていますか？\", \"A2\": \"イベントには、魅力的なブースゲームや特別に設計されたシミュレーション運転コンピューターゲームを備えた模擬レーストラック環境が含まれており、子供から大人まで興味を引くようになっています。\"}, {\"Q3\": \"レーシングテーマを使用した主な目的は何ですか？\", \"A3\": \"目的は、賑やかなショッピングモールで複雑な法的概念を教えるという課題を克服することです。楽しいテーマを使用することで子供たちを喜ばせ、同時に大人が法的原則への理解を深めるための威圧感のない方法を提供します。\"}]",
-      "heroPhoto": "",
-      "heroPhotoSmall": "",
+      "heroPhoto": "data/images/fb2018034-hero.webp",
+      "heroPhotoSmall": "data/images/fb2018034-hero-sm.webp",
       "logoBlack": "data/images/fb2018034-logo-black.webp",
       "logoWhite": "data/images/fb2018034-logo-white.webp",
       "galleryPhotos": [
