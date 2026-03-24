@@ -26,40 +26,30 @@ jobs:
 
       - name: Convert JPEG/PNG files stored as .webp to real WebP
         run: |
-          converted=0
-
           find data/images -name "*.webp" | while read f; do
-            # Read magic bytes to detect actual format
             magic=$(xxd -p -l 12 "$f" 2>/dev/null || true)
-
-            # Check if already real WebP: starts with RIFF (52494646) and contains WEBP (57454250)
             if echo "$magic" | grep -q "^52494646" && echo "$magic" | grep -q "57454250"; then
-              # Already real WebP — skip
               continue
             fi
-
             echo "Converting: $f"
-
             if echo "$magic" | grep -q "^ffd8ff"; then
-              # JPEG → WebP (quality 85, good balance of size vs quality)
-              cwebp -q 85 "$f" -o "${f}.new.webp" 2>/dev/null && mv "${f}.new.webp" "$f" && echo "  ✅ JPEG → WebP: $f"
+              cwebp -q 85 "$f" -o "${f}.new.webp" 2>/dev/null && mv "${f}.new.webp" "$f" && echo "  JPEG to WebP: $f"
             elif echo "$magic" | grep -q "^89504e47"; then
-              # PNG → WebP lossless (preserves transparency for logos)
-              cwebp -lossless "$f" -o "${f}.new.webp" 2>/dev/null && mv "${f}.new.webp" "$f" && echo "  ✅ PNG → WebP lossless: $f"
+              cwebp -lossless "$f" -o "${f}.new.webp" 2>/dev/null && mv "${f}.new.webp" "$f" && echo "  PNG to WebP lossless: $f"
             else
-              echo "  ⚠️  Unknown format, skipping: $f (magic: $magic)"
+              echo "  Unknown format, skipping: $f"
             fi
           done
 
-      - name: Commit converted WebP files (if any changed)
+      - name: Commit converted WebP files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/images/
           if git diff --staged --quiet; then
-            echo "No images needed conversion — all already real WebP."
+            echo "No images needed conversion."
           else
             git commit -m "auto: convert images to real WebP [skip ci]"
             git push
-            echo "✅ Converted images committed and pushed."
+            echo "Converted images committed and pushed."
           fi
