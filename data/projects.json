@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-03-24T22:09:06.659Z",
+  "lastSync": "2026-03-24T22:09:29.152Z",
   "projects": [
     {
       "id": "fb2026025",
@@ -1123,7 +1123,16 @@
       "heroPhotoSmall": "data/images/fb2018408-hero-sm.webp",
       "logoBlack": "data/images/fb2018408-logo-black.webp",
       "logoWhite": "data/images/fb2018408-logo-white.webp",
-      "galleryPhotos": [],
+      "galleryPhotos": [
+        "data/images/fb2018408-gallery-0.webp",
+        "data/images/fb2018408-gallery-1.webp",
+        "data/images/fb2018408-gallery-2.webp",
+        "data/images/fb2018408-gallery-3.webp",
+        "data/images/fb2018408-gallery-4.webp",
+        "data/images/fb2018408-gallery-5.webp",
+        "data/images/fb2018408-gallery-6.webp",
+        "data/images/fb2018408-gallery-7.webp"
+      ],
       "projectId": "FB2018408",
       "sortDate": "2018-06-01",
       "driveFolderId": "1E0GJws0h9zJdDVw3Hih0hqzwIv2lVynp",
