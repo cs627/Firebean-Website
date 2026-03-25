@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-03-25T09:40:15.141Z",
+  "lastSync": "2026-03-25T09:43:32.238Z",
   "projects": [
     {
       "id": "fb2026025",
@@ -287,8 +287,8 @@
       "faqEN": "[\n  {\n    \"Q1\": \"What was the primary focus of the One Earth Summit 2025?\",\n    \"A1\": \"The summit primarily focused on driving systemic change towards a sustainable future through impact investment and technological innovation, addressing global challenges like population growth.\"\n  },\n  {\n    \"Q2\": \"How many influential leaders participated?\",\n    \"A2\": \"Over 300 influential leaders and change-makers from finance, startups, foundations, media, civil society, and academia from around the world attended.\"\n  },\n  {\n    \"Q3\": \"What role did Hong Kong play in the summit's narrative?\",\n    \"A3\": \"Hong Kong was prominently featured as an international financial center and a leader in green finance, showcasing its initiatives in bridging green funding gaps and fostering green technology development.\"\n  },\n  {\n    \"Q4\": \"Who were some key speakers at the event?\",\n    \"A4\": \"Key speakers included Mr Paul Chan Mo-po (Financial Secretary, HKSAR), Professor Poman Lo (Chair of One Earth Summit Board of Advisory), Mr Rob Van Riet (World Economic Forum), and Mrs Amy Lo (UBS).\"\n  }\n]",
       "faqTC": "[\n  {\n    \"Q1\": \"「地球峰會2025」的主要焦點是什麼？\",\n    \"A1\": \"峰會主要聚焦於透過影響力投資與科技創新，推動邁向永續未來的系統性變革，以應對全球人口增長等挑戰。\"\n  },\n  {\n    \"Q2\": \"有多少位具影響力領袖參與了此次峰會？\",\n    \"A2\": \"超過300位來自全球金融、科技新創、基金會、媒體、公民社會組織和學術界的具影響力領袖和變革者出席。\"\n  },\n  {\n    \"Q3\": \"香港在峰會中扮演了什麼角色？\",\n    \"A3\": \"香港被突出定位為國際金融中心和綠色金融的領導者，展示其在彌合綠色資金缺口和推動綠色科技發展方面的舉措。\"\n  },\n  {\n    \"Q4\": \"活動中有哪些主要發言嘉賓？\",\n    \"A4\": \"主要發言嘉賓包括香港特別行政區政府財政司司長陳茂波先生、地球峰會顧問委員會主席羅寶文教授、世界經濟論壇高級特別顧問Rob Van Riet先生，以及瑞銀香港區主管兼財富管理大中華區主管盧彩雲女士。\"\n  }\n]",
       "faqJP": "[\n  {\n    \"Q1\": \"ワンアースサミット2025の主な焦点は何でしたか？\",\n    \"A1\": \"サミットは主に、インパクト投資と技術革新を通じて持続可能な未来に向けた体系的な変化を推進し、世界の人口増加などの課題に対処することに焦点を当てました。\"\n  },\n  {\n    \"Q2\": \"何人の影響力のあるリーダーが参加しましたか？\",\n    \"A2\": \"金融、スタートアップ、財団、メディア、市民社会組織、学術界など、世界中から300人以上の影響力のあるリーダーと変革者が参加しました。\"\n  },\n  {\n    \"Q3\": \"香港はサミットの物語の中でどのような役割を担いましたか？\",\n    \"A3\": \"香港は国際金融センターおよびグリーンファイナンスのリーダーとして大々的に取り上げられ、グリーン資金のギャップを埋め、グリーンテクノロジー開発を促進するための取り組みが紹介されました。\"\n  },\n  {\n    \"Q4\": \"イベントでの主な講演者は誰でしたか？\",\n    \"A4\": \"主な講演者には、香港特別行政区政府財政司司長のポール・チャン・モポ氏、ワンアースサミット諮問委員会委員長のポマン・ロー教授、世界経済フォーラム上級特別顧問のロブ・ヴァン・リエット氏、UBS香港のヘッド兼ウェルス・マネジメント大中華圏ヘッドのエイミー・ロー氏などがいました。\"\n  }\n]",
-      "heroPhoto": "data/images/fb2025840-hero.webp",
-      "heroPhotoSmall": "data/images/fb2025840-hero-sm.webp",
+      "heroPhoto": "",
+      "heroPhotoSmall": "",
       "logoBlack": "data/images/fb2025840-logo-black.webp",
       "logoWhite": "data/images/fb2025840-logo-white.webp",
       "galleryPhotos": [
