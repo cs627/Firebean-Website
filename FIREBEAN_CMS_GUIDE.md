@@ -1,6 +1,6 @@
 # Firebean CMS — Complete Technical Guide
 
-> **Version:** 3.2 | **Last updated:** 2026-03-14
+> **Version:** 3.3 | **Last updated:** 2026-03-25
 > **Purpose:** Full system documentation so any AI or developer can pick up, modify, and extend the Firebean website CMS.
 
 ---
@@ -234,7 +234,7 @@ Staff-facing web app for creating new project entries. Streamlit Cloud hosts it.
 
 ```python
 SHEET_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzaQu2KpJ06I0yWL4dEwk0naB1FOlHkt7Ta340xH84IDwQI7jQNUI3eSmxrwKyQHNj5/exec"
-SLIDE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyZvtm8M8a5sLYF3vz9kLyAdimzzwpSlnTkzIeQ3DJxkklNYNlwSoJc5j5CkorM6w5V/exec"
+SLIDE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzuEx7UHYJuUBf0YQgNU5vwLXmwsaSrtJBB6atOJ6REH52wQRlBvxk5O92sy3t4kJeE/exec"  # v1 deployed 2026-03-25
 STABLE_MODEL_ID = "gemini-2.5-flash"
 ```
 
