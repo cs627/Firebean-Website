@@ -715,8 +715,8 @@
             <div class="overflow-hidden pt-[2vw] -mt-[2vw] pb-[4vw] -mb-[4vw] px-[4vw] md:-mx-[4vw] relative z-30"><span class="hero-line block" data-key="Index.Hero.Line1">A</span></div>
             
             <!-- Polaroid 1 (Mobile: Absolute positioned, smaller and better placed) -->
-            <div class="block md:hidden w-[28vw] absolute top-[2vw] right-[5vw] z-20 pointer-events-none polaroid-flow-in" style="--polaroid-rotate:6deg">
-               <div class="relative w-full bg-white pt-1 px-1 pb-4 shadow-xl transform rotate-[6deg] transition-transform duration-500">
+            <div class="block md:hidden w-[28vw] absolute top-[2vw] right-[5vw] z-20 pointer-events-none polaroid-flow-in" style="--polaroid-rotate:6deg; perspective: 800px;">
+               <div id="polaroid-frame-1-mobile" class="relative w-full bg-white pt-1 px-1 pb-4 shadow-xl" style="transform: perspective(800px) rotateY(6deg) rotateX(-3deg); transform-origin: center center; will-change: transform; backface-visibility: hidden;">
                  <div class="w-full aspect-square bg-gray-200 overflow-hidden relative">
                    <img src="https://picsum.photos/seed/event1/600/600" class="polaroid-img-1 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Event" data-key="Index.Hero.PolaroidAlt" referrerpolicy="no-referrer">
                    <img src="https://picsum.photos/seed/event2/600/600" class="polaroid-img-1 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Event" data-key="Index.Hero.PolaroidAlt" referrerpolicy="no-referrer">
@@ -744,8 +744,8 @@
             <div class="overflow-hidden pt-[2vw] -mt-[2vw] pb-[4vw] -mb-[4vw] px-[4vw] md:-mx-[4vw] relative z-30"><span class="hero-line block" data-key="Index.Hero.Line3">DRIVEN</span></div>
             
             <!-- Polaroid 2 (Mobile: Absolute positioned, smaller and better placed) -->
-            <div class="block md:hidden w-[28vw] absolute bottom-[-5vw] left-[2vw] z-20 pointer-events-none polaroid-flow-in" style="--polaroid-rotate:-4deg">
-               <div class="relative w-full bg-white pt-1 px-1 pb-4 shadow-xl transform rotate-[-4deg] transition-transform duration-500">
+            <div class="block md:hidden w-[28vw] absolute bottom-[-5vw] left-[2vw] z-20 pointer-events-none polaroid-flow-in" style="--polaroid-rotate:-4deg; perspective: 800px;">
+               <div id="polaroid-frame-2-mobile" class="relative w-full bg-white pt-1 px-1 pb-4 shadow-xl" style="transform: perspective(800px) rotateY(-4deg) rotateX(2deg); transform-origin: center center; will-change: transform; backface-visibility: hidden;">
                  <div class="w-full aspect-square bg-gray-200 overflow-hidden relative">
                    <img src="https://picsum.photos/seed/event3/600/600" class="polaroid-img-2 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Event" data-key="Index.Hero.PolaroidAlt" referrerpolicy="no-referrer">
                    <img src="https://picsum.photos/seed/event4/600/600" class="polaroid-img-2 absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Event" data-key="Index.Hero.PolaroidAlt" referrerpolicy="no-referrer">
@@ -1778,51 +1778,81 @@
       // ===== POLAROID: Scroll-velocity-driven flip + 3s random photo slideshow =====
       (function() {
         // Target the inner white frame divs directly (avoids conflict with wrapper animations)
+        // Desktop frames
         var frame1 = null;
         var frame2 = null;
+        // Mobile frames (separate DOM instances for mobile breakpoint)
+        var frame1m = null;
+        var frame2m = null;
 
-        // Wait for DOM to settle, then grab frames
+        // Wait for DOM to settle, then grab all frames
         function initFrames() {
-          frame1 = document.getElementById('polaroid-frame-1');
-          frame2 = document.getElementById('polaroid-frame-2');
-          if (!frame1 || !frame2) { setTimeout(initFrames, 100); return; }
-          // Set perspective on parent wrapper for 3D context
+          frame1  = document.getElementById('polaroid-frame-1');
+          frame2  = document.getElementById('polaroid-frame-2');
+          frame1m = document.getElementById('polaroid-frame-1-mobile');
+          frame2m = document.getElementById('polaroid-frame-2-mobile');
+          if (!frame1 || !frame2 || !frame1m || !frame2m) { setTimeout(initFrames, 100); return; }
+          // Set perspective on parent wrapper for 3D context (desktop)
           if (frame1.parentElement) frame1.parentElement.style.perspective = '800px';
           if (frame2.parentElement) frame2.parentElement.style.perspective = '800px';
           frame1.style.willChange = 'transform';
           frame2.style.willChange = 'transform';
+          // Mobile frames already have perspective + will-change set inline; reinforce here
+          frame1m.style.willChange = 'transform';
+          frame2m.style.willChange = 'transform';
           startFlip();
         }
         initFrames();
 
         // Scroll-velocity driven flip
         // rotY accumulates based on scroll delta, decays slowly when not scrolling
-        var rotY1 = -6;  // start at natural tilt angle
-        var rotY2 = 4;   // start at natural tilt angle
-        var targetRotY1 = -6;
-        var targetRotY2 = 4;
+        var rotY1 = -6;  // start at natural tilt angle (desktop)
+        var rotY2 = 4;   // start at natural tilt angle (desktop)
+        var rotY1m = 6;  // start at natural tilt angle (mobile — mirrored)
+        var rotY2m = -4; // start at natural tilt angle (mobile — mirrored)
+        var targetRotY1  = -6;
+        var targetRotY2  = 4;
+        var targetRotY1m = 6;
+        var targetRotY2m = -4;
         var lastScrollY = window.scrollY;
         var maxRot = 45;
+
+        // Expose mobile targets to window so the touch-swipe handler below can boost them
+        window._polaroidMobileTargets = { rotY1m: targetRotY1m, rotY2m: targetRotY2m };
 
         window.addEventListener('scroll', function() {
           var delta = window.scrollY - lastScrollY;
           lastScrollY = window.scrollY;
-          // Scroll down: flip left-to-right (positive rotY)
-          // Polaroid 1: rotates right when scrolling down
-          targetRotY1 = Math.min(maxRot, Math.max(-maxRot, targetRotY1 + delta * 0.4));
-          // Polaroid 2: rotates left when scrolling down (opposite direction)
-          targetRotY2 = Math.min(maxRot, Math.max(-maxRot, targetRotY2 - delta * 0.3));
+          // Desktop: Polaroid 1 rotates right (+), Polaroid 2 rotates left (−) on scroll down
+          targetRotY1  = Math.min(maxRot, Math.max(-maxRot, targetRotY1  + delta * 0.4));
+          targetRotY2  = Math.min(maxRot, Math.max(-maxRot, targetRotY2  - delta * 0.3));
+          // Mobile: same direction logic, same multipliers
+          targetRotY1m = Math.min(maxRot, Math.max(-maxRot, targetRotY1m + delta * 0.4));
+          targetRotY2m = Math.min(maxRot, Math.max(-maxRot, targetRotY2m - delta * 0.3));
+          // Keep window ref in sync
+          window._polaroidMobileTargets.rotY1m = targetRotY1m;
+          window._polaroidMobileTargets.rotY2m = targetRotY2m;
         }, { passive: true });
 
         function startFlip() {
           function tick() {
-            if (!frame1 || !frame2) { requestAnimationFrame(tick); return; }
-            // Lerp toward target (smooth but keeps position when stopped)
-            rotY1 += (targetRotY1 - rotY1) * 0.08;
-            rotY2 += (targetRotY2 - rotY2) * 0.08;
-            // Apply: combine base tilt with scroll-driven rotateY
-            frame1.style.transform = 'perspective(800px) rotateY(' + rotY1 + 'deg) rotateX(-3deg)';
-            frame2.style.transform = 'perspective(800px) rotateY(' + rotY2 + 'deg) rotateX(2deg)';
+            if (!frame1 || !frame2 || !frame1m || !frame2m) { requestAnimationFrame(tick); return; }
+            // Sync targetRotY1m/2m from window ref (touch handler writes there)
+            if (window._polaroidMobileTargets) {
+              targetRotY1m = window._polaroidMobileTargets.rotY1m;
+              targetRotY2m = window._polaroidMobileTargets.rotY2m;
+            }
+            // Lerp toward target — smooth inertia, holds when scrolling stops
+            rotY1  += (targetRotY1  - rotY1)  * 0.08;
+            rotY2  += (targetRotY2  - rotY2)  * 0.08;
+            rotY1m += (targetRotY1m - rotY1m) * 0.08;
+            rotY2m += (targetRotY2m - rotY2m) * 0.08;
+            // Apply to desktop frames
+            frame1.style.transform  = 'perspective(800px) rotateY(' + rotY1  + 'deg) rotateX(-3deg)';
+            frame2.style.transform  = 'perspective(800px) rotateY(' + rotY2  + 'deg) rotateX(2deg)';
+            // Apply to mobile frames — same 3D effect, same feel
+            frame1m.style.transform = 'perspective(800px) rotateY(' + rotY1m + 'deg) rotateX(-3deg)';
+            frame2m.style.transform = 'perspective(800px) rotateY(' + rotY2m + 'deg) rotateX(2deg)';
             requestAnimationFrame(tick);
           }
           requestAnimationFrame(tick);
@@ -1864,15 +1894,18 @@
             setTimeout(startSlideshow, 300);
             return;
           }
-          // Wait for frames to be ready
-          if (!frame1 || !frame2) {
+          // Wait for all frames (desktop + mobile) to be ready
+          if (!frame1 || !frame2 || !frame1m || !frame2m) {
             setTimeout(startSlideshow, 300);
             return;
           }
 
-          // Get the single visible img in each frame
-          var img1el = frame1.querySelector('.polaroid-img-1');
-          var img2el = frame2.querySelector('.polaroid-img-2');
+          // Get the single visible img in each desktop frame
+          var img1el  = frame1.querySelector('.polaroid-img-1');
+          var img2el  = frame2.querySelector('.polaroid-img-2');
+          // Get the single visible img in each mobile frame
+          var img1mel = frame1m.querySelector('.polaroid-img-1');
+          var img2mel = frame2m.querySelector('.polaroid-img-2');
 
           // Hide the second (duplicate) img elements — only use first
           frame1.querySelectorAll('.polaroid-img-1').forEach(function(img, i) {
@@ -1881,22 +1914,32 @@
           frame2.querySelectorAll('.polaroid-img-2').forEach(function(img, i) {
             if (i > 0) img.style.display = 'none';
           });
+          frame1m.querySelectorAll('.polaroid-img-1').forEach(function(img, i) {
+            if (i > 0) img.style.display = 'none';
+          });
+          frame2m.querySelectorAll('.polaroid-img-2').forEach(function(img, i) {
+            if (i > 0) img.style.display = 'none';
+          });
 
           // Set initial images from pool
-          if (img1el && polaroidImages[idx1]) img1el.src = polaroidImages[idx1];
-          if (img2el && polaroidImages[idx2]) img2el.src = polaroidImages[idx2];
+          if (img1el  && polaroidImages[idx1]) img1el.src  = polaroidImages[idx1];
+          if (img2el  && polaroidImages[idx2]) img2el.src  = polaroidImages[idx2];
+          if (img1mel && polaroidImages[idx1]) img1mel.src = polaroidImages[idx1];
+          if (img2mel && polaroidImages[idx2]) img2mel.src = polaroidImages[idx2];
 
-          // Polaroid 1 cycles every 3s
+          // Polaroid 1 cycles every 3s (desktop + mobile in sync)
           setInterval(function() {
             idx1 = getUniqueNext(idx1, idx2, polaroidImages);
-            fadeSwap(img1el, polaroidImages[idx1]);
+            fadeSwap(img1el,  polaroidImages[idx1]);
+            fadeSwap(img1mel, polaroidImages[idx1]);
           }, 3000);
 
-          // Polaroid 2 cycles every 3s, staggered by 1.5s
+          // Polaroid 2 cycles every 3s, staggered by 1.5s (desktop + mobile in sync)
           setTimeout(function() {
             setInterval(function() {
               idx2 = getUniqueNext(idx2, idx1, polaroidImages);
-              fadeSwap(img2el, polaroidImages[idx2]);
+              fadeSwap(img2el,  polaroidImages[idx2]);
+              fadeSwap(img2mel, polaroidImages[idx2]);
             }, 3000);
           }, 1500);
         }
@@ -1919,6 +1962,42 @@
             setTimeout(function() { container.classList.add('animate-in'); }, 1200);
           }
         });
+      })();
+
+      // === Mobile Touch-Swipe Enhancement for Polaroid 3D Flip ===
+      // On mobile, touch scroll fires the window scroll event via Lenis, so the main
+      // scroll listener already handles it. This block adds extra touch-velocity boost
+      // for a more dramatic, tactile 3D flip feel on mobile devices.
+      (function() {
+        var touchStartY = 0;
+        var lastTouchY  = 0;
+        var touchActive = false;
+
+        document.addEventListener('touchstart', function(e) {
+          touchStartY = e.touches[0].clientY;
+          lastTouchY  = touchStartY;
+          touchActive = true;
+        }, { passive: true });
+
+        document.addEventListener('touchmove', function(e) {
+          if (!touchActive) return;
+          var currentY = e.touches[0].clientY;
+          var delta    = lastTouchY - currentY; // positive = scrolling down
+          lastTouchY   = currentY;
+          // Boost the mobile targets with a slightly higher multiplier for dramatic feel
+          // The POLAROID IIFE exposes its targetRotY1m/2m via window._polaroidMobileTargets
+          if (window._polaroidMobileTargets) {
+            var t      = window._polaroidMobileTargets;
+            var maxRot = 45;
+            // Write back so the rAF tick loop picks up the updated targets
+            t.rotY1m = Math.min(maxRot, Math.max(-maxRot, t.rotY1m + delta * 0.5));
+            t.rotY2m = Math.min(maxRot, Math.max(-maxRot, t.rotY2m - delta * 0.4));
+          }
+        }, { passive: true });
+
+        document.addEventListener('touchend', function() {
+          touchActive = false;
+        }, { passive: true });
       })();
 
       // === Curtain Reveal Animation for Big Titles on Scroll ===

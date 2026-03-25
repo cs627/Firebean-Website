@@ -1,7 +1,7 @@
 # Firebean Website — Developer Skill List
 
-**Version**: v1.2
-**Last Updated**: 2026-03-15
+**Version**: v1.3
+**Last Updated**: 2026-03-25
 **Maintained by**: Development Team + Manus AI
 
 > This document is automatically updated after every code change or problem-solving session. It is the single source of truth for all development patterns, known pitfalls, and architectural decisions for the Firebean Agency Website.
@@ -15,6 +15,7 @@
 | v1.0 | 2026-03-14 | Initial skill list created from Google Doc guidelines and session history |
 | v1.1 | 2026-03-15 | Added Polaroid flip fix (inner frame targeting), 3-logo parallax system, domain migration plan |
 | v1.2 | 2026-03-15 | Added Polaroid slideshow fix (single-image fade-swap), live-update workflow established |
+| v1.3 | 2026-03-25 | Extended Polaroid 3D scroll flip to mobile; added touch-swipe velocity boost; fixed Tailwind rotate conflict on mobile frames |
 
 ---
 
@@ -85,7 +86,12 @@ Three independent logo layers create a depth illusion across the Work section (`
 
 The two Polaroid frames on the homepage combine two independent animations that must not interfere with each other.
 
-**Flip Animation**: Targets the inner white frame `div` directly via `id="polaroid-frame-1"` and `id="polaroid-frame-2"`. This bypasses the outer `.polaroid-flow-in` wrapper which is controlled by GSAP entrance animations. Driven by scroll event delta. Polaroid 1 rotates right (+rotateY) on scroll down; Polaroid 2 rotates left (−rotateY). Max ±45°. Holds position when scrolling stops.
+**Flip Animation**: Targets the inner white frame `div` directly via `id="polaroid-frame-1"` and `id="polaroid-frame-2"` (desktop), and `id="polaroid-frame-1-mobile"` and `id="polaroid-frame-2-mobile"` (mobile). This bypasses the outer `.polaroid-flow-in` wrapper which is controlled by GSAP entrance animations. Driven by scroll event delta. Polaroid 1 rotates right (+rotateY) on scroll down; Polaroid 2 rotates left (−rotateY). Max ±45°. Holds position when scrolling stops. Mobile frames also receive a touch-velocity boost via a `touchmove` listener that writes to `window._polaroidMobileTargets`, which the rAF tick loop reads on every frame.
+
+**Mobile-Specific Rules**:
+- Mobile frames must NOT have Tailwind rotate classes (e.g., `rotate-[6deg]`). These conflict with JS `element.style.transform` writes. Apply base rotation via the inline `style` attribute as `perspective(800px) rotateY(Xdeg) rotateX(Ydeg)` instead.
+- Mobile frames must have `backface-visibility: hidden` and `will-change: transform` set inline.
+- The outer wrapper must have `perspective: 800px` set inline (not via Tailwind) for 3D context.
 
 **Photo Slideshow**: Uses a single `<img>` element per frame (not dual-layer). The swap sequence is: fade out (0.7s) → swap `src` → fade in. Dual-layer (`img0`/`img1`) swapping was tested and abandoned because async initialization timing caused one layer's opacity to get permanently locked at 0.
 
@@ -124,6 +130,8 @@ All visual changes must conform to the established brand system. Do not introduc
 | Tailwind transform conflict | JS animation runs but element doesn't move | Remove Tailwind transform class; apply base value in JS |
 | `overflow:hidden` clips sticky/pin | Logo/element disappears at section bottom | Use rAF + `translateY` instead of CSS sticky or GSAP pin |
 | Dual DOM only selects one | Animation works on desktop but not mobile (or vice versa) | Use `querySelectorAll` or unique `id` |
+| Mobile Tailwind rotate conflict | Mobile Polaroid 3D flip invisible despite JS running | Remove `rotate-[Xdeg]` Tailwind class; apply base rotation in inline `style` as `perspective(800px) rotateY(Xdeg) rotateX(Ydeg)` |
+| Touch scroll not boosting mobile flip | Mobile flip feels sluggish compared to desktop | Add `touchmove` listener writing to `window._polaroidMobileTargets`; rAF tick reads from it each frame |
 | Dual-layer slideshow opacity lock | One Polaroid photo permanently invisible | Use single-image fade-swap pattern |
 | `querySelector` returns null on async init | Slideshow never starts | Add `setTimeout` retry loop; check element exists before proceeding |
 | `base href` breaks local paths | Images/JS/CSS 404 on local server | Serve from parent directory of `Firebean-Website/`, not from inside it |
