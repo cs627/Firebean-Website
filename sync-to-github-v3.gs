@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * FIREBEAN CMS → GITHUB SYNC PIPELINE  v3.2
+ * FIREBEAN CMS → GITHUB SYNC PIPELINE  v3.2 (reference copy — live script is v7.5 in Apps Script)
  * ============================================================
  * 
  * Reads project data from the Firebean Master DB Google Sheet,
