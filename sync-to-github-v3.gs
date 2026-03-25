@@ -1,12 +1,19 @@
 /**
  * ============================================================
- * FIREBEAN CMS → GITHUB SYNC PIPELINE  v3.1
+ * FIREBEAN CMS → GITHUB SYNC PIPELINE  v3.2
  * ============================================================
  * 
  * Reads project data from the Firebean Master DB Google Sheet,
  * downloads images from Google Drive, converts them to WebP
  * (where possible), and pushes everything to GitHub in a
  * single commit using the Git Tree API.
+ *
+ * v3.2 CHANGES:
+ *   - FIX: Hero Photo Picker fallback — if column W (Hero Photo) is
+ *     empty or contains a non-URL value (e.g. a number like "4"),
+ *     the script now automatically uses the FIRST gallery photo from
+ *     the Drive folder as the hero banner instead of leaving it blank.
+ *     This prevents the broken image on the profile page.
  *
  * v3.1 CHANGES:
  *   - NEW: "Re-sync Images for Selected Row" menu button
@@ -373,7 +380,7 @@ function doSync(changedOnly) {
       );
       Logger.log('Syncing images for row ' + (i + 1) + ': ' + projectName);
 
-      // Download hero
+      // Download hero (if a valid Drive URL was provided)
       if (heroFileId) {
         pushIfChanged_(imagesToPush, existingHashes, newHashes,
           heroPath, heroFileId, CONFIG.HERO_WIDTH);
@@ -405,6 +412,7 @@ function doSync(changedOnly) {
 
     // ── Gallery photos from Drive folder ──
     var galleryPhotos = [];
+    var fallbackHeroFileId = '';  // v3.2: used if column W has no valid URL
     if (driveFolderId) {
       if (needsImageSync) {
         // Full sync — list Drive folder and check each image
@@ -443,6 +451,8 @@ function doSync(changedOnly) {
             galleryPhotos.push(galleryPath);
             pushIfChanged_(imagesToPush, existingHashes, newHashes,
               galleryPath, photoFiles[g].id, CONFIG.GALLERY_WIDTH);
+            // v3.2: capture first gallery file as fallback hero source
+            if (g === 0) fallbackHeroFileId = photoFiles[g].id;
           }
         } catch (e) {
           Logger.log('Error accessing Drive folder for ' + projectName + ': ' + e.message);
@@ -461,6 +471,25 @@ function doSync(changedOnly) {
             break;
           }
         }
+      }
+    }
+
+    // ── v3.2: Hero Photo Picker fallback ──
+    // If column W had no valid Drive URL (heroFileId is empty),
+    // fall back to the first gallery photo as the hero banner.
+    if (!heroFileId && fallbackHeroFileId) {
+      heroPath    = CONFIG.IMAGES_PATH + '/' + pid + '-hero.webp';
+      heroSmPath  = CONFIG.IMAGES_PATH + '/' + pid + '-hero-sm.webp';
+      Logger.log('  [FALLBACK HERO] ' + projectName + ': using first gallery photo as hero');
+      if (needsImageSync) {
+        pushIfChanged_(imagesToPush, existingHashes, newHashes,
+          heroPath, fallbackHeroFileId, CONFIG.HERO_WIDTH);
+        pushIfChanged_(imagesToPush, existingHashes, newHashes,
+          heroSmPath, fallbackHeroFileId, CONFIG.HERO_SM_WIDTH);
+      } else {
+        // Text-only or already synced — carry forward existing hashes if present
+        if (existingHashes[heroPath])   newHashes[heroPath]   = existingHashes[heroPath];
+        if (existingHashes[heroSmPath]) newHashes[heroSmPath] = existingHashes[heroSmPath];
       }
     }
 

@@ -594,7 +594,13 @@
       document.getElementById('profile-subtitle').textContent = project.client ? project.client + (project.venue ? ' — ' + project.venue : '') : '';
       
       var heroEl = document.getElementById('profile-hero');
-      if (project.heroPhoto) { heroEl.src = project.heroPhoto; heroEl.alt = project.project; }
+      if (project.heroPhoto) {
+        // v3.2 fix: initialise hero to invisible before setting src,
+        // so the fade-in animation always fires correctly regardless of cache state
+        gsap.set(heroEl, { opacity: 0, scale: 1.05 });
+        heroEl.alt = project.project;
+        heroEl.src = project.heroPhoto;
+      }
 
       // Category rendering
       const categoriesEl = document.getElementById('profile-categories');
@@ -945,9 +951,15 @@
       });
 
       // Animations
-      if (heroEl) {
-        heroEl.onload = () => gsap.to(heroEl, { scale: 1, opacity: 1, duration: 1.4 });
-        if (heroEl.complete) gsap.to(heroEl, { scale: 1, opacity: 1, duration: 1.4 });
+      if (heroEl && project.heroPhoto) {
+        // v3.2 fix: use both onload and naturalWidth check for cached images
+        heroEl.onload = function() {
+          gsap.to(heroEl, { scale: 1, opacity: 1, duration: 1.4, ease: 'power2.out' });
+        };
+        // If already cached (complete + has real dimensions), animate immediately
+        if (heroEl.complete && heroEl.naturalWidth > 0) {
+          gsap.to(heroEl, { scale: 1, opacity: 1, duration: 1.4, ease: 'power2.out' });
+        }
       }
       ScrollTrigger.refresh();
     }
