@@ -1557,36 +1557,45 @@
         });
       }
 
-      // Flip animation every 5 seconds
-      setInterval(() => {
+      // Flip animation — started AFTER CMS logos are loaded (see startLogoFlip below)
+      let logoFlipInterval = null;
+      function startLogoFlip() {
+        if (logoFlipInterval) return; // already started
+        // Ensure all flippers have transition set
         slots.forEach(slot => {
           const flipper = slot.querySelector('.flipper');
-          const type = slot.dataset.type;
-          const pool = type === 'lifestyle' ? lifestyleLogos : govLogos;
-          if (!pool.length) return;
-          const randomLogo = pool[Math.floor(Math.random() * pool.length)];
-
-          var logoSrc = getLogoSrc(randomLogo);
-          if (!isFlipped) {
-            const backImg = slot.querySelector('.back-img');
-            if (backImg) { backImg.referrerPolicy = 'no-referrer'; backImg.src = logoSrc; }
-            slot.dataset.desc = randomLogo.desc;
-            slot.dataset.currentSrc = randomLogo.src;
-            slot.dataset.currentSrcWhite = randomLogo.srcWhite || '';
-            slot.dataset.projectId = randomLogo.projectId || '';
-            flipper.style.transform = 'rotateX(180deg)';
-          } else {
-            const frontImg = slot.querySelector('.front-img');
-            if (frontImg) { frontImg.referrerPolicy = 'no-referrer'; frontImg.src = logoSrc; }
-            slot.dataset.desc = randomLogo.desc;
-            slot.dataset.currentSrc = randomLogo.src;
-            slot.dataset.currentSrcWhite = randomLogo.srcWhite || '';
-            slot.dataset.projectId = randomLogo.projectId || '';
-            flipper.style.transform = 'rotateX(0deg)';
-          }
+          if (flipper) flipper.style.transition = 'transform 0.7s cubic-bezier(0.4,0.0,0.2,1)';
         });
-        isFlipped = !isFlipped;
-      }, 5000);
+        logoFlipInterval = setInterval(() => {
+          slots.forEach(slot => {
+            const flipper = slot.querySelector('.flipper');
+            if (!flipper) return;
+            const type = slot.dataset.type;
+            const pool = type === 'lifestyle' ? lifestyleLogos : govLogos;
+            if (!pool.length) return;
+            const randomLogo = pool[Math.floor(Math.random() * pool.length)];
+            const logoSrc = getLogoSrc(randomLogo);
+            if (!isFlipped) {
+              const backImg = slot.querySelector('.back-img');
+              if (backImg) { backImg.referrerPolicy = 'no-referrer'; backImg.src = logoSrc; }
+              slot.dataset.desc = randomLogo.desc;
+              slot.dataset.currentSrc = randomLogo.src;
+              slot.dataset.currentSrcWhite = randomLogo.srcWhite || '';
+              slot.dataset.projectId = randomLogo.projectId || '';
+              flipper.style.transform = 'rotateX(180deg)';
+            } else {
+              const frontImg = slot.querySelector('.front-img');
+              if (frontImg) { frontImg.referrerPolicy = 'no-referrer'; frontImg.src = logoSrc; }
+              slot.dataset.desc = randomLogo.desc;
+              slot.dataset.currentSrc = randomLogo.src;
+              slot.dataset.currentSrcWhite = randomLogo.srcWhite || '';
+              slot.dataset.projectId = randomLogo.projectId || '';
+              flipper.style.transform = 'rotateX(0deg)';
+            }
+          });
+          isFlipped = !isFlipped;
+        }, 3000);
+      }
 
       // Modal Logic
       const clientModal = document.getElementById('client-modal');
@@ -2453,6 +2462,8 @@
           var frontImg = slot.querySelector('.front-img');
           if (frontImg) { frontImg.referrerPolicy = 'no-referrer'; frontImg.src = getLogoSrc(logoData); }
         });
+        // NOW start the flip animation (logos are loaded)
+        startLogoFlip();
       }
 
       // Swap all visible client logos between black/white on dark mode toggle
