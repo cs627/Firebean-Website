@@ -53,6 +53,16 @@
           } else {
             projects[i].filterSlugs = [];
           }
+          
+          // Determine logo category (lifestyle or government) based on categories array
+          var logoCategory = 'lifestyle'; // default
+          if (projects[i].categories && projects[i].categories.length) {
+            var catStr = projects[i].categories.join(' ').toLowerCase();
+            if (catStr.indexOf('government') !== -1 || catStr.indexOf('public') !== -1) {
+              logoCategory = 'government';
+            }
+          }
+          projects[i].logoCategory = logoCategory;
         }
 
         window.cmsData = {
