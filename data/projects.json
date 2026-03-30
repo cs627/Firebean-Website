@@ -1,3 +1,10 @@
 {
-  "projects": []
+  "projects": [
+    {
+      "id": "fb2025999",
+      "client": "公務員事務局",
+      "project": "5S良好工作場所整理 巡迴展覽",
+      "heroPhoto": "data/images/fb2025999-hero.webp"
+    }
+  ]
 }
