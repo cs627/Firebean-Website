@@ -46,9 +46,48 @@
           }
           
           // Generate filterSlugs from categories for work.html filtering
+          // Map Google Sheet category names to work.html filter button values
+          var categoryMapping = {
+            'government': 'government',
+            'public': 'government',
+            'public sector': 'government',
+            'lifestyle': 'lifestyle',
+            'consumer': 'lifestyle',
+            'lifestyle & consumer': 'lifestyle',
+            'f&b': 'hospitality',
+            'hospitality': 'hospitality',
+            'f&b & hospitality': 'hospitality',
+            'malls': 'venues',
+            'venues': 'venues',
+            'malls & venues': 'venues',
+            'exhibitions': 'exhibitions',
+            'roving exhibitions': 'exhibitions',
+            'social': 'social',
+            'content': 'social',
+            'social & content': 'social',
+            'social media': 'social',
+            'interactive': 'tech',
+            'tech': 'tech',
+            'technology': 'tech',
+            'interactive & tech': 'tech',
+            'pr': 'pr',
+            'media': 'pr',
+            'pr & media': 'pr',
+            'pr consulting': 'pr',
+            'media relations': 'pr',
+            'events': 'events',
+            'ceremonies': 'events',
+            'events & ceremonies': 'events',
+            'event planning': 'events',
+            'event production': 'events'
+          };
+          
           if (projects[i].categories && projects[i].categories.length) {
             projects[i].filterSlugs = projects[i].categories.map(function(cat) {
-              return cat.toLowerCase().replace(/[^a-z0-9]/g, '');
+              var normalized = cat.toLowerCase().trim();
+              return categoryMapping[normalized] || normalized.replace(/[^a-z0-9]/g, '');
+            }).filter(function(slug, idx, arr) {
+              return arr.indexOf(slug) === idx;
             });
           } else {
             projects[i].filterSlugs = [];
