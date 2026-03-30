@@ -470,26 +470,39 @@ function fixAllHeroPhotoPickers() {
 window.addEventListener('cmsDataReady', function(e) {
   var projects = (e.detail && e.detail.projects) || [];
   
+  // Filter and sort by sortDate (descending - newest first)
+  var withPhotos = projects.filter(p => p.heroPhoto);
+  withPhotos.sort(function(a, b) {
+    var dateA = new Date(a.sortDate || '1900-01-01').getTime();
+    var dateB = new Date(b.sortDate || '1900-01-01').getTime();
+    return dateB - dateA; // Descending order (newest first)
+  });
+  
   // Section 1: Hero Slider (top 3 projects)
-  var sliderProjects = projects.filter(p => p.heroPhoto).slice(0, 3);
+  var sliderProjects = withPhotos.slice(0, 3);
   
   // Section 2: Work Grid (projects 4-9)
-  var gridProjects = projects.slice(3, 9);
+  var gridProjects = withPhotos.slice(3, 9);
   
   // Section 3: Clients (all projects, separated by logoCategory)
-  var lifestyleLogos = projects.filter(p => p.logoCategory === 'lifestyle');
-  var govLogos = projects.filter(p => p.logoCategory === 'government');
+  var lifestyleLogos = withPhotos.filter(p => p.logoCategory === 'lifestyle');
+  var govLogos = withPhotos.filter(p => p.logoCategory === 'government');
   
   // Section 4: Newsletter (projects 10-12)
-  var newsletterProjects = projects.slice(9, 12);
+  var newsletterProjects = withPhotos.slice(9, 12);
 });
 ```
 
+**Sorting Logic**:
+- All projects are sorted by `sortDate` in **descending order** (newest first)
+- Projects without `sortDate` are treated as "1900-01-01" (oldest)
+- This ensures the homepage always shows the most recent projects first
+
 **Required Fields**:
-- Hero Slider: `heroPhoto`, `projectName`, `category`, `id`
-- Work Grid: `heroPhoto`, `projectName`, `client`, `webEN/TC/JP`
-- Clients: `logoBlack`, `logoWhite`, `client`, `logoCategory`
-- Newsletter: `heroPhoto`, `projectName`, `client`, `webEN/TC/JP`
+- Hero Slider: `heroPhoto`, `projectName`, `category`, `id`, `sortDate`
+- Work Grid: `heroPhoto`, `projectName`, `client`, `webEN/TC/JP`, `sortDate`
+- Clients: `logoBlack`, `logoWhite`, `client`, `logoCategory`, `sortDate`
+- Newsletter: `heroPhoto`, `projectName`, `client`, `webEN/TC/JP`, `sortDate`
 
 ---
 
