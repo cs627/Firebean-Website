@@ -44,6 +44,15 @@
               }
             }
           }
+          
+          // Generate filterSlugs from categories for work.html filtering
+          if (projects[i].categories && projects[i].categories.length) {
+            projects[i].filterSlugs = projects[i].categories.map(function(cat) {
+              return cat.toLowerCase().replace(/[^a-z0-9]/g, '');
+            });
+          } else {
+            projects[i].filterSlugs = [];
+          }
         }
 
         window.cmsData = {
