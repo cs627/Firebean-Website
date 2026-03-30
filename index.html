@@ -2266,6 +2266,13 @@
 
       // Filter projects that have hero photos (shared across all sections)
       var withPhotos = projects.filter(function(p) { return p.heroPhoto; });
+      
+      // Sort by sortDate in descending order (newest first)
+      withPhotos.sort(function(a, b) {
+        var dateA = new Date(a.sortDate || '1900-01-01').getTime();
+        var dateB = new Date(b.sortDate || '1900-01-01').getTime();
+        return dateB - dateA; // Descending order
+      });
 
       // --- 1. Populate Slider (top 3 most recent projects) ---
       var sliderProjects = withPhotos.slice(0, 3);
