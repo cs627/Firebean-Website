@@ -113,8 +113,7 @@
       }
     }
 
-    .cms-content h1,
-    .cms-content h2 {
+    .cms-content h1 {
       font-family: 'Oswald', sans-serif;
       font-weight: 700;
       font-size: 1.75rem;
@@ -125,34 +124,17 @@
       margin-bottom: 1rem;
     }
     @media (min-width: 768px) {
-      .cms-content h1,
-      .cms-content h2 {
+      .cms-content h1 {
         font-size: 2.5rem;
       }
     }
 
-    .cms-content .cms-lead {
-      font-family: 'Playfair Display', serif;
-      font-weight: 400;
-      font-style: italic;
-      font-size: 1.15rem;
-      line-height: 1.55;
-      color: #666;
-      margin-bottom: 2rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-    }
-    @media (min-width: 768px) {
-      .cms-content .cms-lead {
-        font-size: 1.3rem;
-      }
-    }
-
+    .cms-content h2,
     .cms-content h3,
     .cms-content h4 {
       font-family: 'Oswald', sans-serif;
       font-weight: 500;
-      font-size: 1.05rem;
+      font-size: 1.25rem;
       line-height: 1.3;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -161,19 +143,31 @@
       margin-bottom: 0.75rem;
     }
     @media (min-width: 768px) {
+      .cms-content h2,
       .cms-content h3,
       .cms-content h4 {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
       }
     }
 
-    .cms-content h3.cms-lead {
+    .cms-content blockquote,
+    .cms-content .cms-lead {
       font-family: 'Playfair Display', serif;
       font-weight: 400;
       font-style: italic;
-      text-transform: none;
-      letter-spacing: normal;
+      font-size: 1.15rem;
+      line-height: 1.55;
       color: #666;
+      margin-top: 1.5rem;
+      margin-bottom: 2rem;
+      padding-left: 1.25rem;
+      border-left: 3px solid #ff3333;
+    }
+    @media (min-width: 768px) {
+      .cms-content blockquote,
+      .cms-content .cms-lead {
+        font-size: 1.3rem;
+      }
     }
 
     .cms-content p {
@@ -270,32 +264,32 @@
     html.dark #profile-categories span { color: var(--text-primary) !important; }
 
     html.dark .cms-content { color: #bbb; }
-    html.dark .cms-content h1,
-    html.dark .cms-content h2 { color: #ff3333; }
+    html.dark .cms-content h1 { color: #fff; }
+    html.dark .cms-content h2,
     html.dark .cms-content h3,
     html.dark .cms-content h4 { color: #ff3333; }
     
     /* Q&A Sidebar Styling */
     #profile-qa h4 {
-      color: #999 !important; /* Force a visible gray for the "Q&A" label */
+      color: #999 !important; 
     }
     html.dark #profile-qa h4 {
       color: #777 !important;
     }
     #qa-content p.font-semibold {
-      color: #0a0a0a !important; /* Dark black for questions in light mode */
+      color: #0a0a0a !important; 
     }
     html.dark #qa-content p.font-semibold {
-      color: #ff3333 !important; /* Brand red for questions in dark mode */
+      color: #ff3333 !important; 
     }
     #qa-content p.text-gray-500 {
-      color: #666 !important; /* Visible gray for answers */
+      color: #666 !important; 
     }
     html.dark #qa-content p.text-gray-400 {
-      color: #bbb !important; /* Lighter gray for answers in dark mode */
+      color: #bbb !important; 
     }
-    html.dark .cms-content h3.cms-lead { color: #aaa; border-bottom-color: rgba(255,255,255,0.1); }
-    html.dark .cms-content .cms-lead { color: #aaa; border-bottom-color: rgba(255,255,255,0.1); }
+    html.dark .cms-content blockquote,
+    html.dark .cms-content .cms-lead { color: #aaa; border-left-color: #ff3333; }
     html.dark .cms-content p { color: #bbb; }
     html.dark .cms-content ul, html.dark .cms-content ol { color: #bbb; }
     html.dark .cms-content strong, html.dark .cms-content b { color: #e5e5e5; }
@@ -603,12 +597,19 @@
             var trimmed = line.trim();
             if (!trimmed) return '';
             if (/^<(h[1-6]|p|ul|ol|li|div|blockquote|figure|img|iframe|br)/i.test(trimmed)) return trimmed;
+            
             var headingMatch = trimmed.match(/^(#{1,6})\s+(.+)$/);
             if (headingMatch) {
               var level = headingMatch[1].length;
               var text = headingMatch[2].replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
               return `<h${level}>${text}</h${level}>`;
             }
+            
+            var quoteMatch = trimmed.match(/^>\s+(.+)$/);
+            if (quoteMatch) {
+                return `<blockquote>${quoteMatch[1].replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')}</blockquote>`;
+            }
+            
             if (/^[-*]\s+/.test(trimmed)) {
                 return `<li>${trimmed.substring(2).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')}</li>`;
             }
@@ -617,8 +618,6 @@
           processed = processed.replace(/((?:<li>.*<\/li>\n?)+)/g, '<ul>$1</ul>');
           challengeEl.innerHTML = processed;
           solutionEl.innerHTML = '';
-          var firstH3 = challengeEl.querySelector('h3');
-          if (firstH3) firstH3.classList.add('cms-lead');
         } else {
           challengeEl.textContent = project.challenge || '';
           solutionEl.textContent = project.solution || '';
@@ -638,30 +637,56 @@
       getProfileContent();
       window.addEventListener('languageChange', getProfileContent);
 
-      // Q&A Rendering from Master DB JSON
+      // ==========================================
+      // CRASH-PROOF FAQ RENDERER (v11.8.1)
+      // ==========================================
       function renderFAQ() {
         var qaContainer = document.getElementById('profile-qa');
         var qaContent = document.getElementById('qa-content');
         if (!qaContainer || !qaContent) return;
         
         var lang = (window.getLang && window.getLang()) || localStorage.getItem('lang') || 'en';
-        var faqs = [];
+        var faqs = null;
         
-        if (lang === 'ch' && project.faqTC && project.faqTC.length) {
-          faqs = project.faqTC;
-        } else if (lang === 'jp' && project.faqJP && project.faqJP.length) {
-          faqs = project.faqJP;
-        } else if (project.faqEN && project.faqEN.length) {
-          faqs = project.faqEN;
+        // 1. Get preferred language FAQ
+        if (lang === 'ch' && project.faqTC) faqs = project.faqTC;
+        else if (lang === 'jp' && project.faqJP) faqs = project.faqJP;
+        else if (project.faqEN) faqs = project.faqEN;
+
+        // 2. Fallback to any available language if preferred is missing
+        if (!faqs || faqs.length === 0) {
+            faqs = project.faqEN || project.faqTC || project.faqJP || [];
         }
 
-        if (faqs && faqs.length > 0) {
-          qaContent.innerHTML = faqs.map(p => `
+        // 3. String Safety Check (Prevents silent JS crash if DB format is wrong)
+        if (typeof faqs === 'string') {
+            try {
+                // Try to rescue stringified JSON
+                faqs = JSON.parse(faqs);
+            } catch(e) {
+                // If it's just a raw text paragraph, wrap it safely in an array
+                if (faqs.trim().length > 5) {
+                    faqs = [{ q: "Project Details", a: faqs }];
+                } else {
+                    faqs = [];
+                }
+            }
+        }
+
+        // 4. Render Array safely
+        if (Array.isArray(faqs) && faqs.length > 0) {
+          qaContent.innerHTML = faqs.map(p => {
+            // Flexible Key Parsing (Handles Q/A, Question/Answer, title/desc)
+            let question = p.q || p.question || p.Q || p.Question || p.title || '';
+            let answer = p.a || p.answer || p.A || p.Answer || p.desc || '';
+            
+            return `
             <div class="mb-5">
-              <p class="font-sans text-sm font-semibold text-brand-black dark:text-white leading-snug mb-1">${p.q || p.question || p.Q || ''}</p>
-              <p class="font-sans text-sm text-gray-500 dark:text-gray-400 leading-relaxed">${p.a || p.answer || p.A || ''}</p>
+              <p class="font-sans text-sm font-semibold text-brand-black dark:text-white leading-snug mb-1">${question}</p>
+              <p class="font-sans text-sm text-gray-500 dark:text-gray-400 leading-relaxed">${answer}</p>
             </div>
-          `).join('');
+            `;
+          }).join('');
           qaContainer.classList.remove('hidden');
         } else { 
           qaContainer.classList.add('hidden'); 
@@ -671,7 +696,7 @@
       // Photo Interleaving
       function interleave() {
         var photoUrls = project.galleryPhotos;
-        if (!photoUrls || photoUrls.length < 1) return;
+        if (!photoUrls || !Array.isArray(photoUrls) || photoUrls.length < 1) return;
         document.querySelectorAll('.interleaved-photo-pair, .extra-photo-pair').forEach(el => el.remove());
         
         var pairs = [];
