@@ -638,7 +638,7 @@
       window.addEventListener('languageChange', getProfileContent);
 
       // ==========================================
-      // CRASH-PROOF FAQ RENDERER (v11.8.1)
+      // CRASH-PROOF FAQ RENDERER (v11.8.2)
       // ==========================================
       function renderFAQ() {
         var qaContainer = document.getElementById('profile-qa');
@@ -673,12 +673,38 @@
             }
         }
 
+        // 3.5 Object Wrapper Rescue: If AI wrapped the array in an object like {"Q&A": [...]}
+        if (faqs && typeof faqs === 'object' && !Array.isArray(faqs)) {
+            let extractedArray = null;
+            for (let key in faqs) {
+                if (Array.isArray(faqs[key])) {
+                    extractedArray = faqs[key];
+                    break;
+                }
+            }
+            // If we found an array inside, use it. Otherwise, treat the object itself as a single Q&A pair.
+            faqs = extractedArray ? extractedArray : [faqs];
+        }
+
         // 4. Render Array safely
         if (Array.isArray(faqs) && faqs.length > 0) {
           qaContent.innerHTML = faqs.map(p => {
             // Flexible Key Parsing (Handles Q/A, Question/Answer, title/desc)
-            let question = p.q || p.question || p.Q || p.Question || p.title || '';
-            let answer = p.a || p.answer || p.A || p.Answer || p.desc || '';
+            let question = p.q || p.question || p.Q || p.Question || p.title || p.Heading || p.heading || '';
+            let answer = p.a || p.answer || p.A || p.Answer || p.desc || p.Description || p.description || '';
+            
+            // Ultimate Fallback: If AI used completely random keys, grab the first two values!
+            if (!question && !answer && typeof p === 'object') {
+                let vals = Object.values(p);
+                let keys = Object.keys(p);
+                if (vals.length >= 2) {
+                    question = vals[0];
+                    answer = vals[1];
+                } else if (vals.length === 1) {
+                    question = keys[0];
+                    answer = vals[0];
+                }
+            }
             
             return `
             <div class="mb-5">
