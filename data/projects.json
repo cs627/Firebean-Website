@@ -358,7 +358,7 @@
       "faqEN": [],
       "faqTC": [],
       "faqJP": [],
-      "heroPhoto": "data/images/fb2025003-photo-1.webp",
+      "heroPhoto": "data/images/fb2025003-photo-4.webp",
       "logoBlack": "data/images/fb2025003-logo-black.webp",
       "logoWhite": "data/images/fb2025003-logo-white.webp",
       "galleryPhotos": [
@@ -3274,5 +3274,5 @@
     "data/images/fb2026002-photo-1.webp",
     "data/images/fb2026002-photo-2.webp"
   ],
-  "lastSync": "2026-04-08T14:29:08.985Z"
+  "lastSync": "2026-04-08T14:30:24.017Z"
 }
