@@ -1,6 +1,43 @@
 {
   "projects": [
     {
+      "id": "fb2026011",
+      "projectId": "FB2026011",
+      "projectName": "Roving exhibition in commemoration of the 60th anniversary of Action Committee Against Narcotics",
+      "client": "Narcotics Division (ND) of the Security Bureau",
+      "venue": "Hong Kong City Hall, Hong Kong Baptist University, Times Square, etc.",
+      "year": "Wed Apr 01 2026 00:00:00 GMT+0800 (Hong Kong Standard Time)",
+      "category": "GOVERNMENT & PUBLIC SECTOR",
+      "categories": [
+        "government",
+        "exhibitions",
+        "tech",
+        "events"
+      ],
+      "scope": "Concept Development<br>Branding Strategy<br>Theme Design<br>Visual Identity<br>UI/UX Design<br>Social Media Content<br>Video Production<br>Interactive Installation<br>Event Planning<br>Event Production<br>RSVP Management<br>On-site Operation<br>Technical Support",
+      "webEN": "",
+      "webTC": "",
+      "webJP": "",
+      "faqEN": [],
+      "faqTC": [],
+      "faqJP": [],
+      "heroPhoto": "data/images/fb2026011-photo-7.webp",
+      "logoBlack": "data/images/fb2026011-logo-black.webp",
+      "logoWhite": "data/images/fb2026011-logo-white.webp",
+      "galleryPhotos": [
+        "data/images/fb2026011-photo-1.webp",
+        "data/images/fb2026011-photo-2.webp",
+        "data/images/fb2026011-photo-3.webp",
+        "data/images/fb2026011-photo-4.webp",
+        "data/images/fb2026011-photo-5.webp",
+        "data/images/fb2026011-photo-6.webp",
+        "data/images/fb2026011-photo-7.webp",
+        "data/images/fb2026011-photo-8.webp"
+      ],
+      "sortDate": "2026-03-31T16:00:00.000Z",
+      "youtube": ""
+    },
+    {
       "id": "fb2026010",
       "projectId": "FB2026010",
       "projectName": "科技提升職業安全與健康2026 巡迴展覽",
@@ -3272,7 +3309,9 @@
     "data/images/fb2026010-photo-1.webp",
     "data/images/fb2026010-photo-2.webp",
     "data/images/fb2026002-photo-1.webp",
-    "data/images/fb2026002-photo-2.webp"
+    "data/images/fb2026002-photo-2.webp",
+    "data/images/fb2026011-photo-1.webp",
+    "data/images/fb2026011-photo-2.webp"
   ],
-  "lastSync": "2026-04-08T14:42:37.489Z"
+  "lastSync": "2026-04-08T15:18:31.202Z"
 }
