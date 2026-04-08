@@ -1,72 +1,6 @@
 {
   "projects": [
     {
-      "id": "fb2026002",
-      "projectId": "FB2026002",
-      "projectName": "《科技提升職業安全與健康》2026 巡迴展覽",
-      "client": "公務員事務局",
-      "venue": "政府大樓 (例如政府總部、工業貿易大樓等等)",
-      "year": "Sun Feb 01 2026 00:00:00 GMT+0800 (Hong Kong Standard Time)",
-      "category": "GOVERNMENT & PUBLIC SECTOR",
-      "categories": [
-        "government",
-        "exhibitions",
-        "tech"
-      ],
-      "scope": "Concept Development<br>Theme Design<br>UI/UX Design<br>Motion Graphics<br>Event Planning<br>Event Production<br>On-site Operation<br>Technical Support",
-      "webEN": "<h1>《科技提升職業安全與健康》2026 巡迴展覽</h1><!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Beyond Blueprints: Nurturing Well-being Through Tech-Driven Occupational Safety and Health</title>\n</head>\n<body>\n    <h1>Beyond Blueprints: Nurturing Well-being Through Tech-Driven Occupational Safety and Health</h1>\n    <p>In the relentless pace of modern work, the concepts of occupational safety and health (OSH) often feel like a bureaucratic necessity, a checklist to be ticked rather than a vibrant commitment to human well-being. For many, the information can seem dry, distant, and disconnected from the everyday stresses and strains of their professional lives. But what if OSH could be more? What if it could be an engaging, even joyful, journey towards personal health and resilience? The Civil Service Bureau’s 2026 Roadshow, “Technology Enhanced Occupational Safety and Health,” is poised to redefine this narrative, transforming vital information into an experience that truly touches the heart of every worker.</p>\n\n    <h2>The Heart of Innovation: Engaging Senses, Inspiring Action</h2>\n    <p>Imagine stepping into an exhibition where the very structure whispers innovation. Gone are the days of static posters and monotonous text. Our roadshow embraces a high-tech aesthetic, utilizing sleek stainless steel and simple iron frames to create an environment that feels modern, dynamic, and integrated with the spirit of technological advancement. Think less sterile office, more visionary tech lab. This design philosophy isn't just for show; it's meticulously crafted to make complex OSH information feel accessible and exciting. Interactive, rotating display panels invite curiosity, transforming passive viewing into an active exploration. Visitors aren't just reading facts; they are uncovering insights, turning pages of knowledge with their own hands, making the learning process an intuitive and personal discovery.</p>\n\n    <h2>Play, Connect, Recharge: Wellness in Your Pocket</h2>\n    <p>Beyond the visual spectacle, the roadshow understands that true engagement comes from participation. We've introduced an online game, complete with engaging animations and captivating sound effects, designed to make learning about OSH a fun and rewarding experience. This isn't just about trivia; it's about connecting with information in a relaxed, playful way. And the rewards? They’re designed to be just as meaningful. Forgetting complicated redemption processes, we've simplified it to a delightful shake of your mobile phone, unlocking lifestyle-focused gifts that genuinely contribute to well-being. Picture receiving a fitness massage ball, a resistance band, or a plant-based massage roller – items carefully chosen not just for their novelty, but for their ability to alleviate daily stress, soothe tired muscles, and encourage a proactive approach to physical health. These small, thoughtful gifts are a tangible reminder that your well-being is valued, making the journey from exhibition to daily life seamless and impactful.</p>\n\n    <h2>A New Dawn for Well-being in the Workplace</h2>\n    <p>The “Technology Enhanced Occupational Safety and Health” roadshow is more than an event; it's a movement. It represents a heartfelt commitment from the Civil Service Bureau to foster a culture where occupational safety isn't just about avoiding hazards, but about cultivating a thriving, resilient workforce. By infusing technology with empathy, interactivity with practicality, and education with genuine care, we are creating an experience that resonates deeply, empowering individuals to take ownership of their health and safety in an engaging, meaningful way.</p>\n\n    <p><strong>This innovative roadshow truly reimagines workplace well-being, proving that technology can indeed connect us more deeply to our human needs and aspirations.</strong></p>\n</body>\n</html>",
-      "webTC": "<h1>《科技提升職業安全與健康》2026 巡迴展覽</h1><!DOCTYPE html>\n<html lang=\"zh-HK\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>不再只是規章：科技如何觸動身心，提升職業安健新境界</title>\n</head>\n<body>\n    <h1>不再只是規章：科技如何觸動身心，提升職業安健新境界</h1>\n    <p>在現代工作節奏的急速推進下，「職業安全與健康」(職安健) 往往被視為一種例行公事，一份需要打勾的清單，而非對人類福祉的真誠承諾。對許多人而言，相關資訊可能顯得枯燥、遙遠，與他們日常工作中的壓力和疲憊格格不入。但如果職安健能夠超越這些，變得更具吸引力，甚至是一趟通往個人健康和韌性的愉快旅程呢？公務員事務局的《科技提升職業安全與健康》2026 巡迴展覽，正準備重新定義這個敘事，將重要的資訊轉化為一場真正觸動每位工作者心靈的體驗。</p>\n\n    <h2>創新核心：觸動感官，激發行動</h2>\n    <p>想像一下，走進一個展覽，其結構本身就低語著創新。靜態海報和單調文字的時代已經過去。我們的巡迴展覽擁抱高科技美學，利用時尚的不鏽鋼和簡潔的鐵質支架，營造出一個現代、動態、與科技進步精神融為一體的環境。這裡不是冷冰冰的辦公室，更像是一個富有遠見的科技實驗室。這種設計理念不僅僅是為了展示，更是精心設計，旨在讓複雜的職安健資訊變得平易近人且令人興奮。互動式的旋轉展板激發好奇心，將被動的觀看轉化為主動的探索。參觀者不再只是閱讀事實；他們親手揭示洞見，翻閱知識的篇章，使學習過程成為一場直觀而個人的發現之旅。</p>\n\n    <h2>遊戲、連結、充電：口袋裡的健康方案</h2>\n    <p>除了視覺上的震撼，巡迴展覽深知真正的參與來自於互動。我們推出了一個線上遊戲，配備引人入勝的動畫和迷人的聲效，旨在讓學習職安健成為一種有趣且有益的體驗。這不僅僅是問答遊戲；它是一種以輕鬆、有趣的方式連結資訊的途徑。那獎勵呢？它們同樣意義深遠。告別繁瑣的兌換流程，我們將其簡化為一個簡單而愉快的「搖一搖」手機動作，即可贏取以生活化為主題的禮物，真正有助於身心健康。想像一下，收到一個健身按摩球、一條拉力帶，或是一個植物按摩滾軸——這些物品都是經過精心挑選，不僅因為其新穎性，更因為它們能夠有效緩解日常壓力，舒緩疲憊的肌肉，並鼓勵人們積極主動地維護身體健康。這些貼心的小禮物是您的健康被重視的具體提醒，讓從展覽到日常生活的旅程變得無縫且富有影響力。</p>\n\n    <h2>職場福祉的新曙光</h2>\n    <p>《科技提升職業安全與健康》巡迴展覽不僅僅是一個活動；它是一場運動。它代表著公務員事務局的一份誠摯承諾，旨在培養一種文化，讓職業安全不僅僅是避免危險，更是培養一支茁壯成長、富有韌性的工作隊伍。透過將科技與同理心、互動性與實用性、教育與真誠關懷融為一體，我們正在創造一種深刻共鳴的體驗，以引人入勝且意義深遠的方式，賦予個人掌控自身健康和安全的能力。</p>\n\n    <p><strong>這個創新巡迴展覽真正重新定義了職場福祉，證明科技確實能更深層次地將我們與人類的需求和抱負聯繫起來。</strong></p>\n</body>\n</html>",
-      "webJP": "<h1>《科技提升職業安全與健康》2026 巡迴展覽</h1><!DOCTYPE html>\n<html lang=\"ja\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>設計を超えて：テクノロジーで心身を育む、職業安全衛生の新しい形</title>\n</head>\n<body>\n    <h1>設計を超えて：テクノロジーで心身を育む、職業安全衛生の新しい形</h1>\n    <p>現代の仕事の絶え間ないペースの中で、職業安全衛生（OSH）の概念は、単なる官僚的な必要事項、チェックリストをこなすもののように感じられがちです。多くの人にとって、その情報は乾燥しており、遠く、日々の仕事のストレスや負担から切り離されているように見えます。しかし、OSHがもっと豊かなものだったらどうでしょう？ 個人の健康とレジリエンスへの魅力的で、さらには楽しい旅だったらどうでしょう？ 公務員事務局が主催する2026年「テクノロジーで向上する職業安全衛生」巡回展は、この物語を再定義し、重要な情報をすべての労働者の心に真に響く体験へと変えようとしています。</p>\n\n    <h2>革新の核心：感覚を刺激し、行動を促す</h2>\n    <p>展示会に足を踏み入れた瞬間、その構造そのものが革新を語りかけてくるのを想像してみてください。静的なポスターや単調なテキストの時代は終わりました。私たちの巡回展は、洗練されたステンレス鋼とシンプルな鉄のフレームを使い、モダンでダイナミック、そして技術進歩の精神と一体化した環境を作り出すことで、ハイテクな美学を取り入れています。無菌のオフィスではなく、むしろビジョンに満ちたテックラボをイメージしてください。このデザイン哲学は単なる見せかけではありません。複雑なOSH情報をアクセスしやすく、エキサイティングに感じさせるよう、綿密に設計されています。インタラクティブな回転式展示パネルは好奇心を刺激し、受動的な閲覧を能動的な探求へと変えます。訪問者は単に事実を読んでいるのではなく、自らの手で知識のページをめくり、洞察を発見し、学習プロセスを直感的で個人的な発見へと変えるのです。</p>\n\n    <h2>遊び、繋がり、リチャージ：ポケットの中のウェルネス</h2>\n    <p>視覚的なスペクタクルを超えて、巡回展は真のエンゲージメントが参加から生まれることを理解しています。魅力的なアニメーションと心惹かれる効果音を備えたオンラインゲームを導入し、OSHに関する学習を楽しく、やりがいのある体験にデザインしました。これは単なる雑学クイズではありません。リラックスした遊び心のある方法で情報とつながることです。そして、その報酬は？ 同じくらい意味のあるものになるよう設計されています。複雑な景品交換プロセスを省き、携帯電話を楽しく振るだけで、ウェルネスに真に貢献するライフスタイルに焦点を当てた景品が手に入るように簡素化しました。フィットネス用マッサージボール、レジスタンスバンド、植物由来のマッサージローラーなど、これらのアイテムは目新しさだけでなく、日々のストレスを軽減し、疲れた筋肉を和らげ、身体の健康に対する積極的なアプローチを促す能力を考慮して慎重に選ばれています。これらのささやかな、しかし心温まる景品は、あなたのウェルビーイングが大切にされているという具体的な証であり、展示会から日常生活への移行をシームレスでインパクトのあるものにします。</p>\n\n    <h2>職場におけるウェルビーイングの新しい夜明け</h2>\n    <p>「テクノロジーで向上する職業安全衛生」巡回展は、単なるイベントではなく、ムーブメントです。これは、職業安全が単に危険を回避するだけでなく、活気に満ちた、回復力のある労働力を育成する文化を育むという公務員事務局からの心からのコミットメントを象徴しています。テクノロジーと共感、インタラクティブ性と実用性、教育と真のケアを融合させることで、私たちは深く共鳴する体験を創造し、個人が魅力的で意味のある方法で自身の健康と安全に責任を持つことを支援します。</p>\n\n    <p><strong>この革新的な巡回展は、職場のウェルビーイングを真に再構築し、テクノロジーが私たちの人間のニーズと願望に、より深く私たちを結びつけることができることを証明しています。</strong></p>\n</body>\n</html>",
-      "faqEN": [
-        {
-          "q": "How does the 'Technology Enhanced Occupational Safety and Health 2026 Roadshow' make learning about workplace safety more engaging for public sector employees?",
-          "a": "The roadshow employs a multi-faceted approach to boost engagement, featuring high-tech exhibition designs with stainless steel aesthetics and interactive rotating display panels. Furthermore, it integrates an online game with animation and sound effects, making the learning experience both educational and entertaining, encouraging active participation from visitors."
-        },
-        {
-          "q": "What specific health benefits do the customized gifts offered at the roadshow aim to provide to civil servants?",
-          "a": "The gifts are carefully selected to promote stress relief and enhance physical well-being. Items such as fitness massage balls, resistance bands, and plant massage rollers are designed to help alleviate work-related physical strain, encourage daily self-care routines, and contribute to a healthier lifestyle, addressing common issues like muscle tension and stress."
-        },
-        {
-          "q": "How is the Civil Service Bureau leveraging innovative technology to foster a proactive culture of occupational safety and health?",
-          "a": "The Bureau leverages technology by creating an immersive and interactive environment. This includes utilizing modern materials for a high-tech exhibition feel, developing an engaging online game for practical learning, and simplifying gift redemption via mobile interaction. This approach transforms OSH from a passive topic into an active, personalized experience, encouraging civil servants to proactively manage their health and safety."
-        }
-      ],
-      "faqTC": [
-        {
-          "q": "「科技提升職業安全與健康」2026 巡迴展覽如何讓公務員更投入地學習職場安全知識？",
-          "a": "本次巡迴展覽採用多種方式提升參與度，包括運用不鏽鋼設計打造高科技感的展覽空間，並設置互動式的旋轉展板。此外，還融入了具備動畫和聲效的線上遊戲，使學習體驗兼具教育性和娛樂性，鼓勵參觀者積極參與。"
-        },
-        {
-          "q": "巡迴展覽派發的訂製禮品對公務員的健康有哪些具體好處？",
-          "a": "禮品經過精心挑選，旨在促進身心放鬆並增強身體健康。健身按摩球、拉力帶和植物按摩滾軸等物品，設計目的在於幫助緩解工作相關的身體勞損，鼓勵日常自我護理習慣，並有助於改善整體健康狀況，解決肌肉緊張和壓力等常見問題。"
-        },
-        {
-          "q": "公務員事務局如何利用創新科技來培養積極主動的職業安全與健康文化？",
-          "a": "公務員事務局透過創建一個沉浸式和互動性的環境來利用科技。這包括使用現代材料營造高科技感的展覽氛圍，開發引人入勝的線上遊戲進行實踐學習，並透過手機互動簡化禮品兌換。這種方法將職安健從一個被動的話題轉變為積極、個人化的體驗，鼓勵公務員主動管理自身的健康和安全。"
-        }
-      ],
-      "faqJP": [
-        {
-          "q": "「テクノロジーで向上する職業安全衛生2026巡回展」は、公務員が職場安全について学ぶ際のエンゲージメントをどのように高めていますか？",
-          "a": "この巡回展は、エンゲージメントを高めるために多角的なアプローチを採用しています。ステンレス製の美学を持つハイテクな展示デザインと、インタラクティブな回転式展示パネルが特徴です。さらに、アニメーションと効果音付きのオンラインゲームを統合することで、学習体験を教育的かつエンターテイメント性の高いものにし、訪問者の積極的な参加を促しています。"
-        },
-        {
-          "q": "巡回展で提供されるカスタマイズされた景品は、公務員の健康にどのような具体的な利点をもたらすことを目指していますか？",
-          "a": "景品は、ストレス軽減と身体的ウェルビーイングの向上を目的として慎重に選ばれています。フィットネス用マッサージボール、レジスタンスバンド、植物由来のマッサージローラーなどのアイテムは、仕事に関連する身体的負担を軽減し、毎日のセルフケア習慣を奨励し、健康的なライフスタイルに貢献することを目的としており、筋肉の緊張やストレスなどの一般的な問題に対処します。"
-        },
-        {
-          "q": "公務員事務局は、革新的なテクノロジーをどのように活用して、職業安全衛生に関する積極的な文化を育んでいますか？",
-          "a": "公務員事務局は、没入型でインタラクティブな環境を構築することでテクノロジーを活用しています。これには、ハイテクな展示感を演出するためのモダンな素材の使用、実践的な学習のための魅力的なオンラインゲームの開発、そしてモバイルインタラクションを通じた景品交換の簡素化が含まれます。このアプローチにより、OSHは受動的なトピックから能動的でパーソナライズされた体験へと変わり、公務員が自身の健康と安全を積極的に管理することを奨励しています。"
-        }
-      ],
-      "heroPhoto": "",
-      "logoBlack": "data/images/fb2026002-logo-black.webp",
-      "logoWhite": "data/images/fb2026002-logo-white.webp",
-      "galleryPhotos": [],
-      "sortDate": "2026-01-31T16:00:00.000Z",
-      "youtube": ""
-    },
-    {
       "id": "fb2026010",
       "projectId": "FB2026010",
       "projectName": "科技提升職業安全與健康2026 巡迴展覽",
@@ -3276,5 +3210,5 @@
     "data/images/fb2026010-photo-1.webp",
     "data/images/fb2026010-photo-2.webp"
   ],
-  "lastSync": "2026-04-08T13:41:38.271Z"
+  "lastSync": "2026-04-08T13:45:00.367Z"
 }
