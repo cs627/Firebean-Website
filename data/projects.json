@@ -1924,7 +1924,7 @@
           "A4": "このプロジェクトは、多様な参加者の間でこれらの基本的な法的枠組みへの関心と理解を高めることに成功し、教育が効果的でありながら楽しいものであることを証明しました。"
         }
       ],
-      "heroPhoto": "data/images/fb2020323-photo-3.webp",
+      "heroPhoto": "data/images/fb2020323-photo-2.webp",
       "logoBlack": "data/images/fb2020323-logo-black.webp",
       "logoWhite": "data/images/fb2020323-logo-white.webp",
       "galleryPhotos": [
@@ -3327,5 +3327,5 @@
     "data/images/fb2026012-photo-1.webp",
     "data/images/fb2026012-photo-2.webp"
   ],
-  "lastSync": "2026-04-09T15:01:33.487Z"
+  "lastSync": "2026-04-09T15:02:57.884Z"
 }
