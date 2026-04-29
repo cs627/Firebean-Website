@@ -3800,10 +3800,18 @@
           "a": "agnès b.のアイウェアプレビューイベントは、パーソナライズされた交流、没入型テーマ、ストーリーテリングを通じて感情的なつながりを創出し、来場者が真のスタイルを発見し、自分らしくあることを促します。"
         }
       ],
-      "heroPhoto": "",
+      "heroPhoto": "data/images/fb2017012-photo-1.webp",
       "logoBlack": "data/images/fb2017012-logo-black.webp",
       "logoWhite": "data/images/fb2017012-logo-white.webp",
-      "galleryPhotos": [],
+      "galleryPhotos": [
+        "data/images/fb2017012-photo-1.webp",
+        "data/images/fb2017012-photo-2.webp",
+        "data/images/fb2017012-photo-3.webp",
+        "data/images/fb2017012-photo-4.webp",
+        "data/images/fb2017012-photo-5.webp",
+        "data/images/fb2017012-photo-6.webp",
+        "data/images/fb2017012-photo-7.webp"
+      ],
       "sortDate": "2016-12-31T16:00:00.000Z",
       "youtube": "https://youtu.be/ML4Yp8pCHZk?si=ws70b_EyyaPp6mW5"
     },
@@ -4039,6 +4047,8 @@
     "data/images/fb2016027-photo-2.webp",
     "data/images/fb2016004-photo-1.webp",
     "data/images/fb2016004-photo-2.webp",
+    "data/images/fb2017012-photo-1.webp",
+    "data/images/fb2017012-photo-2.webp",
     "data/images/fb2017014-photo-1.webp",
     "data/images/fb2017014-photo-2.webp",
     "data/images/fb2017008-photo-1.webp",
@@ -4136,5 +4146,5 @@
     "data/images/fb2026012-photo-1.webp",
     "data/images/fb2026012-photo-2.webp"
   ],
-  "lastSync": "2026-04-28T08:41:02.797Z"
+  "lastSync": "2026-04-29T02:42:19.595Z"
 }
