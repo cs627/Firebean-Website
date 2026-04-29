@@ -1679,8 +1679,8 @@
       "youtube": ""
     },
     {
-      "id": "fb2023999",
-      "projectId": "FB2023999",
+      "id": "fb2023998",
+      "projectId": "FB2023998",
       "projectName": "Shikuwasa Juice Sponsorship Campaign",
       "client": "Okinawa Arakaki Market",
       "venue": "O2 Pilates",
@@ -1761,18 +1761,18 @@
           "a": "はい、フィットネスセンターとの連携を通じて、ターゲット市場を効果的にセグメント化し、強力な健康志向のポジショニングを強調することで、独自の差別化優位性を確立しました。"
         }
       ],
-      "heroPhoto": "data/images/fb2023999-photo-6.webp",
-      "logoBlack": "data/images/fb2023999-logo-black.webp",
-      "logoWhite": "data/images/fb2023999-logo-white.webp",
+      "heroPhoto": "data/images/fb2023998-photo-6.webp",
+      "logoBlack": "data/images/fb2023998-logo-black.webp",
+      "logoWhite": "data/images/fb2023998-logo-white.webp",
       "galleryPhotos": [
-        "data/images/fb2023999-photo-1.webp",
-        "data/images/fb2023999-photo-2.webp",
-        "data/images/fb2023999-photo-3.webp",
-        "data/images/fb2023999-photo-4.webp",
-        "data/images/fb2023999-photo-5.webp",
-        "data/images/fb2023999-photo-6.webp",
-        "data/images/fb2023999-photo-7.webp",
-        "data/images/fb2023999-photo-8.webp"
+        "data/images/fb2023998-photo-1.webp",
+        "data/images/fb2023998-photo-2.webp",
+        "data/images/fb2023998-photo-3.webp",
+        "data/images/fb2023998-photo-4.webp",
+        "data/images/fb2023998-photo-5.webp",
+        "data/images/fb2023998-photo-6.webp",
+        "data/images/fb2023998-photo-7.webp",
+        "data/images/fb2023998-photo-8.webp"
       ],
       "sortDate": "2022-12-31T16:00:00.000Z",
       "youtube": "https://www.youtube.com/watch?v=f8yS_Snj6Vo"
@@ -4466,8 +4466,8 @@
     "data/images/fb2021028-photo-2.webp",
     "data/images/fb2021999-photo-1.webp",
     "data/images/fb2021999-photo-2.webp",
-    "data/images/fb2023999-photo-1.webp",
-    "data/images/fb2023999-photo-2.webp",
+    "data/images/fb2023998-photo-1.webp",
+    "data/images/fb2023998-photo-2.webp",
     "data/images/fb2023022-photo-1.webp",
     "data/images/fb2023022-photo-2.webp",
     "data/images/fb2023026-photo-1.webp",
@@ -4533,5 +4533,5 @@
     "data/images/fb2026016-photo-1.webp",
     "data/images/fb2026016-photo-2.webp"
   ],
-  "lastSync": "2026-04-29T08:48:57.350Z"
+  "lastSync": "2026-04-29T08:55:35.006Z"
 }
