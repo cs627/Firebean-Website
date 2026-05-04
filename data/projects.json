@@ -209,7 +209,7 @@
           "a": "テーマデザイン、コンセプト開発、そして革新的な参加型アプローチにより、従来の政府主催イベントの固定観念を打破し、若い世代に効果的に訴求しています。"
         }
       ],
-      "heroPhoto": "data/images/fb2026011-photo-7.webp",
+      "heroPhoto": "data/images/fb2026011-photo-5.webp",
       "logoBlack": "data/images/fb2026011-logo-black.webp",
       "logoWhite": "data/images/fb2026011-logo-white.webp",
       "galleryPhotos": [
@@ -6156,5 +6156,5 @@
     "data/images/fb2026048-photo-1.webp",
     "data/images/fb2026048-photo-2.webp"
   ],
-  "lastSync": "2026-05-04T09:18:00.317Z"
+  "lastSync": "2026-05-04T09:24:41.151Z"
 }
