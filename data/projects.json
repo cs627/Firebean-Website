@@ -1819,14 +1819,18 @@
           "a": "香港のライフスタイルPRエージェンシーであるFirebeanが、イベントのコーディネーション、制作、テーマデザイン、コンセプト開発を担当し、活気に満ちた包摂的なコミュニティ体験を提供しています。"
         }
       ],
-      "heroPhoto": "data/images/fb2023020-photo-1.webp",
+      "heroPhoto": "data/images/fb2023020-photo-4.webp",
       "logoBlack": "data/images/fb2023020-logo-black.webp",
       "logoWhite": "data/images/fb2023020-logo-white.webp",
       "galleryPhotos": [
         "data/images/fb2023020-photo-1.webp",
         "data/images/fb2023020-photo-2.webp",
         "data/images/fb2023020-photo-3.webp",
-        "data/images/fb2023020-photo-4.webp"
+        "data/images/fb2023020-photo-4.webp",
+        "data/images/fb2023020-photo-5.webp",
+        "data/images/fb2023020-photo-6.webp",
+        "data/images/fb2023020-photo-7.webp",
+        "data/images/fb2023020-photo-8.webp"
       ],
       "sortDate": "2023-09-30T16:00:00.000Z",
       "youtube": ""
@@ -6156,5 +6160,5 @@
     "data/images/fb2026048-photo-1.webp",
     "data/images/fb2026048-photo-2.webp"
   ],
-  "lastSync": "2026-05-04T09:24:41.151Z"
+  "lastSync": "2026-05-04T09:54:59.768Z"
 }
