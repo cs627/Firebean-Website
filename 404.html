@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Page Not Found | Firebean Agency</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&family=Oswald:wght@400;500;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <!-- Translations -->
+  <script src="src/translations.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans:     ['Inter', 'sans-serif'],
+            display:  ['Anton', 'sans-serif'],
+            oswald:   ['Oswald', 'sans-serif'],
+            playfair: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            'brand-black': '#0a0a0a',
+            'brand-gray':  '#f4f4f4',
+            'brand-red':   '#ff3333',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --bg-primary: #0a0a0a;
+      --text-primary: #f4f4f4;
+    }
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+    }
+
+    /* Stroke text */
+    .stroke-text {
+      -webkit-text-stroke: 2px #ff3333;
+      color: transparent;
+    }
+
+    /* Giant ghost 404 background */
+    .ghost-404 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(30vw, 50vw, 60vw);
+      line-height: 1;
+      color: rgba(255, 255, 255, 0.03);
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+    }
+
+    /* Nav */
+    #navbar {
+      z-index: 9999;
+    }
+    .lang-btn {
+      cursor: pointer;
+    }
+    .dark-toggle {
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .dark-toggle:hover { opacity: 1; }
+    .dark-toggle svg { width: 16px; height: 16px; }
+
+    /* Animated underline on CTA */
+    .cta-link {
+      position: relative;
+      display: inline-block;
+    }
+    .cta-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #ff3333;
+      transition: width 0.4s ease;
+    }
+    .cta-link:hover::after {
+      width: 100%;
+    }
+
+    /* Horizontal marquee */
+    @keyframes marquee-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-track {
+      display: flex;
+      white-space: nowrap;
+      animation: marquee-scroll 18s linear infinite;
+    }
+    .marquee-item {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(10vw, 14vw, 18vw);
+      line-height: 1;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.06);
+      padding-right: 0.3em;
+    }
+  </style>
+
+  <!-- Dark mode init -->
+  <script>
+    (function() {
+      var stored = localStorage.getItem('darkMode');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (stored === 'true' || (stored === null && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+</head>
+<body class="antialiased bg-brand-black text-white min-h-screen flex flex-col">
+
+  <!-- Navigation -->
+  <nav class="w-full px-6 py-6 flex justify-between items-center z-[9999] text-white border-b border-white/10" id="navbar">
+    <a class="flex items-center gap-2 hover:opacity-70 transition-opacity" href="index.html">
+      <img src="data/images/firebean-logo-w100.webp" class="h-6 w-auto object-contain brightness-0 invert" alt="Firebean Logo" referrerpolicy="no-referrer">
+      <div class="font-sans font-light text-xl tracking-widest lowercase text-white" style="font-variant: small-caps;">firebean</div>
+    </a>
+    <div class="font-sans text-xs uppercase tracking-widest flex gap-2 items-center text-white">
+      <button class="lang-btn hover:opacity-50" data-lang="en">EN</button> |
+      <button class="lang-btn hover:opacity-50 text-gray-500" data-lang="ch">CH</button> |
+      <button class="lang-btn hover:opacity-50 text-gray-500" data-lang="jp">JP</button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="flex-1 relative flex flex-col items-center justify-center overflow-hidden px-6 py-24">
+
+    <!-- Ghost 404 background text -->
+    <div class="ghost-404" aria-hidden="true">404</div>
+
+    <!-- Content -->
+    <div class="relative z-10 text-center max-w-3xl mx-auto" id="main-content">
+
+      <!-- Error code -->
+      <p class="font-oswald text-brand-red text-sm md:text-base uppercase tracking-[0.4em] mb-6 opacity-0" id="error-label">Error 404</p>
+
+      <!-- Big headline -->
+      <h1 class="font-display text-[22vw] md:text-[16vw] lg:text-[14vw] leading-none tracking-tighter uppercase mb-0 opacity-0" id="headline-1">This</h1>
+      <h1 class="font-display text-[22vw] md:text-[16vw] lg:text-[14vw] leading-none tracking-tighter uppercase mb-8 opacity-0" id="headline-2">
+        <span class="stroke-text">Page</span>
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="font-playfair italic text-lg md:text-2xl text-white/70 mb-4 opacity-0" id="sub-1">
+        Went All-In&hellip; and lost.
+      </p>
+      <p class="font-sans text-sm md:text-base text-white/40 mb-12 max-w-md mx-auto opacity-0" id="sub-2">
+        The page you're looking for doesn't exist, was moved, or never made it to the final cut.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center opacity-0" id="ctas">
+        <a href="index.html" class="cta-link font-oswald text-sm uppercase tracking-[0.3em] text-white hover:text-brand-red transition-colors">
+          ← Back to Home
+        </a>
+        <span class="text-white/20 hidden sm:block">|</span>
+        <a href="work.html" class="cta-link font-oswald text-sm uppercase tracking-[0.3em] text-white/60 hover:text-brand-red transition-colors">
+          View Our Work
+        </a>
+        <span class="text-white/20 hidden sm:block">|</span>
+        <a href="index.html#contact" class="cta-link font-oswald text-sm uppercase tracking-[0.3em] text-white/60 hover:text-brand-red transition-colors">
+          Contact Us
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Bottom scrolling marquee -->
+    <div class="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none pb-0" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-item">FIREBEAN&nbsp;·&nbsp;</span>
+        <span class="marquee-item">404&nbsp;·&nbsp;</span>
+        <span class="marquee-item">PAGE NOT FOUND&nbsp;·&nbsp;</span>
+        <span class="marquee-item">FIREBEAN&nbsp;·&nbsp;</span>
+        <span class="marquee-item">404&nbsp;·&nbsp;</span>
+        <span class="marquee-item">PAGE NOT FOUND&nbsp;·&nbsp;</span>
+        <span class="marquee-item">FIREBEAN&nbsp;·&nbsp;</span>
+        <span class="marquee-item">404&nbsp;·&nbsp;</span>
+        <span class="marquee-item">PAGE NOT FOUND&nbsp;·&nbsp;</span>
+        <span class="marquee-item">FIREBEAN&nbsp;·&nbsp;</span>
+        <span class="marquee-item">404&nbsp;·&nbsp;</span>
+        <span class="marquee-item">PAGE NOT FOUND&nbsp;·&nbsp;</span>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-brand-black border-t border-white/10 px-6 py-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 font-sans text-xs text-gray-500 uppercase tracking-widest">
+      <div>©2026 Firebean Limited All Rights Reserved.</div>
+      <div class="flex gap-6">
+        <a href="index.html" class="hover:text-white transition-colors">Home</a>
+        <a href="work.html" class="hover:text-white transition-colors">Our Work</a>
+        <a href="index.html#contact" class="hover:text-white transition-colors">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- GSAP entrance animations -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+      tl.to('#error-label',  { opacity: 1, y: 0, duration: 0.5, delay: 0.2 })
+        .to('#headline-1',   { opacity: 1, y: 0, duration: 0.7 }, '-=0.2')
+        .to('#headline-2',   { opacity: 1, y: 0, duration: 0.7 }, '-=0.5')
+        .to('#sub-1',        { opacity: 1, y: 0, duration: 0.6 }, '-=0.4')
+        .to('#sub-2',        { opacity: 1, y: 0, duration: 0.6 }, '-=0.4')
+        .to('#ctas',         { opacity: 1, y: 0, duration: 0.6 }, '-=0.3');
+
+      // Set initial positions for animation
+      gsap.set(['#error-label', '#headline-1', '#headline-2', '#sub-1', '#sub-2', '#ctas'], { y: 30 });
+    });
+  </script>
+
+</body>
+</html>
