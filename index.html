@@ -839,9 +839,14 @@
       </div>
 
       <!-- Center-bottom: Marquee ticker for category (Who We Help) -->
-      <div class="absolute bottom-[15%] md:bottom-[18%] left-0 w-full z-30 overflow-hidden pointer-events-none" id="slider-marquee-wrapper">
-        <div id="slider-marquee" class="flex whitespace-nowrap slider-marquee-animate">
-          <!-- Repeated category text, filled by JS -->
+      <!-- slider-marquee-wrapper: clips vertically (overflow-hidden) for the slide-up mask effect -->
+      <div class="absolute bottom-[15%] md:bottom-[18%] left-0 w-full z-30 pointer-events-none" id="slider-marquee-wrapper" style="overflow:hidden;">
+        <!-- slider-marquee-clip: the element that moves vertically for the clipping mask animation -->
+        <div id="slider-marquee-clip" style="will-change:transform;">
+          <!-- slider-marquee: moves horizontally for the scroll-driven ticker -->
+          <div id="slider-marquee" class="flex whitespace-nowrap slider-marquee-animate">
+            <!-- Repeated category text, filled by JS -->
+          </div>
         </div>
       </div>
 
@@ -2361,30 +2366,32 @@
         if (window._resetSliderMarqueeX) window._resetSliderMarqueeX();
 
         // ── Category marquee: clipping mask slide-up animation ──
+        // clipEl moves vertically (the mask); marqueeEl moves horizontally (the ticker)
+        var clipEl   = document.getElementById('slider-marquee-clip');
         var marqueeEl = document.getElementById('slider-marquee');
-        if (marqueeEl) {
+        if (clipEl && marqueeEl) {
           var catText = translateCat(p.category || '');
           var repeatHTML = '';
           for (var r = 0; r < 6; r++) {
             repeatHTML += '<span class="slider-marquee-text">' + catText + '</span>';
           }
           if (_sliderMarqueeFirstRun) {
-            // First load: slide in from below
+            // First load: populate text, slide clip in from below
             _sliderMarqueeFirstRun = false;
             marqueeEl.innerHTML = repeatHTML;
-            gsap.fromTo(marqueeEl,
+            gsap.fromTo(clipEl,
               { yPercent: 110 },
               { yPercent: 0, duration: 1.0, ease: 'power3.out', delay: 0.3 }
             );
           } else {
-            // Subsequent slides: exit up → swap → enter from below
+            // Subsequent slides: exit clip up → swap text → enter clip from below
             var tl = gsap.timeline();
-            tl.to(marqueeEl, { yPercent: -110, duration: 0.4, ease: 'power2.in' });
+            tl.to(clipEl, { yPercent: -110, duration: 0.4, ease: 'power2.in' });
             tl.add(function() {
               marqueeEl.innerHTML = repeatHTML;
-              gsap.set(marqueeEl, { yPercent: 110 });
+              gsap.set(clipEl, { yPercent: 110 });
             });
-            tl.to(marqueeEl, { yPercent: 0, duration: 0.75, ease: 'power3.out' });
+            tl.to(clipEl, { yPercent: 0, duration: 0.75, ease: 'power3.out' });
           }
         }
       }
