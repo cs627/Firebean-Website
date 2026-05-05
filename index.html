@@ -2265,15 +2265,53 @@
 
       // Filter projects that have hero photos (shared across all sections)
       var withPhotos = projects.filter(function(p) { return p.heroPhoto; });
-      
+
       // Sort by sortDate in descending order (newest first)
       withPhotos.sort(function(a, b) {
         var dateA = new Date(a.sortDate || '1900-01-01').getTime();
         var dateB = new Date(b.sortDate || '1900-01-01').getTime();
-        return dateB - dateA; // Descending order
+        return dateB - dateA;
       });
 
-      // --- 1. Populate Slider (top 3 most recent projects) ---
+      // --- Category-Balanced Round-Robin Selection ---
+      // Groups projects into 4 buckets by primary category, takes top 3 from each,
+      // then interleaves them: Gov→Lifestyle→Hospitality→Venues→Gov→... (12 total)
+      // This ensures every section of the homepage shows a diverse mix of work.
+      (function() {
+        var BUCKETS = ['government', 'lifestyle', 'hospitality', 'venues'];
+        var POOL_PER_BUCKET = 3;
+        var buckets = { government: [], lifestyle: [], hospitality: [], venues: [], other: [] };
+        withPhotos.forEach(function(p) {
+          var primary = (p.categories && p.categories[0]) || '';
+          if (buckets[primary] !== undefined) {
+            buckets[primary].push(p);
+          } else {
+            buckets.other.push(p);
+          }
+        });
+        // Build interleaved pool: round-robin across 4 buckets
+        var interleaved = [];
+        for (var round = 0; round < POOL_PER_BUCKET; round++) {
+          BUCKETS.forEach(function(b) {
+            if (round < buckets[b].length) {
+              interleaved.push(buckets[b][round]);
+            }
+          });
+        }
+        // Pad with remaining 'other' or overflow projects if fewer than 12 unique entries
+        var usedIds = {};
+        interleaved.forEach(function(p) { usedIds[p.id || p.projectId] = true; });
+        if (interleaved.length < 12) {
+          withPhotos.forEach(function(p) {
+            if (interleaved.length >= 12) return;
+            if (!usedIds[p.id || p.projectId]) interleaved.push(p);
+          });
+        }
+        // Reassign withPhotos to the balanced interleaved list
+        withPhotos = interleaved;
+      })();
+
+      // --- 1. Populate Slider (top 3 from balanced pool) ---
       var sliderProjects = withPhotos.slice(0, 3);
       var sliderHTML = '';
       sliderProjects.forEach(function(p, idx) {
@@ -2331,7 +2369,7 @@
       // Start autoplay with progress bar
       if (totalSlides > 1) startSliderAutoplay();
 
-      // --- 2. Populate Work Profiles Grid (next 6 projects, excluding hero 3) ---
+      // --- 2. Populate Work Profiles Grid (next 6 from balanced pool, slots 3-8) ---
       var gridProjects = withPhotos.slice(3, 9);
       var gridContainer = document.getElementById('work-profiles-grid');
 
@@ -2518,7 +2556,7 @@
         });
       }
 
-      // --- 5. Set Newsletter Cards (next 3 after hero+profile = index 9-11) ---
+      // --- 5. Set Newsletter Cards (next 3 from balanced pool, slots 9-11) ---
       var newsletterProjects = withPhotos.slice(9, 12);
       var newsletterCards = [
         { img: 'newsletter-img-1', title: 'newsletter-title-1', desc: 'newsletter-desc-1', link: 'newsletter-link-1' },
