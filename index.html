@@ -155,16 +155,27 @@
         animation: slide-flow-in 0.5s cubic-bezier(0.25,0.46,0.45,0.94) forwards,
                    slide-slow-zoom 3s ease-out 0.4s forwards;
       }
-      /* Progress bar */
+      /* Progress bar — floating thin line with padding from all edges */
+      .slider-progress-bar-track {
+        position: absolute;
+        bottom: 20px;
+        left: 24px;
+        right: 24px;
+        height: 2px;
+        background: rgba(255,255,255,0.2);
+        z-index: 40;
+        border-radius: 2px;
+        overflow: hidden;
+      }
       .slider-progress-bar {
         position: absolute;
-        bottom: 0;
+        top: 0;
         left: 0;
-        height: 3px;
+        height: 100%;
         background: rgba(255,255,255,0.85);
-        z-index: 40;
         width: 0%;
         transition: none;
+        border-radius: 2px;
       }
       .slider-progress-bar.animating {
         transition: width 3s linear;
@@ -834,8 +845,10 @@
         </div>
       </div>
 
-      <!-- Slider Progress Bar -->
-      <div class="slider-progress-bar" id="slider-progress"></div>
+      <!-- Slider Progress Bar — floating thin line with padding -->
+      <div class="slider-progress-bar-track">
+        <div class="slider-progress-bar" id="slider-progress"></div>
+      </div>
     </section>
 
     <!-- Session 3: Project Profiles -->
