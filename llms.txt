@@ -1,0 +1,39 @@
+# Firebean Agency
+> A Hong Kong-based Lifestyle PR & Event Production Agency, specialising in Government, Lifestyle, F&B, and Malls & Venues since 2007.
+
+## About Firebean
+Firebean Limited is a professional Lifestyle PR and Event Production agency headquartered in Wan Chai, Hong Kong. Since 2007, we have delivered over 360 projects, engaging more than 1.5 million people across Hong Kong and the Asia-Pacific region. Since 2023, Firebean has served as the Official PR Consultant for the Buildings Department of the Hong Kong Government.
+
+Our philosophy is "Turn Policy into Play" — transforming serious institutional mandates into engaging, human-centred experiences that connect government and brands with the public.
+
+## Core Services
+- Roving Exhibitions: Travelling public engagement exhibitions for government and brands
+- Social & Content: Social media strategy, content creation, and community management
+- Interactive & Tech: Interactive installations, digital activations, and tech-driven experiences
+- PR & Media: Media relations, press management, and earned media campaigns
+- Events & Ceremonies: Full-scale event production, opening ceremonies, and brand activations
+- Concept Development: Strategic ideation and creative concept design
+- Visual Identity: Brand identity, theme design, and graphic production
+
+## Who We Help
+- Government & Public Sector: Hong Kong Government bureaux, departments, and public bodies
+- Lifestyle & Consumer: Consumer brands, fashion, beauty, and lifestyle companies
+- F&B & Hospitality: Restaurants, hotels, food and beverage brands
+- Malls & Venues: Shopping malls, commercial venues, and mixed-use destinations
+
+## Website Pages
+- [Homepage](https://firebean.net/): Agency overview, featured projects, about us, newsletter
+- [Our Work](https://firebean.net/work.html): Full portfolio of all projects, filterable by category
+- [Project Profiles](https://firebean.net/profile.html): Individual project detail pages with full case studies, FAQ, and scope of work
+
+## Contact
+- New Business: hello@firebean.net
+- Careers: hr@firebean.net
+- Phone: +852 36222784
+- Address: Unit A, 23/F Morrison Plaza, 5-9 Morrison Hill Rd, Wan Chai, Hong Kong
+
+## Languages
+This website is available in English (EN), Traditional Chinese (TC), and Japanese (JP).
+
+## Optional: Full Project Index
+See [sitemap.xml](https://firebean.net/sitemap.xml) for a complete list of all project profile URLs.
