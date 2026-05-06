@@ -97,22 +97,24 @@
     }
     /* Line 2: 此頁面 — red outline */
     .h404-ch {
-      font-family: 'Anton', sans-serif;
-      font-size: clamp(14vw, 18vw, 22vw);
-      line-height: 0.95;
+      font-family: 'Anton', sans-serif !important;
+      font-size: clamp(14vw, 18vw, 22vw) !important;
+      line-height: 0.95 !important;
       letter-spacing: -0.01em;
       text-transform: uppercase;
       -webkit-text-stroke: 2px #ff3333;
       color: transparent;
+      display: block;
     }
     /* Line 3: このページ — red solid bold */
     .h404-jp {
-      font-family: 'Anton', sans-serif;
-      font-size: clamp(10vw, 13vw, 16vw);
-      line-height: 1;
+      font-family: 'Anton', sans-serif !important;
+      font-size: clamp(10vw, 13vw, 16vw) !important;
+      line-height: 1 !important;
       letter-spacing: 0.02em;
       text-transform: uppercase;
       color: #ff3333;
+      display: block;
     }
 
     /* Subtitle text colours */
@@ -317,7 +319,7 @@
 
       <!-- Line 3: このページ — red solid bold -->
       <div class="mb-10 opacity-0" id="headline-sub">
-        <h3 class="h404-jp">このページ</h3>
+        <div class="h404-jp">このページ</div>
       </div>
 
       <!-- Trilingual taglines -->
