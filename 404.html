@@ -245,43 +245,74 @@
     <!-- Ghost 404 background -->
     <div class="ghost-404" aria-hidden="true">404</div>
 
-    <!-- Content -->
-    <div class="relative z-10 text-center max-w-3xl mx-auto">
-      <p class="font-oswald text-brand-red text-sm md:text-base uppercase tracking-[0.4em] mb-6 opacity-0" id="error-label" data-key="Page404.Error.Label">Error 404</p>
-      <h1 class="font-display text-[22vw] md:text-[16vw] lg:text-[14vw] leading-none tracking-tighter uppercase mb-0 opacity-0" id="headline-1" data-key="Page404.Error.Headline1">This</h1>
-      <h1 class="font-display text-[22vw] md:text-[16vw] lg:text-[14vw] leading-none tracking-tighter uppercase mb-8 opacity-0" id="headline-2">
-        <span class="stroke-text" data-key="Page404.Error.Headline2">Page</span>
-      </h1>
-      <p class="font-playfair italic text-lg md:text-2xl text-white/70 mb-4 opacity-0" id="sub-1" data-key="Page404.Error.Tagline">
-        Went All-In&hellip; and lost.
-      </p>
-      <p class="font-sans text-sm md:text-base text-white/40 mb-12 max-w-md mx-auto opacity-0" id="sub-2" data-key="Page404.Error.Subtext">
-        The page you're looking for doesn't exist, was moved, or never made it to the final cut.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center opacity-0" id="ctas">
-        <a href="index.html" class="cta-link font-oswald text-sm uppercase tracking-[0.3em] text-white hover:text-brand-red transition-colors" data-key="Page404.CTA.Home">← Back to Home</a>
-        <span class="text-white/20 hidden sm:block">|</span>
-        <a href="work.html" class="cta-link font-oswald text-sm uppercase tracking-[0.3em] text-white/60 hover:text-brand-red transition-colors" data-key="Page404.CTA.Work">View Our Work</a>
-        <span class="text-white/20 hidden sm:block">|</span>
-        <a href="index.html#contact" class="cta-link font-oswald text-sm uppercase tracking-[0.3em] text-white/60 hover:text-brand-red transition-colors" data-key="Page404.CTA.Contact">Contact Us</a>
+    <!-- Trilingual Content -->
+    <div class="relative z-10 text-center max-w-4xl mx-auto w-full">
+
+      <!-- Error label: all 3 languages in a row -->
+      <div class="flex justify-center items-center gap-4 md:gap-8 mb-8 opacity-0" id="error-label">
+        <span class="font-oswald text-brand-red text-xs md:text-sm uppercase tracking-[0.4em]">Error 404</span>
+        <span class="text-white/20">·</span>
+        <span class="font-oswald text-white/30 text-xs md:text-sm uppercase tracking-[0.3em]">錯誤 404</span>
+        <span class="text-white/20">·</span>
+        <span class="font-oswald text-white/30 text-xs md:text-sm uppercase tracking-[0.3em]">エラー 404</span>
       </div>
+
+      <!-- Big headline: EN solid, CH ghost, JP ghost stacked -->
+      <div class="relative mb-2 opacity-0" id="headline-1">
+        <h1 class="font-display text-[20vw] md:text-[15vw] lg:text-[13vw] leading-none tracking-tighter uppercase text-white">THIS</h1>
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
+          <span class="font-display text-[20vw] md:text-[15vw] lg:text-[13vw] leading-none tracking-tighter uppercase text-white/8 select-none">此&nbsp;この</span>
+        </div>
+      </div>
+      <div class="relative mb-10 opacity-0" id="headline-2">
+        <h1 class="font-display text-[20vw] md:text-[15vw] lg:text-[13vw] leading-none tracking-tighter uppercase stroke-text">PAGE</h1>
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
+          <span class="font-display text-[20vw] md:text-[15vw] lg:text-[13vw] leading-none tracking-tighter uppercase" style="-webkit-text-stroke:1px rgba(255,51,51,0.15); color:transparent; user-select:none;">頁面&nbsp;ページ</span>
+        </div>
+      </div>
+
+      <!-- Trilingual taglines stacked -->
+      <div class="mb-3 opacity-0" id="sub-1">
+        <p class="font-playfair italic text-base md:text-xl text-white/80">Went All-In&hellip; and lost.</p>
+        <p class="font-playfair italic text-sm md:text-base text-white/40 mt-1">全力出擊&hellip; 但迷路了。</p>
+        <p class="font-playfair italic text-sm md:text-base text-white/25 mt-1">全力投入&hellip; でも迷子になりました。</p>
+      </div>
+
+      <!-- Trilingual subtext -->
+      <div class="mb-12 opacity-0" id="sub-2">
+        <p class="font-sans text-xs md:text-sm text-white/35 max-w-lg mx-auto leading-relaxed">
+          The page you're looking for doesn't exist, was moved, or never made it to the final cut.<br>
+          <span class="text-white/20">您尋找的頁面不存在、已被移動，或從未出現過。</span><br>
+          <span class="text-white/15">お探しのページは存在しないか、移動されたか、最終版に含まれませんでした。</span>
+        </p>
+      </div>
+
+      <!-- CTAs: trilingual -->
+      <div class="flex flex-col sm:flex-row gap-3 justify-center items-center opacity-0" id="ctas">
+        <a href="index.html" class="cta-link font-oswald text-xs uppercase tracking-[0.3em] text-white hover:text-brand-red transition-colors">
+          ← Back to Home&nbsp;<span class="text-white/40">/ 返回主頁 / ホームに戻る</span>
+        </a>
+        <span class="text-white/20 hidden sm:block">|</span>
+        <a href="work.html" class="cta-link font-oswald text-xs uppercase tracking-[0.3em] text-white/60 hover:text-brand-red transition-colors">
+          View Our Work&nbsp;<span class="text-white/30">/ 瀏覽作品 / 作品を見る</span>
+        </a>
+      </div>
+
     </div>
 
-    <!-- Bottom scrolling marquee -->
+    <!-- Bottom scrolling marquee: trilingual -->
     <div class="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none" aria-hidden="true">
       <div class="marquee-track">
         <span class="marquee-item">FIREBEAN&nbsp;·&nbsp;</span>
         <span class="marquee-item">404&nbsp;·&nbsp;</span>
         <span class="marquee-item">PAGE NOT FOUND&nbsp;·&nbsp;</span>
+        <span class="marquee-item">頁面找不到&nbsp;·&nbsp;</span>
+        <span class="marquee-item">ページが見つかりません&nbsp;·&nbsp;</span>
         <span class="marquee-item">FIREBEAN&nbsp;·&nbsp;</span>
         <span class="marquee-item">404&nbsp;·&nbsp;</span>
         <span class="marquee-item">PAGE NOT FOUND&nbsp;·&nbsp;</span>
-        <span class="marquee-item">FIREBEAN&nbsp;·&nbsp;</span>
-        <span class="marquee-item">404&nbsp;·&nbsp;</span>
-        <span class="marquee-item">PAGE NOT FOUND&nbsp;·&nbsp;</span>
-        <span class="marquee-item">FIREBEAN&nbsp;·&nbsp;</span>
-        <span class="marquee-item">404&nbsp;·&nbsp;</span>
-        <span class="marquee-item">PAGE NOT FOUND&nbsp;·&nbsp;</span>
+        <span class="marquee-item">頁面找不到&nbsp;·&nbsp;</span>
+        <span class="marquee-item">ページが見つかりません&nbsp;·&nbsp;</span>
       </div>
     </div>
   </main>
