@@ -264,7 +264,14 @@
             }
           }
           if (mapped.length > 0) {
-            translations = buildTranslationsMap(mapped);
+            // Merge remote translations with existing ones (preserves keys like Page404
+            // that are in FALLBACK_DATA but not in the Google Sheet)
+            var remoteMap = buildTranslationsMap(mapped);
+            for (var key in remoteMap) {
+              if (remoteMap.hasOwnProperty(key)) {
+                translations[key] = remoteMap[key];
+              }
+            }
             updateTranslations();
           }
         }
