@@ -588,7 +588,7 @@
           "a": "従来の広告を超えて、Firebean は包括的な体験型戦略を考案しました。これには、ブランドメッセージを統一するための徹底的なPRコンサルティング、製品のハンズオン体験を促進するための戦略的なギフトパックの配布、そして異業種コラボレーションの斬新さを強調する協調的なメディアアウトリーチが含まれ、有料広告だけでなく、オーガニックな話題と広範な編集記事を生成しました。"
         }
       ],
-      "heroPhoto": "data/images/fb2026058-photo-3.webp",
+      "heroPhoto": "data/images/fb2026058-photo-8.webp",
       "logoBlack": "data/images/fb2026058-logo-black.webp",
       "logoWhite": "data/images/fb2026058-logo-white.webp",
       "galleryPhotos": [
@@ -6913,6 +6913,8 @@
     "data/images/fb2026039-photo-2.webp",
     "data/images/fb2026038-photo-1.webp",
     "data/images/fb2026038-photo-2.webp",
+    "data/images/fb2026060-photo-1.webp",
+    "data/images/fb2026060-photo-2.webp",
     "data/images/fb2026054-photo-1.webp",
     "data/images/fb2026054-photo-2.webp",
     "data/images/fb2026033-photo-1.webp",
@@ -7002,9 +7004,7 @@
     "data/images/fb2026010-photo-1.webp",
     "data/images/fb2026010-photo-2.webp",
     "data/images/fb2026048-photo-1.webp",
-    "data/images/fb2026048-photo-2.webp",
-    "data/images/fb2026060-photo-1.webp",
-    "data/images/fb2026060-photo-2.webp"
+    "data/images/fb2026048-photo-2.webp"
   ],
-  "lastSync": "2026-05-06T23:16:10.716Z"
+  "lastSync": "2026-05-06T23:56:32.710Z"
 }
