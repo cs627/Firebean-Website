@@ -2215,9 +2215,10 @@
       "client": "Okinawa Arakaki Market",
       "venue": "O2 Pilates",
       "year": "Sun Jan 01 2023 00:00:00 GMT+0800 (Hong Kong Standard Time)",
-      "category": "LIFESTYLE & CONSUMER",
+      "category": "LIFESTYLE & CONSUMER, F&B & HOSPITALITY",
       "categories": [
         "lifestyle",
+        "hospitality",
         "social",
         "pr"
       ],
@@ -6774,5 +6775,5 @@
     "data/images/fb2026057-photo-1.webp",
     "data/images/fb2026057-photo-2.webp"
   ],
-  "lastSync": "2026-05-06T05:31:46.597Z"
+  "lastSync": "2026-05-06T05:35:04.015Z"
 }
