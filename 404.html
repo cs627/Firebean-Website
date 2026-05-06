@@ -60,30 +60,76 @@
       transition: background-color 0.3s ease;
     }
 
-    /* Stroke text */
-    .stroke-text {
-      -webkit-text-stroke: 2px #ff3333;
-      color: transparent;
+    /* ── 404 Main Area ── */
+    .page-404-main {
+      background-color: #0a0a0a;
+    }
+    html:not(.dark) .page-404-main {
+      background-color: #0a0a0a; /* always dark for cinematic look */
     }
 
-    /* Ghost 404 background */
+    /* Ghost 404 background — super big, grey */
     .ghost-404 {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       font-family: 'Anton', sans-serif;
-      font-size: clamp(30vw, 50vw, 60vw);
+      font-size: clamp(40vw, 60vw, 80vw);
       line-height: 1;
-      color: rgba(10,10,10,0.05);
+      color: rgba(255,255,255,0.06);
       white-space: nowrap;
       pointer-events: none;
       user-select: none;
       z-index: 0;
+      letter-spacing: -0.05em;
     }
-    html.dark .ghost-404 {
-      color: rgba(255,255,255,0.03);
+
+    /* Headline styles */
+    /* Line 1: THIS PAGE — white solid bold */
+    .h404-en {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(18vw, 22vw, 26vw);
+      line-height: 0.9;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #ffffff;
     }
+    /* Line 2: 此頁面 — red outline */
+    .h404-ch {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(14vw, 18vw, 22vw);
+      line-height: 0.95;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      -webkit-text-stroke: 2px #ff3333;
+      color: transparent;
+    }
+    /* Line 3: このページ — red solid bold */
+    .h404-jp {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(10vw, 13vw, 16vw);
+      line-height: 1;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #ff3333;
+    }
+
+    /* Subtitle text colours */
+    .sub-en  { color: rgba(255,255,255,0.85); }
+    .sub-ch  { color: rgba(255,255,255,0.50); }
+    .sub-jp  { color: rgba(255,255,255,0.30); }
+    .body-en { color: rgba(255,255,255,0.70); }
+    .body-ch { color: rgba(255,255,255,0.40); }
+    .body-jp { color: rgba(255,255,255,0.25); }
+
+    /* CTA animated underline */
+    .cta-link { position: relative; display: inline-block; }
+    .cta-link::after {
+      content: ''; position: absolute; bottom: -2px; left: 0;
+      width: 0%; height: 2px; background: #ff3333; transition: width 0.4s ease;
+    }
+    .cta-link:hover::after { width: 100%; }
 
     /* Nav */
     #navbar { z-index: 9999; }
@@ -134,11 +180,13 @@
     }
     .marquee-item {
       font-family: 'Anton', sans-serif;
-      font-size: clamp(10vw, 14vw, 18vw);
+      font-size: clamp(6vw, 8vw, 10vw);
       line-height: 1; text-transform: uppercase;
-      color: rgba(10,10,10,0.05); padding-right: 0.3em;
+      color: rgba(150,150,150,0.25);
+      padding-right: 0.4em;
+      font-weight: 900;
+      letter-spacing: 0.05em;
     }
-    html.dark .marquee-item { color: rgba(255,255,255,0.04); }
 
     /* Contact parallax bg */
     .contact-parallax-bg {
@@ -240,79 +288,76 @@
   </div>
 
   <!-- Main 404 Content -->
-  <main class="page-404-main relative flex flex-col items-center justify-center overflow-hidden px-6 py-24 min-h-[70vh] bg-brand-black text-white">
+  <main class="page-404-main relative flex flex-col items-center justify-center overflow-hidden px-6 py-20 md:py-28 min-h-[80vh]">
 
-    <!-- Ghost 404 background -->
+    <!-- Super big grey 404 background -->
     <div class="ghost-404" aria-hidden="true">404</div>
 
-    <!-- Trilingual Content -->
+    <!-- Content -->
     <div class="relative z-10 text-center max-w-4xl mx-auto w-full">
 
-      <!-- Error label: all 3 languages in a row -->
-      <div class="flex justify-center items-center gap-4 md:gap-8 mb-8 opacity-0" id="error-label">
+      <!-- Error label row -->
+      <div class="flex justify-center items-center gap-3 md:gap-6 mb-8 opacity-0" id="error-label">
         <span class="font-oswald text-brand-red text-xs md:text-sm uppercase tracking-[0.4em]">Error 404</span>
         <span class="text-white/20">·</span>
-        <span class="font-oswald text-white/30 text-xs md:text-sm uppercase tracking-[0.3em]">錯誤 404</span>
+        <span class="font-oswald text-white/35 text-xs md:text-sm uppercase tracking-[0.3em]">錯誤 404</span>
         <span class="text-white/20">·</span>
-        <span class="font-oswald text-white/30 text-xs md:text-sm uppercase tracking-[0.3em]">エラー 404</span>
+        <span class="font-oswald text-white/25 text-xs md:text-sm uppercase tracking-[0.3em]">エラー 404</span>
       </div>
 
-      <!-- Big headline: EN dominant, CH/JP as subtitle line -->
-      <div class="mb-2 opacity-0" id="headline-1">
-        <h1 class="font-display text-[22vw] md:text-[16vw] lg:text-[14vw] leading-none tracking-tighter uppercase text-white">THIS</h1>
-      </div>
-      <div class="mb-4 opacity-0" id="headline-2">
-        <h1 class="font-display text-[22vw] md:text-[16vw] lg:text-[14vw] leading-none tracking-tighter uppercase stroke-text">PAGE</h1>
-      </div>
-      <!-- CH / JP translation of headline, smaller and faded -->
-      <div class="flex justify-center items-center gap-3 mb-8 opacity-0" id="headline-sub">
-        <span class="font-oswald text-white/30 text-sm md:text-base uppercase tracking-widest">此頁面</span>
-        <span class="text-white/15">·</span>
-        <span class="font-oswald text-white/20 text-sm md:text-base uppercase tracking-widest">このページ</span>
+      <!-- Line 1: THIS PAGE — white solid bold -->
+      <div class="mb-1 opacity-0" id="headline-1">
+        <h1 class="h404-en">THIS PAGE</h1>
       </div>
 
-      <!-- Trilingual taglines stacked -->
-      <div class="mb-3 opacity-0" id="sub-1">
-        <p class="font-playfair italic text-base md:text-xl text-white/80">Went All-In&hellip; and lost.</p>
-        <p class="font-playfair italic text-sm md:text-base text-white/40 mt-1">全力出擊&hellip; 但迷路了。</p>
-        <p class="font-playfair italic text-sm md:text-base text-white/25 mt-1">全力投入&hellip; でも迷子になりました。</p>
+      <!-- Line 2: 此頁面 — red outline bold -->
+      <div class="mb-1 opacity-0" id="headline-2">
+        <h2 class="h404-ch">此頁面</h2>
+      </div>
+
+      <!-- Line 3: このページ — red solid bold -->
+      <div class="mb-10 opacity-0" id="headline-sub">
+        <h3 class="h404-jp">このページ</h3>
+      </div>
+
+      <!-- Trilingual taglines -->
+      <div class="mb-4 opacity-0" id="sub-1">
+        <p class="font-playfair italic text-base md:text-xl sub-en">Went All-In&hellip; and lost.</p>
+        <p class="font-playfair italic text-sm md:text-base sub-ch mt-1">全力出擊&hellip; 但迷路了。</p>
+        <p class="font-playfair italic text-sm md:text-base sub-jp mt-1">全力投入&hellip; でも迷子になりました。</p>
       </div>
 
       <!-- Trilingual subtext -->
       <div class="mb-12 opacity-0" id="sub-2">
-        <p class="font-sans text-xs md:text-sm text-white/35 max-w-lg mx-auto leading-relaxed">
-          The page you're looking for doesn't exist, was moved, or never made it to the final cut.<br>
-          <span class="text-white/20">您尋找的頁面不存在、已被移動，或從未出現過。</span><br>
-          <span class="text-white/15">お探しのページは存在しないか、移動されたか、最終版に含まれませんでした。</span>
+        <p class="font-sans text-xs md:text-sm body-en max-w-lg mx-auto leading-relaxed">
+          The page you're looking for doesn't exist, was moved, or never made it to the final cut.
         </p>
+        <p class="font-sans text-xs md:text-sm body-ch max-w-lg mx-auto leading-relaxed mt-1">您尋找的頁面不存在、已被移動，或從未出現過。</p>
+        <p class="font-sans text-xs md:text-sm body-jp max-w-lg mx-auto leading-relaxed mt-1">お探しのページは存在しないか、移動されたか、最終版に含まれませんでした。</p>
       </div>
 
-      <!-- CTAs: trilingual -->
-      <div class="flex flex-col sm:flex-row gap-3 justify-center items-center opacity-0" id="ctas">
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center opacity-0" id="ctas">
         <a href="index.html" class="cta-link font-oswald text-xs uppercase tracking-[0.3em] text-white hover:text-brand-red transition-colors">
-          ← Back to Home&nbsp;<span class="text-white/40">/ 返回主頁 / ホームに戻る</span>
+          ← Back to Home <span class="text-white/40">/ 返回主頁 / ホームに戻る</span>
         </a>
         <span class="text-white/20 hidden sm:block">|</span>
-        <a href="work.html" class="cta-link font-oswald text-xs uppercase tracking-[0.3em] text-white/60 hover:text-brand-red transition-colors">
-          View Our Work&nbsp;<span class="text-white/30">/ 瀏覽作品 / 作品を見る</span>
+        <a href="work.html" class="cta-link font-oswald text-xs uppercase tracking-[0.3em] text-white/70 hover:text-brand-red transition-colors">
+          View Our Work <span class="text-white/35">/ 瀏覽作品 / 作品を見る</span>
         </a>
       </div>
 
     </div>
 
-    <!-- Bottom scrolling marquee: trilingual -->
+    <!-- Bottom running text: grey bold -->
     <div class="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none" aria-hidden="true">
       <div class="marquee-track">
-        <span class="marquee-item">FIREBEAN&nbsp;·&nbsp;</span>
-        <span class="marquee-item">404&nbsp;·&nbsp;</span>
-        <span class="marquee-item">PAGE NOT FOUND&nbsp;·&nbsp;</span>
-        <span class="marquee-item">頁面找不到&nbsp;·&nbsp;</span>
-        <span class="marquee-item">ページが見つかりません&nbsp;·&nbsp;</span>
-        <span class="marquee-item">FIREBEAN&nbsp;·&nbsp;</span>
-        <span class="marquee-item">404&nbsp;·&nbsp;</span>
-        <span class="marquee-item">PAGE NOT FOUND&nbsp;·&nbsp;</span>
-        <span class="marquee-item">頁面找不到&nbsp;·&nbsp;</span>
-        <span class="marquee-item">ページが見つかりません&nbsp;·&nbsp;</span>
+        <span class="marquee-item">FIREBEAN&nbsp;·&nbsp;404&nbsp;·&nbsp;</span>
+        <span class="marquee-item">FIREBEAN&nbsp;·&nbsp;404&nbsp;·&nbsp;</span>
+        <span class="marquee-item">FIREBEAN&nbsp;·&nbsp;404&nbsp;·&nbsp;</span>
+        <span class="marquee-item">FIREBEAN&nbsp;·&nbsp;404&nbsp;·&nbsp;</span>
+        <span class="marquee-item">FIREBEAN&nbsp;·&nbsp;404&nbsp;·&nbsp;</span>
+        <span class="marquee-item">FIREBEAN&nbsp;·&nbsp;404&nbsp;·&nbsp;</span>
       </div>
     </div>
   </main>
