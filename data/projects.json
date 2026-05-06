@@ -1818,7 +1818,7 @@
           "a": "予期せぬ気候変動が主要な花の供給に影響を与えた際、Firebean の迅速な制作チームは、積極的な危機管理プロトコルを発動しました。私たちの広範なネットワークを活用し、多様な地域から高品質な代替の花を迅速に調達することで、展示が意図した豊かさと多様性を維持できるようにし、ショーの核となる美学へのいかなる混乱も防ぎました。"
         }
       ],
-      "heroPhoto": "data/images/fb2026008-photo-4.webp",
+      "heroPhoto": "data/images/fb2026008-photo-2.webp",
       "logoBlack": "data/images/fb2026008-logo-black.webp",
       "logoWhite": "data/images/fb2026008-logo-white.webp",
       "galleryPhotos": [
@@ -6698,5 +6698,5 @@
     "data/images/fb2026056-photo-1.webp",
     "data/images/fb2026056-photo-2.webp"
   ],
-  "lastSync": "2026-05-06T00:06:30.532Z"
+  "lastSync": "2026-05-06T00:29:05.992Z"
 }
