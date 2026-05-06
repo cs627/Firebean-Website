@@ -257,18 +257,18 @@
         <span class="font-oswald text-white/30 text-xs md:text-sm uppercase tracking-[0.3em]">エラー 404</span>
       </div>
 
-      <!-- Big headline: EN solid, CH ghost, JP ghost stacked -->
-      <div class="relative mb-2 opacity-0" id="headline-1">
-        <h1 class="font-display text-[20vw] md:text-[15vw] lg:text-[13vw] leading-none tracking-tighter uppercase text-white">THIS</h1>
-        <div class="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
-          <span class="font-display text-[20vw] md:text-[15vw] lg:text-[13vw] leading-none tracking-tighter uppercase text-white/8 select-none">此&nbsp;この</span>
-        </div>
+      <!-- Big headline: EN dominant, CH/JP as subtitle line -->
+      <div class="mb-2 opacity-0" id="headline-1">
+        <h1 class="font-display text-[22vw] md:text-[16vw] lg:text-[14vw] leading-none tracking-tighter uppercase text-white">THIS</h1>
       </div>
-      <div class="relative mb-10 opacity-0" id="headline-2">
-        <h1 class="font-display text-[20vw] md:text-[15vw] lg:text-[13vw] leading-none tracking-tighter uppercase stroke-text">PAGE</h1>
-        <div class="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
-          <span class="font-display text-[20vw] md:text-[15vw] lg:text-[13vw] leading-none tracking-tighter uppercase" style="-webkit-text-stroke:1px rgba(255,51,51,0.15); color:transparent; user-select:none;">頁面&nbsp;ページ</span>
-        </div>
+      <div class="mb-4 opacity-0" id="headline-2">
+        <h1 class="font-display text-[22vw] md:text-[16vw] lg:text-[14vw] leading-none tracking-tighter uppercase stroke-text">PAGE</h1>
+      </div>
+      <!-- CH / JP translation of headline, smaller and faded -->
+      <div class="flex justify-center items-center gap-3 mb-8 opacity-0" id="headline-sub">
+        <span class="font-oswald text-white/30 text-sm md:text-base uppercase tracking-widest">此頁面</span>
+        <span class="text-white/15">·</span>
+        <span class="font-oswald text-white/20 text-sm md:text-base uppercase tracking-widest">このページ</span>
       </div>
 
       <!-- Trilingual taglines stacked -->
@@ -374,14 +374,15 @@
   <script>
     // ── GSAP entrance animations ──
     document.addEventListener('DOMContentLoaded', function() {
-      gsap.set(['#error-label','#headline-1','#headline-2','#sub-1','#sub-2','#ctas'], { y: 30 });
+      gsap.set(['#error-label','#headline-1','#headline-2','#headline-sub','#sub-1','#sub-2','#ctas'], { y: 30 });
       var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-      tl.to('#error-label',  { opacity: 1, y: 0, duration: 0.5, delay: 0.2 })
-        .to('#headline-1',   { opacity: 1, y: 0, duration: 0.7 }, '-=0.2')
-        .to('#headline-2',   { opacity: 1, y: 0, duration: 0.7 }, '-=0.5')
-        .to('#sub-1',        { opacity: 1, y: 0, duration: 0.6 }, '-=0.4')
-        .to('#sub-2',        { opacity: 1, y: 0, duration: 0.6 }, '-=0.4')
-        .to('#ctas',         { opacity: 1, y: 0, duration: 0.6 }, '-=0.3');
+      tl.to('#error-label',   { opacity: 1, y: 0, duration: 0.5, delay: 0.2 })
+        .to('#headline-1',    { opacity: 1, y: 0, duration: 0.7 }, '-=0.2')
+        .to('#headline-2',    { opacity: 1, y: 0, duration: 0.7 }, '-=0.5')
+        .to('#headline-sub',  { opacity: 1, y: 0, duration: 0.5 }, '-=0.3')
+        .to('#sub-1',         { opacity: 1, y: 0, duration: 0.6 }, '-=0.3')
+        .to('#sub-2',         { opacity: 1, y: 0, duration: 0.6 }, '-=0.4')
+        .to('#ctas',          { opacity: 1, y: 0, duration: 0.6 }, '-=0.3');
     });
     // ── Re-apply translations whenever language changes ──
     window.addEventListener('languageChange', function() {
