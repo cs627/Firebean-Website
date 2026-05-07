@@ -290,36 +290,17 @@
   </div>
 
   <!-- Main 404 Content -->
-  <main class="page-404-main relative flex flex-col items-center justify-center overflow-hidden px-6 py-20 md:py-28 min-h-[80vh]">
-
-    <!-- Super big grey 404 background -->
-    <div class="ghost-404" aria-hidden="true">404</div>
+  <main class="page-404-main relative flex flex-col items-center justify-center overflow-hidden px-6 py-16 md:py-24">
 
     <!-- Content -->
-    <div class="relative z-10 text-center max-w-4xl mx-auto w-full">
+    <div class="relative z-10 text-center max-w-3xl mx-auto w-full">
 
-      <!-- Error label row -->
-      <div class="flex justify-center items-center gap-3 md:gap-6 mb-8 opacity-0" id="error-label">
-        <span class="font-oswald text-brand-red text-xs md:text-sm uppercase tracking-[0.4em]">Error 404</span>
-        <span class="text-white/20">·</span>
-        <span class="font-oswald text-white/35 text-xs md:text-sm uppercase tracking-[0.3em]">錯誤 404</span>
-        <span class="text-white/20">·</span>
-        <span class="font-oswald text-white/25 text-xs md:text-sm uppercase tracking-[0.3em]">エラー 404</span>
-      </div>
-
-      <!-- Line 1: THIS PAGE — white solid bold -->
-      <div class="mb-1 opacity-0" id="headline-1">
-        <h1 class="h404-en">THIS PAGE</h1>
-      </div>
-
-      <!-- Line 2: 此頁面 — red outline bold -->
-      <div class="mb-1 opacity-0" id="headline-2">
-        <h2 class="h404-ch">此頁面</h2>
-      </div>
-
-      <!-- Line 3: このページ — red solid bold -->
-      <div class="mb-10 opacity-0" id="headline-sub">
-        <div class="h404-jp">このページ</div>
+      <!-- 3D Neon 404 Image -->
+      <div class="mb-8 opacity-0" id="headline-1">
+        <img src="data/images/404-neon.png"
+             alt="404 Neon Sign"
+             class="w-full max-w-xl mx-auto object-contain drop-shadow-2xl"
+             referrerpolicy="no-referrer">
       </div>
 
       <!-- Trilingual taglines -->
@@ -330,7 +311,7 @@
       </div>
 
       <!-- Trilingual subtext -->
-      <div class="mb-12 opacity-0" id="sub-2">
+      <div class="opacity-0" id="sub-2">
         <p class="font-sans text-xs md:text-sm body-en max-w-lg mx-auto leading-relaxed">
           The page you're looking for doesn't exist, was moved, or never made it to the final cut.
         </p>
@@ -338,29 +319,6 @@
         <p class="font-sans text-xs md:text-sm body-jp max-w-lg mx-auto leading-relaxed mt-1">お探しのページは存在しないか、移動されたか、最終版に含まれませんでした。</p>
       </div>
 
-      <!-- CTAs -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center opacity-0" id="ctas">
-        <a href="index.html" class="cta-link font-oswald text-xs uppercase tracking-[0.3em] text-white hover:text-brand-red transition-colors">
-          ← Back to Home <span class="text-white/40">/ 返回主頁 / ホームに戻る</span>
-        </a>
-        <span class="text-white/20 hidden sm:block">|</span>
-        <a href="work.html" class="cta-link font-oswald text-xs uppercase tracking-[0.3em] text-white/70 hover:text-brand-red transition-colors">
-          View Our Work <span class="text-white/35">/ 瀏覽作品 / 作品を見る</span>
-        </a>
-      </div>
-
-    </div>
-
-    <!-- Bottom running text: grey bold -->
-    <div class="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none" aria-hidden="true">
-      <div class="marquee-track">
-        <span class="marquee-item">FIREBEAN&nbsp;·&nbsp;404&nbsp;·&nbsp;</span>
-        <span class="marquee-item">FIREBEAN&nbsp;·&nbsp;404&nbsp;·&nbsp;</span>
-        <span class="marquee-item">FIREBEAN&nbsp;·&nbsp;404&nbsp;·&nbsp;</span>
-        <span class="marquee-item">FIREBEAN&nbsp;·&nbsp;404&nbsp;·&nbsp;</span>
-        <span class="marquee-item">FIREBEAN&nbsp;·&nbsp;404&nbsp;·&nbsp;</span>
-        <span class="marquee-item">FIREBEAN&nbsp;·&nbsp;404&nbsp;·&nbsp;</span>
-      </div>
     </div>
   </main>
 
@@ -421,15 +379,11 @@
   <script>
     // ── GSAP entrance animations ──
     document.addEventListener('DOMContentLoaded', function() {
-      gsap.set(['#error-label','#headline-1','#headline-2','#headline-sub','#sub-1','#sub-2','#ctas'], { y: 30 });
+      gsap.set(['#headline-1','#sub-1','#sub-2'], { y: 30 });
       var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-      tl.to('#error-label',   { opacity: 1, y: 0, duration: 0.5, delay: 0.2 })
-        .to('#headline-1',    { opacity: 1, y: 0, duration: 0.7 }, '-=0.2')
-        .to('#headline-2',    { opacity: 1, y: 0, duration: 0.7 }, '-=0.5')
-        .to('#headline-sub',  { opacity: 1, y: 0, duration: 0.5 }, '-=0.3')
-        .to('#sub-1',         { opacity: 1, y: 0, duration: 0.6 }, '-=0.3')
-        .to('#sub-2',         { opacity: 1, y: 0, duration: 0.6 }, '-=0.4')
-        .to('#ctas',          { opacity: 1, y: 0, duration: 0.6 }, '-=0.3');
+      tl.to('#headline-1', { opacity: 1, y: 0, duration: 0.9, delay: 0.2 })
+        .to('#sub-1',      { opacity: 1, y: 0, duration: 0.6 }, '-=0.3')
+        .to('#sub-2',      { opacity: 1, y: 0, duration: 0.6 }, '-=0.4');
     });
     // ── Re-apply translations whenever language changes ──
     window.addEventListener('languageChange', function() {
