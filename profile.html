@@ -20,6 +20,11 @@
   <meta name="twitter:image" content="https://firebean.net/data/images/firebean-logo-w1000.webp">
   <!-- Canonical (updated dynamically by JS) -->
   <link rel="canonical" href="https://firebean.net/profile.html" id="canonical-url">
+  <!-- hreflang: multilingual (updated dynamically by JS) -->
+  <link rel="alternate" hreflang="en" href="https://firebean.net/profile.html" id="hreflang-en">
+  <link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html" id="hreflang-zh">
+  <link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html" id="hreflang-ja">
+  <link rel="alternate" hreflang="x-default" href="https://firebean.net/profile.html" id="hreflang-default">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -633,6 +638,12 @@
       // Update canonical URL
       var canonical = document.getElementById('canonical-url');
       if (canonical) canonical.setAttribute('href', projectUrl);
+
+      // Update hreflang URLs (all point to same URL since language is handled client-side)
+      ['hreflang-en','hreflang-zh','hreflang-ja','hreflang-default'].forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) el.setAttribute('href', projectUrl);
+      });
 
       document.getElementById('profile-title').textContent = project.project || '';
       document.getElementById('profile-subtitle').textContent = project.client ? project.client + (project.venue ? ' — ' + project.venue : '') : '';
