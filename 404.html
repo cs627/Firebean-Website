@@ -62,10 +62,10 @@
 
     /* ── 404 Main Area ── */
     .page-404-main {
-      background-color: #0a0a0a;
+      background-color: #ffffff;
     }
-    html:not(.dark) .page-404-main {
-      background-color: #0a0a0a; /* always dark for cinematic look */
+    html.dark .page-404-main {
+      background-color: #111111;
     }
 
     /* Ghost 404 background — super big, grey */
@@ -117,13 +117,19 @@
       display: block;
     }
 
-    /* Subtitle text colours */
-    .sub-en  { color: rgba(255,255,255,0.85); }
-    .sub-ch  { color: rgba(255,255,255,0.50); }
-    .sub-jp  { color: rgba(255,255,255,0.30); }
-    .body-en { color: rgba(255,255,255,0.70); }
-    .body-ch { color: rgba(255,255,255,0.40); }
-    .body-jp { color: rgba(255,255,255,0.25); }
+    /* Subtitle text colours — light mode: black, dark mode: white */
+    .sub-en  { color: rgba(10,10,10,0.90); }
+    .sub-ch  { color: rgba(10,10,10,0.60); }
+    .sub-jp  { color: rgba(10,10,10,0.40); }
+    .body-en { color: rgba(10,10,10,0.80); }
+    .body-ch { color: rgba(10,10,10,0.55); }
+    .body-jp { color: rgba(10,10,10,0.35); }
+    html.dark .sub-en  { color: rgba(255,255,255,0.85); }
+    html.dark .sub-ch  { color: rgba(255,255,255,0.50); }
+    html.dark .sub-jp  { color: rgba(255,255,255,0.30); }
+    html.dark .body-en { color: rgba(255,255,255,0.70); }
+    html.dark .body-ch { color: rgba(255,255,255,0.40); }
+    html.dark .body-jp { color: rgba(255,255,255,0.25); }
 
     /* CTA animated underline */
     .cta-link { position: relative; display: inline-block; }
@@ -303,20 +309,20 @@
              referrerpolicy="no-referrer">
       </div>
 
-      <!-- Trilingual taglines -->
-      <div class="mb-4 opacity-0" id="sub-1">
-        <p class="font-playfair italic text-base md:text-xl sub-en">Went All-In&hellip; and lost.</p>
-        <p class="font-playfair italic text-sm md:text-base sub-ch mt-1">全力出擊&hellip; 但迷路了。</p>
-        <p class="font-playfair italic text-sm md:text-base sub-jp mt-1">全力投入&hellip; でも迷子になりました。</p>
+      <!-- Trilingual taglines — 50% bigger: text-base→text-2xl, text-sm→text-xl -->
+      <div class="mb-6 opacity-0" id="sub-1">
+        <p class="font-playfair italic text-2xl md:text-3xl sub-en">Went All-In&hellip; and lost.</p>
+        <p class="font-playfair italic text-xl md:text-2xl sub-ch mt-2">全力出擊&hellip; 但迷路了。</p>
+        <p class="font-playfair italic text-lg md:text-xl sub-jp mt-2">全力投入&hellip; でも迷子になりました。</p>
       </div>
 
-      <!-- Trilingual subtext -->
+      <!-- Trilingual subtext — 50% bigger: text-xs→text-sm, text-sm→text-base -->
       <div class="opacity-0" id="sub-2">
-        <p class="font-sans text-xs md:text-sm body-en max-w-lg mx-auto leading-relaxed">
+        <p class="font-sans text-sm md:text-base body-en max-w-xl mx-auto leading-relaxed">
           The page you're looking for doesn't exist, was moved, or never made it to the final cut.
         </p>
-        <p class="font-sans text-xs md:text-sm body-ch max-w-lg mx-auto leading-relaxed mt-1">您尋找的頁面不存在、已被移動，或從未出現過。</p>
-        <p class="font-sans text-xs md:text-sm body-jp max-w-lg mx-auto leading-relaxed mt-1">お探しのページは存在しないか、移動されたか、最終版に含まれませんでした。</p>
+        <p class="font-sans text-sm md:text-base body-ch max-w-xl mx-auto leading-relaxed mt-2">您尋找的頁面不存在、已被移動，或從未出現過。</p>
+        <p class="font-sans text-sm md:text-base body-jp max-w-xl mx-auto leading-relaxed mt-2">お探しのページは存在しないか、移動されたか、最終版に含まれませんでした。</p>
       </div>
 
     </div>
