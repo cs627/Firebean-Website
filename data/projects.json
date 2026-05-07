@@ -5435,9 +5435,10 @@
       "client": "Zanussi",
       "venue": "Olympian City 2",
       "year": "Sun Apr 01 2018 00:00:00 GMT+0800 (Hong Kong Standard Time)",
-      "category": "LIFESTYLE & CONSUMER",
+      "category": "LIFESTYLE & CONSUMER, MALLS & VENUES",
       "categories": [
         "lifestyle",
+        "venues",
         "pr",
         "events"
       ],
@@ -7006,5 +7007,5 @@
     "data/images/fb2026048-photo-1.webp",
     "data/images/fb2026048-photo-2.webp"
   ],
-  "lastSync": "2026-05-07T00:14:39.238Z"
+  "lastSync": "2026-05-07T00:20:08.989Z"
 }
