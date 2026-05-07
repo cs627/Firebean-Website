@@ -4,7 +4,22 @@
     <base href="/">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project Profile - Firebean Agency</title>
+  <title>Firebean Profiles | Firebean Agency Hong Kong</title>
+  <meta name="description" content="Firebean Agency project profile — Lifestyle PR &amp; Event Production in Hong Kong.">
+  <!-- Open Graph (updated dynamically by JS when project loads) -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://firebean.net/profile.html">
+  <meta property="og:title" content="Firebean Profiles | Firebean Agency Hong Kong">
+  <meta property="og:description" content="Firebean Agency project profile — Lifestyle PR &amp; Event Production in Hong Kong.">
+  <meta property="og:image" content="https://firebean.net/data/images/firebean-logo-w1000.webp">
+  <meta property="og:site_name" content="Firebean Agency">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Firebean Profiles | Firebean Agency Hong Kong">
+  <meta name="twitter:description" content="Firebean Agency project profile — Lifestyle PR &amp; Event Production in Hong Kong.">
+  <meta name="twitter:image" content="https://firebean.net/data/images/firebean-logo-w1000.webp">
+  <!-- Canonical (updated dynamically by JS) -->
+  <link rel="canonical" href="https://firebean.net/profile.html" id="canonical-url">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -584,12 +599,46 @@
 
       document.getElementById('loading-overlay').classList.add('hidden');
 
-      document.title = 'Firebean Profiles';
+      // ── Dynamic title, meta description, and Open Graph tags ──
+      var projectName = project.projectName || project.project || 'Firebean Profiles';
+      var projectDesc = project.client
+        ? projectName + ' — ' + project.client + (project.venue ? ', ' + project.venue : '') + ' | Firebean Agency'
+        : projectName + ' | Firebean Agency Hong Kong';
+      var projectImage = project.heroPhoto
+        ? 'https://firebean.net/' + project.heroPhoto
+        : 'https://firebean.net/data/images/firebean-logo-w1000.webp';
+      var projectUrl = 'https://firebean.net/profile.html?id=' + (project.id || project.projectId || '').toLowerCase();
+
+      document.title = projectName + ' | Firebean Agency';
+
+      // Update meta description
+      var metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute('content', projectDesc);
+
+      // Update Open Graph tags
+      var ogTags = {
+        'og:title':       projectName + ' | Firebean Agency',
+        'og:description': projectDesc,
+        'og:image':       projectImage,
+        'og:url':         projectUrl,
+        'twitter:title':       projectName + ' | Firebean Agency',
+        'twitter:description': projectDesc,
+        'twitter:image':       projectImage
+      };
+      Object.keys(ogTags).forEach(function(prop) {
+        var el = document.querySelector('meta[property="' + prop + '"], meta[name="' + prop + '"]');
+        if (el) el.setAttribute('content', ogTags[prop]);
+      });
+
+      // Update canonical URL
+      var canonical = document.getElementById('canonical-url');
+      if (canonical) canonical.setAttribute('href', projectUrl);
+
       document.getElementById('profile-title').textContent = project.project || '';
       document.getElementById('profile-subtitle').textContent = project.client ? project.client + (project.venue ? ' — ' + project.venue : '') : '';
       
       var heroEl = document.getElementById('profile-hero');
-      if (project.heroPhoto) { heroEl.src = project.heroPhoto; heroEl.alt = project.project; }
+      if (project.heroPhoto) { heroEl.src = project.heroPhoto; heroEl.alt = projectName; }
 
       const categoriesEl = document.getElementById('profile-categories');
       function renderCategories() {
