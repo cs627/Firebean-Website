@@ -492,7 +492,7 @@
   <section class="relative bg-brand-black text-white py-32 px-6 overflow-hidden">
     <!-- Parallax background -->
     <div class="absolute inset-0 z-0">
-      <img src="data/images/contact-bg.webp" alt="" class="contact-parallax-bg w-full h-[150%] object-cover object-center" referrerpolicy="no-referrer" />
+      <img src="data/images/contact-bg.webp" alt="" class="contact-parallax-bg w-full h-[150%] object-cover object-center" loading="lazy" referrerpolicy="no-referrer" />
       <div class="absolute inset-0 bg-brand-black/40"></div>
     </div>
     <div class="max-w-7xl mx-auto relative z-10">
@@ -822,7 +822,7 @@
           div.className = `grid ${cols} gap-3 md:gap-6 ${large ? 'my-12' : 'my-8'} ${cls}`;
           div.innerHTML = pair.map(url => `
             <div class="overflow-hidden aspect-square opacity-0 translate-y-8">
-              <img src="${url}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" referrerpolicy="no-referrer">
+              <img src="${url}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" referrerpolicy="no-referrer">
             </div>
           `).join('');
           div.querySelectorAll('div').forEach(item => {
@@ -854,7 +854,7 @@
           var rem = document.createElement('div');
           rem.className = 'grid grid-cols-2 gap-3 md:gap-6 mt-12 extra-photo-pair';
           pairs.slice(4).flat().forEach(url => {
-            rem.innerHTML += `<div class="overflow-hidden aspect-square"><img src="${url}" class="w-full h-full object-cover" referrerpolicy="no-referrer"></div>`;
+            rem.innerHTML += `<div class="overflow-hidden aspect-square"><img src="${url}" class="w-full h-full object-cover" loading="lazy" referrerpolicy="no-referrer"></div>`;
           });
           solEl.parentNode.appendChild(rem);
         }
