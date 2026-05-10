@@ -1304,7 +1304,7 @@
       "projectId": "FB2026062",
       "projectName": "Social Media Maintenance ",
       "client": "屋宇署",
-      "venue": "/",
+      "venue": "Hong Kong",
       "year": "Wed Jan 01 2025 00:00:00 GMT+0800 (Hong Kong Standard Time)",
       "category": "GOVERNMENT & PUBLIC SECTOR",
       "categories": [
@@ -7542,5 +7542,5 @@
     "data/images/fb2026067-photo-1.webp",
     "data/images/fb2026067-photo-2.webp"
   ],
-  "lastSync": "2026-05-10T00:53:44.597Z"
+  "lastSync": "2026-05-10T00:57:03.545Z"
 }
