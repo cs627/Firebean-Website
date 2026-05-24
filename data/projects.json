@@ -5479,10 +5479,19 @@
           "a": "Firebeanは、「ハイテクな蝶」のコンセプトを、外部の医療会議と内部のHQイベントの両方で核となる視覚的および物語的要素として綿密に開発することで、テーマの一貫性を維持しました。ハイテク統合は、会議での科学的明瞭性のための3Dプロジェクションと、HQ内でのインタラクティブなデジタルディスプレイおよび体験デザインを通じて実現され、各聴衆に合わせた一貫性のある体験を保証しました。"
         }
       ],
-      "heroPhoto": "",
+      "heroPhoto": "data/images/fb2026021-photo-7.webp",
       "logoBlack": "data/images/fb2026021-logo-black.webp",
       "logoWhite": "data/images/fb2026021-logo-white.webp",
-      "galleryPhotos": [],
+      "galleryPhotos": [
+        "data/images/fb2026021-photo-1.webp",
+        "data/images/fb2026021-photo-2.webp",
+        "data/images/fb2026021-photo-3.webp",
+        "data/images/fb2026021-photo-4.webp",
+        "data/images/fb2026021-photo-5.webp",
+        "data/images/fb2026021-photo-6.webp",
+        "data/images/fb2026021-photo-7.webp",
+        "data/images/fb2026021-photo-8.webp"
+      ],
       "sortDate": "2019-11-17T16:00:00.000Z",
       "youtube": ""
     },
@@ -8006,6 +8015,8 @@
     "data/images/fb2026016-photo-2.webp",
     "data/images/fb2026014-photo-1.webp",
     "data/images/fb2026014-photo-2.webp",
+    "data/images/fb2026021-photo-1.webp",
+    "data/images/fb2026021-photo-2.webp",
     "data/images/fb2026020-photo-1.webp",
     "data/images/fb2026020-photo-2.webp",
     "data/images/fb2026032-photo-1.webp",
@@ -8149,5 +8160,5 @@
     "data/images/fb2026075-photo-1.webp",
     "data/images/fb2026075-photo-2.webp"
   ],
-  "lastSync": "2026-05-24T09:20:01.897Z"
+  "lastSync": "2026-05-24T09:44:59.020Z"
 }
