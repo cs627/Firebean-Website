@@ -5,6 +5,15 @@
 **Last Updated**: March 30, 2026  
 **Status**: ✅ Production Ready
 
+> ⚠️ **SOURCE OF TRUTH (June 2026):** The live Apps Script code is maintained **inside the
+> Google Apps Script project** bound to the Master DB Sheet — NOT in this repo:
+> - **GitHub.gs** `v12.2.0` — `doSync` / 🔥 CMS Sync (self-healing photo paths; never blanks heroPhoto/galleryPhotos).
+> - **handlers.gs** `v12.1.0` — `doPost` web-app endpoint that receives data from the Streamlit app.
+>
+> Older `sync-to-github*.gs` / `sheet-receiver.gs` reference copies were removed from this repo
+> to avoid confusion. To change sync logic, edit it in the Apps Script editor and redeploy the Web App.
+> Streamlit `/exec` endpoint: `https://script.google.com/macros/s/AKfycbw6UuXZqhoFYtEiGYPJmFAWCis9IN-M-NVYN8hEo-Ux6UKKloihhv4yScS6ocGEJ9Em/exec`
+
 ---
 
 ## 📋 Table of Contents
