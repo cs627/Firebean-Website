@@ -1,29 +1,6 @@
 {
   "projects": [
     {
-      "id": "fb2026077",
-      "projectId": "FB2026077",
-      "projectName": "DUMMY_PROJECT_SYNC_TEST",
-      "client": "TEST_CLIENT_001",
-      "venue": "Test Location",
-      "year": "Wed Jun 17 2026 00:00:00 GMT+0800 (Hong Kong Standard Time)",
-      "category": "Test Category",
-      "categories": [],
-      "scope": "Connectivity Check",
-      "webEN": "",
-      "webTC": "",
-      "webJP": "",
-      "faqEN": [],
-      "faqTC": [],
-      "faqJP": [],
-      "heroPhoto": "",
-      "logoBlack": "",
-      "logoWhite": "",
-      "galleryPhotos": [],
-      "sortDate": "2026-05-31T16:00:00.000Z",
-      "youtube": ""
-    },
-    {
       "id": "fb2026048",
       "projectId": "FB2026048",
       "projectName": "“A Voyage with Books Series” Multimodal Reading Resources Exhibition",
@@ -7043,5 +7020,5 @@
     }
   ],
   "polaroids": [],
-  "lastSync": "2026-06-17T16:00:15.835Z"
+  "lastSync": "2026-06-19T01:54:57.618Z"
 }
