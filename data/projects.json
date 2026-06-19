@@ -7427,6 +7427,73 @@
       "youtube": "https://youtu.be/qDkkavTo3IU"
     },
     {
+      "id": "fb2026076",
+      "projectId": "FB2026076",
+      "projectName": "Levi’s Eyewear One Day Shop Manager",
+      "client": "Levi’s Eyewear One Day Shop Manager",
+      "venue": "TST",
+      "year": "Mon May 01 2017 00:00:00 GMT+0800 (Hong Kong Standard Time)",
+      "category": "LIFESTYLE & CONSUMER",
+      "categories": [
+        "lifestyle",
+        "social",
+        "pr",
+        "events"
+      ],
+      "scope": "Concept Development<br>Branding Strategy<br>PR Consulting<br>Media Relations<br>Visual Identity<br>Social Media Content<br>Influencer Seeding<br>Video Production<br>Event Planning<br>Event Production<br>RSVP Management<br>Talent Management<br>On-site Operation",
+      "webEN": "",
+      "webTC": "",
+      "webJP": "",
+      "faqEN": [
+        {
+          "q": "What core challenge did Levi's Eyewear face during this brand activation?",
+          "a": "The primary challenge was launching a new eyewear collection and denim customization service within a compact retail space, while simultaneously integrating celebrity endorsement and interactive workshops, ensuring a cohesive brand message despite spatial limitations."
+        },
+        {
+          "q": "How did Firebean solve the problem of limited venue space and diverse brand elements?",
+          "a": "Firebean's strategy involved innovative spatial design to create a dynamic 'catwalk' within the narrow shop, seamlessly integrating the eyewear showcase with a DIY denim eco-bag workshop. This approach, combined with a celebrity 'One Day Shop Manager' and multi-channel media amplification, transformed limitations into a holistic brand experience."
+        },
+        {
+          "q": "What measurable value did Firebean's solution bring to Levi's Eyewear?",
+          "a": "The project significantly raised brand awareness and injected a distinct brand impression, particularly among target customer groups. It stimulated sales of new products, expanded market share through celebrity appeal, deepened customer loyalty via unique experiences, and reinforced Levi's' position as a trend-setting, youth-oriented brand."
+        }
+      ],
+      "faqTC": [
+        {
+          "q": "Levi's Eyewear 在這次品牌激活活動中面臨的核心挑戰是什麼？",
+          "a": "主要的挑戰是在有限的零售空間內，同時推出全新眼鏡系列和牛仔褲訂製服務，並整合名人代言及互動工作坊，儘管空間受限，仍需確保品牌訊息連貫一致。"
+        },
+        {
+          "q": "Firebean 如何解決場地空間有限及品牌元素多元化的問題？",
+          "a": "Firebean 的策略涉及創新的空間設計，在狹窄的店舖內創造一個動態的「天橋」，將眼鏡展示與 DIY 牛仔布環保袋工作坊無縫結合。這種方法，結合名人「一日店長」及多渠道媒體宣傳，將限制轉化為全面的品牌體驗。"
+        },
+        {
+          "q": "Firebean 的解決方案為 Levi's Eyewear 帶來了哪些可衡量的價值？",
+          "a": "此項目顯著提升了品牌知名度，並為特定目標客戶群注入了獨特的品牌印象。它刺激了新產品銷售，透過名人效應擴大了市場份額，透過獨特體驗加深了客戶忠誠度，並鞏固了 Levi's 作為引領潮流、年輕化品牌的地位。"
+        }
+      ],
+      "faqJP": [
+        {
+          "q": "Levi's Eyewearがこのブランドアクティベーションで直面した主要な課題は何でしたか？",
+          "a": "主な課題は、限られた小売スペース内で新しいアイウェアコレクションとデニムカスタマイズサービスを立ち上げると同時に、有名人による推薦とインタラクティブなワークショップを統合し、空間的な制約にもかかわらず一貫したブランドメッセージを確保することでした。"
+        },
+        {
+          "q": "Firebeanは限られた会場スペースと多様なブランド要素の問題をどのように解決しましたか？",
+          "a": "Firebeanの戦略は、狭い店舗内にダイナミックな「キャットウォーク」を創出する革新的な空間デザインを含み、アイウェアの展示とDIYデニムエコバッグワークショップをシームレスに統合しました。このアプローチは、有名人「一日店長」と多チャンネルメディアでの増幅と組み合わせることで、制約を包括的なブランド体験へと転換させました。"
+        },
+        {
+          "q": "Firebeanの解決策はLevi's Eyewearにどのような測定可能な価値をもたらしましたか？",
+          "a": "このプロジェクトは、ブランドの認知度を大幅に高め、特にターゲット顧客層に明確なブランドイメージを植え付けました。新製品の販売を促進し、有名人の魅力による市場シェアを拡大し、ユニークな体験を通じて顧客ロイヤルティを深め、Levi'sのトレンドセッターとしての若々しくリーダーシップを発揮するブランドとしての地位を強化しました。"
+        }
+      ],
+      "heroPhoto": "",
+      "logoBlack": "",
+      "logoWhite": "",
+      "galleryPhotos": [],
+      "sortDate": "2017-04-30T16:00:00.000Z",
+      "youtube": ""
+    },
+    {
       "id": "fb2026003",
       "projectId": "FB2026003",
       "projectName": "HTC U Play X Fashion Social Media ",
@@ -8229,5 +8296,5 @@
     "data/images/fb2026075-photo-1.webp",
     "data/images/fb2026075-photo-2.webp"
   ],
-  "lastSync": "2026-06-19T08:32:35.676Z"
+  "lastSync": "2026-06-19T08:45:58.492Z"
 }
