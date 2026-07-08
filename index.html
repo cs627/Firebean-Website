@@ -325,6 +325,20 @@
       .l-bl { bottom: 0px; left: 0px; border-width: 0 0 2px 2px; }
       .l-br { bottom: 0px; right: 0px; border-width: 0 2px 2px 0; }
 
+      /* About section text shadows */
+      #about h2, #about h4 {
+        text-shadow: 0 2px 20px rgba(0,0,0,0.85), 0 1px 6px rgba(0,0,0,0.6);
+      }
+      #about p, #about li, #about a {
+        text-shadow: 0 1px 12px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.7);
+      }
+      #about .stat-number, #about .stat-number-inner {
+        text-shadow: 0 2px 16px rgba(0,0,0,0.9), 0 1px 6px rgba(0,0,0,0.7);
+      }
+      #about svg {
+        filter: drop-shadow(0 1px 6px rgba(0,0,0,0.8));
+      }
+
       /* Japanese Work Title Adjustment */
       body.lang-jp [data-key="Index.Work.Title"] {
         font-size: 10.8vw !important; /* 12vw * 0.9 = 10.8vw */
@@ -939,22 +953,22 @@
     </section>
 
     <!-- Session 4: About Us -->
-    <section class="relative py-16 md:py-32 px-6 bg-brand-black text-white overflow-hidden" id="about">
+    <section class="relative py-16 md:py-32 px-6 bg-brand-black text-white" id="about" style="min-height:100vh; display:flex; flex-direction:column; justify-content:space-between;">
       <!-- Apple-style scroll-driven video background -->
       <div class="absolute inset-0 z-0 overflow-hidden">
         <canvas id="about-scroll-canvas" class="absolute inset-0 w-full h-full"></canvas>
       </div>
 
-      <div class="relative z-10 max-w-7xl mx-auto flex flex-col h-full">
+      <div class="relative z-10 max-w-7xl mx-auto flex flex-col w-full" style="flex:1; justify-content:space-between; gap:2rem;">
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 md:gap-16 mb-12 md:mb-24">
           <!-- Left: Header & Intro + Lists -->
           <div class="lg:col-span-7 flex flex-col justify-center">
-            <h2 class="font-oswald text-3xl md:text-6xl lg:text-7xl uppercase leading-[0.9] font-bold mb-3 md:mb-8 tracking-tighter text-white" data-key="Index.About.Title">
+            <h2 class="font-oswald text-3xl md:text-6xl lg:text-7xl uppercase leading-[0.9] font-bold mb-3 md:mb-8 tracking-tighter text-white" data-key="Index.About.Title" style="text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 1px 6px rgba(0,0,0,0.6);">
               LIFESTYLE RESONANCE. <br>
               <span class="text-brand-red">INSTITUTIONAL RIGOR.</span>
             </h2>
-            <p class="font-playfair italic text-[14px] md:text-[18px] leading-relaxed text-white max-w-2xl mb-4 md:mb-0" data-key="Index.About.Subtitle">
+            <p class="font-playfair italic text-[14px] md:text-[18px] leading-relaxed text-white max-w-2xl mb-4 md:mb-0" data-key="Index.About.Subtitle" style="text-shadow: 0 1px 12px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.7);">
               Shaping Hong Kong's PR scene since 2007, we specialize in the art of the engagement. From the buzz of the city's biggest lifestyle launches to our role as PR consultants for the Buildings Department since 2023, we create the strategies that make institutions feel human and brands feel essential.
             </p>
           </div>
@@ -988,17 +1002,17 @@
           <div class="border-r border-white/10 md:border-white/20 p-3 md:p-8 flex flex-col items-center justify-center text-center">
             <svg class="w-5 md:w-8 h-5 md:h-8 mb-1 md:mb-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             <div class="font-oswald text-lg md:text-5xl text-white mb-0 md:mb-2 font-bold stat-number" data-stat="years" data-start="9" data-end="18" data-duration="2.5s"><span class="stat-number-inner">18+</span></div>
-            <div class="font-sans text-[8px] md:text-xs uppercase tracking-widest text-gray-300 leading-tight" data-key="Index.About.Stats1">Years<br>Experience</div>
+            <div class="font-sans text-[8px] md:text-xs uppercase tracking-widest text-gray-300 leading-tight" data-key="Index.About.Stats1" style="text-shadow: 0 1px 8px rgba(0,0,0,0.9);">Years<br>Experience</div>
           </div>
           <div class="border-r border-white/10 md:border-white/20 p-3 md:p-8 flex flex-col items-center justify-center text-center">
             <svg class="w-5 md:w-8 h-5 md:h-8 mb-1 md:mb-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
             <div class="font-oswald text-lg md:text-5xl text-white mb-0 md:mb-2 font-bold stat-number" data-stat="projects" data-start="180" data-end="360" data-duration="2.8s"><span class="stat-number-inner">360+</span></div>
-            <div class="font-sans text-[8px] md:text-xs uppercase tracking-widest text-gray-300 leading-tight" data-key="Index.About.Stats2">Projects<br>Delivered</div>
+            <div class="font-sans text-[8px] md:text-xs uppercase tracking-widest text-gray-300 leading-tight" data-key="Index.About.Stats2" style="text-shadow: 0 1px 8px rgba(0,0,0,0.9);">Projects<br>Delivered</div>
           </div>
           <div class="p-3 md:p-8 flex flex-col items-center justify-center text-center">
             <svg class="w-5 md:w-8 h-5 md:h-8 mb-1 md:mb-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
             <div class="font-oswald text-lg md:text-5xl text-white mb-0 md:mb-2 font-bold stat-number" data-stat="people" data-start="1.0" data-end="1.5" data-duration="3s" data-suffix="M+"><span class="stat-number-inner">1.5M+</span></div>
-            <div class="font-sans text-[8px] md:text-xs uppercase tracking-widest text-gray-300 leading-tight" data-key="Index.About.Stats3">People<br>Engaged</div>
+            <div class="font-sans text-[8px] md:text-xs uppercase tracking-widest text-gray-300 leading-tight" data-key="Index.About.Stats3" style="text-shadow: 0 1px 8px rgba(0,0,0,0.9);">People<br>Engaged</div>
           </div>
         </div>
 
