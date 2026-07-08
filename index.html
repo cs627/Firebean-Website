@@ -940,11 +940,10 @@
 
     <!-- Session 4: About Us -->
     <section class="relative py-16 md:py-32 px-6 bg-brand-black text-white overflow-hidden" id="about">
-      <!-- Background Image with Overlay -->
-      <div class="absolute inset-0 z-0 h-[130%] -top-[15%]"> <!-- Enlarge container and offset -->
-        <!-- Google Drive Image -->
-        <img src="data/images/about-bg.webp" referrerpolicy="no-referrer" class="w-full h-full object-cover opacity-100" alt="About Us Background" id="about-bg-img">
-        <div class="absolute inset-0 bg-black/60"></div> <!-- Dark overlay to ensure white text is legible -->
+      <!-- Apple-style scroll-driven video background -->
+      <div class="absolute inset-0 z-0 overflow-hidden">
+        <canvas id="about-scroll-canvas" class="absolute inset-0 w-full h-full"></canvas>
+        <div class="absolute inset-0 bg-black/55"></div>
       </div>
 
       <div class="relative z-10 max-w-7xl mx-auto flex flex-col h-full">
@@ -1412,17 +1411,78 @@
         delay: 0.2
       });
 
-      // About Us Section Parallax Background
-      gsap.to("#about-bg-img", {
-        yPercent: -15, // Move image up
-        ease: "none",
-        scrollTrigger: {
-          trigger: "#about",
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true
+      // ── Apple-style scroll-driven canvas animation (96 frames, 4s video) ──
+      (function () {
+        var canvas = document.getElementById('about-scroll-canvas');
+        if (!canvas) return;
+        var ctx = canvas.getContext('2d');
+        var FRAME_COUNT = 96;
+        var frames = [];
+        var loadedCount = 0;
+        var currentFrame = 0;
+        var animationReady = false;
+        function padNum(n) { return String(n).padStart(4, '0'); }
+        function resizeCanvas() {
+          canvas.width  = canvas.offsetWidth  * (window.devicePixelRatio || 1);
+          canvas.height = canvas.offsetHeight * (window.devicePixelRatio || 1);
+          if (animationReady) drawFrame(currentFrame);
         }
-      });
+        function drawFrame(index) {
+          var img = frames[index];
+          if (!img || !img.complete || !img.naturalWidth) return;
+          var dpr = window.devicePixelRatio || 1;
+          var cw = canvas.offsetWidth;
+          var ch = canvas.offsetHeight;
+          var iw = img.naturalWidth;
+          var ih = img.naturalHeight;
+          var scale = Math.max(cw / iw, ch / ih);
+          var sw = iw * scale;
+          var sh = ih * scale;
+          var sx = (cw - sw) / 2;
+          var sy = (ch - sh) / 2;
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.save();
+          ctx.scale(dpr, dpr);
+          ctx.drawImage(img, sx, sy, sw, sh);
+          ctx.restore();
+        }
+        for (var i = 1; i <= FRAME_COUNT; i++) {
+          (function (idx) {
+            var img = new Image();
+            img.src = 'data/images/about-frames/frame_' + padNum(idx) + '.webp';
+            img.onload = function () {
+              loadedCount++;
+              if (loadedCount === FRAME_COUNT) {
+                animationReady = true;
+                resizeCanvas();
+                drawFrame(0);
+              }
+            };
+            frames[idx - 1] = img;
+          })(i);
+        }
+        gsap.to({ frame: 0 }, {
+          frame: FRAME_COUNT - 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '#about',
+            start: 'top top',
+            end: '+=250%',
+            pin: true,
+            scrub: 0.5,
+            anticipatePin: 1,
+          },
+          onUpdate: function () {
+            var f = Math.min(FRAME_COUNT - 1, Math.max(0, Math.round(this.targets()[0].frame)));
+            if (f !== currentFrame) {
+              currentFrame = f;
+              drawFrame(currentFrame);
+            }
+          }
+        });
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+      })();
 
       // 3D Logo Parallax — scroll-accumulated rotateY, no spring-back
       // Logo 1 (right): rotates right→left (positive→negative rotateY) as you scroll down
