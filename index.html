@@ -194,28 +194,30 @@
       /* Progress bar — floating thin line with padding from all edges */
       .slider-progress-bar-track {
         position: absolute;
-        bottom: 20px;
-        left: 24px;
-        right: 24px;
-        height: 2px;
-        background: rgba(255,255,255,0.2);
-        z-index: 40;
-        border-radius: 2px;
-        overflow: hidden;
+        bottom: 24px;
+        left: 32px;
+        right: 32px;
+        height: 5px;
+        background: rgba(255,255,255,0.25);
+        z-index: 50;
+        border-radius: 3px;
+        overflow: visible;
       }
       .slider-progress-bar {
         position: absolute;
         top: 0;
         left: 0;
         height: 100%;
-        background: rgba(255,255,255,0.85);
+        background: linear-gradient(90deg, #ff3333 0%, #ff6666 80%, #ff9999 100%);
+        box-shadow: 0 0 10px rgba(255,51,51,0.9), 0 0 4px rgba(255,51,51,0.6);
         width: 0%;
+        border-radius: 3px;
         transition: none;
-        border-radius: 2px;
+        will-change: width;
       }
       .slider-progress-bar.animating {
-        transition: width 6s linear;
-        width: 100%;
+        transition: width 6s linear !important;
+        width: 100% !important;
       }
 
       /* Slider marquee ticker — driven by GSAP + scroll velocity */
