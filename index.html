@@ -1000,7 +1000,7 @@
         </div>
 
         <!-- Infographic Stats — Card Layout for Mobile -->
-        <!-- Casino chip token stats — label inside chip -->
+        <!-- Casino chip token stats v3 — icon + number + label inside chip -->
         <div id="about-stats-bar" class="flex flex-row justify-center items-center gap-4 md:gap-10 py-4">
 
           <!-- Token 1: 18+ Years -->
@@ -1008,14 +1008,14 @@
             width: clamp(140px, 20vw, 220px);
             height: clamp(140px, 20vw, 220px);
             border-radius: 50%;
-            background: rgba(10,10,10,0.88);
+            background: rgba(10,10,10,0.65);
             backdrop-filter: blur(10px);
             position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 4px;
+            gap: 3px;
             box-shadow: 0 6px 30px rgba(0,0,0,0.7), inset 0 0 0 6px rgba(255,255,255,0.06);
             flex-shrink: 0;
           ">
@@ -1023,16 +1023,16 @@
             <div style="position:absolute;inset:7px;border-radius:50%;border:2px solid rgba(255,255,255,0.55);pointer-events:none;"></div>
             <!-- Dashed inner ring (poker chip pattern) -->
             <div style="position:absolute;inset:16px;border-radius:50%;border:3px dashed rgba(255,255,255,0.3);pointer-events:none;"></div>
-            <!-- Number -->
+            <!-- Icon -->
+            <svg style="width:clamp(16px,2vw,24px);height:clamp(16px,2vw,24px);color:#ff3333;z-index:1;flex-shrink:0;" fill="none" stroke="#ff3333" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             <div class="font-oswald font-bold text-white stat-number"
                  data-stat="years" data-start="9" data-end="18" data-duration="2.5s"
-                 style="font-size:clamp(30px,4.8vw,54px);line-height:1;z-index:1;text-shadow:0 2px 12px rgba(0,0,0,0.9);">
+                 style="font-size:clamp(26px,4.2vw,48px);line-height:1;z-index:1;text-shadow:0 2px 12px rgba(0,0,0,0.9);">
               <span class="stat-number-inner">18+</span>
             </div>
-            <!-- Label inside chip -->
             <div class="font-sans uppercase tracking-widest text-white text-center leading-tight"
                  data-key="Index.About.Stats1"
-                 style="font-size:clamp(8px,0.9vw,11px);z-index:1;text-shadow:0 1px 6px rgba(0,0,0,0.9);padding:0 12px;">
+                 style="font-size:clamp(7px,0.8vw,10px);z-index:1;text-shadow:0 1px 6px rgba(0,0,0,0.9);padding:0 14px;">
               Years<br>Experience
             </div>
           </div>
@@ -1042,27 +1042,31 @@
             width: clamp(140px, 20vw, 220px);
             height: clamp(140px, 20vw, 220px);
             border-radius: 50%;
-            background: rgba(10,10,10,0.88);
+            background: rgba(10,10,10,0.65);
             backdrop-filter: blur(10px);
             position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 4px;
+            gap: 3px;
             box-shadow: 0 6px 30px rgba(0,0,0,0.7), inset 0 0 0 6px rgba(255,255,255,0.06);
             flex-shrink: 0;
           ">
+            <!-- Outer solid ring -->
             <div style="position:absolute;inset:7px;border-radius:50%;border:2px solid rgba(255,255,255,0.55);pointer-events:none;"></div>
+            <!-- Dashed inner ring (poker chip pattern) -->
             <div style="position:absolute;inset:16px;border-radius:50%;border:3px dashed rgba(255,255,255,0.3);pointer-events:none;"></div>
+            <!-- Icon -->
+            <svg style="width:clamp(16px,2vw,24px);height:clamp(16px,2vw,24px);color:#ff3333;z-index:1;flex-shrink:0;" fill="none" stroke="#ff3333" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
             <div class="font-oswald font-bold text-white stat-number"
                  data-stat="projects" data-start="180" data-end="360" data-duration="2.8s"
-                 style="font-size:clamp(30px,4.8vw,54px);line-height:1;z-index:1;text-shadow:0 2px 12px rgba(0,0,0,0.9);">
+                 style="font-size:clamp(26px,4.2vw,48px);line-height:1;z-index:1;text-shadow:0 2px 12px rgba(0,0,0,0.9);">
               <span class="stat-number-inner">360+</span>
             </div>
             <div class="font-sans uppercase tracking-widest text-white text-center leading-tight"
                  data-key="Index.About.Stats2"
-                 style="font-size:clamp(8px,0.9vw,11px);z-index:1;text-shadow:0 1px 6px rgba(0,0,0,0.9);padding:0 12px;">
+                 style="font-size:clamp(7px,0.8vw,10px);z-index:1;text-shadow:0 1px 6px rgba(0,0,0,0.9);padding:0 14px;">
               Projects<br>Delivered
             </div>
           </div>
@@ -1072,27 +1076,31 @@
             width: clamp(140px, 20vw, 220px);
             height: clamp(140px, 20vw, 220px);
             border-radius: 50%;
-            background: rgba(10,10,10,0.88);
+            background: rgba(10,10,10,0.65);
             backdrop-filter: blur(10px);
             position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 4px;
+            gap: 3px;
             box-shadow: 0 6px 30px rgba(0,0,0,0.7), inset 0 0 0 6px rgba(255,255,255,0.06);
             flex-shrink: 0;
           ">
+            <!-- Outer solid ring -->
             <div style="position:absolute;inset:7px;border-radius:50%;border:2px solid rgba(255,255,255,0.55);pointer-events:none;"></div>
+            <!-- Dashed inner ring (poker chip pattern) -->
             <div style="position:absolute;inset:16px;border-radius:50%;border:3px dashed rgba(255,255,255,0.3);pointer-events:none;"></div>
+            <!-- Icon -->
+            <svg style="width:clamp(16px,2vw,24px);height:clamp(16px,2vw,24px);color:#ff3333;z-index:1;flex-shrink:0;" fill="none" stroke="#ff3333" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
             <div class="font-oswald font-bold text-white stat-number"
                  data-stat="people" data-start="1.0" data-end="1.5" data-duration="3s" data-suffix="M+"
-                 style="font-size:clamp(30px,4.8vw,54px);line-height:1;z-index:1;text-shadow:0 2px 12px rgba(0,0,0,0.9);">
+                 style="font-size:clamp(26px,4.2vw,48px);line-height:1;z-index:1;text-shadow:0 2px 12px rgba(0,0,0,0.9);">
               <span class="stat-number-inner">1.5M+</span>
             </div>
             <div class="font-sans uppercase tracking-widest text-white text-center leading-tight"
                  data-key="Index.About.Stats3"
-                 style="font-size:clamp(8px,0.9vw,11px);z-index:1;text-shadow:0 1px 6px rgba(0,0,0,0.9);padding:0 12px;">
+                 style="font-size:clamp(7px,0.8vw,10px);z-index:1;text-shadow:0 1px 6px rgba(0,0,0,0.9);padding:0 14px;">
               People<br>Engaged
             </div>
           </div>
