@@ -1537,7 +1537,9 @@
         );
       });
 
-      // Stats bar: slides in from LEFT, starts at midpoint of pin
+      // Stats bar: slides in from LEFT, starts at midpoint of the pin
+      // The pin total scroll = 250vh. Midpoint = 125vh from section top.
+      // We use the pin spacer as trigger with pixel offsets.
       gsap.fromTo('#about-stats-bar',
         { x: -160, opacity: 0 },
         {
@@ -1545,8 +1547,15 @@
           ease: 'none',
           scrollTrigger: {
             trigger: '#about',
-            start: '+=100%',
-            end: '+=100%',
+            start: function() {
+              // Start when user has scrolled 100vh past the section top (midpoint of pin)
+              var sectionTop = document.getElementById('about').getBoundingClientRect().top + window.scrollY;
+              return sectionTop + window.innerHeight;
+            },
+            end: function() {
+              var sectionTop = document.getElementById('about').getBoundingClientRect().top + window.scrollY;
+              return sectionTop + window.innerHeight * 2;
+            },
             scrub: 0.6,
           }
         }
