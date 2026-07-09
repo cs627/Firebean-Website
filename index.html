@@ -961,7 +961,7 @@
         <canvas id="about-scroll-canvas" class="absolute inset-0 w-full h-full"></canvas>
       </div>
 
-      <div class="relative z-10 max-w-7xl mx-auto flex flex-col w-full" style="flex:1; justify-content:space-between; gap:2rem;">
+      <div class="relative z-10 max-w-7xl mx-auto flex flex-col w-full" style="flex:1; justify-content:flex-start; gap:2rem;">
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 md:gap-16 mb-12 md:mb-24">
           <!-- Left: Header & Intro + Lists -->
@@ -1505,11 +1505,11 @@
       // Second 100% of pin: stats bar slides in from LEFT (scroll-linked)
       // Both stop moving when scroll stops, resume when scroll resumes.
 
-      // Service cards container: slide in from right
+      // Service cards container: slide in from right (no opacity fade — solid colour)
       gsap.fromTo('#about-service-cards',
-        { x: 160, opacity: 0 },
+        { x: 160 },
         {
-          x: 0, opacity: 1,
+          x: 0,
           ease: 'none',
           scrollTrigger: {
             trigger: '#about',
@@ -1520,12 +1520,12 @@
         }
       );
 
-      // Each service card cascades in with slight delay (scroll-scrubbed stagger)
+      // Each service card cascades in with slight delay (scroll-scrubbed stagger, no fade)
       gsap.utils.toArray('.service-card').forEach(function(card, i) {
         gsap.fromTo(card,
-          { x: 130 + i * 50, opacity: 0 },
+          { x: 130 + i * 50 },
           {
-            x: 0, opacity: 1,
+            x: 0,
             ease: 'none',
             scrollTrigger: {
               trigger: '#about',
@@ -1541,9 +1541,9 @@
       // The pin total scroll = 250vh. Midpoint = 125vh from section top.
       // We use the pin spacer as trigger with pixel offsets.
       gsap.fromTo('#about-stats-bar',
-        { x: -160, opacity: 0 },
+        { x: -160 },
         {
-          x: 0, opacity: 1,
+          x: 0,
           ease: 'none',
           scrollTrigger: {
             trigger: '#about',
