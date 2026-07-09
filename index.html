@@ -1000,22 +1000,120 @@
         </div>
 
         <!-- Infographic Stats — Card Layout for Mobile -->
-        <div id="about-stats-bar" class="grid grid-cols-3 md:grid-cols-3 border border-white/10 bg-black/40 backdrop-blur-md rounded-2xl overflow-hidden">
-          <div class="border-r border-white/10 md:border-white/20 p-3 md:p-8 flex flex-col items-center justify-center text-center">
-            <svg class="w-5 md:w-8 h-5 md:h-8 mb-1 md:mb-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            <div class="font-oswald text-lg md:text-5xl text-white mb-0 md:mb-2 font-bold stat-number" data-stat="years" data-start="9" data-end="18" data-duration="2.5s"><span class="stat-number-inner">18+</span></div>
-            <div class="font-sans text-[8px] md:text-xs uppercase tracking-widest text-gray-300 leading-tight" data-key="Index.About.Stats1" style="text-shadow: 0 1px 8px rgba(0,0,0,0.9);">Years<br>Experience</div>
+        <!-- Casino chip token stats -->
+        <div id="about-stats-bar" class="flex flex-row justify-center items-center gap-6 md:gap-12 py-4">
+
+          <!-- Token 1: 18+ Years -->
+          <div class="flex flex-col items-center gap-3">
+            <div class="casino-chip" style="
+              width: clamp(110px, 16vw, 180px);
+              height: clamp(110px, 16vw, 180px);
+              border-radius: 50%;
+              background: rgba(10,10,10,0.85);
+              backdrop-filter: blur(8px);
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              box-shadow: 0 4px 24px rgba(0,0,0,0.6), inset 0 0 0 6px rgba(255,255,255,0.08);
+            ">
+              <!-- Outer ring -->
+              <div style="
+                position: absolute; inset: 6px; border-radius: 50%;
+                border: 2px solid rgba(255,255,255,0.5);
+              "></div>
+              <!-- Dashed inner ring (poker chip pattern) -->
+              <div style="
+                position: absolute; inset: 14px; border-radius: 50%;
+                border: 3px dashed rgba(255,255,255,0.35);
+              "></div>
+              <!-- Number -->
+              <div class="font-oswald font-bold text-white stat-number"
+                   data-stat="years" data-start="9" data-end="18" data-duration="2.5s"
+                   style="font-size: clamp(28px, 4.5vw, 52px); line-height:1; z-index:1; text-shadow: 0 2px 12px rgba(0,0,0,0.8);">
+                <span class="stat-number-inner">18+</span>
+              </div>
+            </div>
+            <div class="font-sans uppercase tracking-widest text-white text-center leading-tight"
+                 data-key="Index.About.Stats1"
+                 style="font-size: clamp(9px, 1.1vw, 13px); text-shadow: 0 1px 8px rgba(0,0,0,0.9);">
+              Years<br>Experience
+            </div>
           </div>
-          <div class="border-r border-white/10 md:border-white/20 p-3 md:p-8 flex flex-col items-center justify-center text-center">
-            <svg class="w-5 md:w-8 h-5 md:h-8 mb-1 md:mb-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-            <div class="font-oswald text-lg md:text-5xl text-white mb-0 md:mb-2 font-bold stat-number" data-stat="projects" data-start="180" data-end="360" data-duration="2.8s"><span class="stat-number-inner">360+</span></div>
-            <div class="font-sans text-[8px] md:text-xs uppercase tracking-widest text-gray-300 leading-tight" data-key="Index.About.Stats2" style="text-shadow: 0 1px 8px rgba(0,0,0,0.9);">Projects<br>Delivered</div>
+
+          <!-- Token 2: 360+ Projects -->
+          <div class="flex flex-col items-center gap-3">
+            <div class="casino-chip" style="
+              width: clamp(110px, 16vw, 180px);
+              height: clamp(110px, 16vw, 180px);
+              border-radius: 50%;
+              background: rgba(10,10,10,0.85);
+              backdrop-filter: blur(8px);
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              box-shadow: 0 4px 24px rgba(0,0,0,0.6), inset 0 0 0 6px rgba(255,255,255,0.08);
+            ">
+              <div style="
+                position: absolute; inset: 6px; border-radius: 50%;
+                border: 2px solid rgba(255,255,255,0.5);
+              "></div>
+              <div style="
+                position: absolute; inset: 14px; border-radius: 50%;
+                border: 3px dashed rgba(255,255,255,0.35);
+              "></div>
+              <div class="font-oswald font-bold text-white stat-number"
+                   data-stat="projects" data-start="180" data-end="360" data-duration="2.8s"
+                   style="font-size: clamp(28px, 4.5vw, 52px); line-height:1; z-index:1; text-shadow: 0 2px 12px rgba(0,0,0,0.8);">
+                <span class="stat-number-inner">360+</span>
+              </div>
+            </div>
+            <div class="font-sans uppercase tracking-widest text-white text-center leading-tight"
+                 data-key="Index.About.Stats2"
+                 style="font-size: clamp(9px, 1.1vw, 13px); text-shadow: 0 1px 8px rgba(0,0,0,0.9);">
+              Projects<br>Delivered
+            </div>
           </div>
-          <div class="p-3 md:p-8 flex flex-col items-center justify-center text-center">
-            <svg class="w-5 md:w-8 h-5 md:h-8 mb-1 md:mb-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-            <div class="font-oswald text-lg md:text-5xl text-white mb-0 md:mb-2 font-bold stat-number" data-stat="people" data-start="1.0" data-end="1.5" data-duration="3s" data-suffix="M+"><span class="stat-number-inner">1.5M+</span></div>
-            <div class="font-sans text-[8px] md:text-xs uppercase tracking-widest text-gray-300 leading-tight" data-key="Index.About.Stats3" style="text-shadow: 0 1px 8px rgba(0,0,0,0.9);">People<br>Engaged</div>
+
+          <!-- Token 3: 1.5M+ People -->
+          <div class="flex flex-col items-center gap-3">
+            <div class="casino-chip" style="
+              width: clamp(110px, 16vw, 180px);
+              height: clamp(110px, 16vw, 180px);
+              border-radius: 50%;
+              background: rgba(10,10,10,0.85);
+              backdrop-filter: blur(8px);
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              box-shadow: 0 4px 24px rgba(0,0,0,0.6), inset 0 0 0 6px rgba(255,255,255,0.08);
+            ">
+              <div style="
+                position: absolute; inset: 6px; border-radius: 50%;
+                border: 2px solid rgba(255,255,255,0.5);
+              "></div>
+              <div style="
+                position: absolute; inset: 14px; border-radius: 50%;
+                border: 3px dashed rgba(255,255,255,0.35);
+              "></div>
+              <div class="font-oswald font-bold text-white stat-number"
+                   data-stat="people" data-start="1.0" data-end="1.5" data-duration="3s" data-suffix="M+"
+                   style="font-size: clamp(28px, 4.5vw, 52px); line-height:1; z-index:1; text-shadow: 0 2px 12px rgba(0,0,0,0.8);">
+                <span class="stat-number-inner">1.5M+</span>
+              </div>
+            </div>
+            <div class="font-sans uppercase tracking-widest text-white text-center leading-tight"
+                 data-key="Index.About.Stats3"
+                 style="font-size: clamp(9px, 1.1vw, 13px); text-shadow: 0 1px 8px rgba(0,0,0,0.9);">
+              People<br>Engaged
+            </div>
           </div>
+
         </div>
 
       </div>
