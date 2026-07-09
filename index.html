@@ -1499,54 +1499,60 @@
         resizeCanvas();
       })();
 
-      // ── About section: slide-in animations ──────────────────────────────
-      // Right-side service cards: slide in from right when About section is pinned
+      // ── About section: scroll-scrubbed slide-in animations ──────────────────────
+      // The About section is pinned for 250% scroll height.
+      // First 100% of pin: service cards slide in from RIGHT (scroll-linked)
+      // Second 100% of pin: stats bar slides in from LEFT (scroll-linked)
+      // Both stop moving when scroll stops, resume when scroll resumes.
+
+      // Service cards container: slide in from right
       gsap.fromTo('#about-service-cards',
-        { x: 120, opacity: 0 },
+        { x: 160, opacity: 0 },
         {
           x: 0, opacity: 1,
-          duration: 1,
-          ease: 'power3.out',
+          ease: 'none',
           scrollTrigger: {
             trigger: '#about',
             start: 'top top',
-            toggleActions: 'play none none reverse',
+            end: '+=100%',
+            scrub: 0.6,
           }
         }
       );
 
-      // Stagger each service card individually for a cascade effect
-      gsap.fromTo('.service-card',
-        { x: 100, opacity: 0 },
-        {
-          x: 0, opacity: 1,
-          duration: 0.8,
-          ease: 'power3.out',
-          stagger: 0.15,
-          scrollTrigger: {
-            trigger: '#about',
-            start: 'top top',
-            toggleActions: 'play none none reverse',
+      // Each service card cascades in with slight delay (scroll-scrubbed stagger)
+      gsap.utils.toArray('.service-card').forEach(function(card, i) {
+        gsap.fromTo(card,
+          { x: 130 + i * 50, opacity: 0 },
+          {
+            x: 0, opacity: 1,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: '#about',
+              start: 'top top',
+              end: '+=100%',
+              scrub: 0.6 + i * 0.25,
+            }
           }
-        }
-      );
+        );
+      });
 
-      // Bottom stats bar: slide in from left
+      // Stats bar: slides in from LEFT, starts at midpoint of pin
       gsap.fromTo('#about-stats-bar',
-        { x: -120, opacity: 0 },
+        { x: -160, opacity: 0 },
         {
           x: 0, opacity: 1,
-          duration: 1,
-          ease: 'power3.out',
+          ease: 'none',
           scrollTrigger: {
             trigger: '#about',
-            start: 'top top',
-            toggleActions: 'play none none reverse',
+            start: '+=100%',
+            end: '+=100%',
+            scrub: 0.6,
           }
         }
       );
 
-      // 3D Logo Parallax — scroll-accumulated rotateY, no spring-back
+            // 3D Logo Parallax — scroll-accumulated rotateY, no spring-back
       // Logo 1 (right): rotates right→left (positive→negative rotateY) as you scroll down
       // Logo 2 (left):  rotates left→right (negative→positive rotateY) as you scroll down
       // Logo 3 (centre): same direction as Logo 1
