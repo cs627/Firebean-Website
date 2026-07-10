@@ -1,35 +1,32 @@
 /**
  * ============================================================
- * FIREBEAN — newsletter.gs  v6.3
+ * FIREBEAN — newsletter.gs  v6.3  (FINAL)
  * ============================================================
  * Standalone Web App for newsletter subscribe & unsubscribe.
  * Deploy as: Web App → Execute as: Me → Who has access: Anyone
  *
- * Handles two types of POST requests:
+ * Single source of truth: AI Master DB → "Email list" tab
+ *   Spreadsheet: https://docs.google.com/spreadsheets/d/1Ms1Q1i7uJg0ilvW4g1PezBm7mTCNKcYJT_c5-weUBNc
+ *
+ * "Email list" tab columns:
+ *   A = Email | B = Name | C = Date Added | D = Source
+ *   E = Status (ACTIVE / UNSUBSCRIBED) | F = Unsubscribed Date
+ *
+ * Handles two POST request types:
  *   { email: "user@example.com" }              → SUBSCRIBE
  *   { email: "user@example.com",
  *     unsubscribe: true }                       → UNSUBSCRIBE
  *
- * Contacts sheet columns:
- *   A = Email | B = Name | C = Date Added | D = Source
- *   E = Status (ACTIVE / UNSUBSCRIBED) | F = Unsubscribed Date
- *
- * Updated: 2026-07-10 — Added unsubscribe + getActiveSubscribers_
+ * Updated: 2026-07-10
  * ============================================================
  */
 
-var SHEET_NAME_NL           = 'Contacts';
-var MAX_ROWS_NL              = 5000;
-var RATE_LIMIT_MAX_NL        = 5;
-var RATE_LIMIT_WINDOW_MS_NL  = 3600000; // 1 hour in ms
-
-var ALLOWED_ORIGINS_NL = [
-  'https://cs627.github.io',
-  'https://www.firebean.net',
-  'https://firebean.net',
-  'http://localhost',
-  'http://127.0.0.1'
-];
+// ── Config ────────────────────────────────────────────────────
+var SPREADSHEET_ID      = '1Ms1Q1i7uJg0ilvW4g1PezBm7mTCNKcYJT_c5-weUBNc';
+var SHEET_NAME_NL       = 'Email list';
+var MAX_ROWS_NL         = 5000;
+var RATE_LIMIT_MAX_NL   = 5;
+var RATE_LIMIT_WINDOW_MS_NL = 3600000; // 1 hour in ms
 
 // ── Shared response helper ────────────────────────────────────
 function makeJsonResponse_(data) {
@@ -95,11 +92,17 @@ function sanitise_(str) {
   return str.replace(/<[^>]*>/g, '').substring(0, 200).trim();
 }
 
+// ── Helper: open the Email list sheet ────────────────────────
+function getEmailSheet_() {
+  var ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+  return ss.getSheetByName(SHEET_NAME_NL);
+}
+
 // ── SUBSCRIBE ─────────────────────────────────────────────────
 /**
  * handleNewsletter_
- * Adds a new subscriber to the Contacts sheet.
- * If the email was previously unsubscribed, it is re-activated.
+ * Adds a new subscriber to the AI Master DB "Email list" tab.
+ * If previously unsubscribed, re-activates the row.
  *
  * @param {Object} body  { email, name, _ip, website (honeypot) }
  */
@@ -120,8 +123,7 @@ function handleNewsletter_(body) {
       return makeJsonResponse_({ success: false, error: 'rate_limited' });
     }
 
-    var ss    = SpreadsheetApp.getActiveSpreadsheet();
-    var sheet = ss.getSheetByName(SHEET_NAME_NL);
+    var sheet = getEmailSheet_();
     if (!sheet) {
       return makeJsonResponse_({ success: false, error: 'Sheet not found' });
     }
@@ -131,12 +133,11 @@ function handleNewsletter_(body) {
       return makeJsonResponse_({ success: false, error: 'capacity_full' });
     }
 
-    // Duplicate check — also handles re-subscribe after unsubscribe
+    // Duplicate check — re-activate if previously unsubscribed
     if (lastRow > 1) {
       var existingData = sheet.getRange(2, 1, lastRow - 1, 5).getValues();
       for (var i = 0; i < existingData.length; i++) {
         if (existingData[i][0].toString().toLowerCase().trim() === email) {
-          // Was previously unsubscribed → re-activate
           if (existingData[i][4].toString().toUpperCase() === 'UNSUBSCRIBED') {
             sheet.getRange(i + 2, 5).setValue('ACTIVE');
             sheet.getRange(i + 2, 6).setValue('');
@@ -163,7 +164,7 @@ function handleNewsletter_(body) {
 // ── UNSUBSCRIBE ───────────────────────────────────────────────
 /**
  * handleUnsubscribe_
- * Marks the email as UNSUBSCRIBED in the Contacts sheet.
+ * Marks the email UNSUBSCRIBED in the "Email list" tab (col E).
  * Privacy-safe: always returns success even if email not found.
  *
  * @param {Object} body  { email, unsubscribe: true }
@@ -173,8 +174,7 @@ function handleUnsubscribe_(body) {
     var email = sanitise_(body.email || '').toLowerCase();
 
     if (isValidEmail_(email)) {
-      var ss    = SpreadsheetApp.getActiveSpreadsheet();
-      var sheet = ss.getSheetByName(SHEET_NAME_NL);
+      var sheet = getEmailSheet_();
 
       if (sheet && sheet.getLastRow() > 1) {
         var lastRow = sheet.getLastRow();
@@ -182,7 +182,7 @@ function handleUnsubscribe_(body) {
 
         for (var i = 0; i < emails.length; i++) {
           if (emails[i][0].toString().toLowerCase().trim() === email) {
-            var rowNum = i + 2; // +2: skip header + 0-index
+            var rowNum = i + 2; // +2: header row + 0-index
             sheet.getRange(rowNum, 5).setValue('UNSUBSCRIBED');
             sheet.getRange(rowNum, 6).setValue(new Date().toISOString());
             Logger.log('Unsubscribed: ' + email + ' (row ' + rowNum + ')');
@@ -201,17 +201,17 @@ function handleUnsubscribe_(body) {
   }
 }
 
-// ── UTILITY: Active Subscribers ───────────────────────────────
+// ── UTILITY: Get Active Subscribers ───────────────────────────
 /**
  * getActiveSubscribers_
- * Returns all email addresses that are NOT unsubscribed.
+ * Returns all emails from "Email list" that are NOT unsubscribed.
  * Use this in your EDM blast script to get the clean send list.
+ * Rows with no status (manually added) are treated as ACTIVE.
  *
  * @returns {string[]} Array of active email addresses
  */
 function getActiveSubscribers_() {
-  var ss    = SpreadsheetApp.getActiveSpreadsheet();
-  var sheet = ss.getSheetByName(SHEET_NAME_NL);
+  var sheet = getEmailSheet_();
   if (!sheet || sheet.getLastRow() < 2) return [];
 
   var data   = sheet.getRange(2, 1, sheet.getLastRow() - 1, 5).getValues();
