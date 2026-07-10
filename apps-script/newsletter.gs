@@ -1,12 +1,18 @@
 /**
  * ============================================================
- * FIREBEAN CMS — newsletter.gs  v6.3
+ * FIREBEAN — newsletter.gs  v6.3
  * ============================================================
+ * Standalone Web App for newsletter subscribe & unsubscribe.
+ * Deploy as: Web App → Execute as: Me → Who has access: Anyone
  *
- * IMPORTANT: This file does NOT contain a doPost() function.
- * The doPost() router lives in Code.gs and calls:
- *   - handleNewsletter_()   when payload has { email: "..." }
- *   - handleUnsubscribe_()  when payload has { unsubscribe: true }
+ * Handles two types of POST requests:
+ *   { email: "user@example.com" }              → SUBSCRIBE
+ *   { email: "user@example.com",
+ *     unsubscribe: true }                       → UNSUBSCRIBE
+ *
+ * Contacts sheet columns:
+ *   A = Email | B = Name | C = Date Added | D = Source
+ *   E = Status (ACTIVE / UNSUBSCRIBED) | F = Unsubscribed Date
  *
  * Updated: 2026-07-10 — Added unsubscribe + getActiveSubscribers_
  * ============================================================
@@ -15,7 +21,49 @@
 var SHEET_NAME_NL           = 'Contacts';
 var MAX_ROWS_NL              = 5000;
 var RATE_LIMIT_MAX_NL        = 5;
-var RATE_LIMIT_WINDOW_MS_NL  = 3600000; // 1 hour
+var RATE_LIMIT_WINDOW_MS_NL  = 3600000; // 1 hour in ms
+
+var ALLOWED_ORIGINS_NL = [
+  'https://cs627.github.io',
+  'https://www.firebean.net',
+  'https://firebean.net',
+  'http://localhost',
+  'http://127.0.0.1'
+];
+
+// ── Shared response helper ────────────────────────────────────
+function makeJsonResponse_(data) {
+  return ContentService
+    .createTextOutput(JSON.stringify(data))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+// ── doGet: health check ───────────────────────────────────────
+function doGet(e) {
+  return makeJsonResponse_({ status: 'ok', service: 'Firebean Newsletter v6.3' });
+}
+
+// ── doPost: main router ───────────────────────────────────────
+function doPost(e) {
+  var body = {};
+  try {
+    body = JSON.parse(e.postData.contents);
+  } catch (parseErr) {
+    return makeJsonResponse_({ success: false, error: 'invalid_json' });
+  }
+
+  // Route: UNSUBSCRIBE
+  if (body.unsubscribe === true) {
+    return handleUnsubscribe_(body);
+  }
+
+  // Route: SUBSCRIBE
+  if (body.email) {
+    return handleNewsletter_(body);
+  }
+
+  return makeJsonResponse_({ success: false, error: 'unknown_request' });
+}
 
 // ── Rate Limiting ─────────────────────────────────────────────
 function checkRateLimit_(ip) {
@@ -50,15 +98,14 @@ function sanitise_(str) {
 // ── SUBSCRIBE ─────────────────────────────────────────────────
 /**
  * handleNewsletter_
- * Called by Code.gs doPost() when payload contains { email: "..." }.
- * Adds the email to the Contacts sheet with status ACTIVE.
+ * Adds a new subscriber to the Contacts sheet.
+ * If the email was previously unsubscribed, it is re-activated.
  *
- * Contacts sheet columns:
- *   A = Email | B = Name | C = Date Added | D = Source | E = Status | F = Unsubscribed Date
+ * @param {Object} body  { email, name, _ip, website (honeypot) }
  */
 function handleNewsletter_(body) {
   try {
-    // Honeypot — if filled, it's a bot
+    // Honeypot — bots fill this hidden field
     if (body.website && body.website.length > 0) {
       return makeJsonResponse_({ success: true, message: 'Subscribed' });
     }
@@ -84,12 +131,12 @@ function handleNewsletter_(body) {
       return makeJsonResponse_({ success: false, error: 'capacity_full' });
     }
 
-    // Duplicate check
+    // Duplicate check — also handles re-subscribe after unsubscribe
     if (lastRow > 1) {
       var existingData = sheet.getRange(2, 1, lastRow - 1, 5).getValues();
       for (var i = 0; i < existingData.length; i++) {
         if (existingData[i][0].toString().toLowerCase().trim() === email) {
-          // If previously unsubscribed, re-activate
+          // Was previously unsubscribed → re-activate
           if (existingData[i][4].toString().toUpperCase() === 'UNSUBSCRIBED') {
             sheet.getRange(i + 2, 5).setValue('ACTIVE');
             sheet.getRange(i + 2, 6).setValue('');
@@ -102,13 +149,13 @@ function handleNewsletter_(body) {
 
     var name      = sanitise_(body.name || '');
     var dateAdded = new Date().toISOString();
-    // Col A=Email, B=Name, C=Date, D=Source, E=Status, F=Unsubscribed Date
+    // A=Email, B=Name, C=Date Added, D=Source, E=Status, F=Unsubscribed Date
     sheet.appendRow([email, name, dateAdded, 'Website', 'ACTIVE', '']);
 
     return makeJsonResponse_({ success: true, message: 'subscribed' });
 
   } catch (err) {
-    Logger.log('Newsletter subscribe error: ' + err.message);
+    Logger.log('Subscribe error: ' + err.message);
     return makeJsonResponse_({ success: false, error: 'server_error' });
   }
 }
@@ -116,11 +163,10 @@ function handleNewsletter_(body) {
 // ── UNSUBSCRIBE ───────────────────────────────────────────────
 /**
  * handleUnsubscribe_
- * Called by Code.gs doPost() when payload contains { unsubscribe: true }.
- * Marks the email UNSUBSCRIBED in the Contacts sheet (col E).
+ * Marks the email as UNSUBSCRIBED in the Contacts sheet.
  * Privacy-safe: always returns success even if email not found.
  *
- * @param {Object} body - { email: "user@example.com", unsubscribe: true }
+ * @param {Object} body  { email, unsubscribe: true }
  */
 function handleUnsubscribe_(body) {
   try {
@@ -136,17 +182,17 @@ function handleUnsubscribe_(body) {
 
         for (var i = 0; i < emails.length; i++) {
           if (emails[i][0].toString().toLowerCase().trim() === email) {
-            var rowNum = i + 2; // +2: header row + 0-index offset
+            var rowNum = i + 2; // +2: skip header + 0-index
             sheet.getRange(rowNum, 5).setValue('UNSUBSCRIBED');
             sheet.getRange(rowNum, 6).setValue(new Date().toISOString());
-            Logger.log('Unsubscribed: ' + email + ' at row ' + rowNum);
+            Logger.log('Unsubscribed: ' + email + ' (row ' + rowNum + ')');
             break;
           }
         }
       }
     }
 
-    // Always return success (privacy best practice — don't reveal if email exists)
+    // Always return success — never reveal whether email existed
     return makeJsonResponse_({ success: true, message: 'unsubscribed' });
 
   } catch (err) {
@@ -155,11 +201,11 @@ function handleUnsubscribe_(body) {
   }
 }
 
-// ── UTILITY: Get Active Subscribers ───────────────────────────
+// ── UTILITY: Active Subscribers ───────────────────────────────
 /**
  * getActiveSubscribers_
  * Returns all email addresses that are NOT unsubscribed.
- * Use this in your EDM blast script to filter the send list.
+ * Use this in your EDM blast script to get the clean send list.
  *
  * @returns {string[]} Array of active email addresses
  */
@@ -173,7 +219,7 @@ function getActiveSubscribers_() {
 
   for (var i = 0; i < data.length; i++) {
     var email  = data[i][0].toString().toLowerCase().trim();
-    var status = data[i][4].toString().toUpperCase().trim(); // Col E = Status
+    var status = data[i][4].toString().toUpperCase().trim();
     if (email && status !== 'UNSUBSCRIBED') {
       active.push(email);
     }
