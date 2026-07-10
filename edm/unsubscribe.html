@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unsubscribe — Firebean 公關市場解碼</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #EBEBEB; font-family: 'Helvetica Neue', Arial, sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
+    .card { background: #FFFFFF; border: 1px solid #E0E0E0; max-width: 480px; width: 100%; padding: 40px 36px; }
+    .logo { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; }
+    .logo img { width: 32px; height: 32px; object-fit: contain; }
+    .logo span { font-size: 16px; font-weight: 300; color: #111111; letter-spacing: 0.2em; text-transform: uppercase; }
+    h1 { font-size: 20px; font-weight: 900; color: #111111; margin-bottom: 10px; line-height: 1.3; }
+    p { font-size: 13px; color: #555555; line-height: 1.75; margin-bottom: 20px; }
+    .email-input { width: 100%; padding: 11px 14px; font-size: 13px; border: 1px solid #E0E0E0; font-family: inherit; margin-bottom: 16px; outline: none; }
+    .email-input:focus { border-color: #E8291C; }
+    .btn { display: inline-block; background: #E8291C; color: #FFFFFF; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 12px 28px; border: none; cursor: pointer; font-family: inherit; width: 100%; }
+    .btn:hover { background: #c0201a; }
+    .back { display: block; margin-top: 16px; font-size: 11px; color: #AAAAAA; text-align: center; }
+    .back a { color: #AAAAAA; text-decoration: none; }
+    .back a:hover { color: #E8291C; }
+    .success { background: #F0FFF4; border-left: 3px solid #22C55E; padding: 16px; font-size: 13px; color: #166534; margin-bottom: 20px; display: none; }
+    .error-msg { background: #FFF0F0; border-left: 3px solid #E8291C; padding: 16px; font-size: 13px; color: #991B1B; margin-bottom: 20px; display: none; }
+    .loading { opacity: 0.6; pointer-events: none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663437368766/OXsmmaNIDdCdSALu.png" alt="Firebean">
+      <span>Firebean</span>
+    </div>
+
+    <div id="form-section">
+      <h1>Unsubscribe from<br>公關市場解碼</h1>
+      <p>Enter your email address to unsubscribe from the Firebean weekly PR market insights newsletter.</p>
+
+      <div class="success" id="success-msg">
+        ✓ You have been successfully unsubscribed. You will no longer receive emails from 公關市場解碼.
+      </div>
+      <div class="error-msg" id="error-msg">
+        Something went wrong. Please email <a href="mailto:hello@firebean.net" style="color:#E8291C;">hello@firebean.net</a> to unsubscribe manually.
+      </div>
+
+      <form id="unsub-form" onsubmit="handleUnsubscribe(event)">
+        <input
+          type="email"
+          id="email-input"
+          class="email-input"
+          placeholder="your@email.com"
+          required
+          autocomplete="email"
+        >
+        <button type="submit" class="btn" id="submit-btn">Confirm Unsubscribe</button>
+      </form>
+
+      <a href="https://firebean.net" class="back">← Back to firebean.net</a>
+    </div>
+  </div>
+
+  <script>
+    // Pre-fill email from URL parameter if present
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      var email = params.get('email');
+      if (email) {
+        document.getElementById('email-input').value = decodeURIComponent(email);
+      }
+    })();
+
+    // Google Apps Script Web App URL — replace with your deployed URL
+    var UNSUBSCRIBE_URL = 'https://script.google.com/macros/s/REPLACE_WITH_YOUR_DEPLOYMENT_ID/exec';
+
+    function handleUnsubscribe(e) {
+      e.preventDefault();
+      var email = document.getElementById('email-input').value.trim().toLowerCase();
+      var btn = document.getElementById('submit-btn');
+      var form = document.getElementById('unsub-form');
+
+      // Hide previous messages
+      document.getElementById('success-msg').style.display = 'none';
+      document.getElementById('error-msg').style.display = 'none';
+
+      // Loading state
+      btn.textContent = 'Processing...';
+      btn.classList.add('loading');
+
+      fetch(UNSUBSCRIBE_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email })
+      })
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        btn.textContent = 'Confirm Unsubscribe';
+        btn.classList.remove('loading');
+        document.getElementById('success-msg').style.display = 'block';
+        form.style.display = 'none';
+      })
+      .catch(function() {
+        btn.textContent = 'Confirm Unsubscribe';
+        btn.classList.remove('loading');
+        document.getElementById('error-msg').style.display = 'block';
+      });
+    }
+  </script>
+</body>
+</html>
