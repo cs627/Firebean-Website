@@ -20,7 +20,7 @@ import os
 import re
 
 PAGES = "https://firebean.net/edm/email-img/"
-WEBP_RE = re.compile(r"https://firebean\.net/data/images/([^\"'\s)]+)\.webp")
+WEBP_RE = re.compile(r"https://firebean\.net/data/images/([^\"\'\s)]+)\.webp")
 GRADIENT_RE = re.compile(r"background:linear-gradient[^;]*;background-color:rgba[^;]*;")
 FLOAT_IMG_RE = re.compile(r'<img align="right"(?P<rest>[^>]*?)/>')
 
@@ -54,18 +54,16 @@ def transform(html):
 
 def main():
     here = os.path.dirname(os.path.abspath(__file__))
-    count = 0
-    for n in range(1, 25):
-        src = os.path.join(here, f"edm_{n:03d}.html")
-        dst = os.path.join(here, f"edm_{n:03d}_gmail.html")
-        with open(src, encoding="utf-8") as f:
-            html = f.read()
-        out = transform(html)
-        with open(dst, "w", encoding="utf-8") as f:
-            f.write(out)
-        count += 1
-        print(f"generated {os.path.basename(dst)}")
-    print(f"done: {count} gmail files")
+    # Only process edm_002.html for now
+    n = 2 # Process Issue 002
+    src = os.path.join(here, f"edm_{n:03d}.html")
+    dst = os.path.join(here, f"edm_{n:03d}_gmail.html")
+    with open(src, encoding="utf-8") as f:
+        html = f.read()
+    out = transform(html)
+    with open(dst, "w", encoding="utf-8") as f:
+        f.write(out)
+    print(f"generated {os.path.basename(dst)}")
 
 
 if __name__ == "__main__":
