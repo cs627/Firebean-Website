@@ -6,7 +6,7 @@ script applies the small set of Gmail/legacy-client transformations required to
 make edm_00X_gmail.html render correctly in Outlook Express, Apple Mail (OS X),
 Thunderbird/Mozilla and Yahoo Mail:
 
-  1. WebP -> committed JPEG (GitHub Pages) for the 6 issues using firebean.net
+  1. WebP -> committed JPEG (GitHub Pages) for all issues using firebean.net
      .webp images. Legacy clients cannot render WebP.
   2. Strip `object-fit` (unsupported; harmless to drop, sizing kept via width/height).
   3. Replace the hero `linear-gradient` overlay with a solid dark block
@@ -43,6 +43,8 @@ def wrap_float_img(m):
 def transform(html):
     # 1. WebP -> committed JPEG on GitHub Pages
     html = WEBP_RE.sub(lambda m: PAGES + m.group(1) + ".jpg", html)
+    # Also catch any raw .webp references
+    html = html.replace(".webp", ".jpg")
     # 2. object-fit is unsupported in legacy clients
     html = html.replace("object-fit:contain;", "").replace("object-fit:cover;", "")
     # 3. hero gradient overlay -> solid dark block (readable fallback)
@@ -54,16 +56,17 @@ def transform(html):
 
 def main():
     here = os.path.dirname(os.path.abspath(__file__))
-    # Only process edm_002.html for now
-    n = 2 # Process Issue 002
-    src = os.path.join(here, f"edm_{n:03d}.html")
-    dst = os.path.join(here, f"edm_{n:03d}_gmail.html")
-    with open(src, encoding="utf-8") as f:
-        html = f.read()
-    out = transform(html)
-    with open(dst, "w", encoding="utf-8") as f:
-        f.write(out)
-    print(f"generated {os.path.basename(dst)}")
+    # Process all edm_*.html files that are not gmail versions
+    for f in os.listdir(here):
+        if f.startswith("edm_") and f.endswith(".html") and "_gmail" not in f:
+            src = os.path.join(here, f)
+            dst = os.path.join(here, f.replace(".html", "_gmail.html"))
+            with open(src, encoding="utf-8") as file:
+                html = file.read()
+            out = transform(html)
+            with open(dst, "w", encoding="utf-8") as file:
+                file.write(out)
+            print(f"generated {os.path.basename(dst)}")
 
 
 if __name__ == "__main__":
