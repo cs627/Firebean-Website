@@ -165,9 +165,9 @@ for i, r in enumerate(contact_rows[1:], start=2):
     source = r[source_col].strip() if len(r) > source_col and r[source_col].strip() else ""
     subscribed = r[subscribed_col].strip().upper() if len(r) > subscribed_col else "FALSE"
 
-    # Always include if: Subscribed=TRUE OR Source is NOT "HK Gov Directory"
-    is_hk_gov = "HK Gov Directory" in source
-    if subscribed == "TRUE" or not is_hk_gov:
+    # Always include if: Subscribed=TRUE OR Source is "Dickson" or "Crystal"
+    is_always_source = source in ("Dickson", "Crystal")
+    if subscribed == "TRUE" or is_always_source:
         always_recipients.append(email)
         always_row_idxs.append(i)
     else:
@@ -232,7 +232,7 @@ if sent_count > 0 and len(failed_emails) == 0:
         <tr><td><strong>EDM Issue</strong></td><td>{EDM_ID}</td></tr>
         <tr><td><strong>Subject</strong></td><td>{SUBJECT}</td></tr>
         <tr><td><strong>Total Sent</strong></td><td>{sent_count}</td></tr>
-        <tr><td><strong>Always-Include (Subscribed + Non-Gov)</strong></td><td>{len(always_recipients)}</td></tr>
+        <tr><td><strong>Always-Include (Subscribed + Dickson/Crystal)</strong></td><td>{len(always_recipients)}</td></tr>
         <tr><td><strong>Rotating Sub-Dept Reps</strong></td><td>{len(rotating_recipients)}</td></tr>
         <tr><td><strong>Failed</strong></td><td>0</td></tr>
         <tr><td><strong>Status</strong></td><td>SENT ✓</td></tr>
