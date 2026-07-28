@@ -144,36 +144,44 @@ h = contact_rows[0]
 email_col = h.index("Email")
 status_col = h.index("Status")
 subscribed_col = h.index("Subscribed")
+source_col = h.index("Source")
 dept_col = h.index("Department")
 subdept_col = h.index("Sub-Department")
 last_sent_col = h.index("Last Sent Date")
 
-subscribed_recipients = []
-subscribed_row_idxs = []
-for i, r in enumerate(contact_rows[1:], start=2):
-    if len(r) <= subscribed_col:
-        continue
-    if r[status_col].upper() == "ACTIVE" and r[subscribed_col].upper().strip() == "TRUE":
-        subscribed_recipients.append(r[email_col].strip())
-        subscribed_row_idxs.append(i)
+# ── Group A: Always-include contacts ──────────────────────────────────────
+# Subscribed=TRUE + non-HK-Gov-Directory sources → every mailing
+always_recipients = []
+always_row_idxs = []
+gov_dir_recipients = []
+gov_dir_row_idxs = []
 
-subscribed_emails = set(subscribed_recipients)
-dept_groups = {}
 for i, r in enumerate(contact_rows[1:], start=2):
-    if len(r) <= email_col:
-        continue
-    email = r[email_col].strip()
-    if not email or email in subscribed_emails:
+    if len(r) <= email_col or not r[email_col].strip():
         continue
     if r[status_col].upper() != "ACTIVE":
         continue
-    dept = r[dept_col].strip() if len(r) > dept_col else ""
-    subdept = r[subdept_col].strip() if len(r) > subdept_col else ""
-    last_sent = r[last_sent_col].strip() if len(r) > last_sent_col else "0000-00-00"
-    key = (dept, subdept)
+    email = r[email_col].strip()
+    source = r[source_col].strip() if len(r) > source_col and r[source_col].strip() else ""
+    subscribed = r[subscribed_col].strip().upper() if len(r) > subscribed_col else "FALSE"
+
+    # Always include if: Subscribed=TRUE OR Source is NOT "HK Gov Directory"
+    is_hk_gov = "HK Gov Directory" in source
+    if subscribed == "TRUE" or not is_hk_gov:
+        always_recipients.append(email)
+        always_row_idxs.append(i)
+    else:
+        gov_dir_recipients.append({"email": email, "source": source, "dept": r[dept_col].strip() if len(r) > dept_col else "", "subdept": r[subdept_col].strip() if len(r) > subdept_col else "", "last_sent": r[last_sent_col].strip() if len(r) > last_sent_col else "0000-00-00", "row": i})
+
+# ── Group B: HK Gov Directory rotation ────────────────────────────────────
+# Group by (dept, subdept), pick 1 with oldest Last Sent Date
+always_emails = set(always_recipients)
+dept_groups = {}
+for r in gov_dir_recipients:
+    key = (r["dept"], r["subdept"])
     if key not in dept_groups:
         dept_groups[key] = []
-    dept_groups[key].append({"email": email, "last_sent": last_sent or "0000-00-00", "row": i})
+    dept_groups[key].append(r)
 
 rotating_recipients = []
 rotating_row_idxs = []
@@ -183,9 +191,9 @@ for members in dept_groups.values():
     rotating_recipients.append(chosen["email"])
     rotating_row_idxs.append(chosen["row"])
 
-all_recipients = list(set(subscribed_recipients + rotating_recipients))
-all_row_idxs = subscribed_row_idxs + rotating_row_idxs
-print(f"Recipients: {len(subscribed_recipients)} subscribed + {len(rotating_recipients)} rotating = {len(all_recipients)} total")
+all_recipients = list(set(always_recipients + rotating_recipients))
+all_row_idxs = list(set(always_row_idxs + rotating_row_idxs))
+print(f"Recipients: {len(always_recipients)} always-include + {len(rotating_recipients)} rotating = {len(all_recipients)} total")
 
 # ── Step 4: Send blast ───────────────────────────────────────────────────────
 print("Step 4: Sending blast...")
@@ -224,7 +232,7 @@ if sent_count > 0 and len(failed_emails) == 0:
         <tr><td><strong>EDM Issue</strong></td><td>{EDM_ID}</td></tr>
         <tr><td><strong>Subject</strong></td><td>{SUBJECT}</td></tr>
         <tr><td><strong>Total Sent</strong></td><td>{sent_count}</td></tr>
-        <tr><td><strong>Subscribed Users</strong></td><td>{len(subscribed_recipients)}</td></tr>
+        <tr><td><strong>Always-Include (Subscribed + Non-Gov)</strong></td><td>{len(always_recipients)}</td></tr>
         <tr><td><strong>Rotating Sub-Dept Reps</strong></td><td>{len(rotating_recipients)}</td></tr>
         <tr><td><strong>Failed</strong></td><td>0</td></tr>
         <tr><td><strong>Status</strong></td><td>SENT ✓</td></tr>
