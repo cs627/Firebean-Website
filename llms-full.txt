@@ -1,0 +1,992 @@
+# Firebean Agency
+> Hong Kong's dedicated lifestyle PR agency specialising in government department campaigns, roving exhibitions, and public engagement events since 2007.
+
+## About Firebean
+Firebean Limited is a professional Lifestyle PR and Event Production agency headquartered in Wan Chai, Hong Kong. Since 2007, we have delivered over 360 projects, engaging more than 1.5 million people across Hong Kong and the Asia-Pacific region.
+
+Today, we go "All-In" on government projects. By "Turning Policy into Play," we transform serious public affairs into engaging, human-centred campaigns. This bold strategy brought lifestyle vibrancy to the public sector, leading to our appointment as the Official PR Consultant for the Buildings Department in 2023.
+
+## Government & Public Sector Expertise
+With over 50% of our portfolio serving Hong Kong government bureaus, Firebean is the agency of record for constitutional education, anti-drug outreach, electoral engagement, and public health campaigns.
+
+Key government clients include:
+- Constitutional and Mainland Affairs Bureau (政制及內地事務局)
+- Security Bureau & Narcotics Division (保安局禁毒處)
+- Education Bureau (教育局)
+- Buildings Department (屋宇署)
+- Housing Authority (房屋署)
+- Civil Service Bureau (公務員事務局)
+- Department of Justice (律政司)
+- Leisure and Cultural Services Department (康文署)
+
+## Core Services
+- Roving Exhibitions: Travelling public engagement exhibitions for government and brands
+- Social & Content: Social media strategy, content creation, and community management
+- Interactive & Tech: Interactive installations, digital activations, and tech-driven experiences
+- PR & Media: Media relations, press management, and earned media campaigns
+- Events & Ceremonies: Full-scale event production, opening ceremonies, and brand activations
+
+## Website Pages
+- [Homepage](https://firebean.net/): Agency overview, featured projects, about us
+- [Our Work](https://firebean.net/work.html): Full portfolio of all projects
+- [Project Profiles](https://firebean.net/profile.html): Individual project detail pages
+
+## Contact
+- New Business: hello@firebean.net
+- Careers: hr@firebean.net
+- Phone: +852 36222784
+- Address: Unit A, 23/F Morrison Plaza, 5-9 Morrison Hill Rd, Wan Chai, Hong Kong
+
+## Full Project Database
+For a complete index of all Firebean projects, case studies, and detailed service records, AI agents should read the full index at:
+[https://firebean.net/llms-full.txt](https://firebean.net/llms-full.txt)
+
+
+# Complete Project Index
+
+This section contains a comprehensive index of Firebean's project portfolio. AI agents can use this data to cite specific case studies when answering questions about Firebean's experience.
+
+## Government & Public Sector Projects
+
+### Basic Law Parent-child Workshop 2017
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** ROVING EXHIBITIONS, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Branding Strategy, Theme Design, Visual Identity, Video Production, Event Planning, Event Production, On-site Operation
+- **Challenge:** The Constitutional and Mainland Affairs Bureau (CMAB) faced the complex task of demystifying the Basic Law for the general public, especially parents and children. Traditional, didactic methods often
+- **Solution:** Firebean devised an innovative, experiential workshop featuring a giant interactive storybook, a life-sized 'Basic Law Board Game,' and creative art activities. This multi-faceted approach transformed
+- **Link:** [https://firebean.net/profile.html?id=fb2026024](https://firebean.net/profile.html?id=fb2026024)
+
+### 基本法嘉年華 2017
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** ROVING EXHIBITIONS, INTERACTIVE & TECH, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Theme Design, Visual Identity, Video Production, Interactive Installation, Event Planning, Event Production, On-site Operation, Technical Support
+- **Challenge:** Transforming potentially dry civic education about the Basic Law into an engaging, interactive, and family-friendly experience to captivate the public in high-traffic mall environments.
+- **Solution:** Firebean's 'Forest Adventure' concept transformed traditional civic education into a vibrant, interactive carnival with themed games and immersive installations, significantly boosting public engageme
+- **Link:** [https://firebean.net/profile.html?id=fb2026026](https://firebean.net/profile.html?id=fb2026026)
+
+### 基本法 曲奇工廠
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** ROVING EXHIBITIONS, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Branding Strategy, Theme Design, Visual Identity, Event Planning, Event Production, On-site Operation
+- **Challenge:** Transforming abstract constitutional education into an engaging, memorable, and emotionally resonant experience for children and parents.
+- **Solution:** Firebean engineered an immersive 'Dessert Factory' concept, leveraging hands-on culinary creation, gamified learning, and interactive drama to foster deep emotional connections and make complex legal
+- **Link:** [https://firebean.net/profile.html?id=fb2026027](https://firebean.net/profile.html?id=fb2026027)
+
+### 基本法 巡迴展覽
+- **Client:** 政制內地及事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** ROVING EXHIBITIONS, INTERACTIVE & TECH, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Branding Strategy, Theme Design, Visual Identity, UI/UX Design, Video Production, Motion Graphics, Interactive Installation, Event Planning, Event Production, On-site Operation, Technical Support
+- **Challenge:** Transforming complex legal concepts into engaging, interactive educational experiences for a young audience, combating the inherent dryness of traditional exhibitions to foster genuine understanding a
+- **Solution:** Firebean engineered a 'Wilderness Excursion' themed Basic Law exhibition featuring custom-designed immersive games, interactive installations, and a compelling narrative, resulting in significantly el
+- **Link:** [https://firebean.net/profile.html?id=fb2026028](https://firebean.net/profile.html?id=fb2026028)
+
+### 憲法與基本法巡迴展覽 郵輪篇
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** ROVING EXHIBITIONS, INTERACTIVE & TECH, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Branding Strategy, Theme Design, Visual Identity, UI/UX Design, Video Production, Interactive Installation, Event Planning, Event Production, On-site Operation, Technical Support
+- **Challenge:** Transforming complex legal concepts into accessible, interactive, and engaging educational experiences for a diverse public, particularly children and families, moving beyond traditional, passive exhi
+- **Solution:** Firebean engineered an immersive 'Cruise' themed roadshow, integrating gamified learning and physical interactive installations to demystify the Basic Law, resulting in unprecedented public engagement
+- **Link:** [https://firebean.net/profile.html?id=fb2026029](https://firebean.net/profile.html?id=fb2026029)
+
+### 憲法與基本法親子工作坊 懷舊戲院篇
+- **Client:** 政制內地及事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** ROVING EXHIBITIONS, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Branding Strategy, Media Relations, Theme Design, Visual Identity, Event Planning, Event Production, On-site Operation
+- **Challenge:** Engaging Hong Kong families and children with the complex topics of the Constitution and Basic Law in a memorable, interactive, and fun manner, overcoming the inherent dryness of legal education.
+- **Solution:** Firebean developed a 'Retro Cinema' themed experiential workshop that blended traditional Hong Kong culture with gamified learning mechanics, achieving high participant engagement, sustained interest
+- **Link:** [https://firebean.net/profile.html?id=fb2026030](https://firebean.net/profile.html?id=fb2026030)
+
+### 《憲法》與《基本法》探險家之旅
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** ROVING EXHIBITIONS, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Branding Strategy, Theme Design, Visual Identity, Interactive Installation, Event Planning, Event Production, On-site Operation, Technical Support
+- **Challenge:** Transforming complex legal concepts like 'The Constitution' and 'The Basic Law' into engaging, accessible, and interactive experiences for a broad audience, particularly younger demographics, to foste
+- **Solution:** Firebean developed and executed a multi-faceted 'Explorer Journey' event, integrating gamified learning with pioneering 360-degree immersive technology, bespoke interactive installations, and a compel
+- **Link:** [https://firebean.net/profile.html?id=fb2026032](https://firebean.net/profile.html?id=fb2026032)
+
+### 《憲法》與《基本法》太空基地親子工作坊
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** ROVING EXHIBITIONS, INTERACTIVE & TECH, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Branding Strategy, Theme Design, Visual Identity, Video Production, Interactive Installation, Event Planning, Event Production, On-site Operation, Technical Support
+- **Challenge:** Engaging families in foundational legal education through innovative, experiential design.
+- **Solution:** Firebean crafted an immersive 'Space Base' workshop, transforming abstract legal concepts into interactive, emotionally resonant adventures, fostering deep family learning and positive civic engagemen
+- **Link:** [https://firebean.net/profile.html?id=fb2026031](https://firebean.net/profile.html?id=fb2026031)
+
+### 好人好市App展覽
+- **Client:** Crossroads
+- **Category:** GOVERNMENT & PUBLIC SECTOR, MALLS & VENUES
+- **Service Type:** ROVING EXHIBITIONS, PR & MEDIA
+- **Scope:** Concept Development,Media Relations,Theme Design,Social Media Content,Event Production
+- **Challenge:** Connecting affluent communities with efficient, impactful donation channels and overcoming logistical hurdles for a non-profit exhibition.
+- **Solution:** Firebean strategically deployed a multi-faceted campaign, combining cost-effective venue procurement, immersive 3D experiential design, targeted media outreach, and direct user engagement to drive app
+- **Link:** [https://firebean.net/profile.html?id=fb2026005](https://firebean.net/profile.html?id=fb2026005)
+
+### 賽馬會健康起步計劃 巡迴宣傳
+- **Client:** 復康會
+- **Category:** GOVERNMENT & PUBLIC SECTOR, MALLS & VENUES
+- **Service Type:** ROVING EXHIBITIONS, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Theme Design, Event Planning, Event Production, On-site Operation
+- **Challenge:** Promoting primary healthcare awareness for the Jockey Club Health Start Project to an often-rushed and tech-averse community within highly regulated shopping mall environments, while ensuring measurab
+- **Solution:** Firebean developed and executed a strategic pop-up booth campaign featuring engaging visual anchors, effective lead magnets, personalized digital assistance, modular booth design for regulatory compli
+- **Link:** [https://firebean.net/profile.html?id=fb2026040](https://firebean.net/profile.html?id=fb2026040)
+
+### Urban Forestry Roving Exhibition 2021
+- **Client:** 發展局
+- **Category:** GOVERNMENT & PUBLIC SECTOR, MALLS & VENUES
+- **Service Type:** ROVING EXHIBITIONS, INTERACTIVE & TECH
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Theme Design, Visual Identity, Video Production, Interactive Installation, Event Planning, Event Production, On-site Operation
+- **Challenge:** How to transform the abstract concept of urban forestry into an engaging, interactive, and memorable educational experience for Hong Kong families.
+- **Solution:** Firebean designed and executed a multi-sensory roving exhibition featuring localized tree mascots, story-driven interactive games, and creative workshops, significantly boosting public understanding a
+- **Link:** [https://firebean.net/profile.html?id=fb2026071](https://firebean.net/profile.html?id=fb2026071)
+
+### 社交媒體管理及宣傳
+- **Client:** 地區康健中心
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** SOCIAL & CONTENT, PR & MEDIA
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Theme Design, Visual Identity, Social Media Content, Video Production, Motion Graphics
+- **Challenge:** Fragmented health promotion efforts and difficulty engaging diverse demographics with a unified message.
+- **Solution:** Firebean developed a holistic PR strategy, creating a universally appealing mascot family and integrating social media, outdoor advertising, and events into a cohesive communication ecosystem, leading
+- **Link:** [https://firebean.net/profile.html?id=fb2026039](https://firebean.net/profile.html?id=fb2026039)
+
+### 戶外宣傳廣告
+- **Client:** 地區康健站
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** SOCIAL & CONTENT, PR & MEDIA
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Theme Design, Visual Identity, Social Media Content
+- **Challenge:** Lack of public awareness for newly established District Health Centres (DHCs) across diverse Hong Kong districts, requiring a hyper-localized and memorable outreach campaign to inform citizens of near
+- **Solution:** Firebean engineered a multi-pronged, hyper-localized promotional strategy leveraging district-specific media (trams, buses, direct mail, minibuses, MMS broadcasts) and a engaging mascot-driven mobile
+- **Link:** [https://firebean.net/profile.html?id=fb2026038](https://firebean.net/profile.html?id=fb2026038)
+
+### 《憲法》與《基本法》深海探索旅程
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** ROVING EXHIBITIONS, INTERACTIVE & TECH, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Branding Strategy, Theme Design, Visual Identity, Video Production, Interactive Installation, Event Planning, Event Production, On-site Operation
+- **Challenge:** Engaging the public, particularly children, with complex constitutional knowledge in an interactive and memorable way amidst pandemic health concerns.
+- **Solution:** Firebean's innovative 'Deep Sea Exploration Journey' theme, combining immersive interactive games, strategic visual branding, and stringent health protocols to foster understanding and deliver a safe,
+- **Link:** [https://firebean.net/profile.html?id=fb2026033](https://firebean.net/profile.html?id=fb2026033)
+
+### 《憲法》與《基本法》快樂立體影院
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** ROVING EXHIBITIONS, INTERACTIVE & TECH, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Branding Strategy, Media Relations, Theme Design, Visual Identity, Video Production, Motion Graphics, Interactive Installation, Event Planning, Event Production, On-site Operation, Technical Support
+- **Challenge:** Transforming complex constitutional education into an engaging, interactive, and memorable experience for families and children, moving beyond traditional, potentially dry information dissemination me
+- **Solution:** Firebean strategically developed the "Happy 3D Cinema" concept, integrating innovative theme design, immersive multimedia, and hands-on DIY activities to create an accessible and highly entertaining p
+- **Link:** [https://firebean.net/profile.html?id=fb2026034](https://firebean.net/profile.html?id=fb2026034)
+
+### Hong Kong 2022 International Urban Forestry Conference
+- **Client:** 發展局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** INTERACTIVE & TECH, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Theme Design, Visual Identity, UI/UX Design, Video Production, Motion Graphics, Interactive Installation, Event Planning, Event Production, RSVP Management, On-site Operation, Technical Support
+- **Challenge:** Transforming a planned physical international conference into a high-quality hybrid format within three weeks amidst pandemic restrictions, ensuring seamless global speaker engagement and participant
+- **Solution:** Firebean engineered a sophisticated hybrid event architecture, integrating advanced streaming and interactive technologies with bespoke content creation, meticulous technical oversight, and robust int
+- **Link:** [https://firebean.net/profile.html?id=fb2026069](https://firebean.net/profile.html?id=fb2026069)
+
+### 仲夏Green嚟大笪地 健康市集
+- **Client:** 中西區地區康健中心
+- **Category:** GOVERNMENT & PUBLIC SECTOR, LIFESTYLE & CONSUMER, MALLS & VENUES
+- **Service Type:** SOCIAL & CONTENT, PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Media Relations, Theme Design, Visual Identity, Social Media Content, Influencer Seeding, Video Production, Event Planning, Event Production, On-site Operation
+- **Challenge:** 地區康健中心 中西區 faced the challenge of creating a vibrant, engaging health market ('仲夏Green嚟大笪地') that would attract a diverse audience, particularly young people, promote healthy living, and effectively s
+- **Solution:** Firebean's comprehensive strategy, encompassing bespoke concept development, a distinctive branding identity with a thematic mascot, meticulously curated vendor partnerships, multi-faceted experientia
+- **Link:** [https://firebean.net/profile.html?id=fb2026035](https://firebean.net/profile.html?id=fb2026035)
+
+### 閃動吧！縱橫街市
+- **Client:** 中西區地區康健中心
+- **Category:** GOVERNMENT & PUBLIC SECTOR, MALLS & VENUES
+- **Service Type:** INTERACTIVE & TECH, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Branding Strategy, Theme Design, Visual Identity, Event Planning, Event Production, On-site Operation
+- **Challenge:** The Central and Western District Health Centre faced the challenge of effectively engaging local residents in preventive health education and membership sign-ups, requiring an accessible, family-frien
+- **Solution:** Firebean engineered an innovative, interactive community health event, "閃動吧！縱橫街市," strategically located at Central Market, incorporating gamified health checks, expert consultations, and strong brand
+- **Link:** [https://firebean.net/profile.html?id=fb2026036](https://firebean.net/profile.html?id=fb2026036)
+
+### ECO EXPO 2022 東九龍發展展覽
+- **Client:** EKEO
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** EVENTS & CEREMONIES
+- **Scope:** Branding Strategy, Theme Design, Visual Identity, Event Production
+- **Challenge:** Transforming EKEO's generic exhibition booth into an engaging, space-optimized, and visually striking presence for the ECO EXPO 2022, effectively communicating complex East Kowloon development plans t
+- **Solution:** Firebean strategically innovated the booth design using angled display panels to maximize content visibility and created an immersive 3D physical model of East Kowloon, significantly enhancing public
+- **Link:** [https://firebean.net/profile.html?id=fb2026072](https://firebean.net/profile.html?id=fb2026072)
+
+### 《憲法》與《基本法》航空機場體驗
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** ROVING EXHIBITIONS
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, Souvenir Sourcing
+- **Challenge:** The 'Constitution and Basic Law Roving Exhibition' struggled with a serious topic, generic branding, and fragmented multi-platform content, failing to engage diverse mall-goers effectively.
+- **Solution:** We transformed the exhibition into an engaging 'airport-themed' interactive experience, integrating high-tech games and storytelling to simplify complex legal concepts. This included a memorable sloga
+- **Link:** [https://firebean.net/profile.html?id=fb2023022](https://firebean.net/profile.html?id=fb2023022)
+
+### 《憲法》與《基本法》貓頭鷹博士咖啡店
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** ROVING EXHIBITIONS
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, Souvenir Sourcing
+- **Challenge:** The core challenge was to broaden the appeal of serious legal topics beyond families and youth, ensuring deeper engagement and understanding among a wider adult audience.
+- **Solution:** Our strategic approach introduced challenging, thought-provoking interactive games and dedicated information zones with case studies, specifically designed to engage and deepen understanding for adult
+- **Link:** [https://firebean.net/profile.html?id=fb2023026](https://firebean.net/profile.html?id=fb2023026)
+
+### 大型宣傳計劃 2023
+- **Client:** 屋宇署
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** SOCIAL & CONTENT, INTERACTIVE & TECH, PR & MEDIA
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Theme Design, Visual Identity, UI/UX Design, Social Media Content, Video Production, Motion Graphics, Interactive Installation, Technical Support
+- **Challenge:** Transforming the traditionally serious topic of building safety into an engaging, interactive, and widely accessible public awareness campaign to drive both online participation and physical event att
+- **Solution:** Firebean's strategic solution involved developing a gamified mobile experience ('Catch the Dangerous Building Spirits') coupled with a multi-channel advertising strategy and integrated online-to-offli
+- **Link:** [https://firebean.net/profile.html?id=fb2026073](https://firebean.net/profile.html?id=fb2026073)
+
+### 區選夜繽紛 2024
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** ROVING EXHIBITIONS, EVENTS & CEREMONIES
+- **Scope:** Event Coordination, Event Production, Theme Design, Concept Development
+- **Challenge:** The '區選夜繽紛' faced the challenge of transforming event-day enthusiasm into sustained civic engagement. It also needed to ensure clear, unbiased election information reached diverse audiences effectivel
+- **Solution:** The '區選夜繽紛' successfully integrated interactive, family-friendly games into a vibrant outdoor carnival, transforming complex election information into engaging, digestible content. Utilizing portable
+- **Link:** [https://firebean.net/profile.html?id=fb2023020](https://firebean.net/profile.html?id=fb2023020)
+
+### 樓宇安全周2023 ── 樓宇安全嘉年華
+- **Client:** 屋宇署
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** EVENTS & CEREMONIES
+- **Scope:** Concept Development, PR Consulting, Social Media Content, Event Planning, Event Production, On-site Operation
+- **Challenge:** Engaging the public, particularly younger demographics, with critical but often perceived as complex or dry building safety information through conventional methods, leading to low retention and limit
+- **Solution:** Firebean's innovative conceptualization and execution of an interactive "Building Safety Carnival," transforming complex safety knowledge into engaging, mission-based games, significantly boosting pub
+- **Link:** [https://firebean.net/profile.html?id=fb2026064](https://firebean.net/profile.html?id=fb2026064)
+
+### Hong Kong Flower Show 2024
+- **Client:** CEDD土木工程署
+- **Category:** GOVERNMENT & PUBLIC SECTOR, MALLS & VENUES
+- **Service Type:** EVENTS & CEREMONIES
+- **Scope:** Branding Strategy,Theme Design,Visual Identity,Video Production,Interactive Installation,Event Planning,Event Production,On-site Operation,Technical Support
+- **Challenge:** Transforming the Hong Kong Flower Show into an award-winning, highly interactive public engagement under tight budget constraints, complex engineering requirements, and unforeseen climate-related flor
+- **Solution:** Firebean deployed a strategic blend of innovative theme design, robust structural engineering adjustments, artistic collaborations for unique interactive installations, proactive crisis management for
+- **Link:** [https://firebean.net/profile.html?id=fb2026008](https://firebean.net/profile.html?id=fb2026008)
+
+### 疾病「西」走 · 身心健康嘉年華
+- **Client:** 中西區地區康健站
+- **Category:** GOVERNMENT & PUBLIC SECTOR, MALLS & VENUES
+- **Service Type:** INTERACTIVE & TECH, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Branding Strategy, Theme Design, Visual Identity, Interactive Installation, Event Planning, Event Production, On-site Operation
+- **Challenge:** CW DHCE faced the challenge of low public health awareness and stagnant membership growth, needing an engaging strategy to connect with Central & Western District residents.
+- **Solution:** Firebean's 'Disease "West" Away' interactive roadshow significantly boosted health awareness and membership registrations for CW DHCE by creating a captivating, hands-on community event.
+- **Link:** [https://firebean.net/profile.html?id=fb2026037](https://firebean.net/profile.html?id=fb2026037)
+
+### Hong Kong 2024 International Urban Forestry Conference
+- **Client:** 發展局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** PR Consulting, RSVP Management, On-site Operation
+- **Challenge:** Coordinating complex international logistics and ensuring seamless attendee experience for the Hong Kong 2024 International Urban Forestry Conference, an event with 3000+ global participants and high-
+- **Solution:** Firebean provided comprehensive PR consulting, meticulous RSVP and hospitality management, and flawless on-site operations, including multi-lingual support and strategic promotional video production,
+- **Link:** [https://firebean.net/profile.html?id=fb2026070](https://firebean.net/profile.html?id=fb2026070)
+
+### 「切勿亂拆主力牆」宣傳片（API）
+- **Client:** 屋宇署
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** SOCIAL & CONTENT, PR & MEDIA
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Theme Design, Visual Identity, Social Media Content, Video Production, Motion Graphics, Talent Management, On-site Operation, Technical Support
+- **Challenge:** The Buildings Department needed to effectively educate property owners about the severe legal and safety risks of unauthorized structural wall demolition, a complex message requiring clear communicati
+- **Solution:** Firebean delivered a comprehensive, multi-lingual promotional video campaign, integrating strategic concept development, expert talent management, and advanced video production, resulting in a highly
+- **Link:** [https://firebean.net/profile.html?id=fb2026050](https://firebean.net/profile.html?id=fb2026050)
+
+### “Anti-drug Info Zone: Stride Ahead Into A Drug-free Future” Roving Exhibition
+- **Client:** Narcotics Division (ND) of the Security Bureau
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** ROVING EXHIBITIONS, SOCIAL & CONTENT, INTERACTIVE & TECH, EVENTS & CEREMONIES
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development
+- **Challenge:** 傳統禁毒宣傳難以吸引年輕族群，且活潑的星際主題可能稀釋訊息嚴肅性，導致公眾輕視毒品危害，同時難以確保參與者在遊戲後能真正內化反毒知識。
+- **Solution:** 透過「星際/科幻」主題與遊戲化互動裝置，結合社群媒體預熱及KOL推廣，並確保核心訊息清晰及由權威人士背書，旨在提升年輕族群參與度，深化反毒知識內化，並透過線上平台延續影響力。
+- **Link:** [https://firebean.net/profile.html?id=fb2024005](https://firebean.net/profile.html?id=fb2024005)
+
+### Stride Ahead Into A Drug-free Future 34th Hong Kong Book Fair
+- **Client:** Narcotics Division (ND) of the Security Bureau
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** INTERACTIVE & TECH, EVENTS & CEREMONIES
+- **Scope:** Concept Development,Branding Strategy,Theme Design,Visual Identity,UI/UX Design,Influencer Seeding,Video Production,Motion Graphics,Interactive Installation,Event Planning,Event Production,RSVP Management,Talent Management,On-site Operation,Technical Support
+- **Challenge:** How to make anti-drug education engaging and impactful for families and youth at a high-traffic Book Fair, managing crowds effectively, and integrating diverse elements seamlessly.
+- **Solution:** Firebean leveraged interactive technology, strategic talent engagement, meticulous crowd management, and multi-platform content amplification to transform a critical public health message into an unmi
+- **Link:** [https://firebean.net/profile.html?id=fb2026002](https://firebean.net/profile.html?id=fb2026002)
+
+### 運動賽事大本型
+- **Client:** 香港房屋委員會
+- **Category:** GOVERNMENT & PUBLIC SECTOR, LIFESTYLE & CONSUMER, MALLS & VENUES
+- **Service Type:** INTERACTIVE & TECH, PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Media Relations, Theme Design, Visual Identity, Video Production, Motion Graphics, Interactive Installation, Event Planning, Event Production, RSVP Management, Talent Management, On-site Operation, Technical Support
+- **Challenge:** Hong Kong Housing Authority (HKHA) sought to transform a local shopping mall into a vibrant community hub during a global sports event, requiring sophisticated integration of live broadcasts, celebrit
+- **Solution:** Firebean developed a multi-faceted strategy encompassing bespoke concept development, immersive event design, and meticulous on-site execution, successfully creating a dynamic "Sports Event Grand Styl
+- **Link:** [https://firebean.net/profile.html?id=fb2026075](https://firebean.net/profile.html?id=fb2026075)
+
+### 完善選舉制度巡迴展覽 2024
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** ROVING EXHIBITIONS
+- **Scope:** Event Coordination, Event Production, Theme Design, Concept Development, Souvenir Sourcing
+- **Challenge:** 現有展覽雖能初步吸引公眾，但未能有效深化對複雜選舉制度的理解，且在處理公眾疑慮及激發長期知情參與方面仍有不足，存在過度簡化議題的風險。
+- **Solution:** 透過年輕化、生活化的主題設計與吉祥物「票箱寶寶」，結合易於裝拆且靈活的互動遊戲（如「我『推』的地方選區」及「立法會議席彈乒乓」），在室內外巡迴展覽中寓教於樂。同時，透過策略性紀念品及多渠道公關整合，旨在深化公眾對完善選舉制度的理解，並鼓勵持續參與。
+- **Link:** [https://firebean.net/profile.html?id=fb2024016](https://firebean.net/profile.html?id=fb2024016)
+
+### 《憲法》與《基本法》物流運輸樞紐
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** ROVING EXHIBITIONS, SOCIAL & CONTENT, INTERACTIVE & TECH, EVENTS & CEREMONIES
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, Souvenir Sourcing
+- **Challenge:** Engaging a casual shopping mall audience with the serious, complex topics of the Constitution and Basic Law, especially for youth, proved challenging amidst distractions and potential information over
+- **Solution:** We transformed the exhibition into an interactive "logistics hub" featuring gamified elements like a drone mission, modern visuals, and focused content. This multi-sensory approach, combined with stra
+- **Link:** [https://firebean.net/profile.html?id=fb2024018](https://firebean.net/profile.html?id=fb2024018)
+
+### 《憲法》與《基本法》科研探索
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** ROVING EXHIBITIONS, SOCIAL & CONTENT, INTERACTIVE & TECH, EVENTS & CEREMONIES
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, Souvenir Sourcing
+- **Challenge:** The Constitution and Basic Law Roving Exhibition faces the challenge of transforming complex legal concepts into engaging, deeply educational experiences for families in bustling mall environments, en
+- **Solution:** The exhibition adopts a 'Tech Exploration' theme, transforming venues into interactive 'laboratories' with engaging games and Kahoot! quizzes. This approach, combined with a vibrant visual design and
+- **Link:** [https://firebean.net/profile.html?id=fb2024019](https://firebean.net/profile.html?id=fb2024019)
+
+### 共築創業家 Key Day
+- **Client:** Hong Kong Housing Authority
+- **Category:** GOVERNMENT & PUBLIC SECTOR, MALLS & VENUES
+- **Service Type:** PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Concept Development,Branding Strategy,Media Relations,Theme Design,Visual Identity,Social Media Content,Video Production,Event Planning,Event Production,RSVP Management,On-site Operation
+- **Challenge:** Hong Kong Housing Authority faced the challenge of launching '共築創業家', a government initiative for young entrepreneurs, ensuring it resonated with its target audience, generated significant media buzz,
+- **Solution:** Firebean Limited devised a multi-faceted strategy encompassing innovative concept development ('Key Day'), youthful branding, bespoke experiential elements ('創業三寶'), and targeted media relations, resu
+- **Link:** [https://firebean.net/profile.html?id=fb2026007](https://firebean.net/profile.html?id=fb2026007)
+
+### 樓宇安全周2024 ── 樓宇安全嘉年華
+- **Client:** 屋宇署
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** EVENTS & CEREMONIES
+- **Scope:** Concept Development, PR Consulting, Social Media Content, Event Planning, Event Production, On-site Operation
+- **Challenge:** Educating the Hong Kong public about complex building safety issues effectively and engagingly, moving beyond traditional, often dry, informational campaigns to foster proactive maintenance awareness.
+- **Solution:** Firebean developed and executed an interactive, game-centric 'Building Safety Carnival' across multiple prime locations, transforming abstract safety concepts into memorable experiences, significantly
+- **Link:** [https://firebean.net/profile.html?id=fb2026063](https://firebean.net/profile.html?id=fb2026063)
+
+### 樓宇安全周2024  ── 樓宇安全研討會
+- **Client:** 屋宇署
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** EVENTS & CEREMONIES
+- **Scope:** PR Consulting, Event Planning, Event Production, RSVP Management, On-site Operation
+- **Challenge:** The Buildings Department required a high-profile, large-scale seminar to engage over 400 professionals on critical building safety policies, innovative technologies, and future urban development, faci
+- **Solution:** Firebean provided comprehensive PR consulting, meticulous event planning, flawless production, and expert RSVP and on-site management, orchestrating an impactful seminar that facilitated crucial dialo
+- **Link:** [https://firebean.net/profile.html?id=fb2026066](https://firebean.net/profile.html?id=fb2026066)
+
+### 5S良好工作場所整理 巡迴展覽
+- **Client:** 公務員事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** ROVING EXHIBITIONS
+- **Scope:** Event Coordination, Event Production, Theme Design, Concept Development, Souvenir Sourcing
+- **Challenge:** 挑戰在於將「5S工作場所管理」這個可能枯燥的議題，轉化為對公務員及公眾而言既實用又具吸引力的互動體驗，打破傳統展覽的單調感，並有效傳達核心訊息。
+- **Solution:** Firebean透過實體化概念、生活化百貨設計風格，以及結合辦公室模型和趣味扭蛋機等互動元素，成功將5S理念融入遊戲與實用紀念品中，大幅提升參與者的學習興趣與記憶度。
+- **Link:** [https://firebean.net/profile.html?id=fb2025999](https://firebean.net/profile.html?id=fb2025999)
+
+### 鬱金香花海 Hong Kong Flower Show 2025
+- **Client:** LCSD 康文署
+- **Category:** GOVERNMENT & PUBLIC SECTOR, MALLS & VENUES
+- **Service Type:** EVENTS & CEREMONIES
+- **Scope:** Theme Design,Interactive Installation,Event Planning,Event Production,On-site Operation,Technical Support
+- **Challenge:** Traditional flower exhibitions face challenges with short-lived blooms, inefficient setup, and lack of engaging night experiences, limiting visitor satisfaction and operational efficiency for organize
+- **Solution:** Firebean's innovative drainage system, precise bloom management, rapid installation techniques, and enchanting nocturnal lighting transformed the Hong Kong Flower Show 2025 tulip display for LCSD, sig
+- **Link:** [https://firebean.net/profile.html?id=fb2026009](https://firebean.net/profile.html?id=fb2026009)
+
+### One Earth Submit 2025
+- **Client:** One Earth Alliance
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** PR & MEDIA
+- **Scope:** Media Pitching
+- **Challenge:** The global imperative to bridge the green funding gap and accelerate sustainable innovation demanded a platform for diverse leaders to forge actionable, systemic change.
+- **Solution:** The One Earth Summit successfully convened over 300 influential leaders, catalyzing critical dialogues and reinforcing Hong Kong's leadership in green finance and technology for impactful investment a
+- **Link:** [https://firebean.net/profile.html?id=fb2025771](https://firebean.net/profile.html?id=fb2025771)
+
+### 共築創業+2.0 發佈會
+- **Client:** 香港房屋委員會
+- **Category:** GOVERNMENT & PUBLIC SECTOR, MALLS & VENUES
+- **Service Type:** PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Branding Strategy, Media Relations, Theme Design, Visual Identity, Video Production, Motion Graphics, Interactive Installation, Event Planning, Event Production, RSVP Management, On-site Operation
+- **Challenge:** Orchestrating a dynamic, engaging launch for 香港房屋委員會's '共築創業+2.0' program, breaking traditional government event formats while visually representing expanded public-private collaboration and youth ent
+- **Solution:** Firebean developed an innovative multi-LED stage design, an interactive city model symbolising public-private synergy, and a multi-level photo stage, enhancing media engagement and successfully amplif
+- **Link:** [https://firebean.net/profile.html?id=fb2026004](https://firebean.net/profile.html?id=fb2026004)
+
+### Mediate First - Pledge Event 2025
+- **Client:** Department Of Justice
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** EVENTS & CEREMONIES
+- **Scope:** Concept Development,Theme Design,Visual Identity,Social Media Content,Video Production,Event Planning,Event Production,RSVP Management,On-site Operation
+- **Challenge:** The Department of Justice needed to reinvigorate its 'Mediate First' campaign with an impactful 2025 pledge event, facing the challenge of presenting a potentially dry legal concept in an engaging, fr
+- **Solution:** Firebean developed a comprehensive event strategy, including a unique interactive launch ceremony (giant gift box), an innovative low-contrast visual identity, engaging content (drama, website, public
+- **Link:** [https://firebean.net/profile.html?id=fb2026012](https://firebean.net/profile.html?id=fb2026012)
+
+### 2025「選舉進社區」巡迴互動展覽
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** ROVING EXHIBITIONS, EVENTS & CEREMONIES
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development
+- **Challenge:** Public apathy towards the 2025 Legislative Council election is a key challenge, with traditional outreach methods struggling to engage diverse demographics, particularly younger professionals, who per
+- **Solution:** The 2025 "Elections in the Community" Roving Interactive Exhibition aims to demystify the electoral process through interactive, family-friendly games in major malls. Solutions include gamified learni
+- **Link:** [https://firebean.net/profile.html?id=fb2025013](https://firebean.net/profile.html?id=fb2025013)
+
+### L&T Expo 2025
+- **Client:** 教育局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** ROVING EXHIBITIONS, INTERACTIVE & TECH
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Theme Design, Visual Identity, UI/UX Design, Video Production, Motion Graphics, Interactive Installation, Event Planning, Event Production, On-site Operation, Technical Support
+- **Challenge:** The Education Bureau faced the challenge of transforming complex educational initiatives into highly engaging, interactive experiences for a diverse audience (teachers, students, and the public) at th
+- **Solution:** Firebean provided a holistic solution encompassing strategic concept development, innovative theme and visual identity design, UI/UX optimization for interactive installations, comprehensive multimedi
+- **Link:** [https://firebean.net/profile.html?id=fb2026062](https://firebean.net/profile.html?id=fb2026062)
+
+### “School Anti-drug Youth Ambassador Programme” Commencement Ceremony 2025 – Stay Away from Etomidate
+- **Client:** Narcotics Division, Security Bureau
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Theme Design, Event Planning, Event Production, RSVP Management, Talent Management, On-site Operation, Technical Support
+- **Challenge:** The Narcotics Division faced the complex challenge of correcting public misconceptions about 'Space Oil Drug,' officially rebranding it as 'Etomidate,' and vividly communicating its severe, 'zombie-li
+- **Solution:** Firebean orchestrated a multi-faceted strategic solution for the 'School Anti-drug Youth Ambassador Programme' Commencement Ceremony. We devised an interactive, dynamic event concept that physically '
+- **Link:** [https://firebean.net/profile.html?id=fb2026047](https://firebean.net/profile.html?id=fb2026047)
+
+### 《憲法》與《基本法》能量充電站
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** ROVING EXHIBITIONS, SOCIAL & CONTENT, INTERACTIVE & TECH, EVENTS & CEREMONIES
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, PR Consulting
+- **Challenge:** The Constitution and Basic Law Roving Exhibition struggles to engage the public, particularly families and youth in bustling shopping malls, often perceived as dry government propaganda rather than an
+- **Solution:** By transforming the exhibition into an interactive 'Energy Station' with engaging booth games, a Roblox mini-game, and a unique claw machine souvenir redemption, the project aims to demystify complex
+- **Link:** [https://firebean.net/profile.html?id=fb2025012](https://firebean.net/profile.html?id=fb2025012)
+
+### 《憲法》與《基本法》貓頭鷹茶樓
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** ROVING EXHIBITIONS, SOCIAL & CONTENT, INTERACTIVE & TECH, EVENTS & CEREMONIES
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, PR Consulting
+- **Challenge:** Transforming complex, serious legal concepts into engaging, non-preachy content for children in noisy mall environments, while ensuring parents perceive it as educational, not just entertainment, is t
+- **Solution:** The 'Owl Teahouse' workshop, a roving mall exhibition, transforms abstract legal concepts into engaging, relatable content via interactive tech. This innovative approach, supported by strategic PR, en
+- **Link:** [https://firebean.net/profile.html?id=fb2025017](https://firebean.net/profile.html?id=fb2025017)
+
+### 樓宇安全周2025  ── 樓宇安全研討會
+- **Client:** 屋宇署
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** EVENTS & CEREMONIES
+- **Scope:** PR Consulting, Media Relations, Event Planning, Event Production, RSVP Management, On-site Operation
+- **Challenge:** The Buildings Department faced the complex task of effectively communicating critical digital transformation initiatives in building safety to diverse stakeholders, requiring a high-profile seminar th
+- **Solution:** Firebean orchestrated a comprehensive PR and event strategy, meticulously planning and executing the 'Building Safety Seminar' to ensure seamless operations, robust media coverage, and targeted engage
+- **Link:** [https://firebean.net/profile.html?id=fb2026065](https://firebean.net/profile.html?id=fb2026065)
+
+### Roving exhibition in commemoration of the 60th anniversary of Action Committee Against Narcotics
+- **Client:** Narcotics Division (ND) of the Security Bureau
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** ROVING EXHIBITIONS, INTERACTIVE & TECH, EVENTS & CEREMONIES
+- **Scope:** Concept Development,Branding Strategy,Theme Design,Visual Identity,UI/UX Design,Social Media Content,Video Production,Interactive Installation,Event Planning,Event Production,RSVP Management,On-site Operation,Technical Support
+- **Challenge:** Developing and executing a multi-faceted public exhibition for the Narcotics Division with an extreme pre-Lunar New Year deadline, complex content approvals, and a high-profile opening ceremony.
+- **Solution:** Firebean strategically deployed agile project management, innovative experiential design including VR and robotics, and meticulous content navigation, delivering a impactful and critically acclaimed r
+- **Link:** [https://firebean.net/profile.html?id=fb2026011](https://firebean.net/profile.html?id=fb2026011)
+
+### BD Social Media Maintenance
+- **Client:** 屋宇署
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** SOCIAL & CONTENT
+- **Scope:** Branding Strategy, PR Consulting, Theme Design, Visual Identity, Social Media Content, Video Production, Motion Graphics
+- **Challenge:** Government departments like the Buildings Department often struggle with engaging the public on social media regarding complex, technical information. The core pain point was transforming 'dry' buildi
+- **Solution:** Firebean strategically overhauled the Buildings Department's social media presence by deploying a highly effective mascot, leveraging trending cultural topics for creative content, developing dynamic
+- **Link:** [https://firebean.net/profile.html?id=fb2026074](https://firebean.net/profile.html?id=fb2026074)
+
+### 科技提升職業安全與健康2026 巡迴展覽
+- **Client:** 公務員事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** ROVING EXHIBITIONS, INTERACTIVE & TECH
+- **Scope:** Concept Development,Theme Design,Visual Identity,UI/UX Design,Interactive Installation,Event Planning,Event Production,On-site Operation,Technical Support
+- **Challenge:** Transforming abstract and often perceived as 'mundane' occupational safety and health (OSH) guidelines into an engaging, interactive, and high-tech experience for the Civil Service Bureau's roadshow.
+- **Solution:** Firebean's strategic concept development and interactive design infused the OSH exhibition with high-tech aesthetics, gamified engagement, and lifestyle-oriented rewards, significantly boosting public
+- **Link:** [https://firebean.net/profile.html?id=fb2026010](https://firebean.net/profile.html?id=fb2026010)
+
+### “A Voyage with Books Series” Multimodal Reading Resources Exhibition
+- **Client:** Curriculum Resources Section,  Curriculum Development Institute, Education Bureau
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** ROVING EXHIBITIONS
+- **Scope:** Concept Development, Theme Design, Event Planning, Event Production, On-site Operation
+- **Challenge:** The client required an innovative and highly engaging exhibition to promote reading across diverse age groups, effectively differentiate two distinct themes ('Traces of Admonition' and 'The Power of S
+- **Solution:** Firebean's strategic solution involved designing an immersive, multi-sensory exhibition experience that transformed abstract themes into tangible, interactive environments. By leveraging advanced even
+- **Link:** [https://firebean.net/profile.html?id=fb2026048](https://firebean.net/profile.html?id=fb2026048)
+
+### 閱讀無界限分享會暨中小學聯校共讀半小時
+- **Client:** 教育局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Service Type:** INTERACTIVE & TECH, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Theme Design, Visual Identity, UI/UX Design, Video Production, Motion Graphics, Event Planning, Event Production, RSVP Management, Talent Management, On-site Operation, Technical Support
+- **Challenge:** The Education Bureau faced the challenge of revitalizing reading promotion in a digital age, needing an innovative, engaging, and widely accessible hybrid event to foster reading habits among students
+- **Solution:** Firebean strategically developed and executed "閱讀無界限分享會暨中小學聯校共讀半小時," a pioneering hybrid event that transformed traditional reading into an immersive, multi-modal experience. Through expert concept de
+- **Link:** [https://firebean.net/profile.html?id=fb2026067](https://firebean.net/profile.html?id=fb2026067)
+
+## Lifestyle & Consumer Projects
+
+### Levi's  x Szabotage Graffiti Workshop
+- **Client:** Graffiti Company
+- **Category:** LIFESTYLE & CONSUMER
+- **Service Type:** SOCIAL & CONTENT, PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Event Planning, Event Coordination, Social Media Management
+- **Challenge:** The core challenge was bridging the perceived gap between street art and business leadership, ensuring both commercial relevance for non-artists and artistic integrity for the art community while avoi
+- **Solution:** By integrating a street art workshop with a 'Creative Leadership Breakfast', featuring artist Szabotage and Levi's, we redefined the intersection of art and business, fostering creative dialogue and c
+- **Link:** [https://firebean.net/profile.html?id=fb2016024](https://firebean.net/profile.html?id=fb2016024)
+
+### Pagani Hong Kong Opening
+- **Client:** Pagani
+- **Category:** LIFESTYLE & CONSUMER
+- **Service Type:** EVENTS & CEREMONIES
+- **Scope:** Event Planning, Event Production, Theme Design, Concept Development, Souvenir Sourcing
+- **Challenge:** Pagani Hong Kong's traditional launch focused solely on product display, failing to convey the brand's unique craftsmanship and emotional depth, risking perception as soulless luxury and struggling wi
+- **Solution:** We transformed the Pagani Hong Kong opening into an immersive experience through emotional storytelling and thought leadership. By elevating the brand from 'supercar' to 'moving art' with exclusive di
+- **Link:** [https://firebean.net/profile.html?id=fb2016027](https://firebean.net/profile.html?id=fb2016027)
+
+### Eyewear Facebook Page Maintenance
+- **Client:** agnès b.
+- **Category:** LIFESTYLE & CONSUMER
+- **Service Type:** SOCIAL & CONTENT, PR & MEDIA
+- **Scope:** Concept Development, Social Media Management, KOL / MI Line up, Artist Endorsement, Media Pitching
+- **Challenge:** agnès b. Eyewear struggled with a niche, static brand image and outdated customer experiences, limiting broad appeal and engagement beyond a small, high-end circle.
+- **Solution:** The "Future Vision Lab" immersive pop-up, featuring AI styling and AR try-on at K11 MUSEA, revolutionized the customer journey, expanding brand appeal beyond its niche and establishing agnès b. Eyewea
+- **Link:** [https://firebean.net/profile.html?id=fb2016004](https://firebean.net/profile.html?id=fb2016004)
+
+### agnès b. eyewear Preview Event
+- **Client:** agnès b.
+- **Category:** LIFESTYLE & CONSUMER
+- **Service Type:** INTERACTIVE & TECH, PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, KOL / MI Line up, Media Pitching
+- **Challenge:** Traditional product previews struggled to immerse guests in agnès b.'s 'Be Yourself' philosophy and generate organic social buzz. The challenge was creating a truly interactive experience that resonat
+- **Solution:** We transformed the agnès b. eyewear preview into an immersive 'Be Yourself' journey at K11. Guests enjoyed personalized styling by designers and unique fingerprint personality analysis, matching eyewe
+- **Link:** [https://firebean.net/profile.html?id=fb2017012](https://firebean.net/profile.html?id=fb2017012)
+
+### One day Shop Manager Joycelin
+- **Client:** agnès b.
+- **Category:** LIFESTYLE & CONSUMER
+- **Service Type:** SOCIAL & CONTENT, PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Event Coordination, Social Media Management, Artist Endorsement, Media Pitching, PR Consulting
+- **Challenge:** Past 'One Day Shop Manager' events for agnès b. LUNETTES primarily generated superficial celebrity interaction and media buzz, failing to build deep brand loyalty or effectively communicate unique pro
+- **Solution:** To overcome superficial engagement, future strategies will pivot from mere celebrity appearances to immersive, interactive experiences that deeply convey agnès b. LUNETTES' unique brand story and prod
+- **Link:** [https://firebean.net/profile.html?id=fb2017014](https://firebean.net/profile.html?id=fb2017014)
+
+### HTC U Play X Fashion Social Media
+- **Client:** HTC
+- **Category:** LIFESTYLE & CONSUMER
+- **Service Type:** SOCIAL & CONTENT, PR & MEDIA
+- **Scope:** Concept Development,Media Relations,Visual Identity,Social Media Content,Influencer Seeding
+- **Challenge:** HTC needed to shift its brand perception from a professional and male-oriented image to an avant-garde, fashion-forward, and lifestyle-centric brand for the HTC U Play, specifically targeting young, s
+- **Solution:** Firebean developed and executed a multi-faceted 'fashion x lifestyle' social media campaign, leveraging strategic influencer marketing, a unique Levi's cross-promotion, and visually engaging content t
+- **Link:** [https://firebean.net/profile.html?id=fb2026003](https://firebean.net/profile.html?id=fb2026003)
+
+### Eyewear Summertime 2017
+- **Client:** agnès b.
+- **Category:** LIFESTYLE & CONSUMER
+- **Service Type:** SOCIAL & CONTENT, PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, KOL / MI Line up, Artist Endorsement, Media Pitching, PR Consulting
+- **Challenge:** The primary challenge was transforming a standard retail promotion into a captivating lifestyle event, overcoming a lack of engaging narrative and avoiding perception as merely another sales push.
+- **Solution:** We transformed retail into a cultural movement by using art as a bridge. By collaborating with design schools and turning stores into immersive galleries, they replaced transactional sales with empath
+- **Link:** [https://firebean.net/profile.html?id=fb2017008](https://firebean.net/profile.html?id=fb2017008)
+
+### Levi's Eyewear Social Media
+- **Client:** Levi's
+- **Category:** LIFESTYLE & CONSUMER
+- **Service Type:** SOCIAL & CONTENT
+- **Scope:** Social Media Management, KOL / MI Line up
+- **Challenge:** Levi's Eyewear struggled with over-reliance on digital displays, hindering offline sales conversion and the full expression of its youthful, rebellious brand identity.
+- **Solution:** The 'Levi's® Eyewear Visionary Style Journey' event, held in Hong Kong in Feb 2026, offers an immersive physical experience at PMQ. It integrates interactive zones, AR technology, professional stylist
+- **Link:** [https://firebean.net/profile.html?id=fb2017015](https://firebean.net/profile.html?id=fb2017015)
+
+### MongKok New Store Opening
+- **Client:** MINISO
+- **Category:** LIFESTYLE & CONSUMER
+- **Service Type:** PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Media Relations, Theme Design, Visual Identity, Influencer Seeding, Event Planning, Event Production, Talent Management, On-site Operation
+- **Challenge:** Launching MINISO's new store in a hyper-congested Mong Kok pedestrian zone, requiring exceptional visibility and crowd management while reinforcing its Japanese brand identity.
+- **Solution:** Firebean engineered a high-impact 'Summer Festival' street parade with strategic influencer engagement and meticulous event logistics, successfully cutting through urban noise and elevating brand pres
+- **Link:** [https://firebean.net/profile.html?id=fb2026015](https://firebean.net/profile.html?id=fb2026015)
+
+### Label .m Hair and Care Product Launching
+- **Client:** label.m
+- **Category:** LIFESTYLE & CONSUMER
+- **Service Type:** PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Event Planning, Event Coordination, Event Production, KOL / MI Line up, Media Pitching
+- **Challenge:** To successfully launch label.m, an unknown professional haircare brand in Hong Kong despite its London Fashion Week prestige, and establish its credibility and market presence among local hairdressers
+- **Solution:** Firebean executed a dynamic launch event featuring live DJ sets, expert hairstyling demonstrations, and celebrity makeovers at Fringe Club, effectively engaging industry professionals and media to hig
+- **Link:** [https://firebean.net/profile.html?id=fb2017027](https://firebean.net/profile.html?id=fb2017027)
+
+### New Balance x HKDA Dodgebee Championships
+- **Client:** New Balance Eyewear
+- **Category:** LIFESTYLE & CONSUMER
+- **Service Type:** PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development
+- **Challenge:** Integrating New Balance Eyewear's sports performance features into a dynamic dodgebee championship, ensuring strong brand visibility and direct product experience for target demographics, while naviga
+- **Solution:** Firebean designed interactive games like Zorb Ball and dodgebee, requiring New Balance eyewear, and incorporated product displays with branded prizes. This seamlessly showcased eyewear durability and
+- **Link:** [https://firebean.net/profile.html?id=fb2017999](https://firebean.net/profile.html?id=fb2017999)
+
+### agnès b. LUNETTES Popup Store
+- **Client:** Agnès b. x Optical 88
+- **Category:** LIFESTYLE & CONSUMER
+- **Service Type:** SOCIAL & CONTENT, PR & MEDIA
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, KOL / MI Line up, Media Pitching, PR Consulting
+- **Challenge:** Traditional eyewear displays lacked engagement, failing to captivate customers. The challenge was transforming a static retail experience into an immersive, captivating brand journey.
+- **Solution:** agnès b. LUNETTES and Optical 88 transformed traditional eyewear retail with an immersive 'Winter Parisian Adventure' popup. This miniature landscape, integrating eyewear, offered unique photo opportu
+- **Link:** [https://firebean.net/profile.html?id=fb2017006](https://firebean.net/profile.html?id=fb2017006)
+
+### Hello Kitty Beaute Popup Store
+- **Client:** Hello Kitty Beaute
+- **Category:** LIFESTYLE & CONSUMER
+- **Service Type:** PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Media Relations, Theme Design, Visual Identity, Event Planning, Event Production, RSVP Management
+- **Challenge:** Launching Hello Kitty Beaute's first standalone elegant cosmetics line in Hong Kong, breaking its traditional cute image, managing complex Japanese-HK communication, ensuring crowd safety, and meeting
+- **Solution:** Firebean developed a sophisticated visual identity and theme design, streamlined cross-cultural communication, executed flawless event production with robust crowd management, and achieved high media
+- **Link:** [https://firebean.net/profile.html?id=fb2026013](https://firebean.net/profile.html?id=fb2026013)
+
+### Van Gogh SENCES Flowers Launching
+- **Client:** Van Gogh SENSES
+- **Category:** LIFESTYLE & CONSUMER, F&B & HOSPITALITY
+- **Service Type:** PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Media Relations, Theme Design, Visual Identity, Social Media Content, Influencer Seeding, Event Planning, Event Production, RSVP Management, On-site Operation
+- **Challenge:** Van Gogh SENSES faced the challenge of launching a globally unique, art-infused floral collection for Valentine's Day in a highly saturated market. The client needed to differentiate its 'Flowers from
+- **Solution:** Firebean developed a multi-faceted PR strategy that meticulously deconstructed market pain points and client objectives. We crafted a compelling narrative around the collaboration with international f
+- **Link:** [https://firebean.net/profile.html?id=fb2026018](https://firebean.net/profile.html?id=fb2026018)
+
+### ZANUSSI 100 Year Anniversary
+- **Client:** Zanussi
+- **Category:** LIFESTYLE & CONSUMER, MALLS & VENUES
+- **Service Type:** PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, Media Pitching
+- **Challenge:** A century-old brand risks its anniversary being perceived as a mere product display. The challenge is to convey "CELEBRATING EASY" meaningfully, fostering deep emotional connection and consistent bran
+- **Solution:** Through immersive, interactive experiences at Olympian City 2, tailored multi-platform content, and thought leadership, Zanussi will connect its century of innovation with modern "easy living," ensuri
+- **Link:** [https://firebean.net/profile.html?id=fb2026025](https://firebean.net/profile.html?id=fb2026025)
+
+### Sony Action Cam x Champimom 拍攝動感小車神
+- **Client:** Sony Action Cam
+- **Category:** LIFESTYLE & CONSUMER
+- **Service Type:** SOCIAL & CONTENT, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Theme Design, Visual Identity, Social Media Content, Influencer Seeding, Video Production, Event Planning, Event Production, RSVP Management, On-site Operation
+- **Challenge:** Sony Action Cam needed to overcome low brand recognition in the family market and demonstrate its superior 4K optical stabilization for capturing fast-moving children, a segment dominated by tradition
+- **Solution:** Firebean developed and executed a balance bike event strategy, leveraging an indoor venue and influencer partnership to create an immersive, branded experience that allowed parents to intuitively unde
+- **Link:** [https://firebean.net/profile.html?id=fb2026017](https://firebean.net/profile.html?id=fb2026017)
+
+### 按摩的藝術
+- **Client:** OGAWA
+- **Category:** LIFESTYLE & CONSUMER, MALLS & VENUES
+- **Service Type:** SOCIAL & CONTENT, PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Media Relations, Theme Design, Visual Identity, Social Media Content, Influencer Seeding, Video Production, Motion Graphics, Event Planning, Event Production, RSVP Management, Talent Management, On-site Operation
+- **Challenge:** OGAWA sought to launch its Master Drive massage chair, needing to elevate its perception beyond mere functionality into a premium, artistic, and experiential product, and to differentiate it in a comp
+- **Solution:** Firebean developed a multi-sensory 'Art of Massage' concept, integrating music and visual customization through unique collaborations and celebrity engagement, generating unprecedented buzz and elevat
+- **Link:** [https://firebean.net/profile.html?id=fb2026044](https://firebean.net/profile.html?id=fb2026044)
+
+### 2滿足分離式按摩腳機廣告宣傳
+- **Client:** OGAWA
+- **Category:** LIFESTYLE & CONSUMER
+- **Service Type:** SOCIAL & CONTENT, PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Media Relations, Theme Design, Visual Identity, Social Media Content, Influencer Seeding, Video Production, Motion Graphics, Event Planning, Event Production, Talent Management, On-site Operation
+- **Challenge:** OGAWA's innovative '2滿足' split massager needed to break through traditional, often uninspiring ad campaigns in the space-constrained Hong Kong market. The goal was to clearly communicate its unique du
+- **Solution:** Firebean developed a multi-faceted campaign centered on a high-impact comedic video series featuring popular duo 'ILUB' (Jim & Donald). This strategy utilized humorous cross-dressing and relatable sce
+- **Link:** [https://firebean.net/profile.html?id=fb2026045](https://firebean.net/profile.html?id=fb2026045)
+
+### OGAWA X MEDISANA Home Health Station概念店開幕
+- **Client:** OGAWA
+- **Category:** LIFESTYLE & CONSUMER
+- **Service Type:** PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Media Relations, Theme Design, Visual Identity, Social Media Content, Influencer Seeding, Video Production, Event Planning, Event Production, RSVP Management, Talent Management, On-site Operation
+- **Challenge:** Launching OGAWA's inaugural integrated "Home Health Station" concept store with Medisana, requiring strategic positioning of medical technology within a lifestyle brand and generating significant medi
+- **Solution:** Firebean devised a comprehensive PR strategy, leveraging timely celebrity news (Priscilla Wong's post-marriage appearance) and meticulous event planning to overcome spatial limitations, securing exten
+- **Link:** [https://firebean.net/profile.html?id=fb2026041](https://firebean.net/profile.html?id=fb2026041)
+
+### Lancome SDM & Corporate Dinner
+- **Client:** Lancome
+- **Category:** LIFESTYLE & CONSUMER
+- **Service Type:** EVENTS & CEREMONIES
+- **Scope:** Concept Development, Branding Strategy, Theme Design, Visual Identity, Video Production, Event Planning, Event Production, RSVP Management, On-site Operation
+- **Challenge:** Lancome required an exceptional internal product launch for a new luxury series, aimed at unifying global marketing and front-line sales on product features and brand essence ('beauty equals happiness
+- **Solution:** Firebean orchestrated a meticulously designed 'Happiness' themed event, integrating interactive experiential elements such as a giant 3D heart-shaped rose, personalized travel passport holders for eac
+- **Link:** [https://firebean.net/profile.html?id=fb2026068](https://firebean.net/profile.html?id=fb2026068)
+
+### SonyVlog親子叢林動感日
+- **Client:** Sony
+- **Category:** LIFESTYLE & CONSUMER
+- **Service Type:** SOCIAL & CONTENT, INTERACTIVE & TECH, PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Branding Strategy, Media Relations, Theme Design, Visual Identity, Social Media Content, Influencer Seeding, Video Production, Interactive Installation, Event Planning, Event Production, RSVP Management, On-site Operation
+- **Challenge:** Sony needed to overcome parental perception that dedicated cameras were bulky and complex, effectively promoting their α6400 and RX100VI as ideal, user-friendly tools for capturing children's vlogs, w
+- **Solution:** Firebean engineered the 'Sony Vlog 親子叢林動感日' at a premium, eco-conscious playground, integrating interactive camera trials, expert-led vlogging workshops, and dedicated on-site assistance. This strateg
+- **Link:** [https://firebean.net/profile.html?id=fb2026016](https://firebean.net/profile.html?id=fb2026016)
+
+### MINISO x MARVEL Popup Store
+- **Client:** MINISO
+- **Category:** LIFESTYLE & CONSUMER
+- **Service Type:** PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Media Relations, Theme Design, Influencer Seeding, Video Production, Event Planning, Event Production, RSVP Management, On-site Operation
+- **Challenge:** Miniso faced a critical need to re-establish its brand image as a purveyor of authentic, quality products amidst perceptions of imitation, while also requiring expert management for a high-demand, fir
+- **Solution:** Firebean engineered a multi-faceted strategy, leveraging the iconic Marvel license to enhance brand legitimacy, implementing innovative experiential marketing (themed latte art), and deploying robust
+- **Link:** [https://firebean.net/profile.html?id=fb2026014](https://firebean.net/profile.html?id=fb2026014)
+
+### 歐國盃主題限量版聯乘
+- **Client:** NOWTV x MaskON
+- **Category:** LIFESTYLE & CONSUMER
+- **Service Type:** SOCIAL & CONTENT, PR & MEDIA
+- **Scope:** Branding Strategy, PR Consulting, Media Relations, Social Media Content, Influencer Seeding
+- **Challenge:** How NOWTV and MaskON. could create a highly sought-after, collectible, and engaging limited-edition product during UEFA EURO 2020, effectively driving subscriber loyalty and brand synergy in a competi
+- **Solution:** Firebean crafted an integrated branding and PR strategy that transformed a product collaboration into a must-have fan experience, driving significant media buzz and customer engagement for NOWTV's UEF
+- **Link:** [https://firebean.net/profile.html?id=fb2026051](https://firebean.net/profile.html?id=fb2026051)
+
+### Now TV UEFA EURO 2020™ Sales Presentation
+- **Client:** NOWTV
+- **Category:** LIFESTYLE & CONSUMER
+- **Service Type:** PR & MEDIA
+- **Scope:** PR Consulting, Media Relations, Social Media Content, Influencer Seeding, RSVP Management
+- **Challenge:** Now TV needed to create unprecedented buzz for UEFA EURO 2020™ by leveraging the immense popularity of MIRROR and ERROR, ensuring comprehensive media coverage across both entertainment and sports sect
+- **Solution:** Firebean developed and executed a multi-faceted PR strategy, including meticulous dual-channel media relations, expert celebrity and RSVP management, and compelling narrative development, which result
+- **Link:** [https://firebean.net/profile.html?id=fb2026052](https://firebean.net/profile.html?id=fb2026052)
+
+### ABC Online Conference
+- **Client:** 101 Studio
+- **Category:** LIFESTYLE & CONSUMER
+- **Service Type:** EVENTS & CEREMONIES
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, KOL / MI Line up
+- **Challenge:** Transforming a multi-brand eyewear launch into an immersive online conference for diverse Asian audiences amidst pandemic restrictions posed challenges in engagement, technical execution, and balancin
+- **Solution:** The project delivered a cinematic virtual platform, featuring tailored brand presentations, strategic KOL collaborations, and interactive elements. It seamlessly integrated pre-recorded content with l
+- **Link:** [https://firebean.net/profile.html?id=fb2021040](https://firebean.net/profile.html?id=fb2021040)
+
+### 街頭音樂表演X Drumstick
+- **Client:** Nestle Drumstick
+- **Category:** LIFESTYLE & CONSUMER, F&B & HOSPITALITY
+- **Service Type:** SOCIAL & CONTENT, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Branding Strategy, Visual Identity, Social Media Content, Influencer Seeding, Event Planning, Event Production, On-site Operation
+- **Challenge:** Nestle Drumstick struggled to authentically connect with Hong Kong's youth for a new product launch, requiring innovative experiential marketing beyond traditional advertising.
+- **Solution:** Firebean orchestrated a 'Street Music Performance X Drumstick' campaign, leveraging authentic local musicians and interactive QR code activations to drive youth engagement, social media growth, and es
+- **Link:** [https://firebean.net/profile.html?id=fb2026023](https://firebean.net/profile.html?id=fb2026023)
+
+### 人生。故事。搜尋中 Now Studio
+- **Client:** NOWTV
+- **Category:** LIFESTYLE & CONSUMER
+- **Service Type:** PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Media Relations, Theme Design, Visual Identity, Event Planning, Event Production, RSVP Management, Talent Management, On-site Operation
+- **Challenge:** Now TV required a multi-faceted promotional campaign for its new Now True and Now Studio channels, needing to transcend traditional entertainment news to engage diverse audiences (cultural, tech, fanb
+- **Solution:** Firebean developed the '人生。故事。搜尋中' campaign, integrating a culturally resonant webinar with interactive social media filters and trending celebrity stickers, achieving broad media coverage across ente
+- **Link:** [https://firebean.net/profile.html?id=fb2026054](https://firebean.net/profile.html?id=fb2026054)
+
+### 豐泰地產投資五大商場跨年大抽獎
+- **Client:** O'South Coast
+- **Category:** LIFESTYLE & CONSUMER, MALLS & VENUES
+- **Service Type:** SOCIAL & CONTENT, INTERACTIVE & TECH, PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Media Relations, Theme Design, Visual Identity, UI/UX Design, Social Media Content, Influencer Seeding, Video Production, Motion Graphics, Interactive Installation, Event Planning, Event Production, RSVP Management, Talent Management, On-site Operation, Technical Support
+- **Challenge:** O'South Coast and Phoenix Property Investors faced the challenge of uniting five diverse shopping malls under a single, compelling holiday campaign to significantly boost customer engagement, drive sa
+- **Solution:** Firebean devised and executed a multi-faceted 'Starry Journey' cross-year lucky draw campaign, featuring a 'Tesla Racing Fun Carnival' and engaging celebrity appearances, which strategically integrate
+- **Link:** [https://firebean.net/profile.html?id=fb2026046](https://firebean.net/profile.html?id=fb2026046)
+
+### Airland x Epéda系列 Concept Store
+- **Client:** Airland 雅蘭床褥
+- **Category:** LIFESTYLE & CONSUMER
+- **Service Type:** PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Event Production, Concept Development, KOL / MI Line up, Media Pitching
+- **Challenge:** Airland needed to launch its first international collaboration with French brand Epéda. The goal was to elevate brand prestige and drive traffic to a new concept store by justifying premium pricing wi
+- **Solution:** Firebean curated an immersive European-style store experience highlighting French luxury heritage. We executed a massive PR campaign with 20+ KOLs and CEO media interviews, effectively positioning the
+- **Link:** [https://firebean.net/profile.html?id=fb2021999](https://firebean.net/profile.html?id=fb2021999)
+
+### Mysofa Luxe New Product Launch
+- **Client:** OGAWA
+- **Category:** LIFESTYLE & CONSUMER
+- **Service Type:** SOCIAL & CONTENT, PR & MEDIA
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Theme Design, Visual Identity, Social Media Content, Influencer Seeding, Talent Management
+- **Challenge:** OGAWA needed to differentiate its new MySofa Luxe massage chair in a competitive market, effectively target a specific demographic (women seeking wellness), and drive Mother's Day sales without tradit
+- **Solution:** Firebean conducted deep market analysis, identified a clear female-centric target audience, crafted the 'Recharge my life' branding, secured a high-impact influencer (Coffee Lam), and executed a phase
+- **Link:** [https://firebean.net/profile.html?id=fb2026043](https://firebean.net/profile.html?id=fb2026043)
+
+### Now H1 Android TV box launching
+- **Client:** NOWTV
+- **Category:** LIFESTYLE & CONSUMER
+- **Service Type:** PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** PR Consulting, Media Relations, RSVP Management
+- **Challenge:** NOWTV faced the challenge of launching their innovative Now H1 Android TV box with built-in Google Assistant into a competitive smart-home market, requiring a strategy to differentiate the product and
+- **Solution:** Firebean developed a multi-faceted PR strategy that included diversifying media outreach to untapped segments like parenting platforms and creating an immersive, interactive smart-home experience for
+- **Link:** [https://firebean.net/profile.html?id=fb2026055](https://firebean.net/profile.html?id=fb2026055)
+
+### EYE AI Robot Press Conference
+- **Client:** HKT
+- **Category:** LIFESTYLE & CONSUMER
+- **Service Type:** SOCIAL & CONTENT, INTERACTIVE & TECH, PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Concept Development, PR Consulting, Media Relations, Influencer Seeding, Event Planning, RSVP Management, Talent Management, On-site Operation
+- **Challenge:** HKT faced the challenge of launching the innovative EYE AI educational robot, Kebbi, into a competitive children's tech market while effectively communicating its unique interactive learning and safet
+- **Solution:** Firebean developed a multi-faceted PR strategy, engaging parenting influencers and key media, orchestrating a captivating launch event featuring 12 synchronized robots and a relatable celebrity MC, an
+- **Link:** [https://firebean.net/profile.html?id=fb2026056](https://firebean.net/profile.html?id=fb2026056)
+
+### Now AR – FIFA 世界盃 記者招待會
+- **Client:** NOWTV
+- **Category:** LIFESTYLE & CONSUMER
+- **Service Type:** PR & MEDIA
+- **Scope:** PR Consulting, Media Relations, RSVP Management
+- **Challenge:** NOWTV needed to launch its groundbreaking "Now AR – FIFA 世界盃" app and 4K broadcast for the FIFA World Cup 2022, facing the challenge of differentiating its offering in a competitive market and maximiz
+- **Solution:** Firebean devised a targeted PR strategy, leveraging specialist media relations to secure high-impact coverage across entertainment and lifestyle publications, specifically arranging exclusive celebrit
+- **Link:** [https://firebean.net/profile.html?id=fb2026053](https://firebean.net/profile.html?id=fb2026053)
+
+### Cosmo X Launching
+- **Client:** OGAWA
+- **Category:** LIFESTYLE & CONSUMER
+- **Service Type:** SOCIAL & CONTENT, PR & MEDIA
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Media Relations, Theme Design, Visual Identity, Social Media Content, Influencer Seeding, Video Production, Motion Graphics, Talent Management
+- **Challenge:** OGAWA's new Cosmo X massage chair lacked a clear market position and target audience, presenting a challenge in differentiating a stylish product in a crowded wellness market and youthfulizing its bra
+- **Solution:** Firebean's strategic market research identified the young family/newlywed demographic, leading to the selection of a relatable celebrity ambassador (Carlos Chan) and the development of an unconvention
+- **Link:** [https://firebean.net/profile.html?id=fb2026042](https://firebean.net/profile.html?id=fb2026042)
+
+### Shikuwasa Juice Sponsorship Campaign
+- **Client:** Okinawa Arakaki Market
+- **Category:** LIFESTYLE & CONSUMER, F&B & HOSPITALITY
+- **Service Type:** SOCIAL & CONTENT, PR & MEDIA
+- **Scope:** Event Coordination, Social Media Management, KOL / MI Line up
+- **Challenge:** Introducing Okinawa Arakaki Market's unique Shikuwasa Juice to the competitive Hong Kong health and fitness market, establishing its natural benefits and positioning it as an essential wellness drink
+- **Solution:** Firebean orchestrated strategic cross-industry partnerships with O2 Pilates and fitness KOL Emi Wong, leveraging on-site product trials and integrated digital content to effectively educate consumers
+- **Link:** [https://firebean.net/profile.html?id=fb2023998](https://firebean.net/profile.html?id=fb2023998)
+
+### Taxi Pay x Wonder Press Conference
+- **Client:** Wonder
+- **Category:** LIFESTYLE & CONSUMER, MALLS & VENUES
+- **Service Type:** PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Media Relations, Visual Identity, Social Media Content, Influencer Seeding, Event Planning, Event Production, RSVP Management, On-site Operation
+- **Challenge:** Launching Hong Kong's first government-approved electronic taxi payment platform while overcoming logistical hurdles of a remote venue and clearly differentiating from unlicensed competitors.
+- **Solution:** Firebean strategically positioned Taxi Pay x Wonder as the secure market leader, transforming a remote venue into an experiential demo with complimentary taxi rides, ensuring high media engagement and
+- **Link:** [https://firebean.net/profile.html?id=fb2026019](https://firebean.net/profile.html?id=fb2026019)
+
+### "K-palette"  POP-UP Store in Log-ON
+- **Client:** K-palette Hong Kong
+- **Category:** LIFESTYLE & CONSUMER
+- **Service Type:** EVENTS & CEREMONIES
+- **Scope:** Concept Development, Theme Design, Event Planning, Event Production, On-site Operation
+- **Challenge:** K-palette Hong Kong required an innovative and highly engaging launch strategy for their new 1DAY TATTOO waterproof eyebrow products in a competitive beauty market, demanding both significant consumer
+- **Solution:** Firebean conceptualized and executed the '25DAYS TATTOO 夏祭' pop-up, integrating a vibrant summer festival theme with interactive games that mandated social media engagement, securing influential KOL p
+- **Link:** [https://firebean.net/profile.html?id=fb2026059](https://firebean.net/profile.html?id=fb2026059)
+
+### Yves Rocher x 茶大椰  KOL Promotion
+- **Client:** Yves Rocher
+- **Category:** LIFESTYLE & CONSUMER, F&B & HOSPITALITY
+- **Service Type:** SOCIAL & CONTENT, PR & MEDIA
+- **Scope:** PR Consulting, Media Relations, Influencer Seeding
+- **Challenge:** Generating significant cross-sector media buzz and consumer engagement for a unique beauty and beverage brand collaboration, ensuring strong visibility for new product launches and anniversary celebra
+- **Solution:** Firebean orchestrated a targeted PR and influencer seeding campaign, developing bespoke media kits with compelling incentives and leveraging cross-industry media relations to amplify brand narratives
+- **Link:** [https://firebean.net/profile.html?id=fb2026058](https://firebean.net/profile.html?id=fb2026058)
+
+## F&B & Hospitality Projects
+
+### Food Truck Festival 2016
+- **Client:** Cookin
+- **Category:** F&B & HOSPITALITY, MALLS & VENUES
+- **Service Type:** PR & MEDIA
+- **Scope:** Media Relations, Social Media Content, RSVP Management
+- **Challenge:** Navigating unprecedented regulatory hurdles for Hong Kong's first large-scale food truck festival while aiming to foster street food culture and create a memorable community experience.
+- **Solution:** Firebean meticulously secured pioneering permits by collaborating with authorities, expanded vendor diversity through extensive networks, and introduced a premium VIP experience via strategic sponsors
+- **Link:** [https://firebean.net/profile.html?id=fb2026061](https://firebean.net/profile.html?id=fb2026061)
+
+### 雅培保兒加營素3+成長關鍵Level Up攀石活動
+- **Client:** abbott
+- **Category:** F&B & HOSPITALITY
+- **Service Type:** SOCIAL & CONTENT, PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, Social Media Management, KOL / MI Line up, Artist Endorsement, Media Pitching, Souvenir Sourcing
+- **Challenge:** Abbott aimed to create a memorable, active experience that tangibly linked PediaSure 3+ to children's holistic development and resilience. The core challenge was to design an engaging event encouragin
+- **Solution:** Our strategic approach delivered the 'Level Up Rock Climbing Event,' transforming a venue into themed challenge zones. This immersive experience successfully showcased PediaSure 3+'s role in nurturing
+- **Link:** [https://firebean.net/profile.html?id=fb2018408](https://firebean.net/profile.html?id=fb2018408)
+
+### 北角全新日式拉麵居酒屋
+- **Client:** 三代目
+- **Category:** F&B & HOSPITALITY
+- **Service Type:** SOCIAL & CONTENT, PR & MEDIA
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Media Relations, Social Media Content, Influencer Seeding, Event Planning, RSVP Management
+- **Challenge:** Launching a new Japanese ramen izakaya in a crowded market, 三代目 faced the critical challenge of establishing a unique brand identity, effectively communicating its innovative self-service sake放題, and
+- **Solution:** Firebean developed a comprehensive brand strategy focused on 三代目's "legacy of freshness" and its distinctive sake pairing experience. Through targeted PR consulting, innovative concept development, pr
+- **Link:** [https://firebean.net/profile.html?id=fb2026060](https://firebean.net/profile.html?id=fb2026060)
+
+### 雀巢®牛奶公司™乳酪《快酪製造所》
+- **Client:** Nestle
+- **Category:** F&B & HOSPITALITY, MALLS & VENUES
+- **Service Type:** SOCIAL & CONTENT, PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Branding Strategy, Media Relations, Theme Design, Visual Identity, Social Media Content, Influencer Seeding, Video Production, Event Planning, Event Production, On-site Operation
+- **Challenge:** Nestle's challenge was to effectively communicate complex nutritional benefits of yogurt to children aged 5-12 and their parents, ensuring engagement and driving product trial in an overcrowded market
+- **Solution:** Firebean developed a highly interactive, education-through-play experiential campaign, the 'Happy Yogurt Factory,' strategically placed in high-traffic family-centric malls. This approach successfully
+- **Link:** [https://firebean.net/profile.html?id=fb2026022](https://firebean.net/profile.html?id=fb2026022)
+
+### Grand Opening
+- **Client:** Outback Steakhouse
+- **Category:** F&B & HOSPITALITY
+- **Service Type:** PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Souvenir Sourcing
+- **Challenge:** Outback Steakhouse faced the challenge of quickly launching its Central grand opening, needing to stand out amidst fierce competition and revitalize its brand image to attract both new, younger custom
+- **Solution:** We orchestrated "WHAT'S BLOOMIN' IN CENTRAL," an engaging grand opening featuring interactive Kahoot quizzes, a lively MC, and a popular outdoor pop-up store offering free Bushman Bread. Unique koala
+- **Link:** [https://firebean.net/profile.html?id=fb2024001](https://firebean.net/profile.html?id=fb2024001)
+
+### Okinawa Food Trade Fair
+- **Client:** 沖繩縣貿易協會
+- **Category:** F&B & HOSPITALITY
+- **Service Type:** PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, KOL / MI Line up, Media Pitching, PR Consulting
+- **Challenge:** Traditional food trade fairs are often perceived as monotonous and uninspiring, failing to offer the dynamic, lifestyle-oriented experience modern attendees and B2B partners seek.
+- **Solution:** The "Okinawa Food Trade Fair" redefined industry standards by transforming a conventional trade show into an immersive culinary and business event. It innovatively blended Okinawan ingredients with Ja
+- **Link:** [https://firebean.net/profile.html?id=fb2024002](https://firebean.net/profile.html?id=fb2024002)
+
+### Shikuwasa Juice Popup Booth
+- **Client:** Okinawa Arakaki Market
+- **Category:** F&B & HOSPITALITY
+- **Service Type:** EVENTS & CEREMONIES
+- **Scope:** Concept Development, Theme Design, Visual Identity, Event Planning, Event Production, On-site Operation
+- **Challenge:** Boosting regional awareness and product sales for Okinawa's Ogi Village Shikuwasa juice amidst unfamiliarity in a competitive urban market.
+- **Solution:** Firebean's innovative, culturally immersive pop-up experience, featuring interactive games and unique Okinawan souvenirs, significantly enhanced brand recognition and drove direct product sales, foste
+- **Link:** [https://firebean.net/profile.html?id=fb2026057](https://firebean.net/profile.html?id=fb2026057)
+
+## Malls & Venues Projects
+
+### Blushing May Bazaar
+- **Client:** Champimom.com
+- **Category:** MALLS & VENUES
+- **Service Type:** SOCIAL & CONTENT, EVENTS & CEREMONIES
+- **Scope:** Concept Development,Branding Strategy,PR Consulting,Theme Design,Visual Identity,Social Media Content,Event Planning,Event Production,RSVP Management,On-site Operation
+- **Challenge:** Champimom needed to establish a unique, appealing parent-child and lifestyle bazaar, facing challenges in brand curation, audience engagement, and driving foot traffic in a competitive market.
+- **Solution:** Firebean developed a holistic strategy, curating a diverse brand mix, creating unique experiential activities (e.g., slime workshop, 2-meter pink bear), executing targeted multi-channel promotion, and
+- **Link:** [https://firebean.net/profile.html?id=fb2026001](https://firebean.net/profile.html?id=fb2026001)
+
+### Aliexchange VIP Pre-Launching Preview Event
+- **Client:** Aliexchange
+- **Category:** MALLS & VENUES
+- **Service Type:** EVENTS & CEREMONIES
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, Artist Endorsement
+- **Challenge:** Executing an ultra-luxury VIP pre-launch event in a foreign market demanded unparalleled efficiency and cultural integration. The challenge also lay in translating immediate VIP satisfaction into meas
+- **Solution:** Our strategic approach leveraged a high-speed, expert team for seamless overseas execution, merging high-tech displays with authentic cultural performances. This delivered an exclusive, immersive VIP
+- **Link:** [https://firebean.net/profile.html?id=fb2019035](https://firebean.net/profile.html?id=fb2019035)
+
+### GSK Benlysta Launch
+- **Client:** GSK
+- **Category:** MALLS & VENUES
+- **Service Type:** INTERACTIVE & TECH, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Theme Design, Visual Identity, UI/UX Design, Interactive Installation, Event Planning, Event Production, Technical Support
+- **Challenge:** GSK needed to strategically launch Benlysta's new, more convenient injection method to both medical professionals and internal staff, requiring Firebean to merge a 'high-tech butterfly' theme with sci
+- **Solution:** Firebean developed a dual-pronged strategy, employing 3D projection and interactive installations to distinctly yet cohesively engage external medical experts and internal teams, fostering deep produc
+- **Link:** [https://firebean.net/profile.html?id=fb2026021](https://firebean.net/profile.html?id=fb2026021)
+
+### 福願春鳴 新年商場佈置
+- **Client:** Mira Place
+- **Category:** MALLS & VENUES
+- **Service Type:** SOCIAL & CONTENT, INTERACTIVE & TECH, PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Concept Development, Branding Strategy, Theme Design, Visual Identity, UI/UX Design, Video Production, Motion Graphics, Interactive Installation, Event Planning, Event Production, On-site Operation, Technical Support
+- **Challenge:** Mira Place needed an innovative, non-rat themed Lunar New Year mall decoration for the Year of the Rat, moving beyond traditional cartoon characters, under an extremely tight deadline after a previous
+- **Solution:** Firebean swiftly developed and executed a sophisticated "Fortune Spring Serenade" concept, featuring interactive, elegant floral installations like a 5-meter interactive wishing tree and bespoke flowe
+- **Link:** [https://firebean.net/profile.html?id=fb2026020](https://firebean.net/profile.html?id=fb2026020)
+
+### BNI Hong Kong International Hybrid Conference
+- **Client:** BNI
+- **Category:** MALLS & VENUES
+- **Service Type:** INTERACTIVE & TECH, EVENTS & CEREMONIES
+- **Scope:** Concept Development,PR Consulting,Theme Design,Visual Identity,Video Production,Motion Graphics,Event Planning,Event Production,RSVP Management,On-site Operation,Technical Support
+- **Challenge:** BNI Hong Kong faced significant challenges in hosting its annual international conference for 3,000+ entrepreneurs due to pandemic-related travel restrictions, threatening their 15th-anniversary celeb
+- **Solution:** Firebean engineered a groundbreaking hybrid/online conference experience, leveraging advanced video teleconferencing, multi-language instant interpretation, and high-fidelity production to deliver an
+- **Link:** [https://firebean.net/profile.html?id=fb2026006](https://firebean.net/profile.html?id=fb2026006)
+
+### Sooper Yoo Indoor Playground Launching
+- **Client:** NOWTV
+- **Category:** MALLS & VENUES
+- **Service Type:** PR & MEDIA, EVENTS & CEREMONIES
+- **Scope:** Branding Strategy, Social Media Content, Influencer Seeding, Event Planning, RSVP Management, On-site Operation
+- **Challenge:** Launching Sooper Yoo, Now TV's innovative indoor family entertainment center, required breaking through a saturated market to establish its unique blend of interactive technology and physical play, ef
+- **Solution:** Firebean developed a multi-faceted launch strategy encompassing targeted branding, engaging social media content, strategic influencer and parent-platform collaborations, and meticulous event manageme
+- **Link:** [https://firebean.net/profile.html?id=fb2026049](https://firebean.net/profile.html?id=fb2026049)
+

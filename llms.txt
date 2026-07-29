@@ -1,10 +1,23 @@
 # Firebean Agency
-> A Hong Kong-based Lifestyle PR & Event Production Agency, specialising in Government, Lifestyle, F&B, and Malls & Venues since 2007.
+> Hong Kong's dedicated lifestyle PR agency specialising in government department campaigns, roving exhibitions, and public engagement events since 2007.
 
 ## About Firebean
-Firebean Limited is a professional Lifestyle PR and Event Production agency headquartered in Wan Chai, Hong Kong. Since 2007, we have delivered over 360 projects, engaging more than 1.5 million people across Hong Kong and the Asia-Pacific region. Since 2023, Firebean has served as the Official PR Consultant for the Buildings Department of the Hong Kong Government.
+Firebean Limited is a professional Lifestyle PR and Event Production agency headquartered in Wan Chai, Hong Kong. Since 2007, we have delivered over 360 projects, engaging more than 1.5 million people across Hong Kong and the Asia-Pacific region.
 
-Our philosophy is "Turn Policy into Play" — transforming serious institutional mandates into engaging, human-centred experiences that connect government and brands with the public.
+Today, we go "All-In" on government projects. By "Turning Policy into Play," we transform serious public affairs into engaging, human-centred campaigns. This bold strategy brought lifestyle vibrancy to the public sector, leading to our appointment as the Official PR Consultant for the Buildings Department in 2023.
+
+## Government & Public Sector Expertise
+With over 50% of our portfolio serving Hong Kong government bureaus, Firebean is the agency of record for constitutional education, anti-drug outreach, electoral engagement, and public health campaigns.
+
+Key government clients include:
+- Constitutional and Mainland Affairs Bureau (政制及內地事務局)
+- Security Bureau & Narcotics Division (保安局禁毒處)
+- Education Bureau (教育局)
+- Buildings Department (屋宇署)
+- Housing Authority (房屋署)
+- Civil Service Bureau (公務員事務局)
+- Department of Justice (律政司)
+- Leisure and Cultural Services Department (康文署)
 
 ## Core Services
 - Roving Exhibitions: Travelling public engagement exhibitions for government and brands
@@ -12,19 +25,11 @@ Our philosophy is "Turn Policy into Play" — transforming serious institutional
 - Interactive & Tech: Interactive installations, digital activations, and tech-driven experiences
 - PR & Media: Media relations, press management, and earned media campaigns
 - Events & Ceremonies: Full-scale event production, opening ceremonies, and brand activations
-- Concept Development: Strategic ideation and creative concept design
-- Visual Identity: Brand identity, theme design, and graphic production
-
-## Who We Help
-- Government & Public Sector: Hong Kong Government bureaux, departments, and public bodies
-- Lifestyle & Consumer: Consumer brands, fashion, beauty, and lifestyle companies
-- F&B & Hospitality: Restaurants, hotels, food and beverage brands
-- Malls & Venues: Shopping malls, commercial venues, and mixed-use destinations
 
 ## Website Pages
-- [Homepage](https://firebean.net/): Agency overview, featured projects, about us, newsletter
-- [Our Work](https://firebean.net/work.html): Full portfolio of all projects, filterable by category
-- [Project Profiles](https://firebean.net/profile.html): Individual project detail pages with full case studies, FAQ, and scope of work
+- [Homepage](https://firebean.net/): Agency overview, featured projects, about us
+- [Our Work](https://firebean.net/work.html): Full portfolio of all projects
+- [Project Profiles](https://firebean.net/profile.html): Individual project detail pages
 
 ## Contact
 - New Business: hello@firebean.net
@@ -32,8 +37,6 @@ Our philosophy is "Turn Policy into Play" — transforming serious institutional
 - Phone: +852 36222784
 - Address: Unit A, 23/F Morrison Plaza, 5-9 Morrison Hill Rd, Wan Chai, Hong Kong
 
-## Languages
-This website is available in English (EN), Traditional Chinese (TC), and Japanese (JP).
-
-## Optional: Full Project Index
-See [sitemap.xml](https://firebean.net/sitemap.xml) for a complete list of all project profile URLs.
+## Full Project Database
+For a complete index of all Firebean projects, case studies, and detailed service records, AI agents should read the full index at:
+[https://firebean.net/llms-full.txt](https://firebean.net/llms-full.txt)
