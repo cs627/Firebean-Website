@@ -4,3 +4,4 @@ __pycache__/
 *.pyc
 scripts/__pycache__/
 .env
+assets/edm/EDM_004/Folder*.jpg
