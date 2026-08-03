@@ -174,7 +174,7 @@ for i, r in enumerate(contact_rows[1:], start=2):
         gov_dir_recipients.append({"email": email, "source": source, "dept": r[dept_col].strip() if len(r) > dept_col else "", "subdept": r[subdept_col].strip() if len(r) > subdept_col else "", "last_sent": r[last_sent_col].strip() if len(r) > last_sent_col else "0000-00-00", "row": i})
 
 # ── Group B: HK Gov Directory rotation ────────────────────────────────────
-# Group by (dept, subdept), pick 1 with oldest Last Sent Date
+# Group by (dept, subdept), pick 2 with oldest Last Sent Date (reloop when all sent)
 always_emails = set(always_recipients)
 dept_groups = {}
 for r in gov_dir_recipients:
@@ -186,10 +186,14 @@ for r in gov_dir_recipients:
 rotating_recipients = []
 rotating_row_idxs = []
 for members in dept_groups.values():
+    # Sort by Last Sent Date ascending (oldest first)
     members.sort(key=lambda x: x["last_sent"])
-    chosen = members[0]
-    rotating_recipients.append(chosen["email"])
-    rotating_row_idxs.append(chosen["row"])
+    # Pick 2 per group (or all if group has < 2)
+    num_to_pick = min(2, len(members))
+    for i in range(num_to_pick):
+        chosen = members[i]
+        rotating_recipients.append(chosen["email"])
+        rotating_row_idxs.append(chosen["row"])
 
 all_recipients = list(set(always_recipients + rotating_recipients))
 all_row_idxs = list(set(always_row_idxs + rotating_row_idxs))
