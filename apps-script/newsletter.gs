@@ -38,7 +38,7 @@ function makeJsonResponse_(data) {
 
 // ── doGet: health check ───────────────────────────────────────
 function doGet(e) {
-  return makeJsonResponse_({ status: 'ok', service: 'Firebean Newsletter v6.3' });
+  return makeJsonResponse_({ status: 'ok', service: 'Firebean Newsletter v7.0' });
 }
 
 // ── doPost: main router ───────────────────────────────────────
