@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * FIREBEAN — newsletter.gs  v6.3  (FINAL)
+ * FIREBEAN — newsletter.gs  v7.0  (Column Mapping Fix)
  * ============================================================
  * Standalone Web App for newsletter subscribe & unsubscribe.
  * Deploy as: Web App → Execute as: Me → Who has access: Anyone
@@ -10,7 +10,8 @@
  *
  * "Email list" tab columns:
  *   A = Email | B = Name | C = Date Added | D = Source
- *   E = Status (ACTIVE / UNSUBSCRIBED) | F = Unsubscribed Date
+ *   E = Department | F = Title | G = Phone | H = Sub-Department
+ *   I = Status (ACTIVE / UNSUBSCRIBED) | J = Subscribed (TRUE / FALSE)
  *
  * Handles two POST request types:
  *   { email: "user@example.com" }              → SUBSCRIBE
@@ -135,12 +136,12 @@ function handleNewsletter_(body) {
 
     // Duplicate check — re-activate if previously unsubscribed
     if (lastRow > 1) {
-      var existingData = sheet.getRange(2, 1, lastRow - 1, 5).getValues();
+      var existingData = sheet.getRange(2, 1, lastRow - 1, 10).getValues();
       for (var i = 0; i < existingData.length; i++) {
         if (existingData[i][0].toString().toLowerCase().trim() === email) {
-          if (existingData[i][4].toString().toUpperCase() === 'UNSUBSCRIBED') {
-            sheet.getRange(i + 2, 5).setValue('ACTIVE');
-            sheet.getRange(i + 2, 6).setValue('');
+          if (existingData[i][8].toString().toUpperCase() === 'UNSUBSCRIBED') {
+            sheet.getRange(i + 2, 9).setValue('ACTIVE');
+            sheet.getRange(i + 2, 10).setValue('TRUE');
             return makeJsonResponse_({ success: true, message: 'resubscribed' });
           }
           return makeJsonResponse_({ success: false, error: 'already_subscribed' });
@@ -150,8 +151,8 @@ function handleNewsletter_(body) {
 
     var name      = sanitise_(body.name || '');
     var dateAdded = new Date().toISOString();
-    // A=Email, B=Name, C=Date Added, D=Source, E=Status, F=Unsubscribed Date
-    sheet.appendRow([email, name, dateAdded, 'Website', 'ACTIVE', '']);
+    // A=Email, B=Name, C=Date Added, D=Source, E=Department, F=Title, G=Phone, H=Sub-Department, I=Status, J=Subscribed
+    sheet.appendRow([email, name, dateAdded, 'Website', '', '', '', '', 'ACTIVE', 'TRUE']);
 
     return makeJsonResponse_({ success: true, message: 'subscribed' });
 
@@ -183,8 +184,8 @@ function handleUnsubscribe_(body) {
         for (var i = 0; i < emails.length; i++) {
           if (emails[i][0].toString().toLowerCase().trim() === email) {
             var rowNum = i + 2; // +2: header row + 0-index
-            sheet.getRange(rowNum, 5).setValue('UNSUBSCRIBED');
-            sheet.getRange(rowNum, 6).setValue(new Date().toISOString());
+            sheet.getRange(rowNum, 9).setValue('UNSUBSCRIBED');
+            sheet.getRange(rowNum, 10).setValue('FALSE');
             Logger.log('Unsubscribed: ' + email + ' (row ' + rowNum + ')');
             break;
           }
@@ -214,12 +215,12 @@ function getActiveSubscribers_() {
   var sheet = getEmailSheet_();
   if (!sheet || sheet.getLastRow() < 2) return [];
 
-  var data   = sheet.getRange(2, 1, sheet.getLastRow() - 1, 5).getValues();
+  var data   = sheet.getRange(2, 1, sheet.getLastRow() - 1, 10).getValues();
   var active = [];
 
   for (var i = 0; i < data.length; i++) {
     var email  = data[i][0].toString().toLowerCase().trim();
-    var status = data[i][4].toString().toUpperCase().trim();
+    var status = data[i][8].toString().toUpperCase().trim();
     if (email && status !== 'UNSUBSCRIBED') {
       active.push(email);
     }
