@@ -62,13 +62,12 @@ def update_cell(range_str, value):
 
 def batch_update(updates):
     """Batch update multiple cells in Sheets."""
-    data = [{"range": u["range"], "values": u["values"]} for u in updates]
-    _run_gapi("sheets", "update", SPREADSHEET_ID,
-              "--data", json.dumps(data))
+    for u in updates:
+        update_cell(u["range"], u["values"][0][0])
 
 
 def send_email(to, subject, html):
-    """Send an email via Brevo transactional API."""
+    """Send an email via Brevo transactional API (used for notifications only)."""
     r = requests.post(
         "https://api.brevo.com/v3/smtp/email",
         headers={"api-key": API_KEY, "content-type": "application/json"},
@@ -80,6 +79,70 @@ def send_email(to, subject, html):
         },
     )
     return r.status_code == 201
+
+
+def send_campaign_via_api(recipients, subject, html, edm_id):
+    """Send a blast using Brevo Campaign API so stats (opens/clicks) appear in the dashboard.
+
+    Flow:
+      1. Create a contacts list for this batch
+      2. Import recipients into the list
+      3. Create a classic email campaign
+      4. Send it now
+    Returns (campaign_id, error_msg).
+    """
+    headers = {"api-key": API_KEY, "content-type": "application/json"}
+    batch_name = f"EDM_{edm_id}_{TODAY}"
+
+    # 1. Create list
+    r = requests.post(
+        "https://api.brevo.com/v3/contacts/lists",
+        headers=headers,
+        json={"name": batch_name, "folderId": 1},
+    )
+    if r.status_code not in (200, 201):
+        return None, f"List create failed ({r.status_code}): {r.text[:200]}"
+    list_id = r.json()["id"]
+    print(f"  List created: {batch_name} (id={list_id})")
+
+    # 2. Import contacts (batch)
+    contacts = [{"email": e} for e in recipients]
+    r = requests.post(
+        "https://api.brevo.com/v3/contacts/import",
+        headers=headers,
+        json={"listIds": [list_id], "contacts": contacts},
+    )
+    if r.status_code not in (200, 201, 202):
+        return None, f"Contact import failed ({r.status_code}): {r.text[:200]}"
+    print(f"  Contacts importing: {len(contacts)}")
+
+    # 3. Create campaign
+    r = requests.post(
+        "https://api.brevo.com/v3/emailCampaigns",
+        headers=headers,
+        json={
+            "name": f"Firebean Weekly EDM - Issue {edm_id}",
+            "subject": subject,
+            "type": "classic",
+            "htmlContent": html,
+            "sender": {"name": "Firebean Limited", "email": "hello@firebean.net"},
+            "recipients": {"listIds": [list_id]},
+        },
+    )
+    if r.status_code not in (200, 201):
+        return None, f"Campaign create failed ({r.status_code}): {r.text[:200]}"
+    campaign_id = r.json()["id"]
+    print(f"  Campaign created: id={campaign_id}")
+
+    # 4. Send now
+    r = requests.post(
+        f"https://api.brevo.com/v3/emailCampaigns/{campaign_id}/sendNow",
+        headers=headers,
+    )
+    if r.status_code not in (200, 201, 202):
+        return None, f"Campaign send failed ({r.status_code}): {r.text[:200]}"
+    print(f"  Campaign send triggered: id={campaign_id}")
+    return campaign_id, None
 
 
 def notify_dickson(subject, message_html):
@@ -199,20 +262,27 @@ all_recipients = list(set(always_recipients + rotating_recipients))
 all_row_idxs = list(set(always_row_idxs + rotating_row_idxs))
 print(f"Recipients: {len(always_recipients)} always-include + {len(rotating_recipients)} rotating = {len(all_recipients)} total")
 
-# ── Step 4: Send blast ───────────────────────────────────────────────────────
-print("Step 4: Sending blast...")
-sent_count = 0
-failed_emails = []
-for email in all_recipients:
-    ok = send_email(email, SUBJECT, html_content)
-    if ok:
-        sent_count += 1
-        if sent_count % 10 == 0:
-            print(f"  Sent {sent_count}/{len(all_recipients)}...")
-    else:
-        failed_emails.append(email)
-
-print(f"Blast complete: {sent_count} sent, {len(failed_emails)} failed")
+# ── Step 4: Send blast via Brevo Campaign API ────────────────────────────────
+print("Step 4: Sending blast via Campaign API...")
+campaign_id, err = send_campaign_via_api(all_recipients, SUBJECT, html_content, EDM_ID)
+if err:
+    print(f"  ❌ Campaign API error: {err}")
+    print("  Falling back to transactional API per-recipient...")
+    sent_count = 0
+    failed_emails = []
+    for email in all_recipients:
+        ok = send_email(email, SUBJECT, html_content)
+        if ok:
+            sent_count += 1
+            if sent_count % 10 == 0:
+                print(f"  Sent {sent_count}/{len(all_recipients)}...")
+        else:
+            failed_emails.append(email)
+    print(f"Blast complete (fallback): {sent_count} sent, {len(failed_emails)} failed")
+else:
+    print(f"  ✅ Campaign sent via API (id={campaign_id})")
+    sent_count = len(all_recipients)
+    failed_emails = []
 
 # ── Step 5: Update Google Sheet ──────────────────────────────────────────────
 print("Step 5: Updating Google Sheet...")
