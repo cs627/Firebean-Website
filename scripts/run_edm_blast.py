@@ -22,6 +22,7 @@ API_KEY = os.environ.get("BREVO_API_KEY")
 SPREADSHEET_ID = "1Ms1Q1i7uJg0ilvW4g1PezBm7mTCNKcYJT_c5-weUBNc"
 NOTIFY_EMAIL = "dickson@firebean.net"
 TODAY = datetime.now().strftime("%Y-%m-%d")
+UNSUBSCRIBE_PAGE_URL = "https://firebean.net/edm/unsubscribe.html"
 
 if not API_KEY:
     print("❌ BREVO_API_KEY environment variable not set.")
@@ -61,9 +62,17 @@ def update_cell(range_str, value):
 
 
 def batch_update(updates):
-    """Batch update multiple cells in Sheets."""
-    for u in updates:
-        update_cell(u["range"], u["values"][0][0])
+    """Batch update multiple cells in Sheets using the batch_update endpoint."""
+    if not updates:
+        return
+    # Group by sheet range, max 10 per batch to avoid rate limits
+    batch_size = 10
+    for i in range(0, len(updates), batch_size):
+        batch = updates[i:i + batch_size]
+        data = [{"range": u["range"], "values": [[u["values"][0][0]]]} for u in batch]
+        _run_gapi("sheets", "batch_update", SPREADSHEET_ID, "--data", json.dumps(data))
+        import time
+        time.sleep(1)  # avoid rate limits
 
 
 def send_email(to, subject, html):
@@ -105,18 +114,20 @@ def send_campaign_via_api(recipients, subject, html, edm_id):
     list_id = r.json()["id"]
     print(f"  List created: {batch_name} (id={list_id})")
 
-    # 2. Import contacts (batch)
-    contacts = [{"email": e} for e in recipients]
+    # 2. Import contacts (batch) — Brevo v3 API requires jsonBody, not contacts
+    json_body = [{"email": e} for e in recipients]
     r = requests.post(
         "https://api.brevo.com/v3/contacts/import",
         headers=headers,
-        json={"listIds": [list_id], "contacts": contacts},
+        json={"listIds": [list_id], "jsonBody": json_body},
     )
     if r.status_code not in (200, 201, 202):
         return None, f"Contact import failed ({r.status_code}): {r.text[:200]}"
-    print(f"  Contacts importing: {len(contacts)}")
+    print(f"  Contacts importing: {len(recipients)}")
 
-    # 3. Create campaign
+    # 3. Create campaign — replace {unsubscribe_url} with generic URL
+    #    (Campaign API sends same HTML to all recipients)
+    campaign_html = html.replace("{unsubscribe_url}", UNSUBSCRIBE_PAGE_URL)
     r = requests.post(
         "https://api.brevo.com/v3/emailCampaigns",
         headers=headers,
@@ -124,7 +135,7 @@ def send_campaign_via_api(recipients, subject, html, edm_id):
             "name": f"Firebean Weekly EDM - Issue {edm_id}",
             "subject": subject,
             "type": "classic",
-            "htmlContent": html,
+            "htmlContent": campaign_html,
             "sender": {"name": "Firebean Limited", "email": "hello@firebean.net"},
             "recipients": {"listIds": [list_id]},
         },
@@ -222,7 +233,8 @@ gov_dir_row_idxs = []
 for i, r in enumerate(contact_rows[1:], start=2):
     if len(r) <= email_col or not r[email_col].strip():
         continue
-    if r[status_col].upper() != "ACTIVE":
+    status_val = r[status_col].strip().upper() if len(r) > status_col and r[status_col].strip() else "ACTIVE"
+    if status_val != "ACTIVE":
         continue
     email = r[email_col].strip()
     source = r[source_col].strip() if len(r) > source_col and r[source_col].strip() else ""
@@ -271,7 +283,10 @@ if err:
     sent_count = 0
     failed_emails = []
     for email in all_recipients:
-        ok = send_email(email, SUBJECT, html_content)
+        # Personalize unsubscribe link per recipient
+        personal_url = f"{UNSUBSCRIBE_PAGE_URL}?email={email}"
+        personal_html = html_content.replace("{unsubscribe_url}", personal_url)
+        ok = send_email(email, SUBJECT, personal_html)
         if ok:
             sent_count += 1
             if sent_count % 10 == 0:
