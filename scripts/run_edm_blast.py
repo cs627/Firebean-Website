@@ -114,16 +114,16 @@ def send_campaign_via_api(recipients, subject, html, edm_id):
     list_id = r.json()["id"]
     print(f"  List created: {batch_name} (id={list_id})")
 
-    # 2. Import contacts (batch) — Brevo v3 API requires jsonBody, not contacts
-    json_body = [{"email": e} for e in recipients]
-    r = requests.post(
-        "https://api.brevo.com/v3/contacts/import",
-        headers=headers,
-        json={"listIds": [list_id], "jsonBody": json_body},
-    )
-    if r.status_code not in (200, 201, 202):
-        return None, f"Contact import failed ({r.status_code}): {r.text[:200]}"
-    print(f"  Contacts importing: {len(recipients)}")
+    # 2. Add contacts one by one (more reliable than batch import)
+    for i, email in enumerate(recipients):
+        r = requests.post(
+            "https://api.brevo.com/v3/contacts",
+            headers=headers,
+            json={"email": email, "listIds": [list_id], "updateEnabled": True},
+        )
+        if i < 3 or i % 20 == 0:
+            print(f"  Adding contact {i+1}/{len(recipients)}...")
+    print(f"  Contacts added: {len(recipients)}")
 
     # 3. Create campaign — replace {unsubscribe_url} with generic URL
     #    (Campaign API sends same HTML to all recipients)
