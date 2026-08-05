@@ -18,11 +18,17 @@
   .header h1 { font-size: 24px; font-weight: 800; letter-spacing: -0.02em; }
   .header .sub { color: var(--muted); font-size: 13px; margin-top: 4px; }
   .nav { display: flex; gap: 4px; padding: 12px 32px; background: #1a2332;
-         border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+         border-bottom: 1px solid var(--border); flex-wrap: wrap; align-items: center; }
   .nav a { padding: 8px 16px; border-radius: 6px; text-decoration: none;
            color: var(--muted); font-size: 13px; font-weight: 600; transition: 0.2s; }
   .nav a:hover { background: var(--card); color: var(--text); }
   .nav a.active { background: var(--accent); color: #fff; }
+  .date-picker { display: flex; gap: 8px; align-items: center; margin-left: auto; flex-wrap: wrap; }
+  .date-picker input, .date-picker select {
+    background: var(--bg); color: var(--text); border: 1px solid var(--border);
+    padding: 6px 12px; border-radius: 6px; font-size: 13px; }
+  .date-picker button { background: var(--accent); color: #fff; border: none;
+    padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: 600; }
   .container { max-width: 1200px; margin: 0 auto; padding: 24px 32px; }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
           gap: 16px; margin-bottom: 32px; }
@@ -62,11 +68,19 @@
   .badge.daily { background: #1e3a5f; color: #60a5fa; }
   .badge.weekly { background: #3b1f5e; color: #c084fc; }
   .badge.monthly { background: #5f1e1e; color: #fca5a5; }
+  .source-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+  .source-group { background: var(--card); border-radius: 10px; padding: 16px; border: 1px solid var(--border); }
+  .source-group h3 { font-size: 14px; margin-bottom: 10px; color: var(--accent); }
+  .source-group ul { list-style: none; font-size: 12px; }
+  .source-group li { padding: 4px 0; display: flex; justify-content: space-between; }
+  .source-group .url { color: var(--muted); }
+  .source-group .method { color: var(--neu); font-size: 10px; }
   @media (max-width: 640px) {
     .container { padding: 16px; }
     .header { padding: 16px; }
     .nav { padding: 8px 16px; }
     .grid { grid-template-columns: 1fr; }
+    .date-picker { margin-left: 0; width: 100%; }
   }
 </style>
 </head>
@@ -74,14 +88,25 @@
 
 <div class="header">
   <h1>🔍 Outback Steakhouse HK — 監控儀表板</h1>
-  <div class="sub">每日自動監控 14+ 平台 · 實時更新 · 截圖存檔</div>
+  <div class="sub">每日自動監控 40+ 來源 · 實時更新 · 截圖存檔</div>
 </div>
 
 <div class="nav" id="nav">
-  <a href="#" class="active" onclick="showView('daily')">📅 每日報告</a>
+  <a href="#" class="active" onclick="showView('daily')">📅 每日</a>
   <a href="#" onclick="showView('weekly')">📆 週報</a>
   <a href="#" onclick="showView('monthly')">📊 月報</a>
   <a href="#" onclick="showView('all')">📋 完整記錄</a>
+  <a href="#" onclick="showView('sources')">📡 來源</a>
+  <div class="date-picker" id="datePicker">
+    <input type="date" id="dateInput" onchange="loadDate()"/>
+    <select id="periodSelect" onchange="loadDate()">
+      <option value="day">單日</option>
+      <option value="3days">3日</option>
+      <option value="week">7日</option>
+      <option value="month">30日</option>
+    </select>
+    <button onclick="loadDate()">🔍</button>
+  </div>
 </div>
 
 <div class="container" id="app">
@@ -93,6 +118,7 @@ const GITHUB_BASE = 'https://raw.githubusercontent.com/cs627/Firebean-Website/ma
 const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4/edit';
 
 let currentView = 'daily';
+let allDataCache = {};
 
 function showView(view) {
   currentView = view;
@@ -101,43 +127,104 @@ function showView(view) {
     if ((view === 'daily' && a.textContent.includes('每日')) ||
         (view === 'weekly' && a.textContent.includes('週報')) ||
         (view === 'monthly' && a.textContent.includes('月報')) ||
-        (view === 'all' && a.textContent.includes('完整'))) {
+        (view === 'all' && a.textContent.includes('完整')) ||
+        (view === 'sources' && a.textContent.includes('來源'))) {
       a.classList.add('active');
     }
   });
+  document.getElementById('datePicker').style.display = (view === 'daily') ? 'flex' : 'none';
   render();
 }
 
-async function loadData() {
+async function fetchJSON(url) {
   try {
-    const today = new Date().toISOString().slice(0,10);
-    const resp = await fetch(`${GITHUB_BASE}/daily-${today}.json`);
+    const resp = await fetch(url);
     if (resp.ok) return await resp.json();
-    // fallback: try yesterday
-    const yesterday = new Date(Date.now() - 864e5).toISOString().slice(0,10);
-    const resp2 = await fetch(`${GITHUB_BASE}/daily-${yesterday}.json`);
-    if (resp2.ok) return await resp2.json();
-    return null;
-  } catch(e) {
-    return null;
+  } catch(e) {}
+  return null;
+}
+
+async function loadDate() {
+  const dateStr = document.getElementById('dateInput').value;
+  if (!dateStr) return;
+  const period = document.getElementById('periodSelect').value;
+  const app = document.getElementById('app');
+  
+  let dates = [dateStr];
+  if (period === '3days') {
+    const d = new Date(dateStr);
+    dates = [];
+    for (let i = 0; i < 3; i++) {
+      const nd = new Date(d); nd.setDate(nd.getDate() - i);
+      dates.push(nd.toISOString().slice(0,10));
+    }
+  } else if (period === 'week') {
+    const d = new Date(dateStr);
+    dates = [];
+    for (let i = 0; i < 7; i++) {
+      const nd = new Date(d); nd.setDate(nd.getDate() - i);
+      dates.push(nd.toISOString().slice(0,10));
+    }
+  } else if (period === 'month') {
+    const d = new Date(dateStr);
+    dates = [];
+    for (let i = 0; i < 30; i++) {
+      const nd = new Date(d); nd.setDate(nd.getDate() - i);
+      dates.push(nd.toISOString().slice(0,10));
+    }
   }
+  
+  app.innerHTML = '<div class="empty">Loading data for ' + dateStr + '...</div>';
+  
+  const results = await Promise.all(dates.map(d => fetchJSON(`${GITHUB_BASE}/daily-${d}.json`)));
+  const valid = results.filter(r => r && r.items && r.items.length > 0);
+  
+  if (valid.length === 0) {
+    app.innerHTML = `<div class="empty">📭 沒有 ${dateStr} 的數據</div>`;
+    return;
+  }
+  
+  // Merge items
+  const allItems = [];
+  const seen = new Set();
+  valid.forEach(r => {
+    (r.items || []).forEach(item => {
+      const key = item.link + item.title;
+      if (!seen.has(key)) { seen.add(key); allItems.push(item); }
+    });
+  });
+  
+  const pos = allItems.filter(i => i.sentiment === 'positive').length;
+  const neg = allItems.filter(i => i.sentiment === 'negative').length;
+  const neu = allItems.length - pos - neg;
+  const merged = { items: allItems, alerts: valid.flatMap(r => r.alerts || []), recommendations: valid.flatMap(r => r.recommendations || []), trends: '' };
+  
+  app.innerHTML = `
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;">
+      <h2 style="font-size:18px;">📅 ${period === 'day' ? '報告' : period === '3days' ? '3日' : period === 'week' ? '7日' : '30日'} — ${dateStr}</h2>
+      <span style="font-size:13px;color:var(--muted);">${allItems.length} 條記錄</span>
+    </div>
+    <div class="grid">
+      <div class="stat-card neutral"><div class="num">${allItems.length}</div><div class="label">總 Mentions</div></div>
+      <div class="stat-card positive"><div class="num">${pos}</div><div class="label">正面</div></div>
+      <div class="stat-card neutral"><div class="num">${neu}</div><div class="label">中性</div></div>
+      <div class="stat-card negative"><div class="num">${neg}</div><div class="label">負面</div></div>
+    </div>
+    ${renderAlerts(merged)}
+    <div class="section"><h2>📰 文章</h2>${renderItems(allItems)}</div>
+  `;
 }
 
-async function loadWeekly() {
-  try {
-    const resp = await fetch(`${GITHUB_BASE}/weekly-latest.json`);
-    if (resp.ok) return await resp.json();
-    return null;
-  } catch(e) { return null; }
+async function loadData() {
+  const today = new Date().toISOString().slice(0,10);
+  let data = await fetchJSON(`${GITHUB_BASE}/daily-${today}.json`);
+  if (data) return data;
+  const yesterday = new Date(Date.now() - 864e5).toISOString().slice(0,10);
+  return await fetchJSON(`${GITHUB_BASE}/daily-${yesterday}.json`);
 }
 
-async function loadMonthly() {
-  try {
-    const resp = await fetch(`${GITHUB_BASE}/monthly-latest.json`);
-    if (resp.ok) return await resp.json();
-    return null;
-  } catch(e) { return null; }
-}
+async function loadWeekly() { return await fetchJSON(`${GITHUB_BASE}/weekly-latest.json`); }
+async function loadMonthly() { return await fetchJSON(`${GITHUB_BASE}/monthly-latest.json`); }
 
 function renderStatCards(data) {
   if (!data || !data.items) return '';
@@ -145,169 +232,170 @@ function renderStatCards(data) {
   const neg = data.items.filter(i => i.sentiment === 'negative').length;
   const neu = data.items.filter(i => !i.sentiment || i.sentiment === 'neutral').length;
   const total = data.items.length;
-  return `
-    <div class="grid">
-      <div class="stat-card neutral">
-        <div class="num">${total}</div>
-        <div class="label">總 Mentions</div>
-      </div>
-      <div class="stat-card positive">
-        <div class="num">${pos}</div>
-        <div class="label">正面</div>
-      </div>
-      <div class="stat-card neutral">
-        <div class="num">${neu}</div>
-        <div class="label">中性</div>
-      </div>
-      <div class="stat-card negative">
-        <div class="num">${neg}</div>
-        <div class="label">負面</div>
-      </div>
-    </div>`;
+  return `<div class="grid">
+    <div class="stat-card neutral"><div class="num">${total}</div><div class="label">總 Mentions</div></div>
+    <div class="stat-card positive"><div class="num">${pos}</div><div class="label">正面</div></div>
+    <div class="stat-card neutral"><div class="num">${neu}</div><div class="label">中性</div></div>
+    <div class="stat-card negative"><div class="num">${neg}</div><div class="label">負面</div></div>
+  </div>`;
 }
 
 function renderItems(items) {
-  if (!items || items.length === 0) return '<div class="empty">📭 今日暫無新文章</div>';
+  if (!items || items.length === 0) return '<div class="empty">📭 暫無文章</div>';
   return items.map(item => {
     const sentiment = item.sentiment || 'neutral';
     const tagClass = sentiment === 'positive' ? 'pos' : sentiment === 'negative' ? 'neg' : 'neu';
     const tagLabel = sentiment === 'positive' ? '正面' : sentiment === 'negative' ? '負面' : '中性';
     const hasScreenshot = item.screenshot && item.screenshot !== '';
-    return `
-      <div class="card">
-        <div class="meta">
-          <span class="tag ${tagClass}">${tagLabel}</span>
-          <span>${item.source || ''}</span>
-          <span>${item.date || ''}</span>
-          ${item.platform ? `<span class="badge ${item.platform}">${item.platform}</span>` : ''}
-        </div>
-        <h3>${item.link ? `<a href="${item.link}" target="_blank">${item.title}</a>` : item.title}</h3>
-        <p>${item.summary || ''}</p>
-        <div class="links">
-          ${item.link ? `<a href="${item.link}" target="_blank">🔗 原文</a>` : ''}
-          ${hasScreenshot ? `<a href="${item.screenshot}" target="_blank">📸 截圖</a>` : ''}
-          ${item.sheet_url ? `<a href="${item.sheet_url}" target="_blank">📊 Sheet</a>` : ''}
-        </div>
-        ${hasScreenshot ? `<img class="screenshot" src="${item.screenshot}" alt="Screenshot" onclick="window.open(this.src)"/>` : ''}
+    const isComment = item.comment;
+    return `<div class="card" ${isComment ? 'style="border-left: 3px solid var(--neu);"' : ''}>
+      <div class="meta">
+        <span class="tag ${tagClass}">${tagLabel}</span>
+        <span>${item.source || ''}</span>
+        <span>${item.date || ''}</span>
+        ${isComment ? '<span class="badge" style="background:#3b1f5e;color:#c084fc;">💬 留言</span>' : ''}
+        ${item.parent_link ? `<a href="${item.parent_link}" style="font-size:11px;color:var(--accent);">← 原帖</a>` : ''}
       </div>
-    `;
-  }).join('');
-}
-
-function renderRecommendations(data) {
-  if (!data || !data.recommendations || data.recommendations.length === 0) return '';
-  return `
-    <div class="section">
-      <h2>🎯 建議</h2>
-      ${data.recommendations.map(r => `<div class="card"><p>${r}</p></div>`).join('')}
+      <h3>${item.link ? `<a href="${item.link}" target="_blank">${item.title}</a>` : item.title}</h3>
+      <p>${item.summary || ''}</p>
+      <div class="links">
+        ${item.link ? `<a href="${item.link}" target="_blank">🔗 原文</a>` : ''}
+        ${hasScreenshot ? `<a href="${item.screenshot}" target="_blank">📸 截圖</a>` : ''}
+      </div>
+      ${hasScreenshot ? `<img class="screenshot" src="${item.screenshot}" alt="Screenshot" onclick="window.open(this.src)"/>` : ''}
     </div>`;
+  }).join('');
 }
 
 function renderAlerts(data) {
   if (!data || !data.alerts || data.alerts.length === 0) return '';
-  return `
-    <div class="section">
-      <h2>🔴 警報</h2>
-      ${data.alerts.map(a => `
-        <div class="card" style="border-left: 3px solid var(--neg);">
-          <div class="meta"><span class="tag neg">${a.severity || 'MEDIUM'}</span><span>${a.source || ''}</span></div>
-          <h3>${a.title}</h3>
-          <p>${a.summary}</p>
-          ${a.link ? `<div class="links"><a href="${a.link}" target="_blank">🔗 詳情</a></div>` : ''}
-        </div>
-      `).join('')}
-    </div>`;
+  return `<div class="section"><h2>🔴 警報</h2>
+    ${data.alerts.map(a => `<div class="card" style="border-left:3px solid var(--neg);">
+      <div class="meta"><span class="tag neg">${a.severity || 'MEDIUM'}</span><span>${a.source || ''}</span></div>
+      <h3>${a.title}</h3><p>${a.summary}</p>
+      ${a.link ? `<div class="links"><a href="${a.link}" target="_blank">🔗 詳情</a></div>` : ''}
+    </div>`).join('')}
+  </div>`;
+}
+
+function renderRecommendations(data) {
+  if (!data || !data.recommendations || data.recommendations.length === 0) return '';
+  return `<div class="section"><h2>🎯 建議</h2>
+    ${data.recommendations.map(r => `<div class="card"><p>${r}</p></div>`).join('')}</div>`;
 }
 
 function renderTrends(data) {
   if (!data || !data.trends) return '';
-  return `
-    <div class="section">
-      <h2>📈 趨勢分析</h2>
-      <div class="card"><p>${data.trends}</p></div>
-    </div>`;
+  return `<div class="section"><h2>📈 趨勢分析</h2><div class="card"><p>${data.trends}</p></div></div>`;
 }
+
+const SOURCES = {
+  "📰 主流新聞 (18)": [
+    {n:"香港01",u:"hk01.com"},{n:"東方日報",u:"on.cc"},{n:"星島日報",u:"std.stheadline.com"},
+    {n:"頭條日報",u:"hd.stheadline.com"},{n:"明報",u:"mingpao.com"},{n:"信報",u:"hkej.com"},
+    {n:"HKET",u:"hket.com"},{n:"文匯報",u:"wenweipo.com"},{n:"大公報",u:"takungpao.com"},
+    {n:"香港商報",u:"hked.com.hk"},{n:"AM730",u:"am730.com.hk"},{n:"晴報",u:"skypost.hk"},
+    {n:"東周刊",u:"eastweek.com.hk"},{n:"NOW TV",u:"news.now.com"},{n:"Orange News",u:"orangenews.hk"},
+    {n:"TOPick",u:"topick.hket.com"},{n:"SCMP",u:"scmp.com"},{n:"The Standard",u:"thestandard.com.hk"}
+  ],
+  "🍽️ 飲食/生活/親子 (12)": [
+    {n:"新假期",u:"weekendhk.com"},{n:"U Food",u:"ufood.com.hk"},{n:"Time Out HK",u:"timeout.com.hk"},
+    {n:"GOtrip",u:"gotrip.hk"},{n:"UHK港生活",u:"ulifestyle.com.hk"},{n:"she.com",u:"she.com"},
+    {n:"Champimom",u:"champimom.com"},{n:"Ohpama",u:"ohpama.com"},{n:"Sunday Kiss",u:"sundaykiss.com"},
+    {n:"親子頭條",u:"parentingheadline.com"},{n:"經濟一週",u:"edigest.hk"},{n:"小紅書",u:"xiaohongshu.com"}
+  ],
+  "🌐 網媒/電視/電台 (7)": [
+    {n:"端傳媒",u:"theinitium.com"},{n:"點新聞",u:"dotdotnews.com"},{n:"熱血時報",u:"passiontimes.hk"},
+    {n:"TVB新聞",u:"news.tvb.com"},{n:"HOY TV",u:"hoy.tv"},{n:"RTHK",u:"rthk.hk"},{n:"商業電台",u:"881903.com"}
+  ],
+  "💬 討論區 (5)": [
+    {n:"LIHKG",u:"lihkg.com"},{n:"Baby Kingdom",u:"baby-kingdom.com"},{n:"Reddit r/HK",u:"reddit.com/r/HongKong"},
+    {n:"Discuss",u:"discuss.com.hk"},{n:"Uwants",u:"uwants.com"}
+  ],
+  "📱 社交/影片 (5)": [
+    {n:"Facebook",u:"facebook.com (keyword)"},{n:"Instagram",u:"instagram.com (keyword)"},
+    {n:"Threads",u:"threads.net (keyword)"},{n:"YouTube",u:"youtube.com (API)"},{n:"小紅書",u:"xiaohongshu.com (search)"}
+  ],
+  "🍽️ 評分 (4)": [
+    {n:"OpenRice",u:"openrice.com"},{n:"Google Reviews",u:"google.com/maps"},
+    {n:"TripAdvisor HK",u:"tripadvisor.com"},{n:"大眾點評HK",u:"dianping.com"}
+  ],
+  "💼 商業/公關 (3)": [
+    {n:"Marketing Interactive",u:"marketing-interactive.com"},{n:"PR Newswire",u:"prnewswire.com"},{n:"DKLM負評",u:"dklm.io"}
+  ]
+};
 
 async function render() {
   const app = document.getElementById('app');
-  const data = await loadData();
-  const weekly = await loadWeekly();
-  const monthly = await loadMonthly();
-
+  
+  if (currentView === 'sources') {
+    document.getElementById('datePicker').style.display = 'none';
+    app.innerHTML = `<h2 style="font-size:18px;margin-bottom:16px;">📡 監控來源 — 共 ${Object.values(SOURCES).flat().length} 個</h2>
+    <div class="source-grid">
+      ${Object.entries(SOURCES).map(([cat, items]) => `
+        <div class="source-group">
+          <h3>${cat}</h3>
+          <ul>${items.map(s => `<li><span>${s.n}</span><span class="url">${s.u}</span></li>`).join('')}</ul>
+        </div>
+      `).join('')}
+    </div>`;
+    return;
+  }
+  
+  document.getElementById('datePicker').style.display = (currentView === 'daily') ? 'flex' : 'none';
+  
   if (currentView === 'daily') {
+    const data = await loadData();
     app.innerHTML = `
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;">
-        <h2 style="font-size:18px;">📅 每日報告 — ${data ? data.date : '今日'}</h2>
-        <a href="${SHEET_URL}" target="_blank" style="font-size:13px;color:var(--accent);">📊 查看 Google Sheet →</a>
+        <h2 style="font-size:18px;">📅 今日報告 — ${data ? data.date : 'N/A'}</h2>
+        <span style="font-size:13px;color:var(--muted);">或揀選日期查詢</span>
       </div>
-      ${renderAlerts(data)}
-      ${renderStatCards(data)}
-      <div class="section">
-        <h2>📰 文章</h2>
-        ${renderItems(data ? data.items : [])}
-      </div>
-      ${renderRecommendations(data)}
-      ${renderTrends(data)}
-      <div class="section">
-        <h2>📸 所有 Screenshots</h2>
-        <div class="card">
-          <p>截圖儲存於: <code>outback-monitoring/screenshots/</code></p>
-          <p>每張截圖在 Column G 有對應路徑</p>
-        </div>
-      </div>
+      ${renderAlerts(data)}${renderStatCards(data)}
+      <div class="section"><h2>📰 文章</h2>${renderItems(data ? data.items : [])}</div>
+      ${renderRecommendations(data)}${renderTrends(data)}
     `;
   } else if (currentView === 'weekly') {
-    app.innerHTML = `
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-        <h2 style="font-size:18px;">📆 週報 — ${weekly ? weekly.week : '最新'}</h2>
-      </div>
-      ${weekly ? renderStatCards(weekly) + renderItems(weekly.items) + renderRecommendations(weekly) + renderTrends(weekly) : '<div class="empty">📭 週報資料準備中</div>'}
-    `;
+    const weekly = await loadWeekly();
+    app.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+      <h2 style="font-size:18px;">📆 週報 — ${weekly ? weekly.week : '最新'}</h2></div>
+      ${weekly ? renderStatCards(weekly) + renderItems(weekly.items) + renderRecommendations(weekly) + renderTrends(weekly) : '<div class="empty">📭 週報準備中</div>'}`;
   } else if (currentView === 'monthly') {
-    app.innerHTML = `
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-        <h2 style="font-size:18px;">📊 月報 — ${monthly ? monthly.month : '最新'}</h2>
-      </div>
-      ${monthly ? renderStatCards(monthly) + renderItems(monthly.items) + renderRecommendations(monthly) + renderTrends(monthly) : '<div class="empty">📭 月報資料準備中</div>'}
-    `;
+    const monthly = await loadMonthly();
+    app.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+      <h2 style="font-size:18px;">📊 月報 — ${monthly ? monthly.month : '最新'}</h2></div>
+      ${monthly ? renderStatCards(monthly) + renderItems(monthly.items) + renderRecommendations(monthly) + renderTrends(monthly) : '<div class="empty">📭 月報準備中</div>'}`;
   } else if (currentView === 'all') {
     app.innerHTML = `
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
         <h2 style="font-size:18px;">📋 完整記錄</h2>
-        <a href="${SHEET_URL}" target="_blank" style="font-size:13px;color:var(--accent);">📊 查看完整 Google Sheet →</a>
+        <a href="${SHEET_URL}" target="_blank" style="font-size:13px;color:var(--accent);">📊 打開 Google Sheet →</a>
       </div>
       <div class="card">
-        <p>所有 Outback 監控記錄儲存於 Google Sheet：</p>
-        <div class="links" style="margin-top:12px;">
-          <a href="${SHEET_URL}" target="_blank">📊 打開 Google Sheet</a>
-        </div>
+        <p>所有 Outback 監控記錄儲存於 Google Sheet</p>
+        <div class="links" style="margin-top:12px;"><a href="${SHEET_URL}" target="_blank">📊 打開 Google Sheet</a></div>
         <p style="margin-top:16px;font-size:13px;color:var(--muted);">
-          Sheet 有 7 欄：日期 | 時間 | 來源 | 標題 | 摘要 | 連結 | 截圖/備註<br>
-          Column G 包含截圖路徑，按日期篩選即可
-        </p>
+          Sheet: 日期 | 時間 | 來源 | 標題 | 摘要 | 連結 | 截圖/備註</p>
       </div>
-      <div class="section">
-        <h2>📁 資料架構</h2>
-        <div class="card">
-          <pre style="font-size:12px;color:var(--muted);">
+      <div class="section"><h2>📁 資料架構</h2>
+      <div class="card"><pre style="font-size:12px;color:var(--muted);">
 outback-monitoring/
 ├── index.html              ← 你而家睇緊嘅頁面
-├── style.css
 ├── data/
 │   ├── daily-YYYY-MM-DD.json   ← 每日報告
 │   ├── weekly-latest.json      ← 最新週報
 │   └── monthly-latest.json     ← 最新月報
-└── screenshots/
-    └── YYYY-MM-DD/
-        └── source_title.jpg    ← 截圖
-          </pre>
-        </div>
-      </div>
-    `;
+└── screenshots/               ← 截圖存檔
+      </pre></div></div>`;
   }
 }
 
-render();
+// Set default date to today
+document.addEventListener('DOMContentLoaded', () => {
+  const today = new Date().toISOString().slice(0,10);
+  document.getElementById('dateInput').value = today;
+  render();
+});
 </script>
 </body>
 </html>
