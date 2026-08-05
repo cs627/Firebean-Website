@@ -1,0 +1,34 @@
+{
+  "date": "2026-08-01",
+  "items": [
+    {
+      "title": "Outback Steakhouse Hong Kong (Official) - 專頁更新",
+      "source": "Facebook (Official Page)",
+      "date": "2026-08-01",
+      "link": "https://facebook.com/OutbackSteakhouseHongKong",
+      "summary": "Outback官方Facebook專頁更新，推廣品牌內容",
+      "sentiment": "neutral",
+      "platform": "daily",
+      "screenshot": ""
+    },
+    {
+      "title": "Outback Steakhouse Hong Kong (Official) - 專頁更新",
+      "source": "Facebook (Official)",
+      "date": "2026-08-01",
+      "link": "https://facebook.com/OutbackSteakhouseHongKong",
+      "summary": "Outback 官方Facebook專頁常規更新，推廣品牌內容",
+      "sentiment": "positive",
+      "platform": "daily",
+      "screenshot": ""
+    }
+  ],
+  "alerts": [],
+  "recommendations": [],
+  "trends": "8月監控數據：2026-08-01 共 2 條提及，正面 1、中性 1、負面 0。",
+  "stats": {
+    "total": 2,
+    "positive": 1,
+    "neutral": 1,
+    "negative": 0
+  }
+}

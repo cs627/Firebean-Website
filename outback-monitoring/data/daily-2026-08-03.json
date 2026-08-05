@@ -1,36 +1,6 @@
 {
-  "month": "2026年8月",
+  "date": "2026-08-03",
   "items": [
-    {
-      "title": "Outback Steakhouse Hong Kong (Official) - 專頁更新",
-      "source": "Facebook (Official Page)",
-      "date": "2026-08-01",
-      "link": "https://facebook.com/OutbackSteakhouseHongKong",
-      "summary": "Outback官方Facebook專頁更新，推廣品牌內容",
-      "sentiment": "neutral",
-      "platform": "daily",
-      "screenshot": ""
-    },
-    {
-      "title": "Outback Steakhouse Hong Kong (Official) - 專頁更新",
-      "source": "Facebook (Official)",
-      "date": "2026-08-01",
-      "link": "https://facebook.com/OutbackSteakhouseHongKong",
-      "summary": "Outback 官方Facebook專頁常規更新，推廣品牌內容",
-      "sentiment": "positive",
-      "platform": "daily",
-      "screenshot": ""
-    },
-    {
-      "title": "Outback Steakhouse HK - 每日監控",
-      "source": "系統",
-      "date": "2026-08-02",
-      "link": "https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4/edit",
-      "summary": "此試算表用於每日自動記錄 Outback Steakhouse 香港嘅社交聆聽資料。每天朝早 8:00 自動更新。",
-      "sentiment": "neutral",
-      "platform": "daily",
-      "screenshot": ""
-    },
     {
       "title": "每日社交聆聽掃描報告",
       "source": "系統",
@@ -220,16 +190,6 @@
       "sentiment": "positive",
       "platform": "daily",
       "screenshot": ""
-    },
-    {
-      "title": "Looking for an affordable vegetarian afternoon tea deal in Hong Kong? — HK$128 for ANY 2 Appetizers @outbacksteakhousehk",
-      "source": "Instagram",
-      "date": "2026-08-04",
-      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9tbElRbVhNUzdRRHZyaW5nZkE0bUxPRlgyYUR2dy1Ed2Q3NGNaUDJ2OFFwY3BfazJiSVVCeDJkRXBYRHdYTWk0anJZSjFLb3NDcEE?oc=5",
-      "summary": "食客推介Outback素食下午茶優惠，任選2款前菜只需HK$128，性價比高。",
-      "sentiment": "neutral",
-      "platform": "daily",
-      "screenshot": ""
     }
   ],
   "alerts": [
@@ -241,15 +201,12 @@
       "link": "https://lihkg.com/thread/3901234"
     }
   ],
-  "recommendations": [
-    "持續監控 LIHKG 對業務前景嘅負面討論",
-    "關注 8月 新餐單推廣系列（下午茶、Happy Hour、情人節套餐）"
-  ],
-  "trends": "8月監控開始：截至今日共 23 條提及。",
+  "recommendations": [],
+  "trends": "8月監控數據：2026-08-03 共 19 條提及，正面 15、中性 3、負面 1。",
   "stats": {
-    "total": 23,
-    "positive": 16,
-    "neutral": 6,
+    "total": 19,
+    "positive": 15,
+    "neutral": 3,
     "negative": 1
   }
 }

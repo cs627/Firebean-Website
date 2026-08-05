@@ -1,0 +1,24 @@
+{
+  "date": "2026-08-02",
+  "items": [
+    {
+      "title": "Outback Steakhouse HK - 每日監控",
+      "source": "系統",
+      "date": "2026-08-02",
+      "link": "https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4/edit",
+      "summary": "此試算表用於每日自動記錄 Outback Steakhouse 香港嘅社交聆聽資料。每天朝早 8:00 自動更新。",
+      "sentiment": "neutral",
+      "platform": "daily",
+      "screenshot": ""
+    }
+  ],
+  "alerts": [],
+  "recommendations": [],
+  "trends": "8月監控數據：2026-08-02 共 1 條提及，正面 0、中性 1、負面 0。",
+  "stats": {
+    "total": 1,
+    "positive": 0,
+    "neutral": 1,
+    "negative": 0
+  }
+}
