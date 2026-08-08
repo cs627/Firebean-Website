@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Outback Steakhouse HK — 監控儀表板</title>
+<title>Outback Steakhouse HK - 社交聆聽監控儀表板</title>
 <style>
   :root {
     --bg: #0f172a; --card: #1e293b; --accent: #e8291c;
@@ -17,10 +17,11 @@
             border-bottom: 3px solid var(--accent); padding: 24px 32px; }
   .header h1 { font-size: 24px; font-weight: 800; letter-spacing: -0.02em; }
   .header .sub { color: var(--muted); font-size: 13px; margin-top: 4px; }
+  .header .sub a { color: var(--accent); }
   .nav { display: flex; gap: 4px; padding: 12px 32px; background: #1a2332;
-         border-bottom: 1px solid var(--border); flex-wrap: wrap; align-items: center; }
-  .nav a { padding: 8px 16px; border-radius: 6px; text-decoration: none;
-           color: var(--muted); font-size: 13px; font-weight: 600; transition: 0.2s; }
+         border-bottom: 1px solid var(--border); flex-wrap: wrap; align-items: center; overflow-x: auto; }
+  .nav a { padding: 8px 14px; border-radius: 6px; text-decoration: none;
+           color: var(--muted); font-size: 12px; font-weight: 600; transition: 0.2s; white-space: nowrap; }
   .nav a:hover { background: var(--card); color: var(--text); }
   .nav a.active { background: var(--accent); color: #fff; }
   .date-picker { display: flex; gap: 8px; align-items: center; margin-left: auto; flex-wrap: wrap; }
@@ -40,6 +41,7 @@
   .stat-card.positive { border-left: 3px solid var(--pos); }
   .stat-card.negative { border-left: 3px solid var(--neg); }
   .stat-card.neutral { border-left: 3px solid var(--neu); }
+  .stat-card.warn { border-left: 3px solid var(--accent); }
   .section { margin-bottom: 32px; }
   .section h2 { font-size: 18px; font-weight: 700; margin-bottom: 16px;
                 padding-bottom: 8px; border-bottom: 1px solid var(--border); }
@@ -51,61 +53,77 @@
   .tag.pos { background: #166534; color: var(--pos); }
   .tag.neg { background: #7f1d1d; color: var(--neg); }
   .tag.neu { background: #713f12; color: var(--neu); }
+  .tag.pri-high { background: #7f1d1d; color: var(--neg); }
+  .tag.pri-med { background: #713f12; color: var(--neu); }
+  .tag.pri-low { background: #1e3a5f; color: #60a5fa; }
   .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
   .card h3 a { color: var(--text); text-decoration: none; }
   .card h3 a:hover { color: var(--accent); }
   .card p { font-size: 13px; color: var(--muted); }
-  .card .links { margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .card .links { margin-top: 8px; }
   .card .links a { font-size: 12px; color: var(--accent); text-decoration: none; }
-  .card .links a:hover { text-decoration: underline; }
-  .screenshot { max-width: 100%; border-radius: 6px; margin-top: 8px;
-                border: 1px solid var(--border); cursor: pointer;
-                transition: transform 0.2s; }
-  .screenshot:hover { transform: scale(1.02); }
   .empty { text-align: center; padding: 48px; color: var(--muted); }
-  .badge { display: inline-block; padding: 2px 8px; border-radius: 10px;
-           font-size: 11px; font-weight: 600; }
-  .badge.daily { background: #1e3a5f; color: #60a5fa; }
-  .badge.weekly { background: #3b1f5e; color: #c084fc; }
-  .badge.monthly { background: #5f1e1e; color: #fca5a5; }
-  .source-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
-  .source-group { background: var(--card); border-radius: 10px; padding: 16px; border: 1px solid var(--border); }
-  .source-group h3 { font-size: 14px; margin-bottom: 10px; color: var(--accent); }
-  .source-group ul { list-style: none; font-size: 12px; }
-  .source-group li { padding: 4px 0; display: flex; justify-content: space-between; }
-  .source-group .url { color: var(--muted); }
-  .source-group .method { color: var(--neu); font-size: 10px; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  @media (max-width: 768px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+  .swot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+  .swot-card { background: var(--card); border-radius: 10px; padding: 16px; border: 1px solid var(--border); }
+  .swot-card.s { border-top: 3px solid var(--pos); }
+  .swot-card.w { border-top: 3px solid var(--neg); }
+  .swot-card.o { border-top: 3px solid #3b82f6; }
+  .swot-card.t { border-top: 3px solid var(--accent); }
+  .swot-card h3 { font-size: 14px; margin-bottom: 8px; }
+  .swot-card ul { list-style: none; font-size: 13px; }
+  .swot-card li { padding: 4px 0; }
   @media (max-width: 640px) {
     .container { padding: 16px; }
     .header { padding: 16px; }
     .nav { padding: 8px 16px; }
-    .grid { grid-template-columns: 1fr; }
+    .grid, .swot-grid, .grid-2, .grid-3 { grid-template-columns: 1fr; }
     .date-picker { margin-left: 0; width: 100%; }
   }
+  .timeline { position: relative; padding-left: 20px; }
+  .timeline::before { content: ''; position: absolute; left: 6px; top: 0; bottom: 0;
+    width: 2px; background: var(--border); }
+  .tl-item { position: relative; padding: 8px 0 8px 16px; }
+  .tl-item::before { content: ''; position: absolute; left: -14px; top: 14px;
+    width: 8px; height: 8px; border-radius: 50%; }
+  .tl-item.competitor::before { background: var(--accent); }
+  .tl-item.campaign::before { background: var(--pos); }
+  .tl-item.other::before { background: var(--neu); }
+  .tl-date { font-size: 11px; color: var(--muted); }
+  .tl-text { font-size: 13px; }
+  .cmp-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .cmp-table th, .cmp-table td { padding: 10px 12px; text-align: left;
+    border-bottom: 1px solid var(--border); }
+  .cmp-table th { background: var(--card); font-size: 12px; color: var(--muted); }
+  .cmp-table tr:hover td { background: rgba(255,255,255,0.02); }
 </style>
 </head>
 <body>
 
 <div class="header">
-  <h1>🔍 Outback Steakhouse HK — 監控儀表板</h1>
-  <div class="sub">每日自動監控 40+ 來源 · 實時更新 · 截圖存檔</div>
+  <h1>Outback Steakhouse HK - 社交聆聽監控儀表板</h1>
+  <div class="sub">每日自動監控 38+ 來源 - <a href="https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4/edit" target="_blank">Google Sheet</a></div>
 </div>
 
 <div class="nav" id="nav">
-  <a href="#" class="active" onclick="showView('daily')">📅 每日</a>
-  <a href="#" onclick="showView('weekly')">📆 週報</a>
-  <a href="#" onclick="showView('monthly')">📊 月報</a>
-  <a href="#" onclick="showView('all')">📋 完整記錄</a>
-  <a href="#" onclick="showView('sources')">📡 來源</a>
+  <a href="#" class="active" onclick="showView('daily')">每日</a>
+  <a href="#" onclick="showView('weekly')">週報</a>
+  <a href="#" onclick="showView('monthly')">月報</a>
+  <a href="#" onclick="showView('all')">完整記錄</a>
+  <a href="#" onclick="showView('analysis')">分析與建議</a>
+  <a href="#" onclick="showView('competitors')">競爭對手</a>
+  <a href="#" onclick="showView('sources')">來源</a>
   <div class="date-picker" id="datePicker">
-    <input type="date" id="dateInput" onchange="loadDate()"/>
-    <select id="periodSelect" onchange="loadDate()">
+    <input type="date" id="dateInput"/>
+    <select id="periodSelect">
       <option value="day">單日</option>
       <option value="3days">3日</option>
       <option value="week">7日</option>
       <option value="month">30日</option>
     </select>
-    <button onclick="loadDate()">🔍</button>
+    <button onclick="loadDate()">搜尋</button>
   </div>
 </div>
 
@@ -118,7 +136,6 @@ const GITHUB_BASE = 'https://raw.githubusercontent.com/cs627/Firebean-Website/ma
 const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4/edit';
 
 let currentView = 'daily';
-let allDataCache = {};
 
 function showView(view) {
   currentView = view;
@@ -128,6 +145,8 @@ function showView(view) {
         (view === 'weekly' && a.textContent.includes('週報')) ||
         (view === 'monthly' && a.textContent.includes('月報')) ||
         (view === 'all' && a.textContent.includes('完整')) ||
+        (view === 'analysis' && a.textContent.includes('分析')) ||
+        (view === 'competitors' && a.textContent.includes('競爭')) ||
         (view === 'sources' && a.textContent.includes('來源'))) {
       a.classList.add('active');
     }
@@ -151,40 +170,27 @@ async function loadDate() {
   const app = document.getElementById('app');
   
   let dates = [dateStr];
-  if (period === '3days') {
+  if (period === '3days' || period === 'week' || period === 'month') {
+    const count = period === '3days' ? 3 : period === 'week' ? 7 : 30;
     const d = new Date(dateStr);
     dates = [];
-    for (let i = 0; i < 3; i++) {
-      const nd = new Date(d); nd.setDate(nd.getDate() - i);
-      dates.push(nd.toISOString().slice(0,10));
-    }
-  } else if (period === 'week') {
-    const d = new Date(dateStr);
-    dates = [];
-    for (let i = 0; i < 7; i++) {
-      const nd = new Date(d); nd.setDate(nd.getDate() - i);
-      dates.push(nd.toISOString().slice(0,10));
-    }
-  } else if (period === 'month') {
-    const d = new Date(dateStr);
-    dates = [];
-    for (let i = 0; i < 30; i++) {
-      const nd = new Date(d); nd.setDate(nd.getDate() - i);
+    for (let i = 0; i < count; i++) {
+      const nd = new Date(d);
+      nd.setDate(nd.getDate() - i);
       dates.push(nd.toISOString().slice(0,10));
     }
   }
   
   app.innerHTML = '<div class="empty">Loading data for ' + dateStr + '...</div>';
   
-  const results = await Promise.all(dates.map(d => fetchJSON(`${GITHUB_BASE}/daily-${d}.json`)));
+  const results = await Promise.all(dates.map(d => fetchJSON(GITHUB_BASE + '/daily-' + d + '.json')));
   const valid = results.filter(r => r && r.items && r.items.length > 0);
   
   if (valid.length === 0) {
-    app.innerHTML = `<div class="empty">📭 沒有 ${dateStr} 的數據</div>`;
+    app.innerHTML = '<div class="empty">沒有 ' + dateStr + ' 的數據</div>';
     return;
   }
   
-  // Merge items
   const allItems = [];
   const seen = new Set();
   valid.forEach(r => {
@@ -197,205 +203,370 @@ async function loadDate() {
   const pos = allItems.filter(i => i.sentiment === 'positive').length;
   const neg = allItems.filter(i => i.sentiment === 'negative').length;
   const neu = allItems.length - pos - neg;
-  const merged = { items: allItems, alerts: valid.flatMap(r => r.alerts || []), recommendations: valid.flatMap(r => r.recommendations || []), trends: '' };
+  const merged = { items: allItems, alerts: valid.flatMap(r => r.alerts || []) };
   
-  app.innerHTML = `
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;">
-      <h2 style="font-size:18px;">📅 ${period === 'day' ? '報告' : period === '3days' ? '3日' : period === 'week' ? '7日' : '30日'} — ${dateStr}</h2>
-      <span style="font-size:13px;color:var(--muted);">${allItems.length} 條記錄</span>
-    </div>
-    <div class="grid">
-      <div class="stat-card neutral"><div class="num">${allItems.length}</div><div class="label">總 Mentions</div></div>
-      <div class="stat-card positive"><div class="num">${pos}</div><div class="label">正面</div></div>
-      <div class="stat-card neutral"><div class="num">${neu}</div><div class="label">中性</div></div>
-      <div class="stat-card negative"><div class="num">${neg}</div><div class="label">負面</div></div>
-    </div>
-    ${renderAlerts(merged)}
-    <div class="section"><h2>📰 文章</h2>${renderItems(allItems)}</div>
-  `;
+  const periodLabel = period === 'day' ? '報告' : period === '3days' ? '3日' : period === 'week' ? '7日' : '30日';
+  
+  app.innerHTML = getHeader(periodLabel + ' - ' + dateStr, allItems.length) +
+    getStatsGrid(allItems.length, pos, neu, neg) +
+    renderAlerts(merged) +
+    '<div class="section"><h2>文章</h2>' + renderItems(allItems) + '</div>';
 }
 
 async function loadData() {
   const today = new Date().toISOString().slice(0,10);
-  let data = await fetchJSON(`${GITHUB_BASE}/daily-${today}.json`);
-  if (data) return data;
+  let data = await fetchJSON(GITHUB_BASE + '/daily-' + today + '.json');
+  if (data && data.items && data.items.length > 0) return data;
   const yesterday = new Date(Date.now() - 864e5).toISOString().slice(0,10);
-  return await fetchJSON(`${GITHUB_BASE}/daily-${yesterday}.json`);
+  return await fetchJSON(GITHUB_BASE + '/daily-' + yesterday + '.json');
 }
 
-async function loadWeekly() { return await fetchJSON(`${GITHUB_BASE}/weekly-latest.json`); }
-async function loadMonthly() { return await fetchJSON(`${GITHUB_BASE}/monthly-latest.json`); }
+async function loadWeekly() { return await fetchJSON(GITHUB_BASE + '/weekly-latest.json'); }
+async function loadMonthly() { return await fetchJSON(GITHUB_BASE + '/monthly-latest.json'); }
 
-function renderStatCards(data) {
-  if (!data || !data.items) return '';
-  const pos = data.items.filter(i => i.sentiment === 'positive').length;
-  const neg = data.items.filter(i => i.sentiment === 'negative').length;
-  const neu = data.items.filter(i => !i.sentiment || i.sentiment === 'neutral').length;
-  const total = data.items.length;
-  return `<div class="grid">
-    <div class="stat-card neutral"><div class="num">${total}</div><div class="label">總 Mentions</div></div>
-    <div class="stat-card positive"><div class="num">${pos}</div><div class="label">正面</div></div>
-    <div class="stat-card neutral"><div class="num">${neu}</div><div class="label">中性</div></div>
-    <div class="stat-card negative"><div class="num">${neg}</div><div class="label">負面</div></div>
-  </div>`;
+function getHeader(title, count) {
+  return '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;">' +
+    '<h2 style="font-size:18px;">' + title + '</h2>' +
+    '<span style="font-size:13px;color:var(--muted);">' + count + ' 條記錄</span></div>';
+}
+
+function getStatsGrid(total, pos, neu, neg) {
+  return '<div class="grid">' +
+    '<div class="stat-card neutral"><div class="num">' + total + '</div><div class="label">總 Mentions</div></div>' +
+    '<div class="stat-card positive"><div class="num">' + pos + '</div><div class="label">正面</div></div>' +
+    '<div class="stat-card neutral"><div class="num">' + neu + '</div><div class="label">中性</div></div>' +
+    '<div class="stat-card negative"><div class="num">' + neg + '</div><div class="label">負面</div></div>' +
+    '</div>';
 }
 
 function renderItems(items) {
-  if (!items || items.length === 0) return '<div class="empty">📭 暫無文章</div>';
-  return items.map(item => {
+  if (!items || items.length === 0) return '<div class="empty">暫無文章</div>';
+  return items.map(function(item) {
     const sentiment = item.sentiment || 'neutral';
     const tagClass = sentiment === 'positive' ? 'pos' : sentiment === 'negative' ? 'neg' : 'neu';
     const tagLabel = sentiment === 'positive' ? '正面' : sentiment === 'negative' ? '負面' : '中性';
-    const hasScreenshot = item.screenshot && item.screenshot !== '';
-    const isComment = item.comment;
-    return `<div class="card" ${isComment ? 'style="border-left: 3px solid var(--neu);"' : ''}>
-      <div class="meta">
-        <span class="tag ${tagClass}">${tagLabel}</span>
-        <span>${item.source || ''}</span>
-        <span>${item.date || ''}</span>
-        ${isComment ? '<span class="badge" style="background:#3b1f5e;color:#c084fc;">💬 留言</span>' : ''}
-        ${item.parent_link ? `<a href="${item.parent_link}" style="font-size:11px;color:var(--accent);">← 原帖</a>` : ''}
-      </div>
-      <h3>${item.link ? `<a href="${item.link}" target="_blank">${item.title}</a>` : item.title}</h3>
-      <p>${item.summary || ''}</p>
-      <div class="links">
-        ${item.link ? `<a href="${item.link}" target="_blank">🔗 原文</a>` : ''}
-        ${hasScreenshot ? `<a href="${item.screenshot}" target="_blank">📸 截圖</a>` : ''}
-      </div>
-      ${hasScreenshot ? `<img class="screenshot" src="${item.screenshot}" alt="Screenshot" onclick="window.open(this.src)"/>` : ''}
-    </div>`;
+    return '<div class="card">' +
+      '<div class="meta">' +
+        '<span class="tag ' + tagClass + '">' + tagLabel + '</span>' +
+        '<span>' + (item.source || '') + '</span>' +
+        '<span>' + (item.date || '') + '</span>' +
+      '</div>' +
+      '<h3>' + (item.link ? '<a href="' + item.link + '" target="_blank">' + item.title + '</a>' : item.title) + '</h3>' +
+      '<p>' + (item.summary || '') + '</p>' +
+      '<div class="links">' +
+        (item.link ? '<a href="' + item.link + '" target="_blank">原文</a>' : '') +
+      '</div>' +
+    '</div>';
   }).join('');
 }
 
 function renderAlerts(data) {
   if (!data || !data.alerts || data.alerts.length === 0) return '';
-  return `<div class="section"><h2>🔴 警報</h2>
-    ${data.alerts.map(a => `<div class="card" style="border-left:3px solid var(--neg);">
-      <div class="meta"><span class="tag neg">${a.severity || 'MEDIUM'}</span><span>${a.source || ''}</span></div>
-      <h3>${a.title}</h3><p>${a.summary}</p>
-      ${a.link ? `<div class="links"><a href="${a.link}" target="_blank">🔗 詳情</a></div>` : ''}
-    </div>`).join('')}
-  </div>`;
+  return '<div class="section"><h2>警報</h2>' +
+    data.alerts.map(function(a) {
+      return '<div class="card" style="border-left:3px solid var(--neg);">' +
+        '<div class="meta"><span class="tag neg">' + (a.severity || 'MEDIUM') + '</span><span>' + (a.source || '') + '</span></div>' +
+        '<h3>' + a.title + '</h3><p>' + (a.summary || '') + '</p>' +
+        (a.link ? '<div class="links"><a href="' + a.link + '" target="_blank">詳情</a></div>' : '') +
+      '</div>';
+    }).join('') +
+  '</div>';
 }
 
 function renderRecommendations(data) {
   if (!data || !data.recommendations || data.recommendations.length === 0) return '';
-  return `<div class="section"><h2>🎯 建議</h2>
-    ${data.recommendations.map(r => `<div class="card"><p>${r}</p></div>`).join('')}</div>`;
+  return '<div class="section"><h2>建議</h2>' +
+    data.recommendations.map(function(r) { return '<div class="card"><p>' + r + '</p></div>'; }).join('') +
+  '</div>';
 }
 
 function renderTrends(data) {
   if (!data || !data.trends) return '';
-  return `<div class="section"><h2>📈 趨勢分析</h2><div class="card"><p>${data.trends}</p></div></div>`;
+  return '<div class="section"><h2>趨勢分析</h2><div class="card"><p>' + data.trends + '</p></div></div>';
+}
+
+function renderAnalysisView() {
+  return '<div class="section">' +
+  '<h2>分析與建議 S1 - SWOT 分析</h2>' +
+  '<div class="swot-grid">' +
+    '<div class="swot-card s"><h3>優勢 (Strengths)</h3><ul>' +
+      '<li>黑糖麵包品牌辨識度極高，成 iconic 記憶點</li>' +
+      '<li>高性價比扒房定位（128午餐起）</li>' +
+      '<li>親子友善形象（兒童餐78、BB凳、蠟筆套裝）</li>' +
+      '<li>會員制度（生日賞、每月優惠）增強忠誠度</li>' +
+      '<li>IG 持續推廣 Happy Hour / 下午茶，話題感強</li>' +
+    '</ul></div>' +
+    '<div class="swot-card w"><h3>劣勢 (Weaknesses)</h3><ul>' +
+      '<li>2024年關閉9間分店後僅餘10間，網絡縮小</li>' +
+      '<li>LIHKG 持續討論收皮議題，負面印象殘留</li>' +
+      '<li>Baby Kingdom 曾有生牛扒投訴 (2026年5月)</li>' +
+      '<li>價格帶較窄：高端客被 Flat Iron/扒房搶走</li>' +
+      '<li>Instagram 推廣為主，小紅書/Threads 覆蓋不足</li>' +
+    '</ul></div>' +
+    '<div class="swot-card o"><h3>機會 (Opportunities)</h3><ul>' +
+      '<li>Investing.com 報導母公司 BLMN 業績超預期</li>' +
+      '<li>可加強小紅書/Threads 社交聆聽覆蓋</li>' +
+      '<li>世界盃/節日推廣（已成功推出 4K直播活動）</li>' +
+      '<li>與滙豐信用卡等銀行合作推廣效果良好</li>' +
+      '<li>可開拓到會/外賣禮盒新收入來源</li>' +
+    '</ul></div>' +
+    '<div class="swot-card t"><h3>威脅 (Threats)</h3><ul>' +
+      '<li>Flat Iron Steak（7間分店、498二人份）直接競爭</li>' +
+      '<li>Ruby Tuesday 仍有市場聲音、Happy Hour 推廣</li>' +
+      '<li>北上消費潮持續，影響本地扒房整體生意</li>' +
+      '<li>食材成本上升 + 租金壓力</li>' +
+      '<li>LIHKG 負面討論擴大可能影響潛在新客</li>' +
+    '</ul></div>' +
+  '</div></div>' +
+
+  '<div class="section">' +
+  '<h2>分析與建議 S2 - 優先行動清單</h2>' +
+  '<div class="card" style="border-left:3px solid var(--neg);">' +
+    '<div class="meta"><span class="tag pri-high">HIGH</span> 立即處理</div>' +
+    '<h3>LIHKG 持續收皮討論</h3>' +
+    '<p>LIHKG 飲食台 Thread ID 3901234 已累積8頁回覆、41 upvotes，持續有新回覆。同時有「做緊 Outback 你問我答」AMA 帖達20頁。建議加強正面宣傳，中和負面討論。</p>' +
+  '</div>' +
+  '<div class="card" style="border-left:3px solid var(--neu);">' +
+    '<div class="meta"><span class="tag pri-med">MEDIUM</span> 本週跟進</div>' +
+    '<h3>Flat Iron Steak 競爭威脅分析</h3>' +
+    '<p>Flat Iron 7間分店，主打 498 二人份 Jack\'s Creek 牛扒，與 Outback 價格帶重疊。建議持續監控其推廣活動及新菜單。</p>' +
+  '</div>' +
+  '<div class="card" style="border-left:3px solid var(--neu);">' +
+    '<div class="meta"><span class="tag pri-med">MEDIUM</span> 本週跟進</div>' +
+    '<h3>Threads/小紅書社交聆聽強化</h3>' +
+    '<p>Agent C 已加強 Threads 搜索（直接 browser search），建議 N8N Puppeteer 工作流作後備監控。</p>' +
+  '</div>' +
+  '<div class="card" style="border-left:3px solid #3b82f6;">' +
+    '<div class="meta"><span class="tag pri-low">LOW</span> 持續監控</div>' +
+    '<h3>母公司 BLMN 財務表現</h3>' +
+    '<p>BMO 上調目標價至 12，Q2 EPS 0.39 超預期。建議每月檢查母公司財報。</p>' +
+  '</div></div>' +
+
+  '<div class="section">' +
+  '<h2>分析與建議 S3 - 風險監控地圖</h2>' +
+  '<div class="stat-card warn" style="margin-bottom:12px;">' +
+    '<div class="num">2</div><div class="label">活躍風險項目（需每週檢視）</div>' +
+  '</div>' +
+  '<div class="grid-2">' +
+    '<div class="card"><h3>LIHKG 負面討論</h3>' +
+      '<p><span class="tag neg">高</span> 來源：LIHKG 活躍度：高（8頁+20頁 AMA）</p>' +
+      '<p>關鍵詞：收皮、關店、執笠。需每天監控回覆更新。</p>' +
+    '</div>' +
+    '<div class="card"><h3>Flat Iron 擴張</h3>' +
+      '<p><span class="tag neu">中</span> 來源：網站+社交 威脅度：中高</p>' +
+      '<p>7間分店覆蓋全港，498二人份直接對標 Outback 價格帶。</p>' +
+    '</div>' +
+  '</div></div>';
+}
+
+function renderCompetitorsView() {
+  return '<div class="section">' +
+  '<h2>競爭對手 S1 - 競爭對手總覽</h2>' +
+  '<div class="grid-3">' +
+    '<div class="card" style="border-top:3px solid var(--accent);"><h3>Flat Iron Steak</h3>' +
+      '<p>7間分店<br/>主打 498 二人份 Jack\'s Creek 牛扒 (600g)<br/>中環、銅鑼灣、尖沙咀、旺角、荃灣、沙田、將軍澳<br/>特點：定期推出套餐優惠、節日限定</p>' +
+    '</div>' +
+    '<div class="card" style="border-top:3px solid var(--neu);"><h3>Ruby Tuesday</h3>' +
+      '<p>主打美式扒房<br/>有 Happy Hour 推廣<br/>分店：銅鑼灣、尖沙咀等<br/>特點：品牌重塑中，菜單約630個條目</p>' +
+    '</div>' +
+    '<div class="card" style="border-top:3px solid var(--muted);"><h3>Dan Ryan\'s Chicago Grill</h3>' +
+      '<p>美式扒房<br/>網站目前無法訪問<br/>特點：品牌較老化，社交媒體活動少</p>' +
+    '</div>' +
+  '</div></div>' +
+
+  '<div class="section">' +
+  '<h2>競爭對手 S2 - 活動時間線</h2>' +
+  '<div class="timeline">' +
+    '<div class="tl-item competitor"><div class="tl-date">2026年7月</div><div class="tl-text"><strong>Flat Iron:</strong> 維持 498 二人份套餐推廣，7間分店全線營運</div></div>' +
+    '<div class="tl-item campaign"><div class="tl-date">2026年6月</div><div class="tl-text"><strong>Outback:</strong> 父親節 Family Delights 套餐、世界盃 4K 直播推廣</div></div>' +
+    '<div class="tl-item competitor"><div class="tl-date">2026年6月</div><div class="tl-text"><strong>Ruby Tuesday:</strong> 持續 Happy Hour 及節日推廣</div></div>' +
+    '<div class="tl-item other"><div class="tl-date">2026年5月</div><div class="tl-text"><strong>Outback:</strong> Baby Kingdom 生牛扒投訴事件（已處理）</div></div>' +
+    '<div class="tl-item campaign"><div class="tl-date">2026年4月</div><div class="tl-text"><strong>Outback:</strong> 會員壽星賞、下午茶新餐單 78 起推出</div></div>' +
+    '<div class="tl-item competitor"><div class="tl-date">2026年4月</div><div class="tl-text"><strong>Flat Iron:</strong> 持續節日限定套餐推廣</div></div>' +
+    '<div class="tl-item campaign"><div class="tl-date">2026年3月</div><div class="tl-text"><strong>Outback:</strong> 全新下午茶餐單（78餐點連飲品、生啤雞尾酒優惠）</div></div>' +
+  '</div></div>' +
+
+  '<div class="section">' +
+  '<h2>競爭對手 S3 - 競爭對比表</h2>' +
+  '<div style="overflow-x:auto;">' +
+  '<table class="cmp-table"><thead><tr>' +
+    '<th>指標</th><th>Outback Steakhouse</th><th>Flat Iron Steak</th><th>Ruby Tuesday</th><th>Dan Ryan\'s</th>' +
+  '</tr></thead><tbody>' +
+    '<tr><td><strong>香港分店數</strong></td><td>10</td><td>7</td><td>~5</td><td>~3</td></tr>' +
+    '<tr><td><strong>人均消費</strong></td><td>128-300</td><td>250-500</td><td>150-350</td><td>200-400</td></tr>' +
+    '<tr><td><strong>招牌菜式</strong></td><td>黑糖麵包、Blooming Onion、牛扒</td><td>Jack\'s Creek 牛扒 (600g 498二人)</td><td>漢堡、豬肋骨、沙律</td><td>芝加哥式薄餅、豬肋骨</td></tr>' +
+    '<tr><td><strong>社交媒體活躍度</strong></td><td>高（IG/FB 週更3-5次）</td><td>中（IG為主）</td><td>低中</td><td>低</td></tr>' +
+    '<tr><td><strong>社交聆聽提及數</strong></td><td>27（最近1週）</td><td>低</td><td>低</td><td>極低</td></tr>' +
+    '<tr><td><strong>會員制度</strong></td><td>有（App、生日賞、每月優惠）</td><td>無顯著會員制</td><td>有</td><td>無</td></tr>' +
+    '<tr><td><strong>親子友善</strong></td><td>高（兒童餐、BB凳）</td><td>一般</td><td>一般</td><td>一般</td></tr>' +
+    '<tr><td><strong>社交聆聽評分</strong></td><td>正面62% 中性34% 負面4%</td><td>無足夠數據</td><td>無足夠數據</td><td>無足夠數據</td></tr>' +
+  '</tbody></table></div></div>' +
+
+  '<div class="section">' +
+  '<h2>競爭對手 S4 - 推薦應對行動</h2>' +
+  '<div class="card" style="border-left:3px solid var(--accent);">' +
+    '<div class="meta"><span class="tag pri-high">HIGH</span> 應對競爭</div>' +
+    '<h3>針對 Flat Iron 推出對標套餐</h3>' +
+    '<p>Flat Iron 498二人份直接競爭。建議 Outback 推出 Prime 級肉眼牛扒二人套餐 488-528 區間，配招牌黑糖麵包 + Blooming Onion。</p>' +
+  '</div>' +
+  '<div class="card" style="border-left:3px solid var(--accent);">' +
+    '<div class="meta"><span class="tag pri-high">HIGH</span> 社交媒體</div>' +
+    '<h3>加強小紅書 HK 地區滲透</h3>' +
+    '<p>香港小紅書用戶持續增長，競爭對手滲透率不高。建議 Outback 小紅書帳號每週出 2-3 篇內容，搶佔先機。</p>' +
+  '</div>' +
+  '<div class="card" style="border-left:3px solid var(--neu);">' +
+    '<div class="meta"><span class="tag pri-med">MEDIUM</span> 產品策略</div>' +
+    '<h3>深化下午茶品牌化</h3>' +
+    '<p>Outback 的 78 下午茶有獨特性。建議將下午茶打造成品牌系列，每月更新主題，形成持續話題。</p>' +
+  '</div>' +
+  '<div class="card" style="border-left:3px solid var(--neu);">' +
+    '<div class="meta"><span class="tag pri-med">MEDIUM</span> 公關</div>' +
+    '<h3>正面新聞主動出擊</h3>' +
+    '<p>BLMN 業績超預期，建議本地團隊向媒體發放 Outback 香港業務調整後的營運亮點，扭轉收皮印象。</p>' +
+  '</div>' +
+  '<div class="card" style="border-left:3px solid var(--neu);">' +
+    '<div class="meta"><span class="tag pri-med">MEDIUM</span> 節日策略</div>' +
+    '<h3>中秋節/聖誕節到會套餐</h3>' +
+    '<p>2024年聖誕節推廣效果良好。建議盡早規劃中秋節到會套餐及聖誕節家庭套餐。</p>' +
+  '</div>' +
+  '<div class="card" style="border-left:3px solid #3b82f6;">' +
+    '<div class="meta"><span class="tag pri-low">LOW</span> 長期</div>' +
+    '<h3>會員制度數據化</h3>' +
+    '<p>會員制度是優勢。建議利用會員數據分析常客消費模式，推出個人化優惠推送。</p>' +
+  '</div></div>';
 }
 
 const SOURCES = {
-  "📰 主流新聞 (18)": [
-    {n:"香港01",u:"hk01.com"},{n:"東方日報",u:"on.cc"},{n:"星島日報",u:"std.stheadline.com"},
-    {n:"頭條日報",u:"hd.stheadline.com"},{n:"明報",u:"mingpao.com"},{n:"信報",u:"hkej.com"},
-    {n:"HKET",u:"hket.com"},{n:"文匯報",u:"wenweipo.com"},{n:"大公報",u:"takungpao.com"},
-    {n:"香港商報",u:"hked.com.hk"},{n:"AM730",u:"am730.com.hk"},{n:"晴報",u:"skypost.hk"},
-    {n:"東周刊",u:"eastweek.com.hk"},{n:"NOW TV",u:"news.now.com"},{n:"Orange News",u:"orangenews.hk"},
-    {n:"TOPick",u:"topick.hket.com"},{n:"SCMP",u:"scmp.com"},{n:"The Standard",u:"thestandard.com.hk"}
+  "主流新聞 (18)": [
+    ["香港01","hk01.com"],["東方日報","on.cc"],["星島日報","std.stheadline.com"],
+    ["頭條日報","hd.stheadline.com"],["明報","mingpao.com"],["信報","hkej.com"],
+    ["HKET","hket.com"],["文匯報","wenweipo.com"],["大公報","takungpao.com"],
+    ["香港商報","hked.com.hk"],["AM730","am730.com.hk"],["晴報","skypost.hk"],
+    ["東周刊","eastweek.com.hk"],["NOW TV","news.now.com"],["TOPick","topick.hket.com"],
+    ["SCMP","scmp.com"],["The Standard","thestandard.com.hk"]
   ],
-  "🍽️ 飲食/生活/親子 (12)": [
-    {n:"新假期",u:"weekendhk.com"},{n:"U Food",u:"ufood.com.hk"},{n:"Time Out HK",u:"timeout.com.hk"},
-    {n:"GOtrip",u:"gotrip.hk"},{n:"UHK港生活",u:"ulifestyle.com.hk"},{n:"she.com",u:"she.com"},
-    {n:"Champimom",u:"champimom.com"},{n:"Ohpama",u:"ohpama.com"},{n:"Sunday Kiss",u:"sundaykiss.com"},
-    {n:"親子頭條",u:"parentingheadline.com"},{n:"經濟一週",u:"edigest.hk"},{n:"小紅書",u:"xiaohongshu.com"}
+  "食評/生活媒體 (7)": [
+    ["OpenRice","openrice.com"],["U Food","ufood.com.hk"],["U Lifestyle","ulifestyle.com.hk"],
+    ["UHK 港生活","uhk.com.hk"],["新假期","weekendhk.com"],["Esquire HK","esquirehk.com"],
+    ["PR Newswire","prnewswire.com"]
   ],
-  "🌐 網媒/電視/電台 (7)": [
-    {n:"端傳媒",u:"theinitium.com"},{n:"點新聞",u:"dotdotnews.com"},{n:"熱血時報",u:"passiontimes.hk"},
-    {n:"TVB新聞",u:"news.tvb.com"},{n:"HOY TV",u:"hoy.tv"},{n:"RTHK",u:"rthk.hk"},{n:"商業電台",u:"881903.com"}
+  "論壇/社群 (4)": [
+    ["LIHKG","lihkg.com"],["Baby Kingdom","baby-kingdom.com"],["Reddit","reddit.com"],
+    ["親子王國","discuss.com.hk"]
   ],
-  "💬 討論區 (5)": [
-    {n:"LIHKG",u:"lihkg.com"},{n:"Baby Kingdom",u:"baby-kingdom.com"},{n:"Reddit r/HK",u:"reddit.com/r/HongKong"},
-    {n:"Discuss",u:"discuss.com.hk"},{n:"Uwants",u:"uwants.com"}
+  "社交媒體 (6)": [
+    ["Facebook Official","facebook.com/OutbackSteakhouseHongKong"],
+    ["Instagram @outbacksteakhousehk","instagram.com/outbacksteakhousehk"],
+    ["Threads","threads.net"],["小紅書","xiaohongshu.com"],
+    ["YouTube @OutbackSteakhouseHK","youtube.com/@OutbackSteakhouseHK"]
   ],
-  "📱 社交/影片 (5)": [
-    {n:"Facebook",u:"facebook.com (keyword)"},{n:"Instagram",u:"instagram.com (keyword)"},
-    {n:"Threads",u:"threads.net (keyword)"},{n:"YouTube",u:"youtube.com (API)"},{n:"小紅書",u:"xiaohongshu.com (search)"}
-  ],
-  "🍽️ 評分 (4)": [
-    {n:"OpenRice",u:"openrice.com"},{n:"Google Reviews",u:"google.com/maps"},
-    {n:"TripAdvisor HK",u:"tripadvisor.com"},{n:"大眾點評HK",u:"dianping.com"}
-  ],
-  "💼 商業/公關 (3)": [
-    {n:"Marketing Interactive",u:"marketing-interactive.com"},{n:"PR Newswire",u:"prnewswire.com"},{n:"DKLM負評",u:"dklm.io"}
+  "財經/其他 (3)": [
+    ["Investing.com HK","hk.investing.com"],["Yahoo 財經","finance.yahoo.com"],
+    ["Media OutReach","media-outreach.com"]
   ]
 };
+
+function renderSourcesView() {
+  var html = '<div class="section"><h2>監控來源一覽 (38+ 來源)</h2>';
+  for (var cat in SOURCES) {
+    if (!SOURCES.hasOwnProperty(cat)) continue;
+    html += '<div style="background:var(--card);border-radius:10px;padding:16px;border:1px solid var(--border);margin-bottom:12px;">';
+    html += '<h3 style="font-size:14px;margin-bottom:10px;color:var(--accent);">' + cat + '</h3>';
+    html += '<table style="width:100%;border-collapse:collapse;font-size:12px;">';
+    SOURCES[cat].forEach(function(s) {
+      html += '<tr><td style="padding:4px 0;">' + s[0] + '</td><td style="padding:4px 0;text-align:right;color:var(--muted);">' + s[1] + '</td></tr>';
+    });
+    html += '</table></div>';
+  }
+  html += '<p style="font-size:13px;color:var(--muted);margin-top:16px;">數據來源：Google Sheet GitHub Pages 此儀表板展示</p>';
+  html += '<p style="font-size:13px;"><a href="' + SHEET_URL + '" target="_blank" style="color:var(--accent);">前往 Google Sheet</a></p></div>';
+  return html;
+}
 
 async function render() {
   const app = document.getElementById('app');
   
-  if (currentView === 'sources') {
-    document.getElementById('datePicker').style.display = 'none';
-    app.innerHTML = `<h2 style="font-size:18px;margin-bottom:16px;">📡 監控來源 — 共 ${Object.values(SOURCES).flat().length} 個</h2>
-    <div class="source-grid">
-      ${Object.entries(SOURCES).map(([cat, items]) => `
-        <div class="source-group">
-          <h3>${cat}</h3>
-          <ul>${items.map(s => `<li><span>${s.n}</span><span class="url">${s.u}</span></li>`).join('')}</ul>
-        </div>
-      `).join('')}
-    </div>`;
+  if (currentView === 'analysis') {
+    app.innerHTML = renderAnalysisView();
     return;
   }
   
-  document.getElementById('datePicker').style.display = (currentView === 'daily') ? 'flex' : 'none';
-  
-  if (currentView === 'daily') {
-    const data = await loadData();
-    app.innerHTML = `
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;">
-        <h2 style="font-size:18px;">📅 今日報告 — ${data ? data.date : 'N/A'}</h2>
-        <span style="font-size:13px;color:var(--muted);">或揀選日期查詢</span>
-      </div>
-      ${renderAlerts(data)}${renderStatCards(data)}
-      <div class="section"><h2>📰 文章</h2>${renderItems(data ? data.items : [])}</div>
-      ${renderRecommendations(data)}${renderTrends(data)}
-    `;
-  } else if (currentView === 'weekly') {
-    const weekly = await loadWeekly();
-    app.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-      <h2 style="font-size:18px;">📆 週報 — ${weekly ? weekly.week : '最新'}</h2></div>
-      ${weekly ? renderStatCards(weekly) + renderItems(weekly.items) + renderRecommendations(weekly) + renderTrends(weekly) : '<div class="empty">📭 週報準備中</div>'}`;
-  } else if (currentView === 'monthly') {
-    const monthly = await loadMonthly();
-    app.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-      <h2 style="font-size:18px;">📊 月報 — ${monthly ? monthly.month : '最新'}</h2></div>
-      ${monthly ? renderStatCards(monthly) + renderItems(monthly.items) + renderRecommendations(monthly) + renderTrends(monthly) : '<div class="empty">📭 月報準備中</div>'}`;
-  } else if (currentView === 'all') {
-    app.innerHTML = `
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-        <h2 style="font-size:18px;">📋 完整記錄</h2>
-        <a href="${SHEET_URL}" target="_blank" style="font-size:13px;color:var(--accent);">📊 打開 Google Sheet →</a>
-      </div>
-      <div class="card">
-        <p>所有 Outback 監控記錄儲存於 Google Sheet</p>
-        <div class="links" style="margin-top:12px;"><a href="${SHEET_URL}" target="_blank">📊 打開 Google Sheet</a></div>
-        <p style="margin-top:16px;font-size:13px;color:var(--muted);">
-          Sheet: 日期 | 時間 | 來源 | 標題 | 摘要 | 連結 | 截圖/備註</p>
-      </div>
-      <div class="section"><h2>📁 資料架構</h2>
-      <div class="card"><pre style="font-size:12px;color:var(--muted);">
-outback-monitoring/
-├── index.html              ← 你而家睇緊嘅頁面
-├── data/
-│   ├── daily-YYYY-MM-DD.json   ← 每日報告
-│   ├── weekly-latest.json      ← 最新週報
-│   └── monthly-latest.json     ← 最新月報
-└── screenshots/               ← 截圖存檔
-      </pre></div></div>`;
+  if (currentView === 'competitors') {
+    app.innerHTML = renderCompetitorsView();
+    return;
   }
+  
+  if (currentView === 'sources') {
+    app.innerHTML = renderSourcesView();
+    return;
+  }
+  
+  if (currentView === 'weekly') {
+    const data = await loadWeekly();
+    if (!data) { app.innerHTML = '<div class="empty">暫無週報數據</div>'; return; }
+    app.innerHTML = getHeader('週報 - ' + (data.week || '最新'), data.items.length) +
+      getStatsGrid(data.items.length,
+        data.items.filter(function(i){return i.sentiment==='positive'}).length,
+        data.items.filter(function(i){return !i.sentiment||i.sentiment==='neutral'}).length,
+        data.items.filter(function(i){return i.sentiment==='negative'}).length) +
+      renderTrends(data) +
+      renderAlerts(data) +
+      renderRecommendations(data) +
+      '<div class="section"><h2>記錄</h2>' + renderItems(data.items) + '</div>';
+    return;
+  }
+  
+  if (currentView === 'monthly') {
+    const data = await loadMonthly();
+    if (!data) { app.innerHTML = '<div class="empty">暫無月報數據</div>'; return; }
+    app.innerHTML = getHeader('月報 - ' + (data.month || '最新'), data.items.length) +
+      getStatsGrid(data.items.length,
+        data.items.filter(function(i){return i.sentiment==='positive'}).length,
+        data.items.filter(function(i){return !i.sentiment||i.sentiment==='neutral'}).length,
+        data.items.filter(function(i){return i.sentiment==='negative'}).length) +
+      renderTrends(data) +
+      renderAlerts(data) +
+      '<div class="section"><h2>記錄</h2>' + renderItems(data.items) + '</div>';
+    return;
+  }
+  
+  if (currentView === 'all') {
+    const data = await loadMonthly();
+    if (!data) { app.innerHTML = '<div class="empty">暫無數據</div>'; return; }
+    const srcCounts = {};
+    data.items.forEach(function(i) { var s = i.source || '其他'; srcCounts[s] = (srcCounts[s] || 0) + 1; });
+    var srcHtml = Object.keys(srcCounts).sort(function(a,b){return srcCounts[b]-srcCounts[a]}).map(function(k) {
+      return '<div style="display:flex;justify-content:space-between;padding:4px 0;font-size:13px;"><span>' + k + '</span><span style="color:var(--muted);">' + srcCounts[k] + '</span></div>';
+    }).join('');
+    
+    app.innerHTML = getHeader('完整記錄 (' + (data.month || '最新') + ')', data.items.length) +
+      getStatsGrid(data.items.length,
+        data.items.filter(function(i){return i.sentiment==='positive'}).length,
+        data.items.filter(function(i){return !i.sentiment||i.sentiment==='neutral'}).length,
+        data.items.filter(function(i){return i.sentiment==='negative'}).length) +
+      '<div class="section"><h2>來源分佈</h2><div class="card">' + srcHtml + '</div></div>' +
+      renderAlerts(data) +
+      renderRecommendations(data) +
+      '<div class="section"><h2>所有記錄</h2>' + renderItems(data.items) + '</div>';
+    return;
+  }
+  
+  // Default: daily
+  const data = await loadData();
+  if (!data) { app.innerHTML = '<div class="empty">暫無今日數據</div>'; return; }
+  const pos = data.items.filter(function(i){return i.sentiment==='positive'}).length;
+  const neg = data.items.filter(function(i){return i.sentiment==='negative'}).length;
+  const neu = data.items.length - pos - neg;
+  const dateLabel = data.date || new Date().toISOString().slice(0,10);
+  app.innerHTML = getHeader('每日報告 - ' + dateLabel, data.items.length) +
+    getStatsGrid(data.items.length, pos, neu, neg) +
+    renderAlerts(data) +
+    renderTrends(data) +
+    '<div class="section"><h2>文章</h2>' + renderItems(data.items) + '</div>';
 }
 
-// Set default date to today
-document.addEventListener('DOMContentLoaded', () => {
-  const today = new Date().toISOString().slice(0,10);
-  document.getElementById('dateInput').value = today;
-  render();
-});
+// Initial load
+render();
 </script>
 </body>
 </html>

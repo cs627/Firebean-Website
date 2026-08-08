@@ -1,0 +1,54 @@
+{
+  "date": "2026-08-06",
+  "items": [
+    {
+      "title": "Outback係咪就嚟收皮？ (thread continues - 8 pages, 41 upvotes)",
+      "source": "LIHKG",
+      "date": "2026-08-06",
+      "link": "https://lihkg.com/search?q=Outback",
+      "summary": "LIHKG飲食台討論Outback是否快將結業，昨日有新回覆。此帖持續有人討論Outback業務前景。Thread: Outback係咪就嚟收皮？(Is Outback closing down?) - negative sentiment, 8 pages, 41 upvotes",
+      "sentiment": "neutral",
+      "platform": "daily",
+      "screenshot": ""
+    },
+    {
+      "title": "做緊outback 你問我答 (AMA thread - 20 pages, active)",
+      "source": "LIHKG",
+      "date": "2026-08-06",
+      "link": "https://lihkg.com/thread/3546083/page/1",
+      "summary": "LIHKG飲食台AMA帖，自稱Outback員工回答網民問題。昨日有新回覆。Thread: Working at Outback, ask me anything. Ongoing AMA.",
+      "sentiment": "neutral",
+      "platform": "daily",
+      "screenshot": ""
+    },
+    {
+      "title": "BMO上調Bloomin’ Brands目標價，看好其穩健執行力",
+      "source": "Investing.com 香港",
+      "date": "2026-08-06",
+      "link": "https://hk.investing.com/news/analyst-ratings/article-93CH-1593427",
+      "summary": "BMO Capital將Outback Steakhouse母公司Bloomin’ Brands (NASDAQ:BLMN)目標股價上調至12.00美元，維持「市場表現」評級。公司2026財年Q2每股盈利0.39美元超預期，主要由旗下品牌Outback Steakhouse帶動（顧客評分提升、銷售組合優化、美國餐廳可比銷售升230點子），並上調全年EPS指引至0.90-1.00美元。",
+      "sentiment": "positive",
+      "platform": "daily",
+      "screenshot": ""
+    },
+    {
+      "title": "Agent G — 每日整合報告",
+      "source": "系統",
+      "date": "2026-08-06",
+      "link": "https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4",
+      "summary": "Outback HK 社交聆聽整合。共3條mention：LIHKG論壇2條（1負面持續帖、1員工AMA帖）、Investing.com HK 1條（母公司財務正面）。低活躍日。",
+      "sentiment": "neutral",
+      "platform": "daily",
+      "screenshot": ""
+    }
+  ],
+  "alerts": [],
+  "recommendations": [],
+  "trends": "8月監控數據：2026-08-06 共 4 條提及，正面 1、中性 3、負面 0。",
+  "stats": {
+    "total": 4,
+    "positive": 1,
+    "neutral": 3,
+    "negative": 0
+  }
+}
