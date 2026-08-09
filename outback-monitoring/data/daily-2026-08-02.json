@@ -2,14 +2,14 @@
   "date": "2026-08-02",
   "items": [
     {
-      "title": "Outback Steakhouse HK - 每日監控啟動",
-      "summary": "此試算表用於每日自動記錄 Outback Steakhouse 香港嘅社交聆聽資料",
+      "title": "Outback Steakhouse HK - 每日監控",
+      "summary": "此試算表用於每日自動記錄 Outback Steakhouse 香港嘅社交聆聽資料。每天朝早 8:00 自動更新。",
       "source": "系統",
       "date": "2026-08-02",
       "time": "8:00",
       "link": "https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4/edit",
       "sentiment": "neutral",
-      "tags": "---"
+      "tags": "一般"
     }
   ],
   "alerts": [],

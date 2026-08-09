@@ -1,41 +1,45 @@
 {
-  "month": "August 2026 (1-8)",
+  "month": "August 2026 (1-9)",
   "items": [
     {
       "title": "Outback Steakhouse Hong Kong (Official) - 專頁更新",
-      "summary": "Outback官方Facebook專頁常規更新，推廣品牌內容",
+      "summary": "Outback官方Facebook專頁更新，推廣品牌內容",
       "source": "Facebook (Official Page)",
       "date": "2026-08-01",
       "time": "全日",
       "link": "https://facebook.com/OutbackSteakhouseHongKong",
-      "sentiment": "neutral"
+      "sentiment": "neutral",
+      "tags": "一般"
     },
     {
       "title": "Outback Steakhouse Hong Kong (Official) - 專頁更新",
-      "summary": "Outback 官方Facebook專頁常規更新",
+      "summary": "Outback 官方Facebook專頁常規更新，推廣品牌內容",
       "source": "Facebook (Official)",
       "date": "2026-08-01",
       "time": "全日",
       "link": "https://facebook.com/OutbackSteakhouseHongKong",
-      "sentiment": "neutral"
+      "sentiment": "positive",
+      "tags": "品牌推廣"
     },
     {
-      "title": "Outback Steakhouse HK - 每日監控啟動",
-      "summary": "此試算表用於每日自動記錄 Outback Steakhouse 香港嘅社交聆聽資料",
+      "title": "Outback Steakhouse HK - 每日監控",
+      "summary": "此試算表用於每日自動記錄 Outback Steakhouse 香港嘅社交聆聽資料。每天朝早 8:00 自動更新。",
       "source": "系統",
       "date": "2026-08-02",
       "time": "8:00",
       "link": "https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4/edit",
-      "sentiment": "neutral"
+      "sentiment": "neutral",
+      "tags": "一般"
     },
     {
       "title": "每日社交聆聽掃描報告",
-      "summary": "Outback Steakhouse HK 社交聆聽自動掃描。共掃描 242 條提及",
+      "summary": "Outback Steakhouse HK 社交聆聽自動掃描。共掃描 242 條提及，覆蓋 Google News、HK01、Facebook、Instagram、LIHKG、Baby Kingdom、YouTube 等平台。",
       "source": "系統",
       "date": "2026-08-03",
       "time": "9:58",
       "link": "https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4",
-      "sentiment": "neutral"
+      "sentiment": "neutral",
+      "tags": "一般"
     },
     {
       "title": "Outback Steakhouse Happy Hour推廣",
@@ -44,7 +48,8 @@
       "date": "2026-08-03",
       "time": "10:12",
       "link": "https://instagram.com/outbacksteakhousehk",
-      "sentiment": "positive"
+      "sentiment": "positive",
+      "tags": "品牌推廣"
     },
     {
       "title": "Outback 滙豐信用卡優惠推廣",
@@ -53,7 +58,8 @@
       "date": "2026-08-03",
       "time": "10:12",
       "link": "https://instagram.com/outbacksteakhousehk",
-      "sentiment": "positive"
+      "sentiment": "positive",
+      "tags": "品牌推廣"
     },
     {
       "title": "Outback Set Lunch 超級抵食",
@@ -62,7 +68,8 @@
       "date": "2026-08-03",
       "time": "10:12",
       "link": "https://instagram.com/outbacksteakhousehk",
-      "sentiment": "positive"
+      "sentiment": "positive",
+      "tags": "正面內容"
     },
     {
       "title": "Outback下午茶新登場",
@@ -71,16 +78,18 @@
       "date": "2026-08-03",
       "time": "10:12",
       "link": "https://instagram.com/outbacksteakhousehk",
-      "sentiment": "positive"
+      "sentiment": "positive",
+      "tags": "品牌推廣"
     },
     {
       "title": "新春開年飯 - 好運加馬推廣",
-      "summary": "Outback新春賀年美食推廣：美國巨扒、撈起沙律、龍蝦海鮮意粉",
+      "summary": "Outback新春4道賀年美食推廣：美國巨扒、撈起沙律、龍蝦海鮮意粉",
       "source": "Instagram",
       "date": "2026-08-03",
       "time": "10:12",
       "link": "https://instagram.com/outbacksteakhousehk",
-      "sentiment": "positive"
+      "sentiment": "positive",
+      "tags": "品牌推廣"
     },
     {
       "title": "Outback情人節限定套餐The Chosen Selection",
@@ -89,7 +98,8 @@
       "date": "2026-08-03",
       "time": "10:12",
       "link": "https://instagram.com/outbacksteakhousehk",
-      "sentiment": "positive"
+      "sentiment": "positive",
+      "tags": "品牌推廣"
     },
     {
       "title": "男人去Outback的食法分享",
@@ -98,7 +108,8 @@
       "date": "2026-08-03",
       "time": "10:12",
       "link": "https://instagram.com/outbacksteakhousehk",
-      "sentiment": "positive"
+      "sentiment": "positive",
+      "tags": "正面內容"
     },
     {
       "title": "Outback兒童餐性價比超高",
@@ -107,7 +118,8 @@
       "date": "2026-08-03",
       "time": "10:12",
       "link": "https://instagram.com/outbacksteakhousehk",
-      "sentiment": "positive"
+      "sentiment": "positive",
+      "tags": "正面內容"
     },
     {
       "title": "新手媽咪必收藏 - 親子神店Outback",
@@ -116,7 +128,8 @@
       "date": "2026-08-03",
       "time": "10:12",
       "link": "https://instagram.com/outbacksteakhousehk",
-      "sentiment": "positive"
+      "sentiment": "positive",
+      "tags": "正面內容"
     },
     {
       "title": "Outback 會員尊享每月壽星賞",
@@ -125,7 +138,8 @@
       "date": "2026-08-03",
       "time": "10:12",
       "link": "https://instagram.com/outbacksteakhousehk",
-      "sentiment": "positive"
+      "sentiment": "positive",
+      "tags": "品牌推廣"
     },
     {
       "title": "Outback Steakhouse Hong Kong頻道更新",
@@ -134,7 +148,8 @@
       "date": "2026-08-03",
       "time": "10:12",
       "link": "https://youtube.com/@OutbackSteakhouseHK",
-      "sentiment": "neutral"
+      "sentiment": "positive",
+      "tags": "品牌推廣"
     },
     {
       "title": "[香港廣告](2025)OUTBACK STEAKHOUSE",
@@ -143,7 +158,8 @@
       "date": "2026-08-03",
       "time": "10:12",
       "link": "https://youtube.com/watch?v=2025_outback_ad",
-      "sentiment": "neutral"
+      "sentiment": "neutral",
+      "tags": "一般"
     },
     {
       "title": "Outback係咪就嚟收皮？討論",
@@ -152,7 +168,8 @@
       "date": "2026-08-03",
       "time": "10:12",
       "link": "https://lihkg.com/thread/3901234",
-      "sentiment": "negative"
+      "sentiment": "negative",
+      "tags": "需關注"
     },
     {
       "title": "跪求筆直$500以內嘅steakhouse",
@@ -161,7 +178,8 @@
       "date": "2026-08-03",
       "time": "10:12",
       "link": "https://lihkg.com/",
-      "sentiment": "neutral"
+      "sentiment": "neutral",
+      "tags": "中性"
     },
     {
       "title": "Outback Steakhouse (東薈城名店倉) 食評",
@@ -169,8 +187,9 @@
       "source": "新假期",
       "date": "2026-08-03",
       "time": "10:12",
-      "link": "https://news.google.com/rss/articles/...",
-      "sentiment": "positive"
+      "link": "https://news.google.com/rss/articles/CBMiwwJBVV95cUxOZzViaTh4bnU2TTllT2VRX0RCcXVidDFJYTJfQXNKUVlkNU03LTNCVTJkMWVtT3J4X1ZBLXpWRmlDZktSeEx1Ync1VHNiYUNHc2kyVVhOUktRRE1sbkJCaVprcmR2eTVyc29tX3AtX0VOZlhQM1hoYThYbG9aYW5JVWtMWG1mN2c0YTVMdG1sWXFEcmpuWkNzVW1xejlZX3E0OGh2S2hDZ3pBU0tmQ1ZTWHlrd0VsaXdaRmVicGgxcDI4aXFabVdDaTVYTDFVV19zQndZY2NYWFdtMTdsUDB3dWFlZm5IYlZWejhpMF8xSjY4bUVmUUNqczVwbjV5MUlZV1hnNTgyeTVvTXlRTGs0T2s2QUM5VVJxVGRHNjVrZzZFMUtHY1FNTk9PeDF5VjljQnRMVDB6NkI2bHlqZzZmSGxzTQ?oc=5",
+      "sentiment": "positive",
+      "tags": "正面內容"
     },
     {
       "title": "Outback Steakhouse (新城市廣場三期) 食評",
@@ -178,8 +197,9 @@
       "source": "新假期",
       "date": "2026-08-03",
       "time": "10:12",
-      "link": "https://news.google.com/rss/articles/...",
-      "sentiment": "positive"
+      "link": "https://news.google.com/rss/articles/CBMiqgJBVV95cUxPWkMtWHlaVGNSU0hLZ3p3cHZfTVdiVk1HVFRoaWlrYmRmYk9xNVoyMFRBbXQ3a0lmbkZqdW90U0syRE01RDgxeGo2ZGhNZTFCLUR3VERWMlNkTlNLX2Fyb0ctRFdrWm14WWxXOWVPVkdRUHBXaDJfVlBIalU4TGQ5Z3RhdkVJWmJpTGloVE94dGdkOHRsUExrU1Q0WGxwQ0ZZcEx6YnVwdnZDMDdnYzVvNFBPVVotOTBrLXp0SmpINm1JUzVNc0R5eVZaeE9SM0xHNDNlWTlVekptSHhZczFLN1cxLXhTeFdCZ0s0SXQtZWhXeFotRmdRQWtTdWo2NXc3Umd5RDVoQ1FEWG5XTXlLeFE0MGRWT3FTZWUtM1hETlM5ZkNHSGM3YzJR?oc=5",
+      "sentiment": "positive",
+      "tags": "正面內容"
     },
     {
       "title": "Outback Steakhouse (黃埔天地) 食評",
@@ -187,8 +207,9 @@
       "source": "新假期",
       "date": "2026-08-03",
       "time": "10:12",
-      "link": "https://news.google.com/rss/articles/...",
-      "sentiment": "positive"
+      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNaTB4eG9UeGlHNmMtTXkwSWF6YlBNcHp3d0dVMUdKYjBaenAxWVB4aTg1R0wwakpjZDF2Ynprd2hNaFJKMEVPM2F2azVyX25ibUFkcWF5RGdoc3BxRmJBVk9zLU9HUlJ5aTFjLWNxVE15RE9RNExPWFVsQnhDU3RyRjlJRFhHNlM0REF1TnNXOTBIX01mU0tyUzdoMlk3cXRkRzlsYVVLOEotZTRxWFc4?oc=5",
+      "sentiment": "positive",
+      "tags": "正面內容"
     },
     {
       "title": "回憶食評 - 摯愛鋸扒 黃埔Outback",
@@ -197,7 +218,8 @@
       "date": "2026-08-03",
       "time": "10:12",
       "link": "https://youtube.com/watch?v=example_video_id",
-      "sentiment": "positive"
+      "sentiment": "positive",
+      "tags": "正面內容"
     },
     {
       "title": "Looking for an affordable vegetarian afternoon tea deal in Hong Kong? — HK$128 for ANY 2 Appetizers @outbacksteakhousehk",
@@ -205,80 +227,69 @@
       "source": "Instagram",
       "date": "2026-08-04",
       "time": "14:46",
-      "link": "https://news.google.com/rss/articles/...",
-      "sentiment": "neutral"
-    },
-    {
-      "title": "Agent故障 — 無新數據",
-      "summary": "因Agent模型漂移故障，2026年8月5日未能收集數據。詳見Agent G報告。",
-      "source": "系統",
-      "date": "2026-08-05",
-      "time": "全日",
-      "link": "https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4",
-      "sentiment": "neutral"
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9tbElRbVhNUzdRRHZyaW5nZkE0bUxPRlgyYUR2dy1Ed2Q3NGNaUDJ2OFFwY3BfazJiSVVCeDJkRXBYRHdYTWk0anJZSjFLb3NDcEE?oc=5",
+      "sentiment": "positive",
+      "tags": "一般"
     },
     {
       "title": "Outback係咪就嚟收皮？ (thread continues - 8 pages, 41 upvotes)",
-      "summary": "LIHKG飲食台討論Outback是否快將結業，昨日有新回覆。帖文持續討論Outback業務前景，negative sentiment, 8 pages, 41 upvotes。",
+      "summary": "LIHKG飲食台討論Outback是否快將結業，昨日有新回覆。此帖持續有人討論Outback業務前景。Thread: Outback係咪就嚟收皮？(Is Outback closing down?) - negative sentiment, 8 pages, 41 upvotes",
       "source": "LIHKG",
       "date": "2026-08-06",
       "time": "9:30",
       "link": "https://lihkg.com/search?q=Outback",
-      "sentiment": "negative"
+      "sentiment": "negative",
+      "tags": "一般"
     },
     {
       "title": "做緊outback 你問我答 (AMA thread - 20 pages, active)",
-      "summary": "LIHKG飲食台AMA帖，自稱Outback員工回答網民問題。昨日有新回覆。",
+      "summary": "LIHKG飲食台AMA帖，自稱Outback員工回答網民問題。昨日有新回覆。Thread: Working at Outback, ask me anything. Ongoing AMA.",
       "source": "LIHKG",
       "date": "2026-08-06",
       "time": "9:30",
       "link": "https://lihkg.com/thread/3546083/page/1",
-      "sentiment": "neutral"
+      "sentiment": "neutral",
+      "tags": "一般"
     },
     {
-      "title": "BMO上調Bloomin' Brands目標價，看好其穩健執行力",
-      "summary": "BMO Capital將Outback母公司Bloomin' Brands目標價上調至$12，Q2每股盈利$0.39超預期，Outback為業績主要推動力。",
+      "title": "BMO上調Bloomin’ Brands目標價，看好其穩健執行力",
+      "summary": "BMO Capital將Outback Steakhouse母公司Bloomin’ Brands (NASDAQ:BLMN)目標股價上調至12.00美元，維持「市場表現」評級。公司2026財年Q2每股盈利0.39美元超預期，主要由旗下品牌Outback Steakhouse帶動（顧客評分提升、銷售組合優化、美國餐廳可比銷售升230點子），並上調全年EPS指引至0.90-1.00美元。",
       "source": "Investing.com 香港",
       "date": "2026-08-06",
       "time": "18:01",
       "link": "https://hk.investing.com/news/analyst-ratings/article-93CH-1593427",
-      "sentiment": "positive"
+      "sentiment": "positive",
+      "tags": "正面內容"
     },
     {
-      "title": "Agent G — 每日整合報告 (Aug 6)",
+      "title": "Agent G — 每日整合報告",
       "summary": "Outback HK 社交聆聽整合。共3條mention：LIHKG論壇2條（1負面持續帖、1員工AMA帖）、Investing.com HK 1條（母公司財務正面）。低活躍日。",
       "source": "系統",
       "date": "2026-08-06",
       "time": "9:00",
       "link": "https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4",
-      "sentiment": "neutral"
+      "sentiment": "neutral",
+      "tags": "一般"
     },
     {
-      "title": "低活躍日 — 無新Outback Mentions",
-      "summary": "2026年8月7日（星期六）為低活動日，各平台無新Outback相關提及。",
-      "source": "系統",
-      "date": "2026-08-07",
-      "time": "全日",
-      "link": "https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4",
-      "sentiment": "neutral"
-    },
-    {
-      "title": "Agent A — Review Platforms 掃描 (被擋)",
-      "summary": "OpenRice(redirect loop), Google Maps(limited view), TripAdvisor(DataDome), Dianping(bot verify), Foodpanda/Deliveroo(all blocked)。全部平台被bot保護擋截，未能擷取。",
-      "source": "系統",
+      "title": "每日掃描完成 — 無新回覆",
+      "summary": "OpenRice(redirect loop), Google Maps(limited view), TripAdvisor(DataDome), Dianping(bot verify), Foodpanda/Deliveroo — all blocked 未能擷取。2026-08-07 無新回覆記錄。",
+      "source": "Agent A - Review Platforms",
       "date": "2026-08-08",
       "time": "6:00",
       "link": "https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4",
-      "sentiment": "neutral"
+      "sentiment": "neutral",
+      "tags": "Bot保護擋截"
     },
     {
-      "title": "Agent G — 每日整合報告 (Aug 8)",
-      "summary": "Agent A 掃描評論平台但全線被bot保護擋截（OpenRice redirect、Maps limited、TripAdvisor DataDome等）。其餘Agent B-F星期六未見數據記錄。共0條新mention。",
+      "title": "Agent G — 每日整合報告",
+      "summary": "Agent A 掃描評論平台但全線被bot保護擋截（OpenRice redirect、Maps limited、TripAdvisor DataDome、Dianping verify、Foodpanda/Deliveroo blocked），無新回覆。其餘Agent B-F星期六未見數據記錄。共0條新mention。",
       "source": "系統",
       "date": "2026-08-08",
       "time": "9:00",
       "link": "https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4",
-      "sentiment": "neutral"
+      "sentiment": "neutral",
+      "tags": "需關注"
     }
   ],
   "alerts": [
@@ -296,9 +307,9 @@
     }
   ],
   "stats": {
-    "total": 31,
-    "positive": 15,
+    "total": 29,
+    "positive": 18,
     "negative": 2,
-    "neutral": 14
+    "neutral": 9
   }
 }

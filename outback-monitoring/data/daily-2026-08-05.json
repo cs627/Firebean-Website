@@ -1,17 +1,6 @@
 {
   "date": "2026-08-05",
-  "items": [
-    {
-      "title": "Agent故障 — 無新數據",
-      "summary": "因Agent模型漂移故障，2026年8月5日未能收集數據。詳見Agent G報告。",
-      "source": "系統",
-      "date": "2026-08-05",
-      "time": "全日",
-      "link": "https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4",
-      "sentiment": "neutral",
-      "tags": "系統"
-    }
-  ],
+  "items": [],
   "alerts": [],
-  "summary": "2026-08-05 — 1 條mention (正面:0 中性:1 負面:0)"
+  "summary": "2026-08-05 — 0 條mention (正面:0 中性:0 負面:0)"
 }
