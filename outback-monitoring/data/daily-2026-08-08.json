@@ -1,0 +1,27 @@
+{
+  "date": "2026-08-08",
+  "items": [
+    {
+      "title": "Agent A — Review Platforms 掃描 (被擋)",
+      "summary": "OpenRice(redirect loop), Google Maps(limited view), TripAdvisor(DataDome), Dianping(bot verify), Foodpanda/Deliveroo(all blocked)。全部平台被bot保護擋截，未能擷取。",
+      "source": "系統",
+      "date": "2026-08-08",
+      "time": "6:00",
+      "link": "https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4",
+      "sentiment": "neutral",
+      "tags": "Bot保護擋截，需確認代理方案"
+    },
+    {
+      "title": "Agent G — 每日整合報告 (Aug 8)",
+      "summary": "Agent A 掃描評論平台但全線被bot保護擋截（OpenRice redirect、Maps limited、TripAdvisor DataDome等）。其餘Agent B-F星期六未見數據記錄。共0條新mention。",
+      "source": "系統",
+      "date": "2026-08-08",
+      "time": "9:00",
+      "link": "https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4",
+      "sentiment": "neutral",
+      "tags": "星期六低活動日"
+    }
+  ],
+  "alerts": [],
+  "summary": "2026-08-08 — 2 條mention (正面:0 中性:2 負面:0)"
+}

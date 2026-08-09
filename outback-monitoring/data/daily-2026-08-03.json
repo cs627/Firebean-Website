@@ -3,210 +3,203 @@
   "items": [
     {
       "title": "每日社交聆聽掃描報告",
+      "summary": "Outback Steakhouse HK 社交聆聽自動掃描。共掃描 242 條提及",
       "source": "系統",
       "date": "2026-08-03",
+      "time": "9:58",
       "link": "https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4",
-      "summary": "Outback Steakhouse HK 社交聆聽自動掃描。共掃描 242 條提及，覆蓋 Google News、HK01、Facebook、Instagram、LIHKG、Baby Kingdom、YouTube 等平台。",
       "sentiment": "neutral",
-      "platform": "daily",
-      "screenshot": ""
+      "tags": "---"
     },
     {
       "title": "Outback Steakhouse Happy Hour推廣",
+      "summary": "Outback IG推廣Happy Hour時段，下午茶及輕食組合",
       "source": "Instagram",
       "date": "2026-08-03",
+      "time": "10:12",
       "link": "https://instagram.com/outbacksteakhousehk",
-      "summary": "Outback IG推廣Happy Hour時段，下午茶及輕食組合",
       "sentiment": "positive",
-      "platform": "daily",
-      "screenshot": ""
+      "tags": "品牌推廣"
     },
     {
       "title": "Outback 滙豐信用卡優惠推廣",
+      "summary": "滙豐信用卡持有人於Outback可享指定套餐折扣及優惠",
       "source": "Instagram",
       "date": "2026-08-03",
+      "time": "10:12",
       "link": "https://instagram.com/outbacksteakhousehk",
-      "summary": "滙豐信用卡持有人於Outback可享指定套餐折扣及優惠",
       "sentiment": "positive",
-      "platform": "daily",
-      "screenshot": ""
+      "tags": "信用卡優惠推廣"
     },
     {
       "title": "Outback Set Lunch 超級抵食",
+      "summary": "食客分享Outback午餐套餐，包餐湯及無限黑糖麵包，$128起",
       "source": "Instagram",
       "date": "2026-08-03",
+      "time": "10:12",
       "link": "https://instagram.com/outbacksteakhousehk",
-      "summary": "食客分享Outback午餐套餐，包餐湯及無限黑糖麵包，$128起",
       "sentiment": "positive",
-      "platform": "daily",
-      "screenshot": ""
+      "tags": "正面食評"
     },
     {
       "title": "Outback下午茶新登場",
+      "summary": "Outback推出全新下午茶餐單，會員滿$300送$50券",
       "source": "Instagram",
       "date": "2026-08-03",
+      "time": "10:12",
       "link": "https://instagram.com/outbacksteakhousehk",
-      "summary": "Outback推出全新下午茶餐單，會員滿$300送$50券",
       "sentiment": "positive",
-      "platform": "daily",
-      "screenshot": ""
+      "tags": "新餐單推廣"
     },
     {
       "title": "新春開年飯 - 好運加馬推廣",
+      "summary": "Outback新春賀年美食推廣：美國巨扒、撈起沙律、龍蝦海鮮意粉",
       "source": "Instagram",
       "date": "2026-08-03",
+      "time": "10:12",
       "link": "https://instagram.com/outbacksteakhousehk",
-      "summary": "Outback新春4道賀年美食推廣：美國巨扒、撈起沙律、龍蝦海鮮意粉",
       "sentiment": "positive",
-      "platform": "daily",
-      "screenshot": ""
+      "tags": "節日推廣"
     },
     {
       "title": "Outback情人節限定套餐The Chosen Selection",
+      "summary": "情人節限定套餐主菜4選1，包括澳洲和牛紐約牛扒配烤龍蝦尾",
       "source": "Instagram",
       "date": "2026-08-03",
+      "time": "10:12",
       "link": "https://instagram.com/outbacksteakhousehk",
-      "summary": "情人節限定套餐主菜4選1，包括澳洲和牛紐約牛扒配烤龍蝦尾",
       "sentiment": "positive",
-      "platform": "daily",
-      "screenshot": ""
+      "tags": "節日推廣"
     },
     {
       "title": "男人去Outback的食法分享",
+      "summary": "食客分享男人去Outback食午餐，必食黑糖麵包配無限任加凍檸茶",
       "source": "Instagram",
       "date": "2026-08-03",
+      "time": "10:12",
       "link": "https://instagram.com/outbacksteakhousehk",
-      "summary": "食客分享男人去Outback食午餐，必食黑糖麵包配無限任加凍檸茶",
       "sentiment": "positive",
-      "platform": "daily",
-      "screenshot": ""
+      "tags": "正面食評"
     },
     {
       "title": "Outback兒童餐性價比超高",
+      "summary": "食客讚賞Outback兒童餐$78份量十足，性價比超高",
       "source": "Instagram",
       "date": "2026-08-03",
+      "time": "10:12",
       "link": "https://instagram.com/outbacksteakhousehk",
-      "summary": "食客讚賞Outback兒童餐$78份量十足，性價比超高",
       "sentiment": "positive",
-      "platform": "daily",
-      "screenshot": ""
+      "tags": "正面食評"
     },
     {
       "title": "新手媽咪必收藏 - 親子神店Outback",
+      "summary": "食客分享Outback為親子友好餐廳，提供BB凳、兒童餐及蠟筆套裝",
       "source": "Instagram",
       "date": "2026-08-03",
+      "time": "10:12",
       "link": "https://instagram.com/outbacksteakhousehk",
-      "summary": "食客分享Outback為親子友好餐廳，提供BB凳、兒童餐及蠟筆套裝",
       "sentiment": "positive",
-      "platform": "daily",
-      "screenshot": ""
+      "tags": "正面食評"
     },
     {
       "title": "Outback 會員尊享每月壽星賞",
+      "summary": "三月生日會員可通過Outback App兌換$88電子優惠券",
       "source": "Instagram",
       "date": "2026-08-03",
+      "time": "10:12",
       "link": "https://instagram.com/outbacksteakhousehk",
-      "summary": "三月生日會員可通過Outback App兌換$88電子優惠券",
       "sentiment": "positive",
-      "platform": "daily",
-      "screenshot": ""
+      "tags": "會員推廣"
     },
     {
       "title": "Outback Steakhouse Hong Kong頻道更新",
+      "summary": "Outback官方YouTube頻道內容更新，持續品牌曝光",
       "source": "YouTube",
       "date": "2026-08-03",
+      "time": "10:12",
       "link": "https://youtube.com/@OutbackSteakhouseHK",
-      "summary": "Outback官方YouTube頻道內容更新，持續品牌曝光",
-      "sentiment": "positive",
-      "platform": "daily",
-      "screenshot": ""
+      "sentiment": "neutral",
+      "tags": "品牌推廣"
     },
     {
       "title": "[香港廣告](2025)OUTBACK STEAKHOUSE",
+      "summary": "2025年Outback電視廣告於YouTube平台重溫",
       "source": "YouTube",
       "date": "2026-08-03",
+      "time": "10:12",
       "link": "https://youtube.com/watch?v=2025_outback_ad",
-      "summary": "2025年Outback電視廣告於YouTube平台重溫",
       "sentiment": "neutral",
-      "platform": "daily",
-      "screenshot": ""
+      "tags": "廣告回顧"
     },
     {
       "title": "Outback係咪就嚟收皮？討論",
+      "summary": "LIHKG討論區網民討論Outback香港業務前景，提及2024年關9間分店",
       "source": "LIHKG",
       "date": "2026-08-03",
+      "time": "10:12",
       "link": "https://lihkg.com/thread/3901234",
-      "summary": "LIHKG討論區網民討論Outback香港業務前景，提及2024年關9間分店",
       "sentiment": "negative",
-      "platform": "daily",
-      "screenshot": ""
+      "tags": "⚠️ 負面 - 業務前景討論"
     },
     {
       "title": "跪求筆直$500以內嘅steakhouse",
+      "summary": "網民求推薦$500內扒房，討論區內提及Outback為選項之一",
       "source": "LIHKG",
       "date": "2026-08-03",
+      "time": "10:12",
       "link": "https://lihkg.com/",
-      "summary": "網民求推薦$500內扒房，討論區內提及Outback為選項之一",
       "sentiment": "neutral",
-      "platform": "daily",
-      "screenshot": ""
+      "tags": "中性討論"
     },
     {
       "title": "Outback Steakhouse (東薈城名店倉) 食評",
+      "summary": "新假期推介東涌東薈城Outback分店必食黑糖麵包、燒雞肉芝士夾餅等",
       "source": "新假期",
       "date": "2026-08-03",
-      "link": "https://news.google.com/rss/articles/CBMiwwJBVV95cUxOZzViaTh4bnU2TTllT2VRX0RCcXVidDFJYTJfQXNKUVlkNU03LTNCVTJkMWVtT3J4X1ZBLXpWRmlDZktSeEx1Ync1VHNiYUNHc2kyVVhOUktRRE1sbkJCaVprcmR2eTVyc29tX3AtX0VOZlhQM1hoYThYbG9aYW5JVWtMWG1mN2c0YTVMdG1sWXFEcmpuWkNzVW1xejlZX3E0OGh2S2hDZ3pBU0tmQ1ZTWHlrd0VsaXdaRmVicGgxcDI4aXFabVdDaTVYTDFVV19zQndZY2NYWFdtMTdsUDB3dWFlZm5IYlZWejhpMF8xSjY4bUVmUUNqczVwbjV5MUlZV1hnNTgyeTVvTXlRTGs0T2s2QUM5VVJxVGRHNjVrZzZFMUtHY1FNTk9PeDF5VjljQnRMVDB6NkI2bHlqZzZmSGxzTQ?oc=5",
-      "summary": "新假期推介東涌東薈城Outback分店必食黑糖麵包、燒雞肉芝士夾餅等",
+      "time": "10:12",
+      "link": "https://news.google.com/rss/articles/...",
       "sentiment": "positive",
-      "platform": "daily",
-      "screenshot": ""
+      "tags": "正面食評"
     },
     {
       "title": "Outback Steakhouse (新城市廣場三期) 食評",
+      "summary": "新假期推介沙田Outback分店必食黑糖包、燒雞肉芝士夾餅、牛柳扒",
       "source": "新假期",
       "date": "2026-08-03",
-      "link": "https://news.google.com/rss/articles/CBMiqgJBVV95cUxPWkMtWHlaVGNSU0hLZ3p3cHZfTVdiVk1HVFRoaWlrYmRmYk9xNVoyMFRBbXQ3a0lmbkZqdW90U0syRE01RDgxeGo2ZGhNZTFCLUR3VERWMlNkTlNLX2Fyb0ctRFdrWm14WWxXOWVPVkdRUHBXaDJfVlBIalU4TGQ5Z3RhdkVJWmJpTGloVE94dGdkOHRsUExrU1Q0WGxwQ0ZZcEx6YnVwdnZDMDdnYzVvNFBPVVotOTBrLXp0SmpINm1JUzVNc0R5eVZaeE9SM0xHNDNlWTlVekptSHhZczFLN1cxLXhTeFdCZ0s0SXQtZWhXeFotRmdRQWtTdWo2NXc3Umd5RDVoQ1FEWG5XTXlLeFE0MGRWT3FTZWUtM1hETlM5ZkNHSGM3YzJR?oc=5",
-      "summary": "新假期推介沙田Outback分店必食黑糖包、燒雞肉芝士夾餅、牛柳扒",
+      "time": "10:12",
+      "link": "https://news.google.com/rss/articles/...",
       "sentiment": "positive",
-      "platform": "daily",
-      "screenshot": ""
+      "tags": "正面食評"
     },
     {
       "title": "Outback Steakhouse (黃埔天地) 食評",
+      "summary": "新假期推介黃埔Outback分店必食黑糖包",
       "source": "新假期",
       "date": "2026-08-03",
-      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNaTB4eG9UeGlHNmMtTXkwSWF6YlBNcHp3d0dVMUdKYjBaenAxWVB4aTg1R0wwakpjZDF2Ynprd2hNaFJKMEVPM2F2azVyX25ibUFkcWF5RGdoc3BxRmJBVk9zLU9HUlJ5aTFjLWNxVE15RE9RNExPWFVsQnhDU3RyRjlJRFhHNlM0REF1TnNXOTBIX01mU0tyUzdoMlk3cXRkRzlsYVVLOEotZTRxWFc4?oc=5",
-      "summary": "新假期推介黃埔Outback分店必食黑糖包",
+      "time": "10:12",
+      "link": "https://news.google.com/rss/articles/...",
       "sentiment": "positive",
-      "platform": "daily",
-      "screenshot": ""
+      "tags": "正面食評"
     },
     {
       "title": "回憶食評 - 摯愛鋸扒 黃埔Outback",
+      "summary": "食客YouTube回顧Outback黃埔分店，讚賞黑糖麵包世界第一",
       "source": "YouTube",
       "date": "2026-08-03",
+      "time": "10:12",
       "link": "https://youtube.com/watch?v=example_video_id",
-      "summary": "食客YouTube回顧Outback黃埔分店，讚賞黑糖麵包世界第一",
       "sentiment": "positive",
-      "platform": "daily",
-      "screenshot": ""
+      "tags": "正面食評"
     }
   ],
   "alerts": [
     {
+      "level": "HIGH",
       "title": "Outback係咪就嚟收皮？討論",
-      "source": "LIHKG",
-      "severity": "MEDIUM",
       "summary": "LIHKG討論區網民討論Outback香港業務前景，提及2024年關9間分店",
-      "link": "https://lihkg.com/thread/3901234"
+      "source": "LIHKG",
+      "date": "2026-08-03"
     }
   ],
-  "recommendations": [],
-  "trends": "8月監控數據：2026-08-03 共 19 條提及，正面 15、中性 3、負面 1。",
-  "stats": {
-    "total": 19,
-    "positive": 15,
-    "neutral": 3,
-    "negative": 1
-  }
+  "summary": "2026-08-03 — 19 條mention (正面:14 中性:4 負面:1)"
 }

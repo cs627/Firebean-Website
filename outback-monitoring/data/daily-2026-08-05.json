@@ -1,1 +1,17 @@
-{"date":"2026-08-05","items":[{"title":"Sample Outback Report","source":"System","date":"2026-08-05","link":"https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4","summary":"監控系統已啟動，每日報告將自動更新","sentiment":"neutral","platform":"daily"}],"alerts":[],"recommendations":["監控團隊已就緒，聽朝 06:00 開始掃描"],"trends":"系統初始化中"}
+{
+  "date": "2026-08-05",
+  "items": [
+    {
+      "title": "Agent故障 — 無新數據",
+      "summary": "因Agent模型漂移故障，2026年8月5日未能收集數據。詳見Agent G報告。",
+      "source": "系統",
+      "date": "2026-08-05",
+      "time": "全日",
+      "link": "https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4",
+      "sentiment": "neutral",
+      "tags": "系統"
+    }
+  ],
+  "alerts": [],
+  "summary": "2026-08-05 — 1 條mention (正面:0 中性:1 負面:0)"
+}
