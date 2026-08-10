@@ -9,7 +9,7 @@
       "time": "6:00",
       "link": "https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4",
       "sentiment": "neutral",
-      "tags": "Bot保護擋截"
+      "tags": "Bot保護擋截所有平台，需確認代理或Browserbase方"
     },
     {
       "title": "Agent G — 每日整合報告",
@@ -25,8 +25,8 @@
   "alerts": [
     {
       "level": "LOW",
-      "title": "Agent A被Review平台Bot保護擋截",
-      "summary": "OpenRice、Google Maps、TripAdvisor、Dianping等平台全線被bot保護擋截，需確認代理方案。",
+      "title": "Agent G — 每日整合報告",
+      "summary": "Agent A 掃描評論平台但全線被bot保護擋截（OpenRice redirect、Maps limited、TripAdvisor DataDome、Dianping verify、Foodpanda/Deliveroo blocked），無新回覆。其餘Agent B-F星期六未見數據記錄。共0條新mention。",
       "source": "系統"
     }
   ],

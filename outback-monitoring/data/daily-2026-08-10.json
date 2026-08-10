@@ -1,0 +1,108 @@
+{
+  "date": "2026-08-10",
+  "items": [
+    {
+      "title": "Google Trends: 牛扒餐廳 香港 search interest spike",
+      "summary": "steakhouse 香港 search interest spiked to 100 (Aug 2) and 94 (Jul 26) in past 12 months. Outback steakhouse HK search = 0 flat. Opportunity: Outback should capitalize on rising steakhouse search interest.",
+      "source": "Competitor",
+      "date": "2026-08-10",
+      "time": "8:09",
+      "link": "https://trends.google.com/trends/explore?q=steakhouse%20%E9%A6%99%E6%B8%AF&geo=HK",
+      "sentiment": "neutral",
+      "tags": "需關注"
+    },
+    {
+      "title": "Google Trends: Outback HK = 0 search interest",
+      "summary": "Outback HK search interest remains flat at 0 over 12 months. Dan Ryans HK also 0. Overall steakhouse category has seasonal spikes but Outback brand is not capturing search traffic.",
+      "source": "Competitor",
+      "date": "2026-08-10",
+      "time": "8:09",
+      "link": "https://trends.google.com/trends/explore?q=Outback%20steakhouse%20HK,Dan%20Ryans%20HK&geo=HK",
+      "sentiment": "neutral",
+      "tags": "需關注"
+    },
+    {
+      "title": "TGI Fridays HK — current status",
+      "summary": "TGI Fridays HK appears to have limited online presence. Official website tgifridays.com.hk not resolving. Global brand restructuring may affect HK operations.",
+      "source": "Competitor",
+      "date": "2026-08-10",
+      "time": "8:09",
+      "link": "https://www.tgifridays.com.hk/",
+      "sentiment": "neutral",
+      "tags": "需關注"
+    },
+    {
+      "title": "Dan Ryan's HK — current status",
+      "summary": "Dan Ryan's Chicago Grill HK presence unclear. Website danryans.com.hk not resolving. No recent HK news found. May have reduced HK operations.",
+      "source": "Competitor",
+      "date": "2026-08-10",
+      "time": "8:09",
+      "link": "https://www.danryans.com.hk/",
+      "sentiment": "neutral",
+      "tags": "需關注"
+    },
+    {
+      "title": "Beef & Liberty HK — current status",
+      "summary": "Beef & Liberty has multiple HK locations. Website beefandliberty.com.hk not resolving from this server. Known for craft burgers and steaks in Wan Chai and Stanley.",
+      "source": "Competitor",
+      "date": "2026-08-10",
+      "time": "8:09",
+      "link": "https://www.beefandliberty.com.hk/",
+      "sentiment": "neutral",
+      "tags": "競爭對手"
+    },
+    {
+      "title": "Wooloomooloo Steakhouse HK — current status",
+      "summary": "Wooloomooloo is an Australian steakhouse in Wan Chai. Website not resolving. Known competitor in the premium steakhouse segment.",
+      "source": "Competitor",
+      "date": "2026-08-10",
+      "time": "8:09",
+      "link": "https://www.wooloomooloo.com.hk/",
+      "sentiment": "neutral",
+      "tags": "競爭對手"
+    },
+    {
+      "title": "Weekly Competitor Summary — Week of Aug 10",
+      "summary": "KEY FINDINGS: (1) steakhouse 香港 search interest spiking — opportunity for Outback SEO/SEM. (2) Multiple competitor websites not resolving (TGI Fridays, Dan Ryan's) — possible HK market exit or reduced operations. (3) Outback brand search near zero — needs awareness campaign. (4) No new competitor promotions or menu launches detected this week. (5) Recommendation: Invest in Google search ads for \"steakhouse 香港\" to capture rising demand.",
+      "source": "Competitor",
+      "date": "2026-08-10",
+      "time": "8:09",
+      "link": "https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4",
+      "sentiment": "neutral",
+      "tags": "需關注"
+    }
+  ],
+  "alerts": [
+    {
+      "level": "LOW",
+      "title": "Google Trends: 牛扒餐廳 香港 search interest spike",
+      "summary": "steakhouse 香港 search interest spiked to 100 (Aug 2) and 94 (Jul 26) in past 12 months. Outback steakhouse HK search = 0 flat. Opportunity: Outback should capitalize on rising steakhouse search interest.",
+      "source": "Competitor"
+    },
+    {
+      "level": "LOW",
+      "title": "Google Trends: Outback HK = 0 search interest",
+      "summary": "Outback HK search interest remains flat at 0 over 12 months. Dan Ryans HK also 0. Overall steakhouse category has seasonal spikes but Outback brand is not capturing search traffic.",
+      "source": "Competitor"
+    },
+    {
+      "level": "LOW",
+      "title": "TGI Fridays HK — current status",
+      "summary": "TGI Fridays HK appears to have limited online presence. Official website tgifridays.com.hk not resolving. Global brand restructuring may affect HK operations.",
+      "source": "Competitor"
+    },
+    {
+      "level": "LOW",
+      "title": "Dan Ryan's HK — current status",
+      "summary": "Dan Ryan's Chicago Grill HK presence unclear. Website danryans.com.hk not resolving. No recent HK news found. May have reduced HK operations.",
+      "source": "Competitor"
+    },
+    {
+      "level": "LOW",
+      "title": "Weekly Competitor Summary — Week of Aug 10",
+      "summary": "KEY FINDINGS: (1) steakhouse 香港 search interest spiking — opportunity for Outback SEO/SEM. (2) Multiple competitor websites not resolving (TGI Fridays, Dan Ryan's) — possible HK market exit or reduced operations. (3) Outback brand search near zero — needs awareness campaign. (4) No new competitor promotions or menu launches detected this week. (5) Recommendation: Invest in Google search ads for \"steakhouse 香港\" to capture rising demand.",
+      "source": "Competitor"
+    }
+  ],
+  "summary": "2026-08-10 — 7 條mention (正面:0 中性:7 負面:0)"
+}

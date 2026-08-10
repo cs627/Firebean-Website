@@ -29,7 +29,7 @@
       "time": "18:01",
       "link": "https://hk.investing.com/news/analyst-ratings/article-93CH-1593427",
       "sentiment": "positive",
-      "tags": "正面內容"
+      "tags": "中性"
     },
     {
       "title": "Agent G — 每日整合報告",
@@ -39,14 +39,14 @@
       "time": "9:00",
       "link": "https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4",
       "sentiment": "neutral",
-      "tags": "一般"
+      "tags": "協調員報告"
     }
   ],
   "alerts": [
     {
       "level": "MEDIUM",
       "title": "Outback係咪就嚟收皮？ (thread continues - 8 pages, 41 upvotes)",
-      "summary": "LIHKG飲食台討論Outback是否快將結業，昨日有新回覆。此帖持續有人討論Outback業務前景。Thread: Outback係咪就嚟收皮？(Is Outback closing down?) ",
+      "summary": "LIHKG飲食台討論Outback是否快將結業，昨日有新回覆。此帖持續有人討論Outback業務前景。Thread: Outback係咪就嚟收皮？(Is Outback closing down?) - negative sentiment, 8 pages, 41 upvotes",
       "source": "LIHKG"
     }
   ],

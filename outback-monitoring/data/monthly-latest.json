@@ -1,5 +1,5 @@
 {
-  "month": "August 2026 (1-9)",
+  "month": "2026-08",
   "items": [
     {
       "title": "Outback Steakhouse Hong Kong (Official) - 專頁更新",
@@ -18,7 +18,7 @@
       "date": "2026-08-01",
       "time": "全日",
       "link": "https://facebook.com/OutbackSteakhouseHongKong",
-      "sentiment": "positive",
+      "sentiment": "neutral",
       "tags": "品牌推廣"
     },
     {
@@ -29,7 +29,7 @@
       "time": "8:00",
       "link": "https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4/edit",
       "sentiment": "neutral",
-      "tags": "一般"
+      "tags": "---"
     },
     {
       "title": "每日社交聆聽掃描報告",
@@ -39,7 +39,7 @@
       "time": "9:58",
       "link": "https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4",
       "sentiment": "neutral",
-      "tags": "一般"
+      "tags": "---"
     },
     {
       "title": "Outback Steakhouse Happy Hour推廣",
@@ -48,7 +48,7 @@
       "date": "2026-08-03",
       "time": "10:12",
       "link": "https://instagram.com/outbacksteakhousehk",
-      "sentiment": "positive",
+      "sentiment": "neutral",
       "tags": "品牌推廣"
     },
     {
@@ -58,8 +58,8 @@
       "date": "2026-08-03",
       "time": "10:12",
       "link": "https://instagram.com/outbacksteakhousehk",
-      "sentiment": "positive",
-      "tags": "品牌推廣"
+      "sentiment": "neutral",
+      "tags": "信用卡優惠推廣"
     },
     {
       "title": "Outback Set Lunch 超級抵食",
@@ -69,7 +69,7 @@
       "time": "10:12",
       "link": "https://instagram.com/outbacksteakhousehk",
       "sentiment": "positive",
-      "tags": "正面內容"
+      "tags": "正面"
     },
     {
       "title": "Outback下午茶新登場",
@@ -78,8 +78,8 @@
       "date": "2026-08-03",
       "time": "10:12",
       "link": "https://instagram.com/outbacksteakhousehk",
-      "sentiment": "positive",
-      "tags": "品牌推廣"
+      "sentiment": "neutral",
+      "tags": "新餐單推廣"
     },
     {
       "title": "新春開年飯 - 好運加馬推廣",
@@ -88,8 +88,8 @@
       "date": "2026-08-03",
       "time": "10:12",
       "link": "https://instagram.com/outbacksteakhousehk",
-      "sentiment": "positive",
-      "tags": "品牌推廣"
+      "sentiment": "neutral",
+      "tags": "節日推廣"
     },
     {
       "title": "Outback情人節限定套餐The Chosen Selection",
@@ -98,8 +98,8 @@
       "date": "2026-08-03",
       "time": "10:12",
       "link": "https://instagram.com/outbacksteakhousehk",
-      "sentiment": "positive",
-      "tags": "品牌推廣"
+      "sentiment": "neutral",
+      "tags": "節日推廣"
     },
     {
       "title": "男人去Outback的食法分享",
@@ -109,7 +109,7 @@
       "time": "10:12",
       "link": "https://instagram.com/outbacksteakhousehk",
       "sentiment": "positive",
-      "tags": "正面內容"
+      "tags": "正面"
     },
     {
       "title": "Outback兒童餐性價比超高",
@@ -119,7 +119,7 @@
       "time": "10:12",
       "link": "https://instagram.com/outbacksteakhousehk",
       "sentiment": "positive",
-      "tags": "正面內容"
+      "tags": "正面"
     },
     {
       "title": "新手媽咪必收藏 - 親子神店Outback",
@@ -129,7 +129,7 @@
       "time": "10:12",
       "link": "https://instagram.com/outbacksteakhousehk",
       "sentiment": "positive",
-      "tags": "正面內容"
+      "tags": "正面"
     },
     {
       "title": "Outback 會員尊享每月壽星賞",
@@ -138,8 +138,8 @@
       "date": "2026-08-03",
       "time": "10:12",
       "link": "https://instagram.com/outbacksteakhousehk",
-      "sentiment": "positive",
-      "tags": "品牌推廣"
+      "sentiment": "neutral",
+      "tags": "會員推廣"
     },
     {
       "title": "Outback Steakhouse Hong Kong頻道更新",
@@ -148,7 +148,7 @@
       "date": "2026-08-03",
       "time": "10:12",
       "link": "https://youtube.com/@OutbackSteakhouseHK",
-      "sentiment": "positive",
+      "sentiment": "neutral",
       "tags": "品牌推廣"
     },
     {
@@ -159,7 +159,7 @@
       "time": "10:12",
       "link": "https://youtube.com/watch?v=2025_outback_ad",
       "sentiment": "neutral",
-      "tags": "一般"
+      "tags": "廣告回顧"
     },
     {
       "title": "Outback係咪就嚟收皮？討論",
@@ -169,7 +169,7 @@
       "time": "10:12",
       "link": "https://lihkg.com/thread/3901234",
       "sentiment": "negative",
-      "tags": "需關注"
+      "tags": "負面"
     },
     {
       "title": "跪求筆直$500以內嘅steakhouse",
@@ -189,7 +189,7 @@
       "time": "10:12",
       "link": "https://news.google.com/rss/articles/CBMiwwJBVV95cUxOZzViaTh4bnU2TTllT2VRX0RCcXVidDFJYTJfQXNKUVlkNU03LTNCVTJkMWVtT3J4X1ZBLXpWRmlDZktSeEx1Ync1VHNiYUNHc2kyVVhOUktRRE1sbkJCaVprcmR2eTVyc29tX3AtX0VOZlhQM1hoYThYbG9aYW5JVWtMWG1mN2c0YTVMdG1sWXFEcmpuWkNzVW1xejlZX3E0OGh2S2hDZ3pBU0tmQ1ZTWHlrd0VsaXdaRmVicGgxcDI4aXFabVdDaTVYTDFVV19zQndZY2NYWFdtMTdsUDB3dWFlZm5IYlZWejhpMF8xSjY4bUVmUUNqczVwbjV5MUlZV1hnNTgyeTVvTXlRTGs0T2s2QUM5VVJxVGRHNjVrZzZFMUtHY1FNTk9PeDF5VjljQnRMVDB6NkI2bHlqZzZmSGxzTQ?oc=5",
       "sentiment": "positive",
-      "tags": "正面內容"
+      "tags": "正面"
     },
     {
       "title": "Outback Steakhouse (新城市廣場三期) 食評",
@@ -199,7 +199,7 @@
       "time": "10:12",
       "link": "https://news.google.com/rss/articles/CBMiqgJBVV95cUxPWkMtWHlaVGNSU0hLZ3p3cHZfTVdiVk1HVFRoaWlrYmRmYk9xNVoyMFRBbXQ3a0lmbkZqdW90U0syRE01RDgxeGo2ZGhNZTFCLUR3VERWMlNkTlNLX2Fyb0ctRFdrWm14WWxXOWVPVkdRUHBXaDJfVlBIalU4TGQ5Z3RhdkVJWmJpTGloVE94dGdkOHRsUExrU1Q0WGxwQ0ZZcEx6YnVwdnZDMDdnYzVvNFBPVVotOTBrLXp0SmpINm1JUzVNc0R5eVZaeE9SM0xHNDNlWTlVekptSHhZczFLN1cxLXhTeFdCZ0s0SXQtZWhXeFotRmdRQWtTdWo2NXc3Umd5RDVoQ1FEWG5XTXlLeFE0MGRWT3FTZWUtM1hETlM5ZkNHSGM3YzJR?oc=5",
       "sentiment": "positive",
-      "tags": "正面內容"
+      "tags": "正面"
     },
     {
       "title": "Outback Steakhouse (黃埔天地) 食評",
@@ -209,7 +209,7 @@
       "time": "10:12",
       "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNaTB4eG9UeGlHNmMtTXkwSWF6YlBNcHp3d0dVMUdKYjBaenAxWVB4aTg1R0wwakpjZDF2Ynprd2hNaFJKMEVPM2F2azVyX25ibUFkcWF5RGdoc3BxRmJBVk9zLU9HUlJ5aTFjLWNxVE15RE9RNExPWFVsQnhDU3RyRjlJRFhHNlM0REF1TnNXOTBIX01mU0tyUzdoMlk3cXRkRzlsYVVLOEotZTRxWFc4?oc=5",
       "sentiment": "positive",
-      "tags": "正面內容"
+      "tags": "正面"
     },
     {
       "title": "回憶食評 - 摯愛鋸扒 黃埔Outback",
@@ -219,7 +219,7 @@
       "time": "10:12",
       "link": "https://youtube.com/watch?v=example_video_id",
       "sentiment": "positive",
-      "tags": "正面內容"
+      "tags": "正面"
     },
     {
       "title": "Looking for an affordable vegetarian afternoon tea deal in Hong Kong? — HK$128 for ANY 2 Appetizers @outbacksteakhousehk",
@@ -228,7 +228,7 @@
       "date": "2026-08-04",
       "time": "14:46",
       "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9tbElRbVhNUzdRRHZyaW5nZkE0bUxPRlgyYUR2dy1Ed2Q3NGNaUDJ2OFFwY3BfazJiSVVCeDJkRXBYRHdYTWk0anJZSjFLb3NDcEE?oc=5",
-      "sentiment": "positive",
+      "sentiment": "neutral",
       "tags": "一般"
     },
     {
@@ -259,7 +259,7 @@
       "time": "18:01",
       "link": "https://hk.investing.com/news/analyst-ratings/article-93CH-1593427",
       "sentiment": "positive",
-      "tags": "正面內容"
+      "tags": "中性"
     },
     {
       "title": "Agent G — 每日整合報告",
@@ -269,7 +269,7 @@
       "time": "9:00",
       "link": "https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4",
       "sentiment": "neutral",
-      "tags": "一般"
+      "tags": "協調員報告"
     },
     {
       "title": "每日掃描完成 — 無新回覆",
@@ -279,7 +279,7 @@
       "time": "6:00",
       "link": "https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4",
       "sentiment": "neutral",
-      "tags": "Bot保護擋截"
+      "tags": "Bot保護擋截所有平台，需確認代理或Browserbase方"
     },
     {
       "title": "Agent G — 每日整合報告",
@@ -290,26 +290,132 @@
       "link": "https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4",
       "sentiment": "neutral",
       "tags": "需關注"
+    },
+    {
+      "title": "Google Trends: 牛扒餐廳 香港 search interest spike",
+      "summary": "steakhouse 香港 search interest spiked to 100 (Aug 2) and 94 (Jul 26) in past 12 months. Outback steakhouse HK search = 0 flat. Opportunity: Outback should capitalize on rising steakhouse search interest.",
+      "source": "Competitor",
+      "date": "2026-08-10",
+      "time": "8:09",
+      "link": "https://trends.google.com/trends/explore?q=steakhouse%20%E9%A6%99%E6%B8%AF&geo=HK",
+      "sentiment": "neutral",
+      "tags": "需關注"
+    },
+    {
+      "title": "Google Trends: Outback HK = 0 search interest",
+      "summary": "Outback HK search interest remains flat at 0 over 12 months. Dan Ryans HK also 0. Overall steakhouse category has seasonal spikes but Outback brand is not capturing search traffic.",
+      "source": "Competitor",
+      "date": "2026-08-10",
+      "time": "8:09",
+      "link": "https://trends.google.com/trends/explore?q=Outback%20steakhouse%20HK,Dan%20Ryans%20HK&geo=HK",
+      "sentiment": "neutral",
+      "tags": "需關注"
+    },
+    {
+      "title": "TGI Fridays HK — current status",
+      "summary": "TGI Fridays HK appears to have limited online presence. Official website tgifridays.com.hk not resolving. Global brand restructuring may affect HK operations.",
+      "source": "Competitor",
+      "date": "2026-08-10",
+      "time": "8:09",
+      "link": "https://www.tgifridays.com.hk/",
+      "sentiment": "neutral",
+      "tags": "需關注"
+    },
+    {
+      "title": "Dan Ryan's HK — current status",
+      "summary": "Dan Ryan's Chicago Grill HK presence unclear. Website danryans.com.hk not resolving. No recent HK news found. May have reduced HK operations.",
+      "source": "Competitor",
+      "date": "2026-08-10",
+      "time": "8:09",
+      "link": "https://www.danryans.com.hk/",
+      "sentiment": "neutral",
+      "tags": "需關注"
+    },
+    {
+      "title": "Beef & Liberty HK — current status",
+      "summary": "Beef & Liberty has multiple HK locations. Website beefandliberty.com.hk not resolving from this server. Known for craft burgers and steaks in Wan Chai and Stanley.",
+      "source": "Competitor",
+      "date": "2026-08-10",
+      "time": "8:09",
+      "link": "https://www.beefandliberty.com.hk/",
+      "sentiment": "neutral",
+      "tags": "競爭對手"
+    },
+    {
+      "title": "Wooloomooloo Steakhouse HK — current status",
+      "summary": "Wooloomooloo is an Australian steakhouse in Wan Chai. Website not resolving. Known competitor in the premium steakhouse segment.",
+      "source": "Competitor",
+      "date": "2026-08-10",
+      "time": "8:09",
+      "link": "https://www.wooloomooloo.com.hk/",
+      "sentiment": "neutral",
+      "tags": "競爭對手"
+    },
+    {
+      "title": "Weekly Competitor Summary — Week of Aug 10",
+      "summary": "KEY FINDINGS: (1) steakhouse 香港 search interest spiking — opportunity for Outback SEO/SEM. (2) Multiple competitor websites not resolving (TGI Fridays, Dan Ryan's) — possible HK market exit or reduced operations. (3) Outback brand search near zero — needs awareness campaign. (4) No new competitor promotions or menu launches detected this week. (5) Recommendation: Invest in Google search ads for \"steakhouse 香港\" to capture rising demand.",
+      "source": "Competitor",
+      "date": "2026-08-10",
+      "time": "8:09",
+      "link": "https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4",
+      "sentiment": "neutral",
+      "tags": "需關注"
     }
   ],
   "alerts": [
     {
       "level": "MEDIUM",
-      "title": "LIHKG持續討論Outback業務前景",
-      "summary": "LIHKG帖文持續有討論，反映公眾關注Outback香港業務穩定性。",
+      "title": "Outback係咪就嚟收皮？討論",
+      "summary": "LIHKG討論區網民討論Outback香港業務前景，提及2024年關9間分店",
+      "source": "LIHKG"
+    },
+    {
+      "level": "MEDIUM",
+      "title": "Outback係咪就嚟收皮？ (thread continues - 8 pages, 41 upvotes)",
+      "summary": "LIHKG飲食台討論Outback是否快將結業，昨日有新回覆。此帖持續有人討論Outback業務前景。Thread: Outback係咪就嚟收皮？(Is Outback closing down?) - negative sentiment, 8 pages, 41 upvotes",
       "source": "LIHKG"
     },
     {
       "level": "LOW",
-      "title": "Agent A被Review平台Bot保護擋截",
-      "summary": "OpenRice、Google Maps、TripAdvisor、Dianping等平台全線被bot保護擋截，需確認代理方案。",
+      "title": "Agent G — 每日整合報告",
+      "summary": "Agent A 掃描評論平台但全線被bot保護擋截（OpenRice redirect、Maps limited、TripAdvisor DataDome、Dianping verify、Foodpanda/Deliveroo blocked），無新回覆。其餘Agent B-F星期六未見數據記錄。共0條新mention。",
       "source": "系統"
+    },
+    {
+      "level": "LOW",
+      "title": "Google Trends: 牛扒餐廳 香港 search interest spike",
+      "summary": "steakhouse 香港 search interest spiked to 100 (Aug 2) and 94 (Jul 26) in past 12 months. Outback steakhouse HK search = 0 flat. Opportunity: Outback should capitalize on rising steakhouse search interest.",
+      "source": "Competitor"
+    },
+    {
+      "level": "LOW",
+      "title": "Google Trends: Outback HK = 0 search interest",
+      "summary": "Outback HK search interest remains flat at 0 over 12 months. Dan Ryans HK also 0. Overall steakhouse category has seasonal spikes but Outback brand is not capturing search traffic.",
+      "source": "Competitor"
+    },
+    {
+      "level": "LOW",
+      "title": "TGI Fridays HK — current status",
+      "summary": "TGI Fridays HK appears to have limited online presence. Official website tgifridays.com.hk not resolving. Global brand restructuring may affect HK operations.",
+      "source": "Competitor"
+    },
+    {
+      "level": "LOW",
+      "title": "Dan Ryan's HK — current status",
+      "summary": "Dan Ryan's Chicago Grill HK presence unclear. Website danryans.com.hk not resolving. No recent HK news found. May have reduced HK operations.",
+      "source": "Competitor"
+    },
+    {
+      "level": "LOW",
+      "title": "Weekly Competitor Summary — Week of Aug 10",
+      "summary": "KEY FINDINGS: (1) steakhouse 香港 search interest spiking — opportunity for Outback SEO/SEM. (2) Multiple competitor websites not resolving (TGI Fridays, Dan Ryan's) — possible HK market exit or reduced operations. (3) Outback brand search near zero — needs awareness campaign. (4) No new competitor promotions or menu launches detected this week. (5) Recommendation: Invest in Google search ads for \"steakhouse 香港\" to capture rising demand.",
+      "source": "Competitor"
     }
   ],
   "stats": {
-    "total": 29,
-    "positive": 18,
+    "total": 36,
+    "positive": 9,
     "negative": 2,
-    "neutral": 9
+    "neutral": 25
   }
 }
