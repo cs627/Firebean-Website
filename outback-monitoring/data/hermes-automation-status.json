@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "service": "Outback HK social listening",
+  "status": "rss_discovery_complete",
+  "last_successful_run_utc": "2026-08-13T09:33:44.919955Z",
+  "next_scheduled_run_utc": "2026-08-14T01:00:00Z",
+  "schedule": {
+    "cron_utc": "0 1 * * *",
+    "timezone": "Asia/Hong_Kong",
+    "local_time": "09:00"
+  },
+  "job": {
+    "runtime": "Hermes",
+    "mode": "no_agent",
+    "id": "b0da29b0ffc3"
+  },
+  "latest_discovery": {
+    "candidate_count": 1,
+    "rss_error_count": 0,
+    "verification_status": "pending_direct_source_open",
+    "deduplication_status": "pending_sheet_baseline"
+  },
+  "publishing": {
+    "dashboard_layout_changed": false,
+    "google_sheets_write_enabled": false,
+    "github_publish_from_hermes_enabled": false,
+    "note": "This status asset documents scheduler readiness only. Unverified RSS candidates are not displayed as monitoring records."
+  }
+}
