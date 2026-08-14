@@ -1,0 +1,13 @@
+{
+  "storeRankings": [],
+  "commentRecords": [],
+  "recentJobs": [
+    {"startedAt":"2026-08-14","status":"completed","triggeredBy":"Hermes controlled test","mentionsFound":1,"duplicatesSkipped":1,"syncedToSheet":1,"sourcesScraped":"Google Sheets / authenticated browser"},
+    {"startedAt":"2026-08-14","status":"completed","triggeredBy":"Manual public-link intake","mentionsFound":1,"duplicatesSkipped":3,"syncedToSheet":0,"sourcesScraped":"Hermes manual-link queue"},
+    {"startedAt":"2026-08-14","status":"blocked","triggeredBy":"Evidence-gated social test","mentionsFound":0,"duplicatesSkipped":0,"syncedToSheet":0,"sourcesScraped":"Public Social & Comments — placeholders quarantined"}
+  ],
+  "coverage": {
+    "openrice": "No verified OpenRice branch ranking is currently accessible. Redirect-loop, login-gated, and bot-protected pages remain coverage-limited until a direct public branch URL can be verified.",
+    "comments": "No same-day public comment or reply with a stable direct URL and visible metadata has been accepted in this session. Comment capture remains evidence-only."
+  }
+}
