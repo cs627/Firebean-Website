@@ -1,0 +1,241 @@
+{
+  "date": "2026-08-14",
+  "report_type": "daily_discovery_run",
+  "generated_at": "2026-08-14T03:33:59Z",
+  "items": [
+    {
+      "title": "Citygate評論者投訴兩次上菜均見頭髮及經理處理方式",
+      "summary": "評論者稱首次點吞拿魚時碟上有頭髮，要求重做後新一碟再次發現頭髮；亦稱經理當眾斥責員工，令其失去胃口。以上均為評論者個人陳述，未經獨立核實。",
+      "source": "Google Maps (Citygate Outlets)",
+      "platform_type": "評論平台",
+      "author": "Romvlvschow",
+      "date": "2026-08-07",
+      "time": "全日",
+      "link": "https://maps.app.goo.gl/FH5mk6YR9rK5pmUMA",
+      "sentiment": "negative",
+      "tags": "Food Safety、Hygiene、Service、PR Alert",
+      "verification_note": "Direct review-specific Google Maps share link resolved successfully. Review fell within the seven-day backfill window; allegations are attributed and not treated as established facts.",
+      "discovered_on": "2026-08-14",
+      "new_activity": false
+    },
+    {
+      "title": "奧海城評論給予食物、服務及環境全數5分",
+      "summary": "評論者給予食物5分、服務5分及環境5分。",
+      "source": "Google Maps (Olympian City 2)",
+      "platform_type": "評論平台",
+      "author": "hin humble",
+      "date": "2026-08-07",
+      "time": "全日",
+      "link": "https://www.google.com/maps/place/Outback+Steakhouse/@22.3164584,114.161772,17z/data=!4m8!3m7!1s0x340400b9564ecded:0x399283906ab06bb8!8m2!3d22.3164584!4d114.161772!9m1!1b1!16s%2Fg%2F11gdyjsczh?hl=en",
+      "sentiment": "positive",
+      "tags": "Food、Service、Atmosphere",
+      "verification_note": "Verified on the public Google Maps listing as the latest visible review about one week before 2026-08-14. The listing URL is retained because an individual share URL was not exposed.",
+      "discovered_on": "2026-08-14",
+      "new_activity": false
+    },
+    {
+      "title": "Threads用戶稱曾於中環店不適但仍有意再次到訪",
+      "summary": "作者表示長期喜愛Outback，但曾在中環分店出現嚴重腸胃／如廁不適而暫停光顧；看到相關食物照片後又有意在一周內再訪。以上健康相關內容為作者個人陳述，未經獨立核實。",
+      "source": "Threads",
+      "platform_type": "社交媒體",
+      "author": "@tomtom_in",
+      "date": "2026-08-07",
+      "time": "全日",
+      "link": "https://www.threads.com/@tomtom_in/post/DaKc61Zidq5/",
+      "sentiment": "neutral",
+      "tags": "Health Complaint、Brand Loyalty、Store Experience、PR Watch",
+      "verification_note": "Public Threads text was extractable from the direct URL and indexed on 2026-08-07. Browser access redirected to login, so confidence is moderate; the mixed post combines a past attributed complaint with intent to revisit.",
+      "discovered_on": "2026-08-14",
+      "new_activity": false
+    },
+    {
+      "title": "Firebean分享Outback中環開幕活動幕後花絮",
+      "summary": "Firebean以幕後花絮形式介紹Outback中環「WHAT’S BLOOMIN’ IN CENTRAL」活動的場地佈置、Kahoot測試及Bushman Bread快閃店準備。",
+      "source": "Instagram",
+      "platform_type": "社交媒體",
+      "author": "@firebeanagency",
+      "date": "2026-08-08",
+      "time": "全日",
+      "link": "https://www.instagram.com/p/Dbu-5QXk44f/",
+      "sentiment": "positive",
+      "tags": "PR、Grand Opening、Central、Event、Behind the Scenes",
+      "verification_note": "Direct public Instagram carousel verified with Outback Central storefront imagery and Hong Kong/Central hashtags. Relative age was six days on 2026-08-14; local date normalized to 2026-08-08.",
+      "discovered_on": "2026-08-14",
+      "new_activity": false
+    },
+    {
+      "title": "創作者推介Outback Citygate全日午餐",
+      "summary": "創作者推介Citygate Outlets分店的All Day Lunch，重點提及烤比目魚、豬扒及Outback麵包，並形容適合購物後午餐或較晚時段用餐。",
+      "source": "Facebook",
+      "platform_type": "社交媒體",
+      "author": "Froi and Geri",
+      "date": "2026-08-11",
+      "time": "全日",
+      "link": "https://www.facebook.com/froiandgeri/posts/all-day-lunch-at-outback-citygate-craving-a-grilled-halibut-pork-chop-or-that-fa/1434506591825650/",
+      "sentiment": "positive",
+      "tags": "UGC、Food、Lunch、Citygate、Promotion",
+      "verification_note": "Direct public Facebook post verified. Visible engagement at check time: 64 loves, 14 wows, 13 likes, 25 comments and 11 shares. The duplicate Instagram cross-post was excluded by exact-text deduplication.",
+      "discovered_on": "2026-08-14",
+      "new_activity": false
+    },
+    {
+      "title": "尖沙咀餐廳比較帖正面提及Outback餐包及薯條",
+      "summary": "作者評論另一間餐廳時表示其餐包及薯條較普通，認為Outback的同類食品好吃得多；屬對Outback食品的正面比較提及。",
+      "source": "Instagram",
+      "platform_type": "社交媒體",
+      "author": "@eatnplay.cw",
+      "date": "2026-08-11",
+      "time": "全日",
+      "link": "https://www.instagram.com/p/Db2N8aXEVaq/",
+      "sentiment": "positive",
+      "tags": "UGC、Food、Competitor Comparison、Bread、Fries",
+      "verification_note": "Direct public Instagram post text extracted and verified; Hong Kong context is explicit through the Tsim Sha Tsui dining caption and hashtags. Six likes were visible during source checking.",
+      "discovered_on": "2026-08-14",
+      "new_activity": false
+    },
+    {
+      "title": "Citygate顧客讚揚食物及親子友善服務",
+      "summary": "評論者表示一家人在Citygate Outlets分店用餐愉快，食物美味、員工細心有禮並保持笑容，特別感謝經理Bonnie介紹菜式及分享親子用餐建議。",
+      "source": "Google Maps (Citygate Outlets)",
+      "platform_type": "評論平台",
+      "author": "aoi sakamoto",
+      "date": "2026-08-13",
+      "time": "全日",
+      "link": "https://maps.app.goo.gl/fMRrfnLcVwM5QNfbA",
+      "sentiment": "positive",
+      "tags": "Food、Service、Family、Store Experience",
+      "verification_note": "Direct review-specific Google Maps share link resolved successfully; review was visible as 12 hours old during the 2026-08-14 branch check.",
+      "discovered_on": "2026-08-14",
+      "new_activity": true
+    },
+    {
+      "title": "Citygate午餐評論給予服務5分及安靜環境評價",
+      "summary": "評論者指兩人午餐人均HK$400至450，食物4分、服務5分、環境4分，並形容餐廳安靜、方便交談。",
+      "source": "Google Maps (Citygate Outlets)",
+      "platform_type": "評論平台",
+      "author": "jay Wong (jay)",
+      "date": "2026-08-13",
+      "time": "全日",
+      "link": "https://maps.app.goo.gl/xXbiXtR5QZsuSnNm7",
+      "sentiment": "positive",
+      "tags": "Service、Price、Lunch、Store Experience",
+      "verification_note": "Direct review-specific Google Maps share link resolved successfully; review was visible in the newest Citygate reviews during the 2026-08-14 branch check.",
+      "discovered_on": "2026-08-14",
+      "new_activity": true
+    },
+    {
+      "title": "沙田顧客5星評價讚服務、熱麵包及牛扒質素",
+      "summary": "評論者表示相隔十年再訪Outback，服務依然有效率；雖然份量較以前小，但味道保持水準，麵包上桌時仍熱、牛扒質素高、飲品份量足以分享。",
+      "source": "Google Maps (New Town Plaza)",
+      "platform_type": "評論平台",
+      "author": "Chan Anna",
+      "date": "2026-08-13",
+      "time": "全日",
+      "link": "https://maps.app.goo.gl/tSH8quMEqzy31x1y7",
+      "sentiment": "positive",
+      "tags": "Food、Service、Portion Size、Store Experience",
+      "verification_note": "Five-star review individually verified with original Traditional Chinese text; direct review-specific Google Maps share link resolved successfully.",
+      "discovered_on": "2026-08-14",
+      "new_activity": true
+    },
+    {
+      "title": "沙田顧客2星評價指黑糖包不熱及牛扒性價比下降",
+      "summary": "評論者表示黑糖包不熱、味道不及以往，並認為牛扒質素不值其價格，形容整體退步。",
+      "source": "Google Maps (New Town Plaza)",
+      "platform_type": "評論平台",
+      "author": "J Chan",
+      "date": "2026-08-13",
+      "time": "全日",
+      "link": "https://maps.app.goo.gl/7kH85aXUiCwWja4D6",
+      "sentiment": "negative",
+      "tags": "Food Quality、Price、Bread、PR Watch",
+      "verification_note": "Two-star review individually verified with original Cantonese text; direct review-specific Google Maps share link resolved successfully.",
+      "discovered_on": "2026-08-14",
+      "new_activity": true
+    },
+    {
+      "title": "Trip.com創作者發布Outback香港用餐及價格指南",
+      "summary": "作者介紹Outback的牛扒、Bloomin’ Onion、豬肋骨、龍蝦、芝士薯條及黑糖麵包，形容環境適合朋友與家庭聚會，並指香港人均消費約HK$201至400。",
+      "source": "Trip.com",
+      "platform_type": "旅遊平台",
+      "author": "ChrisYip贏錢哥",
+      "date": "2026-08-13",
+      "time": "全日",
+      "link": "https://hk.trip.com/moments/detail/hong-kong-38-150510047/",
+      "sentiment": "positive",
+      "tags": "UGC、Food、Price、Store Experience、Travel Content",
+      "verification_note": "Public Trip.com Moment verified on 2026-08-14; page showed publication 17 hours earlier and one visible like. Post text names the Central Entertainment Building location, while the embedded Trip.com restaurant card points to Citygate, so the location mismatch is retained as a caveat.",
+      "discovered_on": "2026-08-14",
+      "new_activity": true
+    }
+  ],
+  "alerts": [
+    {
+      "severity": "MEDIUM",
+      "level": "MEDIUM",
+      "title": "Citygate Google Maps評論提出重複異物／衛生投訴",
+      "summary": "評論者稱兩次端上的吞拿魚均見頭髮，並批評經理當眾斥責員工。帖文日期為8月7日、屬本次回補；內容為作者陳述，未經獨立核實，但涉及食物衛生及服務處理，建議內部核查。",
+      "source": "Google Maps (Citygate Outlets)",
+      "link": "https://maps.app.goo.gl/FH5mk6YR9rK5pmUMA"
+    },
+    {
+      "severity": "MEDIUM",
+      "level": "MEDIUM",
+      "title": "沙田新城市廣場2星評論指黑糖包不熱及牛扒性價比下降",
+      "summary": "J Chan於8月13日表示黑糖包不熱、味道不及以往，並認為牛扒質素不值其價格，屬食品品質及價格觀感的即時負面訊號。",
+      "source": "Google Maps (New Town Plaza)",
+      "link": "https://maps.app.goo.gl/7kH85aXUiCwWja4D6"
+    },
+    {
+      "severity": "LOW",
+      "level": "LOW",
+      "title": "Threads舊客提及中環店過往腸胃不適但仍有意再訪",
+      "summary": "作者一方面表示過往在中環店出現嚴重腸胃／如廁不適而暫停光顧，另一方面仍表達品牌好感及再訪意向。直接頁面在瀏覽器要求登入，建議低調監察，不把健康相關說法視為已證實事件。",
+      "source": "Threads",
+      "link": "https://www.threads.com/@tomtom_in/post/DaKc61Zidq5/"
+    }
+  ],
+  "trends": "本次新增11條已驗證及全域去重記錄：正面8條（72.7%）、中性1條（9.1%）、負面2條（18.2%）。8月13至14日主窗口共有5條，其中正面4條、負面1條。正面聲量集中於Citygate親子服務、午餐內容、沙田牛扒與熱麵包，以及中環開幕活動；負面訊號則集中於Citygate衛生／處理方式及沙田黑糖包溫度、牛扒質素與價格觀感。",
+  "recommendations": [
+    "由Citygate營運團隊回查8月7日前後吞拿魚備餐、異物處理及主管現場溝通紀錄；若能對應個案，先完成內部補救及員工流程複訓，再評估是否需要私下聯絡評論者。",
+    "沙田新城市廣場分店應抽查黑糖包保溫／出餐標準、牛扒熟度與份量一致性，並持續監察未來七日同類價格或品質評論是否增加。",
+    "把Citygate家庭服務、All Day Lunch及沙田5星回訪評論列為可放大的正面社會證明；避免在衛生或品質投訴的相鄰對話中直接硬銷。",
+    "Threads健康相關內容維持低調監察及證據保留；除非作者主動聯絡或討論擴散，暫不建議公開介入。"
+  ],
+  "coverage": {
+    "target_sources": 49,
+    "checked_source_groups": {
+      "news_lifestyle_owned": 28,
+      "review_travel_forum_community": 15,
+      "social_platforms": 6,
+      "google_maps_branches_checked": 10
+    },
+    "new_records": 11,
+    "primary_window_records": 5,
+    "backfill_records": 6,
+    "no_new_indexed_news": true,
+    "dedup_baseline_records_checked": 254,
+    "limitations": [
+      "Instagram and Threads public indexing is incomplete; only publicly accessible direct posts were accepted.",
+      "Two additional negative Sha Tin Google Maps reviews were visible but excluded because unique, resolving review-specific links could not be recovered.",
+      "The Trip.com post names Central in its text while its embedded restaurant card points to Citygate; the record retains this discrepancy as a verification caveat.",
+      "No dated in-window OpenRice review was publicly exposed during this run.",
+      "X/Twitter coverage was validated through public web indexing only; no paid or subscription API result was used."
+    ]
+  },
+  "stats": {
+    "total": 11,
+    "positive": 8,
+    "negative": 2,
+    "neutral": 1,
+    "source_counts": {
+      "Facebook": 1,
+      "Google Maps (Citygate Outlets)": 3,
+      "Google Maps (New Town Plaza)": 2,
+      "Google Maps (Olympian City 2)": 1,
+      "Instagram": 2,
+      "Threads": 1,
+      "Trip.com": 1
+    }
+  }
+}

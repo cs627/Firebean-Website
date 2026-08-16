@@ -1,0 +1,238 @@
+{
+  "date": "2026-08-15",
+  "report_type": "daily_discovery_run",
+  "generated_at": "2026-08-15T01:20:38Z",
+  "items": [
+    {
+      "title": "Threads用戶分享Outback用餐體驗並提出慢服務及小飛蟲疑慮",
+      "summary": "作者稱肉眼扒多汁有味，亦讚黑糖麵包、粟米湯、甜薯、薯蓉及炸蘑菇；同時批評雞肉意粉偏乾、芒果薄荷飲品及服務速度，並稱餐點及店方補送甜品上先後見到小型飛蟲，最終離店。以上衛生相關內容為作者個人陳述，未經獨立核實。",
+      "source": "Threads",
+      "platform_type": "社交媒體",
+      "author": "@arjoejoe0227",
+      "date": "2026-08-10",
+      "time": "23:41",
+      "link": "https://www.threads.com/@arjoejoe0227/post/Db3W8H_k-Ny",
+      "sentiment": "negative",
+      "tags": "Food、Service、Hygiene、Mixed Review、PR Alert",
+      "verification_note": "Direct public Threads post verified; exact embedded timestamp 2026-08-10 23:41:01 HKT. Page showed 42 thread views and no visible reactions. Hygiene-related statements are attributed allegations, not established facts; branch not stated.",
+      "discovered_on": "2026-08-15",
+      "new_activity": false
+    },
+    {
+      "title": "高互動Threads回覆批評Outback牛扒有明顯雪味",
+      "summary": "作者在香港『唔知點解可以做咁耐』餐廳討論中稱Outback所有牛扒都有明顯冷凍味並非常難吃。這是作者個人品質觀感，未經獨立核實。",
+      "source": "Threads",
+      "platform_type": "社交媒體",
+      "author": "@lithium.s",
+      "date": "2026-08-11",
+      "time": "00:52",
+      "link": "https://www.threads.com/@lithium.s/post/Db3fLBYkwTw",
+      "sentiment": "negative",
+      "tags": "Food Quality、Product、Viral Thread、PR Alert",
+      "verification_note": "Direct public reply verified with exact embedded timestamp 2026-08-11 00:52:57 HKT. Visible engagement: 93 likes, 4 comments and 7 shares; parent HK thread had about 1.4K likes, 221 comments and 77 shares at check time.",
+      "discovered_on": "2026-08-15",
+      "new_activity": false
+    },
+    {
+      "title": "元朗YOHO食客指Pick Coffee牛扒較Outback好食且便宜",
+      "summary": "作者表示最近在元朗YOHO吃過Outback後，認為Pick Coffee的牛扒更好吃而且更便宜，形成直接的食品質素及價格比較。",
+      "source": "Threads",
+      "platform_type": "社交媒體",
+      "author": "@shizukushiro",
+      "date": "2026-08-11",
+      "time": "20:17",
+      "link": "https://www.threads.com/@shizukushiro/post/Db5kc_8GYMF",
+      "sentiment": "negative",
+      "tags": "Price、Food Quality、Competitor Comparison、Yuen Long、PR Watch",
+      "verification_note": "Direct public reply verified with exact embedded timestamp 2026-08-11 20:17:35 HKT. The post explicitly names the Yuen Long YOHO branch and compares it with Pick Coffee; one visible comment and no visible like count.",
+      "discovered_on": "2026-08-15",
+      "new_activity": false
+    },
+    {
+      "title": "Threads用戶在YOHO比較帖進一步稱其他餐廳普遍較Outback好",
+      "summary": "同一討論中的作者回覆稱基本上隨便一家餐廳都比Outback好，延續對品牌食品質素及價值的負面比較。",
+      "source": "Threads",
+      "platform_type": "社交媒體",
+      "author": "@lithium.s",
+      "date": "2026-08-11",
+      "time": "20:36",
+      "link": "https://www.threads.com/@lithium.s/post/Db5mnx6ExHB",
+      "sentiment": "negative",
+      "tags": "Food Quality、Competitor Comparison、Conversation Amplification、PR Watch",
+      "verification_note": "Direct contextual reply verified with exact embedded timestamp 2026-08-11 20:36:32 HKT and one visible like. The wording uses a pronoun, but the direct page preserves the immediately preceding explicit Outback YOHO comparison.",
+      "discovered_on": "2026-08-15",
+      "new_activity": false
+    },
+    {
+      "title": "高互動Threads回覆以Outback作近HK$500牛扒的價格參照",
+      "summary": "作者在荃灣金龍牛扒比較帖質疑兩份平價牛扒接近HK$500，並表示自己常吃Outback；對Outback本身屬中性品牌及價格參照。",
+      "source": "Threads",
+      "platform_type": "社交媒體",
+      "author": "@iri.syiu",
+      "date": "2026-08-12",
+      "time": "13:50",
+      "link": "https://www.threads.com/@iri.syiu/post/Db7c98xGmB4",
+      "sentiment": "neutral",
+      "tags": "Price、Competitor Comparison、Brand Reference、High Engagement",
+      "verification_note": "Direct public reply verified with exact embedded timestamp 2026-08-12 13:50:39 HKT. Visible engagement: 403 likes, 10 comments and 13 shares/sends. Sentiment is neutral toward Outback because the criticism targets the compared Tsuen Wan restaurant's pricing.",
+      "discovered_on": "2026-08-15",
+      "new_activity": false
+    },
+    {
+      "title": "Threads用戶指Outback單份牛扒約HK$500",
+      "summary": "作者在荃灣牛扒價格討論中表示Outback一份牛扒要HK$500，呈現對品牌價格偏高的觀感。",
+      "source": "Threads",
+      "platform_type": "社交媒體",
+      "author": "@k_hk_sk8er",
+      "date": "2026-08-12",
+      "time": "22:00",
+      "link": "https://www.threads.com/@k_hk_sk8er/post/Db8VDSqCck1",
+      "sentiment": "negative",
+      "tags": "Price、Value、Competitor Comparison",
+      "verification_note": "Direct public reply verified with exact embedded timestamp 2026-08-12 22:00:43 HKT and one visible like. The HK$500 statement is the author's price perception in a comparative thread.",
+      "discovered_on": "2026-08-15",
+      "new_activity": false
+    },
+    {
+      "title": "Threads用戶評Outback牛扒質素不算高但亦不差",
+      "summary": "作者表示Outback牛扒不能說質素很高，但也不差，並附上一條舊黃埔分店YouTube食評連結；整體屬中性偏混合評價。",
+      "source": "Threads",
+      "platform_type": "社交媒體",
+      "author": "@krsvp916",
+      "date": "2026-08-13",
+      "time": "00:03",
+      "link": "https://www.threads.com/@krsvp916/post/Db8jKEbDwrt",
+      "sentiment": "neutral",
+      "tags": "Food Quality、Mixed Review、YouTube Reference",
+      "verification_note": "Direct public reply verified with exact embedded timestamp 2026-08-13 00:03:59 HKT. No numeric engagement was visible; linked video concerns the former Whampoa branch and is not counted as a separate fresh record.",
+      "discovered_on": "2026-08-15",
+      "new_activity": false
+    },
+    {
+      "title": "Threads用戶強烈批評Outback牛扒多筋且難切",
+      "summary": "作者以強烈措辭批評Outback牛扒有筋，稱整塊牛扒難以鋸開；屬直接的食品質素負面意見。",
+      "source": "Threads",
+      "platform_type": "社交媒體",
+      "author": "@damiaomiao213",
+      "date": "2026-08-13",
+      "time": "00:08",
+      "link": "https://www.threads.com/@damiaomiao213/post/Db8jpDuD_gS",
+      "sentiment": "negative",
+      "tags": "Food Quality、Steak Texture、PR Watch",
+      "verification_note": "Direct public reply verified with exact embedded timestamp 2026-08-13 00:08:12 HKT and two visible likes. Statement is an attributed personal opinion within a viral HK steak-comparison thread.",
+      "discovered_on": "2026-08-15",
+      "new_activity": false
+    },
+    {
+      "title": "Threads用戶指Outback用餐埋單容易超過HK$1,000",
+      "summary": "作者表示到Outback用餐隨時會花超過HK$1,000，反映對品牌總消費偏高的觀感。",
+      "source": "Threads",
+      "platform_type": "社交媒體",
+      "author": "@wangkaijie72",
+      "date": "2026-08-13",
+      "time": "13:34",
+      "link": "https://www.threads.com/@wangkaijie72/post/Db9_9ckmsPg",
+      "sentiment": "negative",
+      "tags": "Price、Value、Spend Level、Competitor Comparison",
+      "verification_note": "Direct public reply verified with exact embedded timestamp 2026-08-13 13:34:54 HKT. No numeric engagement was visible; statement is a personal price perception in a comparative HK thread.",
+      "discovered_on": "2026-08-15",
+      "new_activity": false
+    },
+    {
+      "title": "新城市廣場菲力牛排日推介Outback美國精選牛柳扒",
+      "summary": "新城市廣場的8.13菲力牛排日牛扒香氣召集帖推介Outback Steakhouse的USDA美國精選牛柳扒，形容肉質嫩滑鮮甜、脂肪較少但仍有肉汁，並列出三期L3 A330舖。",
+      "source": "Instagram",
+      "platform_type": "社交媒體",
+      "author": "@newtownplazahk",
+      "date": "2026-08-12",
+      "time": "全日",
+      "link": "https://www.instagram.com/p/Db8Kw_QHwEd/",
+      "sentiment": "positive",
+      "tags": "Food、Product、New Town Plaza、Retail、PR",
+      "verification_note": "Direct public Instagram carousel verified; image metadata dates the post to 2026-08-12. Visible engagement: 25 likes; comments limited. HK and Sha Tin context, product and Shop A330 are explicit.",
+      "discovered_on": "2026-08-15",
+      "new_activity": false
+    },
+    {
+      "title": "Eber以Outback香港案例解讀跨分店會員留存",
+      "summary": "Eber以Outback Steakhouse Hong Kong為客戶留存案例，形容品牌在全港以牛扒、用餐體驗及城市休憩定位吸引會員回訪，並連結完整案例研究。",
+      "source": "Instagram",
+      "platform_type": "社交媒體",
+      "author": "@eber.co",
+      "date": "2026-08-14",
+      "time": "14:01",
+      "link": "https://www.instagram.com/eber.co/reel/DcAnwUfDyGV/",
+      "sentiment": "positive",
+      "tags": "PR、Customer Retention、Brand、Case Study、All Stores",
+      "verification_note": "Direct public Instagram reel verified with exact embedded timestamp 2026-08-14 14:01:38 HKT. Visible engagement: 2 likes and no comments. Facebook cross-post with matching campaign text was excluded by exact-text deduplication.",
+      "discovered_on": "2026-08-15",
+      "new_activity": true
+    }
+  ],
+  "alerts": [
+    {
+      "severity": "HIGH",
+      "level": "HIGH",
+      "title": "Threads用餐帖提出慢服務及兩次小飛蟲疑慮",
+      "summary": "作者在一篇42次瀏覽的混合食評中同時讚揚多款菜式，但稱餐點及店方補送的甜品先後見到小型飛蟲，並批評服務偏慢。這是未經獨立核實的個人陳述，分店未明；因涉及衛生與補救流程，建議優先內部核查。",
+      "source": "Threads",
+      "link": "https://www.threads.com/@arjoejoe0227/post/Db3W8H_k-Ny"
+    },
+    {
+      "severity": "MEDIUM",
+      "level": "MEDIUM",
+      "title": "高互動Threads回覆集中批評牛扒冷凍味及口感",
+      "summary": "一則稱Outback牛扒有明顯冷凍味的回覆已獲93讚、4留言及7次分享，所在香港餐廳討論串約有1.4K讚及221留言；另一討論亦出現牛扒多筋難切的批評。兩者均屬用戶意見，但已形成可見的產品質素敘事。",
+      "source": "Threads",
+      "link": "https://www.threads.com/@lithium.s/post/Db3fLBYkwTw"
+    },
+    {
+      "severity": "MEDIUM",
+      "level": "MEDIUM",
+      "title": "價格／性價比討論橫跨YOHO與荃灣牛扒比較串",
+      "summary": "用戶在元朗YOHO比較中稱競品牛扒較好吃且更便宜；另一高流量牛扒討論出現Outback單份約HK$500及用餐容易超過HK$1,000的價格觀感。屬分散但方向一致的價值訊號，建議持續監察。",
+      "source": "Threads",
+      "link": "https://www.threads.com/@shizukushiro/post/Db5kc_8GYMF"
+    }
+  ],
+  "trends": "本次新增11條已驗證及全域去重記錄，屬「新發現」而非全部在今日發布：負面7條（63.6%）、中性2條（18.2%）、正面2條（18.2%）。主窗口（8月14至15日）只有1條新記錄，為Eber正面案例；其餘10條為8月10至13日回補。負面聲量集中於Threads的牛扒冷凍味／多筋口感、價格與性價比，以及一則未指明分店的衛生與慢服務個人陳述。",
+  "recommendations": [
+    "優先由營運及食安團隊核對8月10日前後是否收到涉及小型飛蟲、補送Brownie／雪糕及慢服務的相近個案；在未確認分店前不要公開推斷，先保留證據並檢視蟲害防治、出餐覆蓋及補救流程。",
+    "未來7日對元朗YOHO及高流量分店抽查牛扒解凍、修筋、熟度與出餐一致性，並把「冷凍味」「多筋難切」設為重點監測詞；若同類投訴持續增加，再升級至跨店品質行動。",
+    "針對HK$500單份及超過HK$1,000埋單的價格觀感，整理午餐、下午茶、共享份量及會員價值的可驗證資訊；先以清晰菜單與第三方正面內容改善價值理解，不建議直接進入現有負面串硬銷。",
+    "把新城市廣場牛柳扒推介與Eber會員留存案例作為正面內容素材，但與衛生或品質投訴保持語境距離；未來24至48小時追蹤高互動Threads回覆的讚、留言及轉發增速。"
+  ],
+  "coverage": {
+    "target_sources": 49,
+    "checked_source_groups": {
+      "news_lifestyle_owned": 28,
+      "review_travel_forum_community": 15,
+      "social_platforms": 6,
+      "google_maps_branches_checked": 10
+    },
+    "new_records": 11,
+    "primary_window_records": 1,
+    "backfill_records": 10,
+    "no_new_indexed_news": true,
+    "dedup_baseline_records_checked": 222,
+    "limitations": [
+      "Only one accepted record falls in the 8月14至15日 primary window; the other ten are newly discovered backfill from 8月10至13日.",
+      "Threads public indexing is incomplete, but all nine accepted Threads records were validated on direct, URL-distinct public pages.",
+      "Google Maps newest-review panels did not expose a stable review-specific link in this run; no new Maps review was accepted without a verifiable source link.",
+      "A positive Facebook group recommendation was excluded because the commenter and comment-specific permalink were not publicly visible.",
+      "No dated, directly verifiable new item was accepted from HK news, OpenRice, LIHKG, HKDiscuss, Baby Kingdom, Trip.com or Xiaohongshu during this run; no paid or subscription API was used."
+    ]
+  },
+  "stats": {
+    "total": 11,
+    "positive": 2,
+    "negative": 7,
+    "neutral": 2,
+    "primary_window_records": 1,
+    "backfill_records": 10,
+    "source_counts": {
+      "Instagram": 2,
+      "Threads": 9
+    }
+  }
+}

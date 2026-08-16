@@ -1,0 +1,92 @@
+{
+  "date": "2026-08-16",
+  "report_type": "daily_discovery_run",
+  "generated_at": "2026-08-16T03:04:13Z",
+  "items": [
+    {
+      "title": "MOKO五星食評讚黑糖麵包、套餐抵食及多款菜式",
+      "summary": "Google Maps用戶 victoriay_eatwithvic 更新五星食評，讚Outback黑糖麵包鬆軟、套餐抵食、沙律新鮮、餐湯濃郁，以及海鮮肉醬意粉、雜扒拼盤、燒雞芝士夾餅和飲品；同時指店內座位較窄。",
+      "source": "Google Maps (MOKO)",
+      "platform_type": "評論平台",
+      "author": "victoriay_eatwithvic",
+      "date": "2026-08-15",
+      "time": "全日",
+      "link": "https://maps.app.goo.gl/kg6sd2p27xQjKQRc7",
+      "sentiment": "positive",
+      "tags": "Food、Bread、Value、Menu、Store Experience、MOKO",
+      "verification_note": "Review-specific Google Maps URL independently verified with original Cantonese text. The page showed 5 stars and ‘Edited 11 hours ago’ at approximately 2026-08-16 10:52 HKT, placing the update in late 2026-08-15 HKT. Food 4, Service 4, Atmosphere 3; seven photos; no visible helpful count or owner reply.",
+      "discovered_on": "2026-08-16",
+      "new_activity": true
+    }
+  ],
+  "alerts": [
+    {
+      "severity": "HIGH",
+      "level": "HIGH",
+      "status": "carryover",
+      "new_in_run": false,
+      "title": "持續觀察：慢服務及小飛蟲個人陳述",
+      "summary": "8月10日Threads作者稱餐點及店方補送甜品先後見到小型飛蟲，並批評服務偏慢。這是未經獨立核實的個人陳述且分店未明；今日沒有新證據，但涉及衛生與補救流程，仍建議完成內部核查。",
+      "source": "Threads",
+      "link": "https://www.threads.com/@arjoejoe0227/post/Db3W8H_k-Ny"
+    },
+    {
+      "severity": "MEDIUM",
+      "level": "MEDIUM",
+      "status": "carryover",
+      "new_in_run": false,
+      "title": "持續觀察：牛扒冷凍味及多筋口感",
+      "summary": "8月11至13日多則Threads回覆對牛扒冷凍味及多筋難切提出負面觀感，其中一則曾有較高互動。今日未見新的同類可驗證帖文，建議保持關鍵詞及分店層面的品質監察。",
+      "source": "Threads",
+      "link": "https://www.threads.com/@lithium.s/post/Db3fLBYkwTw"
+    },
+    {
+      "severity": "MEDIUM",
+      "level": "MEDIUM",
+      "status": "carryover",
+      "new_in_run": false,
+      "title": "持續觀察：價格及性價比討論",
+      "summary": "較早Threads比較帖曾出現競品較便宜、Outback單份牛扒約HK$500及用餐容易超過HK$1,000等個人價格觀感。今日沒有新增放大訊號，建議繼續以清晰套餐及會員價值資訊管理認知。",
+      "source": "Threads",
+      "link": "https://www.threads.com/@shizukushiro/post/Db5kc_8GYMF"
+    }
+  ],
+  "trends": "本次新增1條已驗證及全域去重記錄，情緒為正面（100%）。MOKO五星食評集中讚揚黑糖麵包、套餐性價比、食材新鮮度及多款主食，唯一較弱訊號是店內座位較窄。今日未發現可驗證的新負面帖文、新聞或需要即時升級的PR事件；過去數日涉及牛扒品質、價格、服務及衛生的Threads訊號仍應列入持續觀察名單，但不能視作今日新增。",
+  "recommendations": [
+    "把MOKO食評中對黑糖麵包、套餐抵食、沙律新鮮及多款主菜的正面描述納入可驗證的第三方口碑素材庫；如按既有客服流程回覆，應簡潔致謝並避免過度促銷。",
+    "由MOKO店舖營運團隊在繁忙時段快速檢視座位間距、走道及桌面舒適度；目前僅屬單一輕微意見，不建議對外放大。",
+    "未來24至48小時繼續監察牛扒冷凍味／多筋、價格與性價比、慢服務及衛生等既有關鍵詞；今日沒有新增證據支持升級危機應對。",
+    "保留Google Maps原始連結及已驗證截取資料；若該評論再度修改或店方回覆，作為新活動另行記錄，不重複建立原帖。"
+  ],
+  "coverage": {
+    "target_sources": 49,
+    "checked_source_groups": {
+      "news_lifestyle_owned": 28,
+      "review_travel_forum_community": 15,
+      "social_platforms": 6,
+      "google_maps_branches_checked": 10
+    },
+    "new_records": 1,
+    "primary_window_records": 1,
+    "backfill_records": 0,
+    "no_new_indexed_news": true,
+    "dedup_baseline_records_checked": 244,
+    "limitations": [
+      "Public indexing and guest access remain incomplete for Facebook, Instagram, Threads and Xiaohongshu; only directly verifiable public records were accepted.",
+      "Google Maps exposed the MOKO review update as a relative label (‘Edited 11 hours ago’) rather than an exact timestamp. The activity date is confidently late 2026-08-15 HKT, while the time field is conservatively stored as all-day.",
+      "Three Eber cross-platform posts initially surfaced as recent because of relative-age labels; embedded timestamps confirmed all were published on 2026-08-14 HKT, so they were excluded from today’s window and deduplicated by text.",
+      "No dated, directly verifiable new item was accepted from HK news, OpenRice, LIHKG, HKDiscuss, Baby Kingdom, Trip.com or Xiaohongshu during this run; no paid or subscription API was used."
+    ]
+  },
+  "stats": {
+    "total": 1,
+    "positive": 1,
+    "negative": 0,
+    "neutral": 0,
+    "primary_window_records": 1,
+    "backfill_records": 0,
+    "source_counts": {
+      "Google Maps (MOKO)": 1
+    }
+  }
+}
