@@ -113,17 +113,50 @@ td>span{color:#7d8789;margin-top:3px;font-size:10px;display:block}
 .tag-list{flex-wrap:wrap;gap:4px;max-width:160px;display:flex}
 .tag-list span{color:#cbbaff;background:#8b5cf614;border:1px solid #a26eff3d;border-radius:999px;padding:3px 6px;font-size:9px}
 .empty-table{color:#8c9698;text-align:center;padding:38px}
-.store-ranking-list{gap:0;margin:0;padding:12px 18px;list-style:none;display:grid}
-.store-ranking-list li{border-top:1px solid #ffffff0f;grid-template-columns:31px minmax(0,1fr) 29px;align-items:center;gap:10px;padding:12px 0;display:grid}
-.ranking-number{color:#65e9ae;background:#00d08412;border:1px solid #00d08442;border-radius:50%;place-items:center;width:27px;height:27px;font-family:var(--mono);font-size:9px;display:grid}
-.ranking-copy{min-width:0}
-.ranking-copy strong{color:#edf5f1;text-overflow:ellipsis;white-space:nowrap;font-size:11px;display:block;overflow:hidden}
-.ranking-copy span{color:#899396;margin-top:2px;font-size:10px;display:block}
-.ranking-copy small{color:#788385;margin-top:4px;font-size:9px;display:block}
-.ranking-copy small b{color:#b8dfca;font-family:var(--mono);font-weight:500}
+/* Store Ranking — Manus Cloud exact layout */
+.store-ranking-panel{position:relative}
+.ranking-method{color:#7f898b;justify-content:space-between;gap:10px;padding:14px 18px 10px;font-family:var(--mono);font-size:9px;line-height:1.35;display:flex;flex-wrap:wrap}
+.ranking-method span:last-child{color:#596265;text-align:right}
+.store-ranking-table{overflow-x:auto}
+.store-ranking-header,.store-ranking-row{grid-template-columns:78px minmax(225px,1.35fr) 92px 108px minmax(320px,2fr) 54px;min-width:1030px;display:grid}
+.store-ranking-header{color:#7f8a8b;letter-spacing:.075em;text-transform:uppercase;background:#080b0ebd;border-bottom:1px solid #ffffff14;align-items:center;min-height:42px;padding:0 18px;font-family:var(--mono);font-size:8px}
+.store-ranking-row{background:#0c0f14b8;border-bottom:1px solid #fff1;align-items:stretch;padding:0 18px;transition:background .16s}
+.store-ranking-row:hover{background:#00d08409}
+.store-ranking-row.is-ranked{background:linear-gradient(90deg,#00d08413,#0c0f14bd 46%)}
+.store-ranking-row>*{min-width:0;padding:16px 13px 15px 0}
+.ranking-big-number{color:#e8fff3;letter-spacing:-.1em;align-items:flex-start;padding-top:14px;font-family:var(--mono);font-size:32px;font-weight:700;line-height:1;display:flex}
+.is-unavailable .ranking-big-number{color:#596264}
+.store-location-cell strong{color:#eff7f2;text-overflow:ellipsis;white-space:nowrap;font-size:12px;display:block;overflow:hidden}
+.store-location-cell span{color:#93a09e;margin-top:3px;font-size:10px;display:block}
+.store-location-cell small{color:#667174;margin-top:7px;font-size:9px;line-height:1.35;display:block}
+.store-score-cell b,.store-review-cell b{color:#b8f4d4;font-family:var(--mono);font-size:20px;font-weight:500;line-height:1;display:block}
+.store-score-cell small,.store-review-cell small{color:#727d7f;margin-top:6px;font-size:9px;display:block}
+.is-unavailable .store-score-cell b,.is-unavailable .store-review-cell b{color:#929a9a}
+.store-summary-cell{color:#afbab6;margin:0;font-size:10px;line-height:1.55}
+.store-summary-cell b{color:#70dba7;letter-spacing:.06em;text-transform:uppercase;margin-bottom:5px;font-family:var(--mono);font-size:8px;font-weight:500;display:block}
+.store-summary-cell.is-unavailable{color:#a4a9a9}
+.store-ranking-row .ranking-link{align-self:center;margin-right:4px}
+.ranking-comment{color:#aeb9b6;margin:8px 0 0;font-size:9px;line-height:1.55}
+.ranking-comment b{color:#74dbae;letter-spacing:.055em;text-transform:uppercase;margin-bottom:2px;font-family:var(--mono);font-size:8px;font-weight:500;display:block}
+.ranking-comment.is-unavailable{color:#898f91;font-style:italic}
+.ranking-comment.is-unavailable b{color:#c5ac68}
+.store-ranking-note{color:#99988a;background:#efb5390b;border-left:2px solid #efb539a6;margin:4px 18px 18px;padding:10px;font-size:9px;line-height:1.55}
 .ranking-link{color:#70eab1;background:#00d08412;border:1px solid #00d08438;border-radius:5px;place-items:center;width:29px;height:29px;text-decoration:none;display:grid;transition:background .16s,transform .16s}
 .ranking-link:hover{background:#00d0842b;transform:translateY(-1px)}
 .no-data{color:#596264;font-style:italic;font-size:10px}
+/* All-store grid (alternative compact view) */
+.all-store-grid{background:#fff1;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;display:grid}
+.store-card{background:#0d1015f5;min-height:188px;padding:15px}
+.store-card.is-ranked{background:linear-gradient(135deg,#00d08413,#0d1015fa 55%)}
+.store-card.is-unavailable{opacity:.9}
+.store-card-top{justify-content:space-between;align-items:center;margin-bottom:12px;display:flex}
+.store-rank{color:#74e7ae;background:#00d08412;border:1px solid #00d08438;border-radius:999px;place-items:center;min-width:30px;height:22px;padding:0 6px;font-family:var(--mono);font-size:9px;display:grid}
+.store-card.is-unavailable .store-rank{color:#c6ac6a;background:#efb5390f;border-color:#efb53933}
+.store-card>strong{color:#edf6f1;text-overflow:ellipsis;white-space:nowrap;font-size:12px;display:block;overflow:hidden}
+.store-native-name{color:#8a9597;margin-top:3px;font-size:10px;display:block}
+.store-metric{color:#859093;min-height:28px;margin:10px 0 0;font-size:9px;line-height:1.45}
+.store-metric b{color:#baf0d3;font-family:var(--mono);font-weight:500}
+.store-card .ranking-comment{margin-top:8px}
 .lower-grid{grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;display:grid}
 .source-coverage{overflow-x:auto}
 .source-coverage table{min-width:600px}
@@ -233,7 +266,7 @@ footer i{background:var(--accent);border-radius:50%;width:3px;height:3px}
     <button class="tab-btn active" data-tab="media">📰 01 媒體與新聞 <span class="tab-badge">${R.media_records.length}</span></button>
     <button class="tab-btn" data-tab="social">💬 02 社交媒體 <span class="tab-badge">${R.social_records.length}</span></button>
     <button class="tab-btn" data-tab="all">📋 03 社交聆聽數據 <span class="tab-badge">${R.all_records.length}</span></button>
-    <button class="tab-btn" data-tab="stores">🏪 04 店舗排名 <span class="tab-badge">10</span></button>
+    <button class="tab-btn" data-tab="stores">🏪 04 店舗排名 <span class="tab-badge">${R.store_ranking.filter(s=>s.has_data).length}/10</span></button>
     <button class="tab-btn" data-tab="coverage">📊 05 來源覆蓋 <span class="tab-badge">${M.sources_checked}</span></button>
   </div>
 
@@ -269,17 +302,29 @@ footer i{background:var(--accent);border-radius:50%;width:3px;height:3px}
     media: `<div class="section-heading"><div><h2>媒體與新聞報導</h2><p>新聞媒體、食評網站、行業報導及公關通訊的提及記錄</p></div><span class="section-count">${R.media_records.length} records</span></div>${renderTable(R.media_records)}`,
     social: `<div class="section-heading"><div><h2>社交媒體提及</h2><p>Instagram、Facebook、Threads、小紅書、YouTube 貼文、評論及論壇討論</p></div><span class="section-count">${R.social_records.length} records</span></div>${renderTable(R.social_records)}`,
     all: `<div class="section-heading"><div><h2>社交聆聽完整數據</h2><p>所有平台的所有提及記錄，按日期倒序排列</p></div><span class="section-count">${R.all_records.length} records</span></div>${renderTable(R.all_records)}`,
-    stores: `<div class="section-heading"><div><h2>店舗排名</h2><p>全港 10 間 Outback 分店按社交提及量排名</p></div><span class="section-count">10 stores</span></div>
-      <ul class="store-ranking-list">${R.store_ranking.map(s=>`<li>
-        <div class="ranking-number">${s.mentions>0?s.rank:'—'}</div>
-        <div class="ranking-copy">
-          <strong>${esc(s.name)}</strong><span>${esc(s.location)}</span>
-          <small>${s.mentions>0?`Mentions: <b>${s.mentions}</b> · Last: <b>${s.last_review}</b>`:'<span class="no-data">尚無監測數據</span>'}</small>
-          <small>${esc(s.summary)}</small>
-        </div>
-        ${s.mentions>0?`<span style="font-size:9px;color:#70eab1">${s.sentiment}</span>`:'<span class="no-data">—</span>'}
-      </li>`).join('')}</ul>
-      <div class="section-export"><button class="export-button" onclick="window.open('https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4/edit','_blank')">📊 View in Google Sheets</button></div>`,
+    stores: function(){
+      const RS = R.store_ranking, hasData = RS.filter(s=>s.has_data);
+      const scoreLabel = (s) => s.avg_score ? `${s.avg_score}<small>/5</small>` : '<span class="no-data">—</span>';
+      const reviewLabel = (s) => s.mentions > 0 ? `${s.mentions}<small>mentions</small>` : '<span class="no-data">—</span>';
+      return `<div class="section-heading"><div><h2>店舗排名</h2><p>全港 10 間 Outback 分店按社交提及量排名 — 綜合 Google Maps、OpenRice、TripAdvisor 公開評價</p></div><span class="section-count">${hasData.length}/10 ranked</span></div>
+      <div class="ranking-method"><span>Ranking method — mentions · avg rating · recency. Stores with zero mentions shown last. <span style="color:#efb539">⚠</span> Scores sourced from public Google Maps ratings only; OpenRice & TripAdvisor ratings vary by platform.</span><span>${M.date_range}</span></div>
+      <div class="store-ranking-table">
+        <div class="store-ranking-header"><span>RANK</span><span>STORE</span><span>SCORE</span><span>REVIEWS</span><span>SUMMARY</span><span>LINK</span></div>
+        ${RS.map(s=>{
+          const cls = s.has_data ? 'is-ranked' : 'is-unavailable';
+          return `<div class="store-ranking-row ${cls}">
+            <div class="ranking-big-number">${s.has_data ? '#'+s.rank : '—'}</div>
+            <div class="store-location-cell"><strong>${esc(s.name)}</strong><span>${esc(s.district)}</span><small>${s.latest !== '-' ? 'Last mention · '+s.latest : '<span class="no-data">尚無數據</span>'}</small></div>
+            <div class="store-score-cell"><b>${s.avg_score||'—'}</b>${s.avg_score?'<small>/5</small>':'<small>—</small>'}</div>
+            <div class="store-review-cell"><b>${s.mentions||'—'}</b><small>mentions</small></div>
+            <div class="store-summary-cell${s.has_data?'':' is-unavailable'}"><b>TOPIC TAGS</b>${s.has_data?`<span style="color:#c5cfca">${esc(s.summary.slice(0,160))}${s.summary.length>160?'…':''}</span>`:'<span class="no-data">尚無監測數據 — 此分店暫未有公開社交提及</span>'}</div>
+            <a href="https://www.google.com/maps/search/Outback+Steakhouse+${encodeURIComponent(s.store_id||s.district)}+Hong+Kong" target="_blank" rel="noopener" class="ranking-link">↗</a>
+          </div>`;
+        }).join('')}
+      </div>
+      <div class="store-ranking-note">📊 Scores sourced from public Google Maps ratings. Mention counts aggregated across all 46 monitored sources. Rankings updated daily at 9 AM HKT. <a href="https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4/edit" target="_blank" style="color:#c6ac6a">View raw data in Google Sheets →</a></div>
+      <div class="section-export"><button class="export-button" onclick="window.open('https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4/edit','_blank')">📊 Full Data in Google Sheets</button></div>`;
+    },
     coverage: `<div class="section-heading"><div><h2>來源覆蓋狀況</h2><p>46 個目標來源的監測覆蓋率及限制報告</p></div><span class="section-count">${M.sources_checked}/46 active</span></div>
       <div class="source-coverage"><div class="table-wrap"><table><thead><tr><th>Source</th><th>Mentions</th><th>% of Total</th></tr></thead><tbody>${R.source_breakdown.map(s=>`<tr><td>${esc(s.source)}</td><td><b>${s.count}</b></td><td>${((s.count/M.total_records)*100).toFixed(1)}%</td></tr>`).join('')}</tbody></table></div></div>
       <div class="section-export"><button class="export-button" onclick="window.open('https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4/edit','_blank')">📊 Full Data in Google Sheets</button></div>`
@@ -290,7 +335,8 @@ footer i{background:var(--accent);border-radius:50%;width:3px;height:3px}
   function showTab(name){
     activeTab = name;
     document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active',b.dataset.tab===name));
-    document.getElementById('tabContent').innerHTML = panels[name]||'';
+    const panel = panels[name];
+    document.getElementById('tabContent').innerHTML = typeof panel === 'function' ? panel() : (panel||'');
   }
   showTab('media');
 
