@@ -1,0 +1,55 @@
+{
+  "date": "2026-08-19",
+  "items": [
+    {
+      "date": "2026-08-19",
+      "source": "LinkedIn (Eber)",
+      "platform": "社交媒體",
+      "author": "Eber",
+      "title": "Eber以Outback HK說明品牌一致性需由營運支撐",
+      "summary": "Eber的公開LinkedIn帖文以Outback Steakhouse Hong Kong及Patrick Kwok為明確關聯，提出門店、POS與App若未能協調，行銷活動亦不足以維持一致品牌體驗；帖文屬一般營運與CRM觀點，未指稱Outback實際發生系統失誤。",
+      "link": "https://www.linkedin.com/posts/eber-loyalty-marketing_operations-brandexperience-restaurantmarketing-activity-7495759720331304960-Npuy",
+      "sentiment": "neutral",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-19",
+      "source": "Google Maps (New Town Plaza)",
+      "platform": "評論平台",
+      "author": "Chan Stephen (上官警我)",
+      "title": "沙田顧客5星午餐評分（無文字評論）",
+      "summary": "Chan Stephen（上官警我）的公開Google Maps評價顯示整體5星及餐種為午餐；頁面未顯示額外文字評論，因此不推斷具體意見。",
+      "link": "https://maps.app.goo.gl/YpbC8ns9VaWFjoFy9",
+      "sentiment": "neutral",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-19",
+      "source": "Google Maps (Tai Po Mega Mall)",
+      "platform": "評論平台",
+      "author": "J M",
+      "title": "大埔顧客投訴兩度上錯牛扒及落單流程",
+      "summary": "J M 的公開評價聲稱即使餐牌有編號及圖片仍被錯誤落單，兩次收到錯誤牛扒；同時稱員工態度友善，但期望服務流程改善。頁面顯示整體5星。",
+      "link": "https://maps.app.goo.gl/xokZGZp1zvsLWWE4A",
+      "sentiment": "negative",
+      "tags": ""
+    }
+  ],
+  "alerts": [
+    {
+      "title": "大埔顧客投訴兩度上錯牛扒及落單流程",
+      "summary": "J M 的公開評價聲稱即使餐牌有編號及圖片仍被錯誤落單，兩次收到錯誤牛扒；同時稱員工態度友善，但期望服務流程改善。頁面顯示整體5星。",
+      "source": "Google Maps (Tai Po Mega Mall)",
+      "link": "https://maps.app.goo.gl/xokZGZp1zvsLWWE4A",
+      "severity": "MEDIUM"
+    }
+  ],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 3,
+    "new_records": 3,
+    "limitations": []
+  }
+}

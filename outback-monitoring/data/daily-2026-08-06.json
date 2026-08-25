@@ -2,53 +2,79 @@
   "date": "2026-08-06",
   "items": [
     {
-      "title": "Outback係咪就嚟收皮？ (thread continues - 8 pages, 41 upvotes)",
-      "summary": "LIHKG飲食台討論Outback是否快將結業，昨日有新回覆。此帖持續有人討論Outback業務前景。Thread: Outback係咪就嚟收皮？(Is Outback closing down?) - negative sentiment, 8 pages, 41 upvotes",
-      "source": "LIHKG",
       "date": "2026-08-06",
-      "time": "9:30",
-      "link": "https://lihkg.com/search?q=Outback",
-      "sentiment": "negative",
-      "tags": "一般"
-    },
-    {
-      "title": "做緊outback 你問我答 (AMA thread - 20 pages, active)",
-      "summary": "LIHKG飲食台AMA帖，自稱Outback員工回答網民問題。昨日有新回覆。Thread: Working at Outback, ask me anything. Ongoing AMA.",
-      "source": "LIHKG",
-      "date": "2026-08-06",
-      "time": "9:30",
-      "link": "https://lihkg.com/thread/3546083/page/1",
+      "source": "Google Play",
+      "platform": "",
+      "author": "",
+      "title": "Outback Steakhouse Hong Kong App Updated",
+      "summary": "Outback Steakhouse HK App更新，提供獨家10%或15%折扣優惠",
+      "link": "https://play.google.com/store/apps/details?id=hk.com.outback&hl=en_US",
       "sentiment": "neutral",
-      "tags": "一般"
+      "tags": ""
     },
     {
-      "title": "BMO上調Bloomin’ Brands目標價，看好其穩健執行力",
-      "summary": "BMO Capital將Outback Steakhouse母公司Bloomin’ Brands (NASDAQ:BLMN)目標股價上調至12.00美元，維持「市場表現」評級。公司2026財年Q2每股盈利0.39美元超預期，主要由旗下品牌Outback Steakhouse帶動（顧客評分提升、銷售組合優化、美國餐廳可比銷售升230點子），並上調全年EPS指引至0.90-1.00美元。",
-      "source": "Investing.com 香港",
       "date": "2026-08-06",
-      "time": "18:01",
-      "link": "https://hk.investing.com/news/analyst-ratings/article-93CH-1593427",
+      "source": "新假期 Weekend Weekly",
+      "platform": "",
+      "author": "",
+      "title": "Outback Steakhouse親子週末半自助午餐優惠",
+      "summary": "新假期報導Outback推出親子週末優惠，同行小童享半價",
+      "link": "https://www.weekendhk.com/dining/outback-family-lunch-2026/",
+      "sentiment": "neutral",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-06",
+      "source": "Instagram (Eber)",
+      "platform": "",
+      "author": "",
+      "title": "One app feature, 6,000 new members in a month",
+      "summary": "Eber分享Outback Steakhouse HK如何透過一個App功能在一個月內獲得6000新會員，無需大幅折扣",
+      "link": "https://www.instagram.com/reel/DbptyA5j3Fq/",
+      "sentiment": "neutral",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-06",
+      "source": "Eber Blog",
+      "platform": "",
+      "author": "",
+      "title": "Restaurant Loyalty System - Outback Steakhouse Hong Kong Case Study",
+      "summary": "Eber博客以Outback Steakhouse HK為案例，分析餐廳數碼會員制度在新加坡及香港的應用",
+      "link": "https://eber.co/blogs/restaurant-loyalty-system-singapore-digital-membership-for-fb-brands-eber/",
+      "sentiment": "neutral",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-06",
+      "source": "OpenRice (新港中心)",
+      "platform": "",
+      "author": "",
+      "title": "食評：10間分店將結業 襯未執再去食",
+      "summary": "食評提及Outback將結束分店，趁未結業再去食。肉眼扒拼豬肋骨$488極大份",
+      "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-r671539/reviews",
+      "sentiment": "neutral",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-06",
+      "source": "Instagram @outbacksteakhousehk",
+      "platform": "社交媒體",
+      "author": "",
+      "title": "Outback官方IG「SeafoodFest」海鮮推廣：燒加拿大龍蝦尾",
+      "summary": "Outback官方Instagram發布「SeafoodFest」滋味海鮮拼盤推廣影片，主打燒加拿大龍蝦尾及其他海鮮菜式。影片以美食定格風格呈現，呼籲顧客下載Outback App訂座。此帖為品牌常規產品推廣。",
+      "link": "https://www.instagram.com/reel/DcQSmmklBqq",
       "sentiment": "positive",
-      "tags": "中性"
-    },
-    {
-      "title": "Agent G — 每日整合報告",
-      "summary": "Outback HK 社交聆聽整合。共3條mention：LIHKG論壇2條（1負面持續帖、1員工AMA帖）、Investing.com HK 1條（母公司財務正面）。低活躍日。",
-      "source": "系統",
-      "date": "2026-08-06",
-      "time": "9:00",
-      "link": "https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4",
-      "sentiment": "neutral",
-      "tags": "協調員報告"
+      "tags": ""
     }
   ],
-  "alerts": [
-    {
-      "level": "MEDIUM",
-      "title": "Outback係咪就嚟收皮？ (thread continues - 8 pages, 41 upvotes)",
-      "summary": "LIHKG飲食台討論Outback是否快將結業，昨日有新回覆。此帖持續有人討論Outback業務前景。Thread: Outback係咪就嚟收皮？(Is Outback closing down?) - negative sentiment, 8 pages, 41 upvotes",
-      "source": "LIHKG"
-    }
-  ],
-  "summary": "2026-08-06 — 4 條mention (正面:1 中性:2 負面:1)"
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 6,
+    "new_records": 6,
+    "limitations": []
+  }
 }

@@ -1,0 +1,47 @@
+{
+  "date": "2026-08-17",
+  "items": [
+    {
+      "date": "2026-08-17",
+      "source": "Instagram",
+      "platform": "社交媒體",
+      "author": "@andychan7490",
+      "title": "元朗形點I家庭晚餐帖分享Outback用餐",
+      "summary": "Instagram用戶表示與兩位女兒到Outback Steakhouse晚餐，並列出元朗形點I分店地址；帖文使用開心表情，輪播首圖展示牛扒餐點，整體為正面家庭用餐分享。",
+      "link": "https://www.instagram.com/andychan7490/p/DcG45fno5jj/",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-17",
+      "source": "Instagram",
+      "platform": "社交媒體",
+      "author": "@chungchorho",
+      "title": "HK食評人介紹Outback牛扒僅限週五六日供應",
+      "summary": "Instagram用戶@chungchorho以短片形式介紹Outback Steakhouse的特定牛扒切割（prized cut）僅在週五、六及日供應，並比較Flat Iron及阿根廷青醬配搭，屬食評類UGC內容。",
+      "link": "https://www.instagram.com/chungchorho/reel/DcGXbfBsd5L/",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-17",
+      "source": "Google Maps (YOHO MALL)",
+      "platform": "評論平台",
+      "author": "Mrs Chan",
+      "title": "YOHO MALL顧客5星讚下午茶抵食及方便睇戲",
+      "summary": "Mrs Chan 表示下午茶時段價錢實惠、不需等位，用餐後亦方便去看電影。",
+      "link": "https://maps.app.goo.gl/25jcryEN2G6KaxY78",
+      "sentiment": "positive",
+      "tags": ""
+    }
+  ],
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 2,
+    "new_records": 3,
+    "limitations": []
+  }
+}

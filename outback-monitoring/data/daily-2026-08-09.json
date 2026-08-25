@@ -1,6 +1,102 @@
 {
   "date": "2026-08-09",
-  "items": [],
+  "items": [
+    {
+      "date": "2026-08-09",
+      "source": "OpenRice",
+      "platform": "",
+      "author": "",
+      "title": "Outback Steakhouse (新城市廣場三期) 食評",
+      "summary": "OpenRice用戶評論Outback沙田新城市廣場分店，提及免費麵包續加及服務質素",
+      "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-%E6%B2%99%E7%94%B0-%E6%BE%B3%E6%B4%B2%E8%8F%9C-r651512/reviews",
+      "sentiment": "neutral",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-09",
+      "source": "晴報 Sky Post",
+      "platform": "",
+      "author": "",
+      "title": "Outback Steakhouse 8月生日優惠 - App領取$88優惠券",
+      "summary": "晴報報導8月生日優惠，壽星可透過App領取$88電子優惠券",
+      "link": "https://skypost.ulifestyle.com.hk/article/outback-birthday-aug-2026",
+      "sentiment": "neutral",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-09",
+      "source": "OpenRice (荃灣廣場)",
+      "platform": "",
+      "author": "",
+      "title": "食評：荃灣廣場分店晚餐體驗",
+      "summary": "Outback荃灣廣場分店，位於L2/F Shop 248-249",
+      "link": "https://www.openrice.com/en/hongkong/r-outback-steakhouse-tsuen-wan-r663138/reviews",
+      "sentiment": "neutral",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-09",
+      "source": "YOHO MALL",
+      "platform": "",
+      "author": "",
+      "title": "Outback Steakhouse YOHO MALL 星期三狂賞優惠",
+      "summary": "YOHO MIX及YOHO PLUS指定消費滿HK$500送HK$70優惠，Outback Steakhouse位於YOHO MALL I L2",
+      "link": "https://www.yohomall.hk/zh-hk/dining/3799/Outback%20Steakhouse",
+      "sentiment": "neutral",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-09",
+      "source": "Google Maps (Causeway Bay Plaza One)",
+      "platform": "評論平台",
+      "author": "Cherry Wong",
+      "title": "銅鑼灣顧客5星評價：晚餐體驗整體正面",
+      "summary": "Cherry Wong 的公開Google Maps評價顯示整體5星；晚餐每人約HK$300–350，食物4分、服務4分、環境5分。",
+      "link": "https://maps.app.goo.gl/Woz7LmXLyGht4efG8",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-09",
+      "source": "Google Maps (Causeway Bay Plaza One)",
+      "platform": "評論平台",
+      "author": "Week end foodie hk",
+      "title": "銅鑼灣顧客5星評價：食物、服務及環境均獲4分",
+      "summary": "Week end foodie hk 的公開Google Maps評價顯示整體5星，食物、服務及環境各為4分；頁面未顯示額外文字評論。",
+      "link": "https://maps.app.goo.gl/U3Wa8mo8TAfnqTU59",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-09",
+      "source": "Google Maps (Causeway Bay Plaza One)",
+      "platform": "評論平台",
+      "author": "Puipui HYP",
+      "title": "銅鑼灣顧客5星評價：食物及服務各獲4分",
+      "summary": "Puipui HYP 的公開Google Maps評價顯示整體5星，食物4分、服務4分；頁面未顯示額外文字評論。",
+      "link": "https://maps.app.goo.gl/4BwDq1rwYDShfdtG9",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-09",
+      "source": "Google Maps (Tai Po Mega Mall)",
+      "platform": "評論平台",
+      "author": "Cho Cho",
+      "title": "大埔顧客認為食物好吃但口味偏重",
+      "summary": "Cho Cho 表示2026年7月到訪，食物好吃但味道較重；公開Google Maps頁面顯示整體5星。",
+      "link": "https://maps.app.goo.gl/Ry6XavDi8SW2ab2v9",
+      "sentiment": "mixed",
+      "tags": ""
+    }
+  ],
   "alerts": [],
-  "summary": "2026-08-09 — 0 條mention (正面:0 中性:0 負面:0)"
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 6,
+    "new_records": 8,
+    "limitations": []
+  }
 }

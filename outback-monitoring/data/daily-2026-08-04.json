@@ -2,16 +2,57 @@
   "date": "2026-08-04",
   "items": [
     {
-      "title": "Looking for an affordable vegetarian afternoon tea deal in Hong Kong? — HK$128 for ANY 2 Appetizers @outbacksteakhousehk",
-      "summary": "食客推介Outback素食下午茶優惠，任選2款前菜只需HK$128，性價比高。",
-      "source": "Instagram",
       "date": "2026-08-04",
-      "time": "14:46",
-      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9tbElRbVhNUzdRRHZyaW5nZkE0bUxPRlgyYUR2dy1Ed2Q3NGNaUDJ2OFFwY3BfazJiSVVCeDJkRXBYRHdYTWk0anJZSjFLb3NDcEE?oc=5",
+      "source": "Instagram",
+      "platform": "社交媒體",
+      "author": "@generation.x.mom",
+      "title": "香港創作者推介Outback下午茶：HK$78起、MUST TRY",
+      "summary": "創作者以MUST TRY推介Outback Steakhouse HK下午茶，重點介紹HK$78輕食或甜品套餐，以及平日下午茶及Happy Hour選擇。",
+      "link": "https://www.instagram.com/reel/Dbnz4Hgy7j6/",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-04",
+      "source": "Instagram (Food Blogger)",
+      "platform": "",
+      "author": "",
+      "title": "夏日賞味清單 - Outback Steakhouse New Summer Menu",
+      "summary": "介紹Outback Steakhouse新夏日菜單，營業時間11:30AM-10:30PM / 11:30AM-10:00PM",
+      "link": "https://www.instagram.com/p/DbzlYjVFCLT/",
       "sentiment": "neutral",
-      "tags": "一般"
+      "tags": ""
+    },
+    {
+      "date": "2026-08-04",
+      "source": "OpenRice (東薈城Citygate)",
+      "platform": "",
+      "author": "",
+      "title": "食評：東涌Citygate分店 All Day Lunch",
+      "summary": "Outback東涌東薈城分店，主要菜式包括黑糖麵包、燒雞肉芝士夾餅",
+      "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-r641822/reviews",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-04",
+      "source": "HK01 (香港01)",
+      "platform": "",
+      "author": "",
+      "title": "Outback Steakhouse 旺角分店 - 颱風期間營業安排",
+      "summary": "HK01報導颱風紅霞襲港期間Outback Steakhouse旺角分店營業安排",
+      "link": "https://www.hk01.com/sns/article/60373650",
+      "sentiment": "neutral",
+      "tags": ""
     }
   ],
   "alerts": [],
-  "summary": "2026-08-04 — 1 條mention (正面:0 中性:1 負面:0)"
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 4,
+    "new_records": 4,
+    "limitations": []
+  }
 }

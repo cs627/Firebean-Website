@@ -2,33 +2,57 @@
   "date": "2026-08-08",
   "items": [
     {
-      "title": "每日掃描完成 — 無新回覆",
-      "summary": "OpenRice(redirect loop), Google Maps(limited view), TripAdvisor(DataDome), Dianping(bot verify), Foodpanda/Deliveroo — all blocked 未能擷取。2026-08-07 無新回覆記錄。",
-      "source": "Agent A - Review Platforms",
       "date": "2026-08-08",
-      "time": "6:00",
-      "link": "https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4",
-      "sentiment": "neutral",
-      "tags": "Bot保護擋截所有平台，需確認代理或Browserbase方"
+      "source": "Instagram",
+      "platform": "社交媒體",
+      "author": "@firebeanagency",
+      "title": "Firebean分享Outback中環開幕活動幕後花絮",
+      "summary": "Firebean以幕後花絮形式介紹Outback中環「WHAT’S BLOOMIN’ IN CENTRAL」活動的場地佈置、Kahoot測試及Bushman Bread快閃店準備。",
+      "link": "https://www.instagram.com/p/Dbu-5QXk44f/",
+      "sentiment": "positive",
+      "tags": ""
     },
     {
-      "title": "Agent G — 每日整合報告",
-      "summary": "Agent A 掃描評論平台但全線被bot保護擋截（OpenRice redirect、Maps limited、TripAdvisor DataDome、Dianping verify、Foodpanda/Deliveroo blocked），無新回覆。其餘Agent B-F星期六未見數據記錄。共0條新mention。",
-      "source": "系統",
       "date": "2026-08-08",
-      "time": "9:00",
-      "link": "https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4",
+      "source": "LinkedIn (Eber)",
+      "platform": "",
+      "author": "",
+      "title": "The 90%+ engagement secret - Outback Steakhouse HK membership",
+      "summary": "Outback Steakhouse HK運營兩級會員制度，達到90%活躍會員率，無需額外折扣或特別優惠",
+      "link": "https://www.linkedin.com/posts/eber-loyalty-marketing_-activity-7488081775525617664-MJzG",
       "sentiment": "neutral",
-      "tags": "需關注"
-    }
-  ],
-  "alerts": [
+      "tags": ""
+    },
     {
-      "level": "LOW",
-      "title": "Agent G — 每日整合報告",
-      "summary": "Agent A 掃描評論平台但全線被bot保護擋截（OpenRice redirect、Maps limited、TripAdvisor DataDome、Dianping verify、Foodpanda/Deliveroo blocked），無新回覆。其餘Agent B-F星期六未見數據記錄。共0條新mention。",
-      "source": "系統"
+      "date": "2026-08-08",
+      "source": "OpenRice (娛樂行中環)",
+      "platform": "",
+      "author": "",
+      "title": "食評相片：中環娛樂行分店最新相片",
+      "summary": "OpenRice用戶上傳Outback中環娛樂行分店最新食物相片",
+      "link": "https://www.openrice.com/zh/hongkong/p-outback-steakhouse-p29295283",
+      "sentiment": "neutral",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-08",
+      "source": "LinkedIn (Marius L)",
+      "platform": "",
+      "author": "",
+      "title": "Outback Steakhouse HK rebuilt loyalty program - 90% active member rate",
+      "summary": "Outback Steakhouse HK重建忠誠計劃，圍繞真正參與而非折扣機制，達到90%活躍會員率及6000新會員",
+      "link": "https://www.linkedin.com/posts/mariusl_your-loyalty-program-is-not-buying-loyalty-activity-7483433935323062273--Ilx",
+      "sentiment": "neutral",
+      "tags": ""
     }
   ],
-  "summary": "2026-08-08 — 2 條mention (正面:0 中性:2 負面:0)"
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 4,
+    "new_records": 4,
+    "limitations": []
+  }
 }

@@ -2,26 +2,98 @@
   "date": "2026-08-01",
   "items": [
     {
-      "title": "Outback Steakhouse Hong Kong (Official) - 專頁更新",
-      "summary": "Outback官方Facebook專頁常規更新，推廣品牌內容",
-      "source": "Facebook (Official Page)",
       "date": "2026-08-01",
-      "time": "全日",
-      "link": "https://facebook.com/OutbackSteakhouseHongKong",
-      "sentiment": "neutral",
-      "tags": "品牌推廣"
+      "source": "Outback Hong Kong Official Website",
+      "platform": "官方網站",
+      "author": "Outback Steakhouse Hong Kong",
+      "title": "Outback 8月份August Sip Escape飲品優惠低至6折",
+      "summary": "Outback香港官方活動頁公布8月全月飲品優惠：惠顧正餐可享指定Mocktails HK$38、蘋果酒雞尾酒HK$58及500ml Peroni生啤HK$48，折扣低至6折。",
+      "link": "https://www.outback.com.hk/news-and-promotions/page/1?lang=tc",
+      "sentiment": "positive",
+      "tags": ""
     },
     {
-      "title": "Outback Steakhouse Hong Kong (Official) - 專頁更新",
-      "summary": "Outback 官方Facebook專頁常規更新",
-      "source": "Facebook (Official)",
       "date": "2026-08-01",
-      "time": "全日",
-      "link": "https://facebook.com/OutbackSteakhouseHongKong",
+      "source": "U Food",
+      "platform": "",
+      "author": "",
+      "title": "世界盃直播餐廳2026 - Outback Steakhouse睇波好去處",
+      "summary": "U Food推介世界盃2026直播餐廳合集，Outback Steakhouse列入名單",
+      "link": "https://ufood.com.hk/restaurant/news/detail/20099252/",
       "sentiment": "neutral",
-      "tags": "品牌推廣"
+      "tags": ""
+    },
+    {
+      "date": "2026-08-01",
+      "source": "Facebook (Official)",
+      "platform": "",
+      "author": "",
+      "title": "【8月生日嘅你注意！】Outback App生日優惠",
+      "summary": "8月生日壽星可在Outback App領取$88電子優惠券及外賣到會套餐8折優惠券",
+      "link": "https://www.facebook.com/outbacksteakhousehk?locale=fr_FR",
+      "sentiment": "neutral",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-01",
+      "source": "TOPick (HKET)",
+      "platform": "",
+      "author": "",
+      "title": "DSE放榜優惠合集 - Outback Steakhouse全單75折",
+      "summary": "TOPick報導DSE放榜優惠，Outback出示2026 DSE成績表正本即享75折",
+      "link": "https://www.threads.com/@jetso.topick/post/Daw5jZFkTPg/",
+      "sentiment": "neutral",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-01",
+      "source": "OpenRice (尖沙咀中心)",
+      "platform": "",
+      "author": "",
+      "title": "食評：外賣收錯錢 成盒雞肉冇俾到",
+      "summary": "長期會員投訴外賣收錯錢，叫左雞肉沙律結果冇雞肉，豬鞍又硬到橡膠",
+      "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-r15759/reviews#neg",
+      "sentiment": "negative",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-01",
+      "source": "Outback Steakhouse 官方網站",
+      "platform": "官方網站",
+      "author": "",
+      "title": "Outback 推出八月夏日飲品優惠「August Sip Escape」",
+      "summary": "Outback Steakhouse 香港官方網站推出八月限定夏日飲品優惠「August Sip Escape」，凡購買食物即可享指定飲品高達四折：水果無酒精雞尾酒（特價$38）、蘋果酒雞尾酒（特價$58）、Peroni 生啤 500ml（特價$48）。優惠涵蓋整個八月。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/236?lang=en",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-01",
+      "source": "Threads @hkmalls",
+      "platform": "社交媒體",
+      "author": "",
+      "title": "Patreon八月專題回顧：Outback縮水——由19間減至10間分店的鋸扒勝地興衰",
+      "summary": "香港商場評論專頁hkmalls在Threads宣傳其Patreon八月全新文章，回顧Outback Steakhouse在香港的發展歷程，包括由19間分店銳減至10間，D·PARK愉景新城元祖分店結業等。文章同時回顧T.G.I. Fridays及Tony Roma's兩間曾在港曇花一現的美式餐廳。此為第三方深度分析文章。",
+      "link": "https://www.threads.com/@hkmalls/post/C_N8fwCvh03",
+      "sentiment": "neutral",
+      "tags": ""
     }
   ],
-  "alerts": [],
-  "summary": "2026-08-01 — 2 條mention (正面:0 中性:2 負面:0)"
+  "alerts": [
+    {
+      "title": "食評：外賣收錯錢 成盒雞肉冇俾到",
+      "summary": "長期會員投訴外賣收錯錢，叫左雞肉沙律結果冇雞肉，豬鞍又硬到橡膠",
+      "source": "OpenRice (尖沙咀中心)",
+      "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-r15759/reviews#neg",
+      "severity": "MEDIUM"
+    }
+  ],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 7,
+    "new_records": 7,
+    "limitations": []
+  }
 }

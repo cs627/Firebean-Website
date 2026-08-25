@@ -1,0 +1,36 @@
+{
+  "date": "2026-08-22",
+  "items": [
+    {
+      "date": "2026-08-22",
+      "source": "Weekend Weekly / 新假期",
+      "platform": "網上媒體",
+      "author": "新假期編輯部",
+      "title": "新假期必吃食店大獎2026將Outback列為西餐編輯推介",
+      "summary": "《新假期》公布2026必吃食店大獎名單，Outback Steakhouse獲列入年度「必吃」西餐類別的編輯推介，屬香港本地餐飲媒體的正面品牌認可。",
+      "link": "https://www.weekendhk.com/?p=3487284",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-22",
+      "source": "Google Maps (Citygate Outlets)",
+      "platform": "評論平台",
+      "author": "simon lam",
+      "title": "東薈城顧客5星讚牛扒及黑糖包",
+      "summary": "simon lam 表示食物好吃、牛扒出色，並特別稱讚黑糖包。",
+      "link": "https://maps.app.goo.gl/Xsu2TrGCPp3sxZjw6",
+      "sentiment": "positive",
+      "tags": ""
+    }
+  ],
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 2,
+    "new_records": 2,
+    "limitations": []
+  }
+}

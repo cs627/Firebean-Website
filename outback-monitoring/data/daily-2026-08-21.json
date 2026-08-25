@@ -1,0 +1,36 @@
+{
+  "date": "2026-08-21",
+  "items": [
+    {
+      "date": "2026-08-21",
+      "source": "Threads (Lemon Media HK)",
+      "platform": "社交媒體",
+      "author": "@lemonmediahk（已驗證帳戶）",
+      "title": "新城市廣場麵包節優惠提及Outback黑糖麥包HK$10",
+      "summary": "Lemon Media HK在Threads介紹沙田新城市廣場8月28至30日麵包活動，並於商場餐飲限定優惠中列出Outback Steakhouse外帶裝招牌黑糖麥包驚喜價HK$10，屬促銷資訊型正面曝光。",
+      "link": "https://www.threads.com/@lemonmediahk/post/DcTJfZBjx2I/",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-21",
+      "source": "LinkedIn (Eber)",
+      "platform": "社交媒體",
+      "author": "Eber",
+      "title": "Eber案例披露Outback HK付費會員活躍度與App預訂成果",
+      "summary": "Eber公開Outback Steakhouse Hong Kong會員案例：Prestige付費會員到訪頻率為免費VIP會員的三倍、逾90%付費會員維持活躍、一個月新增6,000名會員，且四分之一預訂由App開始，屬正面CRM及忠誠度成效內容。",
+      "link": "https://www.linkedin.com/posts/eber-loyalty-marketing_outback-steakhouse-hk-case-study-pdf-activity-7496416081075417088-nj_A",
+      "sentiment": "positive",
+      "tags": ""
+    }
+  ],
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 2,
+    "new_records": 2,
+    "limitations": []
+  }
+}

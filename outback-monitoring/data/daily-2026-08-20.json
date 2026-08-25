@@ -1,0 +1,58 @@
+{
+  "date": "2026-08-20",
+  "items": [
+    {
+      "date": "2026-08-20",
+      "source": "Instagram (Official Page)",
+      "platform": "社交媒體",
+      "author": "Outback Steakhouse HK (@outbacksteakhousehk)",
+      "title": "OutBackrooms短片以黑糖麥包定位品牌為工作壓力安全地帶",
+      "summary": "Outback Steakhouse HK官方Instagram發布雙語OutBackrooms短片，以日常工作壓力作情境，推廣Bushman Bread配自家製牛油及餐單連結。",
+      "link": "https://www.instagram.com/outbacksteakhousehk/reel/DcQSmmklBqq/",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-20",
+      "source": "Google Maps (Causeway Bay Plaza One)",
+      "platform": "評論平台",
+      "author": "Ho Yan Chu",
+      "title": "銅鑼灣顧客5星午餐評價：食物5分、服務及環境各3分",
+      "summary": "Ho Yan Chu 的公開Google Maps評價顯示整體5星；午餐項目中食物5分、服務3分、環境3分。",
+      "link": "https://maps.app.goo.gl/KwsAuqE8bVcwt7aA8",
+      "sentiment": "mixed",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-20",
+      "source": "Marketing-Interactive",
+      "platform": "網上媒體",
+      "author": "Karen Wong",
+      "title": "Pizza Hut香港新任市場總監履歷提及Outback Steakhouse",
+      "summary": "Marketing-Interactive報道Pizza Hut香港及澳門委任Eric Lam為市場總監；文章回顧其逾18年市場及業務經驗，並指他過往曾於Outback Steakhouse擔任高級市場職位。報道屬中性職涯背景提及，未涉及Outback現時營運或顧客體驗。",
+      "link": "https://www.marketing-interactive.com/pizza-hut-hk-names-new-marketing-director",
+      "sentiment": "neutral",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-20",
+      "source": "Instagram @outbacksteakhousehk",
+      "platform": "社交媒體",
+      "author": "",
+      "title": "Outback官方IG創意短片「OutBackrooms」：打工仔無限loop主題",
+      "summary": "Outback Steakhouse HK官方Instagram發布創意短片，以「OutBackrooms」為主題，將辦公室打工仔每日無限loop的日常與Outback用餐體驗結合，影片風格幽默，旨在提升品牌在年輕族群中的社交媒體互動率。此為品牌內容營銷（content marketing）帖文。",
+      "link": "https://www.instagram.com/reel/DcQSmmklBqq",
+      "sentiment": "neutral",
+      "tags": ""
+    }
+  ],
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 4,
+    "new_records": 4,
+    "limitations": []
+  }
+}

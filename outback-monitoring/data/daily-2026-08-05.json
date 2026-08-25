@@ -1,6 +1,69 @@
 {
   "date": "2026-08-05",
-  "items": [],
+  "items": [
+    {
+      "date": "2026-08-05",
+      "source": "LinkedIn (Eber)",
+      "platform": "",
+      "author": "",
+      "title": "3 loyalty lessons from Outback Steakhouse Hong Kong",
+      "summary": "Eber分享Outback Steakhouse HK會員計劃3大經驗：香港食客加入忠誠計劃的方式與其他市場不同",
+      "link": "https://www.linkedin.com/posts/eber-loyalty-marketing_3-loyalty-lessons-from-outback-steakhouse-activity-7485914094798012417-5Ie1",
+      "sentiment": "neutral",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-05",
+      "source": "LinkedIn (Veron Tan)",
+      "platform": "",
+      "author": "",
+      "title": "Hong Kong Customer Loyalty Breakdown - Outback Steakhouse",
+      "summary": "分析Outback Steakhouse HK在亞太區最競爭激烈的F&B市場中如何經營會員制度的3個經驗",
+      "link": "https://www.linkedin.com/posts/veron-tan-2ab9611b6_3-loyalty-lessons-from-outback-steakhouse-activity-7485920515115622400-aA2z",
+      "sentiment": "neutral",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-05",
+      "source": "OpenRice (沙田新城市廣場)",
+      "platform": "",
+      "author": "",
+      "title": "食評：豐富午餐 - 會員生日優惠折扣",
+      "summary": "一行四人午聚，座位舒服食物質數有保證。午餐包湯、黑糖麵包、主食和飲品",
+      "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-r651512/reviews",
+      "sentiment": "neutral",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-05",
+      "source": "U Food",
+      "platform": "",
+      "author": "",
+      "title": "颱風紅霞8號風球 - Outback Steakhouse照常營業",
+      "summary": "U Food報導颱風紅霞期間Outback Steakhouse港島區分店照常營業",
+      "link": "https://ufood.com.hk/restaurant/news/detail/20017668/",
+      "sentiment": "neutral",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-05",
+      "source": "OpenRice (銅鑼灣廣場)",
+      "platform": "",
+      "author": "",
+      "title": "食評：銅鑼灣分店 扒房適合大夥人",
+      "summary": "Outback銅鑼灣廣場一期分店，3/F Shop 305-308，扒房及派對食物",
+      "link": "https://www.openrice.com/en/hongkong/r-outback-steakhouse-causeway-bay-r512024/reviews",
+      "sentiment": "neutral",
+      "tags": ""
+    }
+  ],
   "alerts": [],
-  "summary": "2026-08-05 — 0 條mention (正面:0 中性:0 負面:0)"
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 5,
+    "new_records": 5,
+    "limitations": []
+  }
 }

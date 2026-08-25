@@ -1,6 +1,99 @@
 {
   "date": "2026-08-07",
-  "items": [],
-  "alerts": [],
-  "summary": "2026-08-07 — 0 條mention (正面:0 中性:0 負面:0)"
+  "items": [
+    {
+      "date": "2026-08-07",
+      "source": "Google Maps (Citygate Outlets)",
+      "platform": "評論平台",
+      "author": "Romvlvschow",
+      "title": "Citygate評論者投訴兩次上菜均見頭髮及經理處理方式",
+      "summary": "評論者稱首次點吞拿魚時碟上有頭髮，要求重做後新一碟再次發現頭髮；亦稱經理當眾斥責員工，令其失去胃口。以上均為評論者個人陳述，未經獨立核實。",
+      "link": "https://maps.app.goo.gl/FH5mk6YR9rK5pmUMA",
+      "sentiment": "negative",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-07",
+      "source": "Google Maps (Olympian City 2)",
+      "platform": "評論平台",
+      "author": "hin humble",
+      "title": "奧海城評論給予食物、服務及環境全數5分",
+      "summary": "評論者給予食物5分、服務5分及環境5分。",
+      "link": "https://www.google.com/maps/place/Outback+Steakhouse/@22.3164584,114.161772,17z/data=!4m8!3m7!1s0x340400b9564ecded:0x399283906ab06bb8!8m2!3d22.3164584!4d114.161772!9m1!1b1!16s%2Fg%2F11gdyjsczh?hl=en",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-07",
+      "source": "Threads",
+      "platform": "社交媒體",
+      "author": "@tomtom_in",
+      "title": "Threads用戶稱曾於中環店不適但仍有意再次到訪",
+      "summary": "作者表示長期喜愛Outback，但曾在中環分店出現嚴重腸胃／如廁不適而暫停光顧；看到相關食物照片後又有意在一周內再訪。以上健康相關內容為作者個人陳述，未經獨立核實。",
+      "link": "https://www.threads.com/@tomtom_in/post/DaKc61Zidq5/",
+      "sentiment": "neutral",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-07",
+      "source": "Yahoo Finance HK",
+      "platform": "",
+      "author": "",
+      "title": "Bloomin' Brands, Inc. (BLMN) 公司概況 - ISS管治質素評分",
+      "summary": "Outback母公司Bloomin' Brands截至2026年8月1日ISS管治質素評分為1，反映良好企業管治",
+      "link": "https://hk.finance.yahoo.com/quote/BLMN/profile/",
+      "sentiment": "neutral",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-07",
+      "source": "U Food",
+      "platform": "",
+      "author": "",
+      "title": "奧海城美食推介 - OUTBACK STEAKHOUSE 澳洲風格連鎖扒房",
+      "summary": "U Food推介奧海城美食，Outback Steakhouse主打各式澳洲風味牛扒及西式美食",
+      "link": "https://ufood.com.hk/restaurant/news/detail/20070384/",
+      "sentiment": "neutral",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-07",
+      "source": "OpenRice (MOKO旺角)",
+      "platform": "",
+      "author": "",
+      "title": "食評：午餐好多選擇 黑糖麵包可以不停refill",
+      "summary": "午餐選擇多包餐湯麵包主菜飲品，黑糖麵包可以不停refill",
+      "link": "https://www.openrice.com/zh-cn/hongkong/r-outback-steakhouse-r456533/reviews",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-07",
+      "source": "Facebook (Official)",
+      "platform": "",
+      "author": "",
+      "title": "【神級鮮味！好食到令人瞬間定格？】海鮮推廣",
+      "summary": "Outback HK推出海鮮推廣影片，主打燒加拿大龍蝦尾及滋味海鮮拼盤，強調每款海鮮經精挑細選",
+      "link": "https://www.facebook.com/outbacksteakhousehk/videos/1044306998006696/",
+      "sentiment": "neutral",
+      "tags": ""
+    }
+  ],
+  "alerts": [
+    {
+      "title": "Citygate評論者投訴兩次上菜均見頭髮及經理處理方式",
+      "summary": "評論者稱首次點吞拿魚時碟上有頭髮，要求重做後新一碟再次發現頭髮；亦稱經理當眾斥責員工，令其失去胃口。以上均為評論者個人陳述，未經獨立核實。",
+      "source": "Google Maps (Citygate Outlets)",
+      "link": "https://maps.app.goo.gl/FH5mk6YR9rK5pmUMA",
+      "severity": "MEDIUM"
+    }
+  ],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 7,
+    "new_records": 7,
+    "limitations": []
+  }
 }

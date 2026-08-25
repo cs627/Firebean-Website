@@ -2,16 +2,87 @@
   "date": "2026-08-02",
   "items": [
     {
-      "title": "Outback Steakhouse HK - 每日監控",
-      "summary": "此試算表用於每日自動記錄 Outback Steakhouse 香港嘅社交聆聽資料。每天朝早 8:00 自動更新。",
-      "source": "系統",
       "date": "2026-08-02",
-      "time": "8:00",
-      "link": "https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4/edit",
+      "source": "Threads",
+      "platform": "社交媒體",
+      "author": "@niconico_cookkk",
+      "title": "荃灣西Outback牛扒熟度及翻煮處理投訴引發高關注",
+      "summary": "作者稱五成熟肉眼扒兩次上桌仍過生，其後同一塊牛扒被翻煮三次，外層變黑而內部熟度不一；另稱配菜及餐湯不夠熱，並表示餐後肚痛。以上均為作者個人陳述，未經獨立核實。",
+      "link": "https://www.threads.com/@niconico_cookkk/post/Dbh_rj2FPzW/",
+      "sentiment": "negative",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-02",
+      "source": "Threads",
+      "platform": "社交媒體",
+      "author": "@chowrichard123",
+      "title": "Threads用戶轉發荃灣西牛扒投訴並質疑「咁都叫生」",
+      "summary": "用戶引用原始投訴並留言「咁都叫生」，語氣對生熟判斷持懷疑態度，但同時延伸了原事件的曝光。",
+      "link": "https://www.threads.com/@chowrichard123/post/Dbij3uBGX8w/",
       "sentiment": "neutral",
-      "tags": "一般"
+      "tags": ""
+    },
+    {
+      "date": "2026-08-02",
+      "source": "HK01 (香港01)",
+      "platform": "",
+      "author": "",
+      "title": "世界盃2026直播 - Outback Steakhouse免費睇波",
+      "summary": "HK01報導全港144間酒吧餐廳免費睇波合集，Outback列入名單",
+      "link": "https://www.hk01.com/食玩買/60359642/世界盃2026直播",
+      "sentiment": "neutral",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-02",
+      "source": "Instagram (親子)",
+      "platform": "",
+      "author": "",
+      "title": "親子X Lunch Outback Steakhouse 旺角MOKO",
+      "summary": "每兩位成人惠顧，同行11歲或以下小童即享週末半自助午餐或小童套餐半價優惠",
+      "link": "https://www.instagram.com/reel/DbA1cLlhisD/",
+      "sentiment": "neutral",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-02",
+      "source": "OpenRice (尖沙咀中心)",
+      "platform": "",
+      "author": "",
+      "title": "食評：星期五同事Lunch 燒豬仔骨好味",
+      "summary": "兩個人叫一個餐啱啱好，沙律蔬菜新鮮，燒豬仔骨好味，兩樣加埋150蚊",
+      "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-r15759/reviews#2",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-02",
+      "source": "Instagram (Official)",
+      "platform": "",
+      "author": "",
+      "title": "「美食零距離」有獎遊戲得獎名單公佈",
+      "summary": "Outback Steakhouse HK Instagram有獎遊戲結果公佈，活動於8月2日截止，得獎者8月3日收到通知",
+      "link": "https://www.instagram.com/p/DbAx0rCCcB5/",
+      "sentiment": "neutral",
+      "tags": ""
     }
   ],
-  "alerts": [],
-  "summary": "2026-08-02 — 1 條mention (正面:0 中性:1 負面:0)"
+  "alerts": [
+    {
+      "title": "荃灣西Outback牛扒熟度及翻煮處理投訴引發高關注",
+      "summary": "作者稱五成熟肉眼扒兩次上桌仍過生，其後同一塊牛扒被翻煮三次，外層變黑而內部熟度不一；另稱配菜及餐湯不夠熱，並表示餐後肚痛。以上均為作者個人陳述，未經獨立核實。",
+      "source": "Threads",
+      "link": "https://www.threads.com/@niconico_cookkk/post/Dbh_rj2FPzW/",
+      "severity": "MEDIUM"
+    }
+  ],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 5,
+    "new_records": 6,
+    "limitations": []
+  }
 }
