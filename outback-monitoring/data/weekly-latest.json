@@ -138,12 +138,7 @@
       "sentiment": "positive"
     }
   ],
-  "alerts": [
-    {
-      "title": "大埔顧客投訴兩度上錯牛扒及落單流程",
-      "severity": "MEDIUM"
-    }
-  ],
+  "alerts": [],
   "trends": "",
   "recommendations": [],
   "coverage": {
