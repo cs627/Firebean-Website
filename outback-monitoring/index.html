@@ -266,7 +266,7 @@ footer i{background:var(--accent);border-radius:50%;width:3px;height:3px}
     <button class="tab-btn active" data-tab="media">📰 01 媒體與新聞 <span class="tab-badge">${R.media_records.length}</span></button>
     <button class="tab-btn" data-tab="social">💬 02 社交媒體 <span class="tab-badge">${R.social_records.length}</span></button>
     <button class="tab-btn" data-tab="all">📋 03 社交聆聽數據 <span class="tab-badge">${R.all_records.length}</span></button>
-    <button class="tab-btn" data-tab="stores">🏪 04 店舗排名 <span class="tab-badge">${R.store_ranking.filter(s=>s.has_data).length}/10</span></button>
+    <button class="tab-btn" data-tab="stores">🏪 04 店舗排名 <span class="tab-badge">${R.store_ranking.filter(s=>s.has_data!==undefined?s.has_data:s.mentions>0).length}/10</span></button>
     <button class="tab-btn" data-tab="coverage">📊 05 來源覆蓋 <span class="tab-badge">${M.sources_checked}</span></button>
   </div>
 
@@ -303,28 +303,39 @@ footer i{background:var(--accent);border-radius:50%;width:3px;height:3px}
     social: `<div class="section-heading"><div><h2>社交媒體提及</h2><p>Instagram、Facebook、Threads、小紅書、YouTube 貼文、評論及論壇討論</p></div><span class="section-count">${R.social_records.length} records</span></div>${renderTable(R.social_records)}`,
     all: `<div class="section-heading"><div><h2>社交聆聽完整數據</h2><p>所有平台的所有提及記錄，按日期倒序排列</p></div><span class="section-count">${R.all_records.length} records</span></div>${renderTable(R.all_records)}`,
     stores: function(){
-      const RS = R.store_ranking, hasData = RS.filter(s=>s.has_data);
-      const scoreLabel = (s) => s.avg_score ? `${s.avg_score}<small>/5</small>` : '<span class="no-data">—</span>';
-      const reviewLabel = (s) => s.mentions > 0 ? `${s.mentions}<small>mentions</small>` : '<span class="no-data">—</span>';
-      return `<div class="section-heading"><div><h2>店舗排名</h2><p>全港 10 間 Outback 分店按社交提及量排名 — 綜合 Google Maps、OpenRice、TripAdvisor 公開評價</p></div><span class="section-count">${hasData.length}/10 ranked</span></div>
-      <div class="ranking-method"><span>Ranking method — mentions · avg rating · recency. Stores with zero mentions shown last. <span style="color:#efb539">⚠</span> Scores sourced from public Google Maps ratings only; OpenRice & TripAdvisor ratings vary by platform.</span><span>${M.date_range}</span></div>
-      <div class="store-ranking-table">
-        <div class="store-ranking-header"><span>RANK</span><span>STORE</span><span>SCORE</span><span>REVIEWS</span><span>SUMMARY</span><span>LINK</span></div>
-        ${RS.map(s=>{
-          const cls = s.has_data ? 'is-ranked' : 'is-unavailable';
-          return `<div class="store-ranking-row ${cls}">
-            <div class="ranking-big-number">${s.has_data ? '#'+s.rank : '—'}</div>
-            <div class="store-location-cell"><strong>${esc(s.name)}</strong><span>${esc(s.district)}</span><small>${s.latest !== '-' ? 'Last mention · '+s.latest : '<span class="no-data">尚無數據</span>'}</small></div>
-            <div class="store-score-cell"><b>${s.avg_score||'—'}</b>${s.avg_score?'<small>/5</small>':'<small>—</small>'}</div>
-            <div class="store-review-cell"><b>${s.mentions||'—'}</b><small>mentions</small></div>
-            <div class="store-summary-cell${s.has_data?'':' is-unavailable'}"><b>TOPIC TAGS</b>${s.has_data?`<span style="color:#c5cfca">${esc(s.summary.slice(0,160))}${s.summary.length>160?'…':''}</span>`:'<span class="no-data">尚無監測數據 — 此分店暫未有公開社交提及</span>'}</div>
-            <a href="https://www.google.com/maps/search/Outback+Steakhouse+${encodeURIComponent(s.store_id||s.district)}+Hong+Kong" target="_blank" rel="noopener" class="ranking-link">↗</a>
-          </div>`;
-        }).join('')}
-      </div>
-      <div class="store-ranking-note">📊 Scores sourced from public Google Maps ratings. Mention counts aggregated across all 46 monitored sources. Rankings updated daily at 9 AM HKT. <a href="https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4/edit" target="_blank" style="color:#c6ac6a">View raw data in Google Sheets →</a></div>
-      <div class="section-export"><button class="export-button" onclick="window.open('https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4/edit','_blank')">📊 Full Data in Google Sheets</button></div>`;
-    },
+          const RS = R.store_ranking;
+          // Normalize — support both old (location/last_review) and new (district/latest) field names
+          const stores = RS.map(s=>({
+            ...s,
+            district: s.district||s.location||'',
+            latest: s.latest||s.last_review||'-',
+            avg_score: s.avg_score||null,
+            has_data: s.has_data !== undefined ? s.has_data : (s.mentions > 0),
+            store_id: s.store_id||s.id||s.name||''
+          }));
+          const hasData = stores.filter(s=>s.has_data);
+          const getScore = (s) => s.avg_score;
+          return `<div class="section-heading"><div><h2>店舗排名</h2><p>全港 10 間 Outback 分店按社交提及量排名 — 綜合 Google Maps、OpenRice、TripAdvisor 公開評價</p></div><span class="section-count">${hasData.length}/10 ranked</span></div>
+          <div class="ranking-method"><span>Ranking method — mentions · avg rating · recency. Stores with zero mentions shown last. <span style="color:#efb539">⚠</span> Scores sourced from public Google Maps ratings only; OpenRice & TripAdvisor ratings vary by platform.</span><span>${M.date_range}</span></div>
+          <div class="store-ranking-table">
+            <div class="store-ranking-header"><span>RANK</span><span>STORE</span><span>SCORE</span><span>REVIEWS</span><span>SUMMARY</span><span>LINK</span></div>
+            ${stores.map(s=>{
+              const cls = s.has_data ? 'is-ranked' : 'is-unavailable';
+              const score = getScore(s);
+              const summary = (s.summary||'').slice(0,160);
+              return `<div class="store-ranking-row ${cls}">
+                <div class="ranking-big-number">${s.has_data ? '#'+s.rank : '—'}</div>
+                <div class="store-location-cell"><strong>${esc(s.name)}</strong><span>${esc(s.district)}</span><small>${s.latest !== '-' ? 'Last mention · '+s.latest : '<span class="no-data">尚無數據</span>'}</small></div>
+                <div class="store-score-cell"><b>${score||'—'}</b>${score?'<small>/5</small>':'<small>—</small>'}</div>
+                <div class="store-review-cell"><b>${s.mentions||'—'}</b><small>mentions</small></div>
+                <div class="store-summary-cell${s.has_data?'':' is-unavailable'}"><b>TOPIC TAGS</b>${s.has_data?`<span style="color:#c5cfca">${esc(summary)}${(s.summary||'').length>160?'…':''}</span>`:'<span class="no-data">尚無監測數據 — 此分店暫未有公開社交提及</span>'}</div>
+                <a href="https://www.google.com/maps/search/Outback+Steakhouse+${encodeURIComponent(s.store_id||s.district)}+Hong+Kong" target="_blank" rel="noopener" class="ranking-link">↗</a>
+              </div>`;
+            }).join('')}
+          </div>
+          <div class="store-ranking-note">📊 Scores sourced from public Google Maps ratings. Mention counts aggregated across all 46 monitored sources. Rankings updated daily at 9 AM HKT. <a href="https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4/edit" target="_blank" style="color:#c6ac6a">View raw data in Google Sheets →</a></div>
+          <div class="section-export"><button class="export-button" onclick="window.open('https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4/edit','_blank')">📊 Full Data in Google Sheets</button></div>`;
+        },
     coverage: `<div class="section-heading"><div><h2>來源覆蓋狀況</h2><p>46 個目標來源的監測覆蓋率及限制報告</p></div><span class="section-count">${M.sources_checked}/46 active</span></div>
       <div class="source-coverage"><div class="table-wrap"><table><thead><tr><th>Source</th><th>Mentions</th><th>% of Total</th></tr></thead><tbody>${R.source_breakdown.map(s=>`<tr><td>${esc(s.source)}</td><td><b>${s.count}</b></td><td>${((s.count/M.total_records)*100).toFixed(1)}%</td></tr>`).join('')}</tbody></table></div></div>
       <div class="section-export"><button class="export-button" onclick="window.open('https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4/edit','_blank')">📊 Full Data in Google Sheets</button></div>`
