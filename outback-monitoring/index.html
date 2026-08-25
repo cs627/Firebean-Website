@@ -1,387 +1,54 @@
-<!DOCTYPE html>
-<html lang="zh-HK">
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Outback Steakhouse HK — Social Listening & Media Monitor</title>
-<style>
-:root{
-  --bg:#07090d;--card-bg:linear-gradient(145deg,#14171df0,#0c0e13f5);
-  --border:#ffffff1a;--text:#edf4f0;--muted:#869093;--accent:#00d084;
-  --accent-glow:#00d08424;--panel-bg:#0d1015;--header-bg:#07090de0;
-  --pos:#8ef0bf;--neg:#ffb4c0;--neu:#b7cbff;--mix:#cbbaff;
-  --pos-bg:#00d08417;--neg-bg:#ff698214;--neu-bg:#6e94ff14;--mix-bg:#8b5cf614;
-  --pos-bd:#00d08459;--neg-bd:#ff698266;--neu-bd:#6e94ff59;--mix-bd:#a26eff3d;
-  --hi-alert:#ef4444;--md-alert:#eab308;--purple-btn:linear-gradient(110deg,#8b5cf6,#dc3ca7);
-  --mono:'DM Mono',monospace;--sans:Inter,system-ui,sans-serif;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh;line-height:1.5}
-body::before{content:'';position:fixed;inset:0;background:url(assets/outback-operational-grid_c17fb9e0.jpg) center/cover;opacity:.08;pointer-events:none;z-index:-1}
-.dashboard-shell{min-height:100vh}
-.dashboard-header{z-index:20;backdrop-filter:blur(18px);background:var(--header-bg);border-bottom:1px solid var(--border);position:sticky;top:0}
-.header-content{justify-content:space-between;align-items:center;gap:18px;max-width:1460px;min-height:64px;margin:auto;padding:0 28px;display:flex}
-.brand-lockup{align-items:center;gap:11px;display:flex}
-.brand-mark{object-fit:cover;border-radius:7px;width:34px;height:34px}
-.brand-lockup h1{letter-spacing:-.02em;margin:0;font-size:14px}
-.brand-lockup p{color:#929c9f;margin:3px 0 0;font-size:10px}
-.header-actions{align-items:center;gap:8px;display:flex}
-.sync-status{color:#8d989a;align-items:center;gap:6px;margin-right:5px;font-size:10px;display:inline-flex}
-.sync-status i{background:var(--accent);border-radius:50%;width:6px;height:6px;box-shadow:0 0 0 3px #00d0841f}
-.run-button{color:#06110c;background:#00c97d;border:1px solid #00d084b8;border-radius:5px;align-items:center;gap:6px;height:31px;padding:0 10px;font-size:11px;font-weight:600;cursor:pointer;display:inline-flex;transition:transform .16s}
-.run-button:hover{transform:translateY(-1px)}
-.dashboard-content{max-width:1460px;margin:auto;padding:24px 28px 32px}
-.manual-panel{background:linear-gradient(100deg,#00d08417,#14181ef2 38%);border:1px solid #00d0843d;border-radius:8px;justify-content:space-between;align-items:center;gap:24px;margin-bottom:15px;padding:17px 20px;display:flex}
-.manual-panel strong{font-size:13px;display:block;margin-top:3px}
-.manual-panel p{color:#9ba4a5;margin:5px 0 0;font-size:11px}
-.manual-input{align-items:center;gap:7px;min-width:min(100%,520px);display:flex}
-.manual-input input{color:#e9f3ef;background:#111419;border:1px solid #30373a;border-radius:5px;outline:0;flex:1;min-width:180px;height:37px;padding:0 10px;font-size:11px}
-.manual-input input:focus{border-color:var(--accent)}
-.manual-input button{color:#06110c;background:#00cf82;border:0;border-radius:5px;height:37px;padding:0 12px;font-size:11px;font-weight:700;cursor:pointer;white-space:nowrap}
-.kpi-grid{grid-template-columns:repeat(4,1fr);gap:14px;display:grid;margin-bottom:14px}
-.kpi-card{background:var(--card-bg);border:1px solid var(--border);border-radius:7px;justify-content:space-between;align-items:flex-start;min-height:126px;padding:18px;transition:transform .18s,border .18s;display:flex;box-shadow:0 15px 35px #0000001f}
-.kpi-card:hover{border-color:#00d08440;transform:translateY(-2px)}
-.kpi-card svg{color:var(--accent);width:17px;height:17px;flex-shrink:0}
-.eyebrow{color:#869093;letter-spacing:.055em;text-transform:uppercase;font-family:var(--mono);font-size:9px;line-height:1.2}
-.kpi-val{color:#eff5f1;letter-spacing:-.055em;margin:11px 0 2px;font-size:28px;line-height:1;display:block}
-.kpi-sub{color:#7e888a;font-size:10px}
-.filter-panel{background:#0f1116e6;border:1px solid var(--border);border-radius:7px;grid-template-columns:1fr 1fr 1.3fr 1.75fr auto;align-items:end;gap:11px;margin-bottom:14px;padding:15px 17px;display:grid}
-.filter-panel label>span{color:#889195;letter-spacing:.055em;text-transform:uppercase;font-family:var(--mono);font-size:9px;margin-bottom:6px;display:block}
-.filter-input{background:#101217;border:1px solid #2b3037;border-radius:5px;align-items:center;gap:7px;height:37px;padding:0 9px;display:flex}
-.filter-input:focus-within{border-color:#00d084b3}
-.filter-input svg{color:#f4f8f6;flex:none}
-.filter-input input,.filter-input select{color:#dbe4e0;background:0 0;border:0;outline:0;width:100%;min-width:0;font-size:11px}
-.filter-input input[type=date]{color-scheme:dark}
-.analysis-button{color:#fff;background:var(--purple-btn);border:0;border-radius:5px;justify-content:center;align-items:center;gap:7px;height:37px;padding:0 14px;font-size:11px;font-weight:700;cursor:pointer;transition:filter .18s,transform .18s;display:inline-flex}
-.analysis-button:hover{filter:brightness(1.1);transform:translateY(-1px)}
-.pr-watch-section{margin-bottom:14px}
-.pr-watch-section .section-title{color:#83908f;letter-spacing:.06em;text-transform:uppercase;font-family:var(--mono);font-size:9px;margin-bottom:10px;display:flex;align-items:center;gap:6px}
-.pr-watch-section .section-title::before{content:'';width:6px;height:6px;background:var(--hi-alert);border-radius:50%;animation:pulse 2s infinite}
-.pr-grid{grid-template-columns:repeat(3,1fr);gap:12px;display:grid}
-.pr-card{background:var(--card-bg);border:1px solid var(--border);border-radius:7px;padding:15px 16px;border-left:3px solid var(--accent)}
-.pr-card.severity-HIGH{border-left-color:var(--hi-alert)}
-.pr-card.severity-MEDIUM{border-left-color:var(--md-alert)}
-.pr-card .sev-badge{font-family:var(--mono);font-size:8px;padding:2px 7px;border-radius:999px;margin-bottom:6px;display:inline-block}
-.pr-card .sev-badge.HIGH{color:#fca5a5;background:#7f1d1d}
-.pr-card .sev-badge.MEDIUM{color:#fde68a;background:#78350f}
-.pr-card h4{font-size:12px;margin-bottom:3px}
-.pr-card p{color:#9ba4a5;font-size:10px;line-height:1.4}
-.analytics-grid{grid-template-columns:1.7fr .9fr;gap:14px;margin-bottom:14px;display:grid}
-.panel{background:var(--card-bg);border:1px solid var(--border);border-radius:7px;overflow:hidden;box-shadow:0 15px 35px #0000001f}
-.panel-heading{justify-content:space-between;align-items:flex-start;gap:16px;padding:17px 18px 0;display:flex}
-.panel-heading h2{letter-spacing:-.025em;margin:4px 0 0;font-size:14px;line-height:1.15}
-.panel-meta{color:#7f898b;font-family:var(--mono);font-size:9px}
-.chart-wrap{padding:18px 18px 14px}
-.chart-stage{height:210px;position:relative}
-.chart-labels{color:#778084;justify-content:space-between;font-family:var(--mono);font-size:9px;display:flex;margin-top:4px}
-.bars{display:flex;align-items:flex-end;gap:12px;height:100%;padding:0 4px}
-.bar-wrapper{flex:1;text-align:center;min-width:0}
-.bar{background:var(--accent);border-radius:4px 4px 0 0;width:100%;min-width:8px;transition:height .3s;margin:0 auto 6px;max-width:56px}
-.bar-label{color:#778084;font-family:var(--mono);font-size:8px;white-space:nowrap}
-.bar-count{color:#aab3b0;font-size:9px;margin-bottom:2px}
-.source-bars{z-index:1;gap:10px;padding:12px 18px;display:grid;position:relative}
-.source-row>div{color:#b5c0bd;justify-content:space-between;gap:10px;font-size:11px;display:flex}
-.source-row b{color:#f0f6f3;font-family:var(--mono);font-size:10px}
-.source-row i{background:#252b2e;border-radius:999px;height:6px;margin-top:7px;flex:1;display:block;overflow:hidden}
-.source-row em{border-radius:inherit;background:linear-gradient(90deg,#00c47b,#4bf0a8);height:100%;display:block}
-.tab-bar{display:flex;gap:0;margin-bottom:0}
-.tab-btn{color:#768083;background:transparent;border:0;border-bottom:2px solid transparent;padding:12px 18px;font-size:12px;font-weight:500;cursor:pointer;transition:color .18s,border .18s;display:inline-flex;align-items:center;gap:6px}
-.tab-btn:hover{color:#b8c4c2}
-.tab-btn.active{color:var(--text);border-bottom-color:var(--accent)}
-.tab-badge{font-family:var(--mono);font-size:9px;background:#1b2027;border:1px solid #343a40;border-radius:999px;padding:2px 7px}
-.tab-btn.active .tab-badge{background:#00d08417;border-color:#00d08438;color:#8be9bb}
-.monitoring-section{background:var(--card-bg);border:1px solid var(--border);border-radius:7px;margin-bottom:14px;overflow:hidden}
-.section-heading{background:linear-gradient(90deg,#00d0840f,#0000 42%);border-bottom:1px solid var(--border);justify-content:space-between;align-items:flex-start;gap:16px;padding:20px 18px 16px;display:flex}
-.section-heading h2{color:#edf6f1;letter-spacing:-.03em;margin:5px 0 0;font-size:16px}
-.section-heading p{color:#899396;max-width:680px;margin:6px 0 0;font-size:11px;line-height:1.5}
-.section-count{color:#8be9bb;background:#00d08414;border:1px solid #00d08438;border-radius:999px;flex:none;margin-top:3px;padding:5px 7px;font-family:var(--mono);font-size:9px}
-.table-wrap{border-top:1px solid var(--border);overflow-x:auto}
-table{border-collapse:collapse;width:100%;min-width:1100px}
-th{color:#768083;text-align:left;letter-spacing:.06em;text-transform:uppercase;background:#15181eeb;padding:11px 15px;font-family:var(--mono);font-size:9px;white-space:nowrap}
-td{vertical-align:top;color:#c5cfca;border-top:1px solid #ffffff0e;padding:13px 15px;font-size:11px;line-height:1.45}
-tr:hover td{background:#ffffff05}
-td b{color:#e9f0ec;font-weight:650;display:block}
-td>span{color:#7d8789;margin-top:3px;font-size:10px;display:block}
-.sentiment-pill{text-transform:capitalize;border:1px solid;border-radius:999px;align-items:center;padding:4px 7px;font-size:9px;display:inline-flex;white-space:nowrap}
-.sentiment-pill.positive{color:var(--pos);background:var(--pos-bg);border-color:var(--pos-bd)}
-.sentiment-pill.neutral{color:var(--neu);background:var(--neu-bg);border-color:var(--neu-bd)}
-.sentiment-pill.negative{color:var(--neg);background:var(--neg-bg);border-color:var(--neg-bd)}
-.sentiment-pill.mixed{color:var(--mix);background:var(--mix-bg);border-color:var(--mix-bd)}
-.source-link{color:#69ebb0;background:#00d0841a;border-radius:5px;place-items:center;width:29px;height:29px;display:inline-grid;text-decoration:none;font-size:14px;transition:background .16s}
-.source-link:hover{background:#00d08433}
-.summary-cell{color:#aeb9b6;max-width:380px}
-.tag-list{flex-wrap:wrap;gap:4px;max-width:160px;display:flex}
-.tag-list span{color:#cbbaff;background:#8b5cf614;border:1px solid #a26eff3d;border-radius:999px;padding:3px 6px;font-size:9px}
-.empty-table{color:#8c9698;text-align:center;padding:38px}
-/* Store Ranking — Manus Cloud exact layout */
-.store-ranking-panel{position:relative}
-.ranking-method{color:#7f898b;justify-content:space-between;gap:10px;padding:14px 18px 10px;font-family:var(--mono);font-size:9px;line-height:1.35;display:flex;flex-wrap:wrap}
-.ranking-method span:last-child{color:#596265;text-align:right}
-.store-ranking-table{overflow-x:auto}
-.store-ranking-header,.store-ranking-row{grid-template-columns:78px minmax(225px,1.35fr) 92px 108px minmax(320px,2fr) 54px;min-width:1030px;display:grid}
-.store-ranking-header{color:#7f8a8b;letter-spacing:.075em;text-transform:uppercase;background:#080b0ebd;border-bottom:1px solid #ffffff14;align-items:center;min-height:42px;padding:0 18px;font-family:var(--mono);font-size:8px}
-.store-ranking-row{background:#0c0f14b8;border-bottom:1px solid #fff1;align-items:stretch;padding:0 18px;transition:background .16s}
-.store-ranking-row:hover{background:#00d08409}
-.store-ranking-row.is-ranked{background:linear-gradient(90deg,#00d08413,#0c0f14bd 46%)}
-.store-ranking-row>*{min-width:0;padding:16px 13px 15px 0}
-.ranking-big-number{color:#e8fff3;letter-spacing:-.1em;align-items:flex-start;padding-top:14px;font-family:var(--mono);font-size:32px;font-weight:700;line-height:1;display:flex}
-.is-unavailable .ranking-big-number{color:#596264}
-.store-location-cell strong{color:#eff7f2;text-overflow:ellipsis;white-space:nowrap;font-size:12px;display:block;overflow:hidden}
-.store-location-cell span{color:#93a09e;margin-top:3px;font-size:10px;display:block}
-.store-location-cell small{color:#667174;margin-top:7px;font-size:9px;line-height:1.35;display:block}
-.store-score-cell b,.store-review-cell b{color:#b8f4d4;font-family:var(--mono);font-size:20px;font-weight:500;line-height:1;display:block}
-.store-score-cell small,.store-review-cell small{color:#727d7f;margin-top:6px;font-size:9px;display:block}
-.is-unavailable .store-score-cell b,.is-unavailable .store-review-cell b{color:#929a9a}
-.store-summary-cell{color:#afbab6;margin:0;font-size:10px;line-height:1.55}
-.store-summary-cell b{color:#70dba7;letter-spacing:.06em;text-transform:uppercase;margin-bottom:5px;font-family:var(--mono);font-size:8px;font-weight:500;display:block}
-.store-summary-cell.is-unavailable{color:#a4a9a9}
-.store-ranking-row .ranking-link{align-self:center;margin-right:4px}
-.ranking-comment{color:#aeb9b6;margin:8px 0 0;font-size:9px;line-height:1.55}
-.ranking-comment b{color:#74dbae;letter-spacing:.055em;text-transform:uppercase;margin-bottom:2px;font-family:var(--mono);font-size:8px;font-weight:500;display:block}
-.ranking-comment.is-unavailable{color:#898f91;font-style:italic}
-.ranking-comment.is-unavailable b{color:#c5ac68}
-.store-ranking-note{color:#99988a;background:#efb5390b;border-left:2px solid #efb539a6;margin:4px 18px 18px;padding:10px;font-size:9px;line-height:1.55}
-.ranking-link{color:#70eab1;background:#00d08412;border:1px solid #00d08438;border-radius:5px;place-items:center;width:29px;height:29px;text-decoration:none;display:grid;transition:background .16s,transform .16s}
-.ranking-link:hover{background:#00d0842b;transform:translateY(-1px)}
-.no-data{color:#596264;font-style:italic;font-size:10px}
-/* All-store grid (alternative compact view) */
-.all-store-grid{background:#fff1;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;display:grid}
-.store-card{background:#0d1015f5;min-height:188px;padding:15px}
-.store-card.is-ranked{background:linear-gradient(135deg,#00d08413,#0d1015fa 55%)}
-.store-card.is-unavailable{opacity:.9}
-.store-card-top{justify-content:space-between;align-items:center;margin-bottom:12px;display:flex}
-.store-rank{color:#74e7ae;background:#00d08412;border:1px solid #00d08438;border-radius:999px;place-items:center;min-width:30px;height:22px;padding:0 6px;font-family:var(--mono);font-size:9px;display:grid}
-.store-card.is-unavailable .store-rank{color:#c6ac6a;background:#efb5390f;border-color:#efb53933}
-.store-card>strong{color:#edf6f1;text-overflow:ellipsis;white-space:nowrap;font-size:12px;display:block;overflow:hidden}
-.store-native-name{color:#8a9597;margin-top:3px;font-size:10px;display:block}
-.store-metric{color:#859093;min-height:28px;margin:10px 0 0;font-size:9px;line-height:1.45}
-.store-metric b{color:#baf0d3;font-family:var(--mono);font-weight:500}
-.store-card .ranking-comment{margin-top:8px}
-.lower-grid{grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;display:grid}
-.source-coverage{overflow-x:auto}
-.source-coverage table{min-width:600px}
-footer{color:#5f696a;text-align:center;justify-content:center;align-items:center;gap:8px;padding:26px 4px 4px;font-size:10px;display:flex}
-footer span{color:#849091;font-weight:650}
-footer i{background:var(--accent);border-radius:50%;width:3px;height:3px}
-.section-export{background:#090b0f61;border-top:1px solid var(--border);justify-content:flex-end;padding:11px 14px;display:flex}
-.export-button{color:#bac4c1;background:0 0;border:1px solid #343a40;border-radius:5px;align-items:center;gap:6px;height:32px;padding:0 10px;font-size:10px;font-weight:650;cursor:pointer;display:inline-flex}
-.export-button:hover{color:#a3f2ce;border-color:var(--accent)}
-.position-relative{position:relative}
-.april-tag{color:#cbbaff;background:var(--mix-bg);border:1px solid var(--mix-bd);border-radius:999px;padding:2px 6px;font-family:var(--mono);font-size:8px;display:inline-block;margin-left:4px}
-@keyframes pulse{0%,100%{opacity:.6}50%{opacity:1}}
-@media(max-width:1020px){
-  .kpi-grid,.analytics-grid{grid-template-columns:repeat(2,1fr)}
-  .filter-panel,.pr-grid{grid-template-columns:1fr 1fr}
-  .manual-input{width:100%}
-}
-@media(max-width:640px){
-  .header-content{min-height:58px;padding:0 14px}
-  .dashboard-content{padding:14px 14px 26px}
-  .kpi-grid,.filter-panel,.analytics-grid,.pr-grid,.lower-grid{grid-template-columns:1fr}
-  .manual-panel{flex-direction:column}
-  .brand-lockup p{display:none}
-  .brand-lockup h1{font-size:12px}
-  .tab-btn{padding:10px 12px;font-size:10px}
-}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Read-only derived snapshot of the Outback Steakhouse Hong Kong Version 2 social-listening dashboard." />
+  <title>Outback Steakhouse HK — Version 2 Static Snapshot</title>
+  <style>
+    :root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#edf5f1;background:#080a0e;--green:#00d084;--muted:#8e9999;--panel:#12151b;--line:rgba(255,255,255,.09)}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 70% -10%,rgba(0,208,132,.1),transparent 28%),#080a0e;color:#edf5f1}a{color:#8deab8}button,input,select{font:inherit}.shell{max-width:1480px;margin:auto;padding:0 24px 36px}.top{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;margin:0 -24px;padding:0 24px;border-bottom:1px solid var(--line);background:rgba(8,10,14,.92);backdrop-filter:blur(14px)}.brand{display:flex;align-items:center;gap:10px}.pulse{display:grid;place-items:center;width:32px;height:32px;border:1px solid rgba(0,208,132,.35);border-radius:7px;color:var(--green);background:rgba(0,208,132,.08);font-weight:800}.brand h1{margin:0;font-size:14px}.brand p{margin:3px 0 0;color:var(--muted);font-size:10px}.source-truth{font-size:10px;text-align:right}.source-truth b{display:block;color:#b7c2c0}.notice{margin-top:18px;padding:12px 14px;border:1px solid rgba(0,208,132,.23);border-radius:7px;color:#a7b3b1;background:rgba(0,208,132,.055);font-size:11px;line-height:1.55}.notice b{color:#98efc5}.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:14px}.kpi,.panel{border:1px solid var(--line);border-radius:7px;background:linear-gradient(145deg,rgba(20,23,29,.96),rgba(11,13,18,.97))}.kpi{padding:16px}.kpi span,.eyebrow{color:#7e898a;font-size:9px;letter-spacing:.06em;text-transform:uppercase}.kpi strong{display:block;margin-top:8px;font-size:26px;letter-spacing:-.05em}.filters{display:grid;grid-template-columns:1fr 1fr 1.25fr 1.8fr;gap:10px;margin-top:14px;padding:14px;border:1px solid var(--line);border-radius:7px;background:#0f1217}.filters label{display:grid;gap:6px;color:#7f898b;font-size:9px;text-transform:uppercase}.filters input,.filters select{width:100%;height:38px;padding:0 10px;border:1px solid #2c3338;border-radius:5px;outline:0;color:#edf5f1;background:#090c10}.filters input:focus,.filters select:focus{border-color:var(--green)}.watch{margin-top:14px;padding:17px}.panel-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}.panel-head h2{margin:5px 0 0;font-size:16px}.panel-head small{color:#7f898b}.watch>p{color:#9da8a7;font-size:10px;line-height:1.6}.alerts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.alert{padding:13px;border:1px solid var(--line);border-radius:6px;background:rgba(4,6,8,.35)}.alert.high{border-color:rgba(255,105,130,.35)}.alert.medium{border-color:rgba(244,192,88,.35)}.alert.low{border-color:rgba(0,208,132,.3)}.alert .level{display:flex;justify-content:space-between;color:#9ca7a6;font-size:8px;text-transform:uppercase}.alert h3{margin:8px 0 5px;font-size:11px}.alert p{margin:0;color:#9ba5a4;font-size:9px;line-height:1.55}.alert a{display:inline-flex;margin-top:9px;font-size:9px}.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;padding:7px}.tabs button{min-height:34px;padding:0 10px;border:1px solid transparent;border-radius:5px;color:#99a4a2;background:transparent;font-size:10px;font-weight:700;cursor:pointer}.tabs button.active{border-color:rgba(0,208,132,.35);color:#e9fff4;background:rgba(0,208,132,.12)}.table-panel{margin-top:10px;overflow:hidden}.table-head{display:flex;justify-content:space-between;gap:14px;padding:17px}.table-head h2{margin:4px 0 0;font-size:15px}.table-head p{margin:5px 0 0;color:#899496;font-size:10px}.table-wrap{overflow:auto;border-top:1px solid var(--line)}table{width:100%;min-width:1080px;border-collapse:collapse}th{padding:10px 13px;color:#758083;background:#14181e;text-align:left;font-size:8px;letter-spacing:.06em;text-transform:uppercase}td{padding:12px 13px;border-top:1px solid rgba(255,255,255,.055);vertical-align:top;color:#c2ccc8;font-size:10px;line-height:1.45}td b{display:block;color:#eef5f1}.pill{display:inline-flex;padding:3px 6px;border:1px solid #343b41;border-radius:999px;font-size:8px}.positive{color:#91efc0}.negative{color:#ffb7c2}.neutral{color:#b8c9ff}.tags{color:#a993e9}.stores{margin-top:14px;padding-bottom:12px}.store-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin-top:14px;background:var(--line)}.store{padding:14px;background:#101319}.store h3{margin:0;font-size:11px}.store p{margin:7px 0;color:#9aa5a3;font-size:9px;line-height:1.5}.store small{color:#758083}.footer{padding:26px 0 0;color:#647071;font-size:9px;text-align:center}.error{padding:26px;color:#ffb7c2}.empty{padding:30px;color:#879293;text-align:center}
+    @media(max-width:1050px){.kpis{grid-template-columns:repeat(2,1fr)}.filters{grid-template-columns:1fr 1fr}.alerts{grid-template-columns:1fr}}
+    @media(max-width:640px){.shell{padding:0 13px 24px}.top{margin:0 -13px;padding:0 13px}.source-truth{display:none}.kpis,.filters,.store-grid{grid-template-columns:1fr}.brand h1{font-size:12px}.kpi{padding:14px}.alert{padding:12px}}
+  </style>
 </head>
 <body>
-<div class="dashboard-shell">
-<header class="dashboard-header">
-  <div class="header-content">
-    <div class="brand-lockup">
-      <svg viewBox="0 0 34 34" class="brand-mark"><rect width="34" height="34" rx="7" fill="#1a1a1a"/><text x="17" y="23" text-anchor="middle" fill="#00d084" font-weight="800" font-size="18">O</text></svg>
-      <div><h1>Outback Steakhouse HK</h1><p>Social Listening & Media Monitor</p></div>
-    </div>
-    <div class="header-actions">
-      <div class="sync-status"><i></i> <span id="syncText">Live · Google Sheets</span></div>
-      <a href="https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4/edit" target="_blank" class="run-button" style="text-decoration:none">📊 Open Sheet</a>
-    </div>
-  </div>
-</header>
-
-<main class="dashboard-content" id="app"><div style="color:#8c9698;text-align:center;padding:60px">Loading data…</div></main>
-</div>
-
-<script>
-(async function(){
-  const R = await fetch('./data/dashboard-data.json').then(r=>r.json());
-  const M = R.meta;
-
-  function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-  function pill(s){const m={positive:'正面',neutral:'中性',negative:'負面',mixed:'混合'};return`<span class="sentiment-pill ${s}">${m[s]||s}</span>`}
-  function trendChart(dates){
-    const max = Math.max(...dates.map(d=>d.count),1);
-    return dates.map(d=>`<div class="bar-wrapper"><div class="bar-count">${d.count}</div><div class="bar" style="height:${(d.count/max*170)|0}px"></div><div class="bar-label">${d.date.slice(5)}</div></div>`).join('');
-  }
-
-  document.getElementById('syncText').textContent = `Live · ${M.date_range}`;
-  document.getElementById('app').innerHTML = `
-  <!-- KPI -->
-  <div class="kpi-grid">
-    <div class="kpi-card"><div><span class="eyebrow">New Verified</span><span class="kpi-val">${M.new_verified}</span><span class="kpi-sub">past 3 days</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></div>
-    <div class="kpi-card"><div><span class="eyebrow">Total Mentions</span><span class="kpi-val">${M.total_records}</span><span class="kpi-sub">${M.date_range}</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-    <div class="kpi-card"><div><span class="eyebrow">Coverage Ratio</span><span class="kpi-val">${M.coverage_ratio}</span><span class="kpi-sub">${M.sources_checked} sources active</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></div>
-    <div class="kpi-card"><div><span class="eyebrow">Positive Sentiment</span><span class="kpi-val">${M.positive_pct}%</span><span class="kpi-sub">${M.negative_alerts} alerts · ${R.sentiment.negative} negative</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 00-3-3l-4 9v11h11.28a2 2 0 002-1.7l1.38-9a2 2 0 00-2-2.3H14zM7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3"/></svg></div>
-  </div>
-
-  <!-- Manual URL input -->
-  <div class="manual-panel">
-    <div><strong>📎 Add a manual URL for verification</strong><p>Paste a public link — the dashboard will classify & verify it automatically</p></div>
-    <div class="manual-input"><input type="url" placeholder="https://…" id="manualUrl"><button onclick="alert('Manual URL intake coming in next deploy')">Add URL</button></div>
-  </div>
-
-  <!-- Filter toolbar -->
-  <div class="filter-panel">
-    <label><span>Start Date</span><div class="filter-input"><input type="date" id="fStart" value="2026-08-01"></div></label>
-    <label><span>End Date</span><div class="filter-input"><input type="date" id="fEnd" value="${M.date_range.split(' → ')[1]||'2026-08-25'}"></div></label>
-    <label style="grid-column:span 1"><span>Platform</span><div class="filter-input"><select id="fPlatform"><option value="">All Platforms</option><option>社交媒體</option><option>網上媒體</option><option>食評／生活媒體</option><option>評論平台</option><option>官方網站</option><option>論壇</option></select></div></label>
-    <label><span>Search</span><div class="filter-input"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input type="search" id="fSearch" placeholder="Keywords, sources, titles…"></div></label>
-    <button class="analysis-button" onclick="document.querySelectorAll('.tab-btn')[0].click()">🔍 Search</button>
-  </div>
-
-  <!-- PR Watch -->
-  <div class="pr-watch-section">
-    <div class="section-title">PR Watch · Current verified signals</div>
-    <div class="pr-grid">${R.pr_alerts.map(a=>`<div class="pr-card severity-${a.severity}"><span class="sev-badge ${a.severity}">${a.severity}</span><h4>${esc(a.title)}</h4><p>${esc(a.detail)}</p></div>`).join('')}</div>
-  </div>
-
-  <!-- Analytics -->
-  <div class="analytics-grid">
-    <div class="panel">
-      <div class="panel-heading"><div><div class="panel-meta">LISTENING PATTERN</div><h2>Mention Volume Trend <span style="color:#9ea7a9">· 7-day</span></h2></div></div>
-      <div class="chart-wrap"><div class="chart-stage"><div class="bars">${trendChart(R.trend)}</div></div><div class="chart-labels">${R.trend.map(d=>d.date.slice(5)).join(' · ')}</div></div>
-    </div>
-    <div class="panel source-panel">
-      <div class="panel-heading"><div><div class="panel-meta">FILTER VIEW</div><h2>Source Breakdown</h2></div></div>
-      <div class="source-bars">${R.source_breakdown.slice(0,12).map((s,i)=>{
-        const max=R.source_breakdown[0].count;
-        return `<div class="source-row"><div><span>${esc(s.source)}</span></div><b>${s.count}</b><i style="width:${(s.count/max*100)|0}%"><em></em></i></div>`;
-      }).join('')}</div>
-    </div>
-  </div>
-
-  <!-- Tab navigation -->
-  <div class="tab-bar" id="tabBar">
-    <button class="tab-btn active" data-tab="media">📰 01 媒體與新聞 <span class="tab-badge">${R.media_records.length}</span></button>
-    <button class="tab-btn" data-tab="social">💬 02 社交媒體 <span class="tab-badge">${R.social_records.length}</span></button>
-    <button class="tab-btn" data-tab="all">📋 03 社交聆聽數據 <span class="tab-badge">${R.all_records.length}</span></button>
-    <button class="tab-btn" data-tab="stores">🏪 04 店舗排名 <span class="tab-badge">${R.store_ranking.filter(s=>s.has_data!==undefined?s.has_data:s.mentions>0).length}/10</span></button>
-    <button class="tab-btn" data-tab="coverage">📊 05 來源覆蓋 <span class="tab-badge">${M.sources_checked}</span></button>
-  </div>
-
-  <!-- Tab content container -->
-  <div class="monitoring-section" id="tabContent"></div>
-
-  <!-- Google Sheet link -->
-  <footer style="margin-top:14px">
-    <span>Google Sheets CMS</span> <i></i> 
-    <a href="https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4/edit" target="_blank" style="color:#849091">Open Sheet</a> <i></i>
-    <span>46 target sources</span> <i></i>
-    <span>Hermes Agent · Auto-deployed</span>
-  </footer>
-  `;
-
-  // Helper: render a data table
-  function renderTable(records,extraCols=''){
-    if(!records.length) return '<div class="empty-table">No records found for this filter</div>';
-    return `<div class="table-wrap"><table><thead><tr><th>Date</th><th>Platform</th><th>Source</th><th>Title</th><th>Summary</th><th>Sentiment</th><th>Link</th>${extraCols}</tr></thead><tbody>${records.map(r=>`<tr>
-      <td style="white-space:nowrap">${r.date}</td>
-      <td>${esc(r.platform)}</td>
-      <td><b>${esc(r.source)}</b></td>
-      <td>${esc(r.title)}</td>
-      <td class="summary-cell">${esc(r.summary).slice(0,180)}${r.summary&&r.summary.length>180?'…':''}</td>
-      <td>${pill(r.sentiment)}</td>
-      <td>${r.link?`<a href="${esc(r.link)}" target="_blank" rel="noopener" class="source-link">↗</a>`:'—'}</td>
-      ${extraCols}
-    </tr>`).join('')}</tbody></table></div>`;
-  }
-
-  // Tab rendering
-  const panels = {
-    media: `<div class="section-heading"><div><h2>媒體與新聞報導</h2><p>新聞媒體、食評網站、行業報導及公關通訊的提及記錄</p></div><span class="section-count">${R.media_records.length} records</span></div>${renderTable(R.media_records)}`,
-    social: `<div class="section-heading"><div><h2>社交媒體提及</h2><p>Instagram、Facebook、Threads、小紅書、YouTube 貼文、評論及論壇討論</p></div><span class="section-count">${R.social_records.length} records</span></div>${renderTable(R.social_records)}`,
-    all: `<div class="section-heading"><div><h2>社交聆聽完整數據</h2><p>所有平台的所有提及記錄，按日期倒序排列</p></div><span class="section-count">${R.all_records.length} records</span></div>${renderTable(R.all_records)}`,
-    stores: function(){
-          const RS = R.store_ranking;
-          // Normalize — support both old (location/last_review) and new (district/latest) field names
-          const stores = RS.map(s=>({
-            ...s,
-            district: s.district||s.location||'',
-            latest: s.latest||s.last_review||'-',
-            avg_score: s.avg_score||null,
-            has_data: s.has_data !== undefined ? s.has_data : (s.mentions > 0),
-            store_id: s.store_id||s.id||s.name||''
-          }));
-          const hasData = stores.filter(s=>s.has_data);
-          const getScore = (s) => s.avg_score;
-          return `<div class="section-heading"><div><h2>店舗排名</h2><p>全港 10 間 Outback 分店按社交提及量排名 — 綜合 Google Maps、OpenRice、TripAdvisor 公開評價</p></div><span class="section-count">${hasData.length}/10 ranked</span></div>
-          <div class="ranking-method"><span>Ranking method — mentions · avg rating · recency. Stores with zero mentions shown last. <span style="color:#efb539">⚠</span> Scores sourced from public Google Maps ratings only; OpenRice & TripAdvisor ratings vary by platform.</span><span>${M.date_range}</span></div>
-          <div class="store-ranking-table">
-            <div class="store-ranking-header"><span>RANK</span><span>STORE</span><span>SCORE</span><span>REVIEWS</span><span>SUMMARY</span><span>LINK</span></div>
-            ${stores.map(s=>{
-              const cls = s.has_data ? 'is-ranked' : 'is-unavailable';
-              const score = getScore(s);
-              const summary = (s.summary||'').slice(0,160);
-              return `<div class="store-ranking-row ${cls}">
-                <div class="ranking-big-number">${s.has_data ? '#'+s.rank : '—'}</div>
-                <div class="store-location-cell"><strong>${esc(s.name)}</strong><span>${esc(s.district)}</span><small>${s.latest !== '-' ? 'Last mention · '+s.latest : '<span class="no-data">尚無數據</span>'}</small></div>
-                <div class="store-score-cell"><b>${score||'—'}</b>${score?'<small>/5</small>':'<small>—</small>'}</div>
-                <div class="store-review-cell"><b>${s.mentions||'—'}</b><small>mentions</small></div>
-                <div class="store-summary-cell${s.has_data?'':' is-unavailable'}"><b>TOPIC TAGS</b>${s.has_data?`<span style="color:#c5cfca">${esc(summary)}${(s.summary||'').length>160?'…':''}</span>`:'<span class="no-data">尚無監測數據 — 此分店暫未有公開社交提及</span>'}</div>
-                <a href="https://www.google.com/maps/search/Outback+Steakhouse+${encodeURIComponent(s.store_id||s.district)}+Hong+Kong" target="_blank" rel="noopener" class="ranking-link">↗</a>
-              </div>`;
-            }).join('')}
-          </div>
-          <div class="store-ranking-note">📊 Scores sourced from public Google Maps ratings. Mention counts aggregated across all 46 monitored sources. Rankings updated daily at 9 AM HKT. <a href="https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4/edit" target="_blank" style="color:#c6ac6a">View raw data in Google Sheets →</a></div>
-          <div class="section-export"><button class="export-button" onclick="window.open('https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4/edit','_blank')">📊 Full Data in Google Sheets</button></div>`;
-        },
-    coverage: `<div class="section-heading"><div><h2>來源覆蓋狀況</h2><p>46 個目標來源的監測覆蓋率及限制報告</p></div><span class="section-count">${M.sources_checked}/46 active</span></div>
-      <div class="source-coverage"><div class="table-wrap"><table><thead><tr><th>Source</th><th>Mentions</th><th>% of Total</th></tr></thead><tbody>${R.source_breakdown.map(s=>`<tr><td>${esc(s.source)}</td><td><b>${s.count}</b></td><td>${((s.count/M.total_records)*100).toFixed(1)}%</td></tr>`).join('')}</tbody></table></div></div>
-      <div class="section-export"><button class="export-button" onclick="window.open('https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4/edit','_blank')">📊 Full Data in Google Sheets</button></div>`
-  };
-
-  // Tab switching
-  let activeTab = 'media';
-  function showTab(name){
-    activeTab = name;
-    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active',b.dataset.tab===name));
-    const panel = panels[name];
-    document.getElementById('tabContent').innerHTML = typeof panel === 'function' ? panel() : (panel||'');
-  }
-  showTab('media');
-
-  document.getElementById('tabBar').addEventListener('click',e=>{
-    const btn = e.target.closest('.tab-btn');
-    if(btn) showTab(btn.dataset.tab);
-  });
-
-  // Search & filter
-  function applyFilters(){
-    const q = document.getElementById('fSearch').value.toLowerCase();
-    const plat = document.getElementById('fPlatform').value;
-    const start = document.getElementById('fStart').value;
-    const end = document.getElementById('fEnd').value;
-
-    let base = activeTab==='media'?R.media_records:activeTab==='social'?R.social_records:R.all_records;
-    if(activeTab==='stores'||activeTab==='coverage') return; // non-table tabs
-
-    let filtered = base;
-    if(q) filtered = filtered.filter(r=>JSON.stringify(r).toLowerCase().includes(q));
-    if(plat) filtered = filtered.filter(r=>r.platform===plat);
-    if(start) filtered = filtered.filter(r=>r.date>=start);
-    if(end) filtered = filtered.filter(r=>r.date<=end);
-
-    const newPanel = panels[activeTab].replace(/<div class="table-wrap">[\s\S]*?<\/div>/, renderTable(filtered));
-    document.getElementById('tabContent').innerHTML = newPanel;
-  }
-
-  document.getElementById('fSearch').addEventListener('input',applyFilters);
-  document.getElementById('fPlatform').addEventListener('change',applyFilters);
-  document.getElementById('fStart').addEventListener('change',applyFilters);
-  document.getElementById('fEnd').addEventListener('change',applyFilters);
-
-})();
-</script>
+  <main class="shell">
+    <header class="top"><div class="brand"><div class="pulse">⌁</div><div><h1>Outback Steakhouse HK</h1><p>Read-only social listening snapshot</p></div></div><div class="source-truth"><b>Derived from Version 2</b><a href="https://outbackdash-zelnsfxp.manus.space/">Open permanent dashboard</a></div></header>
+    <section class="notice"><b>Static snapshot only.</b> Version 2 is the source of truth. This page contains verified records and original source links but no password gate, manual submission, AI analysis, or server actions.</section>
+    <section class="kpis" id="kpis"></section>
+    <section class="filters" aria-label="Snapshot filters">
+      <label>From<input id="from" type="date" /></label><label>To<input id="to" type="date" /></label><label>Source<select id="source"><option value="all">All sources</option></select></label><label>Search<input id="query" type="search" placeholder="Search mentions..." /></label>
+    </section>
+    <section class="panel watch"><div class="panel-head"><div><span class="eyebrow">PR Watch</span><h2>Current verified signals</h2></div><small id="runDate"></small></div><p id="trends"></p><div class="alerts" id="alerts"></div></section>
+    <nav class="panel tabs" id="tabs" aria-label="Monitoring sections"><button class="active" data-section="all">All</button><button data-section="media">Media &amp; News</button><button data-section="social">Social Media</button><button data-section="maps">Google Maps</button></nav>
+    <section class="panel table-panel"><div class="table-head"><div><span class="eyebrow">Verified records</span><h2 id="tableTitle">All mentions</h2><p id="resultMeta"></p></div><small id="generated"></small></div><div class="table-wrap"><table><thead><tr><th>Date</th><th>Source</th><th>Sentiment</th><th>Title / Author</th><th>Summary</th><th>Topics</th><th>Source</th></tr></thead><tbody id="rows"></tbody></table></div></section>
+    <section class="panel stores"><div class="table-head"><div><span class="eyebrow">OpenRice snapshot</span><h2>Ten monitored branches</h2><p>Unavailable values remain explicitly unavailable; no fields are inferred.</p></div></div><div class="store-grid" id="stores"></div></section>
+    <footer class="footer">Derived GitHub snapshot · Permanent dashboard: outbackdash-zelnsfxp.manus.space</footer>
+  </main>
+  <script>
+    const state={data:null,section:"all"};
+    const $=id=>document.getElementById(id);
+    const esc=value=>String(value??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+    const link=value=>String(value||"").startsWith("https://")?'<a href="'+esc(value)+'" target="_blank" rel="noreferrer">Original ↗</a>':"Unavailable";
+    const formatDate=value=>new Date(value+"T00:00:00Z").toLocaleDateString("en-GB",{day:"2-digit",month:"short",year:"numeric",timeZone:"UTC"});
+    function render(){
+      const d=state.data,from=$("from").value,to=$("to").value,source=$("source").value,q=$("query").value.trim().toLowerCase();
+      const rows=d.mentions.filter(item=>item.date>=from&&item.date<=to).filter(item=>source==="all"||item.source===source).filter(item=>state.section==="all"||item.section===state.section).filter(item=>(item.title+" "+item.summary+" "+(item.author||"")+" "+item.source+" "+(item.tags||[]).join(" ")).toLowerCase().includes(q));
+      const labels={all:"All mentions",media:"Media & News",social:"Social Media",maps:"Google Maps Reviews"};
+      $("tableTitle").textContent=labels[state.section];$("resultMeta").textContent=rows.length+" verified records · "+from+" to "+to;
+      $("rows").innerHTML=rows.length?rows.map(item=>'<tr><td><b>'+esc(formatDate(item.date))+'</b>'+esc(item.time||"")+' HKT</td><td><span class="pill">'+esc(item.source)+'</span></td><td><span class="pill '+esc(item.sentiment)+'">'+esc(item.sentiment)+'</span></td><td><b>'+esc(item.title)+'</b>'+esc(item.author||"")+'</td><td>'+esc(item.summary)+'</td><td class="tags">'+esc((item.tags||[]).join(" · "))+'</td><td>'+link(item.link)+'</td></tr>').join(""):'<tr><td colspan="7" class="empty">No verified records match these filters.</td></tr>';
+    }
+    async function init(){
+      const d=await fetch("./data/dashboard-latest.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error("Snapshot data unavailable");return r.json()});state.data=d;
+      $("from").value=d.run.dateRange.from;$("to").value=d.run.dateRange.to;$("runDate").textContent=d.run.runDate;$("trends").textContent=d.run.trends;$("generated").textContent="Generated "+new Date(d.generatedAt).toLocaleString("en-HK",{timeZone:"Asia/Hong_Kong"})+" HKT";
+      const cards=[["Today",d.mentions.filter(x=>x.todayRun).length],["Active records",d.counts.total],["Media & News",d.counts.media],["Social + Maps",d.counts.social+d.counts.maps],["OpenRice stores",d.counts.stores]];$("kpis").innerHTML=cards.map(x=>'<article class="kpi"><span>'+esc(x[0])+'</span><strong>'+esc(x[1])+'</strong></article>').join("");
+      [...new Set(d.mentions.map(x=>x.source))].sort().forEach(value=>$("source").insertAdjacentHTML("beforeend",'<option value="'+esc(value)+'">'+esc(value)+'</option>'));
+      $("alerts").innerHTML=d.run.alerts.map(a=>'<article class="alert '+a.severity.toLowerCase()+'"><div class="level"><span>'+esc(a.severity)+'</span><span>'+esc(a.status)+'</span></div><h3>'+esc(a.title)+'</h3><p>'+esc(a.summary)+'</p>'+link(a.link)+'</article>').join("");
+      $("stores").innerHTML=d.stores.map(s=>'<article class="store"><h3>'+esc(s.branchEnglish)+' · '+esc(s.branchChinese)+'</h3><p><b>Score:</b> '+esc(s.score??"Unavailable")+' · <b>Reviews:</b> '+esc(s.reviewCount??"Unavailable")+'</p><p>'+esc(s.generalComment||"No verified summary available.")+'</p><small>'+esc(s.availabilityNote||"")+'</small><p>'+link(s.openRiceUrl)+'</p></article>').join("");
+      ["from","to","source","query"].forEach(id=>$(id).addEventListener(id==="query"?"input":"change",render));$("tabs").addEventListener("click",event=>{const b=event.target.closest("button[data-section]");if(!b)return;state.section=b.dataset.section;document.querySelectorAll("#tabs button").forEach(x=>x.classList.toggle("active",x===b));render()});render();
+    }
+    init().catch(error=>document.querySelector(".shell").insertAdjacentHTML("beforeend",'<div class="error">'+esc(error.message)+'</div>'));
+  </script>
 </body>
 </html>
