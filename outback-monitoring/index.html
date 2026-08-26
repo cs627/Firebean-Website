@@ -241,18 +241,7 @@ function updateKpis(filtered){
 }
 
 /* ── AI Report ── */
-function closeAiReport(){$("aiOverlay").classList.remove("open");}
-$("aiOverlay").addEventListener("click",e=>{if(e.target===$("aiOverlay"))closeAiReport();});
-document.addEventListener("keydown",e=>{if(e.key==="Escape")closeAiReport();});
 
-$("aiBtn").addEventListener("click",()=>{
-  const report=state.data&&state.data.aiReport;
-  if(!report){alert("AI PR report generated daily by Hermes. Report available after next pipeline run.");return;}
-  $("aiOverlay").classList.add("open");
-  $("aiTitle").textContent="PR Insight Report";
-  $("aiMeta").textContent="Generated "+new Date(state.data.aiReportDate||state.data.generatedAt).toLocaleString("en-HK",{timeZone:"Asia/Hong_Kong"})+" HKT";
-  $("aiReport").innerHTML=report.replace(/\n/g,'<br>').replace(/### ([^\n<]+)/g,'<h3>$1</h3>').replace(/\*\*([^*]+)\*\*/g,'<b>$1</b>');
-});
 
 /* ── Calendar popup (trip.com style) ── */
 function calBuild(target, anchorDate){
@@ -346,6 +335,19 @@ async function init(){
   $("query").addEventListener("input",e=>{state.query=e.target.value;render();});
   // tabs
   $("tabs").addEventListener("click",e=>{const b=e.target.closest("button[data-section]");if(!b)return;state.section=b.dataset.section;document.querySelectorAll("#tabs button").forEach(x=>x.classList.toggle("active",x===b));render();});
+  function closeAiReport(){$("aiOverlay").classList.remove("open");}
+  $("aiOverlay").addEventListener("click",e=>{if(e.target===$("aiOverlay"))closeAiReport();});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape")closeAiReport();});
+  
+  $("aiBtn").addEventListener("click",()=>{
+    const report=state.data&&state.data.aiReport;
+    if(!report){alert("AI PR report generated daily by Hermes. Report available after next pipeline run.");return;}
+    $("aiOverlay").classList.add("open");
+    $("aiTitle").textContent="PR Insight Report";
+    $("aiMeta").textContent="Generated "+new Date(state.data.aiReportDate||state.data.generatedAt).toLocaleString("en-HK",{timeZone:"Asia/Hong_Kong"})+" HKT";
+    $("aiReport").innerHTML=report.replace(/\n/g,'<br>').replace(/### ([^\n<]+)/g,'<h3>$1</h3>').replace(/\*\*([^*]+)\*\*/g,'<b>$1</b>');
+  });
+
   renderTrend();render();
 }
 init().catch(err=>document.querySelector(".shell").insertAdjacentHTML("beforeend",'<div class="panel" style="margin-top:14px;color:var(--red)">'+esc(err.message)+'</div>'));
