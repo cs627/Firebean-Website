@@ -6,18 +6,22 @@
 <meta name="description" content="Outback Steakhouse Hong Kong social listening dashboard — verified records, mention volume trend, and OpenRice store rankings." />
 <title>Outback Steakhouse HK — Social Listening Dashboard</title>
 <style>
-:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#edf5f1;background:#080a0e;--green:#00d084;--muted:#8e9999;--panel:#12151b;--line:rgba(255,255,255,.09);--red:#ff5c7a;--amber:#ffc93c;--blue:#5aa9ff}
+:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#edf5f1;background:#080a0e;--green:#00d084;--muted:#8e9999;--panel:#12151b;--line:rgba(255,255,255,.09);--red:#ff5c7a;--amber:#ffc93c;--blue:#5aa9ff;--purple:#a78bfa}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 70% -10%,rgba(0,208,132,.1),transparent 28%),#080a0e;color:#edf5f1}a{color:#8deab8;text-decoration:none}a:hover{text-decoration:underline}.shell{max-width:1480px;margin:auto;padding:0 24px 48px}.top{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;margin:0 -24px;padding:0 24px;border-bottom:1px solid var(--line);background:rgba(8,10,14,.92);backdrop-filter:blur(14px)}.brand{display:flex;align-items:center;gap:10px}.pulse{display:grid;place-items:center;width:32px;height:32px;border:1px solid rgba(0,208,132,.35);border-radius:7px;color:var(--green);background:rgba(0,208,132,.08);font-weight:800}.brand h1{margin:0;font-size:15px}.brand p{margin:3px 0 0;color:var(--muted);font-size:10px}.source-truth{font-size:10px;text-align:right}.source-truth b{display:block;color:#b7c2c0}
-.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:14px}.kpi,.panel{border:1px solid var(--line);border-radius:8px;background:linear-gradient(145deg,rgba(20,23,29,.96),rgba(11,13,18,.97))}.kpi{padding:16px}.kpi span,.eyebrow{color:#7e898a;font-size:9px;letter-spacing:.06em;text-transform:uppercase}.kpi strong{display:block;margin-top:8px;font-size:26px;letter-spacing:-.05em}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:14px}.kpi,.panel{border:1px solid var(--line);border-radius:8px;background:linear-gradient(145deg,rgba(20,23,29,.96),rgba(11,13,18,.97))}.kpi{padding:16px}.kpi span,.eyebrow{color:#7e898a;font-size:9px;letter-spacing:.06em;text-transform:uppercase}.kpi strong{display:block;margin-top:8px;font-size:26px;letter-spacing:-.05em}.kpi small{display:block;margin-top:4px;color:var(--muted);font-size:10px}
+/* filter toolbar */
+.filters{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:14px;padding:14px;border:1px solid var(--line);border-radius:8px;background:#0f1217}.filters .fgroup{display:flex;align-items:center;gap:8px}.period-presets{display:flex;gap:4px;padding:3px;border:1px solid var(--line);border-radius:6px;background:#090c10}.period-presets button{padding:7px 12px;border:none;border-radius:4px;background:transparent;color:var(--muted);cursor:pointer;font-size:12px;white-space:nowrap}.period-presets button:hover{color:#edf5f1}.period-presets button.active{background:rgba(0,208,132,.15);color:#9df0c9}
+.daterange{position:relative;display:flex;align-items:center;gap:6px}.daterange .field{display:flex;align-items:center;gap:6px;padding:8px 10px;border:1px solid #2c3338;border-radius:6px;background:#090c10;cursor:pointer;font-size:12px}.daterange .field:hover{border-color:var(--green)}.daterange .sep{color:var(--muted);font-size:11px}.daterange label{color:#7f898b;font-size:9px;text-transform:uppercase;margin-right:4px}
+.calpop{position:absolute;top:44px;left:0;z-index:50;display:none;width:300px;padding:14px;border:1px solid #2c3338;border-radius:10px;background:#12151b;box-shadow:0 20px 50px rgba(0,0,0,.6)}.calpop.open{display:block}.calhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}.calhead button{width:28px;height:28px;border:1px solid #2c3338;border-radius:5px;background:#090c10;color:#edf5f1;cursor:pointer;font-size:14px}.calhead .calttl{font-size:13px;font-weight:700;color:#edf5f1}.calgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}.calgrid .dow{text-align:center;font-size:9px;color:#7e898a;padding:4px 0;text-transform:uppercase}.calgrid .day{text-align:center;padding:7px 0;font-size:12px;border-radius:5px;cursor:pointer;color:#c7d0ce}.calgrid .day:hover{background:rgba(0,208,132,.15)}.calgrid .day.empty{cursor:default}.calgrid .day.selected{background:var(--green);color:#06130d;font-weight:700}.calgrid .day.inrange{background:rgba(0,208,132,.25);color:#9df0c9}.calgrid .day.out{color:#3a4242;cursor:default}.calfoot{display:flex;justify-content:space-between;margin-top:10px}.calfoot button{padding:6px 12px;border-radius:5px;border:1px solid #2c3338;background:#090c10;color:#edf5f1;cursor:pointer;font-size:11px}.calfoot button.apply{background:var(--green);border-color:var(--green);color:#06130d;font-weight:700}
+.srcsel{position:relative}.srcsel select{height:36px;padding:0 30px 0 10px;border:1px solid #2c3338;border-radius:6px;background:#090c10;color:#edf5f1;font-size:12px;appearance:none;cursor:pointer;min-width:140px}.srcsel select:focus{border-color:var(--green);outline:0}
+.searchbox{flex:1;min-width:200px;position:relative}.searchbox input{width:100%;height:36px;padding:0 12px 0 32px;border:1px solid #2c3338;border-radius:6px;background:#090c10;color:#edf5f1;font-size:12px}.searchbox input:focus{border-color:var(--green);outline:0}.searchbox .mag{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:13px}
+.ai-btn{padding:9px 16px;border:1px solid var(--purple);border-radius:6px;background:rgba(167,139,250,.12);color:#c4b5fd;cursor:pointer;font-size:12px;white-space:nowrap}.ai-btn:hover{background:rgba(167,139,250,.2)}
 .panel{margin-top:14px;padding:20px}.panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px}.panel-head h2{margin:2px 0 0;font-size:18px;font-weight:700}.panel-head small{color:var(--muted);font-size:11px}.eyebrow{color:var(--green);font-size:10px}
-/* tabs */
 .tabs{display:flex;gap:6px;padding:8px;border:1px solid var(--line);border-radius:8px;background:#0f1217;margin-top:14px;flex-wrap:wrap}.tabs button{flex:1;min-width:150px;padding:11px 14px;border:1px solid transparent;border-radius:6px;background:transparent;color:var(--muted);cursor:pointer;font-size:13px;text-align:left;transition:.15s}.tabs button:hover{color:#edf5f1}.tabs button.active{border-color:var(--green);background:rgba(0,208,132,.09);color:#edf5f1}.tabs button small{display:block;color:var(--muted);font-size:10px;margin-top:3px}
-/* table */
 .table-panel{padding:0;overflow:hidden}.table-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:20px 20px 14px}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:12.5px}thead th{text-align:left;color:#7e898a;font-size:9px;text-transform:uppercase;letter-spacing:.05em;padding:10px 14px;border-bottom:1px solid var(--line);white-space:nowrap}tbody td{padding:13px 14px;border-bottom:1px solid rgba(255,255,255,.05);vertical-align:top}tbody tr:hover{background:rgba(0,208,132,.03)}.pill{display:inline-block;padding:3px 8px;border-radius:20px;font-size:10px;font-weight:600}.pill.positive,.pill.正面{background:rgba(0,208,132,.14);color:#5fe8ab}.pill.negative,.pill.負面{background:rgba(255,92,122,.15);color:#ff8ba1}.pill.neutral,.pill.中性{background:rgba(142,153,153,.15);color:#b7c2c0}.pill.mixed,.pill.混合{background:rgba(255,201,60,.15);color:#ffd877}.empty{text-align:center;color:var(--muted);padding:40px}
-/* store ranking card-grid table */
 .store-grid{display:flex;flex-direction:column;gap:10px;padding:0 20px 20px}.store-head{display:grid;grid-template-columns:64px 1.6fr .9fr .7fr 1.6fr .8fr;gap:12px;padding:0 14px;color:#7e898a;font-size:9px;text-transform:uppercase;letter-spacing:.05em}.store-row{display:grid;grid-template-columns:64px 1.6fr .9fr .7fr 1.6fr .8fr;gap:12px;align-items:center;padding:16px 14px;border:1px solid var(--line);border-radius:8px;background:linear-gradient(145deg,rgba(20,23,29,.96),rgba(11,13,18,.97))}.rank{font-size:30px;font-weight:800;color:rgba(0,208,132,.4);letter-spacing:-.04em}.loc b{display:block;font-size:13.5px}.loc small{display:block;color:var(--muted);font-size:11px;margin-top:3px}.score{font-size:24px;font-weight:800;color:var(--green);letter-spacing:-.03em}.score small{display:block;font-size:10px;color:var(--muted);font-weight:400;margin-top:3px}.reviews{font-size:16px;font-weight:700}.reviews small{display:block;font-size:10px;color:var(--muted);font-weight:400;margin-top:3px}.summary{font-size:12px;color:#b7c2c0;line-height:1.5}.src a{font-size:11px}
 @media(max-width:1050px){.kpis{grid-template-columns:repeat(2,1fr)}.store-head,.store-row{grid-template-columns:44px 1.4fr .8fr .6fr 1.4fr}.store-head .src,.store-row .src{display:none}.rank{font-size:22px}}
-@media(max-width:640px){.shell{padding:0 13px 24px}.top{margin:0 -13px;padding:0 13px}.source-truth{display:none}.kpis{grid-template-columns:1fr}.store-head,.store-row{grid-template-columns:40px 1fr .7fr}.store-head .summary,.store-row .summary,.store-head .reviews,.store-row .reviews{display:none}.tabs button{min-width:100%}}
+@media(max-width:640px){.shell{padding:0 13px 24px}.top{margin:0 -13px;padding:0 13px}.source-truth{display:none}.kpis{grid-template-columns:1fr}.store-head,.store-row{grid-template-columns:40px 1fr .7fr}.store-head .summary,.store-row .summary,.store-head .reviews,.store-row .reviews{display:none}.tabs button{min-width:100%}.filters{flex-direction:column;align-items:stretch}.searchbox{min-width:100%}}
 </style>
 </head>
 <body>
@@ -28,6 +32,30 @@
   </header>
 
   <section class="kpis" id="kpis"></section>
+
+  <section class="filters" aria-label="Filters">
+    <div class="fgroup">
+      <div class="period-presets" id="presets">
+        <button data-period="all" class="active">全部</button>
+        <button data-period="7">近7日</button>
+        <button data-period="30">近30日</button>
+      </div>
+    </div>
+    <div class="fgroup daterange" id="daterange">
+      <div class="field" id="fieldFrom"><span class="calico">📅</span><span id="fromLabel">—</span></div>
+      <span class="sep">→</span>
+      <div class="field" id="fieldTo"><span class="calico">📅</span><span id="toLabel">—</span></div>
+      <div class="calpop" id="calendar"></div>
+    </div>
+    <div class="fgroup srcsel">
+      <select id="source"><option value="all">All Sources</option></select>
+    </div>
+    <div class="fgroup searchbox">
+      <span class="mag">🔍</span>
+      <input id="query" type="search" placeholder="Search mentions..." />
+    </div>
+    <button class="ai-btn" id="aiBtn" title="AI analysis of current filtered records">✨ AI Analysis</button>
+  </section>
 
   <section class="panel">
     <div class="panel-head"><div><span class="eyebrow">Mention Volume</span><h2>Daily mention volume trend</h2><p style="color:var(--muted);font-size:11px;margin:4px 0 0">Hover any point to see the number of news / mentions that day.</p></div><small id="trendRange"></small></div>
@@ -56,7 +84,7 @@
 </main>
 
 <script>
-const state={data:null,section:"media"};
+const state={data:null,section:"media",from:null,to:null,source:"all",query:"",period:"all",cal:null,calTarget:null};
 const $=id=>document.getElementById(id);
 const esc=v=>String(v??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
 const link=v=>String(v||"").startsWith("https://")?'<a href="'+esc(v)+'" target="_blank" rel="noreferrer">OpenRice ↗</a>':"Unavailable";
@@ -66,80 +94,185 @@ const MEDIA_RE=/(新聞|媒體|報導|News|SCMP|Standard|香港01|明報|信報|
 const MAPS_RE=/(Maps|Google Maps|地圖|google\.com\/maps)/;
 function sectionOf(item){const p=(item.platform||"")+" "+(item.source||"");if(MAPS_RE.test(p))return"maps";if(MEDIA_RE.test(p))return"media";return"social";}
 
+function validDate(d){return d&&!d.includes("XX")&&/^\d{4}-\d{2}-\d{2}$/.test(d);}
+function inRange(d){const f=state.from,t=state.to;if(f&&d<f)return false;if(t&&d>t)return false;return true;}
+
+function filteredMentions(){
+  const m=state.data.mentions||[];
+  return m.filter(x=>validDate(x.date)&&inRange(x.date))
+    .filter(x=>state.source==="all"||x.source===state.source||x.platform===state.source);
+}
+
 function renderTrend(){
-  const t=(state.data.trend||[]).filter(x=>x.date&&!x.date.includes("XX"));
-  if(!t.length)return;
+  const t=(state.data.trend||[]).filter(x=>validDate(x.date)&&inRange(x.date));
+  if(!t.length){document.querySelector("#trendChart").innerHTML='<div class="empty">No data in selected period.</div>';document.querySelector("#trendRange").textContent="";return;}
   const w=Math.min(document.querySelector("#trendChart").clientWidth||1000,1400),h=260,pad={l:40,r:16,t:16,b:32};
   const max=Math.max(...t.map(x=>x.count),1);
   const iw=w-pad.l-pad.r,ih=h-pad.t-pad.b;
   const px=i=>pad.l+(i/(t.length-1||1))*iw;
   const py=c=>pad.t+ih-(c/max)*ih;
   let svg='<svg viewBox="0 0 '+w+' '+h+'" style="width:100%;height:auto" xmlns="http://www.w3.org/2000/svg">';
-  // gridlines
   for(let g=0;g<=4;g++){const y=pad.t+(ih/4)*g;svg+='<line x1="'+pad.l+'" y1="'+y+'" x2="'+(w-pad.r)+'" y2="'+y+'" stroke="rgba(255,255,255,.07)" stroke-dasharray="4 4"/>'+'<text x="'+(pad.l-8)+'" y="'+(y+3)+'" text-anchor="end" fill="#7e898a" font-size="9">'+Math.round(max-(max/4)*g)+'</text>';}
-  // x labels (sparse)
   const step=Math.ceil(t.length/8);
   t.forEach((x,i)=>{if(i%step===0||i===t.length-1){svg+='<text x="'+px(i)+'" y="'+(h-10)+'" text-anchor="middle" fill="#7e898a" font-size="9">'+x.date.slice(5)+'</text>';}});
-  // area fill
   let area='M'+px(0)+' '+py(t[0].count);
   t.forEach((x,i)=>area+=' L'+px(i)+' '+py(x.count));
   area+=' L'+px(t.length-1)+' '+(pad.t+ih)+' L'+px(0)+' '+(pad.t+ih)+' Z';
   svg+='<path d="'+area+'" fill="rgba(0,208,132,.12)"/>';
-  // line
   let line='M'+px(0)+' '+py(t[0].count);
   t.forEach((x,i)=>line+=' L'+px(i)+' '+py(x.count));
   svg+='<path d="'+line+'" fill="none" stroke="#00d084" stroke-width="2"/>';
-  // dots + hover
   t.forEach((x,i)=>{svg+='<circle cx="'+px(i)+'" cy="'+py(x.count)+'" r="4" fill="#00d084" stroke="#080a0e" stroke-width="1.5"><title>'+x.date+' · '+x.count+' mention'+(x.count===1?"":"s")+'</title></circle>';});
   svg+='</svg>';
   document.querySelector("#trendChart").innerHTML=svg;
-  document.querySelector("#trendRange").textContent=(t[0].date)+" → "+(t[t.length-1].date);
+  document.querySelector("#trendRange").textContent=t[0].date+" → "+t[t.length-1].date;
 }
 
 function render(){
-  const d=state.data;
-  if(!d)return;
+  const d=state.data;if(!d)return;
   const sec=state.section;
+  const allFiltered=filteredMentions();
   if(sec==="stores"){
     $("mentionPanel").style.display="none";$("storePanel").style.display="";
     $("stores").innerHTML=d.stores.map(s=>{
       const sc=s.score!=null?s.score+"%":"—";
       const gd=(s.good??0)+"好 / "+(s.neutral??0)+"中 / "+(s.bad??0)+"差";
-      return '<div class="store-row">'+
-        '<div class="rank">'+(s.rank!=null?String(s.rank).padStart(2,"0"):"—")+'</div>'+
+      return '<div class="store-row"><div class="rank">'+(s.rank!=null?String(s.rank).padStart(2,"0"):"—")+'</div>'+
         '<div class="loc"><b>'+esc(s.branch)+'</b><small>'+gd+'</small></div>'+
         '<div class="score">'+esc(sc)+'<small>snapshot score</small></div>'+
         '<div class="reviews">'+esc(s.reviewCount??"—")+'<small>reviews</small></div>'+
         '<div class="summary">'+esc(s.summary)+'</div>'+
-        '<div class="src">'+link(s.source)+'</div>'+
-        '</div>';
+        '<div class="src">'+link(s.source)+'</div></div>';
     }).join("");
     $("storeCount").textContent=(d.stores||[]).length+" stores";
     return;
   }
   $("mentionPanel").style.display="";$("storePanel").style.display="none";
-  const rows=d.mentions.filter(m=>sectionOf(m)===sec);
+  const rows=allFiltered.filter(m=>sectionOf(m)===sec);
+  const q=state.query.trim().toLowerCase();
+  const filtered=q?rows.filter(m=>(m.title+" "+(m.summary||"")+" "+(m.author||"")+" "+(m.source||"")+" "+(m.platform||"")).toLowerCase().includes(q)):rows;
   const labels={media:"01 · Media News",social:"02 · Social Media",maps:"03 · Google Maps"};
   $("tableTitle").textContent=labels[sec]||sec;
-  $("resultMeta").textContent=rows.length+" verified records";
-  $("rows").innerHTML=rows.length?rows.map(m=>'<tr><td><b>'+esc(fmtDate(m.date))+'</b></td><td><span class="pill">'+esc(m.source||m.platform)+'</span></td><td><span class="pill '+esc(m.sentiment_label||m.sentiment)+'">'+esc(m.sentiment_label||m.sentiment)+'</span></td><td><b>'+esc(m.title)+'</b></td><td>'+esc((m.summary||"").slice(0,240))+'</td><td>'+link(m.link)+'</td></tr>').join(""):'<tr><td colspan="6" class="empty">No verified records in this section.</td></tr>';
+  $("resultMeta").textContent=filtered.length+" verified records · "+state.from+" → "+state.to;
+  $("rows").innerHTML=filtered.length?filtered.map(m=>'<tr><td><b>'+esc(fmtDate(m.date))+'</b></td><td><span class="pill">'+esc(m.source||m.platform)+'</span></td><td><span class="pill '+esc(m.sentiment_label||m.sentiment)+'">'+esc(m.sentiment_label||m.sentiment)+'</span></td><td><b>'+esc(m.title)+'</b></td><td>'+esc((m.summary||"").slice(0,240))+'</td><td>'+link(m.link)+'</td></tr>').join(""):'<tr><td colspan="6" class="empty">No verified records match these filters.</td></tr>';
+  updateKpis(allFiltered);
 }
+
+function updateKpis(filtered){
+  const d=state.data;
+  const today=d.mentions.filter(x=>x.todayRun).length;
+  const active=filtered.length;
+  const srcs=new Set(filtered.map(x=>x.source).filter(Boolean)).size;
+  const latest=filtered.map(x=>x.date).filter(validDate).sort().slice(-1)[0];
+  const cards=[
+    ["Today's mentions",today,"New verified additions"],
+    ["Active records",active,"in selected period"],
+    ["Active sources",srcs,"across dataset"],
+    ["Latest mention",latest?fmtDate(latest):"—","most recent date"],
+    ["Stores tracked",d.counts.stores,"OpenRice branches"]
+  ];
+  $("kpis").innerHTML=cards.map(x=>'<article class="kpi"><span>'+esc(x[0])+'</span><strong>'+esc(x[1])+'</strong><small>'+esc(x[2])+'</small></article>').join("");
+}
+
+/* ── Calendar popup (trip.com style) ── */
+function calBuild(target, anchorDate){
+  state.calTarget=target;
+  const now=anchorDate?new Date(anchorDate+"T00:00:00Z"):(target==="from"?(state.from?new Date(state.from+"T00:00:00Z"):new Date()):(state.to?new Date(state.to+"T00:00:00Z"):new Date()));
+  state.cal={y:now.getUTCFullYear(),m:now.getUTCMonth()};
+  calRender();
+  $("calendar").classList.add("open");
+}
+function calRender(){
+  const {y,m}=state.cal;
+  const first=new Date(Date.UTC(y,m,1));
+  const startDow=first.getUTCDay();
+  const days=new Date(Date.UTC(y,m+1,0)).getUTCDate();
+  const months=["January","February","March","April","May","June","July","August","September","October","November","December"];
+  let html='<div class="calhead"><button data-nav="-1">‹</button><div class="calttl">'+months[m]+' '+y+'</div><button data-nav="1">›</button></div>';
+  html+='<div class="calgrid">';
+  ["Su","Mo","Tu","We","Th","Fr","Sa"].forEach(d=>html+='<div class="dow">'+d+'</div>');
+  for(let i=0;i<startDow;i++)html+='<div class="day empty"></div>';
+  for(let d=1;d<=days;d++){
+    const ds=y+"-"+String(m+1).padStart(2,"0")+"-"+String(d).padStart(2,"0");
+    let cls="day";
+    const sel=(state.calTarget==="from"&&state.from===ds)||(state.calTarget==="to"&&state.to===ds);
+    if(sel)cls+=" selected";
+    else if(state.from&&state.to&&ds>state.from&&ds<state.to)cls+=" inrange";
+    html+='<div class="'+cls+'" data-ds="'+ds+'">'+d+'</div>';
+  }
+  html+='</div>';
+  html+='<div class="calfoot"><button data-clear="1">Clear</button><button data-apply="1" class="apply">Apply</button></div>';
+  $("calendar").innerHTML=html;
+}
+function calSelect(ds){
+  if(state.calTarget==="from")state.from=ds;
+  else state.to=ds;
+  calRender();
+}
+function calApply(){
+  $("calendar").classList.remove("open");
+  $("fromLabel").textContent=state.from?fmtDate(state.from):"—";
+  $("toLabel").textContent=state.to?fmtDate(state.to):"—";
+  state.period="custom";
+  document.querySelectorAll("#presets button").forEach(b=>b.classList.toggle("active",b.dataset.period==="custom"));
+  render();renderTrend();
+}
+$("calendar").addEventListener("click",e=>{
+  const nav=e.target.closest("[data-nav]");
+  if(nav){const d=parseInt(nav.dataset.nav);state.cal.m+=d;if(state.cal.m<0){state.cal.m=11;state.cal.y--;}if(state.cal.m>11){state.cal.m=0;state.cal.y++;}calRender();return;}
+  const clr=e.target.closest("[data-clear]");
+  if(clr){if(state.calTarget==="from")state.from=null;else state.to=null;calRender();return;}
+  const app=e.target.closest("[data-apply]");
+  if(app){calApply();return;}
+  const day=e.target.closest("[data-ds]");
+  if(day){calSelect(day.dataset.ds);return;}
+});
 
 async function init(){
   const d=await fetch("./data/dashboard-latest.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error("Snapshot data unavailable");return r.json()});
   state.data=d;
+  state.from=d.run.dateRange.from;state.to=d.run.dateRange.to;
   $("sheetLink").href="https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4/edit";
   $("generated").textContent="Generated "+new Date(d.generatedAt).toLocaleString("en-HK",{timeZone:"Asia/Hong_Kong"})+" HKT";
-  const cards=[["Total records",d.counts.total],["Media & News",d.counts.media],["Social Media",d.counts.social],["Google Maps",d.counts.maps],["Stores tracked",d.counts.stores]];
-  $("kpis").innerHTML=cards.map(x=>'<article class="kpi"><span>'+esc(x[0])+'</span><strong>'+esc(x[1])+'</strong></article>').join("");
+  $("fromLabel").textContent=fmtDate(state.from);$("toLabel").textContent=fmtDate(state.to);
   const m=d.mentions||[];
+  const allDates=m.map(x=>x.date).filter(validDate).sort();
   $("tabMedia").textContent=(m.filter(x=>sectionOf(x)==="media").length)+" records";
   $("tabSocial").textContent=(m.filter(x=>sectionOf(x)==="social").length)+" records";
   $("tabMaps").textContent=(m.filter(x=>sectionOf(x)==="maps").length)+" records";
   $("tabStores").textContent=(d.stores||[]).length+" stores";
-  renderTrend();
+  [...new Set(m.map(x=>x.source).filter(Boolean))].sort().forEach(v=>$("source").insertAdjacentHTML("beforeend",'<option value="'+esc(v)+'">'+esc(v)+'</option>'));
+  // period presets
+  $("presets").addEventListener("click",e=>{
+    const b=e.target.closest("button[data-period]");if(!b)return;
+    document.querySelectorAll("#presets button").forEach(x=>x.classList.toggle("active",x===b));
+    const p=b.dataset.period;
+    state.period=p;
+    const all=allDates;
+    if(p==="all"){state.from=all[0]||null;state.to=all[all.length-1]||null;}
+    else if(p==="7"||p==="30"){const n=parseInt(p);state.to=all[all.length-1]||null;const idx=Math.max(0,all.length-n);state.from=all[idx]||null;}
+    $("fromLabel").textContent=fmtDate(state.from);$("toLabel").textContent=fmtDate(state.to);
+    render();renderTrend();
+  });
+  // date range fields open calendar
+  $("fieldFrom").addEventListener("click",e=>{e.stopPropagation();calBuild("from",state.from);});
+  $("fieldTo").addEventListener("click",e=>{e.stopPropagation();calBuild("to",state.to);});
+  document.addEventListener("click",e=>{if(!e.target.closest("#daterange"))$("calendar").classList.remove("open");});
+  // source
+  $("source").addEventListener("change",e=>{state.source=e.target.value;render();});
+  // search
+  $("query").addEventListener("input",e=>{state.query=e.target.value;render();});
+  // AI analysis button
+  $("aiBtn").addEventListener("click",()=>{
+    const f=filteredMentions();
+    const pos=f.filter(x=>["positive","正面"].includes(x.sentiment_label||x.sentiment)).length;
+    const neg=f.filter(x=>["negative","負面"].includes(x.sentiment_label||x.sentiment)).length;
+    const neu=f.filter(x=>["neutral","中性"].includes(x.sentiment_label||x.sentiment)).length;
+    alert("AI Analysis — "+f.length+" records in period:\n\n🟢 Positive: "+pos+"\n🔴 Negative: "+neg+"\n🟡 Neutral/Other: "+neu+"\n\nTop sources: "+(f.slice(0,5).map(x=>x.source).filter(Boolean).join(", ")||"—"));
+  });
+  // tabs
   $("tabs").addEventListener("click",e=>{const b=e.target.closest("button[data-section]");if(!b)return;state.section=b.dataset.section;document.querySelectorAll("#tabs button").forEach(x=>x.classList.toggle("active",x===b));render();});
-  render();
+  renderTrend();render();
 }
 init().catch(err=>document.querySelector(".shell").insertAdjacentHTML("beforeend",'<div class="panel" style="margin-top:14px;color:var(--red)">'+esc(err.message)+'</div>'));
 </script>
