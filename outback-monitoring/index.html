@@ -279,6 +279,20 @@ function updateKpis(filtered){
   $("kpis").innerHTML=cards.map(x=>'<article class="kpi"><span>'+esc(x[0])+'</span><strong>'+esc(x[1])+'</strong><small>'+esc(x[2])+'</small></article>').join("");
 }
 
+/* ── AI Report ── */
+function closeAiReport(){$("aiOverlay").classList.remove("open");}
+$("aiOverlay").addEventListener("click",e=>{if(e.target===$("aiOverlay"))closeAiReport();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeAiReport();});
+
+$("aiBtn").addEventListener("click",()=>{
+  const report=state.data&&state.data.aiReport;
+  if(!report){alert("AI PR report generated daily by Hermes. Report available after next pipeline run.");return;}
+  $("aiOverlay").classList.add("open");
+  $("aiTitle").textContent="PR Insight Report";
+  $("aiMeta").textContent="Generated "+new Date(state.data.aiReportDate||state.data.generatedAt).toLocaleString("en-HK",{timeZone:"Asia/Hong_Kong"})+" HKT";
+  $("aiReport").innerHTML=report.replace(/\n/g,'<br>').replace(/### ([^\n<]+)/g,'<h3>$1</h3>').replace(/\*\*([^*]+)\*\*/g,'<b>$1</b>');
+});
+
 /* ── Calendar popup (trip.com style) ── */
 function calBuild(target, anchorDate){
   state.calTarget=target;
