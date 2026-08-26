@@ -22,13 +22,50 @@
 .store-grid{display:flex;flex-direction:column;gap:10px;padding:0 20px 20px}.store-head{display:grid;grid-template-columns:64px 1.6fr .9fr .7fr 1.6fr .8fr;gap:12px;padding:0 14px;color:#7e898a;font-size:9px;text-transform:uppercase;letter-spacing:.05em}.store-row{display:grid;grid-template-columns:64px 1.6fr .9fr .7fr 1.6fr .8fr;gap:12px;align-items:center;padding:16px 14px;border:1px solid var(--line);border-radius:8px;background:linear-gradient(145deg,rgba(20,23,29,.96),rgba(11,13,18,.97))}.rank{font-size:30px;font-weight:800;color:rgba(0,208,132,.4);letter-spacing:-.04em}.loc b{display:block;font-size:13.5px}.loc small{display:block;color:var(--muted);font-size:11px;margin-top:3px}.score{font-size:24px;font-weight:800;color:var(--green);letter-spacing:-.03em}.score small{display:block;font-size:10px;color:var(--muted);font-weight:400;margin-top:3px}.reviews{font-size:16px;font-weight:700}.reviews small{display:block;font-size:10px;color:var(--muted);font-weight:400;margin-top:3px}.summary{font-size:12px;color:#b7c2c0;line-height:1.5}.src a{font-size:11px}
 @media(max-width:1050px){.kpis{grid-template-columns:repeat(2,1fr)}.store-head,.store-row{grid-template-columns:44px 1.4fr .8fr .6fr 1.4fr}.store-head .src,.store-row .src{display:none}.rank{font-size:22px}}
 @media(max-width:640px){.shell{padding:0 13px 24px}.top{margin:0 -13px;padding:0 13px}.source-truth{display:none}.kpis{grid-template-columns:1fr}.store-head,.store-row{grid-template-columns:40px 1fr .7fr}.store-head .summary,.store-row .summary,.store-head .reviews,.store-row .reviews{display:none}.tabs button{min-width:100%}.filters{flex-direction:column;align-items:stretch}.searchbox{min-width:100%}}
+
+/* ── Modal (manual submit + AI report) ── */
+.modal-overlay{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;background:rgba(4,6,9,.72);backdrop-filter:blur(6px);padding:20px}
+.modal-overlay.open{display:flex}
+.modal{width:100%;max-width:520px;max-height:92vh;overflow:auto;border:1px solid var(--line);border-radius:14px;background:linear-gradient(160deg,#15181e,#0d1015);box-shadow:0 30px 80px rgba(0,0,0,.65)}
+.modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:20px 22px 14px;border-bottom:1px solid var(--line)}
+.modal-head .eyebrow{color:var(--green);font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+.modal-head h3{margin:4px 0 0;font-size:18px}
+.modal-head p{margin:6px 0 0;color:var(--muted);font-size:11px;line-height:1.5}
+.modal-close{background:transparent;border:1px solid var(--line);border-radius:6px;color:var(--muted);cursor:pointer;font-size:16px;width:30px;height:30px;line-height:1;flex:0 0 auto}
+.modal-close:hover{color:#edf5f1;border-color:var(--green)}
+.modal-body{padding:18px 22px 22px}
+.field{margin-bottom:14px}
+.field label{display:block;color:#aeb8b6;font-size:11px;margin-bottom:6px}
+.field label small{color:var(--muted);font-weight:400}
+.field input[type=text],.field input[type=url],.field input[type=date],.field textarea,.field select{width:100%;padding:10px 12px;border:1px solid #2c3338;border-radius:7px;background:#090c10;color:#edf5f1;font-size:13px;font-family:inherit}
+.field textarea{min-height:64px;resize:vertical;line-height:1.5}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--green);outline:0}
+.field .detected{display:flex;align-items:center;gap:8px;margin-top:6px;font-size:11px;color:var(--muted)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.detect-pill{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border:1px solid rgba(0,208,132,.3);border-radius:20px;background:rgba(0,208,132,.08);color:#9df0c9;font-size:11px}
+.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:6px}
+.btn{padding:10px 18px;border-radius:7px;border:1px solid var(--line);background:#14171d;color:#edf5f1;cursor:pointer;font-size:13px;font-weight:600}
+.btn:hover{border-color:var(--green)}
+.btn.primary{background:var(--green);border-color:var(--green);color:#06130d}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent}
+.btn:disabled{opacity:.6;cursor:default}
+.disclaimer{margin-top:14px;padding:10px 12px;border:1px solid rgba(255,201,60,.25);border-radius:7px;background:rgba(255,201,60,.06);color:#c9b26a;font-size:10.5px;line-height:1.5}
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(0,208,132,.25);border-top-color:var(--green);border-radius:50%;animation:spin .7s linear infinite;vertical-align:-2px;margin-right:6px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.report-box{white-space:pre-wrap;font-size:13px;line-height:1.65;color:#d6e2de;border:1px solid var(--line);border-radius:8px;padding:16px;background:#0a0d11;max-height:50vh;overflow:auto}
+.report-meta{font-size:10px;color:var(--muted);margin:0}
+.top-actions{display:flex;align-items:center;gap:14px}
 </style>
 </head>
 <body>
 <main class="shell">
   <header class="top">
     <div class="brand"><div class="pulse">⌁</div><div><h1>Outback Steakhouse HK</h1><p>Social listening · verified signals · store rankings</p></div></div>
-    <div class="source-truth"><b>Hermes native pipeline</b><a href="#" id="sheetLink">Google Sheet</a></div>
+    <div class="top-actions">
+      <button class="btn primary" id="submitBtn" style="font-size:12px;padding:8px 14px">＋ Submit Mention</button>
+      <div class="source-truth"><b>Hermes native pipeline</b><a href="#" id="sheetLink">Google Sheet</a></div>
+    </div>
   </header>
 
   <section class="kpis" id="kpis"></section>
@@ -81,6 +118,57 @@
   </section>
 
   <footer style="margin-top:24px;color:var(--muted);font-size:10px;text-align:center">Outback Steakhouse HK social listening · generated by Hermes · verified public data only</footer>
+
+  <!-- Submit mention modal -->
+  <div class="modal-overlay" id="submitModal">
+    <div class="modal">
+      <div class="modal-head">
+        <div><span class="eyebrow">Verification Queue</span><h3>Submit a Mention Manually</h3><p>Paste a URL to auto-retrieve the source title, content and link.</p></div>
+        <button class="modal-close" data-close="submitModal">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="field">
+          <label>URL <small>(required)</small></label>
+          <input type="url" id="mUrl" placeholder="https://www.threads.net/@user/post/..." />
+          <div class="detected" id="mDetected" style="display:none">Detected source: <span class="detect-pill" id="mSource">Unknown</span></div>
+        </div>
+        <div class="field">
+          <label>Title / Post Content</label>
+          <textarea id="mTitle" placeholder="Auto-filled from the URL"></textarea>
+        </div>
+        <div class="field">
+          <label>Summary / Notes</label>
+          <textarea id="mSummary" placeholder="Auto-filled from the URL"></textarea>
+        </div>
+        <div class="row2">
+          <div class="field"><label>Published date</label><input type="date" id="mDate" /></div>
+          <div class="field"><label>Sentiment</label><select id="mSentiment"><option value="">— Select —</option><option value="正面">正面 Positive</option><option value="中性">中性 Neutral</option><option value="負面">負面 Negative</option></select></div>
+        </div>
+        <div class="modal-actions">
+          <button class="btn ghost" data-close="submitModal">Cancel</button>
+          <button class="btn primary" id="mSubmit">Add Mention</button>
+        </div>
+        <div class="disclaimer">Manually added items remain pending until reviewed for the verified dataset.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI report modal -->
+  <div class="modal-overlay" id="aiModal">
+    <div class="modal" style="max-width:640px">
+      <div class="modal-head">
+        <div><span class="eyebrow">AI Analysis</span><h3>PR Insight Report</h3><p class="report-meta" id="aiMeta"></p></div>
+        <button class="modal-close" data-close="aiModal">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="report-box" id="aiReport">Loading…</div>
+        <div class="modal-actions" style="margin-top:14px">
+          <button class="btn ghost" id="aiCopy">Copy report</button>
+          <button class="btn ghost" data-close="aiModal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </main>
 
 <script>
@@ -266,18 +354,89 @@ async function init(){
   $("source").addEventListener("change",e=>{state.source=e.target.value;render();});
   // search
   $("query").addEventListener("input",e=>{state.query=e.target.value;render();});
-  // AI analysis button
-  $("aiBtn").addEventListener("click",()=>{
+  // AI analysis button — PR insight report via OpenRouter (proxied by Apps Script)
+  $("aiBtn").addEventListener("click",async()=>{
     const f=filteredMentions();
-    const pos=f.filter(x=>["positive","正面"].includes(x.sentiment_label||x.sentiment)).length;
-    const neg=f.filter(x=>["negative","負面"].includes(x.sentiment_label||x.sentiment)).length;
-    const neu=f.filter(x=>["neutral","中性"].includes(x.sentiment_label||x.sentiment)).length;
-    alert("AI Analysis — "+f.length+" records in period:\n\n🟢 Positive: "+pos+"\n🔴 Negative: "+neg+"\n🟡 Neutral/Other: "+neu+"\n\nTop sources: "+(f.slice(0,5).map(x=>x.source).filter(Boolean).join(", ")||"—"));
+    if(!f.length){alert("No records in the selected period.");return;}
+    openModal("aiModal");
+    $("aiMeta").textContent=state.from+" → "+state.to+" · "+f.length+" records";
+    $("aiReport").innerHTML='<span class="spinner"></span>Generating PR insight report…';
+    try{
+      const records=f.slice(0,200).map(m=>({date:m.date,source:m.source,title:m.title,summary:m.summary,sentiment:m.sentiment_label||m.sentiment}));
+      const j=await postToAppsScript({type:"ai_analysis",records:records,from:state.from,to:state.to});
+      $("aiReport").textContent=j.report||"(empty report)";
+    }catch(err){
+      $("aiReport").textContent="AI analysis failed: "+err.message+"\n\n請確認 Apps Script 已部署並已設定 OPENROUTER_API_KEY（見 apps-script/outback-monitoring/README.md）。";
+    }
   });
   // tabs
   $("tabs").addEventListener("click",e=>{const b=e.target.closest("button[data-section]");if(!b)return;state.section=b.dataset.section;document.querySelectorAll("#tabs button").forEach(x=>x.classList.toggle("active",x===b));render();});
   renderTrend();render();
 }
+/* ── Manual mention submit + AI analysis ── */
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec";
+
+function openModal(id){$(id).classList.add("open");}
+function closeModal(id){$(id).classList.remove("open");}
+document.querySelectorAll("[data-close]").forEach(b=>b.addEventListener("click",()=>closeModal(b.dataset.close)));
+document.querySelectorAll(".modal-overlay").forEach(o=>o.addEventListener("click",e=>{if(e.target===o)closeModal(o.id);}));
+document.addEventListener("keydown",e=>{if(e.key==="Escape")document.querySelectorAll(".modal-overlay.open").forEach(o=>o.classList.remove("open"));});
+
+$("submitBtn").addEventListener("click",()=>openModal("submitModal"));
+
+async function postToAppsScript(body){
+  if(APPS_SCRIPT_URL.indexOf("YOUR_DEPLOYMENT_ID")>=0){
+    throw new Error("Apps Script not wired yet — replace YOUR_DEPLOYMENT_ID in the dashboard.");
+  }
+  const r=await fetch(APPS_SCRIPT_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
+  const j=await r.json().catch(()=>({}));
+  if(!j||j.success===false)throw new Error((j&&j.error)||("HTTP "+r.status));
+  return j;
+}
+
+// auto-fetch metadata when the URL field loses focus
+$("mUrl").addEventListener("blur",async()=>{
+  const url=$("mUrl").value.trim();
+  if(!/^https?:\/\//i.test(url))return;
+  try{
+    const j=await postToAppsScript({type:"auto_fetch",url:url});
+    const d=j.detected||{};
+    if(d.source){$("mSource").textContent=d.source;$("mDetected").style.display="";}
+    if(!$("mTitle").value&&d.title)$("mTitle").value=d.title;
+    if(!$("mSummary").value&&d.summary)$("mSummary").value=d.summary;
+  }catch(err){console.warn("auto_fetch failed",err);}
+});
+
+$("mSubmit").addEventListener("click",async()=>{
+  const url=$("mUrl").value.trim();
+  if(!/^https?:\/\//i.test(url)){alert("Please enter a valid URL.");return;}
+  const btn=$("mSubmit");
+  btn.disabled=true;btn.innerHTML='<span class="spinner"></span>Submitting…';
+  try{
+    const j=await postToAppsScript({
+      type:"manual_mention",
+      url:url,
+      title:$("mTitle").value,
+      summary:$("mSummary").value,
+      published_date:$("mDate").value,
+      sentiment:$("mSentiment").value
+    });
+    closeModal("submitModal");
+    alert("✓ Added as pending review.\n\nSource: "+(j.detected&&j.detected.source||"—")+"\nTitle: "+(j.detected&&j.detected.title||"—")+"\n\nIt will appear on the dashboard after the next data refresh.");
+    $("mUrl").value="";$("mTitle").value="";$("mSummary").value="";$("mDate").value="";$("mSentiment").value="";$("mSource").textContent="Unknown";$("mDetected").style.display="none";
+  }catch(err){
+    alert("Submit failed: "+err.message);
+  }finally{
+    btn.disabled=false;btn.textContent="Add Mention";
+  }
+});
+
+$("aiCopy").addEventListener("click",async()=>{
+  const t=$("aiReport").textContent;
+  try{await navigator.clipboard.writeText(t);alert("Report copied to clipboard.");}
+  catch(e){alert("Copy failed — select and copy manually.");}
+});
+
 init().catch(err=>document.querySelector(".shell").insertAdjacentHTML("beforeend",'<div class="panel" style="margin-top:14px;color:var(--red)">'+esc(err.message)+'</div>'));
 </script>
 </body>
