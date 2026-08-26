@@ -1,6 +1,14 @@
 {
-  "week": "2026-08-19 ~ 2026-08-XX",
+  "week": "2026-08-18 ~ 2026-08-24",
   "items": [
+    {
+      "date": "2026-08-18",
+      "source": "Threads (Authenticated)",
+      "title": "用戶描述於 Outback 用餐後出現不適並求醫",
+      "summary": "作者以個人經歷描述：食用沙律、牛扒及草莓奶昔後約兩小時出現腸胃不適，其後曾求醫。此為未經獨立核實的個人陳述，並不證明任何食物或餐廳引致病情。",
+      "link": "https://www.threads.com/@bobotang__/post/DcLVyyeGq9V",
+      "sentiment": "neutral"
+    },
     {
       "date": "2026-08-19",
       "source": "LinkedIn (Eber)",
@@ -175,14 +183,6 @@
       "title": "Outback IG Photo Post (Aug 24)",
       "summary": "Official Outback Steakhouse HK Instagram published a new photo on August 24, 2026. Content visible via web_extract confirms brand attribution. Platform: Instagram @outbacksteakhousehk.",
       "link": "https://www.instagram.com/outbacksteakhousehk",
-      "sentiment": "neutral"
-    },
-    {
-      "date": "2026-08-XX",
-      "source": "Threads @kong.news",
-      "title": "Outback 9間將關閉分店列表",
-      "summary": "Threads user @kong.news posted a detailed list of 9 Outback Steakhouse branches that closed: JP Plaza (CWB), Fenwick Street (Wan Chai), Telford Plaza II (Kowloon Bay), TST Centre, Silvercord (TST), Deli Place (Whampoa), D·PARK (Tsuen Wan), The Lohas (TKO), Tuen Mun Town Plaza. Reply to a now-unavailable post. Documents the historical closures.",
-      "link": "https://www.threads.com/@kong.news/post/C9_l9pYxE7e",
       "sentiment": "neutral"
     }
   ],

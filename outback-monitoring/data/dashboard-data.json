@@ -2,8 +2,8 @@
   "meta": {
     "last_updated": "2026-08-26T01:00:00Z",
     "total_records": 117,
-    "daily_avg": 4.7,
-    "date_range": "2026-08-01 → 2026-08-XX",
+    "daily_avg": 4.9,
+    "date_range": "2026-08-01 → 2026-08-24",
     "sources_checked": 30,
     "new_verified": 9,
     "coverage_ratio": "30/46",
@@ -11,6 +11,10 @@
     "positive_pct": 39
   },
   "trend": [
+    {
+      "date": "2026-08-18",
+      "count": 1
+    },
     {
       "date": "2026-08-19",
       "count": 3
@@ -34,10 +38,6 @@
     {
       "date": "2026-08-24",
       "count": 5
-    },
-    {
-      "date": "2026-08-XX",
-      "count": 1
     }
   ],
   "source_breakdown": [
