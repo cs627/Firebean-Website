@@ -71,7 +71,7 @@
 
   <section class="panel table-panel" id="mentionPanel">
     <div class="table-head"><div><span class="eyebrow">Verified records</span><h2 id="tableTitle">Media News</h2><p id="resultMeta" style="color:var(--muted);font-size:11px;margin:4px 0 0"></p></div><small id="generated" style="color:var(--muted)"></small></div>
-    <div class="table-wrap"><table><thead><tr><th>Date</th><th>Source</th><th>Sentiment</th><th>Title</th><th>Summary</th><th>Source</th></tr></thead><tbody id="rows"></tbody></table></div>
+    <div class="table-wrap"><table><thead><tr><th>Date</th><th>Source</th><th>Sentiment</th><th>Title</th><th>Summary</th><th style="text-align:center">Link</th></tr></thead><tbody id="rows"></tbody></table></div>
   </section>
 
   <section class="panel table-panel" id="storePanel" style="display:none">
@@ -88,11 +88,14 @@ const state={data:null,section:"media",from:null,to:null,source:"all",query:"",p
 const $=id=>document.getElementById(id);
 const esc=v=>String(v??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
 const link=v=>String(v||"").startsWith("https://")?'<a href="'+esc(v)+'" target="_blank" rel="noreferrer">OpenRice ↗</a>':"Unavailable";
+const sourceIcon=v=>{const s=String(v||"").toLowerCase();if(/instagram/.test(s))return"📸";if(/facebook|fb\b/.test(s))return"📘";if(/threads/.test(s))return"🧵";if(/linkedin/.test(s))return"💼";if(/google maps|maps|地圖|google play/.test(s))return"📍";if(/openrice/.test(s))return"🍽️";if(/youtube/.test(s))return"▶️";if(/u food|香港01|scmp|明報|信報|hket|am730|晴報|新假期|topick|東周刊|頭條|星島|東方|文匯|大公|商報|新聞|報導|報道|media|飲食男女|yahoo|eber blog|官方網站|商場目錄|旅遊平台|食評|yoho/.test(s))return"📰";return"🔗";};
+const sourceLink=m=>{const nm=esc(m.source||m.platform||"source");const ic=sourceIcon(m.source||m.platform);if(m.link&&String(m.link).startsWith("https://"))return'<a href="'+esc(m.link)+'" target="_blank" rel="noreferrer" title="'+nm+'">'+ic+'</a>';return'<span title="'+nm+'" style="cursor:default">'+ic+'</span>';};
 const fmtDate=v=>{if(!v||v.includes("XX"))return v||"—";try{return new Date(v+"T00:00:00Z").toLocaleDateString("en-GB",{day:"2-digit",month:"short",year:"numeric",timeZone:"UTC"});}catch(e){return v;}};
 
-const MEDIA_RE=/(新聞|媒體|報導|News|SCMP|Standard|香港01|明報|信報|HKET|AM730|晴報|東周刊|頭條|星島|東方|文匯|大公|商報|官方|PR Newswire|Marketing|U Food|U Lifestyle|新假期|Esquire|Time Out|NOW TV|TOPick|am730|官方網站)/;
-const MAPS_RE=/(Maps|Google Maps|地圖|google\.com\/maps)/;
-function sectionOf(item){const p=(item.platform||"")+" "+(item.source||"");if(MAPS_RE.test(p))return"maps";if(MEDIA_RE.test(p))return"media";return"social";}
+const SOCIAL_RE=/(Instagram|Facebook|Threads|LinkedIn|社交媒體|官方IG|Official Instagram|帖文|@[a-z0-9_.]+)/i;
+const MAPS_RE=/(Maps|Google Maps|地圖|Google Play)/;
+const MEDIA_RE=/(新聞|報導|報道|News|SCMP|Standard|香港01|明報|信報|HKET|AM730|晴報|東周刊|頭條|星島|東方|文匯|大公|商報|PR Newswire|Marketing|U Food|U Lifestyle|新假期|Esquire|Time Out|NOW TV|TOPick|am730|網上媒體|媒體報道|食評媒體|食評／生活媒體|商場目錄|旅遊平台|官方網站|飲食男女|Yahoo|Eber Blog|OpenRice|評論平台|YOHO)/;
+function sectionOf(item){const p=(item.platform||"")+" "+(item.source||"");if(SOCIAL_RE.test(p))return"social";if(MAPS_RE.test(p))return"maps";if(MEDIA_RE.test(p))return"media";return"social";}
 
 function validDate(d){return d&&!d.includes("XX")&&/^\d{4}-\d{2}-\d{2}$/.test(d);}
 function inRange(d){const f=state.from,t=state.to;if(f&&d<f)return false;if(t&&d>t)return false;return true;}
@@ -154,7 +157,7 @@ function render(){
   const labels={media:"01 · Media News",social:"02 · Social Media",maps:"03 · Google Maps"};
   $("tableTitle").textContent=labels[sec]||sec;
   $("resultMeta").textContent=filtered.length+" verified records · "+state.from+" → "+state.to;
-  $("rows").innerHTML=filtered.length?filtered.map(m=>'<tr><td><b>'+esc(fmtDate(m.date))+'</b></td><td><span class="pill">'+esc(m.source||m.platform)+'</span></td><td><span class="pill '+esc(m.sentiment_label||m.sentiment)+'">'+esc(m.sentiment_label||m.sentiment)+'</span></td><td><b>'+esc(m.title)+'</b></td><td>'+esc((m.summary||"").slice(0,240))+'</td><td>'+link(m.link)+'</td></tr>').join(""):'<tr><td colspan="6" class="empty">No verified records match these filters.</td></tr>';
+  $("rows").innerHTML=filtered.length?filtered.map(m=>'<tr><td><b>'+esc(fmtDate(m.date))+'</b></td><td><span class="pill">'+esc(m.source||m.platform)+'</span></td><td><span class="pill '+esc(m.sentiment_label||m.sentiment)+'">'+esc(m.sentiment_label||m.sentiment)+'</span></td><td><b>'+esc(m.title)+'</b></td><td>'+esc((m.summary||"").slice(0,240))+'</td><td style="text-align:center">'+sourceLink(m)+'</td></tr>').join(""):'<tr><td colspan="6" class="empty">No verified records match these filters.</td></tr>';
   updateKpis(allFiltered);
 }
 
