@@ -231,12 +231,13 @@ $("calendar").addEventListener("click",e=>{
 async function init(){
   const d=await fetch("./data/dashboard-latest.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error("Snapshot data unavailable");return r.json()});
   state.data=d;
-  state.from=d.run.dateRange.from;state.to=d.run.dateRange.to;
+  const m=d.mentions||[];
+  const allDates=m.map(x=>x.date).filter(validDate).sort();
+  state.from=d.run.dateRange.from&&validDate(d.run.dateRange.from)?d.run.dateRange.from:(allDates[0]||null);
+  state.to=d.run.dateRange.to&&validDate(d.run.dateRange.to)?d.run.dateRange.to:(allDates[allDates.length-1]||null);
   $("sheetLink").href="https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4/edit";
   $("generated").textContent="Generated "+new Date(d.generatedAt).toLocaleString("en-HK",{timeZone:"Asia/Hong_Kong"})+" HKT";
   $("fromLabel").textContent=fmtDate(state.from);$("toLabel").textContent=fmtDate(state.to);
-  const m=d.mentions||[];
-  const allDates=m.map(x=>x.date).filter(validDate).sort();
   $("tabMedia").textContent=(m.filter(x=>sectionOf(x)==="media").length)+" records";
   $("tabSocial").textContent=(m.filter(x=>sectionOf(x)==="social").length)+" records";
   $("tabMaps").textContent=(m.filter(x=>sectionOf(x)==="maps").length)+" records";
