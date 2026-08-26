@@ -99,6 +99,17 @@
       "link": "https://www.threads.com/@wangkaijie72/post/Db9_9ckmsPg",
       "sentiment": "negative",
       "tags": ""
+    },
+    {
+      "date": "2026-08-13",
+      "source": "Eber HK (Instagram B2B Marketing)",
+      "platform": "社交媒體",
+      "author": "",
+      "title": "Outback Steakhouse Customer Retention Case Study",
+      "summary": "Eber HK, a B2B marketing/retention platform, published an Instagram reel case study on how Outback Steakhouse HK has grown its customer base across all outlets. Links to full case study at eber.co. Tags: #OutbackSteakhouseHK #CustomerRetention #FnBHongKong. Features Outback Senior Marketing Lead Patrick Kwok in other related reels.",
+      "link": "https://www.instagram.com/reel/DcAnwLcEqD4",
+      "sentiment": "positive",
+      "tags": ""
     }
   ],
   "alerts": [
@@ -128,8 +139,8 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 5,
-    "new_records": 9,
+    "checked_sources": 6,
+    "new_records": 10,
     "limitations": []
   }
 }

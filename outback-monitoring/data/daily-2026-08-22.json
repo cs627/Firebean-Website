@@ -22,6 +22,28 @@
       "link": "https://maps.app.goo.gl/Xsu2TrGCPp3sxZjw6",
       "sentiment": "positive",
       "tags": ""
+    },
+    {
+      "date": "2026-08-22",
+      "source": "Google Maps (Citygate Outlets)",
+      "platform": "地圖評論",
+      "author": "simon lam",
+      "title": "東薈城顧客讚牛扒及黑糖麵包美味",
+      "summary": "Google Maps用戶simon lam表示牛扒很好，並特別讚賞黑糖麵包美味。原頁未提供可可靠擷取的整體星級或分項評分，因此不作推斷。",
+      "link": "https://www.google.com/maps/contrib/104874208327764046912/reviews/@14.135275,108.4906108,5z/data=!3m1!4b1!4m3!8m2!3m1!1e1?hl=en&entry=ttu&g_ep=EgoyMDI2MDgyMy4wIKXMDSoASAFQAw%3D%3D",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-22",
+      "source": "新假期 Weekend Weekly",
+      "platform": "媒體報道",
+      "author": "新假期",
+      "title": "Outback獲《新假期必吃食店大獎2026》必吃西餐編輯推介",
+      "summary": "《新假期》公布「必吃食店大獎2026」結果，Outback Steakhouse獲列入「必吃西餐」編輯推介名單，與A.O.M、UURO及La Vache!同列，屬正面第三方餐飲認可。",
+      "link": "https://www.weekendhk.com/jezz%E5%B0%88%E5%8D%80/%E5%BF%85%E5%90%83%E9%A3%9F%E5%BA%97%E5%A4%A7%E7%8D%8E2026-%E5%BE%97%E7%8D%8E%E5%85%AC%E5%B8%83-3487284/",
+      "sentiment": "positive",
+      "tags": ""
     }
   ],
   "alerts": [],
@@ -29,8 +51,8 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 2,
-    "new_records": 2,
+    "checked_sources": 3,
+    "new_records": 4,
     "limitations": []
   }
 }

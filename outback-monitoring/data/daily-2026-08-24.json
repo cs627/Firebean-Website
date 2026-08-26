@@ -1,0 +1,69 @@
+{
+  "date": "2026-08-24",
+  "items": [
+    {
+      "date": "2026-08-24",
+      "source": "Instagram @outbacksteakhousehk",
+      "platform": "社交媒體",
+      "author": "@outbacksteakhousehk",
+      "title": "Outback官方IG以「Keep Fit無限循環」推廣招牌菜",
+      "summary": "Outback Steakhouse HK官方Instagram以運動與美食的循環為創意主題，推介巨型加拿大龍蝦包、特製洋蔥花球、美國頂級斧頭扒及朱古力花生醬餅配雲尼拿雪糕，屬正面品牌推廣內容。",
+      "link": "https://www.instagram.com/p/Dca9A8Ak41q/",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-24",
+      "source": "Instagram @generation.x.mom",
+      "platform": "社交媒體",
+      "author": "@generation.x.mom (Jovee)",
+      "title": "香港創作者分享東涌Outback Prestige會員體驗及價值試算",
+      "summary": "香港及新加坡內容創作者Jovee分享於Outback東涌店加入HK$488、兩年期Prestige Membership，並列出85折、8張HK$100優惠券及兩項免費主菜獎賞；帖文以作者自行估算方式形容潛在價值超過HK$2,600，整體為正面會員體驗。",
+      "link": "https://www.instagram.com/p/DcbX9c4Ekdp/",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-24",
+      "source": "Google Maps (Citygate Outlets)",
+      "platform": "地圖評論",
+      "author": "Chris Tofield",
+      "title": "東薈城顧客5星評價讚賞薯條、沙律及漢堡，亦指音樂偏大",
+      "summary": "Chris Tofield給予5星，表示食物及價格不錯，沙律份量大、芒果新鮮、漢堡美味，並稱薯條是三星期旅程中最好吃；同時認為店內音樂太大聲。分項評分為食物5、服務4、氣氛3，午餐等候時間為毋須等候。",
+      "link": "https://maps.app.goo.gl/ErMDGhKLQhUmy4jT9",
+      "sentiment": "mixed",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-24",
+      "source": "U Food",
+      "platform": "媒體報道",
+      "author": "陸秋燕",
+      "title": "新城市廣場麵包節餐飲優惠：Outback黑糖麥包外帶價HK$10",
+      "summary": "U Food報道新城市廣場將於8月28日至30日舉行「CHILL歎麵包節2026」，並列出Outback Steakhouse三期A330號舖的限定優惠：外帶裝招牌黑糖麥包HK$10，原價HK$13。",
+      "link": "https://ufood.com.hk/restaurant/news/detail/20107253/%E6%96%B0%E5%9F%8E%E5%B8%82%E5%BB%A3-chill%E6%AD%8E%E9%BA%B5%E5%8C%85%E7%AF%80-%E5%98%89%E5%A4%9A%E5%A8%9C-manteigaria%E9%80%BE-%E5%93%81%E7%89%8C%E9%80%B2%E9%A7%90-%E5%BF%85%E9%A3%9F%E5%B8%82%E9%9B%86%E9%99%90%E5%AE%9A%E7%8F%AD%E8%98%AD%E9%BA%BB%E7%B3%AC%E5%8C%85",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-24",
+      "source": "Outback Steakhouse HK (Official Instagram)",
+      "platform": "社交媒體",
+      "author": "",
+      "title": "Outback IG Photo Post (Aug 24)",
+      "summary": "Official Outback Steakhouse HK Instagram published a new photo on August 24, 2026. Content visible via web_extract confirms brand attribution. Platform: Instagram @outbacksteakhousehk.",
+      "link": "https://www.instagram.com/outbacksteakhousehk",
+      "sentiment": "neutral",
+      "tags": ""
+    }
+  ],
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 5,
+    "new_records": 5,
+    "limitations": []
+  }
+}

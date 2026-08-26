@@ -22,15 +22,34 @@
       "link": "https://www.linkedin.com/posts/eber-loyalty-marketing_outback-steakhouse-hk-case-study-pdf-activity-7496416081075417088-nj_A",
       "sentiment": "positive",
       "tags": ""
+    },
+    {
+      "date": "2026-08-21",
+      "source": "Google Maps (Citygate Outlets)",
+      "platform": "地圖評論",
+      "author": "Yu Hua Yu",
+      "title": "東薈城Google Maps分項低評：食物1、服務1、氣氛2",
+      "summary": "Google Maps用戶Yu Hua Yu未留下文字評論，只標示人均消費HK$150–200，並給予食物1分、服務1分及氣氛2分。原頁的整體星級未能可靠擷取，因此不作推斷。",
+      "link": "https://maps.app.goo.gl/j8o1G5gmQu8PckD98",
+      "sentiment": "negative",
+      "tags": ""
     }
   ],
-  "alerts": [],
+  "alerts": [
+    {
+      "title": "東薈城Google Maps分項低評：食物1、服務1、氣氛2",
+      "summary": "Google Maps用戶Yu Hua Yu未留下文字評論，只標示人均消費HK$150–200，並給予食物1分、服務1分及氣氛2分。原頁的整體星級未能可靠擷取，因此不作推斷。",
+      "source": "Google Maps (Citygate Outlets)",
+      "link": "https://maps.app.goo.gl/j8o1G5gmQu8PckD98",
+      "severity": "MEDIUM"
+    }
+  ],
   "trends": "",
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 2,
-    "new_records": 2,
+    "checked_sources": 3,
+    "new_records": 3,
     "limitations": []
   }
 }

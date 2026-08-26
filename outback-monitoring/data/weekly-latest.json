@@ -1,38 +1,6 @@
 {
-  "week": "2026-08-17 ~ 2026-08-23",
+  "week": "2026-08-19 ~ 2026-08-XX",
   "items": [
-    {
-      "date": "2026-08-17",
-      "source": "Instagram",
-      "title": "元朗形點I家庭晚餐帖分享Outback用餐",
-      "summary": "Instagram用戶表示與兩位女兒到Outback Steakhouse晚餐，並列出元朗形點I分店地址；帖文使用開心表情，輪播首圖展示牛扒餐點，整體為正面家庭用餐分享。",
-      "link": "https://www.instagram.com/andychan7490/p/DcG45fno5jj/",
-      "sentiment": "positive"
-    },
-    {
-      "date": "2026-08-17",
-      "source": "Instagram",
-      "title": "HK食評人介紹Outback牛扒僅限週五六日供應",
-      "summary": "Instagram用戶@chungchorho以短片形式介紹Outback Steakhouse的特定牛扒切割（prized cut）僅在週五、六及日供應，並比較Flat Iron及阿根廷青醬配搭，屬食評類UGC內容。",
-      "link": "https://www.instagram.com/chungchorho/reel/DcGXbfBsd5L/",
-      "sentiment": "positive"
-    },
-    {
-      "date": "2026-08-17",
-      "source": "Google Maps (YOHO MALL)",
-      "title": "YOHO MALL顧客5星讚下午茶抵食及方便睇戲",
-      "summary": "Mrs Chan 表示下午茶時段價錢實惠、不需等位，用餐後亦方便去看電影。",
-      "link": "https://maps.app.goo.gl/25jcryEN2G6KaxY78",
-      "sentiment": "positive"
-    },
-    {
-      "date": "2026-08-18",
-      "source": "Threads (Authenticated)",
-      "title": "用戶描述於 Outback 用餐後出現不適並求醫",
-      "summary": "作者以個人經歷描述：食用沙律、牛扒及草莓奶昔後約兩小時出現腸胃不適，其後曾求醫。此為未經獨立核實的個人陳述，並不證明任何食物或餐廳引致病情。",
-      "link": "https://www.threads.com/@bobotang__/post/DcLVyyeGq9V",
-      "sentiment": "neutral"
-    },
     {
       "date": "2026-08-19",
       "source": "LinkedIn (Eber)",
@@ -106,6 +74,14 @@
       "sentiment": "positive"
     },
     {
+      "date": "2026-08-21",
+      "source": "Google Maps (Citygate Outlets)",
+      "title": "東薈城Google Maps分項低評：食物1、服務1、氣氛2",
+      "summary": "Google Maps用戶Yu Hua Yu未留下文字評論，只標示人均消費HK$150–200，並給予食物1分、服務1分及氣氛2分。原頁的整體星級未能可靠擷取，因此不作推斷。",
+      "link": "https://maps.app.goo.gl/j8o1G5gmQu8PckD98",
+      "sentiment": "negative"
+    },
+    {
       "date": "2026-08-22",
       "source": "Weekend Weekly / 新假期",
       "title": "新假期必吃食店大獎2026將Outback列為西餐編輯推介",
@@ -119,6 +95,22 @@
       "title": "東薈城顧客5星讚牛扒及黑糖包",
       "summary": "simon lam 表示食物好吃、牛扒出色，並特別稱讚黑糖包。",
       "link": "https://maps.app.goo.gl/Xsu2TrGCPp3sxZjw6",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-22",
+      "source": "Google Maps (Citygate Outlets)",
+      "title": "東薈城顧客讚牛扒及黑糖麵包美味",
+      "summary": "Google Maps用戶simon lam表示牛扒很好，並特別讚賞黑糖麵包美味。原頁未提供可可靠擷取的整體星級或分項評分，因此不作推斷。",
+      "link": "https://www.google.com/maps/contrib/104874208327764046912/reviews/@14.135275,108.4906108,5z/data=!3m1!4b1!4m3!8m2!3m1!1e1?hl=en&entry=ttu&g_ep=EgoyMDI2MDgyMy4wIKXMDSoASAFQAw%3D%3D",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-22",
+      "source": "新假期 Weekend Weekly",
+      "title": "Outback獲《新假期必吃食店大獎2026》必吃西餐編輯推介",
+      "summary": "《新假期》公布「必吃食店大獎2026」結果，Outback Steakhouse獲列入「必吃西餐」編輯推介名單，與A.O.M、UURO及La Vache!同列，屬正面第三方餐飲認可。",
+      "link": "https://www.weekendhk.com/jezz%E5%B0%88%E5%8D%80/%E5%BF%85%E5%90%83%E9%A3%9F%E5%BA%97%E5%A4%A7%E7%8D%8E2026-%E5%BE%97%E7%8D%8E%E5%85%AC%E5%B8%83-3487284/",
       "sentiment": "positive"
     },
     {
@@ -136,6 +128,62 @@
       "summary": "U Food綜合35個八月生日優惠推介，當中Outback為會員提供兩款生日獎賞：消費滿HK$400即享$88現金優惠券，以及到會套餐8折優惠券（適用於8位或16位自選到會套餐）。此為會員App優惠，有效期至另行通知。",
       "link": "https://ufood.com.hk/restaurant/news/detail/20046882/%E7%94%9F%E6%97%A5%E5%84%AA%E6%83%A0-%E7%94%9F%E6%97%A5%E9%A4%90%E5%BB%B3%E6%8E%A8%E4%BB%8B-%E7%94%9F%E6%97%A5%E5%85%8D%E8%B2%BB%E9%85%92%E5%BA%97%E8%87%AA%E5%8A%A9%E9%A4%90-%E7%94%9F%E6%97%A5%E7%94%9C%E5%93%81%E6%8B%BC%E7%9B%A4-%E7%94%9F%E6%97%A5%E8%9B%8B%E7%B3%95-%E7%8F%BE%E9%87%91%E5%88%B8-%E5%85%8D%E8%B2%80%E9%87%A3%E8%9D%A6",
       "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-23",
+      "source": "Google Maps (Park Central)",
+      "title": "將軍澳中心顧客給予食物、服務及氣氛全5分",
+      "summary": "Google Maps用戶Fenny Ng未留下文字評論，給予食物5分、服務5分及氣氛5分；標示人均消費HK$500以上、建議預約、環境安靜易於交談，等候時間10至30分鐘。",
+      "link": "https://maps.app.goo.gl/KX3tsPdx9ZBte3NQ9",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-24",
+      "source": "Instagram @outbacksteakhousehk",
+      "title": "Outback官方IG以「Keep Fit無限循環」推廣招牌菜",
+      "summary": "Outback Steakhouse HK官方Instagram以運動與美食的循環為創意主題，推介巨型加拿大龍蝦包、特製洋蔥花球、美國頂級斧頭扒及朱古力花生醬餅配雲尼拿雪糕，屬正面品牌推廣內容。",
+      "link": "https://www.instagram.com/p/Dca9A8Ak41q/",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-24",
+      "source": "Instagram @generation.x.mom",
+      "title": "香港創作者分享東涌Outback Prestige會員體驗及價值試算",
+      "summary": "香港及新加坡內容創作者Jovee分享於Outback東涌店加入HK$488、兩年期Prestige Membership，並列出85折、8張HK$100優惠券及兩項免費主菜獎賞；帖文以作者自行估算方式形容潛在價值超過HK$2,600，整體為正面會員體驗。",
+      "link": "https://www.instagram.com/p/DcbX9c4Ekdp/",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-24",
+      "source": "Google Maps (Citygate Outlets)",
+      "title": "東薈城顧客5星評價讚賞薯條、沙律及漢堡，亦指音樂偏大",
+      "summary": "Chris Tofield給予5星，表示食物及價格不錯，沙律份量大、芒果新鮮、漢堡美味，並稱薯條是三星期旅程中最好吃；同時認為店內音樂太大聲。分項評分為食物5、服務4、氣氛3，午餐等候時間為毋須等候。",
+      "link": "https://maps.app.goo.gl/ErMDGhKLQhUmy4jT9",
+      "sentiment": "mixed"
+    },
+    {
+      "date": "2026-08-24",
+      "source": "U Food",
+      "title": "新城市廣場麵包節餐飲優惠：Outback黑糖麥包外帶價HK$10",
+      "summary": "U Food報道新城市廣場將於8月28日至30日舉行「CHILL歎麵包節2026」，並列出Outback Steakhouse三期A330號舖的限定優惠：外帶裝招牌黑糖麥包HK$10，原價HK$13。",
+      "link": "https://ufood.com.hk/restaurant/news/detail/20107253/%E6%96%B0%E5%9F%8E%E5%B8%82%E5%BB%A3-chill%E6%AD%8E%E9%BA%B5%E5%8C%85%E7%AF%80-%E5%98%89%E5%A4%9A%E5%A8%9C-manteigaria%E9%80%BE-%E5%93%81%E7%89%8C%E9%80%B2%E9%A7%90-%E5%BF%85%E9%A3%9F%E5%B8%82%E9%9B%86%E9%99%90%E5%AE%9A%E7%8F%AD%E8%98%AD%E9%BA%BB%E7%B3%AC%E5%8C%85",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-24",
+      "source": "Outback Steakhouse HK (Official Instagram)",
+      "title": "Outback IG Photo Post (Aug 24)",
+      "summary": "Official Outback Steakhouse HK Instagram published a new photo on August 24, 2026. Content visible via web_extract confirms brand attribution. Platform: Instagram @outbacksteakhousehk.",
+      "link": "https://www.instagram.com/outbacksteakhousehk",
+      "sentiment": "neutral"
+    },
+    {
+      "date": "2026-08-XX",
+      "source": "Threads @kong.news",
+      "title": "Outback 9間將關閉分店列表",
+      "summary": "Threads user @kong.news posted a detailed list of 9 Outback Steakhouse branches that closed: JP Plaza (CWB), Fenwick Street (Wan Chai), Telford Plaza II (Kowloon Bay), TST Centre, Silvercord (TST), Deli Place (Whampoa), D·PARK (Tsuen Wan), The Lohas (TKO), Tuen Mun Town Plaza. Reply to a now-unavailable post. Documents the historical closures.",
+      "link": "https://www.threads.com/@kong.news/post/C9_l9pYxE7e",
+      "sentiment": "neutral"
     }
   ],
   "alerts": [],
@@ -144,7 +192,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 17,
+    "new_records": 23,
     "limitations": []
   }
 }

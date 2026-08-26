@@ -848,6 +848,94 @@
       "summary": "香港商場評論專頁hkmalls在Threads宣傳其Patreon八月全新文章，回顧Outback Steakhouse在香港的發展歷程，包括由19間分店銳減至10間，D·PARK愉景新城元祖分店結業等。文章同時回顧T.G.I. Fridays及Tony Roma's兩間曾在港曇花一現的美式餐廳。此為第三方深度分析文章。",
       "link": "https://www.threads.com/@hkmalls/post/C_N8fwCvh03",
       "sentiment": "neutral"
+    },
+    {
+      "date": "2026-08-24",
+      "source": "Instagram @outbacksteakhousehk",
+      "title": "Outback官方IG以「Keep Fit無限循環」推廣招牌菜",
+      "summary": "Outback Steakhouse HK官方Instagram以運動與美食的循環為創意主題，推介巨型加拿大龍蝦包、特製洋蔥花球、美國頂級斧頭扒及朱古力花生醬餅配雲尼拿雪糕，屬正面品牌推廣內容。",
+      "link": "https://www.instagram.com/p/Dca9A8Ak41q/",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-24",
+      "source": "Instagram @generation.x.mom",
+      "title": "香港創作者分享東涌Outback Prestige會員體驗及價值試算",
+      "summary": "香港及新加坡內容創作者Jovee分享於Outback東涌店加入HK$488、兩年期Prestige Membership，並列出85折、8張HK$100優惠券及兩項免費主菜獎賞；帖文以作者自行估算方式形容潛在價值超過HK$2,600，整體為正面會員體驗。",
+      "link": "https://www.instagram.com/p/DcbX9c4Ekdp/",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-24",
+      "source": "Google Maps (Citygate Outlets)",
+      "title": "東薈城顧客5星評價讚賞薯條、沙律及漢堡，亦指音樂偏大",
+      "summary": "Chris Tofield給予5星，表示食物及價格不錯，沙律份量大、芒果新鮮、漢堡美味，並稱薯條是三星期旅程中最好吃；同時認為店內音樂太大聲。分項評分為食物5、服務4、氣氛3，午餐等候時間為毋須等候。",
+      "link": "https://maps.app.goo.gl/ErMDGhKLQhUmy4jT9",
+      "sentiment": "mixed"
+    },
+    {
+      "date": "2026-08-22",
+      "source": "Google Maps (Citygate Outlets)",
+      "title": "東薈城顧客讚牛扒及黑糖麵包美味",
+      "summary": "Google Maps用戶simon lam表示牛扒很好，並特別讚賞黑糖麵包美味。原頁未提供可可靠擷取的整體星級或分項評分，因此不作推斷。",
+      "link": "https://www.google.com/maps/contrib/104874208327764046912/reviews/@14.135275,108.4906108,5z/data=!3m1!4b1!4m3!8m2!3m1!1e1?hl=en&entry=ttu&g_ep=EgoyMDI2MDgyMy4wIKXMDSoASAFQAw%3D%3D",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-21",
+      "source": "Google Maps (Citygate Outlets)",
+      "title": "東薈城Google Maps分項低評：食物1、服務1、氣氛2",
+      "summary": "Google Maps用戶Yu Hua Yu未留下文字評論，只標示人均消費HK$150–200，並給予食物1分、服務1分及氣氛2分。原頁的整體星級未能可靠擷取，因此不作推斷。",
+      "link": "https://maps.app.goo.gl/j8o1G5gmQu8PckD98",
+      "sentiment": "negative"
+    },
+    {
+      "date": "2026-08-23",
+      "source": "Google Maps (Park Central)",
+      "title": "將軍澳中心顧客給予食物、服務及氣氛全5分",
+      "summary": "Google Maps用戶Fenny Ng未留下文字評論，給予食物5分、服務5分及氣氛5分；標示人均消費HK$500以上、建議預約、環境安靜易於交談，等候時間10至30分鐘。",
+      "link": "https://maps.app.goo.gl/KX3tsPdx9ZBte3NQ9",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-24",
+      "source": "U Food",
+      "title": "新城市廣場麵包節餐飲優惠：Outback黑糖麥包外帶價HK$10",
+      "summary": "U Food報道新城市廣場將於8月28日至30日舉行「CHILL歎麵包節2026」，並列出Outback Steakhouse三期A330號舖的限定優惠：外帶裝招牌黑糖麥包HK$10，原價HK$13。",
+      "link": "https://ufood.com.hk/restaurant/news/detail/20107253/%E6%96%B0%E5%9F%8E%E5%B8%82%E5%BB%A3-chill%E6%AD%8E%E9%BA%B5%E5%8C%85%E7%AF%80-%E5%98%89%E5%A4%9A%E5%A8%9C-manteigaria%E9%80%BE-%E5%93%81%E7%89%8C%E9%80%B2%E9%A7%90-%E5%BF%85%E9%A3%9F%E5%B8%82%E9%9B%86%E9%99%90%E5%AE%9A%E7%8F%AD%E8%98%AD%E9%BA%BB%E7%B3%AC%E5%8C%85",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-22",
+      "source": "新假期 Weekend Weekly",
+      "title": "Outback獲《新假期必吃食店大獎2026》必吃西餐編輯推介",
+      "summary": "《新假期》公布「必吃食店大獎2026」結果，Outback Steakhouse獲列入「必吃西餐」編輯推介名單，與A.O.M、UURO及La Vache!同列，屬正面第三方餐飲認可。",
+      "link": "https://www.weekendhk.com/jezz%E5%B0%88%E5%8D%80/%E5%BF%85%E5%90%83%E9%A3%9F%E5%BA%97%E5%A4%A7%E7%8D%8E2026-%E5%BE%97%E7%8D%8E%E5%85%AC%E5%B8%83-3487284/",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-24",
+      "source": "Outback Steakhouse HK (Official Instagram)",
+      "title": "Outback IG Photo Post (Aug 24)",
+      "summary": "Official Outback Steakhouse HK Instagram published a new photo on August 24, 2026. Content visible via web_extract confirms brand attribution. Platform: Instagram @outbacksteakhousehk.",
+      "link": "https://www.instagram.com/outbacksteakhousehk",
+      "sentiment": "neutral"
+    },
+    {
+      "date": "2026-08-13",
+      "source": "Eber HK (Instagram B2B Marketing)",
+      "title": "Outback Steakhouse Customer Retention Case Study",
+      "summary": "Eber HK, a B2B marketing/retention platform, published an Instagram reel case study on how Outback Steakhouse HK has grown its customer base across all outlets. Links to full case study at eber.co. Tags: #OutbackSteakhouseHK #CustomerRetention #FnBHongKong. Features Outback Senior Marketing Lead Patrick Kwok in other related reels.",
+      "link": "https://www.instagram.com/reel/DcAnwLcEqD4",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-XX",
+      "source": "Threads @kong.news",
+      "title": "Outback 9間將關閉分店列表",
+      "summary": "Threads user @kong.news posted a detailed list of 9 Outback Steakhouse branches that closed: JP Plaza (CWB), Fenwick Street (Wan Chai), Telford Plaza II (Kowloon Bay), TST Centre, Silvercord (TST), Deli Place (Whampoa), D·PARK (Tsuen Wan), The Lohas (TKO), Tuen Mun Town Plaza. Reply to a now-unavailable post. Documents the historical closures.",
+      "link": "https://www.threads.com/@kong.news/post/C9_l9pYxE7e",
+      "sentiment": "neutral"
     }
   ],
   "alerts": [],
@@ -856,7 +944,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 106,
+    "new_records": 117,
     "limitations": []
   }
 }
