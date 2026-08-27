@@ -317,7 +317,7 @@ async function init(){
   const d=await fetch("./data/dashboard-latest.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error("Snapshot data unavailable");return r.json()});
   state.data=d;
   const m=d.mentions||[];
-  const allDates=m.map(x=>x.date).filter(validDate).sort();
+  const allDates=[...new Set(m.map(x=>x.date).filter(validDate))].sort();
   state.from=d.run.dateRange.from&&validDate(d.run.dateRange.from)?d.run.dateRange.from:(allDates[0]||null);
   state.to=d.run.dateRange.to&&validDate(d.run.dateRange.to)?d.run.dateRange.to:(allDates[allDates.length-1]||null);
   $("sheetLink").href="https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4/edit";
