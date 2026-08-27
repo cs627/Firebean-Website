@@ -936,6 +936,70 @@
       "summary": "Threads user @kong.news posted a detailed list of 9 Outback Steakhouse branches that closed: JP Plaza (CWB), Fenwick Street (Wan Chai), Telford Plaza II (Kowloon Bay), TST Centre, Silvercord (TST), Deli Place (Whampoa), D·PARK (Tsuen Wan), The Lohas (TKO), Tuen Mun Town Plaza. Reply to a now-unavailable post. Documents the historical closures.",
       "link": "https://www.threads.com/@kong.news/post/C9_l9pYxE7e",
       "sentiment": "neutral"
+    },
+    {
+      "date": "2026-08-20",
+      "source": "Instagram",
+      "title": "Outback會員系統實戰分享 — 月增6000會員",
+      "summary": "eber.co於IG分享Outback Steakhouse HK會員系統成功案例，Patrick Kwok分享本地化策略，付費會員活躍率高達90%+，月增6000會員。",
+      "link": "https://www.instagram.com/reel/DcAnwUfDyGV",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-27",
+      "source": "Threads",
+      "title": "網民分享Outback慢燒安格斯肉眼牛扒五成熟爭議",
+      "summary": "餓底TV於Threads轉載網民在Outback點選美式慢燒安格斯肉眼牛扒要求五成熟，但牛扒呈現近乎生牛肉的半透明鮮紅色，引起熱議。牛扒界KOL meat_dee解釋Prime rib採用low and slow慢焗做法。帖文獲15.7K觀看。",
+      "link": "https://www.threads.com/@hungrytv.hk/post/DY8thm0CPVN",
+      "sentiment": "negative"
+    },
+    {
+      "date": "2026-08-27",
+      "source": "Threads",
+      "title": "Outback Steakhouse外帶招牌黑糖麥包驚喜價$10",
+      "summary": "Lemon Media於Threads分享Outback Steakhouse外帶裝招牌黑糖麥包優惠價$10，為近期優惠推廣。",
+      "link": "https://www.threads.net/@lemonmediahk/post/DGVCO37vOd5",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-27",
+      "source": "Threads",
+      "title": "Outback x OpenRice外賣自取75折優惠",
+      "summary": "hkfcoupon於Threads分享Outback x OpenRice外賣自取75折優惠，豬肋骨+薯條+黑糖包+湯只需$103，可用優惠碼WEEK減$7或EATNOW減$6。",
+      "link": "https://www.threads.net/@hkfcoupon/post/DGfJQtbzueP",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-03-06",
+      "source": "Instagram",
+      "title": "Outback大埔分店慢煮肉眼扒食評 — 生熟度控制問題",
+      "summary": "食客JQ's food blog分享Outback大埔分店用餐體驗，16oz Prime Rib ($488) 選擇三成稀有但呈現生吞拿魚般外觀，經店員協助翻煎後明顯改善。整體評價中性。",
+      "link": "https://www.instagram.com/p/DVlm6LFgVgt",
+      "sentiment": "neutral"
+    },
+    {
+      "date": "2026-08-27",
+      "source": "Instagram",
+      "title": "Outback銅鑼灣分店Steak Night — 18oz Prime Rib + Tomahawk",
+      "summary": "食客分享Outback銅鑼灣廣場一期分店的Steak Night用餐體驗，點了18oz Prime Rib和USDA Prime Tomahawk Steak，獲多位foodie好評。",
+      "link": "https://www.instagram.com/p/DIdpq5gJLJm",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-27",
+      "source": "U Food",
+      "title": "Outback推出全新抵食下午茶餐單 輕食/甜品/小食/酒類組合優惠",
+      "summary": "U Food報導Outback Steakhouse推出全新Teatime & Happy Hour下午茶餐單，逢星期一至五下午3時至6時供應，涵蓋輕食、甜品、小食及酒類組合，會員可享折扣優惠。",
+      "link": "https://ufood.com.hk/restaurant/news/detail/20092134/outback-推出全新抵食下午茶餐單",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-27",
+      "source": "Facebook",
+      "title": "Outback Steakhouse HK官方Facebook — 海鮮推廣帖文",
+      "summary": "Outback Steakhouse HK官方Facebook近期發布帖文推廣海鮮菜式，標題為「神級鮮味！好食到令人瞬間定格？」，並推廣Apple Cider全系列飲品。",
+      "link": "https://www.facebook.com/outbacksteakhousehk",
+      "sentiment": "positive"
     }
   ],
   "alerts": [],
@@ -944,7 +1008,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 117,
+    "new_records": 125,
     "limitations": []
   }
 }

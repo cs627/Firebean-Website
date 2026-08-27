@@ -1,0 +1,88 @@
+{
+  "date": "2026-08-27",
+  "items": [
+    {
+      "date": "2026-08-27",
+      "source": "Threads",
+      "platform": "社交媒體",
+      "author": "",
+      "title": "網民分享Outback慢燒安格斯肉眼牛扒五成熟爭議",
+      "summary": "餓底TV於Threads轉載網民在Outback點選美式慢燒安格斯肉眼牛扒要求五成熟，但牛扒呈現近乎生牛肉的半透明鮮紅色，引起熱議。牛扒界KOL meat_dee解釋Prime rib採用low and slow慢焗做法。帖文獲15.7K觀看。",
+      "link": "https://www.threads.com/@hungrytv.hk/post/DY8thm0CPVN",
+      "sentiment": "negative",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-27",
+      "source": "Threads",
+      "platform": "社交媒體",
+      "author": "",
+      "title": "Outback Steakhouse外帶招牌黑糖麥包驚喜價$10",
+      "summary": "Lemon Media於Threads分享Outback Steakhouse外帶裝招牌黑糖麥包優惠價$10，為近期優惠推廣。",
+      "link": "https://www.threads.net/@lemonmediahk/post/DGVCO37vOd5",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-27",
+      "source": "Threads",
+      "platform": "社交媒體",
+      "author": "",
+      "title": "Outback x OpenRice外賣自取75折優惠",
+      "summary": "hkfcoupon於Threads分享Outback x OpenRice外賣自取75折優惠，豬肋骨+薯條+黑糖包+湯只需$103，可用優惠碼WEEK減$7或EATNOW減$6。",
+      "link": "https://www.threads.net/@hkfcoupon/post/DGfJQtbzueP",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-27",
+      "source": "Instagram",
+      "platform": "社交媒體",
+      "author": "",
+      "title": "Outback銅鑼灣分店Steak Night — 18oz Prime Rib + Tomahawk",
+      "summary": "食客分享Outback銅鑼灣廣場一期分店的Steak Night用餐體驗，點了18oz Prime Rib和USDA Prime Tomahawk Steak，獲多位foodie好評。",
+      "link": "https://www.instagram.com/p/DIdpq5gJLJm",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-27",
+      "source": "U Food",
+      "platform": "飲食媒體",
+      "author": "",
+      "title": "Outback推出全新抵食下午茶餐單 輕食/甜品/小食/酒類組合優惠",
+      "summary": "U Food報導Outback Steakhouse推出全新Teatime & Happy Hour下午茶餐單，逢星期一至五下午3時至6時供應，涵蓋輕食、甜品、小食及酒類組合，會員可享折扣優惠。",
+      "link": "https://ufood.com.hk/restaurant/news/detail/20092134/outback-推出全新抵食下午茶餐單",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-27",
+      "source": "Facebook",
+      "platform": "社交媒體",
+      "author": "",
+      "title": "Outback Steakhouse HK官方Facebook — 海鮮推廣帖文",
+      "summary": "Outback Steakhouse HK官方Facebook近期發布帖文推廣海鮮菜式，標題為「神級鮮味！好食到令人瞬間定格？」，並推廣Apple Cider全系列飲品。",
+      "link": "https://www.facebook.com/outbacksteakhousehk",
+      "sentiment": "positive",
+      "tags": ""
+    }
+  ],
+  "alerts": [
+    {
+      "title": "網民分享Outback慢燒安格斯肉眼牛扒五成熟爭議",
+      "summary": "餓底TV於Threads轉載網民在Outback點選美式慢燒安格斯肉眼牛扒要求五成熟，但牛扒呈現近乎生牛肉的半透明鮮紅色，引起熱議。牛扒界KOL meat_dee解釋Prime rib採用low and slow慢焗做法。帖文獲15.7K觀看。",
+      "source": "Threads",
+      "link": "https://www.threads.com/@hungrytv.hk/post/DY8thm0CPVN",
+      "severity": "MEDIUM"
+    }
+  ],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 4,
+    "new_records": 6,
+    "limitations": []
+  }
+}

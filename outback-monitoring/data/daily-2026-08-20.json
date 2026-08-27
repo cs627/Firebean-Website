@@ -44,6 +44,17 @@
       "link": "https://www.instagram.com/reel/DcQSmmklBqq",
       "sentiment": "neutral",
       "tags": ""
+    },
+    {
+      "date": "2026-08-20",
+      "source": "Instagram",
+      "platform": "社交媒體",
+      "author": "",
+      "title": "Outback會員系統實戰分享 — 月增6000會員",
+      "summary": "eber.co於IG分享Outback Steakhouse HK會員系統成功案例，Patrick Kwok分享本地化策略，付費會員活躍率高達90%+，月增6000會員。",
+      "link": "https://www.instagram.com/reel/DcAnwUfDyGV",
+      "sentiment": "positive",
+      "tags": ""
     }
   ],
   "alerts": [],
@@ -51,8 +62,8 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 4,
-    "new_records": 4,
+    "checked_sources": 5,
+    "new_records": 5,
     "limitations": []
   }
 }

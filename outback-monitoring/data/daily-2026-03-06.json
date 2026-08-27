@@ -1,0 +1,25 @@
+{
+  "date": "2026-03-06",
+  "items": [
+    {
+      "date": "2026-03-06",
+      "source": "Instagram",
+      "platform": "社交媒體",
+      "author": "",
+      "title": "Outback大埔分店慢煮肉眼扒食評 — 生熟度控制問題",
+      "summary": "食客JQ's food blog分享Outback大埔分店用餐體驗，16oz Prime Rib ($488) 選擇三成稀有但呈現生吞拿魚般外觀，經店員協助翻煎後明顯改善。整體評價中性。",
+      "link": "https://www.instagram.com/p/DVlm6LFgVgt",
+      "sentiment": "neutral",
+      "tags": ""
+    }
+  ],
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 1,
+    "new_records": 1,
+    "limitations": []
+  }
+}
