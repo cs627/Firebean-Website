@@ -3065,7 +3065,7 @@
   "store_ranking": [
     {
       "rank": 1,
-      "branch": "",
+      "branch": "銅鑼灣廣場一期",
       "score": 75.0,
       "reviewCount": 138,
       "good": 81,
@@ -3077,7 +3077,7 @@
     },
     {
       "rank": 2,
-      "branch": "",
+      "branch": "荃灣廣場",
       "score": 75.0,
       "reviewCount": 99,
       "good": 60,
@@ -3089,7 +3089,7 @@
     },
     {
       "rank": 3,
-      "branch": "",
+      "branch": "新城市廣場三期",
       "score": 69.8,
       "reviewCount": 133,
       "good": 74,
@@ -3101,7 +3101,7 @@
     },
     {
       "rank": 4,
-      "branch": "",
+      "branch": "MOKO新世紀廣場",
       "score": 69.3,
       "reviewCount": 373,
       "good": 208,
@@ -3113,7 +3113,7 @@
     },
     {
       "rank": 5,
-      "branch": "",
+      "branch": "東薈城名店倉",
       "score": 68.6,
       "reviewCount": 113,
       "good": 59,
@@ -3125,19 +3125,19 @@
     },
     {
       "rank": 6,
-      "branch": "",
+      "branch": "娛樂行（中環）",
       "score": 62.5,
       "reviewCount": 10,
       "good": 5,
       "neutral": 1,
       "bad": 2,
-      "summary": "最新分店(2024年開幕)，設計時尚現代。Happy Hour獲好評，評論尚少但初步正面。",
+      "summary": "最新分店(2024年���幕)，設計時尚現代。Happy Hour獲好評，評論尚少但初步正面。",
       "source": "https://www.openrice.com/en/hongkong/r-outback-steakhouse-central-australian-r862470",
       "likeCount": "558"
     },
     {
       "rank": 7,
-      "branch": "",
+      "branch": "奧海城二期",
       "score": 58.8,
       "reviewCount": 139,
       "good": 57,
@@ -3149,7 +3149,7 @@
     },
     {
       "rank": 8,
-      "branch": "",
+      "branch": "形點 I（元朗）",
       "score": 57.6,
       "reviewCount": 204,
       "good": 98,
