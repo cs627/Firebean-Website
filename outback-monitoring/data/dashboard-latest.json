@@ -1,7 +1,7 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-08-27T12:07:03.409576+00:00",
+  "generatedAt": "2026-08-27T12:08:00.608509+00:00",
   "run": {
     "runDate": "2026-08-27",
     "dateRange": {
@@ -31,7 +31,7 @@
     "media": 71,
     "social": 63,
     "maps": 0,
-    "stores": 10
+    "stores": 8
   },
   "mentions": [
     {
@@ -1605,30 +1605,6 @@
       "summary": "評論數多但中差評比例偏高(35%)。服務參差、等候時間長，黑糖包及扒類仍受歡迎。",
       "source": "https://www.openrice.com/en/hongkong/r-outback-steakhouse-yuen-long-australian-r537611",
       "likeCount": "13.2K"
-    },
-    {
-      "rank": 9,
-      "branch": "",
-      "score": null,
-      "reviewCount": null,
-      "good": null,
-      "neutral": null,
-      "bad": null,
-      "summary": "大埔分店數據待補。將於下次監控更新。",
-      "source": "https://www.openrice.com/en/hongkong/restaurants?chainId=10000185",
-      "likeCount": "N/A"
-    },
-    {
-      "rank": 10,
-      "branch": "",
-      "score": null,
-      "reviewCount": null,
-      "good": null,
-      "neutral": null,
-      "bad": null,
-      "summary": "將軍澳分店數據待補。將於下次監控更新。",
-      "source": "https://www.openrice.com/en/hongkong/restaurants?chainId=10000185",
-      "likeCount": "N/A"
     }
   ],
   "competitors": [
