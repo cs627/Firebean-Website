@@ -3065,79 +3065,91 @@
   "store_ranking": [
     {
       "rank": 1,
-      "branch": "荃灣廣場",
-      "score": 75.0,
-      "reviewCount": 99,
-      "good": 60,
-      "neutral": 9,
-      "bad": 11,
-      "summary": "好評率最高60.6%，食客讚黑糖包熱辣辣、扒類份量足。部分投訴服務等候時間長，整體性價比獲認同。",
-      "source": "https://www.openrice.com/en/hongkong/r-outback-steakhouse-tsuen-wan-australian-r663138",
-      "likeCount": "8000"
-    },
-    {
-      "rank": 2,
-      "branch": "銅鑼灣廣場一期",
+      "branch": "",
       "score": 75.0,
       "reviewCount": 138,
       "good": 81,
       "neutral": 23,
       "bad": 4,
-      "summary": "好評率高且差評極少(4)，環境舒適、黑糖包任食、牛扒質素穩定。港島旗艦店。",
+      "summary": "環境舒適、黑糖包熱辣辣、牛扒質素穩定。差評極少(4條)，港島區旗艦店地位穩固。",
       "source": "https://www.openrice.com/en/hongkong/r-outback-steakhouse-causeway-bay-australian-r512024",
-      "likeCount": "10100"
+      "likeCount": "10.1K"
+    },
+    {
+      "rank": 2,
+      "branch": "",
+      "score": 75.0,
+      "reviewCount": 99,
+      "good": 60,
+      "neutral": 9,
+      "bad": 11,
+      "summary": "好評率最高，食客讚黑糖包任食、牛扒份量足。部分反映繁忙時段服務慢，整體性價比獲認同。",
+      "source": "https://www.openrice.com/en/hongkong/r-outback-steakhouse-tsuen-wan-australian-r663138",
+      "likeCount": "6.9K"
     },
     {
       "rank": 3,
-      "branch": "MOKO新世紀廣場",
-      "score": 69.3,
-      "reviewCount": 373,
-      "good": 208,
-      "neutral": 68,
-      "bad": 24,
-      "summary": "全線最多評論(373)，位置方便、黑糖包好食。繁忙時段人手不足，整體口碑穩定。",
-      "source": "https://www.openrice.com/en/hongkong/r-outback-steakhouse-mong-kok-australian-r456533",
-      "likeCount": "18700"
-    },
-    {
-      "rank": 4,
-      "branch": "新城市廣場三期",
+      "branch": "",
       "score": 69.8,
       "reviewCount": 133,
       "good": 74,
       "neutral": 26,
       "bad": 6,
-      "summary": "適合家庭聚餐，午餐set豐富抵食。近期有食客反映黑毛豬扒偏乾，但牛扒仍獲好評。",
+      "summary": "適合家庭聚餐，午餐set豐富抵食。有食客反映黑毛豬扒偏乾，但牛扒仍獲好評。",
       "source": "https://www.openrice.com/en/hongkong/r-outback-steakhouse-sha-tin-australian-r651512",
-      "likeCount": "12800"
+      "likeCount": "10.4K"
+    },
+    {
+      "rank": 4,
+      "branch": "",
+      "score": 69.3,
+      "reviewCount": 373,
+      "good": 208,
+      "neutral": 68,
+      "bad": 24,
+      "summary": "全線最多評論，位置方便、家庭客多。繁忙時段人手不足，但食物質素整體穩定。",
+      "source": "https://www.openrice.com/en/hongkong/r-outback-steakhouse-mong-kok-australian-r456533",
+      "likeCount": "34.6K"
     },
     {
       "rank": 5,
-      "branch": "東薈城名店倉",
+      "branch": "",
       "score": 68.6,
       "reviewCount": 113,
       "good": 59,
       "neutral": 20,
       "bad": 7,
-      "summary": "鄰近機場及Outlet，食客多為遊客及區內居民。食物質素穩定，戶外座位受歡迎。",
+      "summary": "鄰近機場及Outlet，遊客及區內居民為主。食物質素穩定，戶外座位受歡迎。",
       "source": "https://www.openrice.com/en/hongkong/r-outback-steakhouse-tung-chung-australian-r641822",
-      "likeCount": "7000"
+      "likeCount": "7.6K"
     },
     {
       "rank": 6,
-      "branch": "娛樂行（中環）",
+      "branch": "",
       "score": 62.5,
       "reviewCount": 10,
       "good": 5,
       "neutral": 1,
       "bad": 2,
-      "summary": "最新分店(2024年4月開幕)，設計時尚現代。Happy Hour獲好評。評論尚少但初步反應正面。",
+      "summary": "最新分店(2024年開幕)，設計時尚現代。Happy Hour獲好評，評論尚少但初步正面。",
       "source": "https://www.openrice.com/en/hongkong/r-outback-steakhouse-central-australian-r862470",
-      "likeCount": "1000"
+      "likeCount": "558"
     },
     {
       "rank": 7,
-      "branch": "形點 I（元朗）",
+      "branch": "",
+      "score": 58.8,
+      "reviewCount": 139,
+      "good": 57,
+      "neutral": 27,
+      "bad": 13,
+      "summary": "好評率全線最低，差評偏高(13%)。食物質素不穩定及服務慢，需關注改善。",
+      "source": "https://www.openrice.com/en/hongkong/r-outback-steakhouse-tai-kok-tsui-australian-r549079",
+      "likeCount": "9.9K"
+    },
+    {
+      "rank": 8,
+      "branch": "",
       "score": 57.6,
       "reviewCount": 204,
       "good": 98,
@@ -3145,23 +3157,11 @@
       "bad": 22,
       "summary": "評論數多但中差評比例偏高(35%)。服務參差、等候時間長，黑糖包及扒類仍受歡迎。",
       "source": "https://www.openrice.com/en/hongkong/r-outback-steakhouse-yuen-long-australian-r537611",
-      "likeCount": "10800"
-    },
-    {
-      "rank": 8,
-      "branch": "奧海城二期",
-      "score": 58.8,
-      "reviewCount": 139,
-      "good": 57,
-      "neutral": 27,
-      "bad": 13,
-      "summary": "好評率全線最低(41%)，差評偏高(13%)。食物質素不穩定及服務慢，需關注改善。",
-      "source": "https://www.openrice.com/en/hongkong/r-outback-steakhouse-tai-kok-tsui-australian-r549079",
-      "likeCount": "10800"
+      "likeCount": "13.2K"
     },
     {
       "rank": 9,
-      "branch": "大埔超級城",
+      "branch": "",
       "score": null,
       "reviewCount": null,
       "good": null,
@@ -3173,7 +3173,7 @@
     },
     {
       "rank": 10,
-      "branch": "將軍澳中心",
+      "branch": "",
       "score": null,
       "reviewCount": null,
       "good": null,
