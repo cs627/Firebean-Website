@@ -56,6 +56,21 @@
 .report-box{white-space:pre-wrap;font-size:13px;line-height:1.65;color:#d6e2de;border:1px solid var(--line);border-radius:8px;padding:16px;background:#0a0d11;max-height:50vh;overflow:auto}
 .report-meta{font-size:10px;color:var(--muted);margin:0}
 .top-actions{display:flex;align-items:center;gap:14px}
+/* ── AI Report Modal (popup) ── */
+.ai-overlay{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;background:rgba(4,6,9,.72);backdrop-filter:blur(6px);padding:20px}
+.ai-overlay.open{display:flex}
+.ai-modal{width:100%;max-width:760px;max-height:90vh;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;background:linear-gradient(160deg,#15181e,#0d1015);box-shadow:0 30px 80px rgba(0,0,0,.65)}
+.ai-modal-hd{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:20px 22px 14px;border-bottom:1px solid var(--line);flex:0 0 auto}
+.ai-modal-hd h3{margin:2px 0 0;font-size:18px;color:#edf5f1}
+.ai-modal-close{background:transparent;border:1px solid var(--line);border-radius:6px;color:var(--muted);cursor:pointer;font-size:20px;width:34px;height:34px;line-height:1;flex:0 0 auto}
+.ai-modal-close:hover{color:#edf5f1;border-color:var(--green);background:rgba(0,208,132,.08)}
+.ai-modal-bd{padding:22px;overflow:auto;flex:1 1 auto}
+.ai-report{white-space:pre-wrap;font-size:13.5px;line-height:1.7;color:#d6e2de}
+.ai-report h3{color:var(--green);margin:18px 0 8px;font-size:15px}
+.ai-report h3:first-child{margin-top:0}
+.ai-report b{color:#edf5f1}
+.ai-report .risk{color:#ff8ba1}
+.ai-modal-ft{display:flex;justify-content:flex-end;gap:10px;padding:14px 22px;border-top:1px solid var(--line);flex:0 0 auto}
 </style>
 </head>
 <body>
@@ -130,9 +145,10 @@
     <div class="ai-modal">
       <div class="ai-modal-hd">
         <div><span class="eyebrow">AI-Generated PR Report</span><h3 id="aiTitle">PR Insight Report</h3><p style="margin:4px 0 0;color:var(--muted);font-size:11px" id="aiMeta"></p></div>
-        <button class="ai-modal-close" onclick="closeAiReport()">×</button>
+        <button class="ai-modal-close" id="aiCloseX" title="關閉 Close">×</button>
       </div>
       <div class="ai-modal-bd"><div class="ai-report" id="aiReport">Loading…</div></div>
+      <div class="ai-modal-ft"><button class="btn primary" id="aiCloseBtn">✕ 關閉 Close</button></div>
     </div>
   </div>
 
@@ -335,21 +351,66 @@ async function init(){
   $("query").addEventListener("input",e=>{state.query=e.target.value;render();});
   // tabs
   $("tabs").addEventListener("click",e=>{const b=e.target.closest("button[data-section]");if(!b)return;state.section=b.dataset.section;document.querySelectorAll("#tabs button").forEach(x=>x.classList.toggle("active",x===b));render();});
-  function closeAiReport(){$("aiOverlay").classList.remove("open");}
-  $("aiOverlay").addEventListener("click",e=>{if(e.target===$("aiOverlay"))closeAiReport();});
-  document.addEventListener("keydown",e=>{if(e.key==="Escape")closeAiReport();});
-  
-  $("aiBtn").addEventListener("click",()=>{
-    const report=state.data&&state.data.aiReport;
-    if(!report){alert("AI PR report generated daily by Hermes. Report available after next pipeline run.");return;}
-    $("aiOverlay").classList.add("open");
-    $("aiTitle").textContent="PR Insight Report";
-    $("aiMeta").textContent="Generated "+new Date(state.data.aiReportDate||state.data.generatedAt).toLocaleString("en-HK",{timeZone:"Asia/Hong_Kong"})+" HKT";
-    $("aiReport").innerHTML=report.replace(/\n/g,'<br>').replace(/### ([^\n<]+)/g,'<h3>$1</h3>').replace(/\*\*([^*]+)\*\*/g,'<b>$1</b>');
-  });
-
   renderTrend();render();
 }
+
+/* ── AI PR Report (popup, 即時因應所選時期分析) ── */
+function closeAiReport(){$("aiOverlay").classList.remove("open");}
+$("aiOverlay").addEventListener("click",e=>{if(e.target===$("aiOverlay"))closeAiReport();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeAiReport();});
+$("aiCloseX").addEventListener("click",closeAiReport);
+$("aiCloseBtn").addEventListener("click",closeAiReport);
+
+function buildPeriodReport(){
+  const from=state.from,to=state.to;
+  const mentions=(state.data.mentions||[]).filter(m=>validDate(m.date)&&m.date>=from&&m.date<=to);
+  const competitors=(state.data.competitors||[]).filter(c=>validDate(c.date)&&c.date>=from&&c.date<=to);
+  const stores=state.data.stores||[];
+  const pos=mentions.filter(m=>["positive","正面"].includes(m.sentiment_label||m.sentiment)).length;
+  const neg=mentions.filter(m=>["negative","負面"].includes(m.sentiment_label||m.sentiment)).length;
+  const neu=mentions.length-pos-neg;
+  const media=mentions.filter(m=>sectionOf(m)==="media");
+  const social=mentions.filter(m=>sectionOf(m)==="social");
+  const maps=mentions.filter(m=>sectionOf(m)==="maps");
+  const riskKw=/熟度|生熟|太生|過生|太熟|翻煮|服務態度|服務差|縮水|投訴|肚痛|衛生|食物中毒|地雷|難食|質素|態度|唔好/;
+  const risks=mentions.filter(m=>riskKw.test((m.title||"")+" "+(m.summary||"")));
+  const srcMap={};mentions.forEach(m=>{const s=m.source||"其他";srcMap[s]=(srcMap[s]||0)+1;});
+  const topSrc=Object.entries(srcMap).sort((a,b)=>b[1]-a[1]).slice(0,5);
+  const compMap={};
+  competitors.forEach(c=>{if(!compMap[c.competitor])compMap[c.competitor]={n:0,types:[],branch:c.branchCount,exp:c.expansion};compMap[c.competitor].n++;if(c.type&&!compMap[c.competitor].types.includes(c.type))compMap[c.competitor].types.push(c.type);});
+  const topStore=stores[0],bottomStore=stores[stores.length-1];
+  const h=[];
+  h.push('<h3>📊 整體媒體形象</h3>');
+  h.push('<p>所選時期 <b>'+from+' → '+to+'</b> 共錄得 <b>'+mentions.length+'</b> 條提及，整體基調<b>'+(pos>=neg?'正面':'偏負面')+'</b>（正面 '+pos+' / 負面 '+neg+' / 中性 '+neu+'）。');
+  if(topStore&&bottomStore){h.push('分店表現方面，'+esc(topStore.branch)+'以 <b>'+topStore.score+'%</b> 好評居首，'+esc(bottomStore.branch)+'以 <b>'+bottomStore.score+'%</b> 墊底，反映區域品質一致性存在落差。');}
+  h.push('</p>');
+  h.push('<h3>📰 媒體新聞分析</h3>');
+  if(media.length){const msrc=[...new Set(media.map(m=>m.source))].slice(0,4);h.push('<p>本時期共有 <b>'+media.length+'</b> 條媒體報導'+(msrc.length?'，主要來源：'+msrc.map(x=>esc(x)).join('、'):'')+'。重點話題：</p>');h.push('<ul>'+media.slice(0,5).map(m=>'<li>'+esc(m.title)+'</li>').join('')+'</ul>');}else{h.push('<p>本時期暫無媒體新聞紀錄。</p>');}
+  h.push('<h3>📱 社交媒體分析</h3>');
+  if(social.length){const ssrc=[...new Set(social.map(m=>m.source))].slice(0,4);h.push('<p>本時期共有 <b>'+social.length+'</b> 條社交討論'+(ssrc.length?'，主要來自：'+ssrc.map(x=>esc(x)).join('、'):'')+'。重點內容：</p>');h.push('<ul>'+social.slice(0,5).map(m=>'<li>'+esc(m.title)+'</li>').join('')+'</ul>');}else{h.push('<p>本時期暫無社交媒體紀錄。</p>');}
+  h.push('<h3>🗺️ Google Maps 評價分析</h3>');
+  if(maps.length){h.push('<p>本時期共有 <b>'+maps.length+'</b> 條地圖評論。重點：</p>');h.push('<ul>'+maps.slice(0,5).map(m=>'<li>'+esc(m.title)+'</li>').join('')+'</ul>');}else{h.push('<p>本時期暫無地圖評論。</p>');}
+  h.push('<h3>🔍 競爭對手市場動態</h3>');
+  if(Object.keys(compMap).length){h.push('<p>本時期捕捉到 <b>'+competitors.length+'</b> 條競爭對手動向：</p>');h.push('<ul>'+Object.entries(compMap).map(([k,v])=>'<li><b>'+esc(k)+'</b>（'+esc(v.branch)+' · '+esc(v.exp||'')+'）— '+esc(v.types.join('、'))+' ×'+v.n+'</li>').join('')+'</ul>');}else{h.push('<p>本時期暫無競爭對手動向紀錄。</p>');}
+  h.push('<h3>⚠️ PR 風險警示</h3>');
+  if(risks.length){h.push('<p class="risk">本時期偵測到 <b>'+risks.length+'</b> 條潛在負面訊號，需關注：</p>');h.push('<ul>'+risks.slice(0,6).map(m=>'<li class="risk">'+esc(m.date)+' · '+esc(m.source)+' — '+esc((m.title||"").slice(0,60))+'</li>').join('')+'</ul>');}else{h.push('<p>本時期未偵測到明顯負面訊號，公關環境相對穩定。</p>');}
+  h.push('<h3>💡 公關建議與 Campaign 構思</h3>');
+  const tips=[];
+  if(risks.length){tips.push('<p><b>1. 品質信心保證</b>：針對「'+esc(risks[0].title.slice(0,20))+'」等負面聲音，推出「不滿意即換」承諾活動，化弱點為誠意展示。</p>');}
+  if(competitors.length){tips.push('<p><b>'+(tips.length+1)+'. 市場定位回應</b>：'+Object.keys(compMap).slice(0,2).map(x=>esc(x)).join('、')+' 正加速擴張，建議強化「完整美式分享體驗」差異化定位，避免陷入純價格戰。</p>');}
+  if(bottomStore&&Number(bottomStore.score)<65){tips.push('<p><b>'+(tips.length+1)+'. 低分分店改善計劃</b>：'+esc(bottomStore.branch)+'（'+bottomStore.score+'%）需啟動神秘顧客稽核與服務再培訓，並以「品質進化日記」形式轉化為公關素材。</p>');}
+  if(!tips.length){tips.push('<p>本時期數據不足以提出具體 campaign，建議持續累積正面 UGC，並於旺季前部署季節性 campaign 搶佔聲量。</p>');}
+  h.push(tips.join(''));
+  return h.join('');
+}
+
+$("aiBtn").addEventListener("click",()=>{
+  if(!state.data||!state.from||!state.to)return;
+  $("aiOverlay").classList.add("open");
+  $("aiTitle").textContent="PR Insight Report";
+  $("aiMeta").textContent="即時分析所選時期 "+state.from+" → "+state.to+" · 綜合 "+filteredMentions().length+" 條提及";
+  $("aiReport").innerHTML=buildPeriodReport();
+});
 init().catch(err=>document.querySelector(".shell").insertAdjacentHTML("beforeend",'<div class="panel" style="margin-top:14px;color:var(--red)">'+esc(err.message)+'</div>'));
 </script>
 </body>
