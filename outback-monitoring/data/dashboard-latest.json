@@ -1,7 +1,7 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-08-27T01:26:41.444712+00:00",
+  "generatedAt": "2026-08-27T12:01:46.549545+00:00",
   "run": {
     "runDate": "2026-08-27",
     "dateRange": {
@@ -1513,7 +1513,7 @@
     {
       "rank": 1,
       "branch": "荃灣廣場",
-      "score": 60.6,
+      "score": 75.0,
       "reviewCount": 99,
       "good": 60,
       "neutral": 9,
@@ -1525,7 +1525,7 @@
     {
       "rank": 2,
       "branch": "銅鑼灣廣場一期",
-      "score": 58.7,
+      "score": 75.0,
       "reviewCount": 138,
       "good": 81,
       "neutral": 23,
@@ -1537,7 +1537,7 @@
     {
       "rank": 3,
       "branch": "MOKO新世紀廣場",
-      "score": 55.8,
+      "score": 69.3,
       "reviewCount": 373,
       "good": 208,
       "neutral": 68,
@@ -1549,7 +1549,7 @@
     {
       "rank": 4,
       "branch": "新城市廣場三期",
-      "score": 55.6,
+      "score": 69.8,
       "reviewCount": 133,
       "good": 74,
       "neutral": 26,
@@ -1561,7 +1561,7 @@
     {
       "rank": 5,
       "branch": "東薈城名店倉",
-      "score": 52.2,
+      "score": 68.6,
       "reviewCount": 113,
       "good": 59,
       "neutral": 20,
@@ -1573,7 +1573,7 @@
     {
       "rank": 6,
       "branch": "娛樂行（中環）",
-      "score": 50.0,
+      "score": 62.5,
       "reviewCount": 10,
       "good": 5,
       "neutral": 1,
@@ -1585,7 +1585,7 @@
     {
       "rank": 7,
       "branch": "形點 I（元朗）",
-      "score": 48.0,
+      "score": 57.6,
       "reviewCount": 204,
       "good": 98,
       "neutral": 50,
@@ -1597,7 +1597,7 @@
     {
       "rank": 8,
       "branch": "奧海城二期",
-      "score": 41.0,
+      "score": 58.8,
       "reviewCount": 139,
       "good": 57,
       "neutral": 27,
