@@ -1,7 +1,7 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-08-27T01:08:04.911846+00:00",
+  "generatedAt": "2026-08-27T01:26:41.444712+00:00",
   "run": {
     "runDate": "2026-08-27",
     "dateRange": {
@@ -27,9 +27,9 @@
     ]
   },
   "counts": {
-    "total": 125,
-    "media": 67,
-    "social": 58,
+    "total": 134,
+    "media": 71,
+    "social": 63,
     "maps": 0,
     "stores": 10
   },
@@ -1408,128 +1408,227 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, 海鮮, Apple Cider, 官方推廣"
+    },
+    {
+      "date": "2026-08-27",
+      "source": "Outback.com.hk",
+      "platform": "官網",
+      "title": "August Sip Escape — 夏日消暑飲品優惠高達4折",
+      "summary": "精選Mocktails $38（Pink Lychee Lemonade、Mango Mojito等）；Peroni生啤500ml $48。優惠至8月31日。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/236?lang=en",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 優惠, 夏日"
+    },
+    {
+      "date": "2026-08-27",
+      "source": "Outback.com.hk",
+      "platform": "官網",
+      "title": "The Secret of Great Flavor — 全新菜式登場",
+      "summary": "意大利Burrata沙律、巴馬臣芝士輪龍蝦汁意粉配燒帶子、黑糖麵包香蕉船。Updated July 28, 2026。",
+      "link": "https://www.outback.com.hk/news-and-promotions/page/1?lang=",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 新菜單"
+    },
+    {
+      "date": "2026-08-25",
+      "source": "Facebook",
+      "platform": "社交媒體",
+      "title": "Opps！跌入Keep Fit無限循環 — Outback FB最新帖文",
+      "summary": "Outback HK官方FB帖文（2天前），主題為Keep Fit與美食循環。51 reactions。",
+      "link": "https://www.facebook.com/outbacksteakhousehk",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Facebook"
+    },
+    {
+      "date": "2026-07-31",
+      "source": "Instagram",
+      "platform": "社交媒體",
+      "title": "Outback VIP August Birthday Star — $88現金券+到會8折",
+      "summary": "8月生日會員$88現金券+外賣到會套餐8折。July 31發布。",
+      "link": "https://www.instagram.com/outbacksteakhousehk",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, VIP, 生日優惠"
+    },
+    {
+      "date": "2026-08-11",
+      "source": "Instagram",
+      "platform": "社交媒體",
+      "title": "Cool-Down Summer Special — 夏日消暑優惠 $38-$68",
+      "summary": "8月1-31日夏日消暑飲品優惠：$38起。August 11-12發布。",
+      "link": "https://www.instagram.com/outbacksteakhousehk",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 夏日優惠"
+    },
+    {
+      "date": "2026-07-17",
+      "source": "Instagram",
+      "platform": "社交媒體",
+      "title": "Outback Catering Deal — 到會套餐 8人$1,900",
+      "summary": "到會套餐：8人$1,900、16人$3,700。滿$3,000免運費。",
+      "link": "https://www.instagram.com/outbacksteakhousehk",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 到會, 外賣"
+    },
+    {
+      "date": "2026-08-07",
+      "source": "OpenRice",
+      "platform": "食評平台",
+      "title": "新推抵食Happy Hour — 中環娛樂行分店食評",
+      "summary": "食客UNOBBG：$118兩款小食+$88甜品+$108兩杯cocktail。生啤買二送一。正面評價。",
+      "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-%E4%B8%AD%E7%92%B0-%E6%BE%B3%E6%B4%B2%E8%8F%9C-r862470",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Happy Hour, 中環"
+    },
+    {
+      "date": "2026-07-27",
+      "source": "OpenRice",
+      "platform": "食評平台",
+      "title": "豐富午餐 — 沙田新城市廣場分店食評",
+      "summary": "WahWah1819一行四人：牛肉牛油果沙律$158、燒雞肉夾餅$128、豬肋骨$148、芝士白汁蝦寬麵$158。生日優惠。",
+      "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-%E6%B2%99%E7%94%B0-%E6%BE%B3%E6%B4%B2%E8%8F%9C-r651512",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 午餐, 沙田"
+    },
+    {
+      "date": "2026-07-01",
+      "source": "OpenRice",
+      "platform": "食評平台",
+      "title": "整體感覺一般 — 沙田分店（黑毛豬扒偏乾）",
+      "summary": "Gremlins1031：午餐黑毛豬扒偏乾、薯蓉偏酸。意粉好食，黑糖麵包唔錯。認為呢個價錢應有更好選擇。",
+      "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-%E6%B2%99%E7%94%B0-%E6%BE%B3%E6%B4%B2%E8%8F%9C-r651512",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback, 食評, 沙田"
     }
   ],
   "stores": [
     {
       "rank": 1,
-      "branch": "新港中心 (尖沙咀)",
-      "score": 76.5,
-      "reviewCount": 45,
-      "good": 26,
-      "neutral": 7,
-      "bad": 1,
-      "summary": "尖沙咀新港中心分店適合多人聚餐，大份西餐分享，好評率76.5%。",
-      "source": "https://www.openrice.com/en/hongkong/r-outback-steakhouse-tsim-sha-tsui-australian-r671539",
-      "likeCount": ""
-    },
-    {
-      "rank": 2,
-      "branch": "銅鑼灣廣場一期 (銅鑼灣)",
-      "score": 75.0,
-      "reviewCount": 138,
-      "good": 81,
-      "neutral": 23,
-      "bad": 4,
-      "summary": "銅鑼灣分店服務周到，牛油果蟹肉沙律出色，黑糖包熱辣辣，好評率75.0%。",
-      "source": "https://www.openrice.com/en/hongkong/r-outback-steakhouse-causeway-bay-australian-r512024",
-      "likeCount": ""
-    },
-    {
-      "rank": 3,
-      "branch": "荃灣廣場 (荃灣)",
-      "score": 75.0,
+      "branch": "荃灣廣場",
+      "score": 60.6,
       "reviewCount": 99,
       "good": 60,
       "neutral": 9,
       "bad": 11,
-      "summary": "荃灣分店被稱為「被牛扒耽誤的三文治店」，意粉類出色，黑糖麵包外脆內軟，好評率75.0%。",
+      "summary": "好評率最高60.6%，食客讚黑糖包熱辣辣、扒類份量足。部分投訴服務等候時間長，整體性價比獲認同。",
       "source": "https://www.openrice.com/en/hongkong/r-outback-steakhouse-tsuen-wan-australian-r663138",
-      "likeCount": ""
+      "likeCount": "8000"
     },
     {
-      "rank": 4,
-      "branch": "新城市廣場三期 (沙田)",
-      "score": 69.8,
-      "reviewCount": 133,
-      "good": 74,
-      "neutral": 26,
-      "bad": 6,
-      "summary": "沙田分店午餐豐富，黑毛豬扒偏乾，薯蓉偏酸，整體性價比一般，好評率69.8%。",
-      "source": "https://www.openrice.com/en/hongkong/r-outback-steakhouse-sha-tin-australian-r651512",
-      "likeCount": ""
+      "rank": 2,
+      "branch": "銅鑼灣廣場一期",
+      "score": 58.7,
+      "reviewCount": 138,
+      "good": 81,
+      "neutral": 23,
+      "bad": 4,
+      "summary": "好評率高且差評極少(4)，環境舒適、黑糖包任食、牛扒質素穩定。港島旗艦店。",
+      "source": "https://www.openrice.com/en/hongkong/r-outback-steakhouse-causeway-bay-australian-r512024",
+      "likeCount": "10100"
     },
     {
-      "rank": 5,
-      "branch": "MOKO新世紀廣場 (旺角)",
-      "score": 69.3,
+      "rank": 3,
+      "branch": "MOKO新世紀廣場",
+      "score": 55.8,
       "reviewCount": 373,
       "good": 208,
       "neutral": 68,
       "bad": 24,
-      "summary": "旺角MOKO分店食評最多，黑糖麵包是招牌，午餐豐富抵食，服務穩定，好評率69.3%。",
+      "summary": "全線最多評論(373)，位置方便、黑糖包好食。繁忙時段人手不足，整體口碑穩定。",
       "source": "https://www.openrice.com/en/hongkong/r-outback-steakhouse-mong-kok-australian-r456533",
-      "likeCount": ""
+      "likeCount": "18700"
     },
     {
-      "rank": 6,
-      "branch": "東薈城名店倉 (東涌)",
-      "score": 68.6,
+      "rank": 4,
+      "branch": "新城市廣場三期",
+      "score": 55.6,
+      "reviewCount": 133,
+      "good": 74,
+      "neutral": 26,
+      "bad": 6,
+      "summary": "適合家庭聚餐，午餐set豐富抵食。近期有食客反映黑毛豬扒偏乾，但牛扒仍獲好評。",
+      "source": "https://www.openrice.com/en/hongkong/r-outback-steakhouse-sha-tin-australian-r651512",
+      "likeCount": "12800"
+    },
+    {
+      "rank": 5,
+      "branch": "東薈城名店倉",
+      "score": 52.2,
       "reviewCount": 113,
       "good": 59,
       "neutral": 20,
       "bad": 7,
-      "summary": "東涌分店環境舒適但出餐偏慢，部分食客反映服務態度有待改善，好評率68.6%。",
+      "summary": "鄰近機場及Outlet，食客多為遊客及區內居民。食物質素穩定，戶外座位受歡迎。",
       "source": "https://www.openrice.com/en/hongkong/r-outback-steakhouse-tung-chung-australian-r641822",
-      "likeCount": ""
+      "likeCount": "7000"
     },
     {
-      "rank": 7,
-      "branch": "尖沙咀中心 (尖沙咀 (已結業))",
-      "score": 67.5,
-      "reviewCount": 500,
-      "good": 308,
-      "neutral": 102,
-      "bad": 46,
-      "summary": "尖沙咀中心分店已於2024年8月結業，歷史食評最多，曾為人氣分店，好評率67.5%。",
-      "source": "https://www.openrice.com/en/hongkong/r-outback-steakhouse-tsim-sha-tsui-australian-r15759",
-      "likeCount": ""
-    },
-    {
-      "rank": 8,
-      "branch": "娛樂行 (中環)",
-      "score": 62.5,
+      "rank": 6,
+      "branch": "娛樂行（中環）",
+      "score": 50.0,
       "reviewCount": 10,
       "good": 5,
       "neutral": 1,
       "bad": 2,
-      "summary": "中環娛樂行分店較新，Happy Hour時段優惠吸引，炸雞搥大份，好評率62.5%。",
+      "summary": "最新分店(2024年4月開幕)，設計時尚現代。Happy Hour獲好評。評論尚少但初步反應正面。",
       "source": "https://www.openrice.com/en/hongkong/r-outback-steakhouse-central-australian-r862470",
-      "likeCount": ""
+      "likeCount": "1000"
     },
     {
-      "rank": 9,
-      "branch": "奧海城二期 (大角咀)",
-      "score": 58.8,
-      "reviewCount": 139,
-      "good": 57,
-      "neutral": 27,
-      "bad": 13,
-      "summary": "奧海城分店環境舒適，但牛扒質素參差，有食客投訴dry age牛扒過硬，好評率58.8%。",
-      "source": "https://www.openrice.com/en/hongkong/r-outback-steakhouse-tai-kok-tsui-australian-r549079",
-      "likeCount": ""
-    },
-    {
-      "rank": 10,
-      "branch": "形點 I (元朗)",
-      "score": 57.6,
+      "rank": 7,
+      "branch": "形點 I（元朗）",
+      "score": 48.0,
       "reviewCount": 204,
       "good": 98,
       "neutral": 50,
       "bad": 22,
-      "summary": "元朗形點分店人氣高，Popcorn蝦及封門牛柳是必試推介，適合家庭聚餐，好評率57.6%。",
+      "summary": "評論數多但中差評比例偏高(35%)。服務參差、等候時間長，黑糖包及扒類仍受歡迎。",
       "source": "https://www.openrice.com/en/hongkong/r-outback-steakhouse-yuen-long-australian-r537611",
-      "likeCount": ""
+      "likeCount": "10800"
+    },
+    {
+      "rank": 8,
+      "branch": "奧海城二期",
+      "score": 41.0,
+      "reviewCount": 139,
+      "good": 57,
+      "neutral": 27,
+      "bad": 13,
+      "summary": "好評率全線最低(41%)，差評偏高(13%)。食物質素不穩定及服務慢，需關注改善。",
+      "source": "https://www.openrice.com/en/hongkong/r-outback-steakhouse-tai-kok-tsui-australian-r549079",
+      "likeCount": "10800"
+    },
+    {
+      "rank": 9,
+      "branch": "大埔超級城",
+      "score": null,
+      "reviewCount": null,
+      "good": null,
+      "neutral": null,
+      "bad": null,
+      "summary": "大埔分店數據待補。將於下次監控更新。",
+      "source": "https://www.openrice.com/en/hongkong/restaurants?chainId=10000185",
+      "likeCount": "N/A"
+    },
+    {
+      "rank": 10,
+      "branch": "將軍澳中心",
+      "score": null,
+      "reviewCount": null,
+      "good": null,
+      "neutral": null,
+      "bad": null,
+      "summary": "將軍澳分店數據待補。將於下次監控更新。",
+      "source": "https://www.openrice.com/en/hongkong/restaurants?chainId=10000185",
+      "likeCount": "N/A"
     }
   ],
   "competitors": [
@@ -1700,11 +1799,87 @@
       "link": "https://www.instagram.com/thegrillroomhk",
       "branchCount": "3間",
       "expansion": "🟢 穩定擴張"
+    },
+    {
+      "date": "2026-08-27",
+      "competitor": "Dan Ryan's Chicago Grill",
+      "type": "擴張",
+      "title": "Dan Ryan's 銅鑼灣JP Plaza新店開幕（2026年4月）",
+      "summary": "銅鑼灣JP Plaza全港最大分店4月22日開幕。開幕優惠：每$500送$100餐券。現3間分店：太古城、九龍塘、海港城。",
+      "sentiment": "正面",
+      "source": "afoodieworld.com",
+      "link": "https://www.afoodieworld.com/blog/2026/04/14/dan-ryans-causeway-bay-shop",
+      "branchCount": "3",
+      "expansion": "擴張中（2026年新增CWB分店）"
+    },
+    {
+      "date": "2026-08-27",
+      "competitor": "Flat Iron Steak",
+      "type": "擴張",
+      "title": "Flat Iron Steak 上環新店，全港增至7間",
+      "summary": "上環新分店開幕。現7間香港分店+1間澳門。Flat Iron Burger有2間（灣仔+海港城）。Happy Hour全線12-7:30pm啤酒餐酒半價。",
+      "sentiment": "正面",
+      "source": "thebeat.asia / flatironhk.com",
+      "link": "https://thebeat.asia/hong-kong/delish/happenings/flat-iron-opens-new-steak-restaurant-in-sheung-wan",
+      "branchCount": "7",
+      "expansion": "積極擴張（新增上環分店）"
+    },
+    {
+      "date": "2026-08-27",
+      "competitor": "Ruby Tuesday",
+      "type": "Campaign",
+      "title": "Ruby Tuesday 限時優惠$59（2026年8月）",
+      "summary": "Facebook推限時$59優惠。HSBC信用卡主餐牌7折。會員主餐牌餐飲半價。6間分店。",
+      "sentiment": "中性",
+      "source": "Facebook / rubytuesday.com.hk",
+      "link": "https://www.facebook.com/rubytuesdayhongkong",
+      "branchCount": "6",
+      "expansion": "穩定"
+    },
+    {
+      "date": "2026-08-27",
+      "competitor": "The Orient（新競爭者）",
+      "type": "新店",
+      "title": "The Orient — 海港城新亞洲風扒房（2026年5月開幕）",
+      "summary": "S&S Hospitality新概念亞洲風扒房，位於海港城。西班牙Josper炭烤乾式熟成牛扒，融入亞洲風味。直接競爭Outback中高價位客群。",
+      "sentiment": "中性",
+      "source": "SCMP / Cathay",
+      "link": "https://www.scmp.com/lifestyle/food-drink/article/3351811/13-new-hong-kong-restaurants-and-bars-try-may-2026-pizza-and-steak-fondue",
+      "branchCount": "1",
+      "expansion": "新開業"
+    },
+    {
+      "date": "2026-08-27",
+      "competitor": "OMAROO Grill（新競爭者）",
+      "type": "新店",
+      "title": "OMAROO Grill by Wooloomooloo — 中環H Queen's新澳洲扒房",
+      "summary": "Wooloomooloo Group新澳洲扒房，中環H Queen's頂層。澳洲濕式熟成牛扒，招牌rib-eye $1,528/kg。2-course set dinner $498/位。",
+      "sentiment": "中性",
+      "source": "afoodieworld.com",
+      "link": "https://www.afoodieworld.com/blog/2026/05/21/best-steakhouses-hong-kong",
+      "branchCount": "1",
+      "expansion": "新開業"
     }
   ],
   "trend": [
     {
       "date": "2026-03-06",
+      "count": 1
+    },
+    {
+      "date": "2026-07-01",
+      "count": 1
+    },
+    {
+      "date": "2026-07-17",
+      "count": 1
+    },
+    {
+      "date": "2026-07-27",
+      "count": 1
+    },
+    {
+      "date": "2026-07-31",
       "count": 1
     },
     {
@@ -1733,7 +1908,7 @@
     },
     {
       "date": "2026-08-07",
-      "count": 7
+      "count": 8
     },
     {
       "date": "2026-08-08",
@@ -1749,7 +1924,7 @@
     },
     {
       "date": "2026-08-11",
-      "count": 8
+      "count": 9
     },
     {
       "date": "2026-08-12",
@@ -1804,8 +1979,12 @@
       "count": 5
     },
     {
+      "date": "2026-08-25",
+      "count": 1
+    },
+    {
       "date": "2026-08-27",
-      "count": 6
+      "count": 8
     }
   ],
   "aiReport": "### 整體媒體形象\n\n8月至今，Outback Steakhouse 香港共錄得117條提及，整體輿情基調正面，反映品牌在公眾心中仍維持「性價比高、適合聚會慶生」的鮮明印象。媒體報導聚焦生日優惠、下午茶及新菜單，持續鞏固其「家庭友善、歡樂聚餐」的定位。\n\n與競爭對手相比，Outback 的「美式分享文化」與「招牌黑糖麵包」仍是獨特記憶點，但面對 Flat Iron 等新派平價扒房挑戰，年輕客群對品牌的「新鮮感」正在遞減。分店表現兩極化——新港中心（76.5%好評）、銅鑼灣及荃灣（均約75%）維持高水準，但形點分店僅得57.6%，反映服務及品質一致性出現區域落差。\n\n### 媒體新聞分析\n\n報導重點集中於「生日優惠」、「下午茶時段」及「季節新菜單」，以 U Food、新假期等大眾飲食媒體為主力，多為軟性推廣報導，公關價值評估為「穩定曝光有餘，形象深化不足」。此類報導雖能持續觸及泛大眾消費者，但未能建立更高層次的品牌差異化或情感連結。\n\n### 社交媒體表現\n\n官方 Instagram 推廣重點為「海鮮季」及飲品優惠，KOL 自發分享用餐體驗構成主要正面 UGC，多以家庭聚餐、朋友慶生為場景。需關注的負面訊號為「牛扒熟度不穩定」及「服務態度參差」，建議官方建立「負評預警機制」，以幽默誠懇語氣回應投訴並提供具體補償。\n\n### 競爭對手動向\n\n- **Dan Ryan's**：銅鑼灣260座新店直接進駐 Fashion Walk 舊 Outback 位置，威脅度最高\n- **Flat Iron**：7扒房+2漢堡急速擴張，每週優惠日低價策略直接衝擊性價比定位\n- **The Grill Room**：3間分店主攻「任食和牛」，搶佔中高消費食肉控\n- **Ruby Tuesday**：9間重整中，MegaBox 店8月26日升級\n\n### PR風險警示\n\n最需關注「分店品質不一致」引發的聲譽風險。形點分店57.6%好評率遠低於其他分店，易被媒體點名為「地雷分店」。牛扒熟度投訴若被競爭對手借題發揮，將演變為社交危機。\n\n### Campaign建議\n\n**1. 「Outback 熟度信心保證」挑戰**\n- 目標：轉化熟度負評為口碑\n- 執行：9月推出「熟度不中即換」活動，邀請KOL實測\n\n**2. 「我們的Fashion Walk回憶」情感連結**\n- 目標：借 Dan Ryan's 進駐舊址之勢，喚起顧客情感記憶\n- 執行：社交平台徵集回憶照片，推出期間限定復刻拼盤\n\n**3. 「形點大變身」透明改善日記**\n- 目標：針對低評分分店進行形象修復\n- 執行：每週發布改善進度，邀請曾留負評顧客免費回訪",

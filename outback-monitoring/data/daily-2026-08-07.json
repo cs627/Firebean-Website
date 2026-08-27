@@ -77,6 +77,17 @@
       "link": "https://www.facebook.com/outbacksteakhousehk/videos/1044306998006696/",
       "sentiment": "neutral",
       "tags": ""
+    },
+    {
+      "date": "2026-08-07",
+      "source": "OpenRice",
+      "platform": "食評平台",
+      "author": "",
+      "title": "新推抵食Happy Hour — 中環娛樂行分店食評",
+      "summary": "食客UNOBBG：$118兩款小食+$88甜品+$108兩杯cocktail。生啤買二送一。正面評價。",
+      "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-%E4%B8%AD%E7%92%B0-%E6%BE%B3%E6%B4%B2%E8%8F%9C-r862470",
+      "sentiment": "positive",
+      "tags": ""
     }
   ],
   "alerts": [
@@ -92,8 +103,8 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 7,
-    "new_records": 7,
+    "checked_sources": 8,
+    "new_records": 8,
     "limitations": []
   }
 }

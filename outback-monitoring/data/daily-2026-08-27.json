@@ -66,6 +66,28 @@
       "link": "https://www.facebook.com/outbacksteakhousehk",
       "sentiment": "positive",
       "tags": ""
+    },
+    {
+      "date": "2026-08-27",
+      "source": "Outback.com.hk",
+      "platform": "官網",
+      "author": "",
+      "title": "August Sip Escape — 夏日消暑飲品優惠高達4折",
+      "summary": "精選Mocktails $38（Pink Lychee Lemonade、Mango Mojito等）；Peroni生啤500ml $48。優惠至8月31日。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/236?lang=en",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-27",
+      "source": "Outback.com.hk",
+      "platform": "官網",
+      "author": "",
+      "title": "The Secret of Great Flavor — 全新菜式登場",
+      "summary": "意大利Burrata沙律、巴馬臣芝士輪龍蝦汁意粉配燒帶子、黑糖麵包香蕉船。Updated July 28, 2026。",
+      "link": "https://www.outback.com.hk/news-and-promotions/page/1?lang=",
+      "sentiment": "positive",
+      "tags": ""
     }
   ],
   "alerts": [
@@ -81,8 +103,8 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 4,
-    "new_records": 6,
+    "checked_sources": 5,
+    "new_records": 8,
     "limitations": []
   }
 }

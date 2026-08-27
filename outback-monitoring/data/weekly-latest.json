@@ -1,30 +1,6 @@
 {
-  "week": "2026-08-19 ~ 2026-08-27",
+  "week": "2026-08-20 ~ 2026-08-27",
   "items": [
-    {
-      "date": "2026-08-19",
-      "source": "LinkedIn (Eber)",
-      "title": "Eber以Outback HK說明品牌一致性需由營運支撐",
-      "summary": "Eber的公開LinkedIn帖文以Outback Steakhouse Hong Kong及Patrick Kwok為明確關聯，提出門店、POS與App若未能協調，行銷活動亦不足以維持一致品牌體驗；帖文屬一般營運與CRM觀點，未指稱Outback實際發生系統失誤。",
-      "link": "https://www.linkedin.com/posts/eber-loyalty-marketing_operations-brandexperience-restaurantmarketing-activity-7495759720331304960-Npuy",
-      "sentiment": "neutral"
-    },
-    {
-      "date": "2026-08-19",
-      "source": "Google Maps (New Town Plaza)",
-      "title": "沙田顧客5星午餐評分（無文字評論）",
-      "summary": "Chan Stephen（上官警我）的公開Google Maps評價顯示整體5星及餐種為午餐；頁面未顯示額外文字評論，因此不推斷具體意見。",
-      "link": "https://maps.app.goo.gl/YpbC8ns9VaWFjoFy9",
-      "sentiment": "neutral"
-    },
-    {
-      "date": "2026-08-19",
-      "source": "Google Maps (Tai Po Mega Mall)",
-      "title": "大埔顧客投訴兩度上錯牛扒及落單流程",
-      "summary": "J M 的公開評價聲稱即使餐牌有編號及圖片仍被錯誤落單，兩次收到錯誤牛扒；同時稱員工態度友善，但期望服務流程改善。頁面顯示整體5星。",
-      "link": "https://maps.app.goo.gl/xokZGZp1zvsLWWE4A",
-      "sentiment": "negative"
-    },
     {
       "date": "2026-08-20",
       "source": "Instagram (Official Page)",
@@ -186,6 +162,14 @@
       "sentiment": "neutral"
     },
     {
+      "date": "2026-08-25",
+      "source": "Facebook",
+      "title": "Opps！跌入Keep Fit無限循環 — Outback FB最新帖文",
+      "summary": "Outback HK官方FB帖文（2天前），主題為Keep Fit與美食循環。51 reactions。",
+      "link": "https://www.facebook.com/outbacksteakhousehk",
+      "sentiment": "positive"
+    },
+    {
       "date": "2026-08-27",
       "source": "Threads",
       "title": "網民分享Outback慢燒安格斯肉眼牛扒五成熟爭議",
@@ -231,6 +215,22 @@
       "title": "Outback Steakhouse HK官方Facebook — 海鮮推廣帖文",
       "summary": "Outback Steakhouse HK官方Facebook近期發布帖文推廣海鮮菜式，標題為「神級鮮味！好食到令人瞬間定格？」，並推廣Apple Cider全系列飲品。",
       "link": "https://www.facebook.com/outbacksteakhousehk",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-27",
+      "source": "Outback.com.hk",
+      "title": "August Sip Escape — 夏日消暑飲品優惠高達4折",
+      "summary": "精選Mocktails $38（Pink Lychee Lemonade、Mango Mojito等）；Peroni生啤500ml $48。優惠至8月31日。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/236?lang=en",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-27",
+      "source": "Outback.com.hk",
+      "title": "The Secret of Great Flavor — 全新菜式登場",
+      "summary": "意大利Burrata沙律、巴馬臣芝士輪龍蝦汁意粉配燒帶子、黑糖麵包香蕉船。Updated July 28, 2026。",
+      "link": "https://www.outback.com.hk/news-and-promotions/page/1?lang=",
       "sentiment": "positive"
     }
   ],

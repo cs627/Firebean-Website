@@ -1,0 +1,33 @@
+{
+  "date": "2026-07-01",
+  "items": [
+    {
+      "date": "2026-07-01",
+      "source": "OpenRice",
+      "platform": "食評平台",
+      "author": "",
+      "title": "整體感覺一般 — 沙田分店（黑毛豬扒偏乾）",
+      "summary": "Gremlins1031：午餐黑毛豬扒偏乾、薯蓉偏酸。意粉好食，黑糖麵包唔錯。認為呢個價錢應有更好選擇。",
+      "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-%E6%B2%99%E7%94%B0-%E6%BE%B3%E6%B4%B2%E8%8F%9C-r651512",
+      "sentiment": "negative",
+      "tags": ""
+    }
+  ],
+  "alerts": [
+    {
+      "title": "整體感覺一般 — 沙田分店（黑毛豬扒偏乾）",
+      "summary": "Gremlins1031：午餐黑毛豬扒偏乾、薯蓉偏酸。意粉好食，黑糖麵包唔錯。認為呢個價錢應有更好選擇。",
+      "source": "OpenRice",
+      "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-%E6%B2%99%E7%94%B0-%E6%BE%B3%E6%B4%B2%E8%8F%9C-r651512",
+      "severity": "MEDIUM"
+    }
+  ],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 1,
+    "new_records": 1,
+    "limitations": []
+  }
+}

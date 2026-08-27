@@ -1000,6 +1000,78 @@
       "summary": "Outback Steakhouse HK官方Facebook近期發布帖文推廣海鮮菜式，標題為「神級鮮味！好食到令人瞬間定格？」，並推廣Apple Cider全系列飲品。",
       "link": "https://www.facebook.com/outbacksteakhousehk",
       "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-27",
+      "source": "Outback.com.hk",
+      "title": "August Sip Escape — 夏日消暑飲品優惠高達4折",
+      "summary": "精選Mocktails $38（Pink Lychee Lemonade、Mango Mojito等）；Peroni生啤500ml $48。優惠至8月31日。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/236?lang=en",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-27",
+      "source": "Outback.com.hk",
+      "title": "The Secret of Great Flavor — 全新菜式登場",
+      "summary": "意大利Burrata沙律、巴馬臣芝士輪龍蝦汁意粉配燒帶子、黑糖麵包香蕉船。Updated July 28, 2026。",
+      "link": "https://www.outback.com.hk/news-and-promotions/page/1?lang=",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-25",
+      "source": "Facebook",
+      "title": "Opps！跌入Keep Fit無限循環 — Outback FB最新帖文",
+      "summary": "Outback HK官方FB帖文（2天前），主題為Keep Fit與美食循環。51 reactions。",
+      "link": "https://www.facebook.com/outbacksteakhousehk",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-07-31",
+      "source": "Instagram",
+      "title": "Outback VIP August Birthday Star — $88現金券+到會8折",
+      "summary": "8月生日會員$88現金券+外賣到會套餐8折。July 31發布。",
+      "link": "https://www.instagram.com/outbacksteakhousehk",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-11",
+      "source": "Instagram",
+      "title": "Cool-Down Summer Special — 夏日消暑優惠 $38-$68",
+      "summary": "8月1-31日夏日消暑飲品優惠：$38起。August 11-12發布。",
+      "link": "https://www.instagram.com/outbacksteakhousehk",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-07-17",
+      "source": "Instagram",
+      "title": "Outback Catering Deal — 到會套餐 8人$1,900",
+      "summary": "到會套餐：8人$1,900、16人$3,700。滿$3,000免運費。",
+      "link": "https://www.instagram.com/outbacksteakhousehk",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-07",
+      "source": "OpenRice",
+      "title": "新推抵食Happy Hour — 中環娛樂行分店食評",
+      "summary": "食客UNOBBG：$118兩款小食+$88甜品+$108兩杯cocktail。生啤買二送一。正面評價。",
+      "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-%E4%B8%AD%E7%92%B0-%E6%BE%B3%E6%B4%B2%E8%8F%9C-r862470",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-07-27",
+      "source": "OpenRice",
+      "title": "豐富午餐 — 沙田新城市廣場分店食評",
+      "summary": "WahWah1819一行四人：牛肉牛油果沙律$158、燒雞肉夾餅$128、豬肋骨$148、芝士白汁蝦寬麵$158。生日優惠。",
+      "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-%E6%B2%99%E7%94%B0-%E6%BE%B3%E6%B4%B2%E8%8F%9C-r651512",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-07-01",
+      "source": "OpenRice",
+      "title": "整體感覺一般 — 沙田分店（黑毛豬扒偏乾）",
+      "summary": "Gremlins1031：午餐黑毛豬扒偏乾、薯蓉偏酸。意粉好食，黑糖麵包唔錯。認為呢個價錢應有更好選擇。",
+      "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-%E6%B2%99%E7%94%B0-%E6%BE%B3%E6%B4%B2%E8%8F%9C-r651512",
+      "sentiment": "negative"
     }
   ],
   "alerts": [],
@@ -1008,7 +1080,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 125,
+    "new_records": 134,
     "limitations": []
   }
 }

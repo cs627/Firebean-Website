@@ -1,0 +1,25 @@
+{
+  "date": "2026-07-17",
+  "items": [
+    {
+      "date": "2026-07-17",
+      "source": "Instagram",
+      "platform": "社交媒體",
+      "author": "",
+      "title": "Outback Catering Deal — 到會套餐 8人$1,900",
+      "summary": "到會套餐：8人$1,900、16人$3,700。滿$3,000免運費。",
+      "link": "https://www.instagram.com/outbacksteakhousehk",
+      "sentiment": "positive",
+      "tags": ""
+    }
+  ],
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 1,
+    "new_records": 1,
+    "limitations": []
+  }
+}

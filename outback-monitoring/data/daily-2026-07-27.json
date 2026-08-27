@@ -1,0 +1,25 @@
+{
+  "date": "2026-07-27",
+  "items": [
+    {
+      "date": "2026-07-27",
+      "source": "OpenRice",
+      "platform": "食評平台",
+      "author": "",
+      "title": "豐富午餐 — 沙田新城市廣場分店食評",
+      "summary": "WahWah1819一行四人：牛肉牛油果沙律$158、燒雞肉夾餅$128、豬肋骨$148、芝士白汁蝦寬麵$158。生日優惠。",
+      "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-%E6%B2%99%E7%94%B0-%E6%BE%B3%E6%B4%B2%E8%8F%9C-r651512",
+      "sentiment": "positive",
+      "tags": ""
+    }
+  ],
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 1,
+    "new_records": 1,
+    "limitations": []
+  }
+}

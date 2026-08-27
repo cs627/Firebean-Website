@@ -1,230 +1,25 @@
 {
   "date": "2026-08-25",
-  "report_type": "daily_verified_snapshot",
-  "generated_at": "2026-08-25T09:50:34.920Z",
-  "source_of_truth": "https://outbackdash-zelnsfxp.manus.space/",
-  "item_count": 8,
   "items": [
     {
-      "date": "2026-08-24",
-      "time": "全日",
-      "source": "Instagram (Official)",
-      "platformType": "社交媒體／官方帖文",
-      "title": "Outback官方IG以「Keep Fit無限循環」推廣招牌菜",
-      "summary": "Outback Steakhouse HK官方Instagram以運動與美食的循環為創意主題，推介巨型加拿大龍蝦包、特製洋蔥花球、美國頂級斧頭扒及朱古力花生醬餅配雲尼拿雪糕，屬正面品牌推廣內容。",
-      "link": "https://www.instagram.com/p/Dca9A8Ak41q/",
-      "keyword": "Outback",
+      "date": "2026-08-25",
+      "source": "Facebook",
+      "platform": "社交媒體",
+      "author": "",
+      "title": "Opps！跌入Keep Fit無限循環 — Outback FB最新帖文",
+      "summary": "Outback HK官方FB帖文（2天前），主題為Keep Fit與美食循環。51 reactions。",
+      "link": "https://www.facebook.com/outbacksteakhousehk",
       "sentiment": "positive",
-      "newActivity": true,
-      "collectedAt": "2026-08-25T09:28:21Z",
-      "notes": "作者: @outbacksteakhousehk | 主題: Owned Social、Creative Campaign、Food、Brand Engagement | 驗證: Direct public Instagram original verified; page identifies Outback Steakhouse HK and publication date 2026-08-24. Visible engagement at verification: 8 likes and no comments. PR Watch: None.",
-      "author": "@outbacksteakhousehk",
-      "tags": [
-        "Owned Social",
-        "Creative Campaign",
-        "Food",
-        "Brand Engagement"
-      ],
-      "verification": "Direct public Instagram original verified. The page identifies Outback Steakhouse HK and publication date 2026-08-24; eight likes and no comments were visible at verification.",
-      "todayRun": true
-    },
-    {
-      "date": "2026-08-24",
-      "time": "全日",
-      "source": "Instagram",
-      "platformType": "社交媒體",
-      "title": "香港創作者分享東涌Outback Prestige會員體驗及價值試算",
-      "summary": "香港及新加坡內容創作者Jovee分享於Outback東涌店加入HK$488、兩年期Prestige Membership，並列出85折、8張HK$100優惠券及兩項免費主菜獎賞；帖文以作者自行估算方式形容潛在價值超過HK$2,600，整體為正面會員體驗。",
-      "link": "https://www.instagram.com/p/DcbX9c4Ekdp/",
-      "keyword": "Outback",
-      "sentiment": "positive",
-      "newActivity": true,
-      "collectedAt": "2026-08-25T09:28:21Z",
-      "notes": "作者: @generation.x.mom (Jovee) | 主題: UGC、Membership、Value、Tung Chung、Family Dining | 驗證: Direct public Instagram original verified; profile location shows Hong Kong, caption explicitly names Outback Steakhouse HK and Tung Chung, and page identifies publication date 2026-08-24. Visible engagement at verification: 460 likes and 19 comments. The HK$2,600+ figure is the author's personal value calculation and has not been independently audited. PR Watch: Low—positive membership proof point.",
-      "author": "@generation.x.mom (Jovee)",
-      "tags": [
-        "UGC",
-        "Membership",
-        "Value",
-        "Tung Chung",
-        "PR Watch"
-      ],
-      "verification": "Direct public Instagram original verified with explicit Hong Kong, Outback Steakhouse HK and Tung Chung context. The HK$2,600+ value is the author's unaudited calculation.",
-      "prWatchPriority": "low",
-      "todayRun": true
-    },
-    {
-      "date": "2026-08-24",
-      "time": "全日",
-      "source": "Google Maps (Citygate Outlets)",
-      "platformType": "Google Maps",
-      "title": "東薈城顧客5星評價讚賞薯條、沙律及漢堡，亦指音樂偏大",
-      "summary": "Chris Tofield給予5星，表示食物及價格不錯，沙律份量大、芒果新鮮、漢堡美味，並稱薯條是三星期旅程中最好吃；同時認為店內音樂太大聲。分項評分為食物5、服務4、氣氛3，午餐等候時間為毋須等候。",
-      "link": "https://maps.app.goo.gl/ErMDGhKLQhUmy4jT9",
-      "keyword": "Outback",
-      "sentiment": "mixed",
-      "newActivity": true,
-      "collectedAt": "2026-08-25T09:28:21Z",
-      "notes": "作者: Chris Tofield | 主題: Google Maps、Food Quality、Value、Music Volume、Citygate Outlets | 驗證: Direct Google Maps review opened and verified for Outback Steakhouse, Shop 326B, Citygate Outlets, Tung Chung. Page showed 5 stars and 'a day ago' on 2026-08-25; recorded as 2026-08-24. PR Watch: Low—minor ambience criticism within an otherwise positive review.",
-      "author": "Chris Tofield",
-      "tags": [
-        "Google Maps",
-        "Food Quality",
-        "Value",
-        "Music Volume",
-        "Citygate Outlets"
-      ],
-      "verification": "Direct review-specific Google Maps link verified for Citygate Outlets. The five-star overall rating and food 5, service 4, atmosphere 3 subratings were visible.",
-      "prWatchPriority": "low",
-      "todayRun": true
-    },
-    {
-      "date": "2026-08-22",
-      "time": "全日",
-      "source": "Google Maps (Citygate Outlets)",
-      "platformType": "Google Maps",
-      "title": "東薈城顧客讚牛扒及黑糖麵包美味",
-      "summary": "Google Maps用戶simon lam表示牛扒很好，並特別讚賞黑糖麵包美味。原頁未提供可可靠擷取的整體星級或分項評分，因此不作推斷。",
-      "link": "https://www.google.com/maps/contrib/104874208327764046912/reviews/@14.135275,108.4906108,5z/data=!3m1!4b1!4m3!8m2!3m1!1e1?hl=en&entry=ttu&g_ep=EgoyMDI2MDgyMy4wIKXMDSoASAFQAw%3D%3D",
-      "keyword": "Outback",
-      "sentiment": "positive",
-      "newActivity": true,
-      "collectedAt": "2026-08-25T09:28:21Z",
-      "notes": "作者: simon lam | 主題: Google Maps、Steak、Brown Sugar Bread、Citygate Outlets | 驗證: Direct public Google Maps contributor review verified for the Tung Chung Outback branch. Page showed '3 days ago' on 2026-08-25; recorded as 2026-08-22. Overall rating was not reliably exposed and is intentionally marked unavailable. PR Watch: None.",
-      "author": "simon lam",
-      "tags": [
-        "Google Maps",
-        "Steak",
-        "Brown Sugar Bread",
-        "Citygate Outlets"
-      ],
-      "verification": "Direct public Google Maps contributor review verified for the Tung Chung branch. No overall rating was inferred because it was not reliably exposed.",
-      "todayRun": true
-    },
-    {
-      "date": "2026-08-21",
-      "time": "全日",
-      "source": "Google Maps (Citygate Outlets)",
-      "platformType": "Google Maps",
-      "title": "東薈城Google Maps分項低評：食物1、服務1、氣氛2",
-      "summary": "Google Maps用戶Yu Hua Yu未留下文字評論，只標示人均消費HK$150–200，並給予食物1分、服務1分及氣氛2分。原頁的整體星級未能可靠擷取，因此不作推斷。",
-      "link": "https://maps.app.goo.gl/j8o1G5gmQu8PckD98",
-      "keyword": "Outback",
-      "sentiment": "negative",
-      "newActivity": true,
-      "collectedAt": "2026-08-25T09:28:21Z",
-      "notes": "作者: Yu Hua Yu | 主題: Google Maps、Food Score、Service Score、Atmosphere Score、Citygate Outlets | 驗證: Direct Google Maps review opened and verified for Outback Steakhouse, Shop 326B, Citygate Outlets, Tung Chung. Page showed '4 days ago' on 2026-08-25; recorded as 2026-08-21. No written allegation was present. Overall rating unavailable. PR Watch: Medium—low food and service subratings merit branch review.",
-      "author": "Yu Hua Yu",
-      "tags": [
-        "Google Maps",
-        "Food Score",
-        "Service Score",
-        "Atmosphere Score",
-        "PR Watch"
-      ],
-      "verification": "Direct review-specific Google Maps link verified for Citygate Outlets. No written allegation was present and no overall rating was inferred.",
-      "prWatchPriority": "medium",
-      "todayRun": true
-    },
-    {
-      "date": "2026-08-23",
-      "time": "全日",
-      "source": "Google Maps (Park Central)",
-      "platformType": "Google Maps",
-      "title": "將軍澳中心顧客給予食物、服務及氣氛全5分",
-      "summary": "Google Maps用戶Fenny Ng未留下文字評論，給予食物5分、服務5分及氣氛5分；標示人均消費HK$500以上、建議預約、環境安靜易於交談，等候時間10至30分鐘。",
-      "link": "https://maps.app.goo.gl/KX3tsPdx9ZBte3NQ9",
-      "keyword": "Outback",
-      "sentiment": "positive",
-      "newActivity": true,
-      "collectedAt": "2026-08-25T09:28:21Z",
-      "notes": "作者: Fenny Ng | 主題: Google Maps、Food Score、Service Score、Atmosphere Score、Park Central | 驗證: Direct Google Maps review opened and verified for Outback Steakhouse, Shop G43, Park Central, Tseung Kwan O. Page showed '2 days ago' on 2026-08-25; recorded as 2026-08-23. Overall rating was not separately inferred. PR Watch: None.",
-      "author": "Fenny Ng",
-      "tags": [
-        "Google Maps",
-        "Food Score",
-        "Service Score",
-        "Atmosphere Score",
-        "Park Central"
-      ],
-      "verification": "Direct review-specific Google Maps link verified for Park Central, Tseung Kwan O. Food, service and atmosphere were each rated 5; no overall rating was inferred.",
-      "todayRun": true
-    },
-    {
-      "date": "2026-08-24",
-      "time": "19:00",
-      "source": "U Food",
-      "platformType": "食評／生活媒體",
-      "title": "新城市廣場麵包節餐飲優惠：Outback黑糖麥包外帶價HK$10",
-      "summary": "U Food報道新城市廣場將於8月28日至30日舉行「CHILL歎麵包節2026」，並列出Outback Steakhouse三期A330號舖的限定優惠：外帶裝招牌黑糖麥包HK$10，原價HK$13。",
-      "link": "https://ufood.com.hk/restaurant/news/detail/20107253/%E6%96%B0%E5%9F%8E%E5%B8%82%E5%BB%A3-chill%E6%AD%8E%E9%BA%B5%E5%8C%85%E7%AF%80-%E5%98%89%E5%A4%9A%E5%A8%9C-manteigaria%E9%80%BE-%E5%93%81%E7%89%8C%E9%80%B2%E9%A7%90-%E5%BF%85%E9%A3%9F%E5%B8%82%E9%9B%86%E9%99%90%E5%AE%9A%E7%8F%AD%E8%98%AD%E9%BA%BB%E7%B3%AC%E5%8C%85",
-      "keyword": "Outback",
-      "sentiment": "positive",
-      "newActivity": true,
-      "collectedAt": "2026-08-25T09:28:21Z",
-      "notes": "作者: 陸秋燕 | 主題: Media、Promotion、Brown Sugar Bread、New Town Plaza、Event | 驗證: Original U Food article opened and verified; structured metadata states 2026-08-24T19:00:00+0800. The article explicitly lists the Outback offer and branch. PR Watch: None.",
-      "author": "陸秋燕",
-      "tags": [
-        "Media",
-        "Promotion",
-        "Brown Sugar Bread",
-        "New Town Plaza",
-        "Event"
-      ],
-      "verification": "Original U Food article and structured timestamp were verified. The article explicitly lists Outback's A330 branch and the HK$10 takeaway brown-sugar bread offer.",
-      "todayRun": true
-    },
-    {
-      "date": "2026-08-22",
-      "time": "01:00",
-      "source": "新假期 Weekend Weekly",
-      "platformType": "媒體報道",
-      "title": "Outback獲《新假期必吃食店大獎2026》必吃西餐編輯推介",
-      "summary": "《新假期》公布「必吃食店大獎2026」結果，Outback Steakhouse獲列入「必吃西餐」編輯推介名單，與A.O.M、UURO及La Vache!同列，屬正面第三方餐飲認可。",
-      "link": "https://www.weekendhk.com/jezz%E5%B0%88%E5%8D%80/%E5%BF%85%E5%90%83%E9%A3%9F%E5%BA%97%E5%A4%A7%E7%8D%8E2026-%E5%BE%97%E7%8D%8E%E5%85%AC%E5%B8%83-3487284/",
-      "keyword": "Outback",
-      "sentiment": "positive",
-      "newActivity": true,
-      "collectedAt": "2026-08-25T09:28:21Z",
-      "notes": "作者: 新假期 | 主題: Media、Award、Editorial Pick、Western Dining、Brand Recognition | 驗證: Original WeekendHK article opened and verified; structured metadata states 2026-08-21T17:00:26+00:00, equivalent to 2026-08-22 01:00 HKT. The article explicitly includes Outback Steakhouse in the Must-Eat Western Food editor picks. PR Watch: Low—positive earned-media recognition.",
-      "author": "新假期",
-      "tags": [
-        "Media",
-        "Award",
-        "Editorial Pick",
-        "Western Dining",
-        "Brand Recognition"
-      ],
-      "verification": "Original WeekendHK article and structured timestamp were verified. Outback Steakhouse is explicitly included in the Must-Eat Western Food editor picks.",
-      "prWatchPriority": "low",
-      "todayRun": true
+      "tags": ""
     }
   ],
-  "alerts": [
-    {
-      "severity": "HIGH",
-      "status": "ongoing",
-      "title": "持續高優先級觀察：用戶稱 Outback 用餐後出現不適並求醫",
-      "summary": "18 Aug Threads 作者以個人經歷描述食用沙律、牛扒及草莓奶昔後出現腸胃不適並曾求醫。這是未經獨立核實的個人陳述，不能視為餐廳或食品引致病情的證據；因涉及健康與食品安全觀感，建議依標準客訴流程保存來源並評估私下關懷。",
-      "source": "Threads (Authenticated)",
-      "link": "https://www.threads.com/@bobotang__/post/DcLVyyeGq9V"
-    },
-    {
-      "severity": "MEDIUM",
-      "status": "new",
-      "title": "東薈城分項低評：食物1、服務1、氣氛2",
-      "summary": "21 Aug Google Maps 用戶未留下文字評論，只給予食物1、服務1及氣氛2的分項評分。原頁整體星級未能可靠擷取，亦沒有任何具體指控；建議門店以近期營運數據及客訴紀錄作內部核對，勿推斷未寫出的原因。",
-      "source": "Google Maps (Citygate Outlets)",
-      "link": "https://maps.app.goo.gl/j8o1G5gmQu8PckD98"
-    },
-    {
-      "severity": "LOW",
-      "status": "new",
-      "title": "正面會員及媒體動能：UGC、麵包節與編輯推介",
-      "summary": "24 Aug 香港創作者分享Prestige會員體驗，驗證時顯示460個讚好及19則留言；同輪另見U Food麵包節優惠及《新假期》必吃西餐編輯推介。創作者所稱HK$2,600+價值屬其個人試算，未經獨立審核，引用時應清楚歸因。",
-      "source": "Instagram",
-      "link": "https://www.instagram.com/p/DcbX9c4Ekdp/"
-    }
-  ],
-  "summary": "活躍監測資料範圍維持由 2026 年 8 月 1 日起。本輪新增 8 條經原始頁面核實的香港相關記錄：2 條媒體、2 條社交內容及 4 條 Google Maps 評論。整體以正面會員、食品及編輯推介訊號為主；東薈城一項無文字低分評論列作中優先級內部核對。Facebook 同文轉載、既有 Eber 個案帖文及含糊 hashtag 帖文已按精確文字、canonical URL 或證據不足排除；小紅書受阻內容不作推斷。"
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 1,
+    "new_records": 1,
+    "limitations": []
+  }
 }
