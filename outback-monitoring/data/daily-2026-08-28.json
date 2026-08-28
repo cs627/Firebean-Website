@@ -1,0 +1,80 @@
+{
+  "date": "2026-08-28",
+  "items": [
+    {
+      "date": "2026-08-28",
+      "source": "Lemon Media (Threads)",
+      "platform": "社交媒體提及",
+      "author": "",
+      "title": "沙田新城市麵包節 — Outback $10黑糖麥包外帶優惠",
+      "summary": "Lemon Media報導沙田新城市廣場8月28-30日麵包節，Outback Steakhouse提供外帶裝招牌黑糖麥包驚喜價$10，與其他商場餐飲品牌一併推廣。",
+      "link": "https://www.threads.net/@lemonmediahk",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-28",
+      "source": "Outback官網",
+      "platform": "官方推廣",
+      "author": "",
+      "title": "「八月夏日消暑飲品優惠」— 精選飲品高達4折",
+      "summary": "Outback 8月份推出「August Sip Escape」飲品優惠：Mocktails $38、蘋果酒沙冰 $58、Peroni生啤 $48，精選飲品高達4折。活動至8月31日。",
+      "link": "https://www.outback.com.hk/news-and-promotions/page/1?lang=",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-28",
+      "source": "Outback官網",
+      "platform": "官方推廣",
+      "author": "",
+      "title": "「夏日美食秘笈」新菜單 — 布拉塔芝士沙律、熔岩芝士帶子意粉、黑糖麥包香蕉船",
+      "summary": "Outback夏日新菜單包括：意大利布拉塔流心芝士沙律、意大利熔岩芝士帶子意粉（Parmigiano-Reggiano芝士輪即場製作）、以及首次以黑糖麥包作甜品主角的香蕉船。",
+      "link": "https://www.outback.com.hk/news-and-promotions/page/1?lang=",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-28",
+      "source": "Outback Facebook",
+      "platform": "社交媒體官方貼文",
+      "author": "",
+      "title": "「Opps！跌入Keep Fit無限循環」— 官方社交貼文",
+      "summary": "Outback官方Facebook於8月26日發布趣味互動貼文「Opps！跌入Keep Fit無限循環」，獲51個互動反應，以輕鬆幽默方式與粉絲互動。",
+      "link": "https://www.facebook.com/outbacksteakhousehk",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-28",
+      "source": "Instagram @outbacksteakhousehk",
+      "platform": "社交媒體官方貼文",
+      "author": "",
+      "title": "官方IG近期貼文 — DSE考生75折 + 日常推廣 + VIP會員生日獎賞",
+      "summary": "Outback官方IG近期發布多項推廣：8月24日最新照片、8月20日影片、DSE放榜75折優惠（7月15-17日）、VIP/Prestige會員8月生日獎賞等。追蹤者4,684人。",
+      "link": "https://www.instagram.com/outbacksteakhousehk",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-28",
+      "source": "Instagram @foodie",
+      "platform": "社交媒體食評",
+      "author": "",
+      "title": "銅鑼灣Outback食評 — 18oz Prime Rib + Tomahawk Steak",
+      "summary": "食客於銅鑼灣廣場一期分店品嚐18oz Prime Rib及USDA Prime Tomahawk Steak，帖文獲多位foodie互動讚好，hashtag #outbacksteakhousehk。貼文含詳細食物照片。",
+      "link": "https://www.instagram.com/p/DIdpq5gJLJm",
+      "sentiment": "positive",
+      "tags": ""
+    }
+  ],
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 5,
+    "new_records": 6,
+    "limitations": []
+  }
+}
