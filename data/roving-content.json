@@ -1,0 +1,118 @@
+{
+  "hero": {
+    "title": {
+      "EN": "Hong Kong's Roving Exhibition Agency",
+      "TC": "香港巡迴展覽專家",
+      "JP": "香港の巡回展示エージェンシー"
+    },
+    "subtitle": {
+      "EN": "36 projects. 10 years. 8 government bureaus. 1.5M+ people engaged.",
+      "TC": "36個項目。10年經驗。8個政府部門。150萬+參與人次。",
+      "JP": "36プロジェクト。10年の実績。8つの政府機関。150万人以上が参加。"
+    }
+  },
+  "intro": {
+    "body": {
+      "EN": "<p>Since 2016, Firebean has been Hong Kong's go-to agency for roving exhibitions. We don't just build displays — we make them travel. From shopping malls to community halls, school campuses to government venues, our exhibitions move where the people are.</p><p>With 36 roving projects across 8 government bureaus and commercial clients, we've turned exhibitions into moving engines of public engagement — bringing constitutional education, anti-drug messaging, electoral awareness, and brand experiences to over 1.5 million Hong Kong citizens.</p>",
+      "TC": "<p>自2016年起，Firebean一直是香港巡迴展覽的首選夥伴。我們不只搭建展覽 — 我們讓展覽走遍全港。從商場到社區會堂，從校園到政府場地，我們的展覽去到人群所在之處。</p><p>36個巡迴項目橫跨8個政府部門及商業客戶，我們將展覽轉化為移動式的公眾參與引擎 — 將憲法教育、禁毒訊息、選舉意識及品牌體驗帶給超過150萬香港市民。</p>",
+      "JP": "<p>2016年以来、Firebeanは香港の巡回展示の第一人者です。展示を構築するだけでなく、それを旅させます。ショッピングモールからコミュニティホール、学校から政府施設まで、展示は人々のいる場所へ移動します。</p><p>8つの政府機関と商業クライアントにわたる36の巡回プロジェクトを通じて、憲法教育、麻薬撲滅啓発、選挙啓発、ブランド体験を150万人以上の香港市民に届けてきました。</p>"
+    }
+  },
+  "stats": {
+    "projects": {
+      "EN": "36",
+      "TC": "36",
+      "JP": "36"
+    },
+    "years": {
+      "EN": "10",
+      "TC": "10",
+      "JP": "10"
+    },
+    "bureaus": {
+      "EN": "8",
+      "TC": "8",
+      "JP": "8"
+    },
+    "peopleLabel": {
+      "EN": "People Engaged",
+      "TC": "參與人次",
+      "JP": "参加者"
+    },
+    "peopleValue": {
+      "EN": "1.5M+",
+      "TC": "150萬+",
+      "JP": "150万+"
+    }
+  },
+  "methodology": {
+    "title": {
+      "EN": "The Firebean Method",
+      "TC": "火豆巡迴方法論",
+      "JP": "Firebeanメソッド"
+    },
+    "steps": [
+      {
+        "title": {
+          "EN": "1. Design",
+          "TC": "1. 設計",
+          "JP": "1. 設計"
+        },
+        "body": {
+          "EN": "Concept development rooted in policy objectives and audience insights.",
+          "TC": "以政策目標和受眾洞察為基礎的概念開發。",
+          "JP": "政策目標とオーディエンスインサイトに基づくコンセプト開発。"
+        }
+      },
+      {
+        "title": {
+          "EN": "2. Build & Brand",
+          "TC": "2. 搭建與品牌",
+          "JP": "2. 構築とブランディング"
+        },
+        "body": {
+          "EN": "Modular, transportable exhibition design engineered for repeated assembly.",
+          "TC": "模組化、可運輸的展覽設計，專為跨場地重複搭建而設計。",
+          "JP": "モジュール式で運搬可能、複数会場での繰り返し組立に対応。"
+        }
+      },
+      {
+        "title": {
+          "EN": "3. Tour & Operate",
+          "TC": "3. 巡迴與營運",
+          "JP": "3. 巡回と運営"
+        },
+        "body": {
+          "EN": "Full logistics — transport, installation, staffing across every venue.",
+          "TC": "全方位物流管理 — 運輸、安裝、現場人手涵蓋每個場地。",
+          "JP": "完全な物流 — 輸送、設置、スタッフを全会場で提供。"
+        }
+      },
+      {
+        "title": {
+          "EN": "4. Engage & Measure",
+          "TC": "4. 互動與量度",
+          "JP": "4. エンゲージメントと測定"
+        },
+        "body": {
+          "EN": "Interactive experiences with real-time engagement tracking and analytics.",
+          "TC": "互動體驗配合即時參與追蹤及數據分析。",
+          "JP": "リアルタイムのエンゲージメント追跡と分析によるインタラクティブ体験。"
+        }
+      }
+    ]
+  },
+  "cta": {
+    "title": {
+      "EN": "Need a Roving Exhibition?",
+      "TC": "需要巡迴展覽？",
+      "JP": "巡回展示のご相談は？"
+    },
+    "text": {
+      "EN": "Let's make your message travel.",
+      "TC": "讓您的訊息走遍全港。",
+      "JP": "メッセージを香港中に届けましょう。"
+    },
+    "email": "hello@firebean.net"
+  }
+}
