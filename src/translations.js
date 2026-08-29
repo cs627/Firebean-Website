@@ -100,8 +100,10 @@
   // Build translations map from array data: { "Page.Section.Key": { en, ch, jp } }
   function buildTranslationsMap(rows) {
     var map = {};
+    if (!rows || !rows.length) return map;
     for (var i = 0; i < rows.length; i++) {
       var row = rows[i];
+      if (!row || !row.length) continue;
       var page = (row[0] || '').trim();
       var section = (row[1] || '').trim();
       var key = (row[2] || '').trim();
@@ -116,8 +118,13 @@
     return map;
   }
 
-  // Initialize with fallback data
-  var translations = buildTranslationsMap(FALLBACK_DATA);
+  // Initialize with fallback data — wrapped for safety
+  var translations = {};
+  try {
+    translations = buildTranslationsMap(FALLBACK_DATA);
+  } catch(e) {
+    console.error('[translations] buildTranslationsMap fallback failed:', e.message);
+  }
 
   // Get current language
   function getLang() {
