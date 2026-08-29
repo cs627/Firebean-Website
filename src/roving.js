@@ -71,7 +71,11 @@
     h+='<div class="rv-match-wrap py-12"><img src="../data/images/match.webp" alt="" class="rv-match" style="width:100%;height:auto"></div></div>';
     h+='<div class="lg:col-span-8"><div class="grid grid-cols-1 sm:grid-cols-2 gap-5">'+buildStepCards()+'</div></div></div></section>';
 
-    h+='<h2 class="font-display text-3xl md:text-5xl lg:text-6xl tracking-tighter uppercase text-brand-black text-center mb-8">'+cnt+' Roving Exhibitions \u00b7 '+yrList[0]+'\u2014'+yrList[yrList.length-1]+'</h2>';
+    h+='<h2 class="font-display text-3xl md:text-5xl lg:text-6xl tracking-normal uppercase text-brand-black text-center mb-8" style="letter-spacing:0.02em;word-spacing:0.08em;line-height:1.2">';
+        h+='<span class="text-brand-red" id="rv-count-disp">'+cnt+'</span> ';
+        h+='<span data-key="Roving.Projects.SectionTitle">Roving Exhibitions</span> ';
+        h+='<span class="text-gray-400">·</span> ';
+        h+='<span id="rv-year-disp" data-key="Roving.Projects.YearRange">'+yrList[0]+'\u2014'+yrList[yrList.length-1]+'</span></h2>';
     h+='<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">'+buildCards(roving)+'</div>';
 
     var el=document.getElementById("roving-main");
