@@ -97,8 +97,8 @@
     h+='<section class="mb-32" id="rv-method">';
     h+='<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">';
     h+='<div class="lg:col-span-4 flex flex-col items-center">';
-    h+='<p class="rv-subtitle font-playfair italic text-sm md:text-base text-gray-400 text-right w-full mb-16" data-key="Roving.Methodology.Subtitle">From policy to public &mdash; four steps to a memorable roving exhibition.</p>';
-    h+='<div class="rv-match-wrap relative py-16">';
+    h+='<p class="rv-subtitle font-playfair italic text-sm md:text-base text-gray-400 text-right w-full mb-24" data-key="Roving.Methodology.Subtitle">From policy to public &mdash; four steps to a memorable roving exhibition.</p>';
+    h+='<div class="rv-match-wrap relative py-24">';
     h+='<img src="../data/images/match.webp" alt="" class="rv-match rv-match-1" style="width:100%;height:auto;position:relative;z-index:1">';
     h+='<img src="../data/images/match.webp" alt="" class="rv-match rv-match-2" style="width:100%;height:auto;position:absolute;top:50%;left:50%;z-index:2">';
     h+='</div></div>';
@@ -135,21 +135,19 @@
       if(rect.bottom<0||rect.top>winH) return;
       var progress=(winH-rect.top)/(winH+rect.height);
       progress=Math.max(0,Math.min(1,progress));
-      // Two matchsticks — opposite diagonals, cross in centre
-      // Match 1 (base): starts bottom-left, slides diagonally up-right
-      // head → aligns with "From" subtitle, body → step03 area
-      var x1=-100+progress*100;   // -100px → 0
-      var y1=150-progress*200;    // +150px → -50px (head shifts up toward "From")
-      match1.style.transform="translate("+x1+"px, "+y1+"px) rotate(-15deg)";
-      // Match 2 (overlay): starts completely off-screen right, slides diagonally left-down
-      // Final: head near "four" in subtitle, body → step01 first line
-      if(match2){
-        var p2=1-Math.pow(1-progress,3);
-        var x2=400-p2*380;        // +400px (off-screen right) → +20px
-        var y2=-200+p2*130;       // -200px (far above) → -70px (head near subtitle)
-        match2.style.transform="translate(-50%,-50%) translate("+x2+"px, "+y2+"px) rotate(25deg)";
-        match2.style.transition="none";
-      }
+      // Two matchsticks — diagonal cross, kept clear below subtitle
+            // Match 1 (base): starts bottom-left, slides diagonally up-right, ends well below subtitle
+            var x1=-100+progress*100;   // -100px → 0
+            var y1=280-progress*200;    // +280px → +80px (stays below subtitle zone)
+            match1.style.transform="translate("+x1+"px, "+y1+"px) rotate(-15deg)";
+            // Match 2 (overlay): starts off-screen right, slides diagonally left-down, ends below subtitle
+            if(match2){
+              var p2=1-Math.pow(1-progress,3);
+              var x2=400-p2*380;        // +400px (off-screen right) → +20px
+              var y2=-150+p2*200;       // -150px → +50px (stays below subtitle)
+              match2.style.transform="translate(-50%,-50%) translate("+x2+"px, "+y2+"px) rotate(25deg)";
+              match2.style.transition="none";
+            }
     }
     window.addEventListener("scroll", onScroll, {passive:true});
     onScroll();
