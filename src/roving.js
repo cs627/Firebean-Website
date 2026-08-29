@@ -135,16 +135,17 @@
       if(rect.bottom<0||rect.top>winH) return;
       var progress=(winH-rect.top)/(winH+rect.height);
       progress=Math.max(0,Math.min(1,progress));
-      // Match 1: linear speed, slides in from left (-200px → 0), rotate -15deg
-      var offset1=-200+progress*200;
-      match1.style.transform="translateX("+offset1+"px) rotate(-15deg)";
-      // Match 2: ease-out curve (slower start, catches up near end), slides from right
-      if(match2){
-        var p2=1-Math.pow(1-progress,3); // ease-out cubic
-        var shift2=-80+p2*80; // starts at -80, ends at 0
-        match2.style.transform="translate(-50%,-50%) translateX("+shift2+"px) rotate(25deg)";
-        match2.style.transition="none"; // handled by scroll, not CSS transition
-      }
+      // Two matchsticks from opposite sides, different speeds
+            // Match 1 (base): flies in from RIGHT (+250px OFF-screen → 0), linear, rotate -15deg
+            var offset1=250-progress*250;
+            match1.style.transform="translateX("+offset1+"px) rotate(-15deg)";
+            // Match 2 (overlay): flies in from LEFT (-200px → 0), ease-out cubic, rotate +25deg
+            if(match2){
+              var p2=1-Math.pow(1-progress,3);
+              var shift2=-200+p2*200;
+              match2.style.transform="translate(-50%,-50%) translateX("+shift2+"px) rotate(25deg)";
+              match2.style.transition="none";
+            }
     }
     window.addEventListener("scroll", onScroll, {passive:true});
     onScroll();
