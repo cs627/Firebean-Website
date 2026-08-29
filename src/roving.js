@@ -15,13 +15,16 @@
   ];
 
   function isRoving(p){
-    // Match by categories including "exhibitions"
+    // Match by name: contains 巡迴 or roving
+    var n=p.projectName||"";
+    if(n.indexOf("\u5de1\u8ff4")>=0||n.toLowerCase().indexOf("roving")>=0) return true;
+    // Match by categories (exhibitions) + description mentions roving/巡迴
     var cats=p.categories||[];
     if(typeof cats==="string") cats=cats.split(",");
-    if(cats.indexOf("exhibitions")>=0) return true;
-    // Fallback: name contains 巡迴 or roving
-    var n=p.projectName||"";
-    return n.indexOf("\u5de1\u8ff4")>=0||n.toLowerCase().indexOf("roving")>=0;
+    if(cats.indexOf("exhibitions")<0) return false;
+    // Check if description (webEN/webTC) mentions roving
+    var desc=(p.webEN||"")+" "+(p.webTC||"");
+    return desc.indexOf("\u5de1\u8ff4")>=0||desc.toLowerCase().indexOf("roving")>=0;
   }
 
   function buildCards(projects){
@@ -74,9 +77,9 @@
             if(bureauKey.indexOf("\u653f\u5236\u5185\u5730")>=0||bureauKey.indexOf("\u653f\u5236\u5167\u5730")>=0) bureauKey="Constitutional and Mainland Affairs Bureau";
             if(bureauKey.indexOf("Narcotics Division")>=0) bureauKey="Security Bureau";
             // Only count true government/public sector — skip NGOs
-            var isGov=cat.indexOf("government")>=0||cat.indexOf("public")>=0||
-               c.indexOf("\u5c40")>=0||c.indexOf("\u7f72")>=0||c.indexOf("Department")>=0||c.indexOf("Bureau")>=0;
-            if(isGov) bureaus[bureauKey]=(bureaus[bureauKey]||0)+1;
+      var isGov=(cat.indexOf("government")>=0||cat.indexOf("public")>=0) &&
+                 (c.indexOf("\u5c40")>=0||c.indexOf("\u7f72")>=0||c.indexOf("Department")>=0||c.indexOf("Bureau")>=0);
+      if(isGov) bureaus[bureauKey]=(bureaus[bureauKey]||0)+1;
       var sd=roving[i].sortDate; if(sd&&sd.length>=4) yrs[sd.substring(0,4)]=1;
     }
     var burCnt=Object.keys(bureaus).length, yrList=Object.keys(yrs).sort();
