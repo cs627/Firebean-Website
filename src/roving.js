@@ -135,13 +135,16 @@
       if(rect.bottom<0||rect.top>winH) return;
       var progress=(winH-rect.top)/(winH+rect.height);
       progress=Math.max(0,Math.min(1,progress));
-      // Match 1: slides in from left (-120px → 0), rotate -15deg
+      // Match 1: linear speed, slides in from left (-120px → 0), rotate -15deg
       var offset1=-120+progress*120;
       match1.style.transform="translateX("+offset1+"px) rotate(-15deg)";
-      // Match 2: slides in from right (120px → 0), rotate +25deg (opposite angle, overlapping)
+      // Match 2: ease-out curve (slower start, catches up near end), slides from right
       if(match2){
-        var offset2=120-progress*120;
-        match2.style.transform="translate(-50%,-50%) translateX("+(-40+progress*40)+"px) rotate(25deg)";
+        var p2=1-Math.pow(1-progress,3); // ease-out cubic
+        var offset2=120-p2*120; // starts at 120, ends at 0
+        var shift2=-40+p2*40; // starts at -40, ends at 0
+        match2.style.transform="translate(-50%,-50%) translateX("+shift2+"px) rotate(25deg)";
+        match2.style.transition="none"; // handled by scroll, not CSS transition
       }
     }
     window.addEventListener("scroll", onScroll, {passive:true});
