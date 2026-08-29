@@ -86,6 +86,10 @@
     ["Roving","Stats","Years","9","9","9"],
     ["Roving","Stats","Bureaus","6","6","6"],
     ["Roving","Stats","PeopleLabel","People Engaged","參與人次","参加者"],
+    ["Roving","Hero","Slogan1","PROJECTS.","個項目。","プロジェクト。"],
+    ["Roving","Hero","Slogan2","GOVERNMENT BUREAUS.","個政府部門。","つの政府機関。"],
+    ["Roving","Hero","Slogan3","1.5M+","150萬+","150万人"],
+    ["Roving","Hero","Slogan4","PEOPLE ENGAGED.","參與人次。","以上が参加。"],
     ["Roving","Stats","ProjectsLabel","Roving Projects","巡迴項目","巡回プロジェクト"],
 ];
 
