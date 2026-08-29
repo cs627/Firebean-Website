@@ -20,23 +20,26 @@
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Roving Exhibitions | Hong Kong's Most Experienced | Firebean Agency</title>
-  <meta name="description" content="Firebean: Hong Kong's roving exhibition agency. 36 projects, 10 years, 8 government bureaus, 1.5M+ people engaged. Lifestyle PR & Event Production since 2007.">
+  <meta name="description" content="Firebean: Hong Kong's roving exhibition agency. 11 projects, 6 government bureaus, 1.5M+ people engaged. Lifestyle PR & Event Production since 2007.">
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://firebean.net/roving-exhibitions/">
   <meta property="og:title" content="Roving Exhibitions | Firebean Agency Hong Kong">
-  <meta property="og:description" content="36 roving exhibitions. 10 years. 8 government bureaus. 1.5M+ people engaged. Hong Kong's most experienced roving exhibition agency.">
+  <meta property="og:description" content="11 roving exhibitions. 6 government bureaus. 1.5M+ people engaged. Hong Kong's most experienced roving exhibition agency.">
   <meta property="og:image" content="https://firebean.net/data/images/firebean-logo-w1000.webp">
   <meta property="og:site_name" content="Firebean Agency">
   <meta property="og:locale" content="en_HK">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Roving Exhibitions | Firebean Agency Hong Kong">
-  <meta name="twitter:description" content="36 roving exhibitions. 10 years. 8 government bureaus. 1.5M+ people engaged.">
+  <meta name="twitter:description" content="11 roving exhibitions. 6 government bureaus. 1.5M+ people engaged.">
   <meta name="twitter:image" content="https://firebean.net/data/images/firebean-logo-w1000.webp">
   <link rel="canonical" href="https://firebean.net/roving-exhibitions/">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <!-- Translations & Legal Content -->
+  <script src="../src/translations.js"></script>
 
   <!-- GEO: Service JSON-LD -->
   <script type="application/ld+json">
@@ -45,7 +48,7 @@
     "@type": "Service",
     "provider": {"@type": "Organization", "name": "Firebean Limited", "url": "https://firebean.net"},
     "name": "Roving Exhibitions",
-    "description": "Hong Kong roving exhibition design, build, tour, and operations. 36 projects since 2016 across 8 government bureaus. 1.5M+ people engaged.",
+    "description": "Hong Kong roving exhibition design, build, tour, and operations. 11 projects since 2018 across 6 government bureaus. 1.5M+ people engaged.",
     "areaServed": {"@type": "Place", "name": "Hong Kong"},
     "serviceType": "Roving Exhibitions"
   }
@@ -57,9 +60,9 @@
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {"@type": "Question", "name": "What is a roving exhibition?", "acceptedAnswer": {"@type": "Answer", "text": "A roving exhibition is a portable, modular display that travels to multiple venues — shopping malls, schools, community halls — to engage different audiences. Firebean has delivered 36 roving exhibitions since 2016."}},
-      {"@type": "Question", "name": "Which government departments has Firebean done roving exhibitions for?", "acceptedAnswer": {"@type": "Answer", "text": "8 bureaus: Constitutional and Mainland Affairs Bureau (12 projects), Buildings Department, Security Bureau (Narcotics Division), Education Bureau, Housing Authority, Civil Service Bureau, Development Bureau, and Leisure and Cultural Services Department."}},
-      {"@type": "Question", "name": "How many roving exhibitions has Firebean delivered?", "acceptedAnswer": {"@type": "Answer", "text": "36 roving exhibitions since 2016, engaging over 1.5 million Hong Kong citizens across 10 years."}}
+      {"@type": "Question", "name": "What is a roving exhibition?", "acceptedAnswer": {"@type": "Answer", "text": "A roving exhibition is a portable, modular display that travels to multiple venues — shopping malls, schools, community halls — to engage different audiences. Firebean has delivered 11 roving exhibitions since 2018."}},
+      {"@type": "Question", "name": "Which government departments has Firebean done roving exhibitions for?", "acceptedAnswer": {"@type": "Answer", "text": "6 government bureaus: Constitutional and Mainland Affairs Bureau, Civil Service Bureau, Security Bureau (Narcotics Division), Development Bureau, and more."}},
+      {"@type": "Question", "name": "How many roving exhibitions has Firebean delivered?", "acceptedAnswer": {"@type": "Answer", "text": "11 roving exhibitions since 2018, engaging over 1.5 million Hong Kong citizens."}}
     ]
   }
   </script>
@@ -97,9 +100,16 @@
   <style>
     :root {
       --text-primary: #0a0a0a;
+      --bg-primary: #111111;
+      --bg-card: #1a1a1a;
+      --border-subtle: rgba(255,255,255,0.08);
+      --text-secondary: #a0a0a0;
+      --text-tertiary: #6b6b6b;
+      --logo-ghost: #1a1a1a;
     }
     html.dark {
       --text-primary: #e5e5e5;
+      --bg-primary: #111111;
     }
     html, body {
       overflow-x: hidden;
@@ -149,7 +159,40 @@
     .project-card:hover .project-card-title {
       color: #ff3333;
     }
+
+    #navbar { z-index: 99999 !important; pointer-events: auto !important; }
+    #nav-panel { z-index: 100001 !important; }
+    .lang-btn { cursor: pointer !important; position: relative; z-index: 100000 !important; pointer-events: auto !important; }
+    #hero { z-index: 1; }
+    .jp-hero-title { pointer-events: none !important; }
+    .jp-hero-title * { pointer-events: none !important; }
+    .jp-hero-title a, .jp-hero-title button { pointer-events: auto !important; }
+    html.dark .bg-brand-gray { background-color: var(--bg-primary) !important; }
+    html.dark .text-brand-black { color: var(--text-primary) !important; }
+    html.dark .text-gray-600 { color: var(--text-secondary) !important; }
+    html.dark .text-gray-400 { color: var(--text-tertiary) !important; }
+    html.dark .bg-gray-200 { background-color: var(--bg-card) !important; }
+    html.dark .border-black\/5 { border-color: var(--border-subtle) !important; }
+    html.dark .stroke-text-black { -webkit-text-stroke-color: #e5e5e5; }
+    html.dark .bg-3d-logo { color: var(--logo-ghost); }
+    html.dark #navbar img { filter: invert(1); mix-blend-mode: screen !important; }
+    html.dark #nl-submit-btn { background-color: #e5e5e5 !important; color: #0a0a0a !important; }
+    html.dark #nl-submit-btn:hover { background-color: #ff3333 !important; color: #ffffff !important; }
+    html.dark #profile-title { color: var(--text-primary) !important; }
+    html.dark #profile-categories span { color: var(--text-primary) !important; }
+    html.dark iframe[src*="google.com/maps"] { filter: invert(0.9) hue-rotate(180deg); }
   </style>
+
+  <script>
+    // Dark mode: check localStorage first, then system preference
+    (function() {
+      var stored = localStorage.getItem('darkMode');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (stored === 'true' || (stored === null && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
 </head>
 <body class="antialiased">
 
@@ -157,18 +200,70 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TTTVXSDS"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<!-- Navigation — same as profile page -->
-<nav class="absolute top-0 left-0 w-full px-6 py-6 flex justify-between items-center z-[9999] text-brand-black pointer-events-auto" id="navbar">
-  <a class='flex items-center gap-2 hover:opacity-70 transition-opacity' href='/'>
-    <img src="data/images/firebean-logo-w100.webp" class="h-6 w-auto object-contain mix-blend-multiply" alt="Firebean Logo" referrerpolicy="no-referrer">
+<!-- Navigation — EXACT MATCH to index.html -->
+<nav class="absolute top-0 left-0 w-full px-6 py-6 flex justify-between items-center z-[9999] text-brand-black pointer-events-auto" id="navbar" data-lenis-prevent>
+  <a class='flex items-center gap-2 hover:opacity-70 transition-opacity' href='../index.html'>
+    <img src="../data/images/firebean-logo-w100.webp" class="h-6 w-auto object-contain mix-blend-multiply" alt="Firebean Logo" referrerpolicy="no-referrer">
     <div class="font-sans font-light text-xl tracking-widest lowercase" style="font-variant: small-caps;">firebean</div>
   </a>
+
   <div class="hidden md:flex gap-8 font-sans text-sm uppercase tracking-widest items-center">
-    <a href="/" class="hover:opacity-50 transition-opacity">Home</a>
-    <a href="/work.html" class="hover:opacity-50 transition-opacity">Our Work</a>
-    <a href="/roving-exhibitions/" class="text-brand-red font-bold">Roving Exhibitions</a>
+    <a href="../index.html" class="hover:opacity-50 transition-opacity" data-key="Global.Navigation.Home">Home</a>
+    <a href="../index.html#about" class="hover:opacity-50 transition-opacity" data-key="Global.Navigation.About">About</a>
+    <!-- Mega Menu Trigger -->
+    <div class="relative py-4">
+      <button id="nav-panel-trigger" class='hover:opacity-50 transition-opacity flex items-center gap-1 uppercase tracking-widest text-sm font-sans'>
+        <span data-key="Global.Navigation.WhatWeDo">What We Do</span> <span class="text-[10px]">▼</span>
+      </button>
+    </div>
+    <a href="index.html" class="text-brand-red font-bold hover:opacity-50 transition-opacity">Roving Exhibitions</a>
+  </div>
+
+  <div class="font-sans text-xs uppercase tracking-widest flex gap-2 items-center">
+    <button class="lang-btn hover:opacity-50" data-lang="en">EN</button> |
+    <button class="lang-btn hover:opacity-50 text-gray-500" data-lang="ch">CH</button> |
+    <button class="lang-btn hover:opacity-50 text-gray-500" data-lang="jp">JP</button> |
+    <button class="dark-toggle" id="dark-toggle" title="Toggle dark mode">
+      <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+      </svg>
+      <svg id="icon-sun" style="display:none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+      </svg>
+    </button>
   </div>
 </nav>
+
+<!-- Mega Menu Dropdown -->
+<div id="nav-panel" class="fixed bg-brand-black text-white px-6 py-10 shadow-2xl rounded-xl" style="opacity:0; visibility:hidden; pointer-events:none; top:80px; left:5%; right:5%; width:90%; max-width:600px; z-index:999999; transition:all 0.3s ease;" data-open="false">
+  <button id="nav-panel-close" class="absolute top-4 right-4 text-white hover:text-brand-red transition-colors text-2xl leading-none">&times;</button>
+  <div class="grid grid-cols-2 gap-8 md:gap-16 w-full">
+    <div>
+      <h4 class="font-oswald text-lg md:text-xl mb-4 md:mb-6 text-brand-red tracking-widest" data-key="Global.Navigation.WhoWeHelp">WHO WE HELP</h4>
+      <ul class="space-y-2 md:space-y-3 text-xs md:text-sm text-gray-400 font-sans tracking-wide">
+        <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.GovPublic' href='../work.html?filter=government'>Government & Public Sector</a></li>
+        <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.LifestyleConsumer' href='../work.html?filter=lifestyle'>Lifestyle & Consumer</a></li>
+        <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.FBHospitality' href='../work.html?filter=hospitality'>F&B & Hospitality</a></li>
+        <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.MallsVenues' href='../work.html?filter=venues'>Malls & Venues</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-oswald text-lg md:text-xl mb-4 md:mb-6 text-brand-red tracking-widest" data-key="Global.Navigation.WhatWeDo">WHAT WE DO</h4>
+      <ul class="space-y-2 md:space-y-3 text-xs md:text-sm text-gray-400 font-sans tracking-wide">
+        <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.RovingExhibitions' href='index.html'>Roving Exhibitions</a></li>
+        <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.SocialContent' href='../work.html?filter=social'>Social & Content</a></li>
+        <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.InteractiveTech' href='../work.html?filter=tech'>Interactive & Tech</a></li>
+        <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.PRMedia' href='../work.html?filter=pr'>PR & Media</a></li>
+        <li><a class='hover:text-white transition-colors block py-1' data-key='Global.Navigation.EventsCeremonies' href='../work.html?filter=events'>Events & Ceremonies</a></li>
+      </ul>
+    </div>
+    <div class="col-span-2 border-t border-white/20 pt-4 md:pt-6 mt-2">
+      <a class='text-sm font-bold hover:text-brand-red transition-colors flex items-center gap-3 tracking-widest' href='../work.html'>
+        <span class="text-xl">↳</span> <span data-key="Global.Navigation.ViewAllWork">VIEW ALL WORK</span>
+      </a>
+    </div>
+  </div>
+</div>
 
 <!-- MAIN — same padding as profile page -->
 <main class="pt-32 px-6 max-w-7xl mx-auto">
@@ -186,7 +281,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       ROVING<br>EXHIBITIONS
     </h1>
     <p class="font-playfair italic text-xl md:text-2xl font-medium tracking-wide text-brand-black max-w-3xl mx-auto">
-      36 projects. 10 years. 8 government bureaus. 1.5M+ people engaged.
+      11 projects. 6 government bureaus. 1.5M+ people engaged.
     </p>
     <p class="font-oswald text-sm md:text-lg uppercase tracking-[0.15em] text-gray-500 max-w-2xl mx-auto mt-4">
       Hong Kong's Most Experienced Roving Exhibition Agency
@@ -197,34 +292,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="mb-24" style="background:#0a0a0a; padding:3rem 2rem; border-radius:1rem; margin-top:2rem;">
     <div class="flex flex-row justify-center items-center gap-4 md:gap-10 py-4" style="flex-wrap:wrap;">
 
-      <!-- Token 1: 36 Projects -->
       <div class="casino-chip">
         <div class="outer-ring"></div>
         <div class="dashed-ring"></div>
         <svg style="width:clamp(16px,2vw,24px);height:clamp(16px,2vw,24px);color:#ff3333;z-index:1;flex-shrink:0;" fill="none" stroke="#ff3333" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-        <div class="font-oswald font-bold text-white" style="font-size:clamp(26px,4.2vw,48px);line-height:1;z-index:1;text-shadow:0 2px 12px rgba(0,0,0,0.9);">36</div>
+        <div class="font-oswald font-bold text-white" style="font-size:clamp(26px,4.2vw,48px);line-height:1;z-index:1;text-shadow:0 2px 12px rgba(0,0,0,0.9);">11</div>
         <div class="font-sans uppercase tracking-widest text-white text-center leading-tight" style="font-size:clamp(7px,0.8vw,10px);z-index:1;text-shadow:0 1px 6px rgba(0,0,0,0.9);padding:0 14px;">Roving<br>Projects</div>
       </div>
 
-      <!-- Token 2: 10 Years -->
       <div class="casino-chip">
         <div class="outer-ring"></div>
         <div class="dashed-ring"></div>
         <svg style="width:clamp(16px,2vw,24px);height:clamp(16px,2vw,24px);color:#ff3333;z-index:1;flex-shrink:0;" fill="none" stroke="#ff3333" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        <div class="font-oswald font-bold text-white" style="font-size:clamp(26px,4.2vw,48px);line-height:1;z-index:1;text-shadow:0 2px 12px rgba(0,0,0,0.9);">10</div>
-        <div class="font-sans uppercase tracking-widest text-white text-center leading-tight" style="font-size:clamp(7px,0.8vw,10px);z-index:1;text-shadow:0 1px 6px rgba(0,0,0,0.9);padding:0 14px;">Years<br>2016–2026</div>
+        <div class="font-oswald font-bold text-white" style="font-size:clamp(26px,4.2vw,48px);line-height:1;z-index:1;text-shadow:0 2px 12px rgba(0,0,0,0.9);">9</div>
+        <div class="font-sans uppercase tracking-widest text-white text-center leading-tight" style="font-size:clamp(7px,0.8vw,10px);z-index:1;text-shadow:0 1px 6px rgba(0,0,0,0.9);padding:0 14px;">Years<br>2018–2026</div>
       </div>
 
-      <!-- Token 3: 8 Bureaus -->
       <div class="casino-chip">
         <div class="outer-ring"></div>
         <div class="dashed-ring"></div>
         <svg style="width:clamp(16px,2vw,24px);height:clamp(16px,2vw,24px);color:#ff3333;z-index:1;flex-shrink:0;" fill="none" stroke="#ff3333" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-        <div class="font-oswald font-bold text-white" style="font-size:clamp(26px,4.2vw,48px);line-height:1;z-index:1;text-shadow:0 2px 12px rgba(0,0,0,0.9);">8</div>
+        <div class="font-oswald font-bold text-white" style="font-size:clamp(26px,4.2vw,48px);line-height:1;z-index:1;text-shadow:0 2px 12px rgba(0,0,0,0.9);">6</div>
         <div class="font-sans uppercase tracking-widest text-white text-center leading-tight" style="font-size:clamp(7px,0.8vw,10px);z-index:1;text-shadow:0 1px 6px rgba(0,0,0,0.9);padding:0 14px;">Government<br>Bureaus</div>
       </div>
 
-      <!-- Token 4: 1.5M+ -->
       <div class="casino-chip">
         <div class="outer-ring"></div>
         <div class="dashed-ring"></div>
@@ -239,14 +330,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="mb-24">
     <h4 class="font-oswald text-xs uppercase tracking-[0.2em] text-gray-400 mb-6 border-l-2 border-brand-red pl-6">Government Bureaus</h4>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-3 font-sans text-sm">
-      <div class="flex justify-between items-center border-b border-black/10 pb-2"><span>Constitutional and Mainland Affairs Bureau</span><span class="font-oswald text-brand-red font-bold">12 projects</span></div>
-      <div class="flex justify-between items-center border-b border-black/10 pb-2"><span>Buildings Department</span><span class="font-oswald text-brand-red font-bold">4 projects</span></div>
-      <div class="flex justify-between items-center border-b border-black/10 pb-2"><span>Security Bureau (Narcotics Division)</span><span class="font-oswald text-brand-red font-bold">3 projects</span></div>
-      <div class="flex justify-between items-center border-b border-black/10 pb-2"><span>Housing Authority</span><span class="font-oswald text-brand-red font-bold">2 projects</span></div>
+      <div class="flex justify-between items-center border-b border-black/10 pb-2"><span>Constitutional and Mainland Affairs Bureau</span><span class="font-oswald text-brand-red font-bold">4 projects</span></div>
       <div class="flex justify-between items-center border-b border-black/10 pb-2"><span>Civil Service Bureau</span><span class="font-oswald text-brand-red font-bold">2 projects</span></div>
-      <div class="flex justify-between items-center border-b border-black/10 pb-2"><span>Education Bureau</span><span class="font-oswald text-brand-red font-bold">2 projects</span></div>
+      <div class="flex justify-between items-center border-b border-black/10 pb-2"><span>Security Bureau (Narcotics Division)</span><span class="font-oswald text-brand-red font-bold">2 projects</span></div>
       <div class="flex justify-between items-center border-b border-black/10 pb-2"><span>Development Bureau</span><span class="font-oswald text-brand-red font-bold">1 project</span></div>
-      <div class="flex justify-between items-center border-b border-black/10 pb-2"><span>Leisure & Cultural Services Dept.</span><span class="font-oswald text-brand-red font-bold">1 project</span></div>
+      <div class="flex justify-between items-center border-b border-black/10 pb-2"><span>The Hong Kong Society for Rehabilitation</span><span class="font-oswald text-brand-red font-bold">1 project</span></div>
     </div>
   </section>
 
@@ -273,13 +361,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- 36 Projects Grid — 4 per row (same card style as profile/work page) -->
+  <!-- 11 Roving Projects Grid — 4 per row with hero photos -->
   <section class="mb-24">
-    <h4 class="font-oswald text-xs uppercase tracking-[0.2em] text-gray-400 mb-6 border-l-2 border-brand-red pl-6">36 Projects · 2016—2026</h4>
+    <h4 class="font-oswald text-xs uppercase tracking-[0.2em] text-gray-400 mb-6 border-l-2 border-brand-red pl-6">11 Roving Exhibitions · 2018—2026</h4>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-      <a href="profile.html?id=FB2026078" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
+      <a href="../profile.html?id=FB2026078" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
         <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2026078-photo-1.webp" alt="選舉進社區2026巡迴互動展覽" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
+          <img src="../data/images/fb2026078-photo-1.webp" alt="選舉進社區2026巡迴互動展覽" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
         </div>
         <div class="p-4">
           <div class="font-oswald text-xs font-bold uppercase text-brand-red">2026</div>
@@ -287,29 +375,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="font-sans text-xs text-gray-400 mt-1">政制及內地事務局</div>
         </div>
       </a>
-      <a href="profile.html?id=FB2026048" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
+      <a href="../profile.html?id=FB2026010" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
         <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2026048-photo-2.webp" alt="“A Voyage with Books Series” Multimodal Reading Resources Exhibition" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
-        </div>
-        <div class="p-4">
-          <div class="font-oswald text-xs font-bold uppercase text-brand-red">2026</div>
-          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">“A Voyage with Books Series” Multimodal Reading Resources Exhibition</div>
-          <div class="font-sans text-xs text-gray-400 mt-1">Curriculum Resources Section,  Curriculum Development Institute, Education Bureau</div>
-        </div>
-      </a>
-      <a href="profile.html?id=FB2026067" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
-        <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2026067-photo-4.webp" alt="閱讀無界限分享會暨中小學聯校共讀半小時 " class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
-        </div>
-        <div class="p-4">
-          <div class="font-oswald text-xs font-bold uppercase text-brand-red">2026</div>
-          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">閱讀無界限分享會暨中小學聯校共讀半小時 </div>
-          <div class="font-sans text-xs text-gray-400 mt-1">教育局</div>
-        </div>
-      </a>
-      <a href="profile.html?id=FB2026010" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
-        <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2026010-photo-1.webp" alt="科技提升職業安全與健康2026 巡迴展覽" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
+          <img src="../data/images/fb2026010-photo-1.webp" alt="科技提升職業安全與健康2026 巡迴展覽" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
         </div>
         <div class="p-4">
           <div class="font-oswald text-xs font-bold uppercase text-brand-red">2026</div>
@@ -317,9 +385,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="font-sans text-xs text-gray-400 mt-1">公務員事務局</div>
         </div>
       </a>
-      <a href="profile.html?id=FB2026011" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
+      <a href="../profile.html?id=FB2026011" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
         <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2026011-photo-5.webp" alt="Roving exhibition in commemoration of the 60th anniversary of Action Committee Against Narcotics" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
+          <img src="../data/images/fb2026011-photo-5.webp" alt="Roving exhibition in commemoration of the 60th anniversary of Action Committee Against Narcotics" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
         </div>
         <div class="p-4">
           <div class="font-oswald text-xs font-bold uppercase text-brand-red">2025</div>
@@ -327,39 +395,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="font-sans text-xs text-gray-400 mt-1">Narcotics Division (ND) of the Security Bureau</div>
         </div>
       </a>
-      <a href="profile.html?id=FB2025012" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
+      <a href="../profile.html?id=FB2025013" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
         <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2025012-photo-1.webp" alt="《憲法》與《基本法》能量充電站" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
-        </div>
-        <div class="p-4">
-          <div class="font-oswald text-xs font-bold uppercase text-brand-red">2025</div>
-          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">《憲法》與《基本法》能量充電站</div>
-          <div class="font-sans text-xs text-gray-400 mt-1">政制及內地事務局</div>
-        </div>
-      </a>
-      <a href="profile.html?id=FB2025017" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
-        <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2025017-photo-2.webp" alt="《憲法》與《基本法》貓頭鷹茶樓" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
-        </div>
-        <div class="p-4">
-          <div class="font-oswald text-xs font-bold uppercase text-brand-red">2025</div>
-          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">《憲法》與《基本法》貓頭鷹茶樓</div>
-          <div class="font-sans text-xs text-gray-400 mt-1">政制及內地事務局</div>
-        </div>
-      </a>
-      <a href="profile.html?id=FB2026058" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
-        <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2026058-photo-8.webp" alt="Yves Rocher x 茶大椰  KOL Promotion" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
-        </div>
-        <div class="p-4">
-          <div class="font-oswald text-xs font-bold uppercase text-brand-red">2025</div>
-          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">Yves Rocher x 茶大椰  KOL Promotion</div>
-          <div class="font-sans text-xs text-gray-400 mt-1">Yves Rocher</div>
-        </div>
-      </a>
-      <a href="profile.html?id=FB2025013" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
-        <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2025013-photo-1.webp" alt="2025「選舉進社區」巡迴互動展覽" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
+          <img src="../data/images/fb2025013-photo-1.webp" alt="2025「選舉進社區」巡迴互動展覽" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
         </div>
         <div class="p-4">
           <div class="font-oswald text-xs font-bold uppercase text-brand-red">2025</div>
@@ -367,19 +405,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="font-sans text-xs text-gray-400 mt-1">政制及內地事務局</div>
         </div>
       </a>
-      <a href="profile.html?id=FB2026059" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
+      <a href="../profile.html?id=FB2025999" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
         <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2026059-photo-7.webp" alt=""K-palette"  POP-UP Store in Log-ON" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
-        </div>
-        <div class="p-4">
-          <div class="font-oswald text-xs font-bold uppercase text-brand-red">2025</div>
-          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">"K-palette"  POP-UP Store in Log-ON</div>
-          <div class="font-sans text-xs text-gray-400 mt-1">K-palette Hong Kong</div>
-        </div>
-      </a>
-      <a href="profile.html?id=FB2025999" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
-        <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2025999-photo-2.webp" alt="5S良好工作場所整理 巡迴展覽" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
+          <img src="../data/images/fb2025999-photo-2.webp" alt="5S良好工作場所整理 巡迴展覽" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
         </div>
         <div class="p-4">
           <div class="font-oswald text-xs font-bold uppercase text-brand-red">2024</div>
@@ -387,9 +415,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="font-sans text-xs text-gray-400 mt-1">公務員事務局</div>
         </div>
       </a>
-      <a href="profile.html?id=FB2024016" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
+      <a href="../profile.html?id=FB2024016" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
         <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2024016-photo-1.webp" alt="完善選舉制度巡迴展覽 2024" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
+          <img src="../data/images/fb2024016-photo-1.webp" alt="完善選舉制度巡迴展覽 2024" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
         </div>
         <div class="p-4">
           <div class="font-oswald text-xs font-bold uppercase text-brand-red">2024</div>
@@ -397,89 +425,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="font-sans text-xs text-gray-400 mt-1">政制及內地事務局</div>
         </div>
       </a>
-      <a href="profile.html?id=FB2024018" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
+      <a href="../profile.html?id=FB2024005" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
         <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2024018-photo-1.webp" alt="《憲法》與《基本法》物流運輸樞紐" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
+          <img src="../data/images/fb2024005-photo-1.webp" alt="“Anti-drug Info Zone: Stride Ahead Into A Drug-free Future” Roving Exhibition" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
         </div>
         <div class="p-4">
           <div class="font-oswald text-xs font-bold uppercase text-brand-red">2024</div>
-          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">《憲法》與《基本法》物流運輸樞紐</div>
-          <div class="font-sans text-xs text-gray-400 mt-1">政制及內地事務局</div>
-        </div>
-      </a>
-      <a href="profile.html?id=FB2024019" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
-        <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2024019-photo-1.webp" alt="《憲法》與《基本法》科研探索" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
-        </div>
-        <div class="p-4">
-          <div class="font-oswald text-xs font-bold uppercase text-brand-red">2024</div>
-          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">《憲法》與《基本法》科研探索</div>
-          <div class="font-sans text-xs text-gray-400 mt-1">政制及內地事務局</div>
-        </div>
-      </a>
-      <a href="profile.html?id=FB2024005" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
-        <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2024005-photo-1.webp" alt="“Anti-drug Info Zone: Stride Ahead Into A Drug-free Future” Roving Exhibition" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
-        </div>
-        <div class="p-4">
-          <div class="font-oswald text-xs font-bold uppercase text-brand-red">2024</div>
-          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">“Anti-drug Info Zone: Stride Ahead Into A Drug-free Future” Roving Exhibition</div>
+          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">"Anti-drug Info Zone: Stride Ahead Into A Drug-free Future" Roving Exhibition</div>
           <div class="font-sans text-xs text-gray-400 mt-1">Narcotics Division (ND) of the Security Bureau</div>
         </div>
       </a>
-      <a href="profile.html?id=FB2023022" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
+      <a href="../profile.html?id=FB2026071" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
         <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2023022-photo-1.webp" alt="《憲法》與《基本法》航空機場體驗" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
-        </div>
-        <div class="p-4">
-          <div class="font-oswald text-xs font-bold uppercase text-brand-red">2023</div>
-          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">《憲法》與《基本法》航空機場體驗</div>
-          <div class="font-sans text-xs text-gray-400 mt-1">政制及內地事務局</div>
-        </div>
-      </a>
-      <a href="profile.html?id=FB2026036" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
-        <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2026036-photo-8.webp" alt="閃動吧！縱橫街市" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
-        </div>
-        <div class="p-4">
-          <div class="font-oswald text-xs font-bold uppercase text-brand-red">2022</div>
-          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">閃動吧！縱橫街市</div>
-          <div class="font-sans text-xs text-gray-400 mt-1">中西區地區康健中心</div>
-        </div>
-      </a>
-      <a href="profile.html?id=FB2026043" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
-        <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2026043-photo-2.webp" alt="Mysofa Luxe New Product Launch" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
-        </div>
-        <div class="p-4">
-          <div class="font-oswald text-xs font-bold uppercase text-brand-red">2022</div>
-          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">Mysofa Luxe New Product Launch</div>
-          <div class="font-sans text-xs text-gray-400 mt-1">OGAWA</div>
-        </div>
-      </a>
-      <a href="profile.html?id=FB2026034" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
-        <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2026034-photo-1.webp" alt="《憲法》與《基本法》快樂立體影院" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
-        </div>
-        <div class="p-4">
-          <div class="font-oswald text-xs font-bold uppercase text-brand-red">2021</div>
-          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">《憲法》與《基本法》快樂立體影院</div>
-          <div class="font-sans text-xs text-gray-400 mt-1">政制及內地事務局</div>
-        </div>
-      </a>
-      <a href="profile.html?id=FB2026023" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
-        <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2026023-photo-6.webp" alt="街頭音樂表演X Drumstick" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
-        </div>
-        <div class="p-4">
-          <div class="font-oswald text-xs font-bold uppercase text-brand-red">2021</div>
-          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">街頭音樂表演X Drumstick</div>
-          <div class="font-sans text-xs text-gray-400 mt-1">Nestle Drumstick</div>
-        </div>
-      </a>
-      <a href="profile.html?id=FB2026071" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
-        <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2026071-photo-3.webp" alt="Urban Forestry Roving Exhibition 2021" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
+          <img src="../data/images/fb2026071-photo-3.webp" alt="Urban Forestry Roving Exhibition 2021" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
         </div>
         <div class="p-4">
           <div class="font-oswald text-xs font-bold uppercase text-brand-red">2021</div>
@@ -487,154 +445,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="font-sans text-xs text-gray-400 mt-1">發展局</div>
         </div>
       </a>
-      <a href="profile.html?id=FB2026031" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
+      <a href="../profile.html?id=FB2026040" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
         <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2026031-photo-6.webp" alt="《憲法》與《基本法》太空基地親子工作坊 " class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
+          <img src="../data/images/fb2026040-photo-1.webp" alt="賽馬會健康起步計劃 巡迴宣傳" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
         </div>
         <div class="p-4">
           <div class="font-oswald text-xs font-bold uppercase text-brand-red">2020</div>
-          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">《憲法》與《基本法》太空基地親子工作坊 </div>
-          <div class="font-sans text-xs text-gray-400 mt-1">政制及內地事務局</div>
+          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">賽馬會健康起步計劃 巡迴宣傳</div>
+          <div class="font-sans text-xs text-gray-400 mt-1">復康會</div>
         </div>
       </a>
-      <a href="profile.html?id=FB2026032" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
+      <a href="../profile.html?id=FB2026029" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
         <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2026032-photo-1.webp" alt="《憲法》與《基本法》探險家之旅" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
-        </div>
-        <div class="p-4">
-          <div class="font-oswald text-xs font-bold uppercase text-brand-red">2020</div>
-          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">《憲法》與《基本法》探險家之旅</div>
-          <div class="font-sans text-xs text-gray-400 mt-1">政制及內地事務局</div>
-        </div>
-      </a>
-      <a href="profile.html?id=FB2026068" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
-        <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2026068-photo-1.webp" alt="Lancome SDM & Corporate Dinner" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
+          <img src="../data/images/fb2026029-photo-1.webp" alt="憲法與基本法巡迴展覽 郵輪篇" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
         </div>
         <div class="p-4">
           <div class="font-oswald text-xs font-bold uppercase text-brand-red">2019</div>
-          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">Lancome SDM & Corporate Dinner</div>
-          <div class="font-sans text-xs text-gray-400 mt-1">Lancome</div>
-        </div>
-      </a>
-      <a href="profile.html?id=FB2026044" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
-        <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2026044-photo-3.webp" alt="按摩的藝術 " class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
-        </div>
-        <div class="p-4">
-          <div class="font-oswald text-xs font-bold uppercase text-brand-red">2018</div>
-          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">按摩的藝術 </div>
-          <div class="font-sans text-xs text-gray-400 mt-1">OGAWA</div>
-        </div>
-      </a>
-      <a href="profile.html?id=FB2026027" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
-        <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2026027-photo-7.webp" alt="基本法 曲奇工廠" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
-        </div>
-        <div class="p-4">
-          <div class="font-oswald text-xs font-bold uppercase text-brand-red">2018</div>
-          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">基本法 曲奇工廠</div>
+          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">憲法與基本法巡迴展覽 郵輪篇</div>
           <div class="font-sans text-xs text-gray-400 mt-1">政制及內地事務局</div>
         </div>
       </a>
-      <a href="profile.html?id=FB2026028" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
+      <a href="../profile.html?id=FB2026028" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
         <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2026028-photo-4.webp" alt="基本法 巡迴展覽" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
+          <img src="../data/images/fb2026028-photo-4.webp" alt="基本法 巡迴展覽" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
         </div>
         <div class="p-4">
           <div class="font-oswald text-xs font-bold uppercase text-brand-red">2018</div>
           <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">基本法 巡迴展覽</div>
           <div class="font-sans text-xs text-gray-400 mt-1">政制內地及事務局</div>
-        </div>
-      </a>
-      <a href="profile.html?id=FB2026018" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
-        <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2026018-photo-7.webp" alt="Van Gogh SENCES Flowers Launching" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
-        </div>
-        <div class="p-4">
-          <div class="font-oswald text-xs font-bold uppercase text-brand-red">2018</div>
-          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">Van Gogh SENCES Flowers Launching</div>
-          <div class="font-sans text-xs text-gray-400 mt-1">Van Gogh SENSES </div>
-        </div>
-      </a>
-      <a href="profile.html?id=FB2017006" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
-        <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2017006-photo-1.webp" alt="agnès b. LUNETTES Popup Store" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
-        </div>
-        <div class="p-4">
-          <div class="font-oswald text-xs font-bold uppercase text-brand-red">2017</div>
-          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">agnès b. LUNETTES Popup Store</div>
-          <div class="font-sans text-xs text-gray-400 mt-1">Agnès b. x Optical 88</div>
-        </div>
-      </a>
-      <a href="profile.html?id=FB2017008" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
-        <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2017008-photo-1.webp" alt="Eyewear Summertime 2017" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
-        </div>
-        <div class="p-4">
-          <div class="font-oswald text-xs font-bold uppercase text-brand-red">2017</div>
-          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">Eyewear Summertime 2017</div>
-          <div class="font-sans text-xs text-gray-400 mt-1">agnès b.</div>
-        </div>
-      </a>
-      <a href="profile.html?id=FB2017015" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
-        <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2017015-photo-1.webp" alt="Levi's Eyewear Social Media" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
-        </div>
-        <div class="p-4">
-          <div class="font-oswald text-xs font-bold uppercase text-brand-red">2017</div>
-          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">Levi's Eyewear Social Media</div>
-          <div class="font-sans text-xs text-gray-400 mt-1">Levi's</div>
-        </div>
-      </a>
-      <a href="profile.html?id=FB2026076" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
-        <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2026076-photo-1.webp" alt="Levi’s Eyewear One Day Shop Manager" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
-        </div>
-        <div class="p-4">
-          <div class="font-oswald text-xs font-bold uppercase text-brand-red">2017</div>
-          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">Levi’s Eyewear One Day Shop Manager</div>
-          <div class="font-sans text-xs text-gray-400 mt-1">Levi's</div>
-        </div>
-      </a>
-      <a href="profile.html?id=FB2026003" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
-        <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2026003-photo-7.webp" alt="HTC U Play X Fashion Social Media " class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
-        </div>
-        <div class="p-4">
-          <div class="font-oswald text-xs font-bold uppercase text-brand-red">2017</div>
-          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">HTC U Play X Fashion Social Media </div>
-          <div class="font-sans text-xs text-gray-400 mt-1">HTC</div>
-        </div>
-      </a>
-      <a href="profile.html?id=FB2017012" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
-        <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2017012-photo-1.webp" alt="agnès b. eyewear Preview Event" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
-        </div>
-        <div class="p-4">
-          <div class="font-oswald text-xs font-bold uppercase text-brand-red">2016</div>
-          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">agnès b. eyewear Preview Event</div>
-          <div class="font-sans text-xs text-gray-400 mt-1">agnès b.</div>
-        </div>
-      </a>
-      <a href="profile.html?id=FB2016004" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
-        <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2016004-photo-8.webp" alt="Eyewear Facebook Page Maintenance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
-        </div>
-        <div class="p-4">
-          <div class="font-oswald text-xs font-bold uppercase text-brand-red">2016</div>
-          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">Eyewear Facebook Page Maintenance</div>
-          <div class="font-sans text-xs text-gray-400 mt-1">agnès b.</div>
-        </div>
-      </a>
-      <a href="profile.html?id=FB2016024" class="project-card block group border border-black/5 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
-        <div class="aspect-[4/3] overflow-hidden bg-gray-100">
-          <img src="data/images/fb2016024-photo-1.webp" alt="Levi's  x Szabotage Graffiti Workshop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" referrerpolicy="no-referrer">
-        </div>
-        <div class="p-4">
-          <div class="font-oswald text-xs font-bold uppercase text-brand-red">2016</div>
-          <div class="font-sans text-sm font-bold mt-1 project-card-title transition-colors leading-tight">Levi's  x Szabotage Graffiti Workshop</div>
-          <div class="font-sans text-xs text-gray-400 mt-1">Graffiti Company</div>
         </div>
       </a>
     </div>
@@ -645,7 +483,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- Contact & Footer — same as profile page -->
 <section class="relative bg-brand-black text-white py-32 px-6 overflow-hidden">
   <div class="absolute inset-0 z-0">
-    <img src="data/images/contact-bg.webp" alt="" class="contact-parallax-bg w-full h-[150%] object-cover object-center" loading="lazy" referrerpolicy="no-referrer" />
+    <img src="../data/images/contact-bg.webp" alt="" class="contact-parallax-bg w-full h-[150%] object-cover object-center" loading="lazy" referrerpolicy="no-referrer" />
     <div class="absolute inset-0 bg-brand-black/40"></div>
   </div>
   <div class="max-w-7xl mx-auto relative z-10">
@@ -685,6 +523,104 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </section>
+
+<script>
+  // Mega Menu click toggle - DOM removal/re-insertion to break GSAP animation control
+  function reinsertMenu(menu) {
+    var parent = menu.parentElement;
+    var next = menu.nextSibling;
+    parent.removeChild(menu);
+    parent.insertBefore(menu, next);
+  }
+
+  window.toggleMegaMenu = function(e) {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    var menu = document.getElementById('nav-panel');
+    if (!menu) return;
+    var isOpen = menu.getAttribute('data-open') === 'true';
+    reinsertMenu(menu);
+    if (isOpen) {
+      menu.style.cssText = 'position:fixed; top:80px; left:5%; right:5%; width:90%; max-width:600px; z-index:999999; opacity:0; visibility:hidden; pointer-events:none; background:#0a0a0a; color:white; padding:40px; border-radius:12px; box-shadow:0 25px 50px -12px rgba(0,0,0,0.25); transition:all 0.3s ease;';
+      menu.setAttribute('data-open', 'false');
+    } else {
+      menu.style.cssText = 'position:fixed; top:80px; left:5%; right:5%; width:90%; max-width:600px; z-index:999999; opacity:1; visibility:visible; pointer-events:auto; background:#0a0a0a; color:white; padding:40px; border-radius:12px; box-shadow:0 25px 50px -12px rgba(0,0,0,0.25); transition:all 0.3s ease;';
+      menu.setAttribute('data-open', 'true');
+    }
+  };
+
+  window.closeMegaMenu = function() {
+    var menu = document.getElementById('nav-panel');
+    if (!menu) return;
+    reinsertMenu(menu);
+    menu.style.cssText = 'position:fixed; top:80px; left:5%; right:5%; width:90%; max-width:600px; z-index:999999; opacity:0; visibility:hidden; pointer-events:none; background:#0a0a0a; color:white; padding:40px; border-radius:12px; box-shadow:0 25px 50px -12px rgba(0,0,0,0.25); transition:all 0.3s ease;';
+    menu.setAttribute('data-open', 'false');
+  };
+
+  // Event delegation for mega menu
+  document.addEventListener('click', function(e) {
+    var target = e.target;
+    var trigger = document.getElementById('nav-panel-trigger');
+    if (trigger && (trigger === target || trigger.contains(target))) {
+      window.toggleMegaMenu(e);
+      return;
+    }
+    var closeBtn = document.getElementById('nav-panel-close');
+    if (closeBtn && (closeBtn === target || closeBtn.contains(target))) {
+      e.stopPropagation();
+      window.closeMegaMenu();
+      return;
+    }
+    var mobileBtn = document.getElementById('mobile-menu-btn');
+    if (mobileBtn && (mobileBtn === target || mobileBtn.contains(target))) {
+      window.toggleMegaMenu(e);
+      return;
+    }
+    var menu = document.getElementById('nav-panel');
+    if (menu && menu.getAttribute('data-open') === 'true') {
+      if (!menu.contains(target)) {
+        window.closeMegaMenu();
+      }
+    }
+  });
+
+  // Dark mode toggle
+  (function() {
+    var toggle = document.getElementById('dark-toggle');
+    var moonIcon = document.getElementById('icon-moon');
+    var sunIcon = document.getElementById('icon-sun');
+
+    function updateIcons() {
+      var isDark = document.documentElement.classList.contains('dark');
+      if (moonIcon) moonIcon.style.display = isDark ? 'none' : 'block';
+      if (sunIcon) sunIcon.style.display = isDark ? 'block' : 'none';
+    }
+
+    updateIcons();
+
+    if (toggle) {
+      toggle.addEventListener('click', function() {
+        document.documentElement.classList.toggle('dark');
+        var isDark = document.documentElement.classList.contains('dark');
+        localStorage.setItem('darkMode', isDark);
+        updateIcons();
+      });
+    }
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+      if (localStorage.getItem('darkMode') === null) {
+        if (e.matches) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+        updateIcons();
+      }
+    });
+  })();
+</script>
 
 </body>
 </html>
