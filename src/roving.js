@@ -64,11 +64,11 @@
     h+='<p class="font-playfair italic text-base md:text-xl font-medium text-brand-black max-w-2xl mx-auto" data-key="Roving.Hero.Subtitle2">Hong Kong\'s Most Experienced Roving Exhibition Agency</p></header>';
 
     // Methodology with scroll animations
-    h+='<section class="mb-24" id="rv-method">';
+    h+='<section class="mb-32" id="rv-method">';
     h+='<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">';
     h+='<div class="lg:col-span-4 flex flex-col items-center">';
-    h+='<p class="rv-subtitle font-playfair italic text-sm md:text-base text-gray-400 text-right w-full mb-8" data-key="Roving.Methodology.Subtitle">From policy to public &mdash; four steps to a memorable roving exhibition.</p>';
-    h+='<div class="rv-match-wrap py-12"><img src="../data/images/match.webp" alt="" class="rv-match" style="width:100%;height:auto"></div></div>';
+    h+='<p class="rv-subtitle font-playfair italic text-sm md:text-base text-gray-400 text-right w-full mb-16" data-key="Roving.Methodology.Subtitle">From policy to public &mdash; four steps to a memorable roving exhibition.</p>';
+    h+='<div class="rv-match-wrap py-16"><img src="../data/images/match.webp" alt="" class="rv-match" style="width:100%;height:auto"></div></div>';
     h+='<div class="lg:col-span-8"><div class="grid grid-cols-1 sm:grid-cols-2 gap-5">'+buildStepCards()+'</div></div></div></section>';
 
     h+='<h2 class="font-display text-3xl md:text-5xl lg:text-6xl tracking-normal uppercase text-brand-black text-center mb-8" style="letter-spacing:0.02em;word-spacing:0.08em;line-height:1.2">';
@@ -76,7 +76,7 @@
         h+='<span data-key="Roving.Projects.SectionTitle">Roving Exhibitions</span> ';
         h+='<span class="text-gray-400">·</span> ';
         h+='<span id="rv-year-disp" data-key="Roving.Projects.YearRange">'+yrList[0]+'\u2014'+yrList[yrList.length-1]+'</span></h2>';
-    h+='<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">'+buildCards(roving)+'</div>';
+    h+='<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">'+buildCards(roving)+'</div>';
 
     var el=document.getElementById("roving-main");
     if(!el){ console.log("[roving] #roving-main missing"); return; }
@@ -103,7 +103,6 @@
       // Full sweep: -120px (0%) → 0px (100%)
       var offset=-120+progress*120;
       matchImg.style.transform="translateX("+offset+"px) rotate(-15deg)";
-      matchImg.style.opacity=progress; // 0 → 1
     }
     window.addEventListener("scroll", onScroll, {passive:true});
     onScroll();
