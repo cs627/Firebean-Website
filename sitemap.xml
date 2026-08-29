@@ -37,63 +37,182 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- EDM newsletter issues — gov/PR thought leadership content -->
+        <!-- EDM newsletter issues — auto-generated from Google Sheets -->
+  <!-- Last updated: 2026-08-29 -->
   <url>
     <loc>https://firebean.net/edm/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <url>
+  <url> <!-- Beyond Information: How HK's Best Campaigns Turn Policy into Experience -->
     <loc>https://firebean.net/edm/edm_EDM_001.html</loc>
     <lastmod>2026-07-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <url>
+  <url> <!-- Turning Policy into Participation: The Elections 2026 Strategy -->
     <loc>https://firebean.net/edm/edm_EDM_002.html</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <url>
+  <url> <!-- Green Governance: Leading the Sustainable PR Revolution in HK -->
     <loc>https://firebean.net/edm/edm_EDM_003.html</loc>
     <lastmod>2026-08-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <url>
+  <url> <!-- The Human Touch: Authentic Public Engagement in the Digital Age 🤝 -->
     <loc>https://firebean.net/edm/edm_EDM_004.html</loc>
     <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <url>
+  <url> <!-- Gamified Governance: Enhancing Policy Adoption through Interactive Engagement -->
     <loc>https://firebean.net/edm/edm_EDM_005.html</loc>
     <lastmod>2026-08-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <url>
+  <url> <!-- Fortifying Public Trust: Imperative Data Privacy & Security in HK Government Eng -->
     <loc>https://firebean.net/edm/edm_EDM_006.html</loc>
     <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <url>
+  <url> <!-- Inclusive Hong Kong: Elevating Public Spaces Through Universal Design and Experi -->
     <loc>https://firebean.net/edm/edm_EDM_007.html</loc>
     <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
+  <url> <!-- PENDING — not yet sent -->
+    <loc>https://firebean.net/edm/edm_EDM_008.html</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url> <!-- Beyond Impressions: Advanced Impact Measurement for Hong Kong Government Campaig --> <!-- PENDING — not yet sent -->
+    <loc>https://firebean.net/edm/edm_EDM_009.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url> <!-- Empowering Tomorrow's Leaders: Strategic Youth Engagement for Hong Kong's Future --> <!-- PENDING — not yet sent -->
+    <loc>https://firebean.net/edm/edm_EDM_010.html</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url> <!-- Immersive Learning: Revolutionizing Public Engagement with AR/VR in Hong Kong Ed --> <!-- PENDING — not yet sent -->
+    <loc>https://firebean.net/edm/edm_EDM_011.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url> <!-- PENDING — not yet sent -->
+    <loc>https://firebean.net/edm/edm_EDM_012.html</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url> <!-- PENDING — not yet sent -->
+    <loc>https://firebean.net/edm/edm_EDM_013.html</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url> <!-- Unlocking Hyper-Immersive Public Engagement: The 5G Imperative for Hong Kong Gov --> <!-- PENDING — not yet sent -->
+    <loc>https://firebean.net/edm/edm_EDM_014.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url> <!-- Smart Crowd Management: Enhancing Public Safety and Event Efficacy in Hong Kong --> <!-- PENDING — not yet sent -->
+    <loc>https://firebean.net/edm/edm_EDM_015.html</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url> <!-- Digital Twins: Revolutionizing Public Engagement and Heritage Preservation in Ho --> <!-- PENDING — not yet sent -->
+    <loc>https://firebean.net/edm/edm_EDM_016.html</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url> <!-- Strategic Nudges: Enhancing Public Engagement through Behavioral Economics in Ho --> <!-- PENDING — not yet sent -->
+    <loc>https://firebean.net/edm/edm_EDM_017.html</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url> <!-- Proactive Public Perception Management: Navigating Event-Driven Crises in Hong K --> <!-- PENDING — not yet sent -->
+    <loc>https://firebean.net/edm/edm_EDM_018.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url> <!-- PENDING — not yet sent -->
+    <loc>https://firebean.net/edm/edm_EDM_019.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url> <!-- PENDING — not yet sent -->
+    <loc>https://firebean.net/edm/edm_EDM_020.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url> <!-- Engaging Citizens in Hong Kong's Smart City Vision: A PR and Experiential Market --> <!-- PENDING — not yet sent -->
+    <loc>https://firebean.net/edm/edm_EDM_021.html</loc>
+    <lastmod>2026-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url> <!-- PENDING — not yet sent -->
+    <loc>https://firebean.net/edm/edm_EDM_022.html</loc>
+    <lastmod>2026-12-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url> <!-- PENDING — not yet sent -->
+    <loc>https://firebean.net/edm/edm_EDM_023.html</loc>
+    <lastmod>2026-12-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url> <!-- Green Horizons: Strategic Procurement for a Sustainable Hong Kong --> <!-- PENDING — not yet sent -->
+    <loc>https://firebean.net/edm/edm_EDM_024.html</loc>
+    <lastmod>2026-12-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 <url>
     <loc>https://firebean.net/404.html</loc>
     <lastmod>2026-08-29</lastmod>
