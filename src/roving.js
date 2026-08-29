@@ -14,7 +14,15 @@
     {n:"4", icon:'<path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>'}
   ];
 
-  function isRoving(p){ var n=p.projectName||""; return n.indexOf("\u5de1\u8ff4")>=0||n.toLowerCase().indexOf("roving")>=0; }
+  function isRoving(p){
+    // Match by categories including "exhibitions"
+    var cats=p.categories||[];
+    if(typeof cats==="string") cats=cats.split(",");
+    if(cats.indexOf("exhibitions")>=0) return true;
+    // Fallback: name contains 巡迴 or roving
+    var n=p.projectName||"";
+    return n.indexOf("\u5de1\u8ff4")>=0||n.toLowerCase().indexOf("roving")>=0;
+  }
 
   function buildCards(projects){
     var o="";
@@ -57,8 +65,18 @@
 
     var bureaus={},yrs={};
     for(var i=0;i<roving.length;i++){
-      var c=roving[i].client||"", cat=(roving[i].category||"").toLowerCase();
-      if(cat.indexOf("government")>=0||cat.indexOf("public")>=0||c.indexOf("\u5c40")>=0||c.indexOf("\u7f72")>=0||c.indexOf("Department")>=0||c.indexOf("Bureau")>=0) bureaus[c]=(bureaus[c]||0)+1;
+      var c=(roving[i].client||"").trim();
+      var cat=(roving[i].category||"").toLowerCase();
+      // Normalize: remove trailing spaces, unify same bureau variations
+      var bureauKey=c.replace(/\s+/g," ").replace(", Curriculum Development Institute, Education Bureau","");
+            // Merge sub-departments into parent bureau
+            if(bureauKey.indexOf("Curriculum Resources Section")>=0) bureauKey="Education Bureau";
+            if(bureauKey.indexOf("\u653f\u5236\u5185\u5730")>=0||bureauKey.indexOf("\u653f\u5236\u5167\u5730")>=0) bureauKey="Constitutional and Mainland Affairs Bureau";
+            if(bureauKey.indexOf("Narcotics Division")>=0) bureauKey="Security Bureau";
+            // Only count true government/public sector — skip NGOs
+            var isGov=cat.indexOf("government")>=0||cat.indexOf("public")>=0||
+               c.indexOf("\u5c40")>=0||c.indexOf("\u7f72")>=0||c.indexOf("Department")>=0||c.indexOf("Bureau")>=0;
+            if(isGov) bureaus[bureauKey]=(bureaus[bureauKey]||0)+1;
       var sd=roving[i].sortDate; if(sd&&sd.length>=4) yrs[sd.substring(0,4)]=1;
     }
     var burCnt=Object.keys(bureaus).length, yrList=Object.keys(yrs).sort();
