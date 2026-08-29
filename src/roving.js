@@ -67,9 +67,9 @@
     h+='<header class="mb-12 text-center">';
     h+='<p class="font-playfair italic text-lg md:text-xl tracking-wide text-gray-400 mb-4" data-key="Roving.Hero.Tagline">Roving Exhibitions</p>';
     h+='<h1 class="font-display text-4xl md:text-7xl lg:text-8xl tracking-normal uppercase leading-[1.15] md:leading-[1.1] mb-6 md:mb-8 py-2 max-w-5xl mx-auto">';
-        h+='<span id="rv-hero-n1" class="text-brand-red">'+cnt+'</span><span data-key="Roving.Hero.Slogan1" class="font-bold"> PROJECTS.</span> ';
-        h+='<span id="rv-hero-n2" class="text-brand-red">'+burCnt+'</span><span data-key="Roving.Hero.Slogan2" class="font-bold"> GOVERNMENT BUREAUS.</span> ';
-        h+='<span id="rv-hero-n3" class="text-brand-red" data-key="Roving.Hero.Slogan3">1.5M+</span><span data-key="Roving.Hero.Slogan4" class="font-bold"> PEOPLE ENGAGED.</span></h1>';
+        h+='<span id="rv-hero-n1" class="text-brand-red">'+cnt+'</span><span data-key="Roving.Hero.Slogan1" id="rv-slogan1"> PROJECTS.</span> ';
+        h+='<span id="rv-hero-n2" class="text-brand-red">'+burCnt+'</span><span data-key="Roving.Hero.Slogan2" id="rv-slogan2"> GOVERNMENT BUREAUS.</span> ';
+        h+='<span id="rv-hero-n3" class="text-brand-red" data-key="Roving.Hero.Slogan3">1.5M+</span><span data-key="Roving.Hero.Slogan4" id="rv-slogan4"> PEOPLE ENGAGED.</span></h1>';
     h+='<p class="font-playfair italic text-base md:text-xl font-medium text-brand-black max-w-2xl mx-auto" data-key="Roving.Hero.Subtitle2">Hong Kong\'s Most Experienced Roving Exhibition Agency</p></header>';
 
     // Methodology with scroll animations
@@ -94,6 +94,7 @@
 
     if(window.updateTranslations) window.updateTranslations();
     restoreHeroNumbers(cnt, burCnt);
+    toggleSloganBold();
     setupScrollAnimations();
   }
 
@@ -117,20 +118,20 @@
     window.addEventListener("scroll", onScroll, {passive:true});
     onScroll();
 
-    // Step cards slide-in from right
+    // Step cards slide-up + fade-in
     var steps=document.querySelectorAll(".rv-step");
     if(!steps.length) return;
     var observer=new IntersectionObserver(function(entries){
       entries.forEach(function(e){
         if(e.isIntersecting){ e.target.classList.add("rv-visible"); observer.unobserve(e.target); }
       });
-    },{threshold:0.15});
+    },{threshold:0.1, rootMargin:"0px 0px -40px 0px"});
 
     steps.forEach(function(s,i){
       s.style.opacity="0";
-      s.style.transform="translateX(80px)";
-      s.style.transition="opacity 0.6s ease, transform 0.6s ease";
-      s.style.transitionDelay=(i*0.1)+"s";
+      s.style.transform="translateY(60px)";
+      s.style.transition="opacity 0.7s ease-out, transform 0.7s ease-out";
+      s.style.transitionDelay=(0.25+i*0.15)+"s"; // 0.25s, 0.4s, 0.55s, 0.7s
       observer.observe(s);
     });
   }
@@ -145,15 +146,28 @@
     }, 50);
   }
 
-  // Listen for language change to restore numbers too
+  // Bold slogan text for CJK (CH/JP), normal for EN
+  function toggleSloganBold(){
+    var lang=(window.getLang||function(){return "en";})();
+    var bold=lang==="ch"||lang==="jp";
+    ["rv-slogan1","rv-slogan2","rv-slogan4"].forEach(function(id){
+      var el=document.getElementById(id);
+      if(!el) return;
+      if(bold) el.classList.add("font-bold");
+      else el.classList.remove("font-bold");
+    });
+  }
+
+  // Listen for language change to restore numbers + toggle bold
   window.addEventListener("languageChange", function(){
     var el=document.getElementById("rv-hero-n1");
     if(!el) return;
-    var cnt=el.textContent; // try to read current, or fallback
+    var cnt=el.textContent;
     restoreHeroNumbers(
       parseInt(document.getElementById("rv-hero-n1")?.textContent) || 11,
       parseInt(document.getElementById("rv-hero-n2")?.textContent) || 6
     );
+    toggleSloganBold();
   });
 
   // Start
