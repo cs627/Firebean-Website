@@ -2,28 +2,31 @@
   {
     "issue": "EDM_003",
     "url": "https://firebean.net/edm/edm_EDM_003.html",
-    "title": "Revitalizing Reading in a Digital Age: The Hybrid Approach",
-    "subtitle": "From Pages to Phygital: Immersive experiences that make reading go viral.",
-    "desc": "The Education Bureau faced the challenge of revitalizing reading promotion in a digital age, needing an innovative, engaging, and widely accessible hybrid event to foster reading habits among students",
-    "photo": "https://raw.githubusercontent.com/cs627/Firebean-Website/main/assets/edm/EDM_003/case_study_hero.jpg",
-    "type": "case-study"
+    "title": "Modular & Reconfigurable Design: The Future of Roving Exhibitions",
+    "subtitle": "Maximize reach and minimize waste with flexible, reusable exhibition systems.",
+    "desc": "In 2026, roving exhibitions are shifting towards modularity. Government departments are prioritizing systems that can be easily reconfigured for different urban spaces—from narrow MTR concourses to op",
+    "photo": "https://raw.githubusercontent.com/cs627/Firebean-Website/main/assets/edm/EDM_003/insight.jpg",
+    "tag": "Roving Exhibition Trends",
+    "type": "market-insight"
   },
   {
     "issue": "EDM_004",
     "url": "https://firebean.net/edm/edm_EDM_004.html",
-    "title": "Modernizing OSH Guidelines: High-Tech Interactive Roadshows",
-    "subtitle": "Safety Meets Gamification: Turning mundane guidelines into high-tech roadshows.",
-    "desc": "Transforming abstract and often perceived as 'mundane' occupational safety and health (OSH) guidelines into an engaging, interactive, and high-tech experience was the goal for the Civil Service Bureau",
-    "photo": "https://raw.githubusercontent.com/cs627/Firebean-Website/main/assets/edm/EDM_004/cs_hero_v2.jpg",
-    "type": "case-study"
+    "title": "AI-Powered Public Engagement: Reducing Friction in Gov Comms",
+    "subtitle": "Leverage AI to turn passive spectators into active participants.",
+    "desc": "AI is revolutionizing how government departments interact with the public at events. From real-time sentiment analysis at exhibition booths to AI-driven chatbots that answer policy questions instantly",
+    "photo": "https://raw.githubusercontent.com/cs627/Firebean-Website/main/assets/edm/EDM_004/insight.jpg",
+    "tag": "AI-Powered Engagement",
+    "type": "market-insight"
   },
   {
     "issue": "EDM_005",
     "url": "https://firebean.net/edm/edm_EDM_005.html",
-    "title": "Demystifying Building Safety: A Data-Driven Social Strategy",
-    "subtitle": "Demystifying the Dry: A data-driven social strategy that actually engages.",
-    "desc": "Government departments often struggle with engaging the public on social media regarding complex, technical information. The core pain point was transforming 'dry' building safety regulations into acc",
-    "photo": "https://raw.githubusercontent.com/cs627/Firebean-Website/main/assets/edm/EDM_005/cs_hero_v2.jpg",
-    "type": "case-study"
+    "title": "Sustainable Event Materials: Meeting the 2050 Carbon Neutrality Goal",
+    "subtitle": "Eco-conscious design is now a mandatory requirement for government tenders.",
+    "desc": "As the HKSAR moves toward carbon neutrality, every public event must demonstrate environmental responsibility. This means moving beyond simple recycling bins to full circular economy design. We are se",
+    "photo": "https://raw.githubusercontent.com/cs627/Firebean-Website/main/assets/edm/EDM_005/insight.jpg",
+    "tag": "Sustainable Events",
+    "type": "market-insight"
   }
 ]
