@@ -137,15 +137,15 @@
       progress=Math.max(0,Math.min(1,progress));
       // Two matchsticks — opposite diagonals, cross in centre
       // Match 1 (base): starts bottom-left, slides diagonally up-right
-      // head → aligns with "From" subtitle, body → step03 "they call Firebean"
+      // head → aligns with "From" subtitle, body → step03 area
       var x1=-100+progress*100;   // -100px → 0
-      var y1=120-progress*120;    // +120px → 0
+      var y1=150-progress*200;    // +150px → -50px (head shifts up toward "From")
       match1.style.transform="translate("+x1+"px, "+y1+"px) rotate(-15deg)";
-      // Match 2 (overlay): starts top-right, slides diagonally down-left, crosses match 1
+      // Match 2 (overlay): starts top-right, ease-out down-left, crosses match 1
       if(match2){
         var p2=1-Math.pow(1-progress,3);
-        var x2=80-p2*80;          // +80 → 0
-        var y2=-80+p2*80;         // -80 → 0
+        var x2=100-p2*85;         // +100 → +15 (slight right offset)
+        var y2=-90+p2*125;        // -90 → +35 (crosses below centre)
         match2.style.transform="translate(-50%,-50%) translate("+x2+"px, "+y2+"px) rotate(25deg)";
         match2.style.transition="none";
       }
