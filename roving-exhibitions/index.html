@@ -169,6 +169,10 @@
     html.dark #profile-title { color: var(--text-primary) !important; }
     html.dark #profile-categories span { color: var(--text-primary) !important; }
     html.dark iframe[src*="google.com/maps"] { filter: invert(0.9) hue-rotate(180deg); }
+
+    /* Scroll animations */
+    .rv-match { transform: translateX(-60px) rotate(-15deg); opacity: 0.3; transition: transform 0.1s linear, opacity 0.3s ease; }
+    .rv-step.rv-visible { opacity: 1 !important; transform: translateX(0) !important; }
   </style>
 
   <script>
