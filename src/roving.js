@@ -135,17 +135,20 @@
       if(rect.bottom<0||rect.top>winH) return;
       var progress=(winH-rect.top)/(winH+rect.height);
       progress=Math.max(0,Math.min(1,progress));
-      // Two matchsticks from opposite sides, different speeds
-            // Match 1 (base): flies in from RIGHT (+250px OFF-screen → 0), linear, rotate -15deg
-            var offset1=250-progress*250;
-            match1.style.transform="translateX("+offset1+"px) rotate(-15deg)";
-            // Match 2 (overlay): flies in from LEFT (-200px → 0), ease-out cubic, rotate +25deg
-            if(match2){
-              var p2=1-Math.pow(1-progress,3);
-              var shift2=-200+p2*200;
-              match2.style.transform="translate(-50%,-50%) translateX("+shift2+"px) rotate(25deg)";
-              match2.style.transition="none";
-            }
+      // Two matchsticks — opposite diagonals, cross in centre
+      // Match 1 (base): starts bottom-left, slides diagonally up-right
+      // head → aligns with "From" subtitle, body → step03 "they call Firebean"
+      var x1=-100+progress*100;   // -100px → 0
+      var y1=120-progress*120;    // +120px → 0
+      match1.style.transform="translate("+x1+"px, "+y1+"px) rotate(-15deg)";
+      // Match 2 (overlay): starts top-right, slides diagonally down-left, crosses match 1
+      if(match2){
+        var p2=1-Math.pow(1-progress,3);
+        var x2=80-p2*80;          // +80 → 0
+        var y2=-80+p2*80;         // -80 → 0
+        match2.style.transform="translate(-50%,-50%) translate("+x2+"px, "+y2+"px) rotate(25deg)";
+        match2.style.transition="none";
+      }
     }
     window.addEventListener("scroll", onScroll, {passive:true});
     onScroll();
