@@ -141,11 +141,12 @@
       var x1=-100+progress*100;   // -100px → 0
       var y1=150-progress*200;    // +150px → -50px (head shifts up toward "From")
       match1.style.transform="translate("+x1+"px, "+y1+"px) rotate(-15deg)";
-      // Match 2 (overlay): starts top-right, ease-out down-left, crosses match 1
+      // Match 2 (overlay): starts completely off-screen right, slides diagonally left-down
+      // Final: head near "four" in subtitle, body → step01 first line
       if(match2){
         var p2=1-Math.pow(1-progress,3);
-        var x2=100-p2*85;         // +100 → +15 (slight right offset)
-        var y2=-90+p2*125;        // -90 → +35 (crosses below centre)
+        var x2=400-p2*380;        // +400px (off-screen right) → +20px
+        var y2=-200+p2*130;       // -200px (far above) → -70px (head near subtitle)
         match2.style.transform="translate(-50%,-50%) translate("+x2+"px, "+y2+"px) rotate(25deg)";
         match2.style.transition="none";
       }
