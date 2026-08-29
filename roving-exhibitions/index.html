@@ -124,37 +124,6 @@
       background-color: #111111;
     }
 
-    /* Casino chip tokens — from index about section */
-    .casino-chip {
-      width: clamp(140px, 20vw, 220px);
-      height: clamp(140px, 20vw, 220px);
-      border-radius: 50%;
-      background: rgba(10,10,10,0.65);
-      backdrop-filter: blur(10px);
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 3px;
-      box-shadow: 0 6px 30px rgba(0,0,0,0.7), inset 0 0 0 6px rgba(255,255,255,0.06);
-      flex-shrink: 0;
-    }
-    .casino-chip .outer-ring {
-      position: absolute;
-      inset: 7px;
-      border-radius: 50%;
-      border: 2px solid rgba(255,255,255,0.55);
-      pointer-events: none;
-    }
-    .casino-chip .dashed-ring {
-      position: absolute;
-      inset: 16px;
-      border-radius: 50%;
-      border: 3px dashed rgba(255,255,255,0.3);
-      pointer-events: none;
-    }
-
     /* Project card: transparent bg, photo → title → client */
     .project-card:hover .project-card-title {
       color: #ff3333;
@@ -280,78 +249,65 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </p>
   </header>
 
-  <!-- Casino Chip Stats (from index about section) -->
-  <section class="mb-24" style="background:#0a0a0a; padding:3rem 2rem; border-radius:1rem; margin-top:2rem;">
-    <div class="flex flex-row justify-center items-center gap-4 md:gap-10 py-4" style="flex-wrap:wrap;">
+  <!-- Unified Gov + Method — ref photo layout: headline + body left, red panels right -->
+    <section class="mb-24">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+      
+        <!-- LEFT: Headline + Body (span 2 cols) -->
+        <div class="lg:col-span-2">
+          <h2 class="font-display text-3xl md:text-5xl lg:text-6xl tracking-tight uppercase leading-[1.05] text-brand-black mb-6">
+            <span class="text-brand-red">"ALL-IN"</span> ON<br>ROVING EXHIBITIONS
+          </h2>
+          <p class="font-playfair italic text-base md:text-lg text-gray-500 mb-6 leading-relaxed">
+            Earning the highest trust through lifestyle appeal.
+          </p>
+          <div class="space-y-4 font-sans text-sm md:text-base leading-relaxed text-gray-600">
+            <p>
+              Since 2007, Firebean has been Hong Kong's go-to agency for transforming serious government policy into engaging, lifestyle-driven roving exhibitions. Over <strong>50% of our portfolio</strong> serves Hong Kong government bureaus — turning mandates into memorable public experiences across shopping malls, community halls, and schools citywide.
+            </p>
+            <p>
+              From the Constitutional and Mainland Affairs Bureau's election education campaigns to the Security Bureau's anti-drug outreach, our roving exhibitions have engaged over <strong>1.5 million Hong Kong citizens</strong> across 11 projects spanning 6 government departments.
+            </p>
+          </div>
 
-      <div class="casino-chip">
-        <div class="outer-ring"></div>
-        <div class="dashed-ring"></div>
-        <svg style="width:clamp(16px,2vw,24px);height:clamp(16px,2vw,24px);color:#ff3333;z-index:1;flex-shrink:0;" fill="none" stroke="#ff3333" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-        <div class="font-oswald font-bold text-white" style="font-size:clamp(26px,4.2vw,48px);line-height:1;z-index:1;text-shadow:0 2px 12px rgba(0,0,0,0.9);">11</div>
-        <div class="font-sans uppercase tracking-widest text-white text-center leading-tight" style="font-size:clamp(7px,0.8vw,10px);z-index:1;text-shadow:0 1px 6px rgba(0,0,0,0.9);padding:0 14px;">Roving<br>Projects</div>
-      </div>
+          <!-- Government Bureaus list -->
+          <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-6 font-sans text-sm text-gray-500">
+            <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-red flex-shrink-0"></span> Constitutional &amp; Mainland Affairs Bureau <span class="font-oswald text-brand-red text-xs ml-auto">4</span></div>
+            <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-red flex-shrink-0"></span> Civil Service Bureau <span class="font-oswald text-brand-red text-xs ml-auto">2</span></div>
+            <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-red flex-shrink-0"></span> Security Bureau (Narcotics Div.) <span class="font-oswald text-brand-red text-xs ml-auto">2</span></div>
+            <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-red flex-shrink-0"></span> Development Bureau <span class="font-oswald text-brand-red text-xs ml-auto">1</span></div>
+            <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-red flex-shrink-0"></span> Hong Kong Society for Rehabilitation <span class="font-oswald text-brand-red text-xs ml-auto">1</span></div>
+          </div>
+        </div>
 
-      <div class="casino-chip">
-        <div class="outer-ring"></div>
-        <div class="dashed-ring"></div>
-        <svg style="width:clamp(16px,2vw,24px);height:clamp(16px,2vw,24px);color:#ff3333;z-index:1;flex-shrink:0;" fill="none" stroke="#ff3333" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        <div class="font-oswald font-bold text-white" style="font-size:clamp(26px,4.2vw,48px);line-height:1;z-index:1;text-shadow:0 2px 12px rgba(0,0,0,0.9);">9</div>
-        <div class="font-sans uppercase tracking-widest text-white text-center leading-tight" style="font-size:clamp(7px,0.8vw,10px);z-index:1;text-shadow:0 1px 6px rgba(0,0,0,0.9);padding:0 14px;">Years<br>2018–2026</div>
-      </div>
+        <!-- RIGHT: Two red panels -->
+        <div class="flex flex-col gap-4">
+          <!-- WHO WE HELP panel -->
+          <div class="bg-brand-black text-white p-5 md:p-6">
+            <h4 class="font-oswald text-lg md:text-xl mb-3 md:mb-4 text-brand-red tracking-widest">WHO WE HELP</h4>
+            <ul class="space-y-2 text-[11px] md:text-xs text-gray-300 font-sans tracking-wide leading-relaxed">
+              <li class="flex items-start gap-2"><span class="text-brand-red mt-0.5">▸</span> Government &amp; Public Sector</li>
+              <li class="flex items-start gap-2"><span class="text-brand-red mt-0.5">▸</span> Education Bureau &amp; Schools</li>
+              <li class="flex items-start gap-2"><span class="text-brand-red mt-0.5">▸</span> Community &amp; NGOs</li>
+              <li class="flex items-start gap-2"><span class="text-brand-red mt-0.5">▸</span> Shopping Malls &amp; Venues</li>
+            </ul>
+          </div>
 
-      <div class="casino-chip">
-        <div class="outer-ring"></div>
-        <div class="dashed-ring"></div>
-        <svg style="width:clamp(16px,2vw,24px);height:clamp(16px,2vw,24px);color:#ff3333;z-index:1;flex-shrink:0;" fill="none" stroke="#ff3333" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-        <div class="font-oswald font-bold text-white" style="font-size:clamp(26px,4.2vw,48px);line-height:1;z-index:1;text-shadow:0 2px 12px rgba(0,0,0,0.9);">6</div>
-        <div class="font-sans uppercase tracking-widest text-white text-center leading-tight" style="font-size:clamp(7px,0.8vw,10px);z-index:1;text-shadow:0 1px 6px rgba(0,0,0,0.9);padding:0 14px;">Government<br>Bureaus</div>
-      </div>
+          <!-- WHAT WE DO panel -->
+          <div class="bg-brand-black text-white p-5 md:p-6">
+            <h4 class="font-oswald text-lg md:text-xl mb-3 md:mb-4 text-brand-red tracking-widest">WHAT WE DO</h4>
+            <ul class="space-y-2 text-[11px] md:text-xs text-gray-300 font-sans tracking-wide leading-relaxed">
+              <li class="flex items-start gap-2"><span class="text-brand-red mt-0.5">▸</span> Exhibition Design &amp; Build</li>
+              <li class="flex items-start gap-2"><span class="text-brand-red mt-0.5">▸</span> Interactive &amp; Gamified Engagement</li>
+              <li class="flex items-start gap-2"><span class="text-brand-red mt-0.5">▸</span> Multi-Venue Tour Logistics</li>
+              <li class="flex items-start gap-2"><span class="text-brand-red mt-0.5">▸</span> On-Site Staffing &amp; Operations</li>
+              <li class="flex items-start gap-2"><span class="text-brand-red mt-0.5">▸</span> Post-Tour Analytics &amp; Reporting</li>
+            </ul>
+          </div>
+        </div>
 
-      <div class="casino-chip">
-        <div class="outer-ring"></div>
-        <div class="dashed-ring"></div>
-        <svg style="width:clamp(16px,2vw,24px);height:clamp(16px,2vw,24px);color:#ff3333;z-index:1;flex-shrink:0;" fill="none" stroke="#ff3333" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-        <div class="font-oswald font-bold text-white" style="font-size:clamp(26px,4.2vw,48px);line-height:1;z-index:1;text-shadow:0 2px 12px rgba(0,0,0,0.9);">1.5M+</div>
-        <div class="font-sans uppercase tracking-widest text-white text-center leading-tight" style="font-size:clamp(7px,0.8vw,10px);z-index:1;text-shadow:0 1px 6px rgba(0,0,0,0.9);padding:0 14px;">People<br>Engaged</div>
       </div>
-    </div>
-  </section>
-
-  <!-- Government Clients -->
-  <section class="mb-24">
-    <h4 class="font-oswald text-xs uppercase tracking-[0.2em] text-gray-400 mb-6 border-l-2 border-brand-red pl-6">Government Bureaus</h4>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 font-sans text-sm">
-      <div class="flex justify-between items-center border-b border-black/10 pb-2"><span>Constitutional and Mainland Affairs Bureau</span><span class="font-oswald text-brand-red font-bold">4 projects</span></div>
-      <div class="flex justify-between items-center border-b border-black/10 pb-2"><span>Civil Service Bureau</span><span class="font-oswald text-brand-red font-bold">2 projects</span></div>
-      <div class="flex justify-between items-center border-b border-black/10 pb-2"><span>Security Bureau (Narcotics Division)</span><span class="font-oswald text-brand-red font-bold">2 projects</span></div>
-      <div class="flex justify-between items-center border-b border-black/10 pb-2"><span>Development Bureau</span><span class="font-oswald text-brand-red font-bold">1 project</span></div>
-      <div class="flex justify-between items-center border-b border-black/10 pb-2"><span>The Hong Kong Society for Rehabilitation</span><span class="font-oswald text-brand-red font-bold">1 project</span></div>
-    </div>
-  </section>
-
-  <!-- The Firebean Method -->
-  <section class="mb-24">
-    <h4 class="font-oswald text-xs uppercase tracking-[0.2em] text-gray-400 mb-8 border-l-2 border-brand-red pl-6">The Firebean Method</h4>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="border-l-4 border-brand-red pl-6 py-2">
-        <div class="font-oswald text-2xl font-bold text-brand-black">1. Design</div>
-        <p class="font-sans text-sm text-gray-500 mt-2 leading-relaxed">Concept development rooted in policy objectives and audience insights. Every exhibition starts with understanding who needs to be engaged and why.</p>
-      </div>
-      <div class="border-l-4 border-brand-red pl-6 py-2">
-        <div class="font-oswald text-2xl font-bold text-brand-black">2. Build & Brand</div>
-        <p class="font-sans text-sm text-gray-500 mt-2 leading-relaxed">Modular, transportable exhibition design. Visual identity, interactive elements, and durable materials engineered for repeated assembly across venues.</p>
-      </div>
-      <div class="border-l-4 border-brand-red pl-6 py-2">
-        <div class="font-oswald text-2xl font-bold text-brand-black">3. Tour & Operate</div>
-        <p class="font-sans text-sm text-gray-500 mt-2 leading-relaxed">Full logistics management — transport, installation, on-site staffing, and real-time operational support across every venue on the tour schedule.</p>
-      </div>
-      <div class="border-l-4 border-brand-red pl-6 py-2">
-        <div class="font-oswald text-2xl font-bold text-brand-black">4. Engage & Measure</div>
-        <p class="font-sans text-sm text-gray-500 mt-2 leading-relaxed">Interactive experiences that drive participation. Real-time engagement tracking, feedback collection, and post-tour analytics for government stakeholders.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
   <!-- 11 Roving Projects Grid — 4 per row with hero photos -->
   <section class="mb-24">
