@@ -1,0 +1,37 @@
+name: Pre-render Project Pages
+
+on:
+  push:
+    paths:
+      - 'data/projects.json'
+  workflow_dispatch:
+
+jobs:
+  pre-render:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run pre-render
+        run: python3 scripts/pre_render_projects.py
+
+      - name: Commit generated pages
+        run: |
+          git config user.name "firebean-bot"
+          git config user.email "bot@firebean.net"
+          git add projects/
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            count=$(ls projects/fb*.html 2>/dev/null | wc -l)
+            git commit -m "Auto-generate ${count} static project pages for GEO (pre-render)"
+            git push
+          fi
