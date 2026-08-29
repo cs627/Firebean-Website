@@ -67,8 +67,8 @@
     h+='<section class="mb-24" id="rv-method">';
     h+='<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">';
     h+='<div class="lg:col-span-4 flex flex-col items-center">';
-    h+='<div class="rv-match-wrap"><img src="../data/images/match.webp" alt="" class="rv-match" style="width:100%;height:auto"></div>';
-    h+='<p class="rv-subtitle font-playfair italic text-sm md:text-base text-gray-400 mt-6 text-right w-full" data-key="Roving.Methodology.Subtitle">From policy to public &mdash; four steps to a memorable roving exhibition.</p></div>';
+    h+='<p class="rv-subtitle font-playfair italic text-sm md:text-base text-gray-400 text-right w-full mb-8" data-key="Roving.Methodology.Subtitle">From policy to public &mdash; four steps to a memorable roving exhibition.</p>';
+    h+='<div class="rv-match-wrap py-12"><img src="../data/images/match.webp" alt="" class="rv-match" style="width:100%;height:auto"></div></div>';
     h+='<div class="lg:col-span-8"><div class="grid grid-cols-1 sm:grid-cols-2 gap-5">'+buildStepCards()+'</div></div></div></section>';
 
     h+='<h2 class="font-display text-3xl md:text-5xl lg:text-6xl tracking-tighter uppercase text-brand-black text-center mb-8">'+cnt+' Roving Exhibitions \u00b7 '+yrList[0]+'\u2014'+yrList[yrList.length-1]+'</h2>';
@@ -84,21 +84,22 @@
   }
 
   function setupScrollAnimations(){
-    // Matchstick parallax
+    // Matchstick parallax — full sweep from off-screen left to resting position
     var matchWrap=document.getElementById("rv-method");
     var matchImg=document.querySelector(".rv-match");
-    var subtitle=document.querySelector(".rv-subtitle");
     if(!matchWrap||!matchImg) return;
 
     function onScroll(){
       var rect=matchWrap.getBoundingClientRect();
       var winH=window.innerHeight;
-      if(rect.bottom<0||rect.top>winH) return; // off screen
-      var progress=1-(rect.top/winH); // 0=not visible, 1=scrolled past
-      progress=Math.max(0,Math.min(1,progress*1.3)); // amplify slightly
-      var offset=-60+progress*60; // moves from -60px to 0px
+      if(rect.bottom<0||rect.top>winH) return;
+      // progress: 0 = section just entering viewport bottom, 1 = section scrolled past top
+      var progress=(winH-rect.top)/(winH+rect.height);
+      progress=Math.max(0,Math.min(1,progress));
+      // Full sweep: -120px (0%) → 0px (100%)
+      var offset=-120+progress*120;
       matchImg.style.transform="translateX("+offset+"px) rotate(-15deg)";
-      matchImg.style.opacity=0.3+progress*0.7;
+      matchImg.style.opacity=progress; // 0 → 1
     }
     window.addEventListener("scroll", onScroll, {passive:true});
     onScroll();
