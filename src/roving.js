@@ -29,10 +29,10 @@
 
   function buildStepCards(){
     var fallbacks=[
-      {title:"Design",body:"Concept development rooted in policy objectives and audience insights. Every exhibition starts with understanding who needs to be engaged and why."},
-      {title:"Build &amp; Brand",body:"Modular, transportable exhibition design. Visual identity, interactive elements, and durable materials engineered for repeated assembly across multiple venues."},
-      {title:"Tour &amp; Operate",body:"Full logistics management — transport, installation, on-site staffing, and real-time operational support across every venue on the tour schedule."},
-      {title:"Engage &amp; Measure",body:"Interactive experiences that drive participation. Real-time engagement tracking, feedback collection, and post-tour analytics reporting for government stakeholders."}
+      {title:"Design",body:"Policy meets lifestyle creative. We translate government briefs into exhibition concepts the public actually wants to engage with \u2014 blending strategic messaging with the visual language of Hong Kong's best consumer brands."},
+      {title:"Build &amp; Brand",body:"Modular doesn't mean mediocre. Our exhibition builds combine transport-ready engineering with premium lifestyle aesthetics \u2014 designed to survive 20+ venue rotations without losing visual impact."},
+      {title:"Tour &amp; Operate",body:"Hong Kong-wide coverage, zero excuses. From Cheung Chau to Tuen Mun, our logistics team handles transport, installation, staffing, and daily ops. 99.8% on-time setup across 18+ venue tours."},
+      {title:"Engage &amp; Measure",body:"Engagement isn't a buzzword \u2014 it's a deliverable. We design interactive experiences that generate real participation data, then report it in formats government stakeholders find useful. Numbers, not adjectives."}
     ];
     var o="";
     for(var i=0;i<STEPS.length;i++){
