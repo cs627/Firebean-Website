@@ -28,15 +28,22 @@
   }
 
   function buildStepCards(){
+    var fallbacks=[
+      {title:"Design",body:"Concept development rooted in policy objectives and audience insights. Every exhibition starts with understanding who needs to be engaged and why."},
+      {title:"Build &amp; Brand",body:"Modular, transportable exhibition design. Visual identity, interactive elements, and durable materials engineered for repeated assembly across multiple venues."},
+      {title:"Tour &amp; Operate",body:"Full logistics management — transport, installation, on-site staffing, and real-time operational support across every venue on the tour schedule."},
+      {title:"Engage &amp; Measure",body:"Interactive experiences that drive participation. Real-time engagement tracking, feedback collection, and post-tour analytics reporting for government stakeholders."}
+    ];
     var o="";
     for(var i=0;i<STEPS.length;i++){
       var s=STEPS[i];
+      var fb=fallbacks[i]||{title:"Step 0"+s.n,body:""};
       o+='<div class="rv-step group border-l-4 border-brand-red pl-5 py-2 hover:bg-white hover:shadow-md transition-all">';
       o+='<div class="flex items-center gap-3 mb-2">';
       o+='<svg class="w-7 h-7 text-brand-red flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">'+s.icon+'</svg>';
       o+='<div><div class="font-spartan text-xl font-black text-brand-red leading-none">0'+s.n+'</div>';
-      o+='<h3 class="font-oswald text-base md:text-lg font-bold uppercase text-brand-black leading-tight" data-key="Roving.Methodology.Step'+s.n+'Title">Step 0'+s.n+'</h3></div></div>';
-      o+='<p class="font-sans text-[13px] md:text-sm text-gray-500 leading-relaxed" data-key="Roving.Methodology.Step'+s.n+'Body"></p></div>';
+      o+='<h3 class="font-oswald text-base md:text-lg font-bold uppercase text-brand-black leading-tight" data-key="Roving.Methodology.Step'+s.n+'Title">'+fb.title+'</h3></div></div>';
+      o+='<p class="font-sans text-[13px] md:text-sm text-gray-500 leading-relaxed" data-key="Roving.Methodology.Step'+s.n+'Body">'+fb.body+'</p></div>';
     }
     return o;
   }
