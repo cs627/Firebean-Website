@@ -39,6 +39,13 @@
 
   <!-- EDM newsletter issues — gov/PR thought leadership content -->
   <url>
+    <loc>https://firebean.net/edm/</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://firebean.net/edm/edm_EDM_001.html</loc>
     <lastmod>2026-07-21</lastmod>
     <changefreq>monthly</changefreq>
