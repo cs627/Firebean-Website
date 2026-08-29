@@ -67,9 +67,9 @@
     h+='<header class="mb-12 text-center">';
     h+='<p class="font-playfair italic text-lg md:text-xl tracking-wide text-gray-400 mb-4" data-key="Roving.Hero.Tagline">Roving Exhibitions</p>';
     h+='<h1 class="font-display text-4xl md:text-7xl lg:text-8xl tracking-normal uppercase leading-[1.15] md:leading-[1.1] mb-6 md:mb-8 py-2 max-w-5xl mx-auto">';
-        h+='<span id="rv-hero-n1" class="text-brand-red">'+cnt+'</span><span data-key="Roving.Hero.Slogan1"> PROJECTS.</span> ';
-        h+='<span id="rv-hero-n2" class="text-brand-red">'+burCnt+'</span><span data-key="Roving.Hero.Slogan2"> GOVERNMENT BUREAUS.</span> ';
-        h+='<span id="rv-hero-n3" class="text-brand-red" data-key="Roving.Hero.Slogan3">1.5M+</span><span data-key="Roving.Hero.Slogan4"> PEOPLE ENGAGED.</span></h1>';
+        h+='<span id="rv-hero-n1" class="text-brand-red">'+cnt+'</span><span data-key="Roving.Hero.Slogan1" class="font-bold"> PROJECTS.</span> ';
+        h+='<span id="rv-hero-n2" class="text-brand-red">'+burCnt+'</span><span data-key="Roving.Hero.Slogan2" class="font-bold"> GOVERNMENT BUREAUS.</span> ';
+        h+='<span id="rv-hero-n3" class="text-brand-red" data-key="Roving.Hero.Slogan3">1.5M+</span><span data-key="Roving.Hero.Slogan4" class="font-bold"> PEOPLE ENGAGED.</span></h1>';
     h+='<p class="font-playfair italic text-base md:text-xl font-medium text-brand-black max-w-2xl mx-auto" data-key="Roving.Hero.Subtitle2">Hong Kong\'s Most Experienced Roving Exhibition Agency</p></header>';
 
     // Methodology with scroll animations
