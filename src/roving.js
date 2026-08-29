@@ -98,7 +98,10 @@
     h+='<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">';
     h+='<div class="lg:col-span-4 flex flex-col items-center">';
     h+='<p class="rv-subtitle font-playfair italic text-sm md:text-base text-gray-400 text-right w-full mb-16" data-key="Roving.Methodology.Subtitle">From policy to public &mdash; four steps to a memorable roving exhibition.</p>';
-    h+='<div class="rv-match-wrap py-16"><img src="../data/images/match.webp" alt="" class="rv-match" style="width:100%;height:auto"></div></div>';
+    h+='<div class="rv-match-wrap relative py-16">';
+    h+='<img src="../data/images/match.webp" alt="" class="rv-match rv-match-1" style="width:100%;height:auto;position:relative;z-index:1">';
+    h+='<img src="../data/images/match.webp" alt="" class="rv-match rv-match-2" style="width:100%;height:auto;position:absolute;top:50%;left:50%;z-index:2">';
+    h+='</div></div>';
     h+='<div class="lg:col-span-8"><div class="grid grid-cols-1 sm:grid-cols-2 gap-5">'+buildStepCards()+'</div></div></div></section>';
 
     h+='<h2 class="font-display text-3xl md:text-5xl lg:text-6xl tracking-normal uppercase text-brand-black text-center mb-8" style="letter-spacing:0.02em;word-spacing:0.08em;line-height:1.2">';
@@ -120,21 +123,26 @@
   }
 
   function setupScrollAnimations(){
-    // Matchstick parallax — full sweep from off-screen left to resting position
+    // Matchstick parallax — dual matchsticks sliding in from opposite sides
     var matchWrap=document.getElementById("rv-method");
-    var matchImg=document.querySelector(".rv-match");
-    if(!matchWrap||!matchImg) return;
+    var match1=document.querySelector(".rv-match-1");
+    var match2=document.querySelector(".rv-match-2");
+    if(!matchWrap||!match1) return;
 
     function onScroll(){
       var rect=matchWrap.getBoundingClientRect();
       var winH=window.innerHeight;
       if(rect.bottom<0||rect.top>winH) return;
-      // progress: 0 = section just entering viewport bottom, 1 = section scrolled past top
       var progress=(winH-rect.top)/(winH+rect.height);
       progress=Math.max(0,Math.min(1,progress));
-      // Full sweep: -120px (0%) → 0px (100%)
-      var offset=-120+progress*120;
-      matchImg.style.transform="translateX("+offset+"px) rotate(-15deg)";
+      // Match 1: slides in from left (-120px → 0), rotate -15deg
+      var offset1=-120+progress*120;
+      match1.style.transform="translateX("+offset1+"px) rotate(-15deg)";
+      // Match 2: slides in from right (120px → 0), rotate +25deg (opposite angle, overlapping)
+      if(match2){
+        var offset2=120-progress*120;
+        match2.style.transform="translate(-50%,-50%) translateX("+(-40+progress*40)+"px) rotate(25deg)";
+      }
     }
     window.addEventListener("scroll", onScroll, {passive:true});
     onScroll();
