@@ -7,6 +7,22 @@
 (function(window, document) {
   "use strict";
 
+  console.log("[Roving] roving.js loaded");
+
+  var DOM_READY = false;
+  var CMS_READY = false;
+
+  document.addEventListener("DOMContentLoaded", function(){
+    DOM_READY = true;
+    console.log("[Roving] DOM ready, CMS ready:", CMS_READY);
+    if (CMS_READY) renderPage();
+  });
+
+  if (document.readyState !== "loading") {
+    DOM_READY = true;
+  }
+
+
   var STEPS = [
     {num:"1", icon:'<path stroke-linecap="round" stroke-linejoin="round" d="M12 20h9"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>'},
     {num:"2", icon:'<path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>'},
@@ -53,13 +69,15 @@
   }
 
   function renderPage() {
+    console.log("[Roving] renderPage called");
     var data = window.cmsData;
-    if (!data || !data.projects || !data.projects.length) return;
+    if (!data || !data.projects || !data.projects.length) { console.log("[Roving] No data yet"); return; }
 
     var roving = data.projects.filter(isRoving);
     roving.sort(function(a, b) { return (b.sortDate || "").localeCompare(a.sortDate || ""); });
 
     var count = roving.length;
+    console.log("[Roving] Found", count, "roving projects");
     if (count === 0) return;
 
     // Calculate stats
@@ -106,7 +124,10 @@
     html += '<h2 class="font-display text-3xl md:text-5xl lg:text-6xl tracking-tighter uppercase text-brand-black text-center mb-8">' + count + ' Roving Exhibitions \u00b7 ' + yrList[0] + '\u2014' + yrList[yrList.length - 1] + '</h2>';
     html += '<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">' + buildCards(roving) + '</div>';
 
-    document.getElementById("roving-main").innerHTML = html;
+    var el = document.getElementById("roving-main");
+    if (!el) { console.log("[Roving] #roving-main not found"); return; }
+    el.innerHTML = html;
+    console.log("[Roving] Page rendered with", count, "cards");
 
     // Re-trigger translations
     if (window.updateTranslations) window.updateTranslations();
