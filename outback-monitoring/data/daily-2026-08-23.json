@@ -33,6 +33,17 @@
       "link": "https://maps.app.goo.gl/KX3tsPdx9ZBte3NQ9",
       "sentiment": "positive",
       "tags": ""
+    },
+    {
+      "date": "2026-08-23",
+      "source": "Facebook (Eber)",
+      "platform": "社交媒體",
+      "author": "Eber (CRM平台)",
+      "title": "Eber發布Outback會員制度案例研究 — 月增6,000付費會員",
+      "summary": "Eber發布Outback Steakhouse HK會員制度案例：Outback建立兩級會員制後Prestige付費會員到訪頻率為免費VIP三倍，90%+付費會員保持活躍，單月新增6,000會員，25%訂座經App完成。此為B2B/行業案例內容，非消費者面向。",
+      "link": "https://www.facebook.com/EberTeam/posts/1657953689671815",
+      "sentiment": "positive",
+      "tags": ""
     }
   ],
   "alerts": [],
@@ -40,8 +51,8 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 3,
-    "new_records": 3,
+    "checked_sources": 4,
+    "new_records": 4,
     "limitations": []
   }
 }

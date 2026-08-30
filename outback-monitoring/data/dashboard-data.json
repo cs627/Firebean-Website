@@ -1,14 +1,14 @@
 {
   "meta": {
-    "last_updated": "2026-08-28 23:59:00",
-    "total_records": 140,
-    "daily_avg": 4.4,
-    "date_range": "2026-03-06 → 2026-08-28",
+    "last_updated": "2026-08-29T08:09:08Z",
+    "total_records": 143,
+    "daily_avg": 4.5,
+    "date_range": "2026-03-06 → 2026-08-27",
     "sources_checked": 35,
-    "new_verified": 15,
+    "new_verified": 18,
     "coverage_ratio": "35/46",
-    "negative_alerts": 17,
-    "positive_pct": 47
+    "negative_alerts": 19,
+    "positive_pct": 48
   },
   "trend": [
     {
@@ -21,7 +21,7 @@
     },
     {
       "date": "2026-08-23",
-      "count": 3
+      "count": 4
     },
     {
       "date": "2026-08-24",
@@ -32,12 +32,12 @@
       "count": 1
     },
     {
-      "date": "2026-08-27",
-      "count": 8
+      "date": "2026-08-26",
+      "count": 1
     },
     {
-      "date": "2026-08-28",
-      "count": 6
+      "date": "2026-08-27",
+      "count": 16
     }
   ],
   "source_breakdown": [
@@ -51,7 +51,7 @@
     },
     {
       "source": "Threads",
-      "count": 18
+      "count": 20
     },
     {
       "source": "OpenRice",
@@ -59,7 +59,7 @@
     },
     {
       "source": "Facebook",
-      "count": 8
+      "count": 9
     },
     {
       "source": "U Food",
@@ -103,9 +103,9 @@
     }
   ],
   "sentiment": {
-    "positive": 66,
-    "neutral": 54,
-    "negative": 17,
+    "positive": 68,
+    "neutral": 53,
+    "negative": 19,
     "mixed": 3
   },
   "all_records": [
@@ -941,8 +941,8 @@
       "title": "用戶描述於 Outback 用餐後出現不適並求醫",
       "summary": "作者以個人經歷描述：食用沙律、牛扒及草莓奶昔後約兩小時出現腸胃不適，其後曾求醫。此為未經獨立核實的個人陳述，並不證明任何食物或餐廳引致病情。",
       "link": "https://www.threads.com/@bobotang__/post/DcLVyyeGq9V",
-      "sentiment": "neutral",
-      "sentiment_label": "negative",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
       "keywords": "Outback"
     },
     {
@@ -1386,7 +1386,7 @@
       "keywords": "Outback Steakhouse"
     },
     {
-      "date": "2026-08-XX",
+      "date": "2026-08-26",
       "source": "Threads @kong.news",
       "platform": "社交媒體",
       "title": "Outback 9間將關閉分店列表",
@@ -1584,7 +1584,7 @@
       "keywords": "Outback, 食評, 沙田"
     },
     {
-      "date": "2026-08-28",
+      "date": "2026-08-27",
       "source": "Lemon Media (Threads)",
       "platform": "社交媒體提及",
       "title": "沙田新城市麵包節 — Outback $10黑糖麥包外帶優惠",
@@ -1595,7 +1595,7 @@
       "keywords": "Outback,澳美客"
     },
     {
-      "date": "2026-08-28",
+      "date": "2026-08-27",
       "source": "Outback官網",
       "platform": "官方推廣",
       "title": "「八月夏日消暑飲品優惠」— 精選飲品高達4折",
@@ -1606,7 +1606,7 @@
       "keywords": "Outback,澳美客"
     },
     {
-      "date": "2026-08-28",
+      "date": "2026-08-27",
       "source": "Outback官網",
       "platform": "官方推廣",
       "title": "「夏日美食秘笈」新菜單 — 布拉塔芝士沙律、熔岩芝士帶子意粉、黑糖麥包香蕉船",
@@ -1617,7 +1617,7 @@
       "keywords": "Outback,澳美客"
     },
     {
-      "date": "2026-08-28",
+      "date": "2026-08-27",
       "source": "Outback Facebook",
       "platform": "社交媒體官方貼文",
       "title": "「Opps！跌入Keep Fit無限循環」— 官方社交貼文",
@@ -1628,7 +1628,7 @@
       "keywords": "Outback,澳美客"
     },
     {
-      "date": "2026-08-28",
+      "date": "2026-08-27",
       "source": "Instagram @outbacksteakhousehk",
       "platform": "社交媒體官方貼文",
       "title": "官方IG近期貼文 — DSE考生75折 + 日常推廣 + VIP會員生日獎賞",
@@ -1639,7 +1639,7 @@
       "keywords": "Outback,澳美客"
     },
     {
-      "date": "2026-08-28",
+      "date": "2026-08-27",
       "source": "Instagram @foodie",
       "platform": "社交媒體食評",
       "title": "銅鑼灣Outback食評 — 18oz Prime Rib + Tomahawk Steak",
@@ -1648,6 +1648,39 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback,澳美客"
+    },
+    {
+      "date": "2026-08-27",
+      "source": "Threads (@hungrytv.hk)",
+      "platform": "社交媒體",
+      "title": "餓底TV轉載Outback慢燒牛扒熟度爭議 — 15.7K views",
+      "summary": "餓底TV於Threads轉載網民Outback用餐經驗：點選美式慢燒安格斯肉眼牛扒五成熟，上檯呈現近乎生牛肉半透明鮮紅色，要求重做後由全生直接跳到九成乾柴。牛扒KOL meat_dee回應指Prime rib採用low and slow慢焗做法。帖文獲15,700+ views、21 likes、6 replies。此為二次傳播，原始投訴帖文日期待確認。",
+      "link": "https://www.threads.com/@hungrytv.hk/post/DY8thm0CPVN/",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback, 慢燒牛扒, 熟度投訴"
+    },
+    {
+      "date": "2026-08-27",
+      "source": "Threads (@chik852chik)",
+      "platform": "社交媒體",
+      "title": "Threads用戶讚銅鑼灣Outback服務態度 — 3.7K views",
+      "summary": "用戶稱Outback steakhouse雖無gimmick、食物非十分出色，但銅鑼灣店服務態度「好到令人面紅」，特別適合老人家及小朋友叫set。獲3,700+ views、13 likes。",
+      "link": "https://www.threads.com/@chik852chik/post/DU-fmuMkoBR/",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 銅鑼灣, 服務"
+    },
+    {
+      "date": "2026-08-23",
+      "source": "Facebook (Eber)",
+      "platform": "社交媒體",
+      "title": "Eber發布Outback會員制度案例研究 — 月增6,000付費會員",
+      "summary": "Eber發布Outback Steakhouse HK會員制度案例：Outback建立兩級會員制後Prestige付費會員到訪頻率為免費VIP三倍，90%+付費會員保持活躍，單月新增6,000會員，25%訂座經App完成。此為B2B/行業案例內容，非消費者面向。",
+      "link": "https://www.facebook.com/EberTeam/posts/1657953689671815",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 會員制度, Prestige, CRM"
     }
   ],
   "media_records": [
@@ -2043,8 +2076,8 @@
       "title": "用戶描述於 Outback 用餐後出現不適並求醫",
       "summary": "作者以個人經歷描述：食用沙律、牛扒及草莓奶昔後約兩小時出現腸胃不適，其後曾求醫。此為未經獨立核實的個人陳述，並不證明任何食物或餐廳引致病情。",
       "link": "https://www.threads.com/@bobotang__/post/DcLVyyeGq9V",
-      "sentiment": "neutral",
-      "sentiment_label": "negative",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
       "keywords": "Outback"
     },
     {
@@ -2290,7 +2323,7 @@
       "keywords": "Outback Steakhouse"
     },
     {
-      "date": "2026-08-XX",
+      "date": "2026-08-26",
       "source": "Threads @kong.news",
       "platform": "社交媒體",
       "title": "Outback 9間將關閉分店列表",
@@ -2433,7 +2466,7 @@
       "keywords": "Outback, 到會, 外賣"
     },
     {
-      "date": "2026-08-28",
+      "date": "2026-08-27",
       "source": "Lemon Media (Threads)",
       "platform": "社交媒體提及",
       "title": "沙田新城市麵包節 — Outback $10黑糖麥包外帶優惠",
@@ -2444,7 +2477,7 @@
       "keywords": "Outback,澳美客"
     },
     {
-      "date": "2026-08-28",
+      "date": "2026-08-27",
       "source": "Outback官網",
       "platform": "官方推廣",
       "title": "「八月夏日消暑飲品優惠」— 精選飲品高達4折",
@@ -2455,7 +2488,7 @@
       "keywords": "Outback,澳美客"
     },
     {
-      "date": "2026-08-28",
+      "date": "2026-08-27",
       "source": "Outback官網",
       "platform": "官方推廣",
       "title": "「夏日美食秘笈」新菜單 — 布拉塔芝士沙律、熔岩芝士帶子意粉、黑糖麥包香蕉船",
@@ -2466,7 +2499,7 @@
       "keywords": "Outback,澳美客"
     },
     {
-      "date": "2026-08-28",
+      "date": "2026-08-27",
       "source": "Outback Facebook",
       "platform": "社交媒體官方貼文",
       "title": "「Opps！跌入Keep Fit無限循環」— 官方社交貼文",
@@ -2477,7 +2510,7 @@
       "keywords": "Outback,澳美客"
     },
     {
-      "date": "2026-08-28",
+      "date": "2026-08-27",
       "source": "Instagram @outbacksteakhousehk",
       "platform": "社交媒體官方貼文",
       "title": "官方IG近期貼文 — DSE考生75折 + 日常推廣 + VIP會員生日獎賞",
@@ -2488,7 +2521,7 @@
       "keywords": "Outback,澳美客"
     },
     {
-      "date": "2026-08-28",
+      "date": "2026-08-27",
       "source": "Instagram @foodie",
       "platform": "社交媒體食評",
       "title": "銅鑼灣Outback食評 — 18oz Prime Rib + Tomahawk Steak",
@@ -2497,6 +2530,39 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback,澳美客"
+    },
+    {
+      "date": "2026-08-27",
+      "source": "Threads (@hungrytv.hk)",
+      "platform": "社交媒體",
+      "title": "餓底TV轉載Outback慢燒牛扒熟度爭議 — 15.7K views",
+      "summary": "餓底TV於Threads轉載網民Outback用餐經驗：點選美式慢燒安格斯肉眼牛扒五成熟，上檯呈現近乎生牛肉半透明鮮紅色，要求重做後由全生直接跳到九成乾柴。牛扒KOL meat_dee回應指Prime rib採用low and slow慢焗做法。帖文獲15,700+ views、21 likes、6 replies。此為二次傳播，原始投訴帖文日期待確認。",
+      "link": "https://www.threads.com/@hungrytv.hk/post/DY8thm0CPVN/",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback, 慢燒牛扒, 熟度投訴"
+    },
+    {
+      "date": "2026-08-27",
+      "source": "Threads (@chik852chik)",
+      "platform": "社交媒體",
+      "title": "Threads用戶讚銅鑼灣Outback服務態度 — 3.7K views",
+      "summary": "用戶稱Outback steakhouse雖無gimmick、食物非十分出色，但銅鑼灣店服務態度「好到令人面紅」，特別適合老人家及小朋友叫set。獲3,700+ views、13 likes。",
+      "link": "https://www.threads.com/@chik852chik/post/DU-fmuMkoBR/",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 銅鑼灣, 服務"
+    },
+    {
+      "date": "2026-08-23",
+      "source": "Facebook (Eber)",
+      "platform": "社交媒體",
+      "title": "Eber發布Outback會員制度案例研究 — 月增6,000付費會員",
+      "summary": "Eber發布Outback Steakhouse HK會員制度案例：Outback建立兩級會員制後Prestige付費會員到訪頻率為免費VIP三倍，90%+付費會員保持活躍，單月新增6,000會員，25%訂座經App完成。此為B2B/行業案例內容，非消費者面向。",
+      "link": "https://www.facebook.com/EberTeam/posts/1657953689671815",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 會員制度, Prestige, CRM"
     }
   ],
   "social_records": [
