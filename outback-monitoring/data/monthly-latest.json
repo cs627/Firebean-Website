@@ -1144,6 +1144,22 @@
       "summary": "Eber發布Outback Steakhouse HK會員制度案例：Outback建立兩級會員制後Prestige付費會員到訪頻率為免費VIP三倍，90%+付費會員保持活躍，單月新增6,000會員，25%訂座經App完成。此為B2B/行業案例內容，非消費者面向。",
       "link": "https://www.facebook.com/EberTeam/posts/1657953689671815",
       "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-25",
+      "source": "Facebook (Outback Official)",
+      "title": "Opps！跌入Keep Fit無限循環 — Outback官方美食推廣帖文",
+      "summary": "Outback官方Facebook帖文，以Keep Fit循環為主題推廣美食，推介巨型加拿大龍蝦包、特製洋蔥花球、美國頂級斧頭扒及朱古力花生醬餅配雲尼拿雪糕。獲212 reactions、2 comments、3 shares。",
+      "link": "https://www.facebook.com/outbacksteakhousehk/posts/pfbid02Bx1Yi8BPx5XqjXb7mffXrFfkRujh3j14Ucy2kP4TKoXZACzhpd9NGtjY6h3tSAKZl",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-26",
+      "source": "Threads 原始帖 (@kenhui007)",
+      "title": "網民原帖：Outback慢燒安格斯肉眼牛扒「五成熟」實為近乎全生（950K views）",
+      "summary": "網民kenhui007於Threads發帖投訴在Outback點選美式慢燒安格斯肉眼牛扒、要求五成熟，惟上檯時整塊近乎全生（半透明鮮紅、肥膏死白未化），店員堅稱「慢燒Menu影出嚟就係咁粉紅」；要求重做後變成九成熟乾柴。帖文獲約950K觀看、4.9K讚好、746留言、96轉發，屬高觸達負面內容。此為原始投訴帖（本日8月27日捕獲的餓底TV轉載為二次傳播，原帖URL不同，故補錄原帖）。",
+      "link": "https://www.threads.com/@kenhui007/post/DY1yjxlGgBL",
+      "sentiment": "negative"
     }
   ],
   "alerts": [],
@@ -1152,7 +1168,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 143,
+    "new_records": 145,
     "limitations": []
   }
 }

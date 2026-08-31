@@ -11,15 +11,34 @@
       "link": "https://www.threads.com/@kong.news/post/C9_l9pYxE7e",
       "sentiment": "neutral",
       "tags": ""
+    },
+    {
+      "date": "2026-08-26",
+      "source": "Threads 原始帖 (@kenhui007)",
+      "platform": "社交媒體-Threads",
+      "author": "",
+      "title": "網民原帖：Outback慢燒安格斯肉眼牛扒「五成熟」實為近乎全生（950K views）",
+      "summary": "網民kenhui007於Threads發帖投訴在Outback點選美式慢燒安格斯肉眼牛扒、要求五成熟，惟上檯時整塊近乎全生（半透明鮮紅、肥膏死白未化），店員堅稱「慢燒Menu影出嚟就係咁粉紅」；要求重做後變成九成熟乾柴。帖文獲約950K觀看、4.9K讚好、746留言、96轉發，屬高觸達負面內容。此為原始投訴帖（本日8月27日捕獲的餓底TV轉載為二次傳播，原帖URL不同，故補錄原帖）。",
+      "link": "https://www.threads.com/@kenhui007/post/DY1yjxlGgBL",
+      "sentiment": "negative",
+      "tags": ""
     }
   ],
-  "alerts": [],
+  "alerts": [
+    {
+      "title": "網民原帖：Outback慢燒安格斯肉眼牛扒「五成熟」實為近乎全生（950K views）",
+      "summary": "網民kenhui007於Threads發帖投訴在Outback點選美式慢燒安格斯肉眼牛扒、要求五成熟，惟上檯時整塊近乎全生（半透明鮮紅、肥膏死白未化），店員堅稱「慢燒Menu影出嚟就係咁粉紅」；要求重做後變成九成熟乾柴。帖文獲約950K觀看、4.9K讚好、746留言、96轉發，屬高觸達負面內容。此為原始投訴帖（本日8月27日捕獲的餓底TV轉載為二次傳播，原帖URL不同，故補錄原帖）。",
+      "source": "Threads 原始帖 (@kenhui007)",
+      "link": "https://www.threads.com/@kenhui007/post/DY1yjxlGgBL",
+      "severity": "MEDIUM"
+    }
+  ],
   "trends": "",
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 1,
-    "new_records": 1,
+    "checked_sources": 2,
+    "new_records": 2,
     "limitations": []
   }
 }

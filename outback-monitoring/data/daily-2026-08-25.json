@@ -11,6 +11,17 @@
       "link": "https://www.facebook.com/outbacksteakhousehk",
       "sentiment": "positive",
       "tags": ""
+    },
+    {
+      "date": "2026-08-25",
+      "source": "Facebook (Outback Official)",
+      "platform": "社交媒體",
+      "author": "Outback Steakhouse HK (Official)",
+      "title": "Opps！跌入Keep Fit無限循環 — Outback官方美食推廣帖文",
+      "summary": "Outback官方Facebook帖文，以Keep Fit循環為主題推廣美食，推介巨型加拿大龍蝦包、特製洋蔥花球、美國頂級斧頭扒及朱古力花生醬餅配雲尼拿雪糕。獲212 reactions、2 comments、3 shares。",
+      "link": "https://www.facebook.com/outbacksteakhousehk/posts/pfbid02Bx1Yi8BPx5XqjXb7mffXrFfkRujh3j14Ucy2kP4TKoXZACzhpd9NGtjY6h3tSAKZl",
+      "sentiment": "positive",
+      "tags": ""
     }
   ],
   "alerts": [],
@@ -18,8 +29,8 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 1,
-    "new_records": 1,
+    "checked_sources": 2,
+    "new_records": 2,
     "limitations": []
   }
 }
