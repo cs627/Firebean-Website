@@ -658,12 +658,8 @@
       .dark-toggle svg { width: 16px; height: 16px; }
 
       /* Newsletter card text in dark mode */
-      /* Newsletter cards — text below photo, white bg */
-      .newsletter-card { border-radius: 0.5rem; overflow: hidden; }
-      html.dark .newsletter-card { background: #ffffff; }
-      html.dark .newsletter-card h3 { color: #0a0a0a; }
-      html.dark .newsletter-card p { color: #4b5563; }
-      html.dark .newsletter-card a { color: #0a0a0a; }
+      /* Newsletter cards — text below photo, white bg, no rounded corners */
+      .newsletter-card { }
       /* Newsletter email input dark mode */
       html.dark #newsletter-form .bg-black\/5 { background-color: rgba(255,255,255,0.08) !important; border-color: rgba(255,255,255,0.15) !important; }
       html.dark #nl-email { color: #e5e5e5 !important; }
@@ -1479,8 +1475,8 @@
         <div class="w-full md:w-[55%] p-8 md:p-16 space-y-24 md:py-32 relative z-20 bg-brand-gray">
           
           <!-- Card 01 -->
-          <div class="newsletter-card group bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100">
-            <div class="aspect-[16/9] bg-gray-200 overflow-hidden">
+          <div class="newsletter-card group bg-white shadow-sm border border-gray-100">
+            <div class="aspect-[16/9] bg-gray-200">
               <img id="newsletter-img-1" src="" class="w-full h-full object-cover" alt="Report" referrerpolicy="no-referrer">
             </div>
             <div class="p-6">
@@ -1495,8 +1491,8 @@
           </div>
 
           <!-- Card 02 -->
-          <div class="newsletter-card group bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100">
-            <div class="aspect-[16/9] bg-gray-200 overflow-hidden">
+          <div class="newsletter-card group bg-white shadow-sm border border-gray-100">
+            <div class="aspect-[16/9] bg-gray-200">
               <img id="newsletter-img-2" src="" class="w-full h-full object-cover" alt="Report" referrerpolicy="no-referrer">
             </div>
             <div class="p-6">
@@ -1511,8 +1507,8 @@
           </div>
 
           <!-- Card 03 -->
-          <div class="newsletter-card group bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100">
-            <div class="aspect-[16/9] bg-gray-200 overflow-hidden">
+          <div class="newsletter-card group bg-white shadow-sm border border-gray-100">
+            <div class="aspect-[16/9] bg-gray-200">
               <img id="newsletter-img-3" src="" class="w-full h-full object-cover" alt="Report" referrerpolicy="no-referrer">
             </div>
             <div class="p-6">
