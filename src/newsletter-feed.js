@@ -10,10 +10,11 @@
   var BASE = (document.querySelector('base[href]') ? document.querySelector('base[href]').getAttribute('href') : '/');
   var FEED_URL = BASE + 'data/edm-feed.json';
 
-  function truncate(text, maxChars) {
+  function truncateToWords(text, maxWords) {
     if (!text) return '';
-    if (text.length <= maxChars) return text;
-    return text.substring(0, maxChars) + '…';
+    var words = text.split(/\s+/);
+    if (words.length <= maxWords) return text;
+    return words.slice(0, maxWords).join(' ') + '…';
   }
 
   function populateCards(feed) {
@@ -42,7 +43,7 @@
         title.textContent = entry.title;
       }
       if (desc && entry.desc) {
-        desc.textContent = truncate(entry.desc, 50);
+        desc.textContent = truncateToWords(entry.desc, 50);
       }
       if (link && entry.url) {
         link.href = entry.url;
@@ -73,7 +74,7 @@
   function useFallback() {
     var fallback = [
       { issue:"EDM_006", date:"August 18, 2026", title:"Fortifying Public Trust: Data Privacy & Security in Gov Engagements", desc:"In an era where data breaches make headlines weekly, Hong Kong government departments face unprecedented scrutiny over how they handle citizen data at public events and exhibitions.", photo:"https://raw.githubusercontent.com/cs627/Firebean-Website/main/assets/edm/EDM_006/insight.jpg", url:"https://firebean.net/edm/edm_EDM_006.html" },
-      { issue:"EDM_007", date:"August 25, 2026", title:"Inclusive Hong Kong: Universal Design & Experiential Accessibility", desc:"Hong Kong's public spaces are undergoing a quiet transformation — one that's not about grand architectural gestures but about making every citizen feel seen.", photo:"https://raw.githubusercontent.com/cs627/Firebean-Website/main/assets/edm/EDM_007/FB2026011-hero.jpg", url:"https://firebean.net/edm/edm_EDM_007.html" },
+      { issue:"EDM_007", date:"August 25, 2026", title:"Inclusive Hong Kong: Universal Design & Experiential Accessibility", desc:"Hong Kong's public spaces are undergoing a quiet transformation — one that's not about grand architectural gestures but about making every citizen feel seen.", photo:"https://raw.githubusercontent.com/cs627/Firebean-Website/main/assets/edm/EDM_007/s1_ccf_desktop.jpg", url:"https://firebean.net/edm/edm_EDM_007.html" },
       { issue:"EDM_008", date:"September 1, 2026", title:"Heritage Meets Innovation: Lessons from ICH Month 2026", desc:"The Intangible Cultural Heritage (ICH) Month 2026 demonstrated something remarkable: when heritage presentations move beyond glass cases and into immersive formats.", photo:"https://raw.githubusercontent.com/cs627/Firebean-Website/main/assets/edm/EDM_008/s1_icho_desktop.jpg", url:"https://firebean.net/edm/edm_EDM_008.html" }
     ];
     populateCards(fallback);

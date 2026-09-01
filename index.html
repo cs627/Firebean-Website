@@ -658,9 +658,12 @@
       .dark-toggle svg { width: 16px; height: 16px; }
 
       /* Newsletter card text in dark mode */
-      html.dark .newsletter-card h3 { color: var(--text-primary) !important; }
-      html.dark .newsletter-card p { color: var(--text-secondary) !important; }
-      html.dark .newsletter-card a { color: var(--text-primary) !important; }
+      /* Newsletter cards — text below photo, white bg */
+      .newsletter-card { border-radius: 0.5rem; overflow: hidden; }
+      html.dark .newsletter-card { background: #ffffff; }
+      html.dark .newsletter-card h3 { color: #0a0a0a; }
+      html.dark .newsletter-card p { color: #4b5563; }
+      html.dark .newsletter-card a { color: #0a0a0a; }
       /* Newsletter email input dark mode */
       html.dark #newsletter-form .bg-black\/5 { background-color: rgba(255,255,255,0.08) !important; border-color: rgba(255,255,255,0.15) !important; }
       html.dark #nl-email { color: #e5e5e5 !important; }
@@ -1476,52 +1479,49 @@
         <div class="w-full md:w-[55%] p-8 md:p-16 space-y-24 md:py-32 relative z-20 bg-brand-gray">
           
           <!-- Card 01 -->
-          <div class="newsletter-card group relative overflow-hidden rounded-lg">
-            <div class="aspect-[16/9] relative bg-gray-200 overflow-hidden">
+          <div class="newsletter-card group bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100">
+            <div class="aspect-[16/9] bg-gray-200 overflow-hidden">
               <img id="newsletter-img-1" src="" class="w-full h-full object-cover" alt="Report" referrerpolicy="no-referrer">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-              <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
-                <span id="newsletter-badge-1" class="inline-block bg-brand-red text-white text-[10px] font-bold px-3 py-1 uppercase tracking-widest mb-2 font-spartan"></span>
-                <p id="newsletter-date-1" class="text-xs text-white/70 uppercase tracking-widest font-sans mb-2"></p>
-                <h3 id="newsletter-title-1" class="font-oswald text-2xl md:text-3xl font-bold uppercase leading-tight mb-3"></h3>
-                <p id="newsletter-desc-1" class="font-sans text-sm text-white/80 leading-relaxed mb-4 line-clamp-2"></p>
-                <div>
-                  <a id="newsletter-link-1" href="#" class="font-oswald text-sm font-bold tracking-widest text-white hover:text-brand-red transition-colors inline-flex items-center gap-2" data-key="Index.Newsletter.ReadMore">閱讀更多 →</a>
-                </div>
+            </div>
+            <div class="p-6">
+              <span id="newsletter-badge-1" class="inline-block bg-brand-red text-white text-[10px] font-bold px-3 py-1 uppercase tracking-widest mb-2 font-spartan"></span>
+              <p id="newsletter-date-1" class="text-xs text-gray-400 uppercase tracking-widest font-sans mb-2"></p>
+              <h3 id="newsletter-title-1" class="font-oswald text-xl md:text-2xl font-bold uppercase leading-tight mb-3 text-brand-black"></h3>
+              <p id="newsletter-desc-1" class="font-sans text-sm text-gray-600 leading-relaxed mb-4 line-clamp-2"></p>
+              <div>
+                <a id="newsletter-link-1" href="#" class="font-oswald text-sm font-bold tracking-widest text-brand-black hover:text-brand-red transition-colors inline-flex items-center gap-2" data-key="Index.Newsletter.ReadMore">閱讀更多 →</a>
               </div>
             </div>
           </div>
 
           <!-- Card 02 -->
-          <div class="newsletter-card group relative overflow-hidden rounded-lg">
-            <div class="aspect-[16/9] relative bg-gray-200 overflow-hidden">
+          <div class="newsletter-card group bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100">
+            <div class="aspect-[16/9] bg-gray-200 overflow-hidden">
               <img id="newsletter-img-2" src="" class="w-full h-full object-cover" alt="Report" referrerpolicy="no-referrer">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-              <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
-                <span id="newsletter-badge-2" class="inline-block bg-brand-red text-white text-[10px] font-bold px-3 py-1 uppercase tracking-widest mb-2 font-spartan"></span>
-                <p id="newsletter-date-2" class="text-xs text-white/70 uppercase tracking-widest font-sans mb-2"></p>
-                <h3 id="newsletter-title-2" class="font-oswald text-2xl md:text-3xl font-bold uppercase leading-tight mb-3"></h3>
-                <p id="newsletter-desc-2" class="font-sans text-sm text-white/80 leading-relaxed mb-4 line-clamp-2"></p>
-                <div>
-                  <a id="newsletter-link-2" href="#" class="font-oswald text-sm font-bold tracking-widest text-white hover:text-brand-red transition-colors inline-flex items-center gap-2" data-key="Index.Newsletter.ReadMore">閱讀更多 →</a>
-                </div>
+            </div>
+            <div class="p-6">
+              <span id="newsletter-badge-2" class="inline-block bg-brand-red text-white text-[10px] font-bold px-3 py-1 uppercase tracking-widest mb-2 font-spartan"></span>
+              <p id="newsletter-date-2" class="text-xs text-gray-400 uppercase tracking-widest font-sans mb-2"></p>
+              <h3 id="newsletter-title-2" class="font-oswald text-xl md:text-2xl font-bold uppercase leading-tight mb-3 text-brand-black"></h3>
+              <p id="newsletter-desc-2" class="font-sans text-sm text-gray-600 leading-relaxed mb-4 line-clamp-2"></p>
+              <div>
+                <a id="newsletter-link-2" href="#" class="font-oswald text-sm font-bold tracking-widest text-brand-black hover:text-brand-red transition-colors inline-flex items-center gap-2" data-key="Index.Newsletter.ReadMore">閱讀更多 →</a>
               </div>
             </div>
           </div>
 
           <!-- Card 03 -->
-          <div class="newsletter-card group relative overflow-hidden rounded-lg">
-            <div class="aspect-[16/9] relative bg-gray-200 overflow-hidden">
+          <div class="newsletter-card group bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100">
+            <div class="aspect-[16/9] bg-gray-200 overflow-hidden">
               <img id="newsletter-img-3" src="" class="w-full h-full object-cover" alt="Report" referrerpolicy="no-referrer">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-              <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
-                <span id="newsletter-badge-3" class="inline-block bg-brand-red text-white text-[10px] font-bold px-3 py-1 uppercase tracking-widest mb-2 font-spartan"></span>
-                <p id="newsletter-date-3" class="text-xs text-white/70 uppercase tracking-widest font-sans mb-2"></p>
-                <h3 id="newsletter-title-3" class="font-oswald text-2xl md:text-3xl font-bold uppercase leading-tight mb-3"></h3>
-                <p id="newsletter-desc-3" class="font-sans text-sm text-white/80 leading-relaxed mb-4 line-clamp-2"></p>
-                <div>
-                  <a id="newsletter-link-3" href="#" class="font-oswald text-sm font-bold tracking-widest text-white hover:text-brand-red transition-colors inline-flex items-center gap-2" data-key="Index.Newsletter.ReadMore">閱讀更多 →</a>
-                </div>
+            </div>
+            <div class="p-6">
+              <span id="newsletter-badge-3" class="inline-block bg-brand-red text-white text-[10px] font-bold px-3 py-1 uppercase tracking-widest mb-2 font-spartan"></span>
+              <p id="newsletter-date-3" class="text-xs text-gray-400 uppercase tracking-widest font-sans mb-2"></p>
+              <h3 id="newsletter-title-3" class="font-oswald text-xl md:text-2xl font-bold uppercase leading-tight mb-3 text-brand-black"></h3>
+              <p id="newsletter-desc-3" class="font-sans text-sm text-gray-600 leading-relaxed mb-4 line-clamp-2"></p>
+              <div>
+                <a id="newsletter-link-3" href="#" class="font-oswald text-sm font-bold tracking-widest text-brand-black hover:text-brand-red transition-colors inline-flex items-center gap-2" data-key="Index.Newsletter.ReadMore">閱讀更多 →</a>
               </div>
             </div>
           </div>
