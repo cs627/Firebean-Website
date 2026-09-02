@@ -468,6 +468,7 @@ function createProfileElement(profile, layoutIndex, arrayIndex) {
           '<img src="' + imgSrc + '" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="' + (profile.project || '') + '" referrerpolicy="no-referrer">' +
         '</div>' +
         contentHtml;
+      return element;
     }
 
     function renderProfiles(isFirstLoad) {

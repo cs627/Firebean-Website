@@ -105,11 +105,38 @@
     h+='<div class="lg:col-span-8"><div class="grid grid-cols-1 sm:grid-cols-2 gap-5">'+buildStepCards()+'</div></div></div></section>';
 
     h+='<h2 class="font-display text-3xl md:text-5xl lg:text-6xl tracking-normal uppercase text-brand-black text-center mb-8" style="letter-spacing:0.02em;word-spacing:0.08em;line-height:1.2">';
-        h+='<span class="text-brand-red" id="rv-count-disp">'+cnt+'</span> ';
-        h+='<span data-key="Roving.Projects.SectionTitle">Roving Exhibitions</span> ';
-        h+='<span class="text-gray-400">·</span> ';
-        h+='<span id="rv-year-disp" data-key="Roving.Projects.YearRange">'+yrList[0]+'\u2014'+yrList[yrList.length-1]+'</span></h2>';
-    h+='<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">'+buildCards(roving)+'</div>';
+            h+='<span class="text-brand-red" id="rv-count-disp">'+cnt+'</span> ';
+            h+='<span data-key="Roving.Projects.SectionTitle">Roving Exhibitions</span> ';
+            h+='<span class="text-gray-400">·</span> ';
+            h+='<span id="rv-year-disp" data-key="Roving.Projects.YearRange">'+yrList[0]+'\\u2014'+yrList[yrList.length-1]+'</span></h2>';
+        h+='<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">'+buildCards(roving)+'</div>';
+
+        // Successful Cases — Hero Banner showcase section (after the full grid)
+        var showcaseIDs=['fb2025012','fb2026027','fb2026029','fb2026078'];
+        var showcases=showcaseIDs.map(function(id){for(var si=0;si<roving.length;si++){if(roving[si].id===id||roving[si].projectId===id)return roving[si];}return null;}).filter(function(x){return x;});
+        if(showcases.length){
+          h+='<section id="rv-success-cases" class="mt-32 mb-8" >';
+          h+='<div class="text-center mb-14">';
+          h+='<h2 class="font-display text-3xl md:text-5xl lg:text-6xl tracking-normal uppercase text-brand-black text-center mb-4" style="letter-spacing:0.02em;line-height:1.2" data-key="Roving.Cases.SectionTitle">Successful Cases</h2>';
+          h+='<p class="font-playfair italic text-base md:text-lg text-gray-400 max-w-2xl mx-auto" data-key="Roving.Cases.SectionSubtitle">Four shows that defined what roving exhibitions can achieve</p>';
+          h+='</div>';
+          h+='<div class="space-y-10">';
+          for(var ci=0;ci<showcases.length;ci++){
+            var sc=showcases[ci];
+            var scImg=(sc.heroPhoto&&sc.heroPhoto.indexOf('http')!==0)?'../'+sc.heroPhoto:(sc.heroPhoto||'');
+            h+='<a href="../profile.html?id='+(sc.projectId||sc.id||'')+'" class="group block overflow-hidden rounded-2xl relative bg-gray-900 shadow-2xl transition-all duration-500 hover:shadow-brand-red/20" referrerpolicy="no-referrer">';
+            h+='<div class="relative h-64 md:h-96 overflow-hidden">';
+            h+='<img src="'+scImg+'" alt="'+(sc.projectName||'')+'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" referrerpolicy="no-referrer">';
+            h+='<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>';
+            h+='<div class="absolute bottom-0 left-0 right-0 p-6 md:p-10">';
+            h+='<div class="font-oswald text-2xl md:text-4xl font-bold uppercase text-white leading-tight mb-2">'+(sc.projectName||'')+'</div>';
+            h+='<div class="font-sans text-sm md:text-base text-gray-300 mb-3">'+(sc.client||'')+'</div>';
+            h+='<span class="inline-flex items-center gap-2 font-sans text-xs md:text-sm uppercase tracking-widest text-brand-red font-bold group-hover:gap-3 transition-all" data-key="Roving.Cases.ViewCase">View Case Study</span>';
+            h+='</div></div></a>';
+          }
+          h+='</div>';
+          h+='</section>';
+        }
 
     var el=document.getElementById("roving-main");
     if(!el){ console.log("[roving] #roving-main missing"); return; }

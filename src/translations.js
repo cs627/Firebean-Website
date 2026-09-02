@@ -95,6 +95,9 @@
     ["Roving","Hero","Slogan3","1.5M+","150萬+","150万人"],
     ["Roving","Hero","Slogan4","PEOPLE ENGAGED.","參與人次。","以上が参加。"],
     ["Roving","Stats","ProjectsLabel","Roving Projects","巡迴項目","巡回プロジェクト"],
+    ["Roving","Cases","SectionTitle","Successful Cases","成功案例","成功事例"],
+    ["Roving","Cases","SectionSubtitle","Four shows that defined what roving exhibitions can achieve","四個展示巡迴展覽所能成就嘅經典案例","公衆とつながる巡回展示の代表例"],
+    ["Roving","Cases","ViewCase","View Case Study","查看案例","事例を見る"],
 ];
 
   // Language column index mapping: en=3(idx 3), ch=4(idx 4), jp=5(idx 5)
