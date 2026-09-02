@@ -2809,6 +2809,7 @@
 
       // --- 2. Populate Work Profiles Grid (next 6 from balanced pool, slots 3-8) ---
       var gridProjects = withPhotos.slice(3, 9);
+      window.gridProjects = withPhotos.slice(3, 9);
       var gridContainer = document.getElementById('work-profiles-grid');
 
       // Helper: get short description from web content
@@ -2890,7 +2891,11 @@
         return '';
       }
       
-      var layouts = [
+      // Rebuild grid in current language
+      window.renderGrid = function() {
+        var gridContainer = document.getElementById('work-profiles-grid');
+        var gridHTML = '';
+        var layouts = [
         // Row 1
         { cols: 'col-span-1 md:col-span-5', aspect: 'aspect-[3/4]',  label: 'LARGE',  mt: '' },
         { cols: 'col-span-1 md:col-span-4', aspect: 'aspect-[3/4]',  label: 'MEDIUM', mt: 'md:mt-16' },
@@ -2900,8 +2905,7 @@
         { cols: 'col-span-1 md:col-span-5', aspect: 'aspect-[4/5]',  label: 'LARGE',  mt: 'md:-mt-16' },
         { cols: 'col-span-1 md:col-span-4', aspect: 'aspect-[3/4]',  label: 'MEDIUM', mt: 'md:mt-8' }
       ];
-      var gridHTML = '';
-      gridProjects.forEach(function(p, i) {
+      window.gridProjects.forEach(function(p, i) {
         var layout = layouts[i] || layouts[0];
         var desc = getGridDesc(p);
         var isLarge = layout.label === 'LARGE';
@@ -2919,6 +2923,9 @@
           '</div></a>';
       });
       gridContainer.innerHTML = gridHTML;
+      };
+      // Initial render (first load)
+      window.renderGrid();
 
       // Progressive scroll-driven profile card reveal
       // Cards appear gradually as user scrolls — each triggers individually
@@ -3057,6 +3064,10 @@
         var whatWeDo = el.getAttribute('data-whatwedo') || '';
         el.textContent = translateCat(cat) + (whatWeDo ? ' / ' + translateCat(whatWeDo) : '');
       });
+      // Rebuild profile grid in the newly selected language (titles + 50-word descriptions)
+      if (window.renderGrid) {
+        window.renderGrid();
+      }
     });
 
     // --- Legal Modal Logic ---
