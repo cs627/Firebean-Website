@@ -435,23 +435,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const profileCount = document.getElementById('profile-count');
     let activeFilter = 'all';
 
-    function createProfileElement(profile, layoutIndex, arrayIndex) {
+    function truncateToWords(text, maxWords) {
+    if (!text) return '';
+    var words = text.split(/\s+/);
+    if (words.length <= maxWords) return text;
+    return words.slice(0, maxWords).join(' ') + '…';
+  }
+
+function createProfileElement(profile, layoutIndex, arrayIndex) {
       const element = document.createElement('a');
       // Use projectId if available, otherwise fall back to array position
       element.href = 'profile.html?id=' + encodeURIComponent(profile.id || profile.projectId || String(arrayIndex));
       element.className = 'group block project-profile';
       element.dataset.category = (profile.filterSlugs || []).join(' ');
-
+      
       var imgSrc = profile.heroPhoto || profile.heroPhotoSmall || '';
       // Uniform 4/5 portrait aspect ratio for all cards
       var displayAspect = '4/5';
+      
+      // Build content with 50-word truncation
+      var clientText = profile.client || '';
+      var scopeText = profile.scope || '';
+      var categoryText = profile.categories ? profile.categories.join(', ') : '';
+      
+      var contentHtml = '<h3 class="font-oswald text-[11px] sm:text-base md:text-xl lg:text-2xl uppercase font-bold mb-0.5 md:mb-1 line-clamp-2 leading-tight">' + (profile.projectName || profile.project || '') + '</h3>' +
+        '<p class="font-playfair text-[9px] sm:text-xs md:text-sm text-gray-600 italic line-clamp-1">' + truncateToWords(clientText, 50) + '</p>' +
+        '<p class="text-[8px] text-gray-500 line-clamp-2">' + truncateToWords(scopeText, 50) + '</p>' +
+        '<p class="text-[7px] text-gray-400 line-clamp-1">' + truncateToWords(categoryText, 50) + '</p>';
+      
       element.innerHTML =
         '<div class="relative overflow-hidden mb-1 shadow-2xl" style="aspect-ratio: ' + displayAspect + ';">' +
           '<img src="' + imgSrc + '" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="' + (profile.project || '') + '" referrerpolicy="no-referrer">' +
         '</div>' +
-        '<h3 class="font-oswald text-[11px] sm:text-base md:text-xl lg:text-2xl uppercase font-bold mb-0.5 md:mb-1 line-clamp-2 leading-tight">' + (profile.projectName || profile.project || '') + '</h3>' +
-        '<p class="font-playfair text-[9px] sm:text-xs md:text-sm text-gray-600 italic line-clamp-1">' + (profile.client || '') + '</p>';
-      return element;
+        contentHtml;
     }
 
     function renderProfiles(isFirstLoad) {
