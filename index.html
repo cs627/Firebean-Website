@@ -2812,11 +2812,37 @@
       var gridContainer = document.getElementById('work-profiles-grid');
 
       // Helper: get short description from web content
-      function truncateToWords(text, maxWords) {
+      function truncateToWords(text, maxLen) {
         if (!text) return '';
-        var words = text.split(/\s+/);
-        if (words.length <= maxWords) return text;
-        return words.slice(0, maxWords).join(' ') + '…';
+        // Count 1 per CJK char + 1 per latin/num word; truncate to maxLen tokens
+        var tokens = [];
+        var re = /([\u4e00-\u9fff\u3040-\u30ff\uac00-\ud7af])|([a-zA-Z0-9]+(?:\-[a-zA-Z0-9]+)*)/g;
+        var m;
+        while ((m = re.exec(text)) !== null) {
+          tokens.push(m[0]);
+        }
+        if (tokens.length <= maxLen) return text;
+        // Rebuild truncated string up to maxLen tokens + ellipsis
+        var out = '';
+        var consumed = 0;
+        var i = 0;
+        var tokenIdx = 0;
+        while (tokenIdx < maxLen && i < text.length) {
+          var chunk = text[i];
+          if (/[\u4e00-\u9fff\u3040-\u30ff\uac00-\ud7af]/.test(text[i])) {
+            // CJK char = 1 token
+            out += text[i]; tokenIdx++; i++;
+          } else if (/[a-zA-Z0-9]/.test(text[i])) {
+            // gather whole word
+            var j = i;
+            while (j < text.length && /[a-zA-Z0-9]/.test(text[j])) j++;
+            out += text.slice(i, j); tokenIdx++; i = j;
+          } else {
+            out += text[i]; i++;
+          }
+        }
+        out = out.replace(/\s+$/, '');
+        return out + '…';
       }
       
       function getGridDesc(p) {
@@ -2826,51 +2852,44 @@
         else if (currentLang === 'jp' && p.webJP) raw = p.webJP;
         else raw = p.webEN || p.webTC || p.webJP || '';
         if (!raw) return '';
-        // Try HTML parsing first
         var tmp = document.createElement('div');
         tmp.innerHTML = raw;
-        // Pick the first REAL body paragraph -- skip short headings (h2/h3 subheadlines).
-        // Use the first <p> that actually contains substantive body text (>= 30 words).
-        var paras = tmp.querySelectorAll('p');
+        // Collect content blocks in document order with their tag
+        var blocks = [];
+        function walk(node) {
+          for (var k = 0; k < node.childNodes.length; k++) {
+            var child = node.childNodes[k];
+            if (child.nodeType === 1) {
+              var tag = child.tagName ? child.tagName.toLowerCase() : '';
+              if (tag === 'p') {
+                var t = (child.textContent || '').trim();
+                if (t) blocks.push({tag:'p', text:t});
+              } else if (/^h[1-6]$/.test(tag)) {
+                var h = (child.textContent || '').trim();
+                if (h) blocks.push({tag:tag, text:h});
+              } else {
+                walk(child);
+              }
+            } else if (child.nodeType === 3) {
+              var txt = (child.textContent || '').trim();
+              if (txt) blocks.push({tag:'text', text:txt});
+            }
+          }
+        }
+        walk(tmp);
+        // Pick the first non-heading body block (skip h1-h6)
         var chosen = '';
-        for (var pi = 0; pi < paras.length; pi++) {
-          var ptext = (paras[pi].textContent || '').trim();
-          // Skip empty or very short decorative fragments
-          if (ptext.split(/\s+/).length >= 30) {
-            chosen = ptext;
+        for (var bi = 0; bi < blocks.length; bi++) {
+          if (!/^h[1-6]$/.test(blocks[bi].tag)) {
+            chosen = blocks[bi].text;
             break;
           }
         }
-        // Fallback: if no long paragraph, use the first non-empty paragraph/h3
-        if (!chosen) {
-          for (var fi = 0; fi < paras.length; fi++) {
-            var ft = (paras[fi].textContent || '').trim();
-            if (ft) { chosen = ft; break; }
-          }
-          if (!chosen) {
-            var h3 = tmp.querySelector('h3');
-            if (h3 && (h3.textContent || '').trim()) chosen = h3.textContent.trim();
-          }
-        }
+        if (!chosen && blocks.length) chosen = blocks[0].text;
         if (chosen) return truncateToWords(chosen, 50);
-        // Fallback 1: content may be bare HTML text (paragraphs not wrapped in <p>).
-        // Strip all tags, split into logical blocks by blank lines, pick first long block.
-        var textOnly = tmp.textContent || tmp.innerText || '';
-        var blocks = textOnly.split(/\n+/).map(function(b){ return b.trim(); }).filter(function(b){ return b.length > 0; });
-        for (var bi = 0; bi < blocks.length; bi++) {
-          // Skip heading-like blocks and pick a substantive paragraph
-          if (blocks[bi].split(/\s+/).length >= 30) {
-            return truncateToWords(blocks[bi], 50);
-          }
-        }
-        // Fallback 2: very last resort — first non-empty block
-        if (blocks.length) return truncateToWords(blocks[0], 50);
         return '';
       }
-
-      // Editorial 3-card-per-row layout: 2 rows × 3 cards, each row has LARGE / MEDIUM / SMALL sizes
-      // Row 1: Large (5 cols) | Medium (4 cols) | Small (3 cols)
-      // Row 2: Small (3 cols) | Large (5 cols) | Medium (4 cols)  — reversed rhythm
+      
       var layouts = [
         // Row 1
         { cols: 'col-span-1 md:col-span-5', aspect: 'aspect-[3/4]',  label: 'LARGE',  mt: '' },
