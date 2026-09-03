@@ -1,30 +1,6 @@
 {
-  "week": "2026-08-21 ~ 2026-08-27",
+  "week": "2026-08-22 ~ 2026-09-02",
   "items": [
-    {
-      "date": "2026-08-21",
-      "source": "Threads (Lemon Media HK)",
-      "title": "新城市廣場麵包節優惠提及Outback黑糖麥包HK$10",
-      "summary": "Lemon Media HK在Threads介紹沙田新城市廣場8月28至30日麵包活動，並於商場餐飲限定優惠中列出Outback Steakhouse外帶裝招牌黑糖麥包驚喜價HK$10，屬促銷資訊型正面曝光。",
-      "link": "https://www.threads.com/@lemonmediahk/post/DcTJfZBjx2I/",
-      "sentiment": "positive"
-    },
-    {
-      "date": "2026-08-21",
-      "source": "LinkedIn (Eber)",
-      "title": "Eber案例披露Outback HK付費會員活躍度與App預訂成果",
-      "summary": "Eber公開Outback Steakhouse Hong Kong會員案例：Prestige付費會員到訪頻率為免費VIP會員的三倍、逾90%付費會員維持活躍、一個月新增6,000名會員，且四分之一預訂由App開始，屬正面CRM及忠誠度成效內容。",
-      "link": "https://www.linkedin.com/posts/eber-loyalty-marketing_outback-steakhouse-hk-case-study-pdf-activity-7496416081075417088-nj_A",
-      "sentiment": "positive"
-    },
-    {
-      "date": "2026-08-21",
-      "source": "Google Maps (Citygate Outlets)",
-      "title": "東薈城Google Maps分項低評：食物1、服務1、氣氛2",
-      "summary": "Google Maps用戶Yu Hua Yu未留下文字評論，只標示人均消費HK$150–200，並給予食物1分、服務1分及氣氛2分。原頁的整體星級未能可靠擷取，因此不作推斷。",
-      "link": "https://maps.app.goo.gl/j8o1G5gmQu8PckD98",
-      "sentiment": "negative"
-    },
     {
       "date": "2026-08-22",
       "source": "Weekend Weekly / 新假期",
@@ -143,6 +119,14 @@
       "title": "Opps！跌入Keep Fit無限循環 — Outback官方美食推廣帖文",
       "summary": "Outback官方Facebook帖文，以Keep Fit循環為主題推廣美食，推介巨型加拿大龍蝦包、特製洋蔥花球、美國頂級斧頭扒及朱古力花生醬餅配雲尼拿雪糕。獲212 reactions、2 comments、3 shares。",
       "link": "https://www.facebook.com/outbacksteakhousehk/posts/pfbid02Bx1Yi8BPx5XqjXb7mffXrFfkRujh3j14Ucy2kP4TKoXZACzhpd9NGtjY6h3tSAKZl",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-25",
+      "source": "OpenRice (奧海城二期)",
+      "title": "奧海城Outback食評：黑糖包有黑糖味 薯條香脆",
+      "summary": "食客katrinawong220於8月25日食評：讚黑糖包有濃黑糖味、熱熱地幾好食；薯條份量多、炸得香脆；漢堡包有肉味但認為價錢偏貴。",
+      "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-%E5%A4%A7%E8%A7%92%E5%92%80-%E6%BE%B3%E6%B4%B2%E8%8F%9C-r549079",
       "sentiment": "positive"
     },
     {
@@ -288,6 +272,14 @@
       "summary": "用戶稱Outback steakhouse雖無gimmick、食物非十分出色，但銅鑼灣店服務態度「好到令人面紅」，特別適合老人家及小朋友叫set。獲3,700+ views、13 likes。",
       "link": "https://www.threads.com/@chik852chik/post/DU-fmuMkoBR/",
       "sentiment": "positive"
+    },
+    {
+      "date": "2026-09-02",
+      "source": "Outback官網",
+      "title": "會員專享｜Outback 9月晚市大激賞 加碼回歸",
+      "summary": "官方網站於9月2日更新9月晚市會員優惠：VIP及Prestige會員可0分兌換晚市全單折扣獎賞，每週可獲2張優惠券。VIP全單8折、Prestige全單7折，適用於星期一至四晚上5點後。獎賞週期涵蓋9月1日至29日多個時段。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/237?lang=tc",
+      "sentiment": "positive"
     }
   ],
   "alerts": [],
@@ -296,7 +288,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 36,
+    "new_records": 35,
     "limitations": []
   }
 }

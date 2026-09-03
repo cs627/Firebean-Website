@@ -1,0 +1,25 @@
+{
+  "date": "2026-09-02",
+  "items": [
+    {
+      "date": "2026-09-02",
+      "source": "Outback官網",
+      "platform": "官方網站",
+      "author": "Outback Steakhouse HK",
+      "title": "會員專享｜Outback 9月晚市大激賞 加碼回歸",
+      "summary": "官方網站於9月2日更新9月晚市會員優惠：VIP及Prestige會員可0分兌換晚市全單折扣獎賞，每週可獲2張優惠券。VIP全單8折、Prestige全單7折，適用於星期一至四晚上5點後。獎賞週期涵蓋9月1日至29日多個時段。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/237?lang=tc",
+      "sentiment": "positive",
+      "tags": ""
+    }
+  ],
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 1,
+    "new_records": 1,
+    "limitations": []
+  }
+}

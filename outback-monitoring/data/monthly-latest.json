@@ -1160,6 +1160,30 @@
       "summary": "網民kenhui007於Threads發帖投訴在Outback點選美式慢燒安格斯肉眼牛扒、要求五成熟，惟上檯時整塊近乎全生（半透明鮮紅、肥膏死白未化），店員堅稱「慢燒Menu影出嚟就係咁粉紅」；要求重做後變成九成熟乾柴。帖文獲約950K觀看、4.9K讚好、746留言、96轉發，屬高觸達負面內容。此為原始投訴帖（本日8月27日捕獲的餓底TV轉載為二次傳播，原帖URL不同，故補錄原帖）。",
       "link": "https://www.threads.com/@kenhui007/post/DY1yjxlGgBL",
       "sentiment": "negative"
+    },
+    {
+      "date": "2026-09-02",
+      "source": "Outback官網",
+      "title": "會員專享｜Outback 9月晚市大激賞 加碼回歸",
+      "summary": "官方網站於9月2日更新9月晚市會員優惠：VIP及Prestige會員可0分兌換晚市全單折扣獎賞，每週可獲2張優惠券。VIP全單8折、Prestige全單7折，適用於星期一至四晚上5點後。獎賞週期涵蓋9月1日至29日多個時段。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/237?lang=tc",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-25",
+      "source": "OpenRice (奧海城二期)",
+      "title": "奧海城Outback食評：黑糖包有黑糖味 薯條香脆",
+      "summary": "食客katrinawong220於8月25日食評：讚黑糖包有濃黑糖味、熱熱地幾好食；薯條份量多、炸得香脆；漢堡包有肉味但認為價錢偏貴。",
+      "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-%E5%A4%A7%E8%A7%92%E5%92%80-%E6%BE%B3%E6%B4%B2%E8%8F%9C-r549079",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-06-29",
+      "source": "OpenRice (形點 I 元朗)",
+      "title": "元朗Outback食評：Popcorn蝦+封門牛柳推介",
+      "summary": "食客or#Tm66468237食評：推介Popcorn Shrimp（炸得香脆）及封門牛柳（火候好、肉質嫩滑juicy）。服務friendly、上菜快，黑糖包可任食。認為以連鎖扒房嚟講價錢唔算平。",
+      "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-%E5%85%83%E6%9C%97-%E6%BE%B3%E6%B4%B2%E8%8F%9C-r537611",
+      "sentiment": "positive"
     }
   ],
   "alerts": [],
@@ -1168,7 +1192,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 145,
+    "new_records": 148,
     "limitations": []
   }
 }

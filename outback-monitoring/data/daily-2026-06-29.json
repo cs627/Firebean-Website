@@ -1,0 +1,25 @@
+{
+  "date": "2026-06-29",
+  "items": [
+    {
+      "date": "2026-06-29",
+      "source": "OpenRice (形點 I 元朗)",
+      "platform": "食評平台",
+      "author": "or#Tm66468237",
+      "title": "元朗Outback食評：Popcorn蝦+封門牛柳推介",
+      "summary": "食客or#Tm66468237食評：推介Popcorn Shrimp（炸得香脆）及封門牛柳（火候好、肉質嫩滑juicy）。服務friendly、上菜快，黑糖包可任食。認為以連鎖扒房嚟講價錢唔算平。",
+      "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-%E5%85%83%E6%9C%97-%E6%BE%B3%E6%B4%B2%E8%8F%9C-r537611",
+      "sentiment": "positive",
+      "tags": ""
+    }
+  ],
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 1,
+    "new_records": 1,
+    "limitations": []
+  }
+}
