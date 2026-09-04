@@ -1184,6 +1184,22 @@
       "summary": "食客or#Tm66468237食評：推介Popcorn Shrimp（炸得香脆）及封門牛柳（火候好、肉質嫩滑juicy）。服務friendly、上菜快，黑糖包可任食。認為以連鎖扒房嚟講價錢唔算平。",
       "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-%E5%85%83%E6%9C%97-%E6%BE%B3%E6%B4%B2%E8%8F%9C-r537611",
       "sentiment": "positive"
+    },
+    {
+      "date": "2026-09-04",
+      "source": "Facebook (Outback Official)",
+      "title": "將軍澳Outback期間限定快閃Pop-up店（Park Central）",
+      "summary": "Outback官方Facebook公布於將軍澳中心（Park Central）G/F近入口設期間限定快閃店：以優惠價$60（原價$78）購買指定探險小食艦，即送$100 Outback現金券+拼圖磁石扭蛋（共10款），另設限定文具套裝及影相攤位。活動為假期fans-meeting型式推廣品牌周邊。",
+      "link": "https://www.facebook.com/outbacksteakhousehk/posts/1240520411446502",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-09-04",
+      "source": "Weekend HK (新假期)",
+      "title": "3間沙田扒房推介 — Outback新城市廣場上榜",
+      "summary": "新假期（WeekendHK）沙田扒房推介文章，列出Outback Steakhouse（新城市廣場三期）為沙田必食扒房之一，介紹其澳洲風味、招牌牛柳扒及烤帶子煙肉白汁燴飯，另一同榜扒房為Ruby Tuesday（香港科學園）。",
+      "link": "https://www.weekendhk.com/restaurant/%E6%B2%99%E7%94%B0%E6%89%92%E6%88%BF%E5%BF%85%E9%A3%9F%E6%8E%A8%E4%BB%8B-2963579",
+      "sentiment": "positive"
     }
   ],
   "alerts": [],
@@ -1192,7 +1208,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 148,
+    "new_records": 150,
     "limitations": []
   }
 }

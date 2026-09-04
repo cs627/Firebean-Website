@@ -1,38 +1,6 @@
 {
-  "week": "2026-08-22 ~ 2026-09-02",
+  "week": "2026-08-23 ~ 2026-09-04",
   "items": [
-    {
-      "date": "2026-08-22",
-      "source": "Weekend Weekly / 新假期",
-      "title": "新假期必吃食店大獎2026將Outback列為西餐編輯推介",
-      "summary": "《新假期》公布2026必吃食店大獎名單，Outback Steakhouse獲列入年度「必吃」西餐類別的編輯推介，屬香港本地餐飲媒體的正面品牌認可。",
-      "link": "https://www.weekendhk.com/?p=3487284",
-      "sentiment": "positive"
-    },
-    {
-      "date": "2026-08-22",
-      "source": "Google Maps (Citygate Outlets)",
-      "title": "東薈城顧客5星讚牛扒及黑糖包",
-      "summary": "simon lam 表示食物好吃、牛扒出色，並特別稱讚黑糖包。",
-      "link": "https://maps.app.goo.gl/Xsu2TrGCPp3sxZjw6",
-      "sentiment": "positive"
-    },
-    {
-      "date": "2026-08-22",
-      "source": "Google Maps (Citygate Outlets)",
-      "title": "東薈城顧客讚牛扒及黑糖麵包美味",
-      "summary": "Google Maps用戶simon lam表示牛扒很好，並特別讚賞黑糖麵包美味。原頁未提供可可靠擷取的整體星級或分項評分，因此不作推斷。",
-      "link": "https://www.google.com/maps/contrib/104874208327764046912/reviews/@14.135275,108.4906108,5z/data=!3m1!4b1!4m3!8m2!3m1!1e1?hl=en&entry=ttu&g_ep=EgoyMDI2MDgyMy4wIKXMDSoASAFQAw%3D%3D",
-      "sentiment": "positive"
-    },
-    {
-      "date": "2026-08-22",
-      "source": "新假期 Weekend Weekly",
-      "title": "Outback獲《新假期必吃食店大獎2026》必吃西餐編輯推介",
-      "summary": "《新假期》公布「必吃食店大獎2026」結果，Outback Steakhouse獲列入「必吃西餐」編輯推介名單，與A.O.M、UURO及La Vache!同列，屬正面第三方餐飲認可。",
-      "link": "https://www.weekendhk.com/jezz%E5%B0%88%E5%8D%80/%E5%BF%85%E5%90%83%E9%A3%9F%E5%BA%97%E5%A4%A7%E7%8D%8E2026-%E5%BE%97%E7%8D%8E%E5%85%AC%E5%B8%83-3487284/",
-      "sentiment": "positive"
-    },
     {
       "date": "2026-08-23",
       "source": "Google Maps (New Town Plaza)",
@@ -280,6 +248,22 @@
       "summary": "官方網站於9月2日更新9月晚市會員優惠：VIP及Prestige會員可0分兌換晚市全單折扣獎賞，每週可獲2張優惠券。VIP全單8折、Prestige全單7折，適用於星期一至四晚上5點後。獎賞週期涵蓋9月1日至29日多個時段。",
       "link": "https://www.outback.com.hk/news-and-promotions/article/237?lang=tc",
       "sentiment": "positive"
+    },
+    {
+      "date": "2026-09-04",
+      "source": "Facebook (Outback Official)",
+      "title": "將軍澳Outback期間限定快閃Pop-up店（Park Central）",
+      "summary": "Outback官方Facebook公布於將軍澳中心（Park Central）G/F近入口設期間限定快閃店：以優惠價$60（原價$78）購買指定探險小食艦，即送$100 Outback現金券+拼圖磁石扭蛋（共10款），另設限定文具套裝及影相攤位。活動為假期fans-meeting型式推廣品牌周邊。",
+      "link": "https://www.facebook.com/outbacksteakhousehk/posts/1240520411446502",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-09-04",
+      "source": "Weekend HK (新假期)",
+      "title": "3間沙田扒房推介 — Outback新城市廣場上榜",
+      "summary": "新假期（WeekendHK）沙田扒房推介文章，列出Outback Steakhouse（新城市廣場三期）為沙田必食扒房之一，介紹其澳洲風味、招牌牛柳扒及烤帶子煙肉白汁燴飯，另一同榜扒房為Ruby Tuesday（香港科學園）。",
+      "link": "https://www.weekendhk.com/restaurant/%E6%B2%99%E7%94%B0%E6%89%92%E6%88%BF%E5%BF%85%E9%A3%9F%E6%8E%A8%E4%BB%8B-2963579",
+      "sentiment": "positive"
     }
   ],
   "alerts": [],
@@ -288,7 +272,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 35,
+    "new_records": 33,
     "limitations": []
   }
 }
