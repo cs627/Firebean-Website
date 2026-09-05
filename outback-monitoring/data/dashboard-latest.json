@@ -1,7 +1,7 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-09-05T01:04:34.670395+00:00",
+  "generatedAt": "2026-09-05T01:05:26.036288+00:00",
   "run": {
     "runDate": "2026-09-05",
     "dateRange": {
@@ -31,7 +31,7 @@
     "media": 85,
     "social": 67,
     "maps": 0,
-    "stores": 10
+    "stores": 8
   },
   "mentions": [
     {
@@ -1803,30 +1803,6 @@
       "summary": "好評率 57.6%，98好/50中/22差（共170食評）。好評率57.6%排末，惟評論量204則具參考性。食評普遍中性偏正：讚封門牛柳、Popcorn蝦、黑糖包任食，適合大份量聚餐，人均約$200性價比合理；惟意粉偏軟偶見、假日排隊，家庭客定位清晰惟價格敏感度高。",
       "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-yuen-long-australian-r537611",
       "likeCount": "10.8K"
-    },
-    {
-      "rank": 9,
-      "branch": "大埔超級城B區",
-      "score": 58.3,
-      "reviewCount": 36,
-      "good": 21,
-      "neutral": 12,
-      "bad": 3,
-      "summary": "較新分店，食評尚少(45)。食客讚食物有水準、服務有質素，惟好評率中等。",
-      "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-%E5%A4%A7%E5%9F%94-%E6%BE%B3%E6%B4%B2%E8%8F%9C-r683583",
-      "likeCount": ""
-    },
-    {
-      "rank": 10,
-      "branch": "形點I (元朗)",
-      "score": 57.6,
-      "reviewCount": 170,
-      "good": 98,
-      "neutral": 50,
-      "bad": 22,
-      "summary": "評論數多但中差評比例偏高(35%)。服務參差、等候時間長，黑糖包及扒類仍受歡迎。",
-      "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-yuen-long-australian-r537611",
-      "likeCount": ""
     }
   ],
   "competitors": [
