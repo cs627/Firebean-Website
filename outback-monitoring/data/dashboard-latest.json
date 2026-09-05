@@ -1,12 +1,12 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-09-04T01:20:15.238798+00:00",
+  "generatedAt": "2026-09-05T01:04:34.670395+00:00",
   "run": {
-    "runDate": "2026-09-04",
+    "runDate": "2026-09-05",
     "dateRange": {
       "from": "2026-03-06",
-      "to": "2026-09-04"
+      "to": "2026-09-05"
     },
     "alerts": [
       {
@@ -27,11 +27,11 @@
     ]
   },
   "counts": {
-    "total": 150,
+    "total": 152,
     "media": 85,
-    "social": 65,
+    "social": 67,
     "maps": 0,
-    "stores": 8
+    "stores": 10
   },
   "mentions": [
     {
@@ -1683,32 +1683,54 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, 沙田, 新城市廣場, 扒房推介"
+    },
+    {
+      "date": "2026-08-16",
+      "source": "OpenRice",
+      "platform": "食評平台",
+      "title": "旺角MOKO Outback食評：黑毛豬扒「上枱唔熱、乾柴」投訴",
+      "summary": "OpenRice食客2026-08-16投訴旺角MOKO分店黑毛豬扒叫七成熟，上枱時已唔熱、肉質乾柴如瘦煲湯肉，極度失望表明以後唔去。屬近期負評個案，反映豬扒出品質素穩定性問題，與沙田、東涌同類投訴互相呼應，建議列入品質跟進。",
+      "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-mong-kok-australian-r456533",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback, MOKO, 黑毛豬扒, 品質投訴, 服務"
+    },
+    {
+      "date": "2026-08-07",
+      "source": "OpenRice",
+      "platform": "食評平台",
+      "title": "中環娛樂行食評：下午茶至6點＋BB凳 家庭客好評",
+      "summary": "OpenRice食客2026-08-07讚中環娛樂行分店下午茶時段至6點適合提早食晚餐，白汁大蝦意粉、澳洲牛肉芝士漢堡及肉醬通粉均有驚喜，份量足夠飽肚，環境舒適服務周到、設BB凳，適合家庭聚餐，明言會再幫襯。",
+      "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-central-australian-r862470",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 娛樂行, 中環, 下午茶, 家庭客"
     }
   ],
   "stores": [
     {
       "rank": 1,
-      "branch": "銅鑼灣廣場一期 (銅鑼灣)",
-      "score": 75.0,
-      "reviewCount": 108,
-      "good": 81,
-      "neutral": 23,
-      "bad": 4,
-      "summary": "好評率 75.0%，81好/23中/4差（共108食評）",
-      "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-causeway-bay-australian-r512024",
-      "likeCount": ""
-    },
-    {
-      "rank": 2,
       "branch": "荃灣廣場 (荃灣)",
       "score": 75.0,
       "reviewCount": 80,
       "good": 60,
       "neutral": 9,
       "bad": 11,
-      "summary": "好評率 75.0%，60好/9中/11差（共80食評）",
+      "summary": "好評率 75.0%，60好/9中/11差（共80食評）。好評率75%並列第一。食評指環境闊落坐得舒服、五成熟牛扒火候啱啱好、肉醬意粉份量足屬驚喜之作，黑糖麵包食完一件又一件；27/6食評仍讚出品keep到水準無令人失望，屬家庭客熱點。",
       "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-tsuen-wan-australian-r663138",
-      "likeCount": ""
+      "likeCount": "8K"
+    },
+    {
+      "rank": 2,
+      "branch": "銅鑼灣廣場一期 (銅鑼灣)",
+      "score": 75.0,
+      "reviewCount": 108,
+      "good": 81,
+      "neutral": 23,
+      "bad": 4,
+      "summary": "好評率 75.0%，81好/23中/4差（共108食評）。好評率75%並列全線第一。近月食評讚忌廉蝦意粉濃郁、$148豬肋骨水準之作，店員主動refill飲品及收碟獲好評；黑糖麥包任添最受歡迎。服務態度穩定係加分位，適合做港島區主打店。",
+      "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-causeway-bay-australian-r512024",
+      "likeCount": "10.1K"
     },
     {
       "rank": 3,
@@ -1718,9 +1740,9 @@
       "good": 74,
       "neutral": 26,
       "bad": 6,
-      "summary": "好評率 69.8%，74好/26中/6差（共106食評）",
+      "summary": "好評率 69.8%，74好/26中/6差（共106食評）。好評率69.8%，沙田市中心位置優越。近月食評讚中式豐富午餐、會員生日折扣體驗佳；惟7/1有食客反映黑毛豬扒偏乾、薯蓉偏酸，12/23另有漏單投訴，出品質素及服務穩定性需留意。",
       "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-sha-tin-australian-r651512",
-      "likeCount": ""
+      "likeCount": "12.8K"
     },
     {
       "rank": 4,
@@ -1730,9 +1752,9 @@
       "good": 208,
       "neutral": 68,
       "bad": 24,
-      "summary": "好評率 69.3%，208好/68中/24差（共300食評）",
+      "summary": "好評率 69.3%，208好/68中/24差（共300食評）。旺角評論量373則屬全場最高。好評集中午餐多選擇、黑糖包refill正；惟8/16有食客投訴黑毛豬扒叫七成熟上枱已唔熱、乾柴如煲湯肉，明言以後唔去，豬扒出品穩定性成近期短板，需重點跟進。",
       "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-mong-kok-australian-r456533",
-      "likeCount": ""
+      "likeCount": "18.7K"
     },
     {
       "rank": 5,
@@ -1742,9 +1764,9 @@
       "good": 59,
       "neutral": 20,
       "bad": 7,
-      "summary": "好評率 68.6%，59好/20中/7差（共86食評）",
+      "summary": "好評率 68.6%，59好/20中/7差（共86食評）。好評率68.6%。食評讚午市毋須排隊、黑糖包＋特大凍檸茶性價比高，7/1午餐體驗舒服、燒雞肉芝士夾餅芝香雞嫩；惟4/30有食客投訴牛扒難切、店員敷衍『哦完繼續閒企』，另有出餐慢及熟度錯誤投訴，服務穩定性待改善。",
       "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-tung-chung-australian-r641822",
-      "likeCount": ""
+      "likeCount": "7K"
     },
     {
       "rank": 6,
@@ -1754,9 +1776,9 @@
       "good": 5,
       "neutral": 1,
       "bad": 2,
-      "summary": "好評率 62.5%，5好/1中/2差（共8食評）",
+      "summary": "好評率 62.5%，5好/1中/2差（共8食評）。中環樣本細（10則評分），好評率62.5%參考度有限。近月8/7食評讚下午茶時段至6點適合提早晚餐、白汁大蝦意粉/牛肉芝士漢堡出色、設BB凳適合家庭客；惟4/2025曾有『塊面比塊扒更黑』極差體驗，屬個別事件，中環區競爭激烈，宜加強熟度管控。",
       "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-central-australian-r862470",
-      "likeCount": ""
+      "likeCount": "1K"
     },
     {
       "rank": 7,
@@ -1766,9 +1788,9 @@
       "good": 57,
       "neutral": 27,
       "bad": 13,
-      "summary": "好評率 58.8%，57好/27中/13差（共97食評）",
+      "summary": "好評率 58.8%，57好/27中/13差（共97食評）。好評率58.8%偏低。8/25食評讚黑糖包有黑糖味、薯條香脆、漢堡有肉味（惟略貴）；惟5/19投訴豬肋骨份量縮水一半、意粉配料少性價比低，8/2025另有dry age牛扒硬過人命及mocktail如糖水負評，出品穩定性及性價比成短板。",
       "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-tai-kok-tsui-australian-r549079",
-      "likeCount": ""
+      "likeCount": "10.8K"
     },
     {
       "rank": 8,
@@ -1778,7 +1800,31 @@
       "good": 98,
       "neutral": 50,
       "bad": 22,
-      "summary": "好評率 57.6%，98好/50中/22差（共170食評）",
+      "summary": "好評率 57.6%，98好/50中/22差（共170食評）。好評率57.6%排末，惟評論量204則具參考性。食評普遍中性偏正：讚封門牛柳、Popcorn蝦、黑糖包任食，適合大份量聚餐，人均約$200性價比合理；惟意粉偏軟偶見、假日排隊，家庭客定位清晰惟價格敏感度高。",
+      "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-yuen-long-australian-r537611",
+      "likeCount": "10.8K"
+    },
+    {
+      "rank": 9,
+      "branch": "大埔超級城B區",
+      "score": 58.3,
+      "reviewCount": 36,
+      "good": 21,
+      "neutral": 12,
+      "bad": 3,
+      "summary": "較新分店，食評尚少(45)。食客讚食物有水準、服務有質素，惟好評率中等。",
+      "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-%E5%A4%A7%E5%9F%94-%E6%BE%B3%E6%B4%B2%E8%8F%9C-r683583",
+      "likeCount": ""
+    },
+    {
+      "rank": 10,
+      "branch": "形點I (元朗)",
+      "score": 57.6,
+      "reviewCount": 170,
+      "good": 98,
+      "neutral": 50,
+      "bad": 22,
+      "summary": "評論數多但中差評比例偏高(35%)。服務參差、等候時間長，黑糖包及扒類仍受歡迎。",
       "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-yuen-long-australian-r537611",
       "likeCount": ""
     }
@@ -2035,6 +2081,30 @@
       "link": "https://ufood.com.hk/restaurant/news/detail/20108026",
       "branchCount": "3",
       "expansion": ""
+    },
+    {
+      "date": "2026-09-05",
+      "competitor": "Ruby Tuesday",
+      "type": "新店/地段",
+      "title": "MegaBox新店重磅升級（遷至17樓重開）",
+      "summary": "Ruby Tuesday MegaBox分店於2026年8月遷至17樓重磅升級重開，主打全新體驗及驚喜美饌，配合九月主廚推介及九月特調上架。反映其持續投資擴充美式扒房據點，與Outback新界及市區客源構成間接競爭。",
+      "sentiment": "中性",
+      "source": "Ruby Tuesday官網",
+      "link": "https://rubytuesday.com.hk/ch/promotions",
+      "branchCount": "多間（科學園/MegaBox等）",
+      "expansion": ""
+    },
+    {
+      "date": "2026-09-05",
+      "competitor": "Ruby Tuesday",
+      "type": "推廣/優惠",
+      "title": "Asahi買二送一＋九月主廚推介（至2026/10/31）",
+      "summary": "Ruby Tuesday推出Asahi生啤買二送一（優惠期約至2026/10/31），另九月主廚推介、九月特調及季節限定美國烤肉拚盤5折同步上架。美式連鎖扒房維持頻密推廣攻勢，與Outback會員晚市73折正面交鋒，促銷節奏值得參考。",
+      "sentiment": "中性",
+      "source": "Ruby Tuesday官網",
+      "link": "https://rubytuesday.com.hk/ch/promotions",
+      "branchCount": "─",
+      "expansion": ""
     }
   ],
   "trend": [
@@ -2088,7 +2158,7 @@
     },
     {
       "date": "2026-08-07",
-      "count": 8
+      "count": 9
     },
     {
       "date": "2026-08-08",
@@ -2124,7 +2194,7 @@
     },
     {
       "date": "2026-08-16",
-      "count": 5
+      "count": 6
     },
     {
       "date": "2026-08-17",

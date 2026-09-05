@@ -55,6 +55,17 @@
       "link": "https://maps.app.goo.gl/cjQgAz7XeNxgYyXy6",
       "sentiment": "negative",
       "tags": ""
+    },
+    {
+      "date": "2026-08-16",
+      "source": "OpenRice",
+      "platform": "食評平台",
+      "author": "",
+      "title": "旺角MOKO Outback食評：黑毛豬扒「上枱唔熱、乾柴」投訴",
+      "summary": "OpenRice食客2026-08-16投訴旺角MOKO分店黑毛豬扒叫七成熟，上枱時已唔熱、肉質乾柴如瘦煲湯肉，極度失望表明以後唔去。屬近期負評個案，反映豬扒出品質素穩定性問題，與沙田、東涌同類投訴互相呼應，建議列入品質跟進。",
+      "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-mong-kok-australian-r456533",
+      "sentiment": "negative",
+      "tags": ""
     }
   ],
   "alerts": [
@@ -71,14 +82,21 @@
       "source": "Google Maps (New Town Plaza)",
       "link": "https://maps.app.goo.gl/cjQgAz7XeNxgYyXy6",
       "severity": "MEDIUM"
+    },
+    {
+      "title": "旺角MOKO Outback食評：黑毛豬扒「上枱唔熱、乾柴」投訴",
+      "summary": "OpenRice食客2026-08-16投訴旺角MOKO分店黑毛豬扒叫七成熟，上枱時已唔熱、肉質乾柴如瘦煲湯肉，極度失望表明以後唔去。屬近期負評個案，反映豬扒出品質素穩定性問題，與沙田、東涌同類投訴互相呼應，建議列入品質跟進。",
+      "source": "OpenRice",
+      "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-mong-kok-australian-r456533",
+      "severity": "MEDIUM"
     }
   ],
   "trends": "",
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 3,
-    "new_records": 5,
+    "checked_sources": 4,
+    "new_records": 6,
     "limitations": []
   }
 }

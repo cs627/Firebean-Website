@@ -88,6 +88,17 @@
       "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-%E4%B8%AD%E7%92%B0-%E6%BE%B3%E6%B4%B2%E8%8F%9C-r862470",
       "sentiment": "positive",
       "tags": ""
+    },
+    {
+      "date": "2026-08-07",
+      "source": "OpenRice",
+      "platform": "食評平台",
+      "author": "",
+      "title": "中環娛樂行食評：下午茶至6點＋BB凳 家庭客好評",
+      "summary": "OpenRice食客2026-08-07讚中環娛樂行分店下午茶時段至6點適合提早食晚餐，白汁大蝦意粉、澳洲牛肉芝士漢堡及肉醬通粉均有驚喜，份量足夠飽肚，環境舒適服務周到、設BB凳，適合家庭聚餐，明言會再幫襯。",
+      "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-central-australian-r862470",
+      "sentiment": "positive",
+      "tags": ""
     }
   ],
   "alerts": [
@@ -104,7 +115,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 8,
-    "new_records": 8,
+    "new_records": 9,
     "limitations": []
   }
 }

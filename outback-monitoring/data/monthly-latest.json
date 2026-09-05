@@ -1200,6 +1200,22 @@
       "summary": "新假期（WeekendHK）沙田扒房推介文章，列出Outback Steakhouse（新城市廣場三期）為沙田必食扒房之一，介紹其澳洲風味、招牌牛柳扒及烤帶子煙肉白汁燴飯，另一同榜扒房為Ruby Tuesday（香港科學園）。",
       "link": "https://www.weekendhk.com/restaurant/%E6%B2%99%E7%94%B0%E6%89%92%E6%88%BF%E5%BF%85%E9%A3%9F%E6%8E%A8%E4%BB%8B-2963579",
       "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-16",
+      "source": "OpenRice",
+      "title": "旺角MOKO Outback食評：黑毛豬扒「上枱唔熱、乾柴」投訴",
+      "summary": "OpenRice食客2026-08-16投訴旺角MOKO分店黑毛豬扒叫七成熟，上枱時已唔熱、肉質乾柴如瘦煲湯肉，極度失望表明以後唔去。屬近期負評個案，反映豬扒出品質素穩定性問題，與沙田、東涌同類投訴互相呼應，建議列入品質跟進。",
+      "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-mong-kok-australian-r456533",
+      "sentiment": "negative"
+    },
+    {
+      "date": "2026-08-07",
+      "source": "OpenRice",
+      "title": "中環娛樂行食評：下午茶至6點＋BB凳 家庭客好評",
+      "summary": "OpenRice食客2026-08-07讚中環娛樂行分店下午茶時段至6點適合提早食晚餐，白汁大蝦意粉、澳洲牛肉芝士漢堡及肉醬通粉均有驚喜，份量足夠飽肚，環境舒適服務周到、設BB凳，適合家庭聚餐，明言會再幫襯。",
+      "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-central-australian-r862470",
+      "sentiment": "positive"
     }
   ],
   "alerts": [],
@@ -1208,7 +1224,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 150,
+    "new_records": 152,
     "limitations": []
   }
 }
