@@ -1216,6 +1216,30 @@
       "summary": "OpenRice食客2026-08-07讚中環娛樂行分店下午茶時段至6點適合提早食晚餐，白汁大蝦意粉、澳洲牛肉芝士漢堡及肉醬通粉均有驚喜，份量足夠飽肚，環境舒適服務周到、設BB凳，適合家庭聚餐，明言會再幫襯。",
       "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-central-australian-r862470",
       "sentiment": "positive"
+    },
+    {
+      "date": "2026-09-05",
+      "source": "Threads",
+      "title": "Threads火帖：勾Back最好食除黑糖麵包仲有炸洋蔥圈（46.2K瀏覽）",
+      "summary": "Threads用戶@80s.almost.ff(fire.with.wood)發帖指Outback(勾Back)除招牌黑糖麵包外，炸洋蔥圈『又靚又有儀式感又好食』，獲780讚、46.2K瀏覽、26留言，屬近期高觸達正面帖，反映招牌小食及黑糖包的招牌地位獲社群認受。",
+      "link": "https://www.threads.net/@80s.almost.ff/post/DIF_v7gzxaI",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-09-01",
+      "source": "Instagram",
+      "title": "草根姐妹IG食評：Outback隱藏食法（黑糖包夾牛扒）+$860二人餐",
+      "summary": "飲食KOL『草根姐妹』IG Reel食評：以黑糖包夾牛扒加忌廉芝士為『隱藏食法』，推介$860頂級牛扒拼龍蝦尾2人套餐，讚牛扒半肥瘦軟腍牛味濃、龍蝦尾爽嫩，並指9月幫襯免費送Tiramisu，圖文tag #康城 #將軍澳 #outbacksteakhousehk，屬正面向的中秋應節推廣。",
+      "link": "https://www.instagram.com/reel/Cxxp9cALPCd",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-24",
+      "source": "Instagram",
+      "title": "官方IG推廣：USDA慢烤Prime Rib＋$88生日券＋到會8折",
+      "summary": "Outback Steakhouse HK官方IG(@outbacksteakhousehk)近期連推推廣：宣傳『melt-in-your-mouth』USDA Slow Roasted Prime Rib慢烤牛肋排、8月$88現金券生日禮遇、外賣到會套餐8折，配合會員App數碼化，反映當月以Prime Rib主打及會員／到會促銷為重點。",
+      "link": "https://www.instagram.com/p/CvyrKL0JYLF",
+      "sentiment": "neutral"
     }
   ],
   "alerts": [],
@@ -1224,7 +1248,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 152,
+    "new_records": 155,
     "limitations": []
   }
 }

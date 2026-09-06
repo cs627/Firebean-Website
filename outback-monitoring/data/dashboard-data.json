@@ -1,24 +1,16 @@
 {
   "meta": {
-    "last_updated": "2026-09-05 9:30",
-    "total_records": 152,
-    "daily_avg": 4.3,
-    "date_range": "2026-03-06 → 2026-09-04",
+    "last_updated": "2026-09-06 9:00",
+    "total_records": 155,
+    "daily_avg": 4.2,
+    "date_range": "2026-03-06 → 2026-09-05",
     "sources_checked": 37,
-    "new_verified": 19,
+    "new_verified": 4,
     "coverage_ratio": "37/46",
     "negative_alerts": 21,
-    "positive_pct": 49
+    "positive_pct": 50
   },
   "trend": [
-    {
-      "date": "2026-08-23",
-      "count": 4
-    },
-    {
-      "date": "2026-08-24",
-      "count": 5
-    },
     {
       "date": "2026-08-25",
       "count": 3
@@ -32,18 +24,26 @@
       "count": 16
     },
     {
+      "date": "2026-09-01",
+      "count": 1
+    },
+    {
       "date": "2026-09-02",
       "count": 1
     },
     {
       "date": "2026-09-04",
       "count": 2
+    },
+    {
+      "date": "2026-09-05",
+      "count": 1
     }
   ],
   "source_breakdown": [
     {
       "source": "Instagram",
-      "count": 26
+      "count": 28
     },
     {
       "source": "Google Maps",
@@ -51,7 +51,7 @@
     },
     {
       "source": "Threads",
-      "count": 20
+      "count": 21
     },
     {
       "source": "OpenRice",
@@ -103,8 +103,8 @@
     }
   ],
   "sentiment": {
-    "positive": 75,
-    "neutral": 53,
+    "positive": 77,
+    "neutral": 54,
     "negative": 21,
     "mixed": 3
   },
@@ -1780,6 +1780,39 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, 娛樂行, 中環, 下午茶, 家庭客"
+    },
+    {
+      "date": "2026-09-05",
+      "source": "Threads",
+      "platform": "社交平台",
+      "title": "Threads火帖：勾Back最好食除黑糖麵包仲有炸洋蔥圈（46.2K瀏覽）",
+      "summary": "Threads用戶@80s.almost.ff(fire.with.wood)發帖指Outback(勾Back)除招牌黑糖麵包外，炸洋蔥圈『又靚又有儀式感又好食』，獲780讚、46.2K瀏覽、26留言，屬近期高觸達正面帖，反映招牌小食及黑糖包的招牌地位獲社群認受。",
+      "link": "https://www.threads.net/@80s.almost.ff/post/DIF_v7gzxaI",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 勾Back, 黑糖麵包, 炸洋蔥圈, 招牌"
+    },
+    {
+      "date": "2026-09-01",
+      "source": "Instagram",
+      "platform": "社交平台",
+      "title": "草根姐妹IG食評：Outback隱藏食法（黑糖包夾牛扒）+$860二人餐",
+      "summary": "飲食KOL『草根姐妹』IG Reel食評：以黑糖包夾牛扒加忌廉芝士為『隱藏食法』，推介$860頂級牛扒拼龍蝦尾2人套餐，讚牛扒半肥瘦軟腍牛味濃、龍蝦尾爽嫩，並指9月幫襯免費送Tiramisu，圖文tag #康城 #將軍澳 #outbacksteakhousehk，屬正面向的中秋應節推廣。",
+      "link": "https://www.instagram.com/reel/Cxxp9cALPCd",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 黑糖包, 頂級牛扒拼龍蝦尾, 隱藏食法, 中秋"
+    },
+    {
+      "date": "2026-08-24",
+      "source": "Instagram",
+      "platform": "官方帳號",
+      "title": "官方IG推廣：USDA慢烤Prime Rib＋$88生日券＋到會8折",
+      "summary": "Outback Steakhouse HK官方IG(@outbacksteakhousehk)近期連推推廣：宣傳『melt-in-your-mouth』USDA Slow Roasted Prime Rib慢烤牛肋排、8月$88現金券生日禮遇、外賣到會套餐8折，配合會員App數碼化，反映當月以Prime Rib主打及會員／到會促銷為重點。",
+      "link": "https://www.instagram.com/p/CvyrKL0JYLF",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, USDA慢烤Prime Rib, 生日券, 到會8折, 會員"
     }
   ],
   "media_records": [
@@ -2717,6 +2750,17 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, 沙田, 新城市廣場, 扒房推介"
+    },
+    {
+      "date": "2026-08-24",
+      "source": "Instagram",
+      "platform": "官方帳號",
+      "title": "官方IG推廣：USDA慢烤Prime Rib＋$88生日券＋到會8折",
+      "summary": "Outback Steakhouse HK官方IG(@outbacksteakhousehk)近期連推推廣：宣傳『melt-in-your-mouth』USDA Slow Roasted Prime Rib慢烤牛肋排、8月$88現金券生日禮遇、外賣到會套餐8折，配合會員App數碼化，反映當月以Prime Rib主打及會員／到會促銷為重點。",
+      "link": "https://www.instagram.com/p/CvyrKL0JYLF",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, USDA慢烤Prime Rib, 生日券, 到會8折, 會員"
     }
   ],
   "social_records": [
@@ -3456,6 +3500,28 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, 娛樂行, 中環, 下午茶, 家庭客"
+    },
+    {
+      "date": "2026-09-05",
+      "source": "Threads",
+      "platform": "社交平台",
+      "title": "Threads火帖：勾Back最好食除黑糖麵包仲有炸洋蔥圈（46.2K瀏覽）",
+      "summary": "Threads用戶@80s.almost.ff(fire.with.wood)發帖指Outback(勾Back)除招牌黑糖麵包外，炸洋蔥圈『又靚又有儀式感又好食』，獲780讚、46.2K瀏覽、26留言，屬近期高觸達正面帖，反映招牌小食及黑糖包的招牌地位獲社群認受。",
+      "link": "https://www.threads.net/@80s.almost.ff/post/DIF_v7gzxaI",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 勾Back, 黑糖麵包, 炸洋蔥圈, 招牌"
+    },
+    {
+      "date": "2026-09-01",
+      "source": "Instagram",
+      "platform": "社交平台",
+      "title": "草根姐妹IG食評：Outback隱藏食法（黑糖包夾牛扒）+$860二人餐",
+      "summary": "飲食KOL『草根姐妹』IG Reel食評：以黑糖包夾牛扒加忌廉芝士為『隱藏食法』，推介$860頂級牛扒拼龍蝦尾2人套餐，讚牛扒半肥瘦軟腍牛味濃、龍蝦尾爽嫩，並指9月幫襯免費送Tiramisu，圖文tag #康城 #將軍澳 #outbacksteakhousehk，屬正面向的中秋應節推廣。",
+      "link": "https://www.instagram.com/reel/Cxxp9cALPCd",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 黑糖包, 頂級牛扒拼龍蝦尾, 隱藏食法, 中秋"
     }
   ],
   "store_ranking": [
@@ -3467,7 +3533,7 @@
       "good": 60,
       "neutral": 9,
       "bad": 11,
-      "summary": "好評率 75.0%，60好/9中/11差（共80食評）。好評率75%並列第一。食評指環境闊落坐得舒服、五成熟牛扒火候啱啱好、肉醬意粉份量足屬驚喜之作，黑糖麵包食完一件又一件；27/6食評仍讚出品keep到水準無令人失望，屬家庭客熱點。",
+      "summary": "好評率 75.0%，60好/9中/11差（共80食評）。好評率75%並列第一。食評指環境闊落坐得舒服、五成熟牛扒火候啱啱好、肉醬意粉份量足屬驚喜之作，黑糖麵包食完一件又一件；6/25食評指出品keep到水準無令人失望，屬家庭客熱點。適逢中秋鄰近認證可留意節日客流。",
       "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-tsuen-wan-australian-r663138",
       "likeCount": "8K"
     },
@@ -3479,7 +3545,7 @@
       "good": 81,
       "neutral": 23,
       "bad": 4,
-      "summary": "好評率 75.0%，81好/23中/4差（共108食評）。好評率75%並列全線第一。近月食評讚忌廉蝦意粉濃郁、$148豬肋骨水準之作，店員主動refill飲品及收碟獲好評；黑糖麥包任添最受歡迎。服務態度穩定係加分位，適合做港島區主打店。",
+      "summary": "好評率 75.0%，81好/23中/4差（共108食評）。好評率75%並列全線第一。近月食評讚忌廉蝦意粉creamy濃郁、$148豬肋骨水準之作，店員主動refill飲品及收碟獲讚『服務非常周到』；黑糖麥包任添最受歡迎，服務穩定係加分位，適合做港島區主打店。",
       "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-causeway-bay-australian-r512024",
       "likeCount": "10.1K"
     },
@@ -3491,7 +3557,7 @@
       "good": 74,
       "neutral": 26,
       "bad": 6,
-      "summary": "好評率 69.8%，74好/26中/6差（共106食評）。好評率69.8%，沙田市中心位置優越。近月食評讚中式豐富午餐、會員生日折扣體驗佳；惟7/1有食客反映黑毛豬扒偏乾、薯蓉偏酸，12/23另有漏單投訴，出品質素及服務穩定性需留意。",
+      "summary": "好評率 69.8%，74好/26中/6差（共106食評）。好評率69.8%，沙田市中心位置優越。近月食評讚豐富午餐、會員生日折扣體驗佳；惟7/1有食客反映黑毛豬扒偏乾、薯蓉偏酸，12/23另有『我杯餐飲呢』漏單投訴，出品質素及服務穩定性需留意。",
       "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-sha-tin-australian-r651512",
       "likeCount": "12.8K"
     },
@@ -3515,7 +3581,7 @@
       "good": 59,
       "neutral": 20,
       "bad": 7,
-      "summary": "好評率 68.6%，59好/20中/7差（共86食評）。好評率68.6%。食評讚午市毋須排隊、黑糖包＋特大凍檸茶性價比高，7/1午餐體驗舒服、燒雞肉芝士夾餅芝香雞嫩；惟4/30有食客投訴牛扒難切、店員敷衍『哦完繼續閒企』，另有出餐慢及熟度錯誤投訴，服務穩定性待改善。",
+      "summary": "好評率 68.6%，59好/20中/7差（共86食評）。好評率68.6%。食評讚午市毋須排隊、黑糖包＋特大凍檸茶性價比高，7/1午餐體驗舒服、燒雞肉芝士夾餅芝香雞嫩；惟4/30有食客投訴牛扒難切、店員『哦完繼續閒企』，另有12/9出餐慢及熟度錯誤投訴，服務穩定性待改善。",
       "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-tung-chung-australian-r641822",
       "likeCount": "7K"
     },
@@ -3527,7 +3593,7 @@
       "good": 5,
       "neutral": 1,
       "bad": 2,
-      "summary": "好評率 62.5%，5好/1中/2差（共8食評）。中環樣本細（10則評分），好評率62.5%參考度有限。近月8/7食評讚下午茶時段至6點適合提早晚餐、白汁大蝦意粉/牛肉芝士漢堡出色、設BB凳適合家庭客；惟4/2025曾有『塊面比塊扒更黑』極差體驗，屬個別事件，中環區競爭激烈，宜加強熟度管控。",
+      "summary": "好評率 62.5%，5好/1中/2差（共8食評）。中環樣本細（10則評分），好評率62.5%參考度有限。近月8/7食評讚下午茶時段至6點適合作早晚餐、白汁大蝦意粉/牛肉芝士漢堡出色、設BB凳適合家庭客；惟4/2025曾有『塊面比塊扒更黑』極差體驗，屬個別事件，中環區競爭激烈宜加強熟度管控。",
       "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-central-australian-r862470",
       "likeCount": "1K"
     },
@@ -3539,7 +3605,7 @@
       "good": 57,
       "neutral": 27,
       "bad": 13,
-      "summary": "好評率 58.8%，57好/27中/13差（共97食評）。好評率58.8%偏低。8/25食評讚黑糖包有黑糖味、薯條香脆、漢堡有肉味（惟略貴）；惟5/19投訴豬肋骨份量縮水一半、意粉配料少性價比低，8/2025另有dry age牛扒硬過人命及mocktail如糖水負評，出品穩定性及性價比成短板。",
+      "summary": "好評率 58.8%，57好/27中/13差（共97食評）。好評率58.8%偏低。8/25食評讚黑糖包有黑糖味、薯條香脆、漢堡有肉味（惟略貴）；惟5/19投訴豬肋骨份量縮水一半、意粉配料少性價比低，8/2025另有dry age牛扒過硬、$70 mocktail如糖水負評，出品穩定性及性價比成短板。",
       "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-tai-kok-tsui-australian-r549079",
       "likeCount": "10.8K"
     },
@@ -3551,7 +3617,7 @@
       "good": 98,
       "neutral": 50,
       "bad": 22,
-      "summary": "好評率 57.6%，98好/50中/22差（共170食評）。好評率57.6%排末，惟評論量204則具參考性。食評普遍中性偏正：讚封門牛柳、Popcorn蝦、黑糖包任食，適合大份量聚餐，人均約$200性價比合理；惟意粉偏軟偶見、假日排隊，家庭客定位清晰惟價格敏感度高。",
+      "summary": "好評率 57.6%，98好/50中/22差（共170食評）。好評率57.6%排末，惟評論量204則具參考性。食評普遍中性偏正：讚封門牛柳、Popcorn蝦、黑糖包任食，適合大份量聚餐，人均約$200性價比合理，6/29及6/6食評均讚豬肋骨份量足、well done豬扒不乾柴；惟意粉偏軟偶見、假日排隊，價格敏感度高。",
       "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-yuen-long-australian-r537611",
       "likeCount": "10.8K"
     }

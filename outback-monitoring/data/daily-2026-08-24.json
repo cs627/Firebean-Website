@@ -55,6 +55,17 @@
       "link": "https://www.instagram.com/outbacksteakhousehk",
       "sentiment": "neutral",
       "tags": ""
+    },
+    {
+      "date": "2026-08-24",
+      "source": "Instagram",
+      "platform": "官方帳號",
+      "author": "",
+      "title": "官方IG推廣：USDA慢烤Prime Rib＋$88生日券＋到會8折",
+      "summary": "Outback Steakhouse HK官方IG(@outbacksteakhousehk)近期連推推廣：宣傳『melt-in-your-mouth』USDA Slow Roasted Prime Rib慢烤牛肋排、8月$88現金券生日禮遇、外賣到會套餐8折，配合會員App數碼化，反映當月以Prime Rib主打及會員／到會促銷為重點。",
+      "link": "https://www.instagram.com/p/CvyrKL0JYLF",
+      "sentiment": "neutral",
+      "tags": ""
     }
   ],
   "alerts": [],
@@ -62,8 +73,8 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 5,
-    "new_records": 5,
+    "checked_sources": 6,
+    "new_records": 6,
     "limitations": []
   }
 }
