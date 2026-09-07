@@ -37,11 +37,11 @@
     <priority>0.8</priority>
   </url>
 
-            <!-- EDM newsletter issues — auto-generated from Google Sheets -->
-  <!-- Last updated: 2026-08-30 -->
+                            <!-- EDM newsletter issues — auto-generated from Google Sheets -->
+  <!-- Last updated: 2026-09-06 -->
   <url>
     <loc>https://firebean.net/edm/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -91,6 +91,13 @@
   <url> <!-- Inclusive Hong Kong: Elevating Public Spaces Through Universal Design and Experi -->
     <loc>https://firebean.net/edm/edm_EDM_007.html</loc>
     <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url> <!-- Heritage Meets Innovation: Lessons from ICH Month 2026 for Immersive Public Enga -->
+    <loc>https://firebean.net/edm/edm_EDM_008.html</loc>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

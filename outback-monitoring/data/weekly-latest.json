@@ -1,46 +1,6 @@
 {
-  "week": "2026-08-25 ~ 2026-09-05",
+  "week": "2026-08-27 ~ 2026-09-07",
   "items": [
-    {
-      "date": "2026-08-25",
-      "source": "Facebook",
-      "title": "Opps！跌入Keep Fit無限循環 — Outback FB最新帖文",
-      "summary": "Outback HK官方FB帖文（2天前），主題為Keep Fit與美食循環。51 reactions。",
-      "link": "https://www.facebook.com/outbacksteakhousehk",
-      "sentiment": "positive"
-    },
-    {
-      "date": "2026-08-25",
-      "source": "Facebook (Outback Official)",
-      "title": "Opps！跌入Keep Fit無限循環 — Outback官方美食推廣帖文",
-      "summary": "Outback官方Facebook帖文，以Keep Fit循環為主題推廣美食，推介巨型加拿大龍蝦包、特製洋蔥花球、美國頂級斧頭扒及朱古力花生醬餅配雲尼拿雪糕。獲212 reactions、2 comments、3 shares。",
-      "link": "https://www.facebook.com/outbacksteakhousehk/posts/pfbid02Bx1Yi8BPx5XqjXb7mffXrFfkRujh3j14Ucy2kP4TKoXZACzhpd9NGtjY6h3tSAKZl",
-      "sentiment": "positive"
-    },
-    {
-      "date": "2026-08-25",
-      "source": "OpenRice (奧海城二期)",
-      "title": "奧海城Outback食評：黑糖包有黑糖味 薯條香脆",
-      "summary": "食客katrinawong220於8月25日食評：讚黑糖包有濃黑糖味、熱熱地幾好食；薯條份量多、炸得香脆；漢堡包有肉味但認為價錢偏貴。",
-      "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-%E5%A4%A7%E8%A7%92%E5%92%80-%E6%BE%B3%E6%B4%B2%E8%8F%9C-r549079",
-      "sentiment": "positive"
-    },
-    {
-      "date": "2026-08-26",
-      "source": "Threads @kong.news",
-      "title": "Outback 9間將關閉分店列表",
-      "summary": "Threads user @kong.news posted a detailed list of 9 Outback Steakhouse branches that closed: JP Plaza (CWB), Fenwick Street (Wan Chai), Telford Plaza II (Kowloon Bay), TST Centre, Silvercord (TST), Deli Place (Whampoa), D·PARK (Tsuen Wan), The Lohas (TKO), Tuen Mun Town Plaza. Reply to a now-unavailable post. Documents the historical closures.",
-      "link": "https://www.threads.com/@kong.news/post/C9_l9pYxE7e",
-      "sentiment": "neutral"
-    },
-    {
-      "date": "2026-08-26",
-      "source": "Threads 原始帖 (@kenhui007)",
-      "title": "網民原帖：Outback慢燒安格斯肉眼牛扒「五成熟」實為近乎全生（950K views）",
-      "summary": "網民kenhui007於Threads發帖投訴在Outback點選美式慢燒安格斯肉眼牛扒、要求五成熟，惟上檯時整塊近乎全生（半透明鮮紅、肥膏死白未化），店員堅稱「慢燒Menu影出嚟就係咁粉紅」；要求重做後變成九成熟乾柴。帖文獲約950K觀看、4.9K讚好、746留言、96轉發，屬高觸達負面內容。此為原始投訴帖（本日8月27日捕獲的餓底TV轉載為二次傳播，原帖URL不同，故補錄原帖）。",
-      "link": "https://www.threads.com/@kenhui007/post/DY1yjxlGgBL",
-      "sentiment": "negative"
-    },
     {
       "date": "2026-08-27",
       "source": "Threads",
@@ -186,6 +146,22 @@
       "sentiment": "positive"
     },
     {
+      "date": "2026-09-02",
+      "source": "U Food",
+      "title": "U Food 9月生日優惠2026 收錄Outback生日獎賞（$88券＋到會8折）",
+      "summary": "U Food於9月2日發布「9月生日優惠2026（35個飲食推介）」，將Outback列為第27項推介：會員消費滿HK$400即可享$88現金優惠券，壽星另享到會套餐8折優惠券（適用8位/16位用自選套餐），適用各分店，優惠日期即日起至另行通知。",
+      "link": "https://ufood.com.hk/restaurant/news/detail/20046882",
+      "sentiment": "neutral"
+    },
+    {
+      "date": "2026-09-03",
+      "source": "outback.com.hk 官方網站",
+      "title": "官方9月會員晚市獎賞 Outback September Dinner Rewards（VIP 8折 / Prestige 7折）",
+      "summary": "Outback官方於9月3日更新推廣：整個9月，會員可於Reward Market以0點兌換會員專屬折扣券，VIP會員晚市全單8折、Prestige會員全單7折，每週最多2次，適用晚市5pm後週一至四，優惠至9月29日。反映9月以會員晚市折扣為主軸催谷客流量。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/237?lang=en",
+      "sentiment": "neutral"
+    },
+    {
       "date": "2026-09-04",
       "source": "Facebook (Outback Official)",
       "title": "將軍澳Outback期間限定快閃Pop-up店（Park Central）",
@@ -208,6 +184,14 @@
       "summary": "Threads用戶@80s.almost.ff(fire.with.wood)發帖指Outback(勾Back)除招牌黑糖麵包外，炸洋蔥圈『又靚又有儀式感又好食』，獲780讚、46.2K瀏覽、26留言，屬近期高觸達正面帖，反映招牌小食及黑糖包的招牌地位獲社群認受。",
       "link": "https://www.threads.net/@80s.almost.ff/post/DIF_v7gzxaI",
       "sentiment": "positive"
+    },
+    {
+      "date": "2026-09-07",
+      "source": "Threads",
+      "title": "Threads食評：Outback服務『好到令人面紅』值得推薦（銅鑼灣）",
+      "summary": "用戶@chik852chik發帖指Outback雖然無Gimmick、食物亦非最出色，但服務態度『好到令人面紅』，適合帶同老人家及小朋友叫set，絕對值得推薦，並註明本人只去銅鑼灣店。帖文3.7K瀏覽，屬高觸達正評，反映招牌服務為賣點。",
+      "link": "https://www.threads.net/@chik852chik/post/DU-fmuMkoBR",
+      "sentiment": "positive"
     }
   ],
   "alerts": [],
@@ -216,7 +200,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 26,
+    "new_records": 24,
     "limitations": []
   }
 }

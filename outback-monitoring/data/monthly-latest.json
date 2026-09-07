@@ -1240,6 +1240,30 @@
       "summary": "Outback Steakhouse HK官方IG(@outbacksteakhousehk)近期連推推廣：宣傳『melt-in-your-mouth』USDA Slow Roasted Prime Rib慢烤牛肋排、8月$88現金券生日禮遇、外賣到會套餐8折，配合會員App數碼化，反映當月以Prime Rib主打及會員／到會促銷為重點。",
       "link": "https://www.instagram.com/p/CvyrKL0JYLF",
       "sentiment": "neutral"
+    },
+    {
+      "date": "2026-09-02",
+      "source": "U Food",
+      "title": "U Food 9月生日優惠2026 收錄Outback生日獎賞（$88券＋到會8折）",
+      "summary": "U Food於9月2日發布「9月生日優惠2026（35個飲食推介）」，將Outback列為第27項推介：會員消費滿HK$400即可享$88現金優惠券，壽星另享到會套餐8折優惠券（適用8位/16位用自選套餐），適用各分店，優惠日期即日起至另行通知。",
+      "link": "https://ufood.com.hk/restaurant/news/detail/20046882",
+      "sentiment": "neutral"
+    },
+    {
+      "date": "2026-09-03",
+      "source": "outback.com.hk 官方網站",
+      "title": "官方9月會員晚市獎賞 Outback September Dinner Rewards（VIP 8折 / Prestige 7折）",
+      "summary": "Outback官方於9月3日更新推廣：整個9月，會員可於Reward Market以0點兌換會員專屬折扣券，VIP會員晚市全單8折、Prestige會員全單7折，每週最多2次，適用晚市5pm後週一至四，優惠至9月29日。反映9月以會員晚市折扣為主軸催谷客流量。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/237?lang=en",
+      "sentiment": "neutral"
+    },
+    {
+      "date": "2026-09-07",
+      "source": "Threads",
+      "title": "Threads食評：Outback服務『好到令人面紅』值得推薦（銅鑼灣）",
+      "summary": "用戶@chik852chik發帖指Outback雖然無Gimmick、食物亦非最出色，但服務態度『好到令人面紅』，適合帶同老人家及小朋友叫set，絕對值得推薦，並註明本人只去銅鑼灣店。帖文3.7K瀏覽，屬高觸達正評，反映招牌服務為賣點。",
+      "link": "https://www.threads.net/@chik852chik/post/DU-fmuMkoBR",
+      "sentiment": "positive"
     }
   ],
   "alerts": [],
@@ -1248,7 +1272,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 155,
+    "new_records": 158,
     "limitations": []
   }
 }

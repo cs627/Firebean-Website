@@ -11,6 +11,17 @@
       "link": "https://www.outback.com.hk/news-and-promotions/article/237?lang=tc",
       "sentiment": "positive",
       "tags": ""
+    },
+    {
+      "date": "2026-09-02",
+      "source": "U Food",
+      "platform": "網媒",
+      "author": "",
+      "title": "U Food 9月生日優惠2026 收錄Outback生日獎賞（$88券＋到會8折）",
+      "summary": "U Food於9月2日發布「9月生日優惠2026（35個飲食推介）」，將Outback列為第27項推介：會員消費滿HK$400即可享$88現金優惠券，壽星另享到會套餐8折優惠券（適用8位/16位用自選套餐），適用各分店，優惠日期即日起至另行通知。",
+      "link": "https://ufood.com.hk/restaurant/news/detail/20046882",
+      "sentiment": "neutral",
+      "tags": ""
     }
   ],
   "alerts": [],
@@ -18,8 +29,8 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 1,
-    "new_records": 1,
+    "checked_sources": 2,
+    "new_records": 2,
     "limitations": []
   }
 }
