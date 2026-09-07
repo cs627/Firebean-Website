@@ -10,6 +10,7 @@ BASEDIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 JSON_PATH = os.path.join(BASEDIR, 'data', 'projects.json')
 OUT_DIR = os.path.join(BASEDIR, 'projects')
 CANONICAL_BASE = 'https://firebean.net/profile.html?id='
+PROJECT_CANONICAL = 'https://firebean.net/projects/'  # self-referencing canonical for static pages
 
 os.makedirs(OUT_DIR, exist_ok=True)
 
@@ -52,7 +53,7 @@ for proj in projects:
     desc = f'Firebean project: {name} for {client}. Category: {category}. {scope[:150]}'
     lines.append(f'<meta name="description" content="{desc}">')
     lines.append('<meta name="robots" content="index,follow">')
-    lines.append(f'<link rel="canonical" href="{CANONICAL_BASE}{pid}">')
+    lines.append(f'<link rel="canonical" href="{PROJECT_CANONICAL}{pid.lower()}.html">')
 
     # Hard-coded CreativeWork JSON-LD
     creative_work = {
