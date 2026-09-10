@@ -11,6 +11,28 @@
       "link": "https://www.threads.net/@chik852chik/post/DU-fmuMkoBR",
       "sentiment": "positive",
       "tags": ""
+    },
+    {
+      "date": "2026-09-07",
+      "source": "Facebook ",
+      "platform": "社交平台",
+      "author": "",
+      "title": "❣️Outback Steakhouse R&D Kitchen Table · 味蕾極致饗宴❣️",
+      "summary": "用戶 @sinmamaftm 發帖分享出席Bloomin' Brands研發副總裁Chef Efrem Cutler親自主理嘅廚師發辦，形容體驗是一場高級味覺旅程",
+      "link": "https://www.facebook.com/sinmamaftm/posts/%EF%B8%8Foutback-steakhouse-rd-kitchen-table-%E5%91%B3%E8%95%BE%E6%A5%B5%E8%87%B4%E9%A5%97%E5%AE%B4%EF%B8%8F%E6%9C%89%E5%B9%B8%E5%87%BA%E5%B8%ADbloomin-brands%E7%A0%94%E7%99%BC%E5%89%AF%E7%B8%BD%E8%A3%81chef-efrem-cu/1620877652730617/",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-09-07",
+      "source": "Instagram",
+      "platform": "社交平台",
+      "author": "",
+      "title": "❣️Outback Steakhouse R&D Kitchen Table · 味蕾極致饗宴❣️",
+      "summary": "用戶 @sinmamaftm 發帖分享出席Bloomin' Brands研發副總裁Chef Efrem Cutler親自主理嘅廚師發辦，形容體驗是一場高級味覺旅程",
+      "link": "https://www.instagram.com/p/Dc8gxbxmFA6/",
+      "sentiment": "positive",
+      "tags": ""
     }
   ],
   "alerts": [],
@@ -18,8 +40,8 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 1,
-    "new_records": 1,
+    "checked_sources": 3,
+    "new_records": 3,
     "limitations": []
   }
 }

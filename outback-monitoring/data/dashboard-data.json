@@ -1,14 +1,14 @@
 {
   "meta": {
     "last_updated": "2026-09-07",
-    "total_records": 158,
+    "total_records": 161,
     "daily_avg": 4.1,
     "date_range": "2026-03-06 → 2026-09-07",
     "sources_checked": 38,
-    "new_verified": 4,
+    "new_verified": 6,
     "coverage_ratio": "38/46",
     "negative_alerts": 21,
-    "positive_pct": 49
+    "positive_pct": 50
   },
   "trend": [
     {
@@ -21,7 +21,7 @@
     },
     {
       "date": "2026-09-02",
-      "count": 2
+      "count": 3
     },
     {
       "date": "2026-09-03",
@@ -37,21 +37,21 @@
     },
     {
       "date": "2026-09-07",
-      "count": 1
+      "count": 3
     }
   ],
   "source_breakdown": [
     {
       "source": "Instagram",
-      "count": 28
+      "count": 29
+    },
+    {
+      "source": "Threads",
+      "count": 23
     },
     {
       "source": "Google Maps",
       "count": 23
-    },
-    {
-      "source": "Threads",
-      "count": 22
     },
     {
       "source": "OpenRice",
@@ -59,7 +59,7 @@
     },
     {
       "source": "Facebook",
-      "count": 11
+      "count": 12
     },
     {
       "source": "U Food",
@@ -103,7 +103,7 @@
     }
   ],
   "sentiment": {
-    "positive": 78,
+    "positive": 81,
     "neutral": 56,
     "negative": 21,
     "mixed": 3
@@ -1846,6 +1846,39 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback 服務 正評 銅鑼灣"
+    },
+    {
+      "date": "2026-09-02",
+      "source": "Threads",
+      "platform": "社交平台",
+      "title": "​【絕密直擊】想睇行政總廚現場煎牛扒嗎？去片！🎥",
+      "summary": "​用戶 @baseting2 發帖分享受邀出席香港 Outback「The R&D Kitchen Table」獨家品嚐活動，體驗由集團行政總廚 Chef Efrem Cutler 及全球研發副總裁親自掌廚與分享。",
+      "link": "https://www.threads.com/@baseting2/post/DcxSv4Ak7ui?xmt=AQG0UD6c2koZCYGZQAsMaFcdvaQnGQvy3pgDu52F0UCgsrgFZBuwU_AS88V8ftzm1Wi_Zrkf&slof=1",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 活動"
+    },
+    {
+      "date": "2026-09-07",
+      "source": "Facebook ",
+      "platform": "社交平台",
+      "title": "❣️Outback Steakhouse R&D Kitchen Table · 味蕾極致饗宴❣️",
+      "summary": "用戶 @sinmamaftm 發帖分享出席Bloomin' Brands研發副總裁Chef Efrem Cutler親自主理嘅廚師發辦，形容體驗是一場高級味覺旅程",
+      "link": "https://www.facebook.com/sinmamaftm/posts/%EF%B8%8Foutback-steakhouse-rd-kitchen-table-%E5%91%B3%E8%95%BE%E6%A5%B5%E8%87%B4%E9%A5%97%E5%AE%B4%EF%B8%8F%E6%9C%89%E5%B9%B8%E5%87%BA%E5%B8%ADbloomin-brands%E7%A0%94%E7%99%BC%E5%89%AF%E7%B8%BD%E8%A3%81chef-efrem-cu/1620877652730617/",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 活動"
+    },
+    {
+      "date": "2026-09-07",
+      "source": "Instagram",
+      "platform": "社交平台",
+      "title": "❣️Outback Steakhouse R&D Kitchen Table · 味蕾極致饗宴❣️",
+      "summary": "用戶 @sinmamaftm 發帖分享出席Bloomin' Brands研發副總裁Chef Efrem Cutler親自主理嘅廚師發辦，形容體驗是一場高級味覺旅程",
+      "link": "https://www.instagram.com/p/Dc8gxbxmFA6/",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 活動"
     }
   ],
   "media_records": [
@@ -3588,6 +3621,39 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback 服務 正評 銅鑼灣"
+    },
+    {
+      "date": "2026-09-02",
+      "source": "Threads",
+      "platform": "社交平台",
+      "title": "​【絕密直擊】想睇行政總廚現場煎牛扒嗎？去片！🎥",
+      "summary": "​用戶 @baseting2 發帖分享受邀出席香港 Outback「The R&D Kitchen Table」獨家品嚐活動，體驗由集團行政總廚 Chef Efrem Cutler 及全球研發副總裁親自掌廚與分享。",
+      "link": "https://www.threads.com/@baseting2/post/DcxSv4Ak7ui?xmt=AQG0UD6c2koZCYGZQAsMaFcdvaQnGQvy3pgDu52F0UCgsrgFZBuwU_AS88V8ftzm1Wi_Zrkf&slof=1",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 活動"
+    },
+    {
+      "date": "2026-09-07",
+      "source": "Facebook ",
+      "platform": "社交平台",
+      "title": "❣️Outback Steakhouse R&D Kitchen Table · 味蕾極致饗宴❣️",
+      "summary": "用戶 @sinmamaftm 發帖分享出席Bloomin' Brands研發副總裁Chef Efrem Cutler親自主理嘅廚師發辦，形容體驗是一場高級味覺旅程",
+      "link": "https://www.facebook.com/sinmamaftm/posts/%EF%B8%8Foutback-steakhouse-rd-kitchen-table-%E5%91%B3%E8%95%BE%E6%A5%B5%E8%87%B4%E9%A5%97%E5%AE%B4%EF%B8%8F%E6%9C%89%E5%B9%B8%E5%87%BA%E5%B8%ADbloomin-brands%E7%A0%94%E7%99%BC%E5%89%AF%E7%B8%BD%E8%A3%81chef-efrem-cu/1620877652730617/",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 活動"
+    },
+    {
+      "date": "2026-09-07",
+      "source": "Instagram",
+      "platform": "社交平台",
+      "title": "❣️Outback Steakhouse R&D Kitchen Table · 味蕾極致饗宴❣️",
+      "summary": "用戶 @sinmamaftm 發帖分享出席Bloomin' Brands研發副總裁Chef Efrem Cutler親自主理嘅廚師發辦，形容體驗是一場高級味覺旅程",
+      "link": "https://www.instagram.com/p/Dc8gxbxmFA6/",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 活動"
     }
   ],
   "store_ranking": [

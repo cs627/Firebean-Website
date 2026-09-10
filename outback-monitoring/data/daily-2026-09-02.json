@@ -22,6 +22,17 @@
       "link": "https://ufood.com.hk/restaurant/news/detail/20046882",
       "sentiment": "neutral",
       "tags": ""
+    },
+    {
+      "date": "2026-09-02",
+      "source": "Threads",
+      "platform": "社交平台",
+      "author": "",
+      "title": "​【絕密直擊】想睇行政總廚現場煎牛扒嗎？去片！🎥",
+      "summary": "​用戶 @baseting2 發帖分享受邀出席香港 Outback「The R&D Kitchen Table」獨家品嚐活動，體驗由集團行政總廚 Chef Efrem Cutler 及全球研發副總裁親自掌廚與分享。",
+      "link": "https://www.threads.com/@baseting2/post/DcxSv4Ak7ui?xmt=AQG0UD6c2koZCYGZQAsMaFcdvaQnGQvy3pgDu52F0UCgsrgFZBuwU_AS88V8ftzm1Wi_Zrkf&slof=1",
+      "sentiment": "positive",
+      "tags": ""
     }
   ],
   "alerts": [],
@@ -29,8 +40,8 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 2,
-    "new_records": 2,
+    "checked_sources": 3,
+    "new_records": 3,
     "limitations": []
   }
 }
