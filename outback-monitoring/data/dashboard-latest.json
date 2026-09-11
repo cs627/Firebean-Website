@@ -1,12 +1,12 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-09-10T07:13:18.013174+00:00",
+  "generatedAt": "2026-09-11T01:11:57.417687+00:00",
   "run": {
-    "runDate": "2026-09-10",
+    "runDate": "2026-09-11",
     "dateRange": {
       "from": "2026-03-06",
-      "to": "2026-09-10"
+      "to": "2026-09-11"
     },
     "alerts": [
       {
@@ -27,9 +27,9 @@
     ]
   },
   "counts": {
-    "total": 161,
+    "total": 162,
     "media": 88,
-    "social": 73,
+    "social": 74,
     "maps": 0,
     "stores": 10
   },
@@ -1804,6 +1804,17 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, 活動"
+    },
+    {
+      "date": "2026-09-11",
+      "source": "Threads",
+      "platform": "社交平台",
+      "title": "Threads火帖：Outback「是被牛排耽誤的黑糖包店」（台灣旅港者「來到香港才知道的事」系列#85）",
+      "summary": "台灣用戶@chiou_shiuan發帖（「來到香港才知道的事85」系列）：將香港Outback形容為「被牛排耽誤的黑糖包店」，凸顯黑糖包招牌地位，帖文高觸達；回覆串更討論其黑糖麥包由香港嘉頓代工、及獨立包裝焗爐200°C翻熱3分鐘心得，屬正面品牌口碑帖。",
+      "link": "https://www.threads.net/@chiou_shiuan/post/DERrvoFPtCt",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 黑糖包, 黑糖麥包, 嘉頓"
     }
   ],
   "stores": [
@@ -1815,7 +1826,7 @@
       "good": 81,
       "neutral": 23,
       "bad": 4,
-      "summary": "好評率 75.0%，81好/23中/4差（共108食評）｜好評率75%並列全線第一，港島旗艦店。食評讚忌廉蝦意粉creamy濃郁、$148豬肋骨水準之作，店員主動refill飲品及收碟獲讚『服務非常周到』；黑糖麥包任添最受歡迎，服務穩定係加分位，適合做港島區主打店。",
+      "summary": "旗艦級分店，好評81/中評23/差評4。服務周到、黑糖包熱辣、牛扒質素穩定，差評極少，港島家庭客及商務客口碑佳，全線好評率並列最高之一。",
       "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-causeway-bay-australian-r512024",
       "likeCount": ""
     },
@@ -1827,7 +1838,7 @@
       "good": 63,
       "neutral": 16,
       "bad": 5,
-      "summary": "好評率 75.0%，63好/16中/5差（共84食評）｜好評率75%並列三甲，服務與出品俱穩。食評多讚環境舒適、黑糖包好食、牛扒穩定，家庭客佔多，Park Central位置人流佳。中差評僅各16/5宗，屬健康比例；宜留意假日繁忙時段輪候，整體口碑良好。",
+      "summary": "好評63/中評16/差評5。環境舒適、服務穩定，貼近康城及將軍澳家庭客源，黑糖包及扒類獲高評價，好評率與銅鑼灣並列全線最高。",
       "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-tseung-kwan-o-australian-r619916",
       "likeCount": ""
     },
@@ -1839,7 +1850,7 @@
       "good": 60,
       "neutral": 9,
       "bad": 11,
-      "summary": "好評率 75.0%，60好/9中/11差（共80食評）｜好評率75%並列第一。食評指環境闊落坐得舒服、五成熟牛扒火候啱啱好、肉醬意粉份量足屬驚喜之作，黑糖麵包可任添食完一件再一件；6月食評指出品keep到水準、無令人失望，屬區內家庭客熱點，節日客流高。",
+      "summary": "好評60/中評9/差評11。食客多讚黑糖包任食、牛扒份量足、性價比獲認同；差評比例略高，部分反映繁忙時段服務需改善。",
       "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-tsuen-wan-australian-r663138",
       "likeCount": ""
     },
@@ -1851,7 +1862,7 @@
       "good": 74,
       "neutral": 26,
       "bad": 6,
-      "summary": "好評率 69.8%，74好/26中/6差（共106食評）｜好評率69.8%，沙田市中心位置優越。近月食評讚豐富午餐套餐及會員生日折扣體驗佳；惟7月有食客反映黑毛豬扒偏乾、薯蓉偏酸，12月另有漏單投訴，出品質素及服務穩定性需留意，家庭客佔比高。",
+      "summary": "適合家庭聚餐，午餐set豐富抵食。食客讚環境及份量，惟個別反映黑毛豬扒偏乾，牛扒仍維持好評，沙田區口碑穩定。",
       "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-sha-tin-australian-r651512",
       "likeCount": ""
     },
@@ -1863,7 +1874,7 @@
       "good": 208,
       "neutral": 68,
       "bad": 24,
-      "summary": "好評率 69.3%，208好/68中/24差（共300食評）｜旺角店食評量300宗屬全場最高，好評集中午餐多選擇、黑糖包refill正、忌廉蝦意粉多人推薦；惟8月有食客投訴黑毛豬扒叫七成熟上枱已唔熱、乾柴如煲湯肉，明言以後唔去，豬扒出品穩定性成近期短板，需重點跟進。",
+      "summary": "全線最多食評（300篇）。位置方便、家庭客多；繁忙時段人手偶有不足，但食物質素整體穩定，旺角商圈人氣與流量雙高。",
       "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-mong-kok-australian-r456533",
       "likeCount": ""
     },
@@ -1875,7 +1886,7 @@
       "good": 59,
       "neutral": 20,
       "bad": 7,
-      "summary": "好評率 68.6%，59好/20中/7差（共86食評）｜好評率68.6%。食評讚午市毋須排隊、黑糖包加特大凍檸茶性價比高，燒雞肉芝士夾餅芝香雞嫩；惟4月有食客投訴牛扒難切、店員『哦完繼續閒企』，另有出餐慢及熟度錯誤投訴，服務穩定性與出品質素待改善。",
+      "summary": "鄰近機場及Outlet，客群多為旅客及區內居民，食物質素穩定，戶外座位受歡迎，商場人流帶動平穩口碑。",
       "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-tung-chung-australian-r641822",
       "likeCount": ""
     },
@@ -1887,7 +1898,7 @@
       "good": 5,
       "neutral": 1,
       "bad": 2,
-      "summary": "好評率 62.5%，5好/1中/2差（共8食評）｜中環樣本細（8宗評分），好評率62.5%參考度有限。食評讚下午茶時段至6點適合作早晚餐、白汁大蝦意粉及牛肉芝士漢堡出色、設BB凳適合家庭客；惟曾有『塊面比塊扒更黑』極差體驗屬個別事件，中環競爭激烈宜加強熟度管控。",
+      "summary": "最新旗艦分店，食評尚少（8篇）惟好評5篇為主。設計時尚現代、Happy Hour獲好評，初步反應正面，屬觀察期。",
       "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-central-australian-r862470",
       "likeCount": ""
     },
@@ -1899,7 +1910,7 @@
       "good": 57,
       "neutral": 27,
       "bad": 13,
-      "summary": "好評率 58.8%，57好/27中/13差（共97食評）｜好評率58.8%偏低。食評讚黑糖包有黑糖味、薯條香脆、漢堡有肉味（惟略貴）；惟5月投訴豬肋骨份量縮水一半、意粉配料少性價比低，另有dry age牛扒過硬、$70 mocktail如糖水負評，出品穩定性及性價比成短板。",
+      "summary": "好評率偏低、差評偏高。食客多反映食物質素不穩及服務慢，屬需重點跟進改善的分店。",
       "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-tai-kok-tsui-australian-r549079",
       "likeCount": ""
     },
@@ -1911,19 +1922,19 @@
       "good": 21,
       "neutral": 12,
       "bad": 3,
-      "summary": "好評率 58.3%，21好/12中/3差（共36食評）｜較新分店，食評36宗屬全線最少，好評率58.3%僅供初判。食客讚食物有水準、黑糖包好食、服務有質素；惟中差評合計佔四成，反映樣本細、體驗仍在累積口碑階段，性價比合理，宜持續觀測出品質素穩定性。",
+      "summary": "較新分店，食評尚少（36篇）。食客讚食物有水準、服務有質素，惟好評率中等，尚待更多評價累積。",
       "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-tai-po-australian-r683583",
       "likeCount": ""
     },
     {
       "rank": 10,
-      "branch": "形點I (元朗)",
+      "branch": "形點 I (元朗)",
       "score": 57.6,
       "reviewCount": 170,
       "good": 98,
       "neutral": 50,
       "bad": 22,
-      "summary": "好評率 57.6%，98好/50中/22差（共170食評）｜好評率57.6%排末，惟食評量170宗甚具參考性。食評普遍中性偏正：讚封門牛柳、Popcorn蝦、黑糖包任食，6月食評均讚豬肋骨份量足、well done豬扒不乾柴；惟意粉偏軟偶見、假日排隊，價格敏感度高，滿意度有提升空間。",
+      "summary": "食評多但中差評比例偏高。服務參差、等候時間長為主要負評來源，黑糖包及扒類仍受歡迎，需改善服務穩定性。",
       "source": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-yuen-long-australian-r537611",
       "likeCount": ""
     }
@@ -2398,6 +2409,10 @@
     {
       "date": "2026-09-07",
       "count": 3
+    },
+    {
+      "date": "2026-09-11",
+      "count": 1
     }
   ],
   "aiReport": "### 整體媒體形象\n\n8月至今，Outback Steakhouse 香港共錄得117條提及，整體輿情基調正面，反映品牌在公眾心中仍維持「性價比高、適合聚會慶生」的鮮明印象。媒體報導聚焦生日優惠、下午茶及新菜單，持續鞏固其「家庭友善、歡樂聚餐」的定位。\n\n與競爭對手相比，Outback 的「美式分享文化」與「招牌黑糖麵包」仍是獨特記憶點，但面對 Flat Iron 等新派平價扒房挑戰，年輕客群對品牌的「新鮮感」正在遞減。分店表現兩極化——新港中心（76.5%好評）、銅鑼灣及荃灣（均約75%）維持高水準，但形點分店僅得57.6%，反映服務及品質一致性出現區域落差。\n\n### 媒體新聞分析\n\n報導重點集中於「生日優惠」、「下午茶時段」及「季節新菜單」，以 U Food、新假期等大眾飲食媒體為主力，多為軟性推廣報導，公關價值評估為「穩定曝光有餘，形象深化不足」。此類報導雖能持續觸及泛大眾消費者，但未能建立更高層次的品牌差異化或情感連結。\n\n### 社交媒體表現\n\n官方 Instagram 推廣重點為「海鮮季」及飲品優惠，KOL 自發分享用餐體驗構成主要正面 UGC，多以家庭聚餐、朋友慶生為場景。需關注的負面訊號為「牛扒熟度不穩定」及「服務態度參差」，建議官方建立「負評預警機制」，以幽默誠懇語氣回應投訴並提供具體補償。\n\n### 競爭對手動向\n\n- **Dan Ryan's**：銅鑼灣260座新店直接進駐 Fashion Walk 舊 Outback 位置，威脅度最高\n- **Flat Iron**：7扒房+2漢堡急速擴張，每週優惠日低價策略直接衝擊性價比定位\n- **The Grill Room**：3間分店主攻「任食和牛」，搶佔中高消費食肉控\n- **Ruby Tuesday**：9間重整中，MegaBox 店8月26日升級\n\n### PR風險警示\n\n最需關注「分店品質不一致」引發的聲譽風險。形點分店57.6%好評率遠低於其他分店，易被媒體點名為「地雷分店」。牛扒熟度投訴若被競爭對手借題發揮，將演變為社交危機。\n\n### Campaign建議\n\n**1. 「Outback 熟度信心保證」挑戰**\n- 目標：轉化熟度負評為口碑\n- 執行：9月推出「熟度不中即換」活動，邀請KOL實測\n\n**2. 「我們的Fashion Walk回憶」情感連結**\n- 目標：借 Dan Ryan's 進駐舊址之勢，喚起顧客情感記憶\n- 執行：社交平台徵集回憶照片，推出期間限定復刻拼盤\n\n**3. 「形點大變身」透明改善日記**\n- 目標：針對低評分分店進行形象修復\n- 執行：每週發布改善進度，邀請曾留負評顧客免費回訪",

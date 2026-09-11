@@ -1288,6 +1288,14 @@
       "summary": "用戶 @sinmamaftm 發帖分享出席Bloomin' Brands研發副總裁Chef Efrem Cutler親自主理嘅廚師發辦，形容體驗是一場高級味覺旅程",
       "link": "https://www.instagram.com/p/Dc8gxbxmFA6/",
       "sentiment": "positive"
+    },
+    {
+      "date": "2026-09-11",
+      "source": "Threads",
+      "title": "Threads火帖：Outback「是被牛排耽誤的黑糖包店」（台灣旅港者「來到香港才知道的事」系列#85）",
+      "summary": "台灣用戶@chiou_shiuan發帖（「來到香港才知道的事85」系列）：將香港Outback形容為「被牛排耽誤的黑糖包店」，凸顯黑糖包招牌地位，帖文高觸達；回覆串更討論其黑糖麥包由香港嘉頓代工、及獨立包裝焗爐200°C翻熱3分鐘心得，屬正面品牌口碑帖。",
+      "link": "https://www.threads.net/@chiou_shiuan/post/DERrvoFPtCt",
+      "sentiment": "positive"
     }
   ],
   "alerts": [],
@@ -1296,7 +1304,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 161,
+    "new_records": 162,
     "limitations": []
   }
 }

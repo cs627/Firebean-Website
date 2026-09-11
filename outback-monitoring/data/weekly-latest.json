@@ -1,134 +1,6 @@
 {
-  "week": "2026-08-27 ~ 2026-09-07",
+  "week": "2026-09-01 ~ 2026-09-11",
   "items": [
-    {
-      "date": "2026-08-27",
-      "source": "Threads",
-      "title": "網民分享Outback慢燒安格斯肉眼牛扒五成熟爭議",
-      "summary": "餓底TV於Threads轉載網民在Outback點選美式慢燒安格斯肉眼牛扒要求五成熟，但牛扒呈現近乎生牛肉的半透明鮮紅色，引起熱議。牛扒界KOL meat_dee解釋Prime rib採用low and slow慢焗做法。帖文獲15.7K觀看。",
-      "link": "https://www.threads.com/@hungrytv.hk/post/DY8thm0CPVN",
-      "sentiment": "negative"
-    },
-    {
-      "date": "2026-08-27",
-      "source": "Threads",
-      "title": "Outback Steakhouse外帶招牌黑糖麥包驚喜價$10",
-      "summary": "Lemon Media於Threads分享Outback Steakhouse外帶裝招牌黑糖麥包優惠價$10，為近期優惠推廣。",
-      "link": "https://www.threads.net/@lemonmediahk/post/DGVCO37vOd5",
-      "sentiment": "positive"
-    },
-    {
-      "date": "2026-08-27",
-      "source": "Threads",
-      "title": "Outback x OpenRice外賣自取75折優惠",
-      "summary": "hkfcoupon於Threads分享Outback x OpenRice外賣自取75折優惠，豬肋骨+薯條+黑糖包+湯只需$103，可用優惠碼WEEK減$7或EATNOW減$6。",
-      "link": "https://www.threads.net/@hkfcoupon/post/DGfJQtbzueP",
-      "sentiment": "positive"
-    },
-    {
-      "date": "2026-08-27",
-      "source": "Instagram",
-      "title": "Outback銅鑼灣分店Steak Night — 18oz Prime Rib + Tomahawk",
-      "summary": "食客分享Outback銅鑼灣廣場一期分店的Steak Night用餐體驗，點了18oz Prime Rib和USDA Prime Tomahawk Steak，獲多位foodie好評。",
-      "link": "https://www.instagram.com/p/DIdpq5gJLJm",
-      "sentiment": "positive"
-    },
-    {
-      "date": "2026-08-27",
-      "source": "U Food",
-      "title": "Outback推出全新抵食下午茶餐單 輕食/甜品/小食/酒類組合優惠",
-      "summary": "U Food報導Outback Steakhouse推出全新Teatime & Happy Hour下午茶餐單，逢星期一至五下午3時至6時供應，涵蓋輕食、甜品、小食及酒類組合，會員可享折扣優惠。",
-      "link": "https://ufood.com.hk/restaurant/news/detail/20092134/outback-推出全新抵食下午茶餐單",
-      "sentiment": "positive"
-    },
-    {
-      "date": "2026-08-27",
-      "source": "Facebook",
-      "title": "Outback Steakhouse HK官方Facebook — 海鮮推廣帖文",
-      "summary": "Outback Steakhouse HK官方Facebook近期發布帖文推廣海鮮菜式，標題為「神級鮮味！好食到令人瞬間定格？」，並推廣Apple Cider全系列飲品。",
-      "link": "https://www.facebook.com/outbacksteakhousehk",
-      "sentiment": "positive"
-    },
-    {
-      "date": "2026-08-27",
-      "source": "Outback.com.hk",
-      "title": "August Sip Escape — 夏日消暑飲品優惠高達4折",
-      "summary": "精選Mocktails $38（Pink Lychee Lemonade、Mango Mojito等）；Peroni生啤500ml $48。優惠至8月31日。",
-      "link": "https://www.outback.com.hk/news-and-promotions/article/236?lang=en",
-      "sentiment": "positive"
-    },
-    {
-      "date": "2026-08-27",
-      "source": "Outback.com.hk",
-      "title": "The Secret of Great Flavor — 全新菜式登場",
-      "summary": "意大利Burrata沙律、巴馬臣芝士輪龍蝦汁意粉配燒帶子、黑糖麵包香蕉船。Updated July 28, 2026。",
-      "link": "https://www.outback.com.hk/news-and-promotions/page/1?lang=",
-      "sentiment": "positive"
-    },
-    {
-      "date": "2026-08-27",
-      "source": "Lemon Media (Threads)",
-      "title": "沙田新城市麵包節 — Outback $10黑糖麥包外帶優惠",
-      "summary": "Lemon Media報導沙田新城市廣場8月28-30日麵包節，Outback Steakhouse提供外帶裝招牌黑糖麥包驚喜價$10，與其他商場餐飲品牌一併推廣。",
-      "link": "https://www.threads.net/@lemonmediahk",
-      "sentiment": "positive"
-    },
-    {
-      "date": "2026-08-27",
-      "source": "Outback官網",
-      "title": "「八月夏日消暑飲品優惠」— 精選飲品高達4折",
-      "summary": "Outback 8月份推出「August Sip Escape」飲品優惠：Mocktails $38、蘋果酒沙冰 $58、Peroni生啤 $48，精選飲品高達4折。活動至8月31日。",
-      "link": "https://www.outback.com.hk/news-and-promotions/page/1?lang=",
-      "sentiment": "positive"
-    },
-    {
-      "date": "2026-08-27",
-      "source": "Outback官網",
-      "title": "「夏日美食秘笈」新菜單 — 布拉塔芝士沙律、熔岩芝士帶子意粉、黑糖麥包香蕉船",
-      "summary": "Outback夏日新菜單包括：意大利布拉塔流心芝士沙律、意大利熔岩芝士帶子意粉（Parmigiano-Reggiano芝士輪即場製作）、以及首次以黑糖麥包作甜品主角的香蕉船。",
-      "link": "https://www.outback.com.hk/news-and-promotions/page/1?lang=",
-      "sentiment": "positive"
-    },
-    {
-      "date": "2026-08-27",
-      "source": "Outback Facebook",
-      "title": "「Opps！跌入Keep Fit無限循環」— 官方社交貼文",
-      "summary": "Outback官方Facebook於8月26日發布趣味互動貼文「Opps！跌入Keep Fit無限循環」，獲51個互動反應，以輕鬆幽默方式與粉絲互動。",
-      "link": "https://www.facebook.com/outbacksteakhousehk",
-      "sentiment": "positive"
-    },
-    {
-      "date": "2026-08-27",
-      "source": "Instagram @outbacksteakhousehk",
-      "title": "官方IG近期貼文 — DSE考生75折 + 日常推廣 + VIP會員生日獎賞",
-      "summary": "Outback官方IG近期發布多項推廣：8月24日最新照片、8月20日影片、DSE放榜75折優惠（7月15-17日）、VIP/Prestige會員8月生日獎賞等。追蹤者4,684人。",
-      "link": "https://www.instagram.com/outbacksteakhousehk",
-      "sentiment": "positive"
-    },
-    {
-      "date": "2026-08-27",
-      "source": "Instagram @foodie",
-      "title": "銅鑼灣Outback食評 — 18oz Prime Rib + Tomahawk Steak",
-      "summary": "食客於銅鑼灣廣場一期分店品嚐18oz Prime Rib及USDA Prime Tomahawk Steak，帖文獲多位foodie互動讚好，hashtag #outbacksteakhousehk。貼文含詳細食物照片。",
-      "link": "https://www.instagram.com/p/DIdpq5gJLJm",
-      "sentiment": "positive"
-    },
-    {
-      "date": "2026-08-27",
-      "source": "Threads (@hungrytv.hk)",
-      "title": "餓底TV轉載Outback慢燒牛扒熟度爭議 — 15.7K views",
-      "summary": "餓底TV於Threads轉載網民Outback用餐經驗：點選美式慢燒安格斯肉眼牛扒五成熟，上檯呈現近乎生牛肉半透明鮮紅色，要求重做後由全生直接跳到九成乾柴。牛扒KOL meat_dee回應指Prime rib採用low and slow慢焗做法。帖文獲15,700+ views、21 likes、6 replies。此為二次傳播，原始投訴帖文日期待確認。",
-      "link": "https://www.threads.com/@hungrytv.hk/post/DY8thm0CPVN/",
-      "sentiment": "negative"
-    },
-    {
-      "date": "2026-08-27",
-      "source": "Threads (@chik852chik)",
-      "title": "Threads用戶讚銅鑼灣Outback服務態度 — 3.7K views",
-      "summary": "用戶稱Outback steakhouse雖無gimmick、食物非十分出色，但銅鑼灣店服務態度「好到令人面紅」，特別適合老人家及小朋友叫set。獲3,700+ views、13 likes。",
-      "link": "https://www.threads.com/@chik852chik/post/DU-fmuMkoBR/",
-      "sentiment": "positive"
-    },
     {
       "date": "2026-09-01",
       "source": "Instagram",
@@ -216,6 +88,14 @@
       "summary": "用戶 @sinmamaftm 發帖分享出席Bloomin' Brands研發副總裁Chef Efrem Cutler親自主理嘅廚師發辦，形容體驗是一場高級味覺旅程",
       "link": "https://www.instagram.com/p/Dc8gxbxmFA6/",
       "sentiment": "positive"
+    },
+    {
+      "date": "2026-09-11",
+      "source": "Threads",
+      "title": "Threads火帖：Outback「是被牛排耽誤的黑糖包店」（台灣旅港者「來到香港才知道的事」系列#85）",
+      "summary": "台灣用戶@chiou_shiuan發帖（「來到香港才知道的事85」系列）：將香港Outback形容為「被牛排耽誤的黑糖包店」，凸顯黑糖包招牌地位，帖文高觸達；回覆串更討論其黑糖麥包由香港嘉頓代工、及獨立包裝焗爐200°C翻熱3分鐘心得，屬正面品牌口碑帖。",
+      "link": "https://www.threads.net/@chiou_shiuan/post/DERrvoFPtCt",
+      "sentiment": "positive"
     }
   ],
   "alerts": [],
@@ -224,7 +104,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 27,
+    "new_records": 12,
     "limitations": []
   }
 }
