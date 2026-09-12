@@ -346,12 +346,26 @@ $("calendar").addEventListener("click",e=>{
 async function init(){
   const d=await fetch("./data/dashboard-latest.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error("Snapshot data unavailable");return r.json()});
   state.data=d;
+  // ── LIVE: attempt near-real-time read of the Google Sheet via Apps Script ──
+  // Uses `ai::get_script` endpoint ?action=records. Falls back to snapshot if
+  // the deployment isn't reachable or the built-in ai service is unavailable.
+  d._live = false;
+  if (typeof APPS_SCRIPT_URL !== "undefined" && APPS_SCRIPT_URL) {
+    try {
+      const live = await fetch(APPS_SCRIPT_URL + "?action=records", {cache:"no-store"}).then(r=>r.json());
+      if (live && live.success && Array.isArray(live.mentions) && live.mentions.length) {
+        d.mentions = live.mentions;   // live sheet read overrides snapshot
+        d._live = true;
+        d.generatedAt = live.generatedAt || d.generatedAt;
+      }
+    } catch(e) { /* live read failed — keep snapshot */ }
+  }
   const m=d.mentions||[];
   const allDates=[...new Set(m.map(x=>x.date).filter(validDate))].sort();
   state.from=d.run.dateRange.from&&validDate(d.run.dateRange.from)?d.run.dateRange.from:(allDates[0]||null);
   state.to=d.run.dateRange.to&&validDate(d.run.dateRange.to)?d.run.dateRange.to:(allDates[allDates.length-1]||null);
   $("sheetLink").href="https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4/edit";
-  $("generated").textContent="Generated "+new Date(d.generatedAt).toLocaleString("en-HK",{timeZone:"Asia/Hong_Kong"})+" HKT";
+  $("generated").textContent="Generated "+new Date(d.generatedAt).toLocaleString("en-HK",{timeZone:"Asia/Hong_Kong"})+" HKT"+(d._live?" · 即時讀取 Google Sheet":"");
   $("fromLabel").textContent=fmtDate(state.from);$("toLabel").textContent=fmtDate(state.to);
   $("tabMedia").textContent=(m.filter(x=>sectionOf(x)==="media").length)+" records";
   $("tabSocial").textContent=(m.filter(x=>sectionOf(x)==="social").length)+" records";
