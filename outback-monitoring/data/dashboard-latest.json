@@ -1,7 +1,7 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-09-12T15:22:52.052896+00:00",
+  "generatedAt": "2026-09-12T15:31:31.917252+00:00",
   "run": {
     "runDate": "2026-09-12",
     "dateRange": {
@@ -1819,7 +1819,7 @@
     {
       "date": "2026-09-12",
       "source": "asia business leaders",
-      "platform": "手動提交",
+      "platform": "新聞媒體",
       "title": "Outback 高管對話：拆解「槓鈴策略」與香港亞太營運樞紐佈局",
       "summary": "這家跨國巨頭的全球營運高管與研發核心靈魂人物接受《Asia Business Leaders》獨家專訪。剖析企業如何靠冷靜的資本紀律、精準的產品毛利組合，以及「看見別人看不到的機會」的遠見，在波動時代中翻轉危機，打造永續成長的商業帝國。",
       "link": "https://www.asiabusinessleaders.com/posts/Outback-高管對話拆解槓鈴策略與香港亞太營運樞紐佈局",
