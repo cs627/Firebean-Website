@@ -1,14 +1,14 @@
 {
   "meta": {
     "last_updated": "2026-09-11",
-    "total_records": 162,
-    "daily_avg": 4.0,
+    "total_records": 165,
+    "daily_avg": 4.1,
     "date_range": "2026-03-06 → 2026-09-11",
     "sources_checked": 38,
     "new_verified": 5,
     "coverage_ratio": "38/46",
     "negative_alerts": 21,
-    "positive_pct": 51
+    "positive_pct": 50
   },
   "trend": [
     {
@@ -104,7 +104,7 @@
   ],
   "sentiment": {
     "positive": 82,
-    "neutral": 56,
+    "neutral": 59,
     "negative": 21,
     "mixed": 3
   },
@@ -1890,6 +1890,39 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, 黑糖包, 黑糖麥包, 嘉頓"
+    },
+    {
+      "date": "",
+      "source": "",
+      "platform": "",
+      "title": "",
+      "summary": "",
+      "link": "",
+      "sentiment": "neutral",
+      "sentiment_label": "",
+      "keywords": ""
+    },
+    {
+      "date": "",
+      "source": "",
+      "platform": "",
+      "title": "",
+      "summary": "",
+      "link": "",
+      "sentiment": "neutral",
+      "sentiment_label": "",
+      "keywords": ""
+    },
+    {
+      "date": "",
+      "source": "",
+      "platform": "",
+      "title": "`",
+      "summary": "",
+      "link": "",
+      "sentiment": "neutral",
+      "sentiment_label": "",
+      "keywords": ""
     }
   ],
   "media_records": [
@@ -3676,6 +3709,39 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, 黑糖包, 黑糖麥包, 嘉頓"
+    },
+    {
+      "date": "",
+      "source": "",
+      "platform": "",
+      "title": "",
+      "summary": "",
+      "link": "",
+      "sentiment": "neutral",
+      "sentiment_label": "",
+      "keywords": ""
+    },
+    {
+      "date": "",
+      "source": "",
+      "platform": "",
+      "title": "",
+      "summary": "",
+      "link": "",
+      "sentiment": "neutral",
+      "sentiment_label": "",
+      "keywords": ""
+    },
+    {
+      "date": "",
+      "source": "",
+      "platform": "",
+      "title": "`",
+      "summary": "",
+      "link": "",
+      "sentiment": "neutral",
+      "sentiment_label": "",
+      "keywords": ""
     }
   ],
   "store_ranking": [

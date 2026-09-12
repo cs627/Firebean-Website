@@ -1296,6 +1296,30 @@
       "summary": "台灣用戶@chiou_shiuan發帖（「來到香港才知道的事85」系列）：將香港Outback形容為「被牛排耽誤的黑糖包店」，凸顯黑糖包招牌地位，帖文高觸達；回覆串更討論其黑糖麥包由香港嘉頓代工、及獨立包裝焗爐200°C翻熱3分鐘心得，屬正面品牌口碑帖。",
       "link": "https://www.threads.net/@chiou_shiuan/post/DERrvoFPtCt",
       "sentiment": "positive"
+    },
+    {
+      "date": "",
+      "source": "",
+      "title": "",
+      "summary": "",
+      "link": "",
+      "sentiment": "neutral"
+    },
+    {
+      "date": "",
+      "source": "",
+      "title": "",
+      "summary": "",
+      "link": "",
+      "sentiment": "neutral"
+    },
+    {
+      "date": "",
+      "source": "",
+      "title": "`",
+      "summary": "",
+      "link": "",
+      "sentiment": "neutral"
     }
   ],
   "alerts": [],
@@ -1304,7 +1328,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 162,
+    "new_records": 165,
     "limitations": []
   }
 }

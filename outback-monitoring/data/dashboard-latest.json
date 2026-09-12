@@ -1,7 +1,7 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-09-12T01:12:57.574522+00:00",
+  "generatedAt": "2026-09-12T14:05:13.723167+00:00",
   "run": {
     "runDate": "2026-09-12",
     "dateRange": {
@@ -27,9 +27,9 @@
     ]
   },
   "counts": {
-    "total": 162,
+    "total": 165,
     "media": 88,
-    "social": 74,
+    "social": 77,
     "maps": 0,
     "stores": 10
   },
@@ -1815,6 +1815,39 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, 黑糖包, 黑糖麥包, 嘉頓"
+    },
+    {
+      "date": "",
+      "source": "",
+      "platform": "",
+      "title": "",
+      "summary": "",
+      "link": "",
+      "sentiment": "neutral",
+      "sentiment_label": "",
+      "keywords": ""
+    },
+    {
+      "date": "",
+      "source": "",
+      "platform": "",
+      "title": "",
+      "summary": "",
+      "link": "",
+      "sentiment": "neutral",
+      "sentiment_label": "",
+      "keywords": ""
+    },
+    {
+      "date": "",
+      "source": "",
+      "platform": "",
+      "title": "`",
+      "summary": "",
+      "link": "",
+      "sentiment": "neutral",
+      "sentiment_label": "",
+      "keywords": ""
     }
   ],
   "stores": [
