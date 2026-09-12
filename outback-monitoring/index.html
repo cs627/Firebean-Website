@@ -217,7 +217,7 @@ const fmtDate=v=>{if(!v||v.includes("XX"))return v||"—";try{return new Date(v+
 
 const SOCIAL_RE=/(Instagram|Facebook|Threads|LinkedIn|社交媒體|官方IG|Official Instagram|帖文|@[a-z0-9_.]+)/i;
 const MAPS_RE=/(Maps|Google Maps|地圖|Google Play)/;
-const MEDIA_RE=/(新聞|報導|報道|News|SCMP|Standard|香港01|明報|信報|HKET|AM730|晴報|東周刊|頭條|星島|東方|文匯|大公|商報|PR Newswire|Marketing|U Food|U Lifestyle|新假期|Esquire|Time Out|NOW TV|TOPick|am730|網上媒體|媒體報道|食評媒體|食評／生活媒體|商場目錄|旅遊平台|官方網站|飲食男女|Yahoo|Eber Blog|OpenRice|評論平台|YOHO)/;
+const MEDIA_RE=/(新聞|報導|報道|News|SCMP|Standard|香港01|明報|信報|HKET|AM730|晴報|東周刊|頭條|星島|東方|文匯|大公|商報|PR Newswire|Marketing|U Food|U Lifestyle|新假期|Esquire|Time Out|NOW TV|TOPick|am730|網上媒體|媒體報道|食評媒體|食評／生活媒體|商場目錄|旅遊平台|官方網站|飲食男女|Yahoo|Eber Blog|OpenRice|評論平台|YOHO|手動提交|Manual|asiabusinessleaders)/;
 function sectionOf(item){const p=(item.platform||"")+" "+(item.source||"");if(SOCIAL_RE.test(p))return"social";if(MAPS_RE.test(p))return"maps";if(MEDIA_RE.test(p))return"media";return"social";}
 
 function validDate(d){return d&&!d.includes("XX")&&/^\d{4}-\d{2}-\d{2}$/.test(d);}
