@@ -103,6 +103,7 @@
       <span class="mag">🔍</span>
       <input id="query" type="search" placeholder="Search mentions..." />
     </div>
+    <button class="ai-btn" id="submitBtn" style="margin-left:8px;background:rgba(0,208,132,.12);border-color:var(--green);color:#7fe8c0" title="將 URL 加入監測">＋ Submit Mention</button>
     <button class="ai-btn" id="aiBtn" title="AI analysis of current filtered records">✨ AI Analysis</button>
   </section>
 
@@ -152,9 +153,38 @@
     </div>
   </div>
 
+  <!-- Submit Mention Modal -->
+  <div class="ai-overlay" id="submitOverlay">
+    <div class="ai-modal" style="max-width:560px">
+      <div class="ai-modal-hd">
+        <div><span class="eyebrow">Add to monitoring</span><h3>＋ 提交新聞／社交連結</h3><p style="margin:4px 0 0;color:var(--muted);font-size:11px">貼上 URL，系統自動抽取標題、摘要及來源，然後存入 Google Sheet。</p></div>
+        <button class="ai-modal-close" id="submitCloseX" title="關閉 Close">×</button>
+      </div>
+      <div class="ai-modal-bd">
+        <label style="font-size:11px;color:var(--muted);display:block;margin-bottom:6px">新聞／社交媒體 URL</label>
+        <input id="submitUrl" type="url" placeholder="https://..." style="width:100%;height:38px;padding:0 12px;border:1px solid #2c3338;border-radius:6px;background:#090c10;color:#edf5f1;font-size:12px" />
+        <div style="display:flex;gap:8px;margin-top:10px">
+          <button class="btn primary" id="submitFetch" style="flex:1">抽出資料</button>
+          <button class="btn" id="submitAdd" style="flex:1;background:rgba(0,208,132,.15);border-color:var(--green);color:#7fe8c0" disabled>確認加入 Sheet</button>
+        </div>
+        <div id="submitPreview" style="margin-top:12px;padding:12px;border:1px solid var(--line);border-radius:8px;background:#0d1015;display:none">
+          <div style="font-size:13px;font-weight:700;margin-bottom:4px" id="pvTitle">—</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:6px" id="pvSource">—</div>
+          <div style="font-size:12px;color:#b7c2c0;line-height:1.5" id="pvSummary">—</div>
+        </div>
+        <div id="submitMsg" style="margin-top:10px;font-size:12px;color:var(--amber)"></div>
+      </div>
+      <div class="ai-modal-ft"><button class="btn" id="submitCloseBtn">✕ 關閉 Close</button></div>
+    </div>
+  </div>
+
 </main>
 
+
 <script>
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz9qHmqmtkHJZK3QEI7-UN07PRl0C7CWnxfZIdjaFcj6NjhKDp5FdleGWR6cng0EsLf2A/exec";
+
+
 const state={data:null,section:"media",from:null,to:null,source:"all",query:"",period:"all",cal:null,calTarget:null};
 const $=id=>document.getElementById(id);
 const esc=v=>String(v??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
@@ -411,6 +441,64 @@ $("aiBtn").addEventListener("click",()=>{
   $("aiMeta").textContent="即時分析所選時期 "+state.from+" → "+state.to+" · 綜合 "+filteredMentions().length+" 條提及";
   $("aiReport").innerHTML=buildPeriodReport();
 });
+
+/* ─── Submit Mention (manual news/social link → Google Sheet) ─── */
+let _submitted = null;
+function closeSubmit(){ document.getElementById("submitOverlay").classList.remove("open"); _submitted=null; }
+document.getElementById("submitCloseX").addEventListener("click",closeSubmit);
+document.getElementById("submitCloseBtn").addEventListener("click",closeSubmit);
+document.getElementById("submitOverlay").addEventListener("click",e=>{ if(e.target.id==="submitOverlay")closeSubmit(); });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape")closeSubmit(); });
+document.getElementById("submitBtn").addEventListener("click",()=>{
+  document.getElementById("submitOverlay").classList.add("open");
+  document.getElementById("submitUrl").value="";
+  document.getElementById("submitPreview").style.display="none";
+  document.getElementById("submitMsg").textContent="";
+  document.getElementById("submitAdd").disabled=true;
+});
+async function postJson(obj){
+  const r=await fetch(APPS_SCRIPT_URL,{method:"POST",body:JSON.stringify(obj),headers:{"Content-Type":"text/plain;charset=utf-8"}});
+  return r.json();
+}
+document.getElementById("submitFetch").addEventListener("click",async()=>{
+  const u=document.getElementById("submitUrl").value.trim();
+  const msg=document.getElementById("submitMsg");
+  msg.textContent="";
+  if(!/^https?:\/\//i.test(u)){ msg.textContent="請輸入有效嘅 http(s) URL。"; return; }
+  document.getElementById("submitFetch").textContent="抽資料中…";
+  try{
+    const res=await postJson({type:"auto_fetch",url:u});
+    if(!res.success){ msg.textContent=(res.message||res.error||"無法抽取資料"); document.getElementById("submitFetch").textContent="抽出資料"; return; }
+    _submitted={url:u,title:res.detected.title,summary:res.detected.summary,source:res.detected.source};
+    document.getElementById("pvTitle").textContent=res.detected.title||"（未能自動取得標題）";
+    document.getElementById("pvSource").textContent="來源："+(res.detected.source||"Unknown");
+    document.getElementById("pvSummary").textContent=res.detected.summary||"（未能自動取得摘要）";
+    document.getElementById("submitPreview").style.display="block";
+    document.getElementById("submitAdd").disabled = !res.detected.title;
+    if(!res.detected.title) msg.textContent="未能自動取得標題，請直接編輯 Sheet 或提供更完整嘅連結。";
+  }catch(err){ msg.textContent="網絡錯誤："+err.message; }
+  document.getElementById("submitFetch").textContent="抽出資料";
+});
+document.getElementById("submitAdd").addEventListener("click",async()=>{
+  if(!_submitted) return;
+  const msg=document.getElementById("submitMsg");
+  document.getElementById("submitAdd").textContent="加入中…";
+  document.getElementById("submitAdd").disabled=true;
+  try{
+    const res=await postJson({type:"manual_mention",url:_submitted.url,title:_submitted.title,summary:_submitted.summary,source:_submitted.source});
+    if(res.success){
+      msg.style.color="var(--green)";
+      msg.textContent="✅ 已加入 Google Sheet（pending review）。稍後 deploy 後會顯示喺 Dashboard。";
+      _submitted=null;
+    }else{
+      msg.style.color="var(--amber)";
+      msg.textContent=res.message||res.error||"加入失敗";
+      document.getElementById("submitAdd").disabled=false;
+    }
+  }catch(err){ msg.textContent="網絡錯誤："+err.message; }
+  document.getElementById("submitAdd").textContent="確認加入 Sheet";
+});
+
 init().catch(err=>document.querySelector(".shell").insertAdjacentHTML("beforeend",'<div class="panel" style="margin-top:14px;color:var(--red)">'+esc(err.message)+'</div>'));
 </script>
 </body>
