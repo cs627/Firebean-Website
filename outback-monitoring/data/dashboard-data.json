@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-09-12 23:18:21",
+    "last_updated": "2026-09-12 23:22:28",
     "total_records": 163,
     "daily_avg": 4.0,
     "date_range": "2026-03-06 → 2026-09-12",
@@ -1893,14 +1893,14 @@
     },
     {
       "date": "2026-09-12",
-      "source": "asiabusinessleaders",
+      "source": "asia business leaders",
       "platform": "手動提交",
-      "title": "【LIVE-TEST】確認Submit流程",
-      "summary": "Asia Business Leaders - 為讀者深入討探商界人士成功之道，分享成功人士經驗，深入分析企業發展策略，財經議題，科技資訊，促進個人成長。",
-      "link": "https://www.asiabusinessleaders.com/posts/Outback%2B%E9%AB%98%E7%AE%A1",
+      "title": "Outback 高管對話：拆解「槓鈴策略」與香港亞太營運樞紐佈局",
+      "summary": "這家跨國巨頭的全球營運高管與研發核心靈魂人物接受《Asia Business Leaders》獨家專訪。剖析企業如何靠冷靜的資本紀律、精準的產品毛利組合，以及「看見別人看不到的機會」的遠見，在波動時代中翻轉危機，打造永續成長的商業帝國。",
+      "link": "https://www.asiabusinessleaders.com/posts/Outback-高管對話拆解槓鈴策略與香港亞太營運樞紐佈局",
       "sentiment": "positive",
       "sentiment_label": "正面",
-      "keywords": ""
+      "keywords": "Outback, 高管, Asia Business Leaders"
     }
   ],
   "media_records": [
@@ -2874,14 +2874,14 @@
     },
     {
       "date": "2026-09-12",
-      "source": "asiabusinessleaders",
+      "source": "asia business leaders",
       "platform": "手動提交",
-      "title": "【LIVE-TEST】確認Submit流程",
-      "summary": "Asia Business Leaders - 為讀者深入討探商界人士成功之道，分享成功人士經驗，深入分析企業發展策略，財經議題，科技資訊，促進個人成長。",
-      "link": "https://www.asiabusinessleaders.com/posts/Outback%2B%E9%AB%98%E7%AE%A1",
+      "title": "Outback 高管對話：拆解「槓鈴策略」與香港亞太營運樞紐佈局",
+      "summary": "這家跨國巨頭的全球營運高管與研發核心靈魂人物接受《Asia Business Leaders》獨家專訪。剖析企業如何靠冷靜的資本紀律、精準的產品毛利組合，以及「看見別人看不到的機會」的遠見，在波動時代中翻轉危機，打造永續成長的商業帝國。",
+      "link": "https://www.asiabusinessleaders.com/posts/Outback-高管對話拆解槓鈴策略與香港亞太營運樞紐佈局",
       "sentiment": "positive",
       "sentiment_label": "正面",
-      "keywords": ""
+      "keywords": "Outback, 高管, Asia Business Leaders"
     }
   ],
   "social_records": [
