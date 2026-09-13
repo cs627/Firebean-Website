@@ -1,30 +1,6 @@
 {
-  "week": "2026-09-02 ~ 2026-09-12",
+  "week": "2026-09-03 ~ 2026-09-13",
   "items": [
-    {
-      "date": "2026-09-02",
-      "source": "Outback官網",
-      "title": "會員專享｜Outback 9月晚市大激賞 加碼回歸",
-      "summary": "官方網站於9月2日更新9月晚市會員優惠：VIP及Prestige會員可0分兌換晚市全單折扣獎賞，每週可獲2張優惠券。VIP全單8折、Prestige全單7折，適用於星期一至四晚上5點後。獎賞週期涵蓋9月1日至29日多個時段。",
-      "link": "https://www.outback.com.hk/news-and-promotions/article/237?lang=tc",
-      "sentiment": "positive"
-    },
-    {
-      "date": "2026-09-02",
-      "source": "U Food",
-      "title": "U Food 9月生日優惠2026 收錄Outback生日獎賞（$88券＋到會8折）",
-      "summary": "U Food於9月2日發布「9月生日優惠2026（35個飲食推介）」，將Outback列為第27項推介：會員消費滿HK$400即可享$88現金優惠券，壽星另享到會套餐8折優惠券（適用8位/16位用自選套餐），適用各分店，優惠日期即日起至另行通知。",
-      "link": "https://ufood.com.hk/restaurant/news/detail/20046882",
-      "sentiment": "neutral"
-    },
-    {
-      "date": "2026-09-02",
-      "source": "Threads",
-      "title": "​【絕密直擊】想睇行政總廚現場煎牛扒嗎？去片！🎥",
-      "summary": "​用戶 @baseting2 發帖分享受邀出席香港 Outback「The R&D Kitchen Table」獨家品嚐活動，體驗由集團行政總廚 Chef Efrem Cutler 及全球研發副總裁親自掌廚與分享。",
-      "link": "https://www.threads.com/@baseting2/post/DcxSv4Ak7ui?xmt=AQG0UD6c2koZCYGZQAsMaFcdvaQnGQvy3pgDu52F0UCgsrgFZBuwU_AS88V8ftzm1Wi_Zrkf&slof=1",
-      "sentiment": "positive"
-    },
     {
       "date": "2026-09-03",
       "source": "outback.com.hk 官方網站",
@@ -96,6 +72,14 @@
       "summary": "這家跨國巨頭的全球營運高管與研發核心靈魂人物接受《Asia Business Leaders》獨家專訪。剖析企業如何靠冷靜的資本紀律、精準的產品毛利組合，以及「看見別人看不到的機會」的遠見，在波動時代中翻轉危機，打造永續成長的商業帝國。",
       "link": "https://www.asiabusinessleaders.com/posts/Outback-高管對話拆解槓鈴策略與香港亞太營運樞紐佈局",
       "sentiment": "positive"
+    },
+    {
+      "date": "2026-09-13",
+      "source": "Instagram @outbacksteakhousehk",
+      "title": "官方IG：9月晚市會員折扣再度回歸（低至7折）",
+      "summary": "Outback官方IG於2026-09-10發帖宣傳9月晚市會員優惠：即日起至9月29日，會員可於App「獎賞市場」以0分兌換每週兩張晚市折扣優惠券；逢星期一至四晚上5點後，VIP會員享全單8折（新登記會員1日後生效）、Prestige尊尚會員享7折（升級後即用）。屬官方社交渠道對9月晚市大激賞活動之再度推廣。",
+      "link": "https://www.instagram.com/p/DdHCUFmk5Ev/",
+      "sentiment": "neutral"
     }
   ],
   "alerts": [],
@@ -104,7 +88,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 12,
+    "new_records": 10,
     "limitations": []
   }
 }

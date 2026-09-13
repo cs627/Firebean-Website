@@ -1304,6 +1304,14 @@
       "summary": "這家跨國巨頭的全球營運高管與研發核心靈魂人物接受《Asia Business Leaders》獨家專訪。剖析企業如何靠冷靜的資本紀律、精準的產品毛利組合，以及「看見別人看不到的機會」的遠見，在波動時代中翻轉危機，打造永續成長的商業帝國。",
       "link": "https://www.asiabusinessleaders.com/posts/Outback-高管對話拆解槓鈴策略與香港亞太營運樞紐佈局",
       "sentiment": "positive"
+    },
+    {
+      "date": "2026-09-13",
+      "source": "Instagram @outbacksteakhousehk",
+      "title": "官方IG：9月晚市會員折扣再度回歸（低至7折）",
+      "summary": "Outback官方IG於2026-09-10發帖宣傳9月晚市會員優惠：即日起至9月29日，會員可於App「獎賞市場」以0分兌換每週兩張晚市折扣優惠券；逢星期一至四晚上5點後，VIP會員享全單8折（新登記會員1日後生效）、Prestige尊尚會員享7折（升級後即用）。屬官方社交渠道對9月晚市大激賞活動之再度推廣。",
+      "link": "https://www.instagram.com/p/DdHCUFmk5Ev/",
+      "sentiment": "neutral"
     }
   ],
   "alerts": [],
@@ -1312,7 +1320,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 163,
+    "new_records": 164,
     "limitations": []
   }
 }

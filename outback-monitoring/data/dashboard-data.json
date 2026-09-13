@@ -1,20 +1,16 @@
 {
   "meta": {
-    "last_updated": "2026-09-12 23:22:28",
-    "total_records": 163,
-    "daily_avg": 4.0,
-    "date_range": "2026-03-06 → 2026-09-12",
+    "last_updated": "2026-09-13",
+    "total_records": 164,
+    "daily_avg": 3.9,
+    "date_range": "2026-03-06 → 2026-09-13",
     "sources_checked": 39,
-    "new_verified": 5,
+    "new_verified": 3,
     "coverage_ratio": "39/46",
     "negative_alerts": 21,
     "positive_pct": 51
   },
   "trend": [
-    {
-      "date": "2026-09-02",
-      "count": 3
-    },
     {
       "date": "2026-09-03",
       "count": 1
@@ -37,6 +33,10 @@
     },
     {
       "date": "2026-09-12",
+      "count": 1
+    },
+    {
+      "date": "2026-09-13",
       "count": 1
     }
   ],
@@ -71,7 +71,7 @@
     },
     {
       "source": "Instagram @outbacksteakhousehk",
-      "count": 5
+      "count": 6
     },
     {
       "source": "Outback官網",
@@ -104,7 +104,7 @@
   ],
   "sentiment": {
     "positive": 83,
-    "neutral": 56,
+    "neutral": 57,
     "negative": 21,
     "mixed": 3
   },
@@ -1901,6 +1901,17 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, 高管, Asia Business Leaders"
+    },
+    {
+      "date": "2026-09-13",
+      "source": "Instagram @outbacksteakhousehk",
+      "platform": "社交平台",
+      "title": "官方IG：9月晚市會員折扣再度回歸（低至7折）",
+      "summary": "Outback官方IG於2026-09-10發帖宣傳9月晚市會員優惠：即日起至9月29日，會員可於App「獎賞市場」以0分兌換每週兩張晚市折扣優惠券；逢星期一至四晚上5點後，VIP會員享全單8折（新登記會員1日後生效）、Prestige尊尚會員享7折（升級後即用）。屬官方社交渠道對9月晚市大激賞活動之再度推廣。",
+      "link": "https://www.instagram.com/p/DdHCUFmk5Ev/",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, 9月晚市, 會員折扣, 7折, 8折, 優惠券, 獎賞市場"
     }
   ],
   "media_records": [
@@ -3698,6 +3709,17 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, 黑糖包, 黑糖麥包, 嘉頓"
+    },
+    {
+      "date": "2026-09-13",
+      "source": "Instagram @outbacksteakhousehk",
+      "platform": "社交平台",
+      "title": "官方IG：9月晚市會員折扣再度回歸（低至7折）",
+      "summary": "Outback官方IG於2026-09-10發帖宣傳9月晚市會員優惠：即日起至9月29日，會員可於App「獎賞市場」以0分兌換每週兩張晚市折扣優惠券；逢星期一至四晚上5點後，VIP會員享全單8折（新登記會員1日後生效）、Prestige尊尚會員享7折（升級後即用）。屬官方社交渠道對9月晚市大激賞活動之再度推廣。",
+      "link": "https://www.instagram.com/p/DdHCUFmk5Ev/",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, 9月晚市, 會員折扣, 7折, 8折, 優惠券, 獎賞市場"
     }
   ],
   "store_ranking": [

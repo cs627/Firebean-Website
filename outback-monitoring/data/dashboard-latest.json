@@ -1,12 +1,12 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-09-12T15:31:31.917252+00:00",
+  "generatedAt": "2026-09-13T01:06:36.811904+00:00",
   "run": {
-    "runDate": "2026-09-12",
+    "runDate": "2026-09-13",
     "dateRange": {
       "from": "2026-03-06",
-      "to": "2026-09-12"
+      "to": "2026-09-13"
     },
     "alerts": [
       {
@@ -27,9 +27,9 @@
     ]
   },
   "counts": {
-    "total": 163,
+    "total": 164,
     "media": 89,
-    "social": 74,
+    "social": 75,
     "maps": 0,
     "stores": 10
   },
@@ -1826,6 +1826,17 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, 高管, Asia Business Leaders"
+    },
+    {
+      "date": "2026-09-13",
+      "source": "Instagram @outbacksteakhousehk",
+      "platform": "社交平台",
+      "title": "官方IG：9月晚市會員折扣再度回歸（低至7折）",
+      "summary": "Outback官方IG於2026-09-10發帖宣傳9月晚市會員優惠：即日起至9月29日，會員可於App「獎賞市場」以0分兌換每週兩張晚市折扣優惠券；逢星期一至四晚上5點後，VIP會員享全單8折（新登記會員1日後生效）、Prestige尊尚會員享7折（升級後即用）。屬官方社交渠道對9月晚市大激賞活動之再度推廣。",
+      "link": "https://www.instagram.com/p/DdHCUFmk5Ev/",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, 9月晚市, 會員折扣, 7折, 8折, 優惠券, 獎賞市場"
     }
   ],
   "stores": [
@@ -2427,6 +2438,10 @@
     },
     {
       "date": "2026-09-12",
+      "count": 1
+    },
+    {
+      "date": "2026-09-13",
       "count": 1
     }
   ],
