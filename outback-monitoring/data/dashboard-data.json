@@ -1,11 +1,11 @@
 {
   "meta": {
-    "last_updated": "2026-09-13",
-    "total_records": 164,
+    "last_updated": "2026-09-16",
+    "total_records": 165,
     "daily_avg": 3.9,
     "date_range": "2026-03-06 → 2026-09-13",
     "sources_checked": 39,
-    "new_verified": 3,
+    "new_verified": 4,
     "coverage_ratio": "39/46",
     "negative_alerts": 21,
     "positive_pct": 51
@@ -37,13 +37,13 @@
     },
     {
       "date": "2026-09-13",
-      "count": 1
+      "count": 2
     }
   ],
   "source_breakdown": [
     {
       "source": "Instagram",
-      "count": 29
+      "count": 30
     },
     {
       "source": "Threads",
@@ -103,7 +103,7 @@
     }
   ],
   "sentiment": {
-    "positive": 83,
+    "positive": 84,
     "neutral": 57,
     "negative": 21,
     "mixed": 3
@@ -1912,6 +1912,17 @@
       "sentiment": "neutral",
       "sentiment_label": "中性",
       "keywords": "Outback, 9月晚市, 會員折扣, 7折, 8折, 優惠券, 獎賞市場"
+    },
+    {
+      "date": "2026-09-13",
+      "source": "Instagram",
+      "platform": "社交平台",
+      "title": "官方IG reel：夏日消暑飲品「一杯接一杯就係咁爽！」",
+      "summary": "Outback官方IG(@outbacksteakhousehk)於9月13日發佈reel，以袋鼠/凍飲動畫推廣夏季特色飲品，標語「Keep 'em coming, keep it cool! 一杯接一杯就係咁爽！」；對應官方FB同步帖文，屬品牌官方夏日降溫宣傳。來源為官方帳號頁面核實（Web提取，2026-09-16）。",
+      "link": "https://www.instagram.com/reel/DdOnsTVjcQ3/",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 夏日特飲, 消暑, 官方IG"
     }
   ],
   "media_records": [
@@ -3720,6 +3731,17 @@
       "sentiment": "neutral",
       "sentiment_label": "中性",
       "keywords": "Outback, 9月晚市, 會員折扣, 7折, 8折, 優惠券, 獎賞市場"
+    },
+    {
+      "date": "2026-09-13",
+      "source": "Instagram",
+      "platform": "社交平台",
+      "title": "官方IG reel：夏日消暑飲品「一杯接一杯就係咁爽！」",
+      "summary": "Outback官方IG(@outbacksteakhousehk)於9月13日發佈reel，以袋鼠/凍飲動畫推廣夏季特色飲品，標語「Keep 'em coming, keep it cool! 一杯接一杯就係咁爽！」；對應官方FB同步帖文，屬品牌官方夏日降溫宣傳。來源為官方帳號頁面核實（Web提取，2026-09-16）。",
+      "link": "https://www.instagram.com/reel/DdOnsTVjcQ3/",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 夏日特飲, 消暑, 官方IG"
     }
   ],
   "store_ranking": [

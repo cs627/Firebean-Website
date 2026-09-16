@@ -11,6 +11,17 @@
       "link": "https://www.instagram.com/p/DdHCUFmk5Ev/",
       "sentiment": "neutral",
       "tags": ""
+    },
+    {
+      "date": "2026-09-13",
+      "source": "Instagram",
+      "platform": "社交平台",
+      "author": "",
+      "title": "官方IG reel：夏日消暑飲品「一杯接一杯就係咁爽！」",
+      "summary": "Outback官方IG(@outbacksteakhousehk)於9月13日發佈reel，以袋鼠/凍飲動畫推廣夏季特色飲品，標語「Keep 'em coming, keep it cool! 一杯接一杯就係咁爽！」；對應官方FB同步帖文，屬品牌官方夏日降溫宣傳。來源為官方帳號頁面核實（Web提取，2026-09-16）。",
+      "link": "https://www.instagram.com/reel/DdOnsTVjcQ3/",
+      "sentiment": "positive",
+      "tags": ""
     }
   ],
   "alerts": [],
@@ -18,8 +29,8 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 1,
-    "new_records": 1,
+    "checked_sources": 2,
+    "new_records": 2,
     "limitations": []
   }
 }
