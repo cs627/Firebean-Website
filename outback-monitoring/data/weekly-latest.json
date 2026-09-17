@@ -1,14 +1,6 @@
 {
-  "week": "2026-09-03 ~ 2026-09-13",
+  "week": "2026-09-04 ~ 2026-09-13",
   "items": [
-    {
-      "date": "2026-09-03",
-      "source": "outback.com.hk 官方網站",
-      "title": "官方9月會員晚市獎賞 Outback September Dinner Rewards（VIP 8折 / Prestige 7折）",
-      "summary": "Outback官方於9月3日更新推廣：整個9月，會員可於Reward Market以0點兌換會員專屬折扣券，VIP會員晚市全單8折、Prestige會員全單7折，每週最多2次，適用晚市5pm後週一至四，優惠至9月29日。反映9月以會員晚市折扣為主軸催谷客流量。",
-      "link": "https://www.outback.com.hk/news-and-promotions/article/237?lang=en",
-      "sentiment": "neutral"
-    },
     {
       "date": "2026-09-04",
       "source": "Facebook (Outback Official)",
@@ -56,6 +48,14 @@
       "summary": "用戶 @sinmamaftm 發帖分享出席Bloomin' Brands研發副總裁Chef Efrem Cutler親自主理嘅廚師發辦，形容體驗是一場高級味覺旅程",
       "link": "https://www.instagram.com/p/Dc8gxbxmFA6/",
       "sentiment": "positive"
+    },
+    {
+      "date": "2026-09-10",
+      "source": "Outback官網",
+      "title": "官方公告：9月會員積分將於9月30日到期（逾期積分10月1日清除）",
+      "summary": "Outback官網「最新消息」公告（article 238）：部分會員積分將於2026年9月30日到期，10月1日所有未用到期積分會被取消（「變全熟」揼心口），籲會員在到期日前打開Outback App查看餘額並兌換積分禮遇、到門市享用牛扒及招牌美食。屬官方會員促銷公告；來源為官方網站頁面核實（web提取，2026-09-17）。更新於2026年9月10日。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/238?lang=tc",
+      "sentiment": "neutral"
     },
     {
       "date": "2026-09-11",

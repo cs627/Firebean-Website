@@ -1320,6 +1320,14 @@
       "summary": "Outback官方IG(@outbacksteakhousehk)於9月13日發佈reel，以袋鼠/凍飲動畫推廣夏季特色飲品，標語「Keep 'em coming, keep it cool! 一杯接一杯就係咁爽！」；對應官方FB同步帖文，屬品牌官方夏日降溫宣傳。來源為官方帳號頁面核實（Web提取，2026-09-16）。",
       "link": "https://www.instagram.com/reel/DdOnsTVjcQ3/",
       "sentiment": "positive"
+    },
+    {
+      "date": "2026-09-10",
+      "source": "Outback官網",
+      "title": "官方公告：9月會員積分將於9月30日到期（逾期積分10月1日清除）",
+      "summary": "Outback官網「最新消息」公告（article 238）：部分會員積分將於2026年9月30日到期，10月1日所有未用到期積分會被取消（「變全熟」揼心口），籲會員在到期日前打開Outback App查看餘額並兌換積分禮遇、到門市享用牛扒及招牌美食。屬官方會員促銷公告；來源為官方網站頁面核實（web提取，2026-09-17）。更新於2026年9月10日。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/238?lang=tc",
+      "sentiment": "neutral"
     }
   ],
   "alerts": [],
@@ -1328,7 +1336,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 165,
+    "new_records": 166,
     "limitations": []
   }
 }

@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-09-16",
-    "total_records": 165,
+    "last_updated": "2026-09-17",
+    "total_records": 166,
     "daily_avg": 3.9,
     "date_range": "2026-03-06 → 2026-09-13",
     "sources_checked": 39,
@@ -11,10 +11,6 @@
     "positive_pct": 51
   },
   "trend": [
-    {
-      "date": "2026-09-03",
-      "count": 1
-    },
     {
       "date": "2026-09-04",
       "count": 2
@@ -26,6 +22,10 @@
     {
       "date": "2026-09-07",
       "count": 3
+    },
+    {
+      "date": "2026-09-10",
+      "count": 1
     },
     {
       "date": "2026-09-11",
@@ -75,7 +75,7 @@
     },
     {
       "source": "Outback官網",
-      "count": 3
+      "count": 4
     },
     {
       "source": "HK01",
@@ -104,7 +104,7 @@
   ],
   "sentiment": {
     "positive": 84,
-    "neutral": 57,
+    "neutral": 58,
     "negative": 21,
     "mixed": 3
   },
@@ -1923,6 +1923,17 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, 夏日特飲, 消暑, 官方IG"
+    },
+    {
+      "date": "2026-09-10",
+      "source": "Outback官網",
+      "platform": "官方網站",
+      "title": "官方公告：9月會員積分將於9月30日到期（逾期積分10月1日清除）",
+      "summary": "Outback官網「最新消息」公告（article 238）：部分會員積分將於2026年9月30日到期，10月1日所有未用到期積分會被取消（「變全熟」揼心口），籲會員在到期日前打開Outback App查看餘額並兌換積分禮遇、到門市享用牛扒及招牌美食。屬官方會員促銷公告；來源為官方網站頁面核實（web提取，2026-09-17）。更新於2026年9月10日。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/238?lang=tc",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, 會員積分, 9月30日到期, 官方公告"
     }
   ],
   "media_records": [
@@ -2904,6 +2915,17 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, 高管, Asia Business Leaders"
+    },
+    {
+      "date": "2026-09-10",
+      "source": "Outback官網",
+      "platform": "官方網站",
+      "title": "官方公告：9月會員積分將於9月30日到期（逾期積分10月1日清除）",
+      "summary": "Outback官網「最新消息」公告（article 238）：部分會員積分將於2026年9月30日到期，10月1日所有未用到期積分會被取消（「變全熟」揼心口），籲會員在到期日前打開Outback App查看餘額並兌換積分禮遇、到門市享用牛扒及招牌美食。屬官方會員促銷公告；來源為官方網站頁面核實（web提取，2026-09-17）。更新於2026年9月10日。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/238?lang=tc",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, 會員積分, 9月30日到期, 官方公告"
     }
   ],
   "social_records": [

@@ -1,0 +1,25 @@
+{
+  "date": "2026-09-10",
+  "items": [
+    {
+      "date": "2026-09-10",
+      "source": "Outback官網",
+      "platform": "官方網站",
+      "author": "",
+      "title": "官方公告：9月會員積分將於9月30日到期（逾期積分10月1日清除）",
+      "summary": "Outback官網「最新消息」公告（article 238）：部分會員積分將於2026年9月30日到期，10月1日所有未用到期積分會被取消（「變全熟」揼心口），籲會員在到期日前打開Outback App查看餘額並兌換積分禮遇、到門市享用牛扒及招牌美食。屬官方會員促銷公告；來源為官方網站頁面核實（web提取，2026-09-17）。更新於2026年9月10日。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/238?lang=tc",
+      "sentiment": "neutral",
+      "tags": ""
+    }
+  ],
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 1,
+    "new_records": 1,
+    "limitations": []
+  }
+}
