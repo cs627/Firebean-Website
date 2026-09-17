@@ -1933,5 +1933,18 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026061"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026061"/>
   </url>
+  <url>
+    <loc>https://firebean.net/privacy.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://firebean.net/data-deletion.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
 
 </urlset>
