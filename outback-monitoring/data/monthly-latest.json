@@ -1328,6 +1328,14 @@
       "summary": "Outback官網「最新消息」公告（article 238）：部分會員積分將於2026年9月30日到期，10月1日所有未用到期積分會被取消（「變全熟」揼心口），籲會員在到期日前打開Outback App查看餘額並兌換積分禮遇、到門市享用牛扒及招牌美食。屬官方會員促銷公告；來源為官方網站頁面核實（web提取，2026-09-17）。更新於2026年9月10日。",
       "link": "https://www.outback.com.hk/news-and-promotions/article/238?lang=tc",
       "sentiment": "neutral"
+    },
+    {
+      "date": "2026-09-17",
+      "source": "Threads (@hxhx_ickc)",
+      "title": "投訴：大埔超級城分店店長涉向員工借貸及拖欠款項",
+      "summary": "Threads貼文致函Outback香港總公司管理層及HR，投訴大埔超級城分店店長張永X先生多次向現職/前員工私下借貸，借款後拖延拒還，並指其稱無錢還款但頻繁炫耀吃喝玩樂旅遊。貼文82.3K瀏覽、655讚。作者指嚴重違反職業道德（濫用職權利益衝突、損害商譽）。",
+      "link": "https://www.threads.com/share/_wFjz9E70/",
+      "sentiment": "negative"
     }
   ],
   "alerts": [],
@@ -1336,7 +1344,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 166,
+    "new_records": 167,
     "limitations": []
   }
 }
