@@ -1,14 +1,6 @@
 {
-  "week": "2026-09-05 ~ 2026-09-17",
+  "week": "2026-09-07 ~ 2026-09-18",
   "items": [
-    {
-      "date": "2026-09-05",
-      "source": "Threads",
-      "title": "Threads火帖：勾Back最好食除黑糖麵包仲有炸洋蔥圈（46.2K瀏覽）",
-      "summary": "Threads用戶@80s.almost.ff(fire.with.wood)發帖指Outback(勾Back)除招牌黑糖麵包外，炸洋蔥圈『又靚又有儀式感又好食』，獲780讚、46.2K瀏覽、26留言，屬近期高觸達正面帖，反映招牌小食及黑糖包的招牌地位獲社群認受。",
-      "link": "https://www.threads.net/@80s.almost.ff/post/DIF_v7gzxaI",
-      "sentiment": "positive"
-    },
     {
       "date": "2026-09-07",
       "source": "Threads",
@@ -80,6 +72,30 @@
       "summary": "Threads貼文致函Outback香港總公司管理層及HR，投訴大埔超級城分店店長張永X先生多次向現職/前員工私下借貸，借款後拖延拒還，並指其稱無錢還款但頻繁炫耀吃喝玩樂旅遊。貼文82.3K瀏覽、655讚。作者指嚴重違反職業道德（濫用職權利益衝突、損害商譽）。",
       "link": "https://www.threads.com/share/_wFjz9E70/",
       "sentiment": "negative"
+    },
+    {
+      "date": "2026-09-18",
+      "source": "Threads (@baseting2)",
+      "title": "Outback「The R&D Kitchen Table」邀請KOL品嚐5款新菜",
+      "summary": "KOL受邀出席Outback香港「The R&D Kitchen Table」獨家活動,由行政總廚Chef Efrem Cutler及全球研發副總裁掌廚,率先試食5款新菜式:香脆油封鴨多士、悉尼沙律(香鴨胸刺身)、Mardi Gras意粉、爆谷脆皮三文魚、紐約西冷牛扒。正面評價意粉Creamy、鴨多士香脆、牛扒外酥內嫩。524 views。",
+      "link": "https://www.threads.com/share/D48SJ3d37/",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-09-18",
+      "source": "Threads (@edanhongkonger)",
+      "title": "Threads玩梗帖提及Outback 5成熟",
+      "summary": "用戶@edanhongkonger發玩梗帖(3.1K views),文末引用「Outback 5成熟」作話題tag。內容為無厘頭生活吐槽,非正式食評或投訴,但屬品牌提及。",
+      "link": "https://www.threads.com/share/DxM7SRKkH/",
+      "sentiment": "neutral"
+    },
+    {
+      "date": "2026-09-18",
+      "source": "Threads (@pymamababy)",
+      "title": "Threads食客誤會Outback 8折優惠適用堂食,失望(實為外賣)",
+      "summary": "用戶@pymamababy發帖(496 views):兩個家庭開心諗住去Outback食生日飯,見到8折coupon以為好抵,結果發現優惠只限外賣/到會,堂食唔適用,感到失望。反映優惠條款宣傳可能令人誤會,係值得關注嘅customer experience訊號。",
+      "link": "https://www.threads.com/share/E4DVpfkbX/",
+      "sentiment": "negative"
     }
   ],
   "alerts": [],
@@ -88,7 +104,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 10,
+    "new_records": 12,
     "limitations": []
   }
 }

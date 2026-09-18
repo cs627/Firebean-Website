@@ -1,20 +1,16 @@
 {
   "meta": {
-    "last_updated": "2026-09-17T00:00:00Z",
-    "total_records": 167,
+    "last_updated": "2026-09-18 16:27:55",
+    "total_records": 170,
     "daily_avg": 3.8,
-    "date_range": "2026-03-06 → 2026-09-17",
+    "date_range": "2026-03-06 → 2026-09-18",
     "sources_checked": 39,
-    "new_verified": 4,
+    "new_verified": 6,
     "coverage_ratio": "39/46",
-    "negative_alerts": 22,
+    "negative_alerts": 23,
     "positive_pct": 50
   },
   "trend": [
-    {
-      "date": "2026-09-05",
-      "count": 1
-    },
     {
       "date": "2026-09-07",
       "count": 3
@@ -38,6 +34,10 @@
     {
       "date": "2026-09-17",
       "count": 1
+    },
+    {
+      "date": "2026-09-18",
+      "count": 3
     }
   ],
   "source_breakdown": [
@@ -47,7 +47,7 @@
     },
     {
       "source": "Threads",
-      "count": 25
+      "count": 28
     },
     {
       "source": "Google Maps",
@@ -103,9 +103,9 @@
     }
   ],
   "sentiment": {
-    "positive": 84,
-    "neutral": 58,
-    "negative": 22,
+    "positive": 85,
+    "neutral": 59,
+    "negative": 23,
     "mixed": 3
   },
   "all_records": [
@@ -1945,6 +1945,39 @@
       "sentiment": "negative",
       "sentiment_label": "負面",
       "keywords": "Outback"
+    },
+    {
+      "date": "2026-09-18",
+      "source": "Threads (@baseting2)",
+      "platform": "社交媒體",
+      "title": "Outback「The R&D Kitchen Table」邀請KOL品嚐5款新菜",
+      "summary": "KOL受邀出席Outback香港「The R&D Kitchen Table」獨家活動,由行政總廚Chef Efrem Cutler及全球研發副總裁掌廚,率先試食5款新菜式:香脆油封鴨多士、悉尼沙律(香鴨胸刺身)、Mardi Gras意粉、爆谷脆皮三文魚、紐約西冷牛扒。正面評價意粉Creamy、鴨多士香脆、牛扒外酥內嫩。524 views。",
+      "link": "https://www.threads.com/share/D48SJ3d37/",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, R&D Kitchen Table, 新菜式, KOL"
+    },
+    {
+      "date": "2026-09-18",
+      "source": "Threads (@edanhongkonger)",
+      "platform": "社交媒體",
+      "title": "Threads玩梗帖提及Outback 5成熟",
+      "summary": "用戶@edanhongkonger發玩梗帖(3.1K views),文末引用「Outback 5成熟」作話題tag。內容為無厘頭生活吐槽,非正式食評或投訴,但屬品牌提及。",
+      "link": "https://www.threads.com/share/DxM7SRKkH/",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, 5成熟, 提及"
+    },
+    {
+      "date": "2026-09-18",
+      "source": "Threads (@pymamababy)",
+      "platform": "社交媒體",
+      "title": "Threads食客誤會Outback 8折優惠適用堂食,失望(實為外賣)",
+      "summary": "用戶@pymamababy發帖(496 views):兩個家庭開心諗住去Outback食生日飯,見到8折coupon以為好抵,結果發現優惠只限外賣/到會,堂食唔適用,感到失望。反映優惠條款宣傳可能令人誤會,係值得關注嘅customer experience訊號。",
+      "link": "https://www.threads.com/share/E4DVpfkbX/",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback, 優惠, 8折, 誤會, 外賣"
     }
   ],
   "media_records": [
@@ -2937,6 +2970,39 @@
       "sentiment": "neutral",
       "sentiment_label": "中性",
       "keywords": "Outback, 會員積分, 9月30日到期, 官方公告"
+    },
+    {
+      "date": "2026-09-18",
+      "source": "Threads (@baseting2)",
+      "platform": "社交媒體",
+      "title": "Outback「The R&D Kitchen Table」邀請KOL品嚐5款新菜",
+      "summary": "KOL受邀出席Outback香港「The R&D Kitchen Table」獨家活動,由行政總廚Chef Efrem Cutler及全球研發副總裁掌廚,率先試食5款新菜式:香脆油封鴨多士、悉尼沙律(香鴨胸刺身)、Mardi Gras意粉、爆谷脆皮三文魚、紐約西冷牛扒。正面評價意粉Creamy、鴨多士香脆、牛扒外酥內嫩。524 views。",
+      "link": "https://www.threads.com/share/D48SJ3d37/",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, R&D Kitchen Table, 新菜式, KOL"
+    },
+    {
+      "date": "2026-09-18",
+      "source": "Threads (@edanhongkonger)",
+      "platform": "社交媒體",
+      "title": "Threads玩梗帖提及Outback 5成熟",
+      "summary": "用戶@edanhongkonger發玩梗帖(3.1K views),文末引用「Outback 5成熟」作話題tag。內容為無厘頭生活吐槽,非正式食評或投訴,但屬品牌提及。",
+      "link": "https://www.threads.com/share/DxM7SRKkH/",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, 5成熟, 提及"
+    },
+    {
+      "date": "2026-09-18",
+      "source": "Threads (@pymamababy)",
+      "platform": "社交媒體",
+      "title": "Threads食客誤會Outback 8折優惠適用堂食,失望(實為外賣)",
+      "summary": "用戶@pymamababy發帖(496 views):兩個家庭開心諗住去Outback食生日飯,見到8折coupon以為好抵,結果發現優惠只限外賣/到會,堂食唔適用,感到失望。反映優惠條款宣傳可能令人誤會,係值得關注嘅customer experience訊號。",
+      "link": "https://www.threads.com/share/E4DVpfkbX/",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback, 優惠, 8折, 誤會, 外賣"
     }
   ],
   "social_records": [
