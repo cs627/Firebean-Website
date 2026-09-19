@@ -1360,6 +1360,14 @@
       "summary": "用戶@pymamababy發帖(496 views):兩個家庭開心諗住去Outback食生日飯,見到8折coupon以為好抵,結果發現優惠只限外賣/到會,堂食唔適用,感到失望。反映優惠條款宣傳可能令人誤會,係值得關注嘅customer experience訊號。",
       "link": "https://www.threads.com/share/E4DVpfkbX/",
       "sentiment": "negative"
+    },
+    {
+      "date": "2026-09-04",
+      "source": "Instagram @outbacksteakhousehk",
+      "title": "官方IG：9月生日之星會員專屬 $88現金優惠券（生日獎賞）",
+      "summary": "Outback官方IG(@outbacksteakhousehk)於2026年9月4日發帖，為9月生日的VIP及Prestige會員推送專屬生日獎賞「SEPTEMBER STAR!」，會員可領取HK$88現金優惠券（頁面備註文字：Happy Birthday September Star!! $88 Cash Coupon 現金優惠券，MEMBERS EXCLUSIVE）。屬官方每月生日會員激勵之9月版本。來源為官方帳號公開頁面核實（Web提取頁面備註文字，2026-09-19）。基礎內容與7月、8月已捕獲之同類官方生日帖一致，惟此9月帖此前未被捕獲。",
+      "link": "https://www.instagram.com/p/Dc3EqYQCShX/",
+      "sentiment": "neutral"
     }
   ],
   "alerts": [],
@@ -1368,7 +1376,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 170,
+    "new_records": 171,
     "limitations": []
   }
 }

@@ -22,6 +22,17 @@
       "link": "https://www.weekendhk.com/restaurant/%E6%B2%99%E7%94%B0%E6%89%92%E6%88%BF%E5%BF%85%E9%A3%9F%E6%8E%A8%E4%BB%8B-2963579",
       "sentiment": "positive",
       "tags": ""
+    },
+    {
+      "date": "2026-09-04",
+      "source": "Instagram @outbacksteakhousehk",
+      "platform": "官方帳號",
+      "author": "",
+      "title": "官方IG：9月生日之星會員專屬 $88現金優惠券（生日獎賞）",
+      "summary": "Outback官方IG(@outbacksteakhousehk)於2026年9月4日發帖，為9月生日的VIP及Prestige會員推送專屬生日獎賞「SEPTEMBER STAR!」，會員可領取HK$88現金優惠券（頁面備註文字：Happy Birthday September Star!! $88 Cash Coupon 現金優惠券，MEMBERS EXCLUSIVE）。屬官方每月生日會員激勵之9月版本。來源為官方帳號公開頁面核實（Web提取頁面備註文字，2026-09-19）。基礎內容與7月、8月已捕獲之同類官方生日帖一致，惟此9月帖此前未被捕獲。",
+      "link": "https://www.instagram.com/p/Dc3EqYQCShX/",
+      "sentiment": "neutral",
+      "tags": ""
     }
   ],
   "alerts": [],
@@ -29,8 +40,8 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 2,
-    "new_records": 2,
+    "checked_sources": 3,
+    "new_records": 3,
     "limitations": []
   }
 }

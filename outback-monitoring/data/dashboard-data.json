@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-09-18 16:27:55",
-    "total_records": 170,
+    "last_updated": "2026-09-19",
+    "total_records": 171,
     "daily_avg": 3.8,
     "date_range": "2026-03-06 → 2026-09-18",
     "sources_checked": 39,
@@ -71,7 +71,7 @@
     },
     {
       "source": "Instagram @outbacksteakhousehk",
-      "count": 6
+      "count": 7
     },
     {
       "source": "Outback官網",
@@ -104,7 +104,7 @@
   ],
   "sentiment": {
     "positive": 85,
-    "neutral": 59,
+    "neutral": 60,
     "negative": 23,
     "mixed": 3
   },
@@ -1978,6 +1978,17 @@
       "sentiment": "negative",
       "sentiment_label": "負面",
       "keywords": "Outback, 優惠, 8折, 誤會, 外賣"
+    },
+    {
+      "date": "2026-09-04",
+      "source": "Instagram @outbacksteakhousehk",
+      "platform": "官方帳號",
+      "title": "官方IG：9月生日之星會員專屬 $88現金優惠券（生日獎賞）",
+      "summary": "Outback官方IG(@outbacksteakhousehk)於2026年9月4日發帖，為9月生日的VIP及Prestige會員推送專屬生日獎賞「SEPTEMBER STAR!」，會員可領取HK$88現金優惠券（頁面備註文字：Happy Birthday September Star!! $88 Cash Coupon 現金優惠券，MEMBERS EXCLUSIVE）。屬官方每月生日會員激勵之9月版本。來源為官方帳號公開頁面核實（Web提取頁面備註文字，2026-09-19）。基礎內容與7月、8月已捕獲之同類官方生日帖一致，惟此9月帖此前未被捕獲。",
+      "link": "https://www.instagram.com/p/Dc3EqYQCShX/",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, 官方IG, 生日獎賞, $88現金券, 9月生日之星, 會員專屬"
     }
   ],
   "media_records": [
@@ -3003,6 +3014,17 @@
       "sentiment": "negative",
       "sentiment_label": "負面",
       "keywords": "Outback, 優惠, 8折, 誤會, 外賣"
+    },
+    {
+      "date": "2026-09-04",
+      "source": "Instagram @outbacksteakhousehk",
+      "platform": "官方帳號",
+      "title": "官方IG：9月生日之星會員專屬 $88現金優惠券（生日獎賞）",
+      "summary": "Outback官方IG(@outbacksteakhousehk)於2026年9月4日發帖，為9月生日的VIP及Prestige會員推送專屬生日獎賞「SEPTEMBER STAR!」，會員可領取HK$88現金優惠券（頁面備註文字：Happy Birthday September Star!! $88 Cash Coupon 現金優惠券，MEMBERS EXCLUSIVE）。屬官方每月生日會員激勵之9月版本。來源為官方帳號公開頁面核實（Web提取頁面備註文字，2026-09-19）。基礎內容與7月、8月已捕獲之同類官方生日帖一致，惟此9月帖此前未被捕獲。",
+      "link": "https://www.instagram.com/p/Dc3EqYQCShX/",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, 官方IG, 生日獎賞, $88現金券, 9月生日之星, 會員專屬"
     }
   ],
   "social_records": [
