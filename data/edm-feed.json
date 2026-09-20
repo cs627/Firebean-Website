@@ -1,10 +1,20 @@
 [
   {
+    "issue": "EDM_011",
+    "url": "https://firebean.net/edm/edm_EDM_011.html",
+    "title": "Transparency & Accountability in Government PR",
+    "subtitle": "Only 17% of Americans trust their government — transparency is the fastest path back to public confidence.",
+    "desc": "Only 17% of Americans say they trust the federal government to do what is right (Pew Research, 2025). Globally, trust in public institutions has been declining for over a decade. The OECD's 2026 Trust",
+    "photo": "https://raw.githubusercontent.com/cs627/Firebean-Website/main/assets/edm/EDM_011/s2_transparency.jpg",
+    "tag": "Transparency & Trust",
+    "type": "market-insight"
+  },
+  {
     "issue": "EDM_010",
     "url": "https://firebean.net/edm/edm_EDM_010.html",
     "title": "Community-Led Event Planning: Co-Creating the Civic Experience",
     "subtitle": "Citizens who participate in planning are 3x more likely to support the final outcome — even when it differs from their preference.",
-    "desc": "[STAT:3x]Citizens who participate in community planning processes are 3x more likely to support the final outcome — even when it differs from their preference (OECD, 2026). The act of being heard matt",
+    "desc": "Citizens who participate in community planning processes are 3x more likely to support the final outcome — even when it differs from their preference (OECD, 2026). The act of being heard matters more ",
     "photo": "https://raw.githubusercontent.com/cs627/Firebean-Website/main/assets/edm/EDM_018/s2_community_planning.jpg",
     "tag": "Community Planning",
     "type": "market-insight"
@@ -14,19 +24,9 @@
     "url": "https://firebean.net/edm/edm_EDM_009.html",
     "title": "Pop-Up Civic Spaces: Maximizing Urban Reach",
     "subtitle": "Pop-up activations generate 2.4x long-term ROI and 38% higher customer retention than digital-only campaigns.",
-    "desc": "[STAT:2.4x]Pop-up activations are not a novelty — they are a proven growth strategy. Brands tracking 5+ KPIs at pop-ups achieve 2.4x greater long-term revenue attribution compared to single-metric cam",
+    "desc": "Pop-up activations are not a novelty — they are a proven growth strategy. Brands tracking 5+ KPIs at pop-ups achieve 2.4x greater long-term revenue attribution compared to single-metric campaigns (Kan",
     "photo": "https://raw.githubusercontent.com/cs627/Firebean-Website/main/assets/edm/EDM_009/s2_popup_civic.jpg",
     "tag": "Pop-Up Civic Spaces",
-    "type": "market-insight"
-  },
-  {
-    "issue": "EDM_008",
-    "url": "https://firebean.net/edm/edm_EDM_008.html",
-    "title": "Immersive Storytelling in Civic Education",
-    "subtitle": "75% retention vs. 5% from lectures. Immersive storytelling isn't a trend — it's the new baseline for public engagement.",
-    "desc": "[STAT:75%]Why should government communicators care about VR headsets and AR apps? Because the numbers are impossible to ignore. Studies show VR learners retain 75% of knowledge versus just 5% from lec",
-    "photo": "https://raw.githubusercontent.com/cs627/Firebean-Website/main/assets/edm/EDM_008/s2_immersive_storytelling.jpg",
-    "tag": "Immersive Storytelling",
     "type": "market-insight"
   }
 ]
