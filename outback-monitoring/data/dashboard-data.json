@@ -1,20 +1,16 @@
 {
   "meta": {
-    "last_updated": "2026-09-19",
-    "total_records": 171,
+    "last_updated": "2026-09-20",
+    "total_records": 173,
     "daily_avg": 3.8,
-    "date_range": "2026-03-06 → 2026-09-18",
-    "sources_checked": 39,
-    "new_verified": 6,
-    "coverage_ratio": "39/46",
+    "date_range": "2026-03-06 → 2026-09-20",
+    "sources_checked": 40,
+    "new_verified": 5,
+    "coverage_ratio": "40/46",
     "negative_alerts": 23,
     "positive_pct": 50
   },
   "trend": [
-    {
-      "date": "2026-09-07",
-      "count": 3
-    },
     {
       "date": "2026-09-10",
       "count": 1
@@ -38,6 +34,10 @@
     {
       "date": "2026-09-18",
       "count": 3
+    },
+    {
+      "date": "2026-09-20",
+      "count": 1
     }
   ],
   "source_breakdown": [
@@ -47,7 +47,7 @@
     },
     {
       "source": "Threads",
-      "count": 28
+      "count": 29
     },
     {
       "source": "Google Maps",
@@ -103,7 +103,7 @@
     }
   ],
   "sentiment": {
-    "positive": 85,
+    "positive": 87,
     "neutral": 60,
     "negative": 23,
     "mixed": 3
@@ -1989,6 +1989,28 @@
       "sentiment": "neutral",
       "sentiment_label": "中性",
       "keywords": "Outback, 官方IG, 生日獎賞, $88現金券, 9月生日之星, 會員專屬"
+    },
+    {
+      "date": "2026-09-07",
+      "source": "OpenRice 東薈城名店倉分店食評 (or#tm66893195)",
+      "platform": "食評平台",
+      "title": "OpenRice食評：東涌東薈城Outback聚餐滿意 份量足美式風味",
+      "summary": "用戶or#tm66893195於2026-09-07在OpenRice東薈城名店倉分店食評頁發帖（等級3），評總分及味道3、環境4、服務4、衛生4、抵食4。內容稱跟朋友去東涌東薈城Outback聚餐整體食評體驗相當滿意，食物份量十足有美式風格；招牌熱騰騰黑糖麵包塗上香滑牛油軟綿甜香；必試炸洋蔥花（Bloomin' Onion）外脆內開胃；牛油果沙律配料豐富新鮮；鮮蝦奶油寬條麵蝦爽彈奶香濃；烤豬仔骨配炸雞翼拼盤驚喜（豬仔骨軟腍醬汁鹹甜入味）；最後以果香冰沙與特飲作結。價錢屬中高價位，但份量大、環境闊落，適合大班朋友或一家去東涌放假聚餐。屬正面食評。來源為OpenRice公開食評頁核實（提取頁面，2026-09-20）。該句為用戶個人意見，不代表OpenRice觀點。",
+      "link": "https://www.openrice.com/zh/hongkong/review/--e6581439",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 東薈城, 東涌, 食評, 黑糖麵包, 炸洋蔥花, 牛扒"
+    },
+    {
+      "date": "2026-09-20",
+      "source": "Threads (@im.mini_93)",
+      "platform": "社交媒體",
+      "title": "Threads食評：MOKO Outback為咗黑糖麥包而去（午餐性價比高）",
+      "summary": "用戶@im.mini_93於Threads發帖（562 views）：同家姐近兩次約午餐都去Outback MOKO新世紀廣場分店，最想食招牌黑糖麥包，每樣都大份；雞肉芝士夾餅配薯條$128外脆、內有拉絲芝士與雞肉；芝士白汁燒蝦寬麵$158少少辣但香惹味；炸洋蔥花球$86頭幾啖好味但偏油、食一半已飽；Tiramisu $72大份唔錯。建議兩人嗌一份午餐同一份輕食或甜品就夠。屬正面食評，反映MOKO分店午餐份量足、性價比高。來源為Threads公開頁面核實（提取頁面，2026-09-20）。Threads公開頁面未展示該帖精確發佈日期，日期以收集日2026-09-20記，未能獨立核實實際發帖日期。",
+      "link": "https://www.threads.com/@im.mini_93/post/DYfDv6xk3qy/",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, MOKO, 旺角, 黑糖麥包, 食評, 午餐, 性價比"
     }
   ],
   "media_records": [
@@ -3025,6 +3047,17 @@
       "sentiment": "neutral",
       "sentiment_label": "中性",
       "keywords": "Outback, 官方IG, 生日獎賞, $88現金券, 9月生日之星, 會員專屬"
+    },
+    {
+      "date": "2026-09-20",
+      "source": "Threads (@im.mini_93)",
+      "platform": "社交媒體",
+      "title": "Threads食評：MOKO Outback為咗黑糖麥包而去（午餐性價比高）",
+      "summary": "用戶@im.mini_93於Threads發帖（562 views）：同家姐近兩次約午餐都去Outback MOKO新世紀廣場分店，最想食招牌黑糖麥包，每樣都大份；雞肉芝士夾餅配薯條$128外脆、內有拉絲芝士與雞肉；芝士白汁燒蝦寬麵$158少少辣但香惹味；炸洋蔥花球$86頭幾啖好味但偏油、食一半已飽；Tiramisu $72大份唔錯。建議兩人嗌一份午餐同一份輕食或甜品就夠。屬正面食評，反映MOKO分店午餐份量足、性價比高。來源為Threads公開頁面核實（提取頁面，2026-09-20）。Threads公開頁面未展示該帖精確發佈日期，日期以收集日2026-09-20記，未能獨立核實實際發帖日期。",
+      "link": "https://www.threads.com/@im.mini_93/post/DYfDv6xk3qy/",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, MOKO, 旺角, 黑糖麥包, 食評, 午餐, 性價比"
     }
   ],
   "social_records": [
@@ -3874,6 +3907,17 @@
       "sentiment": "negative",
       "sentiment_label": "負面",
       "keywords": "Outback"
+    },
+    {
+      "date": "2026-09-07",
+      "source": "OpenRice 東薈城名店倉分店食評 (or#tm66893195)",
+      "platform": "食評平台",
+      "title": "OpenRice食評：東涌東薈城Outback聚餐滿意 份量足美式風味",
+      "summary": "用戶or#tm66893195於2026-09-07在OpenRice東薈城名店倉分店食評頁發帖（等級3），評總分及味道3、環境4、服務4、衛生4、抵食4。內容稱跟朋友去東涌東薈城Outback聚餐整體食評體驗相當滿意，食物份量十足有美式風格；招牌熱騰騰黑糖麵包塗上香滑牛油軟綿甜香；必試炸洋蔥花（Bloomin' Onion）外脆內開胃；牛油果沙律配料豐富新鮮；鮮蝦奶油寬條麵蝦爽彈奶香濃；烤豬仔骨配炸雞翼拼盤驚喜（豬仔骨軟腍醬汁鹹甜入味）；最後以果香冰沙與特飲作結。價錢屬中高價位，但份量大、環境闊落，適合大班朋友或一家去東涌放假聚餐。屬正面食評。來源為OpenRice公開食評頁核實（提取頁面，2026-09-20）。該句為用戶個人意見，不代表OpenRice觀點。",
+      "link": "https://www.openrice.com/zh/hongkong/review/--e6581439",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 東薈城, 東涌, 食評, 黑糖麵包, 炸洋蔥花, 牛扒"
     }
   ],
   "store_ranking": [

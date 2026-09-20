@@ -33,6 +33,17 @@
       "link": "https://www.instagram.com/p/Dc8gxbxmFA6/",
       "sentiment": "positive",
       "tags": ""
+    },
+    {
+      "date": "2026-09-07",
+      "source": "OpenRice 東薈城名店倉分店食評 (or#tm66893195)",
+      "platform": "食評平台",
+      "author": "or#tm66893195",
+      "title": "OpenRice食評：東涌東薈城Outback聚餐滿意 份量足美式風味",
+      "summary": "用戶or#tm66893195於2026-09-07在OpenRice東薈城名店倉分店食評頁發帖（等級3），評總分及味道3、環境4、服務4、衛生4、抵食4。內容稱跟朋友去東涌東薈城Outback聚餐整體食評體驗相當滿意，食物份量十足有美式風格；招牌熱騰騰黑糖麵包塗上香滑牛油軟綿甜香；必試炸洋蔥花（Bloomin' Onion）外脆內開胃；牛油果沙律配料豐富新鮮；鮮蝦奶油寬條麵蝦爽彈奶香濃；烤豬仔骨配炸雞翼拼盤驚喜（豬仔骨軟腍醬汁鹹甜入味）；最後以果香冰沙與特飲作結。價錢屬中高價位，但份量大、環境闊落，適合大班朋友或一家去東涌放假聚餐。屬正面食評。來源為OpenRice公開食評頁核實（提取頁面，2026-09-20）。該句為用戶個人意見，不代表OpenRice觀點。",
+      "link": "https://www.openrice.com/zh/hongkong/review/--e6581439",
+      "sentiment": "positive",
+      "tags": ""
     }
   ],
   "alerts": [],
@@ -40,8 +51,8 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 3,
-    "new_records": 3,
+    "checked_sources": 4,
+    "new_records": 4,
     "limitations": []
   }
 }

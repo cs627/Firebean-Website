@@ -1368,6 +1368,22 @@
       "summary": "Outback官方IG(@outbacksteakhousehk)於2026年9月4日發帖，為9月生日的VIP及Prestige會員推送專屬生日獎賞「SEPTEMBER STAR!」，會員可領取HK$88現金優惠券（頁面備註文字：Happy Birthday September Star!! $88 Cash Coupon 現金優惠券，MEMBERS EXCLUSIVE）。屬官方每月生日會員激勵之9月版本。來源為官方帳號公開頁面核實（Web提取頁面備註文字，2026-09-19）。基礎內容與7月、8月已捕獲之同類官方生日帖一致，惟此9月帖此前未被捕獲。",
       "link": "https://www.instagram.com/p/Dc3EqYQCShX/",
       "sentiment": "neutral"
+    },
+    {
+      "date": "2026-09-07",
+      "source": "OpenRice 東薈城名店倉分店食評 (or#tm66893195)",
+      "title": "OpenRice食評：東涌東薈城Outback聚餐滿意 份量足美式風味",
+      "summary": "用戶or#tm66893195於2026-09-07在OpenRice東薈城名店倉分店食評頁發帖（等級3），評總分及味道3、環境4、服務4、衛生4、抵食4。內容稱跟朋友去東涌東薈城Outback聚餐整體食評體驗相當滿意，食物份量十足有美式風格；招牌熱騰騰黑糖麵包塗上香滑牛油軟綿甜香；必試炸洋蔥花（Bloomin' Onion）外脆內開胃；牛油果沙律配料豐富新鮮；鮮蝦奶油寬條麵蝦爽彈奶香濃；烤豬仔骨配炸雞翼拼盤驚喜（豬仔骨軟腍醬汁鹹甜入味）；最後以果香冰沙與特飲作結。價錢屬中高價位，但份量大、環境闊落，適合大班朋友或一家去東涌放假聚餐。屬正面食評。來源為OpenRice公開食評頁核實（提取頁面，2026-09-20）。該句為用戶個人意見，不代表OpenRice觀點。",
+      "link": "https://www.openrice.com/zh/hongkong/review/--e6581439",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-09-20",
+      "source": "Threads (@im.mini_93)",
+      "title": "Threads食評：MOKO Outback為咗黑糖麥包而去（午餐性價比高）",
+      "summary": "用戶@im.mini_93於Threads發帖（562 views）：同家姐近兩次約午餐都去Outback MOKO新世紀廣場分店，最想食招牌黑糖麥包，每樣都大份；雞肉芝士夾餅配薯條$128外脆、內有拉絲芝士與雞肉；芝士白汁燒蝦寬麵$158少少辣但香惹味；炸洋蔥花球$86頭幾啖好味但偏油、食一半已飽；Tiramisu $72大份唔錯。建議兩人嗌一份午餐同一份輕食或甜品就夠。屬正面食評，反映MOKO分店午餐份量足、性價比高。來源為Threads公開頁面核實（提取頁面，2026-09-20）。Threads公開頁面未展示該帖精確發佈日期，日期以收集日2026-09-20記，未能獨立核實實際發帖日期。",
+      "link": "https://www.threads.com/@im.mini_93/post/DYfDv6xk3qy/",
+      "sentiment": "positive"
     }
   ],
   "alerts": [],
@@ -1376,7 +1392,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 171,
+    "new_records": 173,
     "limitations": []
   }
 }
