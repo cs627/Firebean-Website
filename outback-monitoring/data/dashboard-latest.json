@@ -1,12 +1,12 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-09-21T01:08:41.495182+00:00",
+  "generatedAt": "2026-09-23T01:08:19.400750+00:00",
   "run": {
-    "runDate": "2026-09-21",
+    "runDate": "2026-09-23",
     "dateRange": {
       "from": "2026-03-06",
-      "to": "2026-09-21"
+      "to": "2026-09-23"
     },
     "alerts": [
       {
@@ -27,8 +27,8 @@
     ]
   },
   "counts": {
-    "total": 174,
-    "media": 96,
+    "total": 175,
+    "media": 97,
     "social": 78,
     "maps": 0,
     "stores": 10
@@ -1947,6 +1947,17 @@
       "sentiment": "negative",
       "sentiment_label": "負面",
       "keywords": "Outback, 慢燒牛扒, 安格斯肉眼, 五成熟, 生肉, 投訴, 網絡熱話"
+    },
+    {
+      "date": "2026-09-23",
+      "source": "Threads (@jklng56)",
+      "platform": "社交媒體",
+      "title": "Threads高觸達帖：Outback同款黑糖麵包現身聖安娜 網民仍歸邊買番Outback（50.3K views）",
+      "summary": "用戶@jklng56於Threads發帖（#麵包控請注意），指聖安娜(Saint Honoré)竟然出現與Outback出品樣貌99.9%相似之黑糖麵包（連上面粒粒都一樣），但味道差少少——口感無Outback咁軟熟、黑糖/麥味無咁出，結論「下次都係買番Outback穩陣啲」。屬正面口碑帖，反映招牌黑糖麵包之品牌資產地位及消費者忠實認同。來源為Threads公開頁面核實（提取頁面，2026-09-23）。Threads公開頁面未展示該帖精確發佈日期，以收集日記，未能獨立核實實際發帖日期。",
+      "link": "https://www.threads.com/@jklng56/post/DQjlDyHEy0O/",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 黑糖麵包, 黑糖麥包, 聖安娜, 品牌口碑"
     }
   ],
   "stores": [
@@ -2572,6 +2583,10 @@
     },
     {
       "date": "2026-09-21",
+      "count": 1
+    },
+    {
+      "date": "2026-09-23",
       "count": 1
     }
   ],

@@ -1392,6 +1392,14 @@
       "summary": "橙新聞（orangenews.hk）生活/網絡熱話報導：近日有網民在Threads投訴知名連鎖西餐廳Outback的「美式慢燒安格斯肉眼牛扒」，要求五成熟卻端出「粉紅色生肉」；事主向店員確認，對方堅稱「慢燒就係咁粉紅」。報導稱該帖（原貼@kenhui007）引發兩派網民辯論：「慢煮/慢焗正常係咁粉紅」vs「根本冇煮過」，屬媒體對既有Threads爭議之獨立轉載報導。此為對已記錄之Outback銅鑼灣慢燒安格斯牛扒熟度爭議（原貼約950K views，8月底已記錄）之媒體層面擴散（二次傳播升級）。來源為橙新聞公開網頁核實（提取頁面，2026-09-21）。報導之精確發佈日期頁面未完整展示，以收集日2026-09-21記；其內容所指「近日Threads控訴」對應8月下旬已記錄之原貼。屬負面/爭議報導，歸因於橙新聞，未經獨立核實其他細節。",
       "link": "https://www.orangenews.hk/interesting/VKtdcUr/",
       "sentiment": "negative"
+    },
+    {
+      "date": "2026-09-23",
+      "source": "Threads (@jklng56)",
+      "title": "Threads高觸達帖：Outback同款黑糖麵包現身聖安娜 網民仍歸邊買番Outback（50.3K views）",
+      "summary": "用戶@jklng56於Threads發帖（#麵包控請注意），指聖安娜(Saint Honoré)竟然出現與Outback出品樣貌99.9%相似之黑糖麵包（連上面粒粒都一樣），但味道差少少——口感無Outback咁軟熟、黑糖/麥味無咁出，結論「下次都係買番Outback穩陣啲」。屬正面口碑帖，反映招牌黑糖麵包之品牌資產地位及消費者忠實認同。來源為Threads公開頁面核實（提取頁面，2026-09-23）。Threads公開頁面未展示該帖精確發佈日期，以收集日記，未能獨立核實實際發帖日期。",
+      "link": "https://www.threads.com/@jklng56/post/DQjlDyHEy0O/",
+      "sentiment": "positive"
     }
   ],
   "alerts": [],
@@ -1400,7 +1408,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 174,
+    "new_records": 175,
     "limitations": []
   }
 }
