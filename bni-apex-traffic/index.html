@@ -3,221 +3,212 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BNI Apex — Traffic Light 會員成績</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<title>APEX — Traffic Light</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+/* ===== Bécane Paris minimal : white #F6F6F6, near-black #0A0A0A, spatial, tech-mono accents ===== */
 :root{
-  --bg1:#1e1b4b; --bg2:#0f172a; --purple:#7c3aed; --purple2:#6d28d9;
-  --amber:#facc15; --amber2:#f59e0b; --ink:#0f172a; --card:#1e293b;
-  --green:#22c55e; --yellow:#eab308; --red:#ef4444; --muted:#94a3b8;
-  --radius:18px; --shadow:0 20px 60px rgba(0,0,0,.45);
+  --bg:#F6F6F6; --fg:#0A0A0A; --muted:#8a8a8a; --line:#E2E2E2;
+  --green:#0A0A0A; --amber:#0A0A0A; --red:#0A0A0A; /* mono, colored only via tags */
+  --g:#15803d; --y:#a16207; --r:#b91c1c; /* subtle semantic for score tags */
+  --mono:'Space Grotesk',monospace; --sans:'Archivo',sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-body{
-  font-family:'Inter',system-ui,sans-serif;
-  background:
-    radial-gradient(1200px 500px at 80% -10%, rgba(124,58,237,.35), transparent 60%),
-    radial-gradient(900px 400px at 10% 110%, rgba(250,204,21,.08), transparent 55%),
-    linear-gradient(160deg, var(--bg1), var(--bg2));
-  background-attachment:fixed;
-  color:#e2e8f0; min-height:100vh; padding:28px 22px 60px; position:relative; overflow-x:hidden;
-}
-/* decorative animated blobs */
-.blob{position:fixed;border-radius:50%;filter:blur(60px);opacity:.25;z-index:0;pointer-events:none;animation:float 14s ease-in-out infinite}
-.blob1{width:340px;height:340px;background:#7c3aed;top:-80px;right:-60px}
-.blob2{width:260px;height:260px;background:#f59e0b;bottom:-60px;left:-50px;animation-delay:-7s}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-30px)}}
-.wrap{position:relative;z-index:1;max-width:1200px;margin:0 auto}
+body{font-family:var(--sans);background:var(--bg);color:var(--fg);min-height:100vh;padding:0 0 80px}
+.wrap{max-width:1320px;margin:0 auto;padding:0 48px}
 
-/* header badge (Apex poster style) */
-.badge{
-  display:inline-flex;align-items:center;gap:10px;background:rgba(250,204,21,.12);
-  border:2px solid rgba(250,204,21,.5);border-radius:40px;padding:8px 22px;margin-bottom:18px;
-  font-weight:800;letter-spacing:.06em;text-transform:uppercase;font-size:.8rem;color:#fde047;
-  box-shadow:0 0 30px rgba(250,204,21,.15);
-}
-.badge .dot{width:9px;height:9px;border-radius:50%;background:#fde047;box-shadow:0 0 10px #fde047}
-h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;letter-spacing:-.02em;margin-bottom:6px;display:flex;align-items:center;gap:14px}
-h1 .trafficIcons{letter-spacing:2px}
-.sub{color:#a5b4fc;font-size:.92rem;margin-bottom:26px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.chip{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:5px 14px;border-radius:20px;font-size:.8rem;color:#c7d2fe}
+/* header - Becane nav style */
+header{display:flex;justify-content:space-between;align-items:center;padding:26px 0;border-bottom:1px solid var(--line);margin-bottom:56px}
+.brand{font-weight:900;font-size:1.3rem;letter-spacing:.18em;text-transform:uppercase}
+.brand .light{font-weight:300;color:var(--muted)}
+.nav{display:flex;gap:34px;align-items:center;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+.nav a{color:var(--fg);text-decoration:none;transition:opacity .2s}
+.nav a:hover{opacity:.5}
+.nav .cnt{color:var(--muted)}
+.nav .cta{font-family:var(--mono);font-size:.72rem;border-bottom:1.5px solid var(--fg);padding-bottom:2px}
 
-/* chapter hero stat */
-.hero{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:26px}
-.hstat{background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);padding:20px;backdrop-filter:blur(8px);position:relative;overflow:hidden;box-shadow:var(--shadow)}
-.hstat::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--purple),var(--amber));opacity:.6}
-.hstat .n{font-size:2.1rem;font-weight:900;line-height:1}
-.hstat .l{font-size:.75rem;color:#a5b4fc;margin-top:8px;letter-spacing:.04em;text-transform:uppercase}
-.hstat.g .n{color:#4ade80}.hstat.y .n{color:#fde047}.hstat.r .n{color:#f87171}.hstat.p .n{color:#c4b5fd}
+/* hero title - huge Becane collection style */
+.hero{margin-bottom:48px}
+.hero .eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.hero h1{font-size:clamp(3rem,7.5vw,6rem);font-weight:800;letter-spacing:-.03em;line-height:.98}
+.hero .row2{display:flex;gap:20px;align-items:baseline;flex-wrap:wrap;margin-top:8px}
+.hero .stat{font-family:var(--mono);font-size:.85rem;letter-spacing:.06em;color:var(--muted)}
+.hero .stat b{color:var(--fg);font-weight:700}
 
-/* controls */
-.controls{display:flex;gap:12px;margin-bottom:22px;flex-wrap:wrap;align-items:center}
-input[type=text]{flex:1;min-width:220px;padding:13px 18px;border-radius:14px;border:1px solid rgba(255,255,255,.16);background:rgba(15,23,42,.7);color:#fff;font-size:1rem;outline:none;transition:.2s}
-input[type=text]:focus{border-color:var(--amber);box-shadow:0 0 0 3px rgba(250,204,21,.15)}
-select{padding:13px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.16);background:#1e293b;color:#fff;font-size:.95rem;outline:none;cursor:pointer}
+/* summary strip - invisible grid, no cards/borders */
+.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-bottom:1px solid var(--line);margin-bottom:36px;padding-bottom:28px}
+.sitem{display:flex;flex-direction:column;gap:4px;border-left:1px solid var(--line);padding:0 28px}
+.sitem:first-child{border-left:none;padding-left:0}
+.sitem .n{font-size:2.4rem;font-weight:700;letter-spacing:-.02em;font-family:var(--mono)}
+.sitem .l{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.sitem .n.g{color:var(--g)}.sitem .n.y{color:#a16207}.sitem .n.r{color:var(--r)}
 
-/* member card grid (Apex poster board style) */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
-.mcard{
-  background:linear-gradient(165deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
-  border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:18px;cursor:pointer;
-  transition:transform .2s,box-shadow .2s,border-color .2s;position:relative;overflow:hidden;
-  backdrop-filter:blur(6px);
-}
-.mcard:hover{transform:translateY(-5px);box-shadow:0 25px 50px rgba(0,0,0,.4);border-color:rgba(250,204,21,.4)}
-.mcard .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-.mcard .rank{font-size:.75rem;color:#818cf8;font-weight:600}
-.mcard .hk{font-size:.7rem;color:var(--amber2);font-weight:700;background:rgba(250,204,21,.12);padding:3px 9px;border-radius:12px}
-.mcard .name{font-size:1.05rem;font-weight:800;margin-bottom:14px;line-height:1.3}
-.mcard .scoreline{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-.mcard .score{font-size:1.7rem;font-weight:900}
-.mcard .score small{font-size:.8rem;font-weight:600;color:#94a3b8;margin-right:4px}
-.badge-band{display:inline-block;padding:4px 12px;border-radius:20px;font-size:.72rem;font-weight:800;color:#fff;letter-spacing:.04em}
-.bar{width:100%;height:8px;background:rgba(255,255,255,.08);border-radius:6px;overflow:hidden}
-.bar>i{display:block;height:100%;border-radius:6px;transition:width 1s ease}
-.mcard .btn{width:100%;margin-top:12px;padding:9px;border-radius:12px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#c7d2fe;font-size:.8rem;font-weight:600;cursor:pointer;transition:.2s;text-align:center}
-.mcard .btn:hover{background:var(--purple);border-color:var(--purple);color:#fff}
+/* controls - minimal underline inputs */
+.controls{display:flex;gap:28px;align-items:center;margin-bottom:44px;flex-wrap:wrap;font-family:var(--mono)}
+.controls input[type=text]{font-family:var(--mono);background:transparent;border:none;border-bottom:1.5px solid var(--fg);font-size:.9rem;padding:8px 2px;color:var(--fg);outline:none;flex:1;min-width:220px;letter-spacing:.04em}
+.controls input::placeholder{color:var(--muted);letter-spacing:.08em}
+.controls select{font-family:var(--mono);background:transparent;border:none;border-bottom:1.5px solid var(--fg);font-size:.85rem;padding:8px 2px;color:var(--fg);cursor:pointer;outline:none}
+.controls label{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 
-/* modal */
-.overlay{position:fixed;inset:0;background:rgba(2,6,23,.82);backdrop-filter:blur(6px);z-index:50;display:none;align-items:center;justify-content:center;padding:20px}
+/* member grid - Becane product-strip: huge whitespace, no borders, de-bg portraits */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:48px 32px}
+.mcard{cursor:pointer;position:relative;transition:transform .25s}
+.mcard:hover{transform:translateY(-6px)}
+.mcard:hover .thumb img{filter:grayscale(0);transform:scale(1.03)}
+.thumb{position:relative;background:#ECECEC;aspect-ratio:3/4;margin-bottom:16px;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;filter:grayscale(90%);transition:.3s;transform:scale(1)}
+.thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.04));pointer-events:none}
+.thumb .band-tag{position:absolute;top:12px;left:12px;font-family:var(--mono);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.75);padding:4px 10px}
+.thumb .no-photo{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:2.6rem;font-weight:800;color:#c9c9c9}
+.mcard .name{font-size:.95rem;font-weight:600;letter-spacing:.01em;line-height:1.3}
+.mcard .meta{display:flex;justify-content:space-between;align-items:center;margin-top:6px;font-family:var(--mono)}
+.mcard .score{font-size:1.4rem;font-weight:700}
+.mcard .score small{font-size:.64rem;color:var(--muted);font-weight:400;margin-right:5px;letter-spacing:.06em}
+.mcard .rank-txt{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.mcard .hk-txt{font-size:.66rem;letter-spacing:.06em;color:#a16207;font-weight:600}
+
+/* modal - Becane minimal */
+.overlay{position:fixed;inset:0;background:rgba(246,246,246,.92);backdrop-filter:blur(4px);z-index:50;display:none;align-items:center;justify-content:center;padding:24px}
 .overlay.show{display:flex}
-.modal{background:linear-gradient(165deg,#1e1b4b,#0f172a);border:1px solid rgba(255,255,255,.14);border-radius:24px;max-width:620px;width:100%;max-height:90vh;overflow-y:auto;padding:30px;box-shadow:0 30px 90px rgba(0,0,0,.6);position:relative}
-.modal h2{font-size:1.5rem;font-weight:900;margin-bottom:4px}
-.modal .msub{color:#a5b4fc;margin-bottom:18px;font-size:.9rem}
-.close{position:absolute;top:16px;right:16px;background:rgba(255,255,255,.08);border:none;color:#fff;width:34px;height:34px;border-radius:50%;font-size:1.2rem;cursor:pointer}
-.catrow{display:flex;align-items:center;gap:12px;padding:11px 14px;background:rgba(255,255,255,.04);border-radius:12px;margin-bottom:8px}
-.catrow .cl{width:86px;font-weight:600;font-size:.9rem;color:#c7d2fe}
-.catrow .cv{width:64px;font-weight:700;text-align:right}
-.catrow .cbar{flex:1;height:8px;background:rgba(255,255,255,.08);border-radius:6px;overflow:hidden}
-.catrow .cbar>i{display:block;height:100%;border-radius:6px}
-.catrow .sugg{flex:1;font-size:.78rem;color:#a5b4fc;text-align:right;font-style:italic}
-.catrow .badge2{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem}
-.modal .hr{height:1px;background:rgba(255,255,255,.1);margin:16px 0}
-.modal .detail{font-size:.85rem;color:#a5b4fc;line-height:1.7}
-.modal .detail b{color:#e2e8f0}
-.footer{margin-top:30px;text-align:center;font-size:.75rem;color:#64748b}
-@media(max-width:700px){.hero{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}}
+.modal{background:#fff;max-width:640px;width:100%;max-height:92vh;overflow-y:auto;padding:48px;position:relative;border:1px solid var(--line)}
+.modal h2{font-size:2.2rem;font-weight:800;letter-spacing:-.02em;margin-bottom:6px}
+.modal .msub{font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:32px}
+.close{position:absolute;top:18px;right:18px;background:none;border:1px solid var(--fg);width:36px;height:36px;border-radius:50%;font-size:1.1rem;cursor:pointer;color:var(--fg)}
+.catrow{display:flex;align-items:center;gap:18px;padding:14px 0;border-bottom:1px solid var(--line)}
+.catrow .cl{width:88px;font-weight:600;font-size:.9rem;font-family:var(--mono);letter-spacing:.04em}
+.catrow .cv{width:72px;font-family:var(--mono);font-weight:700;text-align:right}
+.catrow .cbar{flex:1;height:2px;background:var(--line)}
+.catrow .cbar>i{display:block;height:2px;background:var(--fg)}
+.catrow .ok{font-size:.85rem;color:var(--g)}
+.catrow .warn{font-size:.85rem;color:#a16207}
+.catrow .sugg{font-size:.72rem;color:var(--muted);flex:1;text-align:right;font-family:var(--mono)}
+.detail{margin-top:24px;font-size:.9rem;line-height:1.8;color:#333}
+.detail b{color:var(--fg)}
+.footer{margin-top:70px;text-align:center;font-family:var(--mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+@media(max-width:760px){
+  .wrap{padding:0 22px}
+  .hero h1{font-size:2.8rem}
+  .summary{grid-template-columns:repeat(2,1fr);gap:24px 0}
+  .sitem{border-left:none;padding:0}
+  .grid{gap:32px 20px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+  .nav{gap:16px}
+}
 </style>
 </head>
 <body>
-<div class="blob blob1"></div><div class="blob blob2"></div>
 <div class="wrap">
-  <div class="badge"><span class="dot"></span> BNI® Apex Chapter · GIANT Business</div>
-  <h1>🚦 Traffic Light <span class="trafficIcons">🟢🟡🔴</span></h1>
-  <div class="sub">
-    <span>會員成績一覽</span>
-    <span class="chip">分會全港 #<span id="chRank">—</span> / <span id="chTotal">—</span></span>
-    <span class="chip">報告期 <span id="period">—</span></span>
-  </div>
+  <header>
+    <div class="brand">BNI <span class="light">APEX</span></div>
+    <div class="nav">
+      <a href="#">Collection</a>
+      <span class="cnt">46</span>
+      <a href="#" class="cta">Traffic Light ↗</a>
+    </div>
+  </header>
 
-  <div class="hero">
-    <div class="hstat g"><div class="n" id="cG">0</div><div class="l">🟢 綠燈會員</div></div>
-    <div class="hstat y"><div class="n" id="cY">0</div><div class="l">🟡 黃燈會員</div></div>
-    <div class="hstat r"><div class="n" id="cR">0</div><div class="l">🔴 紅燈會員</div></div>
-    <div class="hstat p"><div class="n" id="cAvg">0</div><div class="l">👥 平均分</div></div>
-  </div>
+  <section class="hero">
+    <div class="eyebrow">Giant Business · 2026 Score</div>
+    <h1>Members<br>Score.</h1>
+    <div class="row2">
+      <span class="stat">Chapter HK <b>#<span id="chRank">—</span>/<span id="chTotal">—</span></b></span>
+      <span class="stat">Period <b id="period">—</b></span>
+    </div>
+  </section>
+
+  <section class="summary">
+    <div class="sitem"><div class="n g" id="cG">0</div><div class="l">Green</div></div>
+    <div class="sitem"><div class="n y" id="cY">0</div><div class="l">Yellow</div></div>
+    <div class="sitem"><div class="n r" id="cR">0</div><div class="l">Red</div></div>
+    <div class="sitem"><div class="n" id="cAvg">0</div><div class="l">Avg</div></div>
+  </section>
 
   <div class="controls">
-    <input type="text" id="search" placeholder="🔍 搜尋會員名…">
+    <input type="text" id="search" placeholder="SEARCH MEMBER">
+    <label>Band</label>
     <select id="bandFilter">
-      <option value="ALL">全部燈色</option>
-      <option value="GREEN">🟢 綠燈</option>
-      <option value="YELLOW">🟡 黃燈</option>
-      <option value="RED">🔴 紅燈</option>
+      <option value="ALL">ALL</option>
+      <option value="GREEN">GREEN</option>
+      <option value="YELLOW">YELLOW</option>
+      <option value="RED">RED</option>
     </select>
+    <label>Sort</label>
     <select id="sortBy">
-      <option value="score">分數高→低</option>
-      <option value="need">最需改進</option>
-      <option value="name">姓名</option>
+      <option value="score">SCORE ↓</option>
+      <option value="need">NEED</option>
+      <option value="name">NAME</option>
     </select>
   </div>
 
   <div class="grid" id="grid"></div>
-  <div class="footer">BNI Apex Traffic Light · 由 Hermes 自動更新 · 資料來源 tl_store.json</div>
+
+  <div class="footer">APEX · Traffic Light · BNI Giant Business</div>
 </div>
 
-<!-- Modal -->
 <div class="overlay" id="overlay">
   <div class="modal">
     <button class="close" onclick="closeModal()">✕</button>
     <h2 id="mName"></h2>
     <div class="msub" id="mSub"></div>
     <div id="mCats"></div>
-    <div class="hr"></div>
     <div class="detail" id="mDetail"></div>
   </div>
 </div>
 
 <script src="data.js"></script>
 <script>
-const store = window.TL_DATA;
-const members = store.members||[];
-const chapter = store.chapter||{};
-const BC={'GREEN':'#22c55e','YELLOW':'#eab308','RED':'#ef4444'};
-const IK={'GREEN':'🟢','YELLOW':'🟡','RED':'🔴'};
-document.getElementById('period').textContent = store.report_period||'';
-document.getElementById('chRank').textContent = chapter.rank||'—';
-document.getElementById('chTotal').textContent = chapter.member_count||'—';
-const avg = Math.round(members.reduce((s,m)=>s+(m.total||0),0)/Math.max(members.length,1));
-document.getElementById('cAvg').textContent = avg;
-document.getElementById('cG').textContent = members.filter(m=>m.band==='GREEN').length;
-document.getElementById('cY').textContent = members.filter(m=>m.band==='YELLOW').length;
-document.getElementById('cR').textContent = members.filter(m=>m.band==='RED').length;
+const store=window.TL_DATA;const members=store.members||[];const chapter=store.chapter||{};
+const IK={'GREEN':'G','YELLOW':'Y','RED':'R'};
+document.getElementById('period').textContent=store.report_period||'';
+document.getElementById('chRank').textContent=chapter.rank||'—';
+document.getElementById('chTotal').textContent=chapter.member_count||'—';
+const avg=Math.round(members.reduce((s,m)=>s+(m.total||0),0)/Math.max(members.length,1));
+document.getElementById('cAvg').textContent=avg;
+document.getElementById('cG').textContent=members.filter(m=>m.band==='GREEN').length;
+document.getElementById('cY').textContent=members.filter(m=>m.band==='YELLOW').length;
+document.getElementById('cR').textContent=members.filter(m=>m.band==='RED').length;
 
+const CATLBL=['出席','準時','引薦','嘉賓','1-2-1','培訓','生意提供'];
+const MAXC={'出席':15,'準時':10,'引薦':20,'嘉賓':20,'1-2-1':10,'培訓':10,'生意提供':15};
+const CONT={'出席':'#0A0A0A'};
 function pct(v,mx){return Math.min(100,Math.round((v||0)/mx*100));}
 
 function render(){
   const q=document.getElementById('search').value.toLowerCase();
   const bf=document.getElementById('bandFilter').value;
   const sb=document.getElementById('sortBy').value;
-  let list=members.filter(m=>!q||m.name.toLowerCase().includes(q))
-    .filter(m=>bf==='ALL'||m.band===bf);
-  if(sb==='name') list.sort((a,b)=>a.name.localeCompare(b.name));
-  else if(sb==='need') list.sort((a,b)=>(a.total||0)-(b.total||0));
+  let list=members.filter(m=>!q||m.name.toLowerCase().includes(q)).filter(m=>bf==='ALL'||m.band===bf);
+  if(sb==='name')list.sort((a,b)=>a.name.localeCompare(b.name));
+  else if(sb==='need')list.sort((a,b)=>(a.total||0)-(b.total||0));
   else list.sort((a,b)=>(b.total||0)-(a.total||0));
-  const grid=document.getElementById('grid');grid.innerHTML='';
+  const g=document.getElementById('grid');g.innerHTML='';
   for(const m of list){
-    const cat=document.createElement('div');cat.className='mcard';
-    cat.onclick=()=>openModal(m);
-    cat.innerHTML=`
-      <div class="top"><span class="rank">第 ${m.rank} 名</span>${m.hk_rank?`<span class="hk">全港 ${m.hk_rank}</span>`:''}</div>
-      <div class="name">${m.name}</div>
-      <div class="scoreline"><div class="score"><small>總分</small>${m.total??'−'}</div>
-        <span class="badge-band" style="background:${BC[m.band]||'#64748b'}">${IK[m.band]||''} ${m.band}</span></div>
-      <div class="bar"><i style="width:${pct(m.total,100)}%;background:${BC[m.band]||'#64748b'}"></i></div>
-      <div class="btn">詳情 ▸</div>`;
-    grid.appendChild(cat);
+    const c=document.createElement('div');c.className='mcard';c.onclick=()=>openModal(m);
+    const img=m.photo?`<img src="${m.photo}" loading="lazy" alt="${m.name}" onerror="this.parentNode.classList.add('no-ph','no-img');this.remove()">`:'';
+    c.innerHTML = '<div class="thumb">' + (img || '<span class="no-photo">' + (m.name[0]||'?') + '</span>') + '<span class="band-tag">' + m.band + ' ' + m.total + '</span></div><div class="name">' + m.name + '</div><div class="meta"><span class="rank-txt">Rank ' + m.rank + '</span>' + (m.hk_rank ? '<span class="hk-txt">HK ' + m.hk_rank + '</span>' : '<span class="score"><small>pts</small>' + (m.total || 0) + '</span>') + '</div>';
+    g.appendChild(c);
   }
 }
 document.getElementById('search').addEventListener('input',render);
 document.getElementById('bandFilter').addEventListener('change',render);
 document.getElementById('sortBy').addEventListener('change',render);
 
-const CATLBL=['出席','準時','引薦','嘉賓','1-2-1','培訓','生意提供'];
-const MAXC={'出席':15,'準時':10,'引薦':20,'嘉賓':20,'1-2-1':10,'培訓':10,'生意提供':15};
 function openModal(m){
   document.getElementById('mName').textContent=m.name;
-  const chExtra = m.hk_rank?`全港 #${m.hk_rank}`:'';
-  document.getElementById('mSub').textContent=`第 ${m.rank} 名 · 總分 ${m.total} · ${m.band} ${chExtra?'· '+chExtra:''}`;
+  document.getElementById('mSub').textContent=`Rank ${m.rank} · ${m.total} pts · ${m.band} ${m.hk_rank?'· HK '+m.hk_rank:''}`;
   const cats=document.getElementById('mCats');cats.innerHTML='';
-  const gaps=m.gaps||[];
-  const gapMap={};gaps.forEach(g=>gapMap[g.cat]=g);
+  const gaps=m.gaps||[];const gm={};gaps.forEach(g=>gm[g.cat]=g);
   for(const c of CATLBL){
-    const g=gapMap[c];const v=g?g.score:(m.cats[c]||0);const mx=MAXC[c];
-    const full=v>=mx;
+    const g=gm[c];const v=g?g.score:(m.cats[c]||0);const mx=MAXC[c];const full=v>=mx;
     const row=document.createElement('div');row.className='catrow';
-    row.innerHTML=`<div class="cl">${c}</div>
-      <div class="cv" style="color:${full?'#4ade80':'#fde047'}">${v}/${mx}</div>
-      <div class="cbar"><i style="width:${pct(v,mx)}%;background:${full?'#22c55e':'#fde047'}"></i></div>
-      <span class="badge2" style="background:${full?'rgba(34,197,94,.2)':'rgba(250,204,21,.15)'}">${full?'✓':'✕'}</span>
-      <div class="sugg">${full?'已滿分':(g&&g.suggestion?g.suggestion:'')}</div>`;
+    row.innerHTML=`<div class="cl">${c}</div><div class="cv">${v}/${mx}</div>
+      <div class="cbar"><i style="width:${pct(v,mx)}%"></i></div>
+      <span class="${full?'ok':'warn'}">${full?'✓':'✕'}</span>
+      <div class="sugg">${full?'':(g&&g.suggestion?g.suggestion:'')}</div>`;
     cats.appendChild(row);
   }
-  document.getElementById('mDetail').innerHTML =
-    `<b>需要改進建議：</b><br>` +
-    (gaps.length?gaps.slice(0,3).map(g=>`• ${g.cat}: ${g.suggestion||'補分'}`).join('<br>'):'全部已滿分，保持水準！💪') +
-    `<br><br><b>分會排名：</b>第 ${m.rank} 名` +
-    (m.hk_rank?`　·　<b>全港排名：</b>${m.hk_rank}`:'');
+  document.getElementById('mDetail').innerHTML=
+    `<b>Action to improve:</b><br>`+(gaps.length?gaps.slice(0,3).map(g=>`• ${g.cat} — ${g.suggestion||'補分'}`).join('<br>'):'All full — keep it up! 💪')+
+    `<br><br><b>Chapter rank:</b> #${m.rank}${m.hk_rank?`　·　<b>HK rank:</b> ${m.hk_rank}`:''}`;
   document.getElementById('overlay').classList.add('show');
 }
 function closeModal(){document.getElementById('overlay').classList.remove('show');}
