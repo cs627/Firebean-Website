@@ -56,8 +56,7 @@ header{display:flex;justify-content:space-between;align-items:center;padding:26p
 .mcard:hover{transform:translateY(-10px)}
 .mcard .thumb{position:relative;background:#ECECEC;aspect-ratio:3/4;overflow:hidden;transition:box-shadow .3s}
 .mcard:hover .thumb{box-shadow:0 30px 60px rgba(0,0,0,.18)}
-.mcard .thumb img{width:100%;height:100%;object-fit:cover;filter:grayscale(85%);transition:transform .4s,filter .4s;transform:scale(1)}
-.mcard:hover .thumb img{filter:grayscale(0);transform:scale(1.06)}
+.mcard .thumb img{width:100%;height:100%;object-fit:cover;filter:grayscale(0) saturate(1.25);transition:transform .4s;transform:scale(1)} .mcard:hover .thumb img{transform:scale(1.06)}
 /* sweep highlight on hover (character-select shine) */
 .mcard .thumb::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.28) 50%,transparent 60%);transform:translateX(-120%);transition:transform .6s;z-index:2;pointer-events:none}
 .mcard:hover .thumb::before{transform:translateX(120%)}
@@ -81,7 +80,7 @@ header{display:flex;justify-content:space-between;align-items:center;padding:26p
 .overlay{position:fixed;inset:0;background:rgba(246,246,246,.92);backdrop-filter:blur(4px);z-index:50;display:none;align-items:center;justify-content:center;padding:24px}
 .overlay.show{display:flex}
 .modal{background:#fff;max-width:680px;width:100%;max-height:92vh;overflow-y:auto;padding:48px;position:relative;border:1px solid var(--line)}
-.modal .mportrait{display:block;width:100%;height:200px;object-fit:cover;object-position:top;margin-bottom:28px;filter:grayscale(55%);background:#ECECEC}
+.modal .mportrait{display:block;width:100%;height:200px;object-fit:cover;object-position:top;margin-bottom:28px;filter:saturate(1.2);background:#ECECEC}
 .modal h2{font-size:2.2rem;font-weight:800;letter-spacing:-.02em;margin-bottom:6px}
 .modal .msub{font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:32px}
 .close{position:absolute;top:18px;right:18px;background:none;border:1px solid var(--fg);width:36px;height:36px;border-radius:50%;font-size:1.1rem;cursor:pointer;color:var(--fg)}
