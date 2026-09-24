@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BNI Apex — Traffic Light 會員一覽</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,'Segoe UI','Noto Sans',sans-serif;background:#0f172a;color:#e2e8f0;padding:24px}
+h1{font-size:1.6rem;font-weight:800;margin-bottom:4px}
+.sub{color:#94a3b8;font-size:.9rem;margin-bottom:20px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
+.card{background:#1e293b;border-radius:14px;padding:18px;text-align:center;border:1px solid #334155}
+.card .num{font-size:2rem;font-weight:900}
+.card .lbl{font-size:.8rem;color:#94a3b8;margin-top:4px}
+.controls{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap}
+input[type=text]{flex:1;min-width:220px;padding:12px 16px;border-radius:10px;border:1px solid #334155;background:#1e293b;color:#fff;font-size:1rem}
+select{padding:12px 16px;border-radius:10px;border:1px solid #334155;background:#1e293b;color:#fff;font-size:1rem}
+table{width:100%;border-collapse:collapse;background:#1e293b;border-radius:14px;overflow:hidden}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid #2d3748}
+th{background:#0b1220;color:#94a3b8;font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;cursor:pointer;user-select:none}
+tr:hover{background:#2d3a52}
+.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.75rem;font-weight:700;color:#fff}
+.gap{font-size:.8rem;color:#cbd5e1}
+td.name{font-weight:600}
+td.score{font-weight:800}
+.free{color:#94a3b8;font-size:.75rem}
+@media(max-width:700px){.cards{grid-template-columns:repeat(2,1fr)}th:nth-child(3),td:nth-child(3){display:none}}
+</style>
+</head>
+<body>
+<h1>🚦 BNI Apex — Traffic Light 會員一覽</h1>
+<div class="sub">報告期：<span id="period"></span>　·　即時由 tl_store 數據庫生成（每天更新）</div>
+
+<div class="cards">
+  <div class="card"><div class="num" style="color:#16a34a" id="cG">0</div><div class="lbl">🟢 GREEN</div></div>
+  <div class="card"><div class="num" style="color:#ca8a04" id="cY">0</div><div class="lbl">🟡 YELLOW</div></div>
+  <div class="card"><div class="num" style="color:#dc2626" id="cR">0</div><div class="lbl">🔴 RED</div></div>
+  <div class="card"><div class="num" id="cTotal">0</div><div class="lbl">👥 會員總數</div></div>
+</div>
+
+<div class="controls">
+  <input type="text" id="search" placeholder="🔍 搜尋會員名…">
+  <select id="bandFilter">
+    <option value="ALL">全部燈色</option>
+    <option value="GREEN">🟢 GREEN</option>
+    <option value="YELLOW">🟡 YELLOW</option>
+    <option value="RED">🔴 RED</option>
+  </select>
+  <select id="sortBy">
+    <option value="score">排序：分數高→低</option>
+    <option value="name">排序：姓名</option>
+    <option value="need">排序：最需改進</option>
+  </select>
+</div>
+
+<table id="tbl">
+  <thead><tr>
+    <th data-k="rank">#</th>
+    <th data-k="name">會員</th>
+    <th data-k="band">燈色</th>
+    <th data-k="score">總分</th>
+    <th data-k="need">需要改進（Gap）</th>
+  </tr></thead>
+  <tbody id="tbody"></tbody>
+</table>
+
+<div id="status" class="free" style="margin-top:12px"></div>
+<script src="data.js"></script>
+<script>
+const store = window.TL_DATA;
+const BAND_COLOR={'GREEN':'#16a34a','YELLOW':'#ca8a04','RED':'#dc2626'};
+document.getElementById('period').textContent = store.report_period || '';
+const members = store.members || [];
+const CATS=['出席','準時','引薦','嘉賓','1-2-1','培訓','生意提供'];
+const MAX={'出席':15,'準時':10,'引薦':20,'嘉賓':20,'1-2-1':10,'培訓':10,'生意提供':15};
+
+// gap = which categories below max, sorted by potential points lost
+function gaps(m){
+  const out=[];
+  for(const c of CATS){
+    const v=m.cats[c]||0, mx=MAX[c];
+    if(v<mx) out.push({c, v, mx, lost:mx-v});
+  }
+  return out.sort((a,b)=>b.lost-a.lost).slice(0,3);
+}
+function bandColor(b){return BAND_COLOR[b]||'#64748b'}
+
+function render(){
+  let q=document.getElementById('search').value.toLowerCase();
+  let bf=document.getElementById('bandFilter').value;
+  let sb=document.getElementById('sortBy').value;
+  let list=members.filter(m=>!q||m.name.toLowerCase().includes(q));
+  list=list.filter(m=>bf==='ALL'||m.band===bf);
+  if(sb==='name') list.sort((a,b)=>a.name.localeCompare(b.name));
+  else if(sb==='need') list.sort((a,b)=>(a.total||0)-(b.total||0)); // lowest first
+  else list.sort((a,b)=>(b.total||0)-(a.total||0));
+
+  const tbody=document.getElementById('tbody');
+  tbody.innerHTML='';
+  for(let i=0;i<list.length;i++){
+    const m=list[i];
+    const g=gaps(m);
+    const gapTxt=g.length?g.map(x=>`<b>${x.c}</b> ${x.v}/${x.mx}(−${x.lost})`).join(' · '):'✅ 已滿分';
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td>${list[i].rank}</td><td class="name">${m.name}</td>
+      <td><span class="badge" style="background:${bandColor(m.band)}">${m.band}</span></td>
+      <td class="score">${m.total??'−'}</td>
+      <td class="gap">${gapTxt}</td>`;
+    tbody.appendChild(tr);
+  }
+  document.getElementById('status').textContent=`顯示 ${list.length} / ${members.length} 位會員`;
+}
+document.getElementById('search').addEventListener('input',render);
+document.getElementById('bandFilter').addEventListener('change',render);
+document.getElementById('sortBy').addEventListener('change',render);
+
+// summary cards
+document.getElementById('cG').textContent=members.filter(m=>m.band==='GREEN').length;
+document.getElementById('cY').textContent=members.filter(m=>m.band==='YELLOW').length;
+document.getElementById('cR').textContent=members.filter(m=>m.band==='RED').length;
+document.getElementById('cTotal').textContent=members.length;
+render();
+</script>
+</body>
+</html>
