@@ -3,123 +3,225 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BNI Apex — Traffic Light 會員一覽</title>
+<title>BNI Apex — Traffic Light 會員成績</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
+:root{
+  --bg1:#1e1b4b; --bg2:#0f172a; --purple:#7c3aed; --purple2:#6d28d9;
+  --amber:#facc15; --amber2:#f59e0b; --ink:#0f172a; --card:#1e293b;
+  --green:#22c55e; --yellow:#eab308; --red:#ef4444; --muted:#94a3b8;
+  --radius:18px; --shadow:0 20px 60px rgba(0,0,0,.45);
+}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,'Segoe UI','Noto Sans',sans-serif;background:#0f172a;color:#e2e8f0;padding:24px}
-h1{font-size:1.6rem;font-weight:800;margin-bottom:4px}
-.sub{color:#94a3b8;font-size:.9rem;margin-bottom:20px}
-.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
-.card{background:#1e293b;border-radius:14px;padding:18px;text-align:center;border:1px solid #334155}
-.card .num{font-size:2rem;font-weight:900}
-.card .lbl{font-size:.8rem;color:#94a3b8;margin-top:4px}
-.controls{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap}
-input[type=text]{flex:1;min-width:220px;padding:12px 16px;border-radius:10px;border:1px solid #334155;background:#1e293b;color:#fff;font-size:1rem}
-select{padding:12px 16px;border-radius:10px;border:1px solid #334155;background:#1e293b;color:#fff;font-size:1rem}
-table{width:100%;border-collapse:collapse;background:#1e293b;border-radius:14px;overflow:hidden}
-th,td{padding:12px 14px;text-align:left;border-bottom:1px solid #2d3748}
-th{background:#0b1220;color:#94a3b8;font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;cursor:pointer;user-select:none}
-tr:hover{background:#2d3a52}
-.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.75rem;font-weight:700;color:#fff}
-.gap{font-size:.8rem;color:#cbd5e1}
-td.name{font-weight:600}
-td.score{font-weight:800}
-.free{color:#94a3b8;font-size:.75rem}
-@media(max-width:700px){.cards{grid-template-columns:repeat(2,1fr)}th:nth-child(3),td:nth-child(3){display:none}}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:
+    radial-gradient(1200px 500px at 80% -10%, rgba(124,58,237,.35), transparent 60%),
+    radial-gradient(900px 400px at 10% 110%, rgba(250,204,21,.08), transparent 55%),
+    linear-gradient(160deg, var(--bg1), var(--bg2));
+  background-attachment:fixed;
+  color:#e2e8f0; min-height:100vh; padding:28px 22px 60px; position:relative; overflow-x:hidden;
+}
+/* decorative animated blobs */
+.blob{position:fixed;border-radius:50%;filter:blur(60px);opacity:.25;z-index:0;pointer-events:none;animation:float 14s ease-in-out infinite}
+.blob1{width:340px;height:340px;background:#7c3aed;top:-80px;right:-60px}
+.blob2{width:260px;height:260px;background:#f59e0b;bottom:-60px;left:-50px;animation-delay:-7s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-30px)}}
+.wrap{position:relative;z-index:1;max-width:1200px;margin:0 auto}
+
+/* header badge (Apex poster style) */
+.badge{
+  display:inline-flex;align-items:center;gap:10px;background:rgba(250,204,21,.12);
+  border:2px solid rgba(250,204,21,.5);border-radius:40px;padding:8px 22px;margin-bottom:18px;
+  font-weight:800;letter-spacing:.06em;text-transform:uppercase;font-size:.8rem;color:#fde047;
+  box-shadow:0 0 30px rgba(250,204,21,.15);
+}
+.badge .dot{width:9px;height:9px;border-radius:50%;background:#fde047;box-shadow:0 0 10px #fde047}
+h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;letter-spacing:-.02em;margin-bottom:6px;display:flex;align-items:center;gap:14px}
+h1 .trafficIcons{letter-spacing:2px}
+.sub{color:#a5b4fc;font-size:.92rem;margin-bottom:26px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.chip{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:5px 14px;border-radius:20px;font-size:.8rem;color:#c7d2fe}
+
+/* chapter hero stat */
+.hero{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:26px}
+.hstat{background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);padding:20px;backdrop-filter:blur(8px);position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.hstat::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--purple),var(--amber));opacity:.6}
+.hstat .n{font-size:2.1rem;font-weight:900;line-height:1}
+.hstat .l{font-size:.75rem;color:#a5b4fc;margin-top:8px;letter-spacing:.04em;text-transform:uppercase}
+.hstat.g .n{color:#4ade80}.hstat.y .n{color:#fde047}.hstat.r .n{color:#f87171}.hstat.p .n{color:#c4b5fd}
+
+/* controls */
+.controls{display:flex;gap:12px;margin-bottom:22px;flex-wrap:wrap;align-items:center}
+input[type=text]{flex:1;min-width:220px;padding:13px 18px;border-radius:14px;border:1px solid rgba(255,255,255,.16);background:rgba(15,23,42,.7);color:#fff;font-size:1rem;outline:none;transition:.2s}
+input[type=text]:focus{border-color:var(--amber);box-shadow:0 0 0 3px rgba(250,204,21,.15)}
+select{padding:13px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.16);background:#1e293b;color:#fff;font-size:.95rem;outline:none;cursor:pointer}
+
+/* member card grid (Apex poster board style) */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.mcard{
+  background:linear-gradient(165deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:18px;cursor:pointer;
+  transition:transform .2s,box-shadow .2s,border-color .2s;position:relative;overflow:hidden;
+  backdrop-filter:blur(6px);
+}
+.mcard:hover{transform:translateY(-5px);box-shadow:0 25px 50px rgba(0,0,0,.4);border-color:rgba(250,204,21,.4)}
+.mcard .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.mcard .rank{font-size:.75rem;color:#818cf8;font-weight:600}
+.mcard .hk{font-size:.7rem;color:var(--amber2);font-weight:700;background:rgba(250,204,21,.12);padding:3px 9px;border-radius:12px}
+.mcard .name{font-size:1.05rem;font-weight:800;margin-bottom:14px;line-height:1.3}
+.mcard .scoreline{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.mcard .score{font-size:1.7rem;font-weight:900}
+.mcard .score small{font-size:.8rem;font-weight:600;color:#94a3b8;margin-right:4px}
+.badge-band{display:inline-block;padding:4px 12px;border-radius:20px;font-size:.72rem;font-weight:800;color:#fff;letter-spacing:.04em}
+.bar{width:100%;height:8px;background:rgba(255,255,255,.08);border-radius:6px;overflow:hidden}
+.bar>i{display:block;height:100%;border-radius:6px;transition:width 1s ease}
+.mcard .btn{width:100%;margin-top:12px;padding:9px;border-radius:12px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#c7d2fe;font-size:.8rem;font-weight:600;cursor:pointer;transition:.2s;text-align:center}
+.mcard .btn:hover{background:var(--purple);border-color:var(--purple);color:#fff}
+
+/* modal */
+.overlay{position:fixed;inset:0;background:rgba(2,6,23,.82);backdrop-filter:blur(6px);z-index:50;display:none;align-items:center;justify-content:center;padding:20px}
+.overlay.show{display:flex}
+.modal{background:linear-gradient(165deg,#1e1b4b,#0f172a);border:1px solid rgba(255,255,255,.14);border-radius:24px;max-width:620px;width:100%;max-height:90vh;overflow-y:auto;padding:30px;box-shadow:0 30px 90px rgba(0,0,0,.6);position:relative}
+.modal h2{font-size:1.5rem;font-weight:900;margin-bottom:4px}
+.modal .msub{color:#a5b4fc;margin-bottom:18px;font-size:.9rem}
+.close{position:absolute;top:16px;right:16px;background:rgba(255,255,255,.08);border:none;color:#fff;width:34px;height:34px;border-radius:50%;font-size:1.2rem;cursor:pointer}
+.catrow{display:flex;align-items:center;gap:12px;padding:11px 14px;background:rgba(255,255,255,.04);border-radius:12px;margin-bottom:8px}
+.catrow .cl{width:86px;font-weight:600;font-size:.9rem;color:#c7d2fe}
+.catrow .cv{width:64px;font-weight:700;text-align:right}
+.catrow .cbar{flex:1;height:8px;background:rgba(255,255,255,.08);border-radius:6px;overflow:hidden}
+.catrow .cbar>i{display:block;height:100%;border-radius:6px}
+.catrow .sugg{flex:1;font-size:.78rem;color:#a5b4fc;text-align:right;font-style:italic}
+.catrow .badge2{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem}
+.modal .hr{height:1px;background:rgba(255,255,255,.1);margin:16px 0}
+.modal .detail{font-size:.85rem;color:#a5b4fc;line-height:1.7}
+.modal .detail b{color:#e2e8f0}
+.footer{margin-top:30px;text-align:center;font-size:.75rem;color:#64748b}
+@media(max-width:700px){.hero{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<h1>🚦 BNI Apex — Traffic Light 會員一覽</h1>
-<div class="sub">報告期：<span id="period"></span>　·　即時由 tl_store 數據庫生成（每天更新）</div>
+<div class="blob blob1"></div><div class="blob blob2"></div>
+<div class="wrap">
+  <div class="badge"><span class="dot"></span> BNI® Apex Chapter · GIANT Business</div>
+  <h1>🚦 Traffic Light <span class="trafficIcons">🟢🟡🔴</span></h1>
+  <div class="sub">
+    <span>會員成績一覽</span>
+    <span class="chip">分會全港 #<span id="chRank">—</span> / <span id="chTotal">—</span></span>
+    <span class="chip">報告期 <span id="period">—</span></span>
+  </div>
 
-<div class="cards">
-  <div class="card"><div class="num" style="color:#16a34a" id="cG">0</div><div class="lbl">🟢 GREEN</div></div>
-  <div class="card"><div class="num" style="color:#ca8a04" id="cY">0</div><div class="lbl">🟡 YELLOW</div></div>
-  <div class="card"><div class="num" style="color:#dc2626" id="cR">0</div><div class="lbl">🔴 RED</div></div>
-  <div class="card"><div class="num" id="cTotal">0</div><div class="lbl">👥 會員總數</div></div>
+  <div class="hero">
+    <div class="hstat g"><div class="n" id="cG">0</div><div class="l">🟢 綠燈會員</div></div>
+    <div class="hstat y"><div class="n" id="cY">0</div><div class="l">🟡 黃燈會員</div></div>
+    <div class="hstat r"><div class="n" id="cR">0</div><div class="l">🔴 紅燈會員</div></div>
+    <div class="hstat p"><div class="n" id="cAvg">0</div><div class="l">👥 平均分</div></div>
+  </div>
+
+  <div class="controls">
+    <input type="text" id="search" placeholder="🔍 搜尋會員名…">
+    <select id="bandFilter">
+      <option value="ALL">全部燈色</option>
+      <option value="GREEN">🟢 綠燈</option>
+      <option value="YELLOW">🟡 黃燈</option>
+      <option value="RED">🔴 紅燈</option>
+    </select>
+    <select id="sortBy">
+      <option value="score">分數高→低</option>
+      <option value="need">最需改進</option>
+      <option value="name">姓名</option>
+    </select>
+  </div>
+
+  <div class="grid" id="grid"></div>
+  <div class="footer">BNI Apex Traffic Light · 由 Hermes 自動更新 · 資料來源 tl_store.json</div>
 </div>
 
-<div class="controls">
-  <input type="text" id="search" placeholder="🔍 搜尋會員名…">
-  <select id="bandFilter">
-    <option value="ALL">全部燈色</option>
-    <option value="GREEN">🟢 GREEN</option>
-    <option value="YELLOW">🟡 YELLOW</option>
-    <option value="RED">🔴 RED</option>
-  </select>
-  <select id="sortBy">
-    <option value="score">排序：分數高→低</option>
-    <option value="name">排序：姓名</option>
-    <option value="need">排序：最需改進</option>
-  </select>
+<!-- Modal -->
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <button class="close" onclick="closeModal()">✕</button>
+    <h2 id="mName"></h2>
+    <div class="msub" id="mSub"></div>
+    <div id="mCats"></div>
+    <div class="hr"></div>
+    <div class="detail" id="mDetail"></div>
+  </div>
 </div>
 
-<table id="tbl">
-  <thead><tr>
-    <th data-k="rank">#</th>
-    <th data-k="name">會員</th>
-    <th data-k="band">燈色</th>
-    <th data-k="score">總分</th>
-    <th data-k="need">需要改進（Gap）</th>
-  </tr></thead>
-  <tbody id="tbody"></tbody>
-</table>
-
-<div id="status" class="free" style="margin-top:12px"></div>
 <script src="data.js"></script>
 <script>
 const store = window.TL_DATA;
-const BAND_COLOR={'GREEN':'#16a34a','YELLOW':'#ca8a04','RED':'#dc2626'};
-document.getElementById('period').textContent = store.report_period || '';
-const members = store.members || [];
-const CATS=['出席','準時','引薦','嘉賓','1-2-1','培訓','生意提供'];
-const MAX={'出席':15,'準時':10,'引薦':20,'嘉賓':20,'1-2-1':10,'培訓':10,'生意提供':15};
+const members = store.members||[];
+const chapter = store.chapter||{};
+const BC={'GREEN':'#22c55e','YELLOW':'#eab308','RED':'#ef4444'};
+const IK={'GREEN':'🟢','YELLOW':'🟡','RED':'🔴'};
+document.getElementById('period').textContent = store.report_period||'';
+document.getElementById('chRank').textContent = chapter.rank||'—';
+document.getElementById('chTotal').textContent = chapter.member_count||'—';
+const avg = Math.round(members.reduce((s,m)=>s+(m.total||0),0)/Math.max(members.length,1));
+document.getElementById('cAvg').textContent = avg;
+document.getElementById('cG').textContent = members.filter(m=>m.band==='GREEN').length;
+document.getElementById('cY').textContent = members.filter(m=>m.band==='YELLOW').length;
+document.getElementById('cR').textContent = members.filter(m=>m.band==='RED').length;
 
-// gap = which categories below max, sorted by potential points lost
-function gaps(m){
-  const out=[];
-  for(const c of CATS){
-    const v=m.cats[c]||0, mx=MAX[c];
-    if(v<mx) out.push({c, v, mx, lost:mx-v});
-  }
-  return out.sort((a,b)=>b.lost-a.lost).slice(0,3);
-}
-function bandColor(b){return BAND_COLOR[b]||'#64748b'}
+function pct(v,mx){return Math.min(100,Math.round((v||0)/mx*100));}
 
 function render(){
-  let q=document.getElementById('search').value.toLowerCase();
-  let bf=document.getElementById('bandFilter').value;
-  let sb=document.getElementById('sortBy').value;
-  let list=members.filter(m=>!q||m.name.toLowerCase().includes(q));
-  list=list.filter(m=>bf==='ALL'||m.band===bf);
+  const q=document.getElementById('search').value.toLowerCase();
+  const bf=document.getElementById('bandFilter').value;
+  const sb=document.getElementById('sortBy').value;
+  let list=members.filter(m=>!q||m.name.toLowerCase().includes(q))
+    .filter(m=>bf==='ALL'||m.band===bf);
   if(sb==='name') list.sort((a,b)=>a.name.localeCompare(b.name));
-  else if(sb==='need') list.sort((a,b)=>(a.total||0)-(b.total||0)); // lowest first
+  else if(sb==='need') list.sort((a,b)=>(a.total||0)-(b.total||0));
   else list.sort((a,b)=>(b.total||0)-(a.total||0));
-
-  const tbody=document.getElementById('tbody');
-  tbody.innerHTML='';
-  for(let i=0;i<list.length;i++){
-    const m=list[i];
-    const g=gaps(m);
-    const gapTxt=g.length?g.map(x=>`<b>${x.c}</b> ${x.v}/${x.mx}(−${x.lost})`).join(' · '):'✅ 已滿分';
-    const tr=document.createElement('tr');
-    tr.innerHTML=`<td>${list[i].rank}</td><td class="name">${m.name}</td>
-      <td><span class="badge" style="background:${bandColor(m.band)}">${m.band}</span></td>
-      <td class="score">${m.total??'−'}</td>
-      <td class="gap">${gapTxt}</td>`;
-    tbody.appendChild(tr);
+  const grid=document.getElementById('grid');grid.innerHTML='';
+  for(const m of list){
+    const cat=document.createElement('div');cat.className='mcard';
+    cat.onclick=()=>openModal(m);
+    cat.innerHTML=`
+      <div class="top"><span class="rank">第 ${m.rank} 名</span>${m.hk_rank?`<span class="hk">全港 ${m.hk_rank}</span>`:''}</div>
+      <div class="name">${m.name}</div>
+      <div class="scoreline"><div class="score"><small>總分</small>${m.total??'−'}</div>
+        <span class="badge-band" style="background:${BC[m.band]||'#64748b'}">${IK[m.band]||''} ${m.band}</span></div>
+      <div class="bar"><i style="width:${pct(m.total,100)}%;background:${BC[m.band]||'#64748b'}"></i></div>
+      <div class="btn">詳情 ▸</div>`;
+    grid.appendChild(cat);
   }
-  document.getElementById('status').textContent=`顯示 ${list.length} / ${members.length} 位會員`;
 }
 document.getElementById('search').addEventListener('input',render);
 document.getElementById('bandFilter').addEventListener('change',render);
 document.getElementById('sortBy').addEventListener('change',render);
 
-// summary cards
-document.getElementById('cG').textContent=members.filter(m=>m.band==='GREEN').length;
-document.getElementById('cY').textContent=members.filter(m=>m.band==='YELLOW').length;
-document.getElementById('cR').textContent=members.filter(m=>m.band==='RED').length;
-document.getElementById('cTotal').textContent=members.length;
+const CATLBL=['出席','準時','引薦','嘉賓','1-2-1','培訓','生意提供'];
+const MAXC={'出席':15,'準時':10,'引薦':20,'嘉賓':20,'1-2-1':10,'培訓':10,'生意提供':15};
+function openModal(m){
+  document.getElementById('mName').textContent=m.name;
+  const chExtra = m.hk_rank?`全港 #${m.hk_rank}`:'';
+  document.getElementById('mSub').textContent=`第 ${m.rank} 名 · 總分 ${m.total} · ${m.band} ${chExtra?'· '+chExtra:''}`;
+  const cats=document.getElementById('mCats');cats.innerHTML='';
+  const gaps=m.gaps||[];
+  const gapMap={};gaps.forEach(g=>gapMap[g.cat]=g);
+  for(const c of CATLBL){
+    const g=gapMap[c];const v=g?g.score:(m.cats[c]||0);const mx=MAXC[c];
+    const full=v>=mx;
+    const row=document.createElement('div');row.className='catrow';
+    row.innerHTML=`<div class="cl">${c}</div>
+      <div class="cv" style="color:${full?'#4ade80':'#fde047'}">${v}/${mx}</div>
+      <div class="cbar"><i style="width:${pct(v,mx)}%;background:${full?'#22c55e':'#fde047'}"></i></div>
+      <span class="badge2" style="background:${full?'rgba(34,197,94,.2)':'rgba(250,204,21,.15)'}">${full?'✓':'✕'}</span>
+      <div class="sugg">${full?'已滿分':(g&&g.suggestion?g.suggestion:'')}</div>`;
+    cats.appendChild(row);
+  }
+  document.getElementById('mDetail').innerHTML =
+    `<b>需要改進建議：</b><br>` +
+    (gaps.length?gaps.slice(0,3).map(g=>`• ${g.cat}: ${g.suggestion||'補分'}`).join('<br>'):'全部已滿分，保持水準！💪') +
+    `<br><br><b>分會排名：</b>第 ${m.rank} 名` +
+    (m.hk_rank?`　·　<b>全港排名：</b>${m.hk_rank}`:'');
+  document.getElementById('overlay').classList.add('show');
+}
+function closeModal(){document.getElementById('overlay').classList.remove('show');}
+document.getElementById('overlay').addEventListener('click',e=>{if(e.target.id==='overlay')closeModal();});
 render();
 </script>
 </body>
