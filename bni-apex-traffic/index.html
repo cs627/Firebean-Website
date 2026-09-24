@@ -50,17 +50,26 @@ header{display:flex;justify-content:space-between;align-items:center;padding:26p
 .controls select{font-family:var(--mono);background:transparent;border:none;border-bottom:1.5px solid var(--fg);font-size:.85rem;padding:8px 2px;color:var(--fg);cursor:pointer;outline:none}
 .controls label{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 
-/* member grid - Becane product-strip: huge whitespace, no borders, de-bg portraits */
+/* member grid - "game character select" feel: hover zoom, name reveal, sweep, select */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:48px 32px}
-.mcard{cursor:pointer;position:relative;transition:transform .25s}
-.mcard:hover{transform:translateY(-6px)}
-.mcard:hover .thumb img{filter:grayscale(0);transform:scale(1.03)}
-.thumb{position:relative;background:#ECECEC;aspect-ratio:3/4;margin-bottom:16px;overflow:hidden}
-.thumb img{width:100%;height:100%;object-fit:cover;filter:grayscale(90%);transition:.3s;transform:scale(1)}
-.thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.04));pointer-events:none}
-.thumb .band-tag{position:absolute;top:12px;left:12px;font-family:var(--mono);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.75);padding:4px 10px}
-.thumb .no-photo{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:2.6rem;font-weight:800;color:#c9c9c9}
-.mcard .name{font-size:.95rem;font-weight:600;letter-spacing:.01em;line-height:1.3}
+.mcard{cursor:pointer;position:relative;transition:transform .3s cubic-bezier(.2,.8,.2,1);border-radius:0}
+.mcard:hover{transform:translateY(-10px)}
+.mcard .thumb{position:relative;background:#ECECEC;aspect-ratio:3/4;overflow:hidden;transition:box-shadow .3s}
+.mcard:hover .thumb{box-shadow:0 30px 60px rgba(0,0,0,.18)}
+.mcard .thumb img{width:100%;height:100%;object-fit:cover;filter:grayscale(85%);transition:transform .4s,filter .4s;transform:scale(1)}
+.mcard:hover .thumb img{filter:grayscale(0);transform:scale(1.06)}
+/* sweep highlight on hover (character-select shine) */
+.mcard .thumb::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.28) 50%,transparent 60%);transform:translateX(-120%);transition:transform .6s;z-index:2;pointer-events:none}
+.mcard:hover .thumb::before{transform:translateX(120%)}
+.mcard .thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.55));pointer-events:none;opacity:0;transition:.3s}
+.mcard:hover .thumb::after{opacity:1}
+/* name banner reveals on hover (character name plate) */
+.mcard .plate{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 14px;color:#fff;font-weight:700;font-size:1rem;z-index:3;opacity:0;transform:translateY(12px);transition:.3s;font-family:var(--sans)}
+.mcard:hover .plate{opacity:1;transform:translateY(0)}
+.mcard .plate .sc{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;opacity:.85}
+.mcard .band-tag{position:absolute;top:12px;left:12px;font-family:var(--mono);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.75);padding:4px 10px;z-index:4}
+.mcard .no-photo{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:2.6rem;font-weight:800;color:#c9c9c9}
+.mcard .name{font-size:.95rem;font-weight:600;letter-spacing:.01em;line-height:1.3;margin-top:16px}
 .mcard .meta{display:flex;justify-content:space-between;align-items:center;margin-top:6px;font-family:var(--mono)}
 .mcard .score{font-size:1.4rem;font-weight:700}
 .mcard .score small{font-size:.64rem;color:var(--muted);font-weight:400;margin-right:5px;letter-spacing:.06em}
@@ -70,7 +79,8 @@ header{display:flex;justify-content:space-between;align-items:center;padding:26p
 /* modal - Becane minimal */
 .overlay{position:fixed;inset:0;background:rgba(246,246,246,.92);backdrop-filter:blur(4px);z-index:50;display:none;align-items:center;justify-content:center;padding:24px}
 .overlay.show{display:flex}
-.modal{background:#fff;max-width:640px;width:100%;max-height:92vh;overflow-y:auto;padding:48px;position:relative;border:1px solid var(--line)}
+.modal{background:#fff;max-width:680px;width:100%;max-height:92vh;overflow-y:auto;padding:48px;position:relative;border:1px solid var(--line)}
+.modal .mportrait{width:100%;max-height:260px;object-fit:cover;margin-bottom:28px;filter:grayscale(55%);background:#ECECEC}
 .modal h2{font-size:2.2rem;font-weight:800;letter-spacing:-.02em;margin-bottom:6px}
 .modal .msub{font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:32px}
 .close{position:absolute;top:18px;right:18px;background:none;border:1px solid var(--fg);width:36px;height:36px;border-radius:50%;font-size:1.1rem;cursor:pointer;color:var(--fg)}
@@ -147,6 +157,7 @@ header{display:flex;justify-content:space-between;align-items:center;padding:26p
 <div class="overlay" id="overlay">
   <div class="modal">
     <button class="close" onclick="closeModal()">✕</button>
+    <img class="mportrait" id="mPortrait" src="" alt="">
     <h2 id="mName"></h2>
     <div class="msub" id="mSub"></div>
     <div id="mCats"></div>
@@ -183,8 +194,8 @@ function render(){
   const g=document.getElementById('grid');g.innerHTML='';
   for(const m of list){
     const c=document.createElement('div');c.className='mcard';c.onclick=()=>openModal(m);
-    const img=m.photo?`<img src="${m.photo}" loading="lazy" alt="${m.name}" onerror="this.parentNode.classList.add('no-ph','no-img');this.remove()">`:'';
-    c.innerHTML = '<div class="thumb">' + (img || '<span class="no-photo">' + (m.name[0]||'?') + '</span>') + '<span class="band-tag">' + m.band + ' ' + m.total + '</span></div><div class="name">' + m.name + '</div><div class="meta"><span class="rank-txt">Rank ' + m.rank + '</span>' + (m.hk_rank ? '<span class="hk-txt">HK ' + m.hk_rank + '</span>' : '<span class="score"><small>pts</small>' + (m.total || 0) + '</span>') + '</div>';
+    const img=m.photo?`<img src="${m.photo}" loading="lazy" alt="${m.name}" onerror="this.parentNode.classList.add('no-ph','no-img');this.remove()">`:('');
+    c.innerHTML='<div class="thumb">'+(img||'<span class="no-photo">'+(m.name[0]||'?')+'</span>')+'<span class="band-tag">'+m.band+' '+m.total+'</span><div class="plate"><div>'+m.name+'</div><div class="sc">Rank '+m.rank+' · '+m.total+' pts</div></div></div><div class="name">'+m.name+'</div><div class="meta"><span class="rank-txt">Rank '+m.rank+'</span>'+(m.hk_rank?'<span class="hk-txt">HK '+m.hk_rank+'</span>':'<span class="score"><small>pts</small>'+(m.total||0)+'</span>')+'</div>';
     g.appendChild(c);
   }
 }
@@ -193,6 +204,8 @@ document.getElementById('bandFilter').addEventListener('change',render);
 document.getElementById('sortBy').addEventListener('change',render);
 
 function openModal(m){
+  const port=document.getElementById('mPortrait');
+  if(m.photo){port.src=m.photo;port.style.display='block';}else{port.style.display='none';}
   document.getElementById('mName').textContent=m.name;
   document.getElementById('mSub').textContent=`Rank ${m.rank} · ${m.total} pts · ${m.band} ${m.hk_rank?'· HK '+m.hk_rank:''}`;
   const cats=document.getElementById('mCats');cats.innerHTML='';
