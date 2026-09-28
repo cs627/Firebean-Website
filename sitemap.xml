@@ -37,11 +37,11 @@
     <priority>0.8</priority>
   </url>
 
-                                              <!-- EDM newsletter issues — auto-generated from Google Sheets -->
-  <!-- Last updated: 2026-09-20 -->
+                                                <!-- EDM newsletter issues — auto-generated from Google Sheets -->
+  <!-- Last updated: 2026-09-28 -->
   <url>
     <loc>https://firebean.net/edm/</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -112,6 +112,13 @@
   <url> <!-- Community-Led Events: When the Public Co-Creates, Everyone Shows Up -->
     <loc>https://firebean.net/edm/edm_EDM_010.html</loc>
     <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url> <!-- Immersive Learning: Revolutionizing Public Engagement with AR/VR in Hong Kong Ed -->
+    <loc>https://firebean.net/edm/edm_EDM_011.html</loc>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
