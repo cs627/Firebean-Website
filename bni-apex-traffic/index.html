@@ -9,7 +9,7 @@
 /* ===== Bécane Paris minimal : white #F6F6F6, near-black #0A0A0A, spatial, tech-mono accents ===== */
 :root{
   --bg:#F6F6F6; --fg:#0A0A0A; --muted:#8a8a8a; --line:#E2E2E2;
-  --green:#15803d; --amber:#a16207; --red:#b91c1c;
+  --green:#15803d; --amber:#a16207; --red:#b91c1c; --black:#0a0a0a;
   --g:#15803d; --y:#a16207; --r:#b91c1c; /* subtle semantic for score tags */
   --mono:'Space Grotesk',monospace; --sans:'Archivo',sans-serif;
 }
@@ -41,7 +41,7 @@ header{display:flex;justify-content:space-between;align-items:center;padding:26p
 .sitem:first-child{border-left:none;padding-left:0}
 .sitem .n{font-size:2.4rem;font-weight:700;letter-spacing:-.02em;font-family:var(--mono)}
 .sitem .l{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.sitem .n.g{color:var(--g)}.sitem .n.y{color:#a16207}.sitem .n.r{color:var(--r)}
+.sitem .n.g{color:var(--g)}.sitem .n.y{color:#a16207}.sitem .n.r{color:var(--r)}.sitem .n.b{color:var(--black)}
 
 /* controls - minimal underline inputs */
 .controls{display:flex;gap:28px;align-items:center;margin-bottom:44px;flex-wrap:wrap;font-family:var(--mono)}
@@ -67,7 +67,7 @@ header{display:flex;justify-content:space-between;align-items:center;padding:26p
 .mcard:hover .plate{opacity:1;transform:translateY(0)}
 .mcard .plate .sc{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;opacity:.85}
 .mcard .band-tag{position:absolute;top:12px;left:12px;font-family:var(--mono);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--bcol);padding:4px 10px;z-index:4}
-.mcard .band-tag.bGREEN{background:var(--g)}.mcard .band-tag.bYELLOW{background:var(--y)}.mcard .band-tag.bRED{background:var(--r)}
+.mcard .band-tag.bGREEN{background:var(--g)}.mcard .band-tag.bYELLOW{background:var(--y)}.mcard .band-tag.bRED{background:var(--r)}.mcard .band-tag.bBLACK{background:var(--black)}
 .mcard .no-photo{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:2.6rem;font-weight:800;color:#c9c9c9}
 .mcard .name{font-size:.95rem;font-weight:600;letter-spacing:.01em;line-height:1.3;margin-top:16px}
 .mcard .meta{display:flex;justify-content:space-between;align-items:center;margin-top:6px;font-family:var(--mono)}
@@ -133,6 +133,7 @@ header{display:flex;justify-content:space-between;align-items:center;padding:26p
     <div class="sitem"><div class="n g" id="cG">0</div><div class="l">Green</div></div>
     <div class="sitem"><div class="n y" id="cY">0</div><div class="l">Yellow</div></div>
     <div class="sitem"><div class="n r" id="cR">0</div><div class="l">Red</div></div>
+    <div class="sitem"><div class="n b" id="cB">0</div><div class="l">Black</div></div>
     <div class="sitem"><div class="n" id="cAvg">0</div><div class="l">Avg</div></div>
   </section>
 
@@ -144,6 +145,7 @@ header{display:flex;justify-content:space-between;align-items:center;padding:26p
       <option value="GREEN">GREEN</option>
       <option value="YELLOW">YELLOW</option>
       <option value="RED">RED</option>
+      <option value="BLACK">BLACK</option>
     </select>
     <label>Sort</label>
     <select id="sortBy">
@@ -178,7 +180,7 @@ header{display:flex;justify-content:space-between;align-items:center;padding:26p
 <script src="data.js"></script>
 <script>
 const store=window.TL_DATA;const members=store.members||[];const chapter=store.chapter||{};
-const IK={'GREEN':'G','YELLOW':'Y','RED':'R'};
+const IK={'GREEN':'G','YELLOW':'Y','RED':'R','BLACK':'B'};
 document.getElementById('period').textContent=store.report_period||'';
 document.getElementById('chRank').textContent=chapter.rank||'—';
 document.getElementById('chTotal').textContent=chapter.member_count||'—';
@@ -187,6 +189,7 @@ document.getElementById('cAvg').textContent=avg;
 document.getElementById('cG').textContent=members.filter(m=>m.band==='GREEN').length;
 document.getElementById('cY').textContent=members.filter(m=>m.band==='YELLOW').length;
 document.getElementById('cR').textContent=members.filter(m=>m.band==='RED').length;
+document.getElementById('cB').textContent=members.filter(m=>m.band==='BLACK').length;
 
 const CATLBL=['出席','準時','引薦','嘉賓','1-2-1','培訓','生意提供'];
 const MAXC={'出席':15,'準時':10,'引薦':20,'嘉賓':20,'1-2-1':10,'培訓':10,'生意提供':15};
