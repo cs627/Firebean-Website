@@ -1,12 +1,12 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-09-23T01:08:19.400750+00:00",
+  "generatedAt": "2026-09-29T09:19:33.098797+00:00",
   "run": {
-    "runDate": "2026-09-23",
+    "runDate": "2026-09-29",
     "dateRange": {
       "from": "2026-03-06",
-      "to": "2026-09-23"
+      "to": "2026-09-29"
     },
     "alerts": [
       {
@@ -2310,6 +2310,54 @@
       "link": "https://www.afoodieworld.com/blog/2026/05/21/best-steakhouses-hong-kong",
       "branchCount": "1",
       "expansion": "新開業"
+    },
+    {
+      "date": "2026-08-28",
+      "competitor": "Flat Iron Steak",
+      "type": "擴張",
+      "title": "Flat Iron Steak進駐尖沙咀朗廷酒店 + 全港7間分店",
+      "summary": "Flat Iron Steak於尖沙咀朗廷酒店低層大堂開設新分店，新店優惠低至$298。現全港7間分店（上環、銅鑼灣、灣仔、中環IFC、尖沙咀、鰂魚涌）+ 澳門1間。全線設M9 Monday及Happy Hour半價。",
+      "sentiment": "一般",
+      "source": "Portal Sina (新浪香港)",
+      "link": "https://portal.sina.com.hk/lifestyle/v1paper/2026/06/04/1798966/flat-iron-steak進駐尖沙咀朗廷酒店-新店優惠抵至港幣298",
+      "branchCount": "7間",
+      "expansion": "擴張"
+    },
+    {
+      "date": "2026-08-28",
+      "competitor": "Ruby Tuesday",
+      "type": "推廣/優惠",
+      "title": "Ruby Tuesday主餐牌75折 + 活躍IG推廣",
+      "summary": "Ruby Tuesday透過OpenRice提供主餐牌75折優惠（至2026年底）。IG近期頻繁發布推廣影片（8月26/25/24/18/15日），社交媒體活躍度高。另有多項商戶聯乘優惠。",
+      "sentiment": "一般",
+      "source": "Instagram / OpenRice",
+      "link": "https://www.instagram.com/rubytuesdayhk",
+      "branchCount": "多間",
+      "expansion": "穩定"
+    },
+    {
+      "date": "2026-08-28",
+      "competitor": "Dan Ryan's Chicago Grill",
+      "type": "新店/活動",
+      "title": "Dan Ryan's銅鑼灣新店 + 3分店營運 + 8月兒童活動",
+      "summary": "Dan Ryan's現3間分店（銅鑼灣翡翠明珠廣場、太古城、尖沙咀海港城）。8月每周末舉辦兒童彩繪及扭氣球活動，主攻家庭客群。銅鑼灣新店2026年4-5月開幕。",
+      "sentiment": "一般",
+      "source": "danryans.com",
+      "link": "https://www.danryans.com",
+      "branchCount": "3間",
+      "expansion": "穩定"
+    },
+    {
+      "date": "2026-08-28",
+      "competitor": "The Grill Room",
+      "type": "推廣/優惠",
+      "title": "The Grill Room推廣活躍：Restaurant Week $148起 + eatigo折扣",
+      "summary": "The Grill Room（銅鑼灣/尖沙咀）參與2026夏季Restaurant Week（$148起），另設eatigo訂座折扣及午市行政套餐7折。尖沙咀店龍蝦Risotto獲食客好評。",
+      "sentiment": "一般",
+      "source": "diningcity.hk",
+      "link": "https://www.diningcity.hk/hongkong/id2050847_the_grill_room_tst",
+      "branchCount": "2間",
+      "expansion": "穩定"
     },
     {
       "date": "2026-08-28",
