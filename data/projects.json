@@ -83,9 +83,8 @@
       "client": "Outback Steakhouse",
       "venue": "CulinArt 1862",
       "year": "Sat Aug 01 2026 00:00:00 GMT+0800 (Hong Kong Standard Time)",
-      "category": "LIFESTYLE & CONSUMER, F&B & HOSPITALITY",
+      "category": "F&B & HOSPITALITY",
       "categories": [
-        "lifestyle",
         "hospitality",
         "social",
         "pr",
@@ -8552,5 +8551,5 @@
     "data/images/fb2026080-photo-1.webp",
     "data/images/fb2026080-photo-2.webp"
   ],
-  "lastSync": "2026-09-30T06:10:16.307Z"
+  "lastSync": "2026-09-30T08:09:56.991Z"
 }
