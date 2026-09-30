@@ -7,9 +7,9 @@
       "client": "華人藥業 Chinese Pharm",
       "venue": "啟田商場",
       "year": "Tue Sep 01 2026 00:00:00 GMT+0800 (Hong Kong Standard Time)",
-      "category": "LIFESTYLE & CONSUMER, MALLS & VENUES",
+      "category": "F&B & HOSPITALITY, MALLS & VENUES",
       "categories": [
-        "lifestyle",
+        "hospitality",
         "venues",
         "social",
         "events"
@@ -8551,5 +8551,5 @@
     "data/images/fb2026080-photo-1.webp",
     "data/images/fb2026080-photo-2.webp"
   ],
-  "lastSync": "2026-09-30T08:09:56.991Z"
+  "lastSync": "2026-09-30T08:21:42.776Z"
 }
