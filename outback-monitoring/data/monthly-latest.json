@@ -1400,6 +1400,30 @@
       "summary": "用戶@jklng56於Threads發帖（#麵包控請注意），指聖安娜(Saint Honoré)竟然出現與Outback出品樣貌99.9%相似之黑糖麵包（連上面粒粒都一樣），但味道差少少——口感無Outback咁軟熟、黑糖/麥味無咁出，結論「下次都係買番Outback穩陣啲」。屬正面口碑帖，反映招牌黑糖麵包之品牌資產地位及消費者忠實認同。來源為Threads公開頁面核實（提取頁面，2026-09-23）。Threads公開頁面未展示該帖精確發佈日期，以收集日記，未能獨立核實實際發帖日期。",
       "link": "https://www.threads.com/@jklng56/post/DQjlDyHEy0O/",
       "sentiment": "positive"
+    },
+    {
+      "date": "2026-10-01",
+      "source": "Outback官網 (Outback Steakhouse Hong Kong)",
+      "title": "10月限定｜Outback黑糖麥包 HK$10/條（10月1-4日快閃）",
+      "summary": "Outback官方網站於9月30日發布10月限定優惠：10月1日至10月4日，全線香港分店可以HK$10購入黑糖麥包（外帶裝）一條，不設限購，先到先得、售完即止。屬官方Owned Media新活動公告。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/239?lang=tc",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-10-01",
+      "source": "Facebook (Outback Steakhouse Hong Kong Official)",
+      "title": "【10月驚喜大放送！Outback黑糖麥包$10/條】（官方帖）",
+      "summary": "Outback官方Facebook帖（中英雙語）宣傳10月1-4日黑糖麥包（外帶裝）HK$10一條，不設限購、售完即止。帖文約13個表情反應、2評論、1分享，屬品牌官方推廣。",
+      "link": "https://www.facebook.com/outbacksteakhousehk/posts/1551340447031162",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-10-01",
+      "source": "Instagram @jetsobear 著數熊",
+      "title": "Jetso Bear：Outback黑糖麥包外帶裝限時快閃$10/條（10月1-4日）",
+      "summary": "著數優惠平台Jetso Bear於IG發布宣傳帖，轉載Outback官方資料：10月1日至10月4日，Outback黑糖麥包（外帶裝）HK$10一條，不設限購，先到先得。屬第三方優惠媒體轉載。",
+      "link": "https://www.instagram.com/p/Dd3xZzKhSFL",
+      "sentiment": "positive"
     }
   ],
   "alerts": [],
@@ -1408,7 +1432,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 175,
+    "new_records": 178,
     "limitations": []
   }
 }
