@@ -1424,6 +1424,30 @@
       "summary": "著數優惠平台Jetso Bear於IG發布宣傳帖，轉載Outback官方資料：10月1日至10月4日，Outback黑糖麥包（外帶裝）HK$10一條，不設限購，先到先得。屬第三方優惠媒體轉載。",
       "link": "https://www.instagram.com/p/Dd3xZzKhSFL",
       "sentiment": "positive"
+    },
+    {
+      "date": "2026-10-03",
+      "source": "Instagram (@outbacksteakhousehk 官方)",
+      "title": "【10月生日嘅你注意！】Outback $88電子優惠券及外賣到會8折（官方）",
+      "summary": "Outback官方IG帖宣傳10月生日禮遇：10月壽星可於Outback App領取$88電子優惠券及外賣到會套餐8折優惠券，再約三五知己慶祝生日。帖文附#扒房#牛扒#OutbackSteakhouseHK等標籤，約7個讚好，屬品牌官方Owned Media新活動。",
+      "link": "https://www.instagram.com/p/Dd8UqEnAXgh",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-10-03",
+      "source": "Facebook (Outback Steakhouse Hong Kong Official)",
+      "title": "【Outback x美國運通特別優惠】即日起至10月19日（官方帖）",
+      "summary": "Outback官方Facebook帖宣布與美國運通(American Express)攜手推出特別優惠，由即日起至10月19日，顧客於下午5點後以美國運通卡消費即可享用相關禮遇。屬品牌官方與AE的聯合推廣活動。註：FB帖本身需登入才可抓取，內容以Google搜尋對官方FB頁之公開摘要核實。",
+      "link": "https://www.facebook.com/outbacksteamhousehk/posts/1496512060413140",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-10-03",
+      "source": "Threads (@wingchelsea)",
+      "title": "Threads討論：Outback黑糖麥包自家製牛油（17.8K次瀏覽）",
+      "summary": "Threads用戶@wingchelsea發文稱Outback黑糖麥包最美味之處在於其自家製牛油，詢問可否單買醬料，並探討醬料是否含cream cheese。帖文約17.8K次瀏覽、65個回覆、11個轉發，屬中高觸達的正面UGC品牌互動（第三方程式觀點，未代表品牌立場）。",
+      "link": "https://www.threads.com/@wingchelsea/post/DPxNbFeElES",
+      "sentiment": "positive"
     }
   ],
   "alerts": [],
@@ -1432,7 +1456,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 178,
+    "new_records": 181,
     "limitations": []
   }
 }
