@@ -37,11 +37,11 @@
     <priority>0.8</priority>
   </url>
 
-                                                      <!-- EDM newsletter issues — auto-generated from Google Sheets -->
-  <!-- Last updated: 2026-09-28 -->
+                                                        <!-- EDM newsletter issues — auto-generated from Google Sheets -->
+  <!-- Last updated: 2026-10-04 -->
   <url>
     <loc>https://firebean.net/edm/</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -119,6 +119,13 @@
   <url> <!-- Immersive Learning: Revolutionizing Public Engagement with AR/VR in Hong Kong Ed -->
     <loc>https://firebean.net/edm/edm_EDM_011.html</loc>
     <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url> <!-- Amplifying Local Voices: Micro-Influencers Reshaping Hong Kong's Civic Conversat -->
+    <loc>https://firebean.net/edm/edm_EDM_012.html</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
