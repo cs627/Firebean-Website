@@ -3,254 +3,344 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>反直覺公關心機 — Firebean VIP 演講 Deck</title>
+<title>反直覺公關心機 Unintuitive PR — Firebean VIP 演講 Deck</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Noto+Sans+HK:wght@700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Noto+Sans+HK:wght@400;500;700;900&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
 <style>
+  /* ===== Magazine Editorial System ===== */
   :root{
-    --ink:#0F172A; --white:#F8FAFC; --red:#E11D48; --gold:#F59E0B;
-    --slate:#94A3B8; --grey:#F1F5F9;
+    --paper:#F6F1E7;      /* ivory page */
+    --paper2:#EDE5D6;     /* slightly deeper ivory for panels */
+    --ink:#1B1612;        /* soft ink black for text on light */
+    --inksoft:#5A5147;    /* muted body on ivory */
+    --vermil:#A63A2B;     /* single vermilion accent */
+    --gold:#B08D57;       /* antique brass for hairlines */
+    --wash:#C8BBA0;       /* faint gold for rules */
+    --deep:#221B15;       /* deep espresso for dark pages */
+    --deep2:#2E251C;      /* elevated espresso panel */
+    --deepink:#E9E0CF;    /* warm ivory text on dark */
+    --deepsoft:#A99C84;   /* muted text on dark */
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html,body{height:100%;background:#000;overflow:hidden;
-    font-family:"Noto Sans HK","Montserrat",system-ui,sans-serif;color:var(--white)}
-  .stage{height:100vh;width:100vw;position:relative;color:var(--white)}
+  html,body{height:100%;background:var(--paper);overflow:hidden;
+    font-family:"Noto Sans HK","Montserrat",system-ui,sans-serif;color:var(--ink)}
+  .stage{height:100vh;width:100vw;position:relative}
   .slide{position:absolute;inset:0;display:none;flex-direction:column;
-    justify-content:center;padding:clamp(20px,6vmin,72px);
-    background:var(--bg,var(--ink))}
+    justify-content:center;padding:clamp(20px,5vmin,72px) clamp(30px,9vmin,150px);
+    background:var(--paper);overflow:hidden}
   .slide.on{display:flex}
-  /* type scale (relative, projector-safe) */
-  h1{font-size:clamp(34px,9.5vmin,150px);line-height:1.06;font-weight:900}
-  h2{font-size:clamp(30px,7.5vmin,116px);line-height:1.12;font-weight:900}
-  .xl{font-size:clamp(38px,11vmin,190px);line-height:1.02;font-weight:900}
-  .giant{font-size:clamp(120px,34vmin,560px);line-height:1;font-weight:900}
-  .sub{font-size:clamp(22px,4.2vmin,64px);line-height:1.25}
-  .tag{display:inline-block;font-size:clamp(16px,2.6vmin,38px);font-weight:900;
-    letter-spacing:.22em;color:var(--red);margin-bottom:2.4vmin}
-  .gold{color:var(--gold)} .red{color:var(--red)} .dark{color:var(--ink)} .slate{color:var(--slate)}
-  .row{display:flex;gap:4vmin;align-items:stretch}
-  .card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);
-    border-radius:1.4vmin;padding:3.2vmin;flex:1}
-  .card .ico{font-size:clamp(28px,5vmin,72px)}
-  .card .t{font-size:clamp(22px,3.6vmin,54px);font-weight:900;margin:.8vmin 0}
-  .card .b{font-size:clamp(18px,2.8vmin,42px);color:var(--slate);line-height:1.3}
-  .card.hl{border-color:var(--gold);border-width:3px;background:rgba(245,158,11,.08)}
-  .bar{position:absolute;left:0;top:0;bottom:0;width:8px;background:var(--red)}
-  .callout{background:var(--red);color:#fff;border-radius:1.6vmin;
-    padding:2.6vmin 3vmin;font-size:clamp(20px,3.4vmin,52px);font-weight:900}
-  .pill{display:inline-block;background:var(--red);color:#fff;border-radius:999px;
-    padding:1.4vmin 3.4vmin;font-size:clamp(18px,3vmin,46px);font-weight:900}
-  .question{font-family:"Noto Sans HK";font-weight:900;font-size:clamp(34px,9vmin,150px);
-    line-height:1.12;color:var(--ink)}
-  .num{font-family:"Montserrat";font-weight:900;font-size:clamp(110px,30vmin,520px);
-    line-height:.92;color:var(--red)}
-  .foot{position:absolute;left:6vmin;right:6vmin;bottom:3.4vmin;
-    font-size:clamp(14px,2vmin,30px);color:var(--slate);
-    display:flex;justify-content:space-between;align-items:center}
-  /* slide bgs */
-  .s2{--bg:var(--white)} .s3{--bg:var(--white)} .s6{--bg:#FEF3C7}
-  .s8{--bg:#F1F5F9}.s11{--bg:var(--white)}.s12{--bg:#F1F5F9}
-  .s13{--bg:#09090B}
-  .s7{background:radial-gradient(circle at 50% 45%,#3b0d15,#0F172A 70%)}
-  /* UI */
-  #ui{position:fixed;z-index:50;left:50%;bottom:2.5vmin;transform:translateX(-50%);
-    display:flex;gap:.8vmin;align-items:center;background:rgba(15,23,42,.82);
-    border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:.6vmin .9vmin;
-    font-family:"Montserrat";font-size:clamp(13px,1.8vmin,26px);color:#fff}
-  #ui button{background:none;border:none;color:#fff;cursor:pointer;
-    font-size:clamp(15px,2vmin,30px);line-height:1;padding:.3vmin .7vmin}
-  #ui .ct{min-width:4.6vmin;text-align:center;font-weight:900;color:var(--gold)}
-  .hint{color:var(--slate)}
-  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:2.6vmin;margin-top:4vmin}
-  .split{display:grid;grid-template-columns:1fr 1fr;gap:5vmin;align-items:center}
+  .slide.deep{background:var(--deep);color:var(--deepink)}
+
+  /* ----- fixed magazine masthead ----- */
+  .mast{position:fixed;top:0;left:0;right:0;z-index:40;height:clamp(38px,5.6vmin,64px);
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 clamp(18px,3vmin,48px);
+    border-bottom:1.5px solid var(--wash);
+    font-family:"Noto Sans HK";letter-spacing:.24em;font-weight:500;
+    font-size:clamp(10px,1.5vmin,20px);color:var(--inksoft);text-transform:uppercase;
+    background:var(--paper);mix-blend-mode:normal}
+  .slide.deep~.mast,
+  body.mode-deep .mast{background:var(--deep);color:var(--deepsoft)}
+  .mast .mk{font-weight:900;letter-spacing:.08em;color:var(--ink)}
+  .mast .mk em{font-style:normal;color:var(--vermil)}
+  body.mode-deep .mast .mk{color:var(--deepink)}
+  .mast .issue{display:flex;gap:2.4vmin;align-items:center}
+  .mast .issue .vrule{width:1px;height:1.4em;background:var(--wash)}
+
+  /* ----- typographic scale (serif display) ----- */
+  .eyebrow{display:inline-block;font-family:"Noto Sans HK";font-weight:700;
+    letter-spacing:.32em;text-transform:uppercase;font-size:clamp(11px,1.7vmin,24px);
+    color:var(--vermil);margin-bottom:2.2vmin}
+  .deep .eyebrow{color:#cf6a53}
+  h1{font-family:"Noto Serif TC";font-weight:900;
+    font-size:clamp(40px,9.5vmin,150px);line-height:1.06;color:var(--ink)}
+  h2{font-family:"Noto Serif TC";font-weight:900;
+    font-size:clamp(32px,7vmin,104px);line-height:1.16;color:var(--ink)}
+  .xg{font-family:"Noto Serif TC";font-weight:900;
+    font-size:clamp(44px,11.5vmin,190px);line-height:1.02;color:var(--ink)}
+  .giant{font-family:"Noto Serif TC";font-weight:900;
+    font-size:clamp(150px,40vmin,620px);line-height:.95;color:var(--vermil)}
+  .sub{font-size:clamp(20px,3.3vmin,52px);line-height:1.5;color:var(--inksoft)}
+  .deep h1,.deep h2,.deep .xg,.deep .sub{color:var(--deepink)}
+  .deep .sub{color:var(--deepsoft)}
+  h1>em,h2>em,.xg>em{font-style:normal;color:var(--vermil)}
+  .deep h1>em,.deep h2>em{color:#d9755f}
+
+  /* ink + vermilion accents */
+  .verm{color:var(--vermil)} .deep .verm{color:#cf6a53}
+  .gold{color:var(--gold)}
+  .lead{font-family:"Noto Serif TC";font-weight:600;line-height:1.4}
+
+  /* ----- magazine grid + columns ----- */
+  .cols{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,5vmin,80px);align-items:center}
+  .col.l{justify-self:start}
+  .col.r{justify-self:end}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2.6vmin,40px);margin-top:4vmin}
+  .grid3.o3{grid-template-columns:1fr 1fr 1fr}
+
+  /* cards become editorial slabs */
+  .slab{background:var(--paper2);border-left:4px solid var(--gold);
+    padding:clamp(18px,3vmin,44px);height:100%}
+  .slab.verm{border-left-color:var(--vermil)}
+  .slab .ico{font-size:clamp(26px,4.6vmin,60px)}
+  .slab .t{font-family:"Noto Serif TC";font-weight:900;
+    font-size:clamp(20px,3.4vmin,48px);margin:1vmin 0}
+  .slab .b{font-size:clamp(16px,2.5vmin,36px);color:var(--inksoft);line-height:1.4}
+  .deep .slab{background:var(--deep2);border-left-color:#a98d5f}
+  .deep .slab .t{color:var(--deepink)} .deep .slab .b{color:var(--deepsoft)}
+
+  .bigq{font-family:"Noto Serif TC";font-weight:900;
+    font-size:clamp(34px,8.6vmin,140px);line-height:1.14;color:var(--ink)}
+  .deep .bigq{color:var(--deepink)}
+  .bigq>em{font-style:normal;color:var(--vermil)}
+  .deep .bigq>em{color:#d9755f}
+
+  .hairline{height:1px;background:var(--wash);margin:3vmin 0}
+  .deep .hairline{background:#4a3c2c}
+
+  /* pull-quote / callout reimagined as magazine pullquote */
+  .pull{font-family:"Noto Serif TC";font-weight:900;font-style:italic;
+    font-size:clamp(22px,4vmin,60px);line-height:1.4;color:var(--vermil);
+    border-left:.35em solid var(--vermil);padding-left:.6em}
+  .deep .pull{color:#d9755f;border-left-color:#d9755f}
+  .banner{display:inline-block;background:var(--vermil);color:#FBF6EC;
+    font-weight:900;letter-spacing:.06em;
+    padding:clamp(12px,2vmin,30px) clamp(22px,3.4vmin,52px);
+    font-size:clamp(18px,3vmin,46px);line-height:1.35}
+  .trophy{background:var(--deep);color:var(--deepink);border:1px solid var(--gold);
+    padding:clamp(20px,3vmin,44px);display:inline-block;
+    font-family:"Noto Serif TC";font-weight:900;font-size:clamp(20px,3.4vmin,50px);line-height:1.35;
+    position:relative}
+  .trophy::before{content:"";position:absolute;inset:clamp(5px,0.7vmin,10px);
+    border:1px solid var(--wash);pointer-events:none}
+
+  .num{font-family:"Montserrat";font-weight:800;
+    font-size:clamp(120px,32vmin,560px);line-height:.9;color:var(--vermil)}
+  .foot{position:absolute;left:clamp(18px,3vmin,48px);right:clamp(18px,3vmin,48px);
+    bottom:clamp(24px,3.2vmin,40px);display:flex;justify-content:space-between;align-items:center;
+    font-family:"Noto Sans HK";font-size:clamp(11px,1.7vmin,24px);color:var(--inksoft);
+    letter-spacing:.08em}
+  .foot .pg{font-family:"Montserrat";font-weight:800;color:var(--vermil);
+    border:1px solid var(--wash);padding:.2em .7em}
+  .deep .foot{color:var(--deepsoft)} .deep .foot .pg{color:#d9755f;border-color:#4a3c2c}
+
+  /* ----- UI (editorial pill, paper toned) ----- */
+  #ui{position:fixed;z-index:50;left:50%;bottom:clamp(22px,3vmin,40px);
+    transform:translateX(-50%);display:flex;gap:.4vmin;align-items:center;
+    background:rgba(255,255,255,.72);backdrop-filter:blur(6px);
+    border:1px solid var(--wash);border-radius:999px;
+    padding:.5vmin .8vmin;font-family:"Noto Sans HK";font-size:clamp(12px,1.7vmin,24px);color:var(--ink)}
+  #ui button{background:none;border:none;cursor:pointer;color:var(--ink);
+    font-size:clamp(14px,1.9vmin,28px);line-height:1;padding:.3vmin .7vmin}
+  #ui .ct{min-width:4.6vmin;text-align:center;font-weight:900;color:var(--vermil);font-family:"Montserrat"}
+
+  #tool{position:fixed;top:clamp(38px,5.6vmin,64px);right:clamp(14px,2.4vmin,40px);z-index:60;
+    display:flex;gap:.8vmin;font-family:"Noto Sans HK"}
+  #tool a,#tool button{display:inline-flex;align-items:center;gap:.4em;
+    background:var(--vermil);color:#FBF6EC;border:none;border-radius:999px;
+    padding:.7em 1.5em;font-size:clamp(12px,1.7vmin,26px);font-weight:800;cursor:pointer;
+    text-decoration:none;letter-spacing:.04em}
+  #tool button{background:var(--ink);color:var(--deepink)}
+  #hint{position:fixed;left:50%;top:clamp(70px,9vmin,110px);transform:translateX(-50%);z-index:70;
+    background:var(--ink);color:var(--deepink);border:1px solid var(--gold);border-radius:999px;
+    font-size:clamp(12px,1.8vmin,26px);font-weight:700;padding:.7em 1.8em;display:none}
 </style>
 </head>
 <body>
-<div id="tool" style="position:fixed;top:2.2vmin;right:2.2vmin;z-index:60;display:flex;gap:.9vmin;font-family:Montserrat">
-  <a id="btnPPT" href="Firebean反直覺公關心機_13頁.pptx" download="Firebean反直覺公關心機_13頁.pptx" style="background:#E11D48;color:#fff;border:none;border-radius:999px;padding:1.2vmin 2.4vmin;font-size:clamp(14px,2vmin,32px);font-weight:900;cursor:pointer;text-decoration:none">⭳ 下載 PPT</a>
-  <button onclick="doGS()" style="background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:1.2vmin 2.4vmin;font-size:clamp(14px,2vmin,32px);font-weight:900;cursor:pointer">→ 匯入 Google Slides</button>
+<div id="tool">
+  <a id="btnPPT" href="Firebean反直覺公關心機_13頁.pptx" download="Firebean反直覺公關心機_13頁.pptx">⭳ 下載 PPT</a>
+  <button onclick="doGS()">→ 匯入 Google Slides</button>
 </div>
+
+<!-- Editorial masthead -->
+<div class="mast">
+  <span class="mk">FIREBEAN<em>與。</em>反直覺公關心機</span>
+  <span class="issue">UNINTUITIVE&nbsp;PR<span class="vrule"></span><span id="mastpage">01/13</span></span>
+</div>
+
 <div class="stage" id="stage"></div>
-<div id="hint" style="position:fixed;left:50%;top:2.4vmin;transform:translateX(-50%);z-index:70;background:rgba(15,23,42,.9);border:1px solid rgba(255,255,255,.2);border-radius:999px;color:#F59E0B;font-family:Montserrat;font-size:clamp(13px,1.8vmin,28px);font-weight:800;padding:1vmin 2.4vmin;display:none"></div>
-<div id="ui"><button id="prev">◀</button><span class="ct" id="count">1/13</span><button id="next">▶</button></div>
+<div id="hint"></div>
+<div id="ui"><button id="prev">‹</button><span class="ct" id="count">1/13</span><button id="next">›</button></div>
 
 <script>
-const RED="#E11D48",GOLD="#F59E0B",INK="#0F172A",W="#F8FAFC",SL="#94A3B8";
-const S=[]; // slides: {bg, html}
-const foot=(t,right)=>`<div class="foot"><span>${t}</span>${right?`<span>${right}</span>`:""}</div>`;
+const VERM="#A63A2B",GOLD="#B08D57",INK="#1B1612",W="#F6F1E7",SL="#5A5147",DEEP="#221B15";
+const S=[];
+const foot=(t,right)=>`<div class="foot"><span>${t}</span><span class="pg">${right}</span></div>`;
 
-S.push({ //01 title
- bg:INK,
- html:`<div class="bar"></div>
-  <h1>反直覺公關心機<br><span class="red">Unintuitive&nbsp;PR&nbsp;Strategy</span></h1>
-  <div class="sub slate" style="margin-top:2.6vmin">破除迷思，化不可能為爆點。</div>
+S.push({ //01 TITLE — magazine cover
+ deep:1,
+ html:`<div class="eyebrow">FIREBEAN VIP 演講</div>
+  <h1>反直覺<em>公關心機</em><br><span class="lead" style="font-family:'Noto Sans HK';font-weight:700;letter-spacing:.1em;color:var(--gold);font-size:.5em">UNINTUITIVE PR STRATEGY</span></h1>
+  <div class="hairline" style="width:12em"></div>
+  <div class="sub">破除迷思，化不可能為爆點。</div>
   ${foot("主講人：Dickson ｜ Firebean 團隊","00:00–00:15")}`});
 
 S.push({ //02 icebreaker
- bg:W,
  html:`<div style="text-align:center">
-   <div style="font-size:clamp(40px,9vmin,150px);color:${RED};font-weight:900;margin-bottom:2vmin">？</div>
-   <div class="question">展覽一件貨都冇，<br>會有人來嗎？</div>
-   <div class="sub dark" style="margin-top:3vmin;color:${SL}">快問快答：挑戰傳統促銷迷思</div>
-  </div>${foot("00:15–00:30")}`});
+   <div style="font-family:'Noto Serif TC';font-weight:900;font-size:clamp(56px,12vmin,200px);color:${VERM};line-height:1;margin-bottom:2vmin">？</div>
+   <div class="bigq">展覽一件貨都冇，<br>會有人來嗎？</div>
+   <div class="sub" style="margin-top:3vmin;color:${SL}">快問快答：挑戰傳統促銷迷思</div>
+  </div>${foot("00:15–00:30","02/13")}`});
 
-S.push({ //03 team white split
- bg:W,
- html:`<div class="split">
-   <div>
-     <div class="tag">WHO&nbsp;WE&nbsp;ARE</div>
-     <h2 class="dark">Firebean 團隊<br>公關拆彈專家</h2>
-     <div class="row" style="margin-top:3.4vmin;flex-direction:column;gap:2vmin">
-       <div class="card" style="background:var(--grey);border:0"><span class="ico">🔥</span><div class="t dark">突破傳統營銷框架</div><div class="b">Breaking Conventions</div></div>
-       <div class="card" style="background:var(--grey);border:0"><span class="ico">⚡</span><div class="t dark">極速臨場應變</div><div class="b">Lightning Tactical Agility</div></div>
-       <div class="card" style="background:var(--grey);border:0"><span class="ico">🧠</span><div class="t dark">精準洞察人性心理</div><div class="b">Deep Human Psychology</div></div>
-     </div>
-   </div>
-   <div style="background:linear-gradient(160deg,#1e293b,#0F172A);border-radius:2vmin;min-height:56vmin;display:flex;align-items:center;justify-content:center">
-     <span style="font-size:clamp(60px,18vmin,240px)">🔥</span>
-   </div>
-  </div>${foot("00:30–01:00")}`});
+S.push({ //03 WHO WE ARE split
+ html:`<div class="cols">
+  <div class="col l">
+    <div class="eyebrow">WHO WE ARE</div>
+    <h2>Firebean <em>團隊</em><br>公關拆彈專家</h2>
+    <div style="margin-top:3.4vmin;display:flex;flex-direction:column;gap:2vmin">
+      <div class="slab"><span class="ico">🔥</span><div class="t">突破傳統營銷框架</div><div class="b">Breaking Conventions</div></div>
+      <div class="slab"><span class="ico">⚡</span><div class="t">極速臨場應變</div><div class="b">Lightning Tactical Agility</div></div>
+      <div class="slab"><span class="ico">🧠</span><div class="t">精準洞察人性心理</div><div class="b">Deep Human Psychology</div></div>
+    </div>
+  </div>
+  <div class="col r" style="width:100%;background:var(--deep);border:1px solid var(--wash);min-height:54vmin;display:flex;align-items:center;justify-content:center">
+    <span style="font-size:clamp(64px,18vmin,250px)">🔥</span>
+  </div>
+ </div>${foot("00:30–01:00","03/13")}`});
 
-S.push({ //04 case1 pharmacy 45/55
- bg:INK,
- html:`<div class="split" style="grid-template-columns:.85fr 1.15fr">
-   <div style="border-radius:2vmin;min-height:60vmin;background:radial-gradient(circle at 30% 30%,#7f1d1d,#0F172A 75%);display:flex;align-items:center;justify-content:center">
-     <span style="font-size:clamp(58px,18vmin,240px)">🏮</span>
-   </div>
-   <div>
-     <div class="tag">CASE&nbsp;STUDY&nbsp;01</div>
-     <h2>華人藥業<br>中秋品牌體驗</h2>
-     <div class="callout" style="background:${GOLD};margin-top:2.8vmin">核心策略：大品牌包裝策略</div>
-     <div class="sub" style="margin-top:2vmin"><b>·</b> 捨棄單一成人奶粉推銷<br><b>·</b> 「中式茶樓策略」觸及萬寧廣大客群<br><b class="gold">·</b> 大膽決定：<span class="red" style="font-weight:900">活動現場零銷售，全做體驗！</span></div>
-   </div>
-  </div>${foot("01:00–01:30")}`});
+S.push({ //04 case1 pharmacy split
+ deep:1,
+ html:`<div class="cols" style="grid-template-columns:.85fr 1.15fr">
+  <div style="border-radius:0;background:radial-gradient(circle at 30% 30%,#5a2416,#221B15 78%);border:1px solid #4a3c2c;min-height:60vmin;display:flex;align-items:center;justify-content:center">
+    <span style="font-size:clamp(60px,18vmin,250px)">🏮</span>
+  </div>
+  <div>
+    <div class="eyebrow">CASE STUDY 01</div>
+    <h2>華人藥業<br><em>中秋品牌體驗</em></h2>
+    <div class="pull" style="margin-top:2.8vmin">核心策略：大品牌包裝策略</div>
+    <div class="sub" style="margin-top:2.4vmin;font-weight:500">
+      <b style="color:var(--verm)">·</b> 捨棄單一成人奶粉推銷<br>
+      <b style="color:var(--verm)">·</b> 「中式茶樓策略」觸及萬寧廣大客群<br>
+      <b style="color:var(--gold)">·</b> 大膽決定：<b style="font-weight:900;color:#d9755f">活動現場零銷售，全做體驗！</b>
+    </div>
+  </div>
+ </div>${foot("01:00–01:30","04/13")}`});
 
 S.push({ //05 zero-sales 3 cards
- bg:INK,
- html:`<h2 style="text-align:center">零銷售：<span class="gold">三大心機佈局</span></h2>
+ deep:1,
+ html:`<h2 style="text-align:center">零銷售：<em style="color:#d9755f">三大心機佈局</em></h2>
   <div class="grid3">
-   <div class="card"><span class="ico">🎳</span><div class="t">No 保齡球</div><div class="b">彎腰活動 → 放大關節退化痛點</div></div>
-   <div class="card"><span class="ico">🍄</span><div class="t">靈芝培植場</div><div class="b">虎乳芝功效視覺化 → 拋圈圈打卡</div></div>
-   <div class="card hl"><span class="ico">💡</span><div class="t gold">中秋猜燈謎</div><div class="b gold" style="color:var(--gold)">精準攻陷 50+ 長者「好勝」心理</div></div>
-  </div>${foot("01:30–02:00")}`});
+   <div class="slab"><span class="ico">🎳</span><div class="t">No 保齡球</div><div class="b">彎腰活動 → 放大關節退化痛點</div></div>
+   <div class="slab"><span class="ico">🍄</span><div class="t">靈芝培植場</div><div class="b">虎乳芝功效視覺化 → 拋圈圈打卡</div></div>
+   <div class="slab verm"><span class="ico">💡</span><div class="t" style="color:#d9755f">中秋猜燈謎</div><div class="b" style="color:var(--gold)">精準攻陷 50+ 長者「好勝」心理</div></div>
+  </div>${foot("01:30–02:00","05/13")}`});
 
 S.push({ //06 interactive riddle
- bg:"#FEF3C7",
  html:`<div style="text-align:center">
-   <div class="pill" style="background:${RED}">🔥 15 秒現場互動</div>
-   <div style="font-size:clamp(34px,9vmin,150px);font-weight:900;color:${INK};line-height:1.2;margin-top:3vmin">
+   <div class="banner">🔥 15 秒現場互動</div>
+   <div style="font-family:'Noto Serif TC';font-weight:900;font-size:clamp(34px,9vmin,150px);color:${INK};line-height:1.2;margin-top:3.4vmin">
      左邊綠，右邊紅；<br>左邊怕蟲，右邊怕水。</div>
-   <div style="font-size:clamp(24px,4.6vmin,66px);color:#64748B;margin-top:2.6vmin">— 猜一個常見字？—</div>
-  </div>${foot("02:00–02:25")}`});
+   <div class="lead" style="color:#4A4138;margin-top:2.6vmin;font-size:clamp(20px,3.6vmin,56px)">— 猜一個常見字？—</div>
+  </div>${foot("02:00–02:25","06/13")}`});
 
 S.push({ //07 answer 秋
- bg:null, cls:"s7",
+ deep:1,
  html:`<div style="text-align:center">
-   <div class="giant" style="color:#ff2d55;text-shadow:0 0 46px rgba(225,29,72,.55)">秋</div>
-   <div style="font-size:clamp(24px,4.6vmin,66px);color:${W};margin-top:1vmin">禾（綠色怕蟲）＋ 火（紅色怕水）</div>
-   <div class="pill" style="margin-top:3vmin;color:#fff">💡 這就是人性！引爆無可抗拒的羊群心理。</div>
-  </div>${foot("02:25–02:45")}`});
+   <div class="giant">秋</div>
+   <div class="sub" style="margin-top:1vmin;color:var(--deepink)">禾（綠色怕蟲）＋ 火（紅色怕水）</div>
+   <div class="banner" style="margin-top:3vmin">💡 這就是人性！引爆無可抗拒的羊群心理。</div>
+  </div>${foot("02:25–02:45","07/13")}`});
 
 S.push({ //08 big number
- bg:"#F1F5F9",
  html:`<div style="text-align:center">
-   <div class="tag" style="color:${RED}">零銷售展覽 · 驚人戰果</div>
+   <div class="eyebrow" style="color:${VERM}">零銷售展覽 · 驚人戰果</div>
    <div class="num">1,500+</div>
-   <div class="sub dark" style="color:${INK}">單日新增全新會員</div>
-   <div class="callout" style="background:${RED};margin-top:3vmin;display:inline-block">🔥 附近兩間萬寧貨架 直接賣斷市！</div>
-  </div>${foot("02:45–03:15")}`});
+   <div class="sub" style="color:${INK};font-weight:700;font-size:clamp(24px,4.4vmin,64px)">單日新增全新會員</div>
+   <div class="banner" style="margin-top:3.4vmin">🔥 附近兩間萬寧貨架 直接賣斷市！</div>
+  </div>${foot("02:45–03:15","08/13")}`});
 
 S.push({ //09 icebreaker2
- bg:"#1E293B",
+ deep:1,
  html:`<div style="text-align:center">
-   <div style="font-size:clamp(34px,8vmin,130px);color:${GOLD};font-weight:900;margin-bottom:2vmin">⚠️</div>
-   <div style="font-size:clamp(34px,9vmin,150px);font-weight:900;color:${W};line-height:1.15">冇相、冇資料，<br>後日點見報？</div>
-   <div class="sub slate" style="margin-top:3vmin">公關極限挑戰：零官方資源拆彈</div>
-  </div>${foot("03:15–03:30")}`});
+   <div style="font-size:clamp(34px,8vmin,130px);margin-bottom:2vmin">⚠️</div>
+   <div class="bigq" style="color:var(--deepink)">冇相、冇資料，<br>後日點見報？</div>
+   <div class="sub" style="margin-top:3vmin;color:var(--deepsoft)">公關極限挑戰：零官方資源拆彈</div>
+  </div>${foot("03:15–03:30","09/13")}`});
 
 S.push({ //10 case2 coffee split
- bg:INK,
- html:`<div class="split">
-   <div>
-     <div class="tag">CASE&nbsp;STUDY&nbsp;02</div>
-     <h2>日本咖啡品牌<br>傳媒極速發佈會</h2>
-     <div class="sub" style="margin-top:2.6vmin;line-height:1.5">
-       <span class="red" style="font-weight:900">❌ 資源極度匱乏</span> 零官方圖片與背景稿件<br>
-       <span class="red" style="font-weight:900">⏰ 時間極度緊迫</span> 倒數 48 小時必須見報<br>
-       <span class="gold" style="font-weight:900">✅ 主動出擊拆彈</span> 跨海自挖日本官網深層情報</div>
-   </div>
-   <div style="background:radial-gradient(circle at 70% 30%,#3f2d1a,#0F172A 75%);border-radius:2vmin;min-height:56vmin;display:flex;align-items:center;justify-content:center">
-     <span style="font-size:clamp(56px,16vmin,220px)">☕</span>
-   </div>
-  </div>${foot("03:30–03:50")}`});
+ deep:1,
+ html:`<div class="cols">
+  <div>
+    <div class="eyebrow">CASE STUDY 02</div>
+    <h2>日本咖啡品牌<br><em>傳媒極速發佈會</em></h2>
+    <div class="sub" style="margin-top:2.4vmin;line-height:1.6;font-weight:500">
+      <span style="color:#d9755f;font-weight:900">❌ 資源極度匱乏</span> 零官方圖片與背景稿件<br>
+      <span style="color:#d9755f;font-weight:900">⏰ 時間極度緊迫</span> 倒數 48 小時必須見報<br>
+      <span style="color:var(--gold);font-weight:900">✅ 主動出擊拆彈</span> 跨海自挖日本官網深層情報
+    </div>
+  </div>
+  <div style="background:radial-gradient(circle at 70% 30%,#3a2b18,#221B15 78%);border:1px solid #4a3c2c;min-height:56vmin;display:flex;align-items:center;justify-content:center">
+    <span style="font-size:clamp(58px,16vmin,230px)">☕</span>
+  </div>
+ </div>${foot("03:30–03:50","10/13")}`});
 
 S.push({ //11 charisma 3 cards
- bg:W,
- html:`<h2 class="dark" style="text-align:center">扭轉劣勢：<span class="red">顏值公關法則</span></h2>
+ html:`<h2 style="text-align:center">扭轉劣勢：<em>顏值公關法則</em></h2>
   <div class="grid3">
-   <div class="card" style="background:var(--grey);border:0"><span class="ico">👁️</span><div class="t dark">發掘隱藏賣點</div><div class="b">鎖定極高顏值的日本咖啡師群體</div></div>
-   <div class="card" style="background:var(--grey);border:0"><span class="ico">🎙️</span><div class="t dark">傳媒專屬話題</div><div class="b">以型男索女為題，秒殺採訪意願</div></div>
-   <div class="card" style="background:var(--grey);border:0"><span class="ico">🤝</span><div class="t dark">親自上陣接待</div><div class="b">拒絕冷冰冰派稿，親自接待引導記者</div></div>
-  </div>${foot("03:50–04:15")}`});
+   <div class="slab"><span class="ico">👁️</span><div class="t">發掘隱藏賣點</div><div class="b">鎖定極高顏值的日本咖啡師群體</div></div>
+   <div class="slab"><span class="ico">🎙️</span><div class="t">傳媒專屬話題</div><div class="b">以型男索女為題，秒殺採訪意願</div></div>
+   <div class="slab"><span class="ico">🤝</span><div class="t">親自上陣接待</div><div class="b">拒絕冷冰冰派稿，親自接待引導記者</div></div>
+  </div>${foot("03:50–04:15","11/13")}`});
 
 S.push({ //12 SOGO trophy
- bg:"#F1F5F9",
  html:`<div style="text-align:center">
    <div style="font-size:clamp(48px,11vmin,160px);margin-bottom:1vmin">🤝</div>
-   <h2 class="dark">贏得終極信任</h2>
-   <div class="sub dark slate" style="color:${SL};margin-top:1vmin">展現超越原廠的產品理解力與執行力</div>
-   <div style="margin-top:3vmin;background:${INK};color:#fff;border-radius:1.6vmin;padding:3vmin;display:inline-block;border:4px solid ${RED};font-size:clamp(22px,3.8vmin,56px);font-weight:900">
-     🏆 全盤贏得客戶緊接之 SOGO 大型公關項目</div>
-  </div>${foot("04:15–04:35")}`});
+   <h2>贏得<em>終極信任</em></h2>
+   <div class="sub" style="color:${SL};margin-top:1vmin">展現超越原廠的產品理解力與執行力</div>
+   <div class="trophy" style="margin-top:3.4vmin">🏆 全盤贏得客戶緊接之 SOGO 大型公關項目</div>
+  </div>${foot("04:15–04:35","12/13")}`});
 
 S.push({ //13 closing
- bg:"#09090B",
+ deep:1,
  html:`<div style="text-align:center">
-   <div style="font-size:clamp(30px,6vmin,90px);color:${RED};font-weight:900;margin-bottom:2vmin">"</div>
-   <div style="font-size:clamp(30px,6.6vmin,100px);line-height:1.22;font-weight:900;font-family:'Noto Sans HK'">
-     新聞稿人人會寫。<br>化危機為商機，全靠臨場應變<br>與<span style="color:${RED}">個人魅力</span>。</div>
-   <div class="sub slate" style="margin-top:3.6vmin">準備好為你的品牌打造下一個爆點了嗎？</div>
-   <div class="pill" style="margin-top:2.4vmin">聯絡 Firebean 團隊 ｜ 主講人 Dickson</div>
-  </div>${foot("04:35–05:00")}`});
+   <div style="font-family:'Noto Serif TC';font-weight:900;font-size:clamp(30px,6vmin,90px);color:#d9755f;line-height:1;margin-bottom:2vmin">“</div>
+   <div style="font-family:'Noto Serif TC';font-weight:900;font-size:clamp(28px,6.4vmin,96px);line-height:1.24;color:var(--deepink)">
+     新聞稿人人會寫。<br>化危機為商機，全靠臨場應變<br>與<em style="color:#d9755f;font-style:normal">個人魅力</em>。</div>
+   <div class="sub" style="margin-top:3.6vmin;color:var(--deepsoft)">準備好為你的品牌打造下一個爆點了嗎？</div>
+   <div class="banner" style="margin-top:2.4vmin">聯絡 Firebean 團隊 ｜ 主講人 Dickson</div>
+  </div>${foot("04:35–05:00","13/13")}`});
 
 // build
 const stage=document.getElementById("stage");
 S.forEach(s=>{
   const d=document.createElement("div");
-  d.className="slide"+(s.cls?" "+s.cls:"");
-  if(s.bg)d.style.background=s.bg;
+  d.className="slide"+(s.deep?" deep":"");
   d.innerHTML=s.html;
   stage.appendChild(d);
 });
-let i=0; const els=[...stage.children]; const c=document.getElementById("count");
+let i=0; const els=[...stage.children];
+const c=document.getElementById("count"), mp=document.getElementById("mastpage");
 function show(n){ i=(n+els.length)%els.length;
   els.forEach((e,k)=>e.classList.toggle("on",k===i));
-  c.textContent=(i+1)+"/"+els.length; }
+  c.textContent=(i+1)+"/"+els.length;
+  mp.textContent=("0"+(i+1)).slice(-2)+"/"+els.length;
+  document.body.classList.toggle("mode-deep",els[i].classList.contains("deep"));
+}
 document.getElementById("next").onclick=()=>show(i+1);
 document.getElementById("prev").onclick=()=>show(i-1);
 document.addEventListener("keydown",e=>{
   if(e.key==="ArrowRight"||e.key===" "||e.key==="PageDown")show(i+1);
   else if(e.key==="ArrowLeft"||e.key==="PageUp")show(i-1);});
-let cy=0,st=document.getElementById("stage");
-st.addEventListener("wheel",e=>{cy+=e.deltaY; if(Math.abs(cy)>60){cy=0;show(i+(e.deltaY>0?1:-1));}});
+let cy=0;
+stage.addEventListener("wheel",e=>{cy+=e.deltaY; if(Math.abs(cy)>60){cy=0;show(i+(e.deltaY>0?1:-1));}});
 show(0);
 
 /* ===== Export engine: PPTX (client-side) ===== */
 const DECK=[
- {bg:INK,   title:"反直覺公關心機 Unintuitive PR Strategy", sub:"破除迷思，化不可能為爆點。", ft:"主講人：Dickson ｜ Firebean"},
- {bg:W,    dark:1, big:"？", q:"展覽一件貨都冇，會有人來嗎？", sub:"快問快答：挑戰傳統促銷迷思"},
- {bg:W,    dark:1, tag:"WHO WE ARE", title:"Firebean 團隊 公關拆彈專家", pts:["🔥 突破傳統營銷框架","⚡ 極速臨場應變","🧠 精準洞察人性心理"]},
- {bg:INK,  tag:"CASE STUDY 01", title:"華人藥業 中秋品牌體驗", pts:["核心策略：大品牌包裝策略","捨棄單一成人奶粉推銷","「中式茶樓策略」觸及萬寧客群","大膽決定：活動現場零銷售，全做體驗！"], gold:"活動現場零銷售，全做體驗！"},
- {bg:INK,  center:1, title:"零銷售：三大心機佈局", pts:["🎳 No 保齡球 → 彎腰活動放大關節痛點","🍄 靈芝培植場 → 虎乳芝功效視覺化打卡","💡 中秋猜燈謎 → 攻陷 50+ 長者好勝心"], gold:"💡 中秋猜燈謎 → 攻陷 50+ 長者好勝心"},
- {bg:"#FEF3C7",dark:1,center:1, tag:"🔥 15 秒現場互動", q:"左邊綠，右邊紅；左邊怕蟲，右邊怕水。", sub:"— 猜一個常見字？—", gold:"左邊怕蟲，右邊怕水。"},
- {bg:INK,  center:1, giant:"秋", q:"禾（綠色怕蟲）＋ 火（紅色怕水）", gold:"💡 這就是人性！引爆無可抗拒的羊群心理。", qred:1},
- {bg:"#F1F5F9",dark:1,center:1, tag:"零銷售展覽 · 驚人戰果", bigNum:"1,500+", q:"單日新增全新會員", gold:"🔥 附近兩間萬寧貨架 直接賣斷市！", goldbanner:1},
- {bg:"#1E293B",center:1, q:"冇相、冇資料，後日點見報？", sub:"公關極限挑戰：零官方資源拆彈", warn:1},
- {bg:INK,  tag:"CASE STUDY 02", title:"日本咖啡品牌 傳媒極速發佈會", pts:["❌ 資源極度匱乏：零官方圖片與背景稿件","⏰ 時間極度緊迫：倒數 48 小時必須見報","✅ 主動出擊拆彈：跨海自挖日本官網情報"], gold:"✅ 主動出擊拆彈：跨海自挖日本官網情報", red:["❌ 資源極度匱乏：零官方圖片與背景稿件","⏰ 時間極度緊迫：倒數 48 小時必須見報"]},
- {bg:W,   dark:1, center:1, title:"扭轉劣勢：顏值公關法則", pts:["👁️ 發掘隱藏賣點 → 鎖定高顏值咖啡師群體","🎙️ 傳媒專屬話題 → 型男索女秒殺採訪意願","🤝 親自上陣接待 → 拒絕冷冰冰派稿"], gt:"🎙️ 傳媒專屬話題 → 型男索女秒殺採訪意願"},
- {bg:"#F1F5F9",dark:1,center:1, title:"贏得終極信任", sub:"展現超越原廠的產品理解力與執行力", gold:"🏆 全盤贏得客戶緊接之 SOGO 大型公關項目", goldbanner:1, tro:1},
- {bg:"#09090B",center:1, title:"新聞稿人人會寫。化危機為商機，全靠臨場應變與個人魅力。", gold:"個人魅力", sub:"準備好為你的品牌打造下一個爆點了嗎？聯絡 Firebean 團隊 ｜ Dickson", quote:1}
+ {bg:"#1B1612", title:"反直覺公關心機 Unintuitive PR Strategy", sub:"破除迷思，化不可能為爆點。", ft:"主講人：Dickson ｜ Firebean"},
+ {bg:"#F6F1E7", dark:1, big:"？", q:"展覽一件貨都冇，會有人來嗎？", sub:"快問快答：挑戰傳統促銷迷思"},
+ {bg:"#F6F1E7", dark:1, tag:"WHO WE ARE", title:"Firebean 團隊 公關拆彈專家", pts:["🔥 突破傳統營銷框架","⚡ 極速臨場應變","🧠 精準洞察人性心理"]},
+ {bg:"#1B1612", tag:"CASE STUDY 01", title:"華人藥業 中秋品牌體驗", pts:["核心策略：大品牌包裝策略","捨棄單一成人奶粉推銷","「中式茶樓策略」觸及萬寧客群","大膽決定：活動現場零銷售，全做體驗！"], gold:"活動現場零銷售，全做體驗！"},
+ {bg:"#1B1612", center:1, title:"零銷售：三大心機佈局", pts:["🎳 No 保齡球 → 彎腰活動放大關節痛點","🍄 靈芝培植場 → 虎乳芝功效視覺化打卡","💡 中秋猜燈謎 → 攻陷 50+ 長者好勝心"], gold:"💡 中秋猜燈謎 → 攻陷 50+ 長者好勝心"},
+ {bg:"#F6F1E7", dark:1, center:1, tag:"🔥 15 秒現場互動", q:"左邊綠，右邊紅；左邊怕蟲，右邊怕水。", sub:"— 猜一個常見字？—", gold:"左邊怕蟲，右邊怕水。"},
+ {bg:"#1B1612", center:1, giant:"秋", q:"禾（綠色怕蟲）＋ 火（紅色怕水）", gold:"💡 這就是人性！引爆無可抗拒的羊群心理。", qred:1},
+ {bg:"#F6F1E7", dark:1, center:1, tag:"零銷售展覽 · 驚人戰果", bigNum:"1,500+", q:"單日新增全新會員", gold:"🔥 附近兩間萬寧貨架 直接賣斷市！", goldbanner:1},
+ {bg:"#221B15", center:1, q:"冇相、冇資料，後日點見報？", sub:"公關極限挑戰：零官方資源拆彈", warn:1},
+ {bg:"#1B1612", tag:"CASE STUDY 02", title:"日本咖啡品牌 傳媒極速發佈會", pts:["❌ 資源極度匱乏：零官方圖片與背景稿件","⏰ 時間極度緊迫：倒數 48 小時必須見報","✅ 主動出擊拆彈：跨海自挖日本官網情報"], gold:"✅ 主動出擊拆彈：跨海自挖日本官網情報", red:["❌ 資源極度匱乏：零官方圖片與背景稿件","⏰ 時間極度緊迫：倒數 48 小時必須見報"]},
+ {bg:"#F6F1E7", dark:1, center:1, title:"扭轉劣勢：顏值公關法則", pts:["👁️ 發掘隱藏賣點 → 鎖定高顏值咖啡師群體","🎙️ 傳媒專屬話題 → 型男索女秒殺採訪意願","🤝 親自上陣接待 → 拒絕冷冰冰派稿"], gt:"🎙️ 傳媒專屬話題 → 型男索女秒殺採訪意願"},
+ {bg:"#F6F1E7", dark:1, center:1, title:"贏得終極信任", sub:"展現超越原廠的產品理解力與執行力", gold:"🏆 全盤贏得客戶緊接之 SOGO 大型公關項目", goldbanner:1, tro:1},
+ {bg:"#221B15", center:1, title:"新聞稿人人會寫。化危機為商機，全靠臨場應變與個人魅力。", gold:"個人魅力", sub:"準備好為你的品牌打造下一個爆點了嗎？聯絡 Firebean 團隊 ｜ Dickson", quote:1}
 ];
 function loadPPT(){return new Promise((ok)=>{if(window.pptxgenjs)return ok();const s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js";s.onload=()=>ok();document.head.appendChild(s);});}
 function hint(t){const h=document.getElementById("hint");h.textContent=t;h.style.display="inline-block";setTimeout(()=>h.style.display="none",3200);}
@@ -259,14 +349,14 @@ async function doPPT(){
  await loadPPT();
  const P=window.pptxgenjs; const prs=new P(); prs.defineLayout({name:"16x9",width:13.333,height:7.5}); prs.layout="16x9"; prs.author="Firebean";
  const em=opts=>Object.assign({fontFace:"Noto Sans HK",fontSize:32,bold:true,color:"FFFFFF",valign:"mid"},opts);
- const W="FFFFFF",wink="0F172A",red="E11D48",gold="F59E0B",ink="0F172A";
+ const W="FFFFFF",wink="1B1612",red="A63A2B",gold="B08D57",ink="1B1612";
  DECK.forEach((d,ix)=>{
-  const sl=prs.addSlide(); sl.background={color:d.bg==="#FEF3C7"?"FEF3C7":(d.bg==="#F1F5F9"?"F1F5F9":(d.bg==="#09090B"?"09090B":(d.bg==="#1E293B"?"1E293B":ink)))};
+  const sl=prs.addSlide(); sl.background={color:d.bg==="#F6F1E7"?"F6F1E7":(d.bg==="#221B15"?"221B15":ink)};
   const bw=13.333,bh=7.5,L=d.dark?W:wink; const add=(t,cfg)=>sl.addText(t,em(cfg));
   if(ix===0){sl.addShape("rect",{x:0,y:0,w:0.16,h:bh,fill:{color:red},line:{type:"none"}});add(d.title,{x:1.2,y:2.0,w:11,h:1.9,fontSize:60,align:"left"});add(d.sub,{x:1.2,y:4.1,w:11,h:0.7,fontSize:28,color:"94A3B8",align:"left"});}
   else if(d.q&&!d.giant&&!d.warn&&d.bg!==W){add(d.tag||"",{x:1.2,y:1.0,w:11,h:0.6,fontSize:24,color:red});add(d.q,{x:1.2,y:1.9,w:11,h:(d.giant?"2.4":"2.2"),fontSize:d.giant?110:(d.bigNum?120:52),align:"left"});if(d.sub)add(d.sub,{x:1.2,y:4.2,w:11,h:0.7,fontSize:30,color:"94A3B8"});}
-  else if(d.q){add(d.tag||"",{x:1.2,y:1.0,w:11,h:0.7,fontSize:24,color:red,align:"left"});if(d.bigNum){add(d.bigNum,{x:1.2,y:1.6,w:11,h:3.2,fontSize:170,color:red,align:"left"});}else{add(d.giant,{x:0,y:1.2,w:bw,h:3.4,fontSize:200,color:"FF2D55",align:"center"});}
-     add(d.q,{x:1.2,y:4.9,w:11,h:0.9,fontSize:34,align:"center"});if(d.gold)add(d.gold,{x:2,y:5.9,w:9.3,h:0.9,fontSize:28,color:d.warn?gold:(d.bigNum?red:red),align:"center"});}
+  else if(d.q){add(d.tag||"",{x:1.2,y:1.0,w:11,h:0.7,fontSize:24,color:red,align:"left"});if(d.bigNum){add(d.bigNum,{x:1.2,y:1.6,w:11,h:3.2,fontSize:170,color:red,align:"left"});}else{add(d.giant,{x:0,y:1.2,w:bw,h:3.4,fontSize:200,color:"A63A2B",align:"center"});}
+    add(d.q,{x:1.2,y:4.9,w:11,h:0.9,fontSize:34,align:"center"});if(d.gold)add(d.gold,{x:2,y:5.9,w:9.3,h:0.9,fontSize:28,color:d.warn?gold:(d.bigNum?red:red),align:"center"});}
   else if(d.title){add(d.tag||"",{x:1.2,y:1.0,w:11,h:0.6,fontSize:24,color:red});add(d.title,{x:1.2,y:(d.center?1.7:1.8),w:11,h:1.6,fontSize:(d.center&&d.bg===ink?44:52),align:d.center?"center":"left"});(d.pts||[]).forEach((p,i)=>{const gold=d.gold&&p===d.gold;add(p,{x:d.center?2.0:1.2,y:3.6+i*0.95,w:9.3,h:0.8,fontSize:26,color:gold?gold:(d.dark?wink:wink),align:d.center?"center":"left"});});}
   add("Firebean ｜ 反直覺公關心機",{x:0.8,y:7.0,w:6,h:0.4,fontSize:14,color:"94A3B8",align:"left"});
  });
