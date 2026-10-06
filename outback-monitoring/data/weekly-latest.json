@@ -1,14 +1,6 @@
 {
-  "week": "2026-09-17 ~ 2026-10-03",
+  "week": "2026-09-18 ~ 2026-10-03",
   "items": [
-    {
-      "date": "2026-09-17",
-      "source": "Threads (@hxhx_ickc)",
-      "title": "投訴：大埔超級城分店店長涉向員工借貸及拖欠款項",
-      "summary": "Threads貼文致函Outback香港總公司管理層及HR，投訴大埔超級城分店店長張永X先生多次向現職/前員工私下借貸，借款後拖延拒還，並指其稱無錢還款但頻繁炫耀吃喝玩樂旅遊。貼文82.3K瀏覽、655讚。作者指嚴重違反職業道德（濫用職權利益衝突、損害商譽）。",
-      "link": "https://www.threads.com/share/_wFjz9E70/",
-      "sentiment": "negative"
-    },
     {
       "date": "2026-09-18",
       "source": "Threads (@baseting2)",
@@ -82,6 +74,22 @@
       "sentiment": "positive"
     },
     {
+      "date": "2026-10-01",
+      "source": "Facebook (Outback Steakhouse Hong Kong Official)／Instagram (@outbacksteakhousehk)",
+      "title": "十月限定｜Wine on Side Steak Pairing 葡萄酒配牛扒（1-31/10 全線分店）",
+      "summary": "Outback官方社交媒體（Facebook專頁及Instagram）發布十月限定推廣：Wine on Side Steak Pairing，由10月1日至31日於全線香港分店推出，精選200天穀飼美國頂級紐約牛扒(12oz)及肉眼牛扒(12oz)，每客牛扒均配餐酒與配菜，藉葡萄酒配搭帶出牛扒不同層次。屬品牌官方Owned Media新活動，十月主打的推廣組合。",
+      "link": "https://www.instagram.com/p/DeBC0WPj9A2",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-10-02",
+      "source": "Outback官網 (Outback Steakhouse Hong Kong)",
+      "title": "官方網站「INSIDE OUTBACK 滋味，由此而生」品牌企劃文章（行政總廚Chef Efrem 研發故事＋USDA Prime牛扒配餐酒/香草燒蝦至10/31）",
+      "summary": "Outback官方網站推出全新品牌企劃「INSIDE OUTBACK — 滋味，由此而生」文章（article/240）：帶食客走進餐桌背後，講述研發副總裁暨行政總廚 Chef Efrem Cutler（逾40年餐飲經驗）如何由一個味道、一個想法開始，經食材揀選、味道配搭、烹調測試及多次試味調整，最終成就熟悉嘅Outback菜式。文章並載十月限定推廣：即日起至10月31日，惠顧指定200日穀飼 USDA Prime 美國頂級牛扒（美國頂級紐約牛扒或美國頂級肉眼牛扒）即可免費揀選精選白酒/紅酒一杯 或 香草燒蝦八隻，並以Outback App預約訂座。屬品牌官方 Owned Media 之新品牌企劃，聚焦行政總廚之研發敘事。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/240?lang=tc",
+      "sentiment": "positive"
+    },
+    {
       "date": "2026-10-03",
       "source": "Instagram (@outbacksteakhousehk 官方)",
       "title": "【10月生日嘅你注意！】Outback $88電子優惠券及外賣到會8折（官方）",
@@ -112,7 +120,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 13,
+    "new_records": 14,
     "limitations": []
   }
 }

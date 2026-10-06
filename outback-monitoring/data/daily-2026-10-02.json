@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-02",
+  "items": [
+    {
+      "date": "2026-10-02",
+      "source": "Outback官網 (Outback Steakhouse Hong Kong)",
+      "platform": "官方網站",
+      "author": "Outback Steakhouse Hong Kong (官方) 官方網站",
+      "title": "官方網站「INSIDE OUTBACK 滋味，由此而生」品牌企劃文章（行政總廚Chef Efrem 研發故事＋USDA Prime牛扒配餐酒/香草燒蝦至10/31）",
+      "summary": "Outback官方網站推出全新品牌企劃「INSIDE OUTBACK — 滋味，由此而生」文章（article/240）：帶食客走進餐桌背後，講述研發副總裁暨行政總廚 Chef Efrem Cutler（逾40年餐飲經驗）如何由一個味道、一個想法開始，經食材揀選、味道配搭、烹調測試及多次試味調整，最終成就熟悉嘅Outback菜式。文章並載十月限定推廣：即日起至10月31日，惠顧指定200日穀飼 USDA Prime 美國頂級牛扒（美國頂級紐約牛扒或美國頂級肉眼牛扒）即可免費揀選精選白酒/紅酒一杯 或 香草燒蝦八隻，並以Outback App預約訂座。屬品牌官方 Owned Media 之新品牌企劃，聚焦行政總廚之研發敘事。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/240?lang=tc",
+      "sentiment": "positive",
+      "tags": ""
+    }
+  ],
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 1,
+    "new_records": 1,
+    "limitations": []
+  }
+}

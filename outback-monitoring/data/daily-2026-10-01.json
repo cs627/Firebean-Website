@@ -33,6 +33,17 @@
       "link": "https://www.instagram.com/p/Dd3xZzKhSFL",
       "sentiment": "positive",
       "tags": ""
+    },
+    {
+      "date": "2026-10-01",
+      "source": "Facebook (Outback Steakhouse Hong Kong Official)／Instagram (@outbacksteakhousehk)",
+      "platform": "社交媒體 (Facebook/IG)",
+      "author": "Outback Steakhouse Hong Kong (官方)",
+      "title": "十月限定｜Wine on Side Steak Pairing 葡萄酒配牛扒（1-31/10 全線分店）",
+      "summary": "Outback官方社交媒體（Facebook專頁及Instagram）發布十月限定推廣：Wine on Side Steak Pairing，由10月1日至31日於全線香港分店推出，精選200天穀飼美國頂級紐約牛扒(12oz)及肉眼牛扒(12oz)，每客牛扒均配餐酒與配菜，藉葡萄酒配搭帶出牛扒不同層次。屬品牌官方Owned Media新活動，十月主打的推廣組合。",
+      "link": "https://www.instagram.com/p/DeBC0WPj9A2",
+      "sentiment": "positive",
+      "tags": ""
     }
   ],
   "alerts": [],
@@ -40,8 +51,8 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 3,
-    "new_records": 3,
+    "checked_sources": 4,
+    "new_records": 4,
     "limitations": []
   }
 }

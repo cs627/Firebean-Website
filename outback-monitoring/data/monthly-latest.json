@@ -1448,6 +1448,22 @@
       "summary": "Threads用戶@wingchelsea發文稱Outback黑糖麥包最美味之處在於其自家製牛油，詢問可否單買醬料，並探討醬料是否含cream cheese。帖文約17.8K次瀏覽、65個回覆、11個轉發，屬中高觸達的正面UGC品牌互動（第三方程式觀點，未代表品牌立場）。",
       "link": "https://www.threads.com/@wingchelsea/post/DPxNbFeElES",
       "sentiment": "positive"
+    },
+    {
+      "date": "2026-10-01",
+      "source": "Facebook (Outback Steakhouse Hong Kong Official)／Instagram (@outbacksteakhousehk)",
+      "title": "十月限定｜Wine on Side Steak Pairing 葡萄酒配牛扒（1-31/10 全線分店）",
+      "summary": "Outback官方社交媒體（Facebook專頁及Instagram）發布十月限定推廣：Wine on Side Steak Pairing，由10月1日至31日於全線香港分店推出，精選200天穀飼美國頂級紐約牛扒(12oz)及肉眼牛扒(12oz)，每客牛扒均配餐酒與配菜，藉葡萄酒配搭帶出牛扒不同層次。屬品牌官方Owned Media新活動，十月主打的推廣組合。",
+      "link": "https://www.instagram.com/p/DeBC0WPj9A2",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-10-02",
+      "source": "Outback官網 (Outback Steakhouse Hong Kong)",
+      "title": "官方網站「INSIDE OUTBACK 滋味，由此而生」品牌企劃文章（行政總廚Chef Efrem 研發故事＋USDA Prime牛扒配餐酒/香草燒蝦至10/31）",
+      "summary": "Outback官方網站推出全新品牌企劃「INSIDE OUTBACK — 滋味，由此而生」文章（article/240）：帶食客走進餐桌背後，講述研發副總裁暨行政總廚 Chef Efrem Cutler（逾40年餐飲經驗）如何由一個味道、一個想法開始，經食材揀選、味道配搭、烹調測試及多次試味調整，最終成就熟悉嘅Outback菜式。文章並載十月限定推廣：即日起至10月31日，惠顧指定200日穀飼 USDA Prime 美國頂級牛扒（美國頂級紐約牛扒或美國頂級肉眼牛扒）即可免費揀選精選白酒/紅酒一杯 或 香草燒蝦八隻，並以Outback App預約訂座。屬品牌官方 Owned Media 之新品牌企劃，聚焦行政總廚之研發敘事。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/240?lang=tc",
+      "sentiment": "positive"
     }
   ],
   "alerts": [],
@@ -1456,7 +1472,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 181,
+    "new_records": 183,
     "limitations": []
   }
 }

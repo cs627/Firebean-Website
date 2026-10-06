@@ -1,12 +1,12 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-10-03T01:07:12.332462+00:00",
+  "generatedAt": "2026-10-06T01:04:53.503059+00:00",
   "run": {
-    "runDate": "2026-10-03",
+    "runDate": "2026-10-06",
     "dateRange": {
       "from": "2026-03-06",
-      "to": "2026-10-03"
+      "to": "2026-10-06"
     },
     "alerts": [
       {
@@ -27,8 +27,8 @@
     ]
   },
   "counts": {
-    "total": 181,
-    "media": 103,
+    "total": 183,
+    "media": 105,
     "social": 78,
     "maps": 0,
     "stores": 10
@@ -2024,6 +2024,28 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, 黑糖麥包, 牛油, Threads, UGC"
+    },
+    {
+      "date": "2026-10-01",
+      "source": "Facebook (Outback Steakhouse Hong Kong Official)／Instagram (@outbacksteakhousehk)",
+      "platform": "社交媒體 (Facebook/IG)",
+      "title": "十月限定｜Wine on Side Steak Pairing 葡萄酒配牛扒（1-31/10 全線分店）",
+      "summary": "Outback官方社交媒體（Facebook專頁及Instagram）發布十月限定推廣：Wine on Side Steak Pairing，由10月1日至31日於全線香港分店推出，精選200天穀飼美國頂級紐約牛扒(12oz)及肉眼牛扒(12oz)，每客牛扒均配餐酒與配菜，藉葡萄酒配搭帶出牛扒不同層次。屬品牌官方Owned Media新活動，十月主打的推廣組合。",
+      "link": "https://www.instagram.com/p/DeBC0WPj9A2",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Wine on Side, 葡萄酒配牛扒, 紐約牛扒, 肉眼牛扒, 10月, Food Pairing"
+    },
+    {
+      "date": "2026-10-02",
+      "source": "Outback官網 (Outback Steakhouse Hong Kong)",
+      "platform": "官方網站",
+      "title": "官方網站「INSIDE OUTBACK 滋味，由此而生」品牌企劃文章（行政總廚Chef Efrem 研發故事＋USDA Prime牛扒配餐酒/香草燒蝦至10/31）",
+      "summary": "Outback官方網站推出全新品牌企劃「INSIDE OUTBACK — 滋味，由此而生」文章（article/240）：帶食客走進餐桌背後，講述研發副總裁暨行政總廚 Chef Efrem Cutler（逾40年餐飲經驗）如何由一個味道、一個想法開始，經食材揀選、味道配搭、烹調測試及多次試味調整，最終成就熟悉嘅Outback菜式。文章並載十月限定推廣：即日起至10月31日，惠顧指定200日穀飼 USDA Prime 美國頂級牛扒（美國頂級紐約牛扒或美國頂級肉眼牛扒）即可免費揀選精選白酒/紅酒一杯 或 香草燒蝦八隻，並以Outback App預約訂座。屬品牌官方 Owned Media 之新品牌企劃，聚焦行政總廚之研發敘事。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/240?lang=tc",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, INSIDE OUTBACK, USDA Prime, 紐約牛扒, 肉眼牛扒, Chef Efrem, 牛扒配餐酒, 酒配牛扒"
     }
   ],
   "stores": [
@@ -2705,7 +2727,11 @@
     },
     {
       "date": "2026-10-01",
-      "count": 3
+      "count": 4
+    },
+    {
+      "date": "2026-10-02",
+      "count": 1
     },
     {
       "date": "2026-10-03",
