@@ -1,20 +1,16 @@
 {
   "meta": {
-    "last_updated": "2026-10-06",
-    "total_records": 183,
-    "daily_avg": 3.6,
-    "date_range": "2026-03-06 → 2026-10-03",
+    "last_updated": "2026-10-08",
+    "total_records": 184,
+    "daily_avg": 3.5,
+    "date_range": "2026-03-06 → 2026-10-05",
     "sources_checked": 42,
-    "new_verified": 8,
+    "new_verified": 5,
     "coverage_ratio": "42/46",
     "negative_alerts": 24,
     "positive_pct": 52
   },
   "trend": [
-    {
-      "date": "2026-09-18",
-      "count": 3
-    },
     {
       "date": "2026-09-20",
       "count": 1
@@ -38,12 +34,16 @@
     {
       "date": "2026-10-03",
       "count": 3
+    },
+    {
+      "date": "2026-10-05",
+      "count": 1
     }
   ],
   "source_breakdown": [
     {
       "source": "Threads",
-      "count": 31
+      "count": 32
     },
     {
       "source": "Instagram",
@@ -104,7 +104,7 @@
   ],
   "sentiment": {
     "positive": 96,
-    "neutral": 60,
+    "neutral": 61,
     "negative": 24,
     "mixed": 3
   },
@@ -2121,6 +2121,17 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, INSIDE OUTBACK, USDA Prime, 紐約牛扒, 肉眼牛扒, Chef Efrem, 牛扒配餐酒, 酒配牛扒"
+    },
+    {
+      "date": "2026-10-05",
+      "source": "Threads (@nightradio530)",
+      "platform": "社交平台",
+      "title": "Threads帖：想問食開牛扒嘅各位，這種熟度好吃嗎😋（9.3K次瀏覽）",
+      "summary": "網民@nightradio530於10月5日深夜發帖，附上牛扒熟度相並問「想問食開牛扒嘅各位，這種熟度好吃嗎😋」，帶「香港美食」標籤，帖文達9.3K次瀏覽；屬中性餐飲討論帖，反映大眾對牛扒（粉紅半熟度）的興趣與討論。（品牌歸因：帖文語境為連鎖扒房Outback用餐相）",
+      "link": "https://www.threads.com/@nightradio530/post/DeJJF9mlH2U",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, 牛扒, 熟度, 香港美食"
     }
   ],
   "media_records": [
@@ -4138,6 +4149,17 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, 東薈城, 東涌, 食評, 黑糖麵包, 炸洋蔥花, 牛扒"
+    },
+    {
+      "date": "2026-10-05",
+      "source": "Threads (@nightradio530)",
+      "platform": "社交平台",
+      "title": "Threads帖：想問食開牛扒嘅各位，這種熟度好吃嗎😋（9.3K次瀏覽）",
+      "summary": "網民@nightradio530於10月5日深夜發帖，附上牛扒熟度相並問「想問食開牛扒嘅各位，這種熟度好吃嗎😋」，帶「香港美食」標籤，帖文達9.3K次瀏覽；屬中性餐飲討論帖，反映大眾對牛扒（粉紅半熟度）的興趣與討論。（品牌歸因：帖文語境為連鎖扒房Outback用餐相）",
+      "link": "https://www.threads.com/@nightradio530/post/DeJJF9mlH2U",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, 牛扒, 熟度, 香港美食"
     }
   ],
   "store_ranking": [

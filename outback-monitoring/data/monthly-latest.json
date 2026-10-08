@@ -1464,6 +1464,14 @@
       "summary": "Outback官方網站推出全新品牌企劃「INSIDE OUTBACK — 滋味，由此而生」文章（article/240）：帶食客走進餐桌背後，講述研發副總裁暨行政總廚 Chef Efrem Cutler（逾40年餐飲經驗）如何由一個味道、一個想法開始，經食材揀選、味道配搭、烹調測試及多次試味調整，最終成就熟悉嘅Outback菜式。文章並載十月限定推廣：即日起至10月31日，惠顧指定200日穀飼 USDA Prime 美國頂級牛扒（美國頂級紐約牛扒或美國頂級肉眼牛扒）即可免費揀選精選白酒/紅酒一杯 或 香草燒蝦八隻，並以Outback App預約訂座。屬品牌官方 Owned Media 之新品牌企劃，聚焦行政總廚之研發敘事。",
       "link": "https://www.outback.com.hk/news-and-promotions/article/240?lang=tc",
       "sentiment": "positive"
+    },
+    {
+      "date": "2026-10-05",
+      "source": "Threads (@nightradio530)",
+      "title": "Threads帖：想問食開牛扒嘅各位，這種熟度好吃嗎😋（9.3K次瀏覽）",
+      "summary": "網民@nightradio530於10月5日深夜發帖，附上牛扒熟度相並問「想問食開牛扒嘅各位，這種熟度好吃嗎😋」，帶「香港美食」標籤，帖文達9.3K次瀏覽；屬中性餐飲討論帖，反映大眾對牛扒（粉紅半熟度）的興趣與討論。（品牌歸因：帖文語境為連鎖扒房Outback用餐相）",
+      "link": "https://www.threads.com/@nightradio530/post/DeJJF9mlH2U",
+      "sentiment": "neutral"
     }
   ],
   "alerts": [],
@@ -1472,7 +1480,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 183,
+    "new_records": 184,
     "limitations": []
   }
 }
