@@ -1,9 +1,9 @@
 {
   "meta": {
     "last_updated": "2026-10-08",
-    "total_records": 184,
+    "total_records": 185,
     "daily_avg": 3.5,
-    "date_range": "2026-03-06 → 2026-10-05",
+    "date_range": "2026-03-06 → 2026-10-08",
     "sources_checked": 42,
     "new_verified": 5,
     "coverage_ratio": "42/46",
@@ -11,10 +11,6 @@
     "positive_pct": 52
   },
   "trend": [
-    {
-      "date": "2026-09-20",
-      "count": 1
-    },
     {
       "date": "2026-09-21",
       "count": 1
@@ -38,12 +34,16 @@
     {
       "date": "2026-10-05",
       "count": 1
+    },
+    {
+      "date": "2026-10-08",
+      "count": 1
     }
   ],
   "source_breakdown": [
     {
       "source": "Threads",
-      "count": 32
+      "count": 33
     },
     {
       "source": "Instagram",
@@ -103,7 +103,7 @@
     }
   ],
   "sentiment": {
-    "positive": 96,
+    "positive": 97,
     "neutral": 61,
     "negative": 24,
     "mixed": 3
@@ -2132,6 +2132,17 @@
       "sentiment": "neutral",
       "sentiment_label": "中性",
       "keywords": "Outback, 牛扒, 熟度, 香港美食"
+    },
+    {
+      "date": "2026-10-08",
+      "source": "Threads (@jimlee_jimlee)",
+      "platform": "社交媒體 (Threads)",
+      "title": "Threads高觸達帖：一個人食Outback，食完黑糖麵包已飽8成（266K次瀏覽）",
+      "summary": "Threads用戶@jimlee_jimlee發帖：一個人食Outback，食完免費任添嘅招牌黑糖麵包已經飽咗8成，之後嗰啲牛扒、薯條、雞味飯同沙律點食？帖文高觸達達26.6萬次瀏覽、4.6K讚好、218個回覆；網民回覆踴躍（如@simon_lcy_回覆「我之前太餓食咗8個黑糖包」），反映招牌黑糖麵包免任添之品牌記認及性價比認知，屬正面品牌口碑/情懷帖。來源為Threads公開頁面核實。Threads未展示精確發帖日期，以收集日2026-10-08記，未能獨立核實實際發帖日期。",
+      "link": "https://www.threads.com/@jimlee_jimlee/post/DWP0RvyE6kL/",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 黑糖麵包, 黑糖包, 性價比"
     }
   ],
   "media_records": [
@@ -3289,6 +3300,17 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, INSIDE OUTBACK, USDA Prime, 紐約牛扒, 肉眼牛扒, Chef Efrem, 牛扒配餐酒, 酒配牛扒"
+    },
+    {
+      "date": "2026-10-08",
+      "source": "Threads (@jimlee_jimlee)",
+      "platform": "社交媒體 (Threads)",
+      "title": "Threads高觸達帖：一個人食Outback，食完黑糖麵包已飽8成（266K次瀏覽）",
+      "summary": "Threads用戶@jimlee_jimlee發帖：一個人食Outback，食完免費任添嘅招牌黑糖麵包已經飽咗8成，之後嗰啲牛扒、薯條、雞味飯同沙律點食？帖文高觸達達26.6萬次瀏覽、4.6K讚好、218個回覆；網民回覆踴躍（如@simon_lcy_回覆「我之前太餓食咗8個黑糖包」），反映招牌黑糖麵包免任添之品牌記認及性價比認知，屬正面品牌口碑/情懷帖。來源為Threads公開頁面核實。Threads未展示精確發帖日期，以收集日2026-10-08記，未能獨立核實實際發帖日期。",
+      "link": "https://www.threads.com/@jimlee_jimlee/post/DWP0RvyE6kL/",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 黑糖麵包, 黑糖包, 性價比"
     }
   ],
   "social_records": [

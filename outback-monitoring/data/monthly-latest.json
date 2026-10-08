@@ -1472,6 +1472,14 @@
       "summary": "網民@nightradio530於10月5日深夜發帖，附上牛扒熟度相並問「想問食開牛扒嘅各位，這種熟度好吃嗎😋」，帶「香港美食」標籤，帖文達9.3K次瀏覽；屬中性餐飲討論帖，反映大眾對牛扒（粉紅半熟度）的興趣與討論。（品牌歸因：帖文語境為連鎖扒房Outback用餐相）",
       "link": "https://www.threads.com/@nightradio530/post/DeJJF9mlH2U",
       "sentiment": "neutral"
+    },
+    {
+      "date": "2026-10-08",
+      "source": "Threads (@jimlee_jimlee)",
+      "title": "Threads高觸達帖：一個人食Outback，食完黑糖麵包已飽8成（266K次瀏覽）",
+      "summary": "Threads用戶@jimlee_jimlee發帖：一個人食Outback，食完免費任添嘅招牌黑糖麵包已經飽咗8成，之後嗰啲牛扒、薯條、雞味飯同沙律點食？帖文高觸達達26.6萬次瀏覽、4.6K讚好、218個回覆；網民回覆踴躍（如@simon_lcy_回覆「我之前太餓食咗8個黑糖包」），反映招牌黑糖麵包免任添之品牌記認及性價比認知，屬正面品牌口碑/情懷帖。來源為Threads公開頁面核實。Threads未展示精確發帖日期，以收集日2026-10-08記，未能獨立核實實際發帖日期。",
+      "link": "https://www.threads.com/@jimlee_jimlee/post/DWP0RvyE6kL/",
+      "sentiment": "positive"
     }
   ],
   "alerts": [],
@@ -1480,7 +1488,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 184,
+    "new_records": 185,
     "limitations": []
   }
 }
