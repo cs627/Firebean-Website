@@ -1480,6 +1480,14 @@
       "summary": "Threads用戶@jimlee_jimlee發帖：一個人食Outback，食完免費任添嘅招牌黑糖麵包已經飽咗8成，之後嗰啲牛扒、薯條、雞味飯同沙律點食？帖文高觸達達26.6萬次瀏覽、4.6K讚好、218個回覆；網民回覆踴躍（如@simon_lcy_回覆「我之前太餓食咗8個黑糖包」），反映招牌黑糖麵包免任添之品牌記認及性價比認知，屬正面品牌口碑/情懷帖。來源為Threads公開頁面核實。Threads未展示精確發帖日期，以收集日2026-10-08記，未能獨立核實實際發帖日期。",
       "link": "https://www.threads.com/@jimlee_jimlee/post/DWP0RvyE6kL/",
       "sentiment": "positive"
+    },
+    {
+      "date": "2026-09-21",
+      "source": "Instagram (@profite_magazine 網絡熱話)",
+      "title": "IG Reel：網絡熱話｜牛扒生到似刺身！Outback慢燒牛扒變『牛扒他他』（媒體二次轉載）",
+      "summary": "IG帳號@profite_magazine（香港飲食生活媒體）以網絡熱話Reel形式二次轉載Outback銅鑼灣店「五成熟美式慢燒安格斯肉眼牛扒近乎全生」事件：轉述網民原帖投訴上枱如生牛肉刺身、要求重做後變九成乾柴，並收錄網民搞笑留言（「塊牛上枱嗰陣仲係『MOO MOO聲』」）及認真評論（有人指豬扒都煮唔熟、有人分析或屬肉質問題）。帖文24個like，屬該負面事件嘅IG媒體二次傳播。（網民指控歸因原帖作者，未經獨立核實；原事件之網民原帖/橙新聞報導/餓底TV轉載已在庫）",
+      "link": "https://www.instagram.com/reel/DZCYakOIuii",
+      "sentiment": "negative"
     }
   ],
   "alerts": [],
@@ -1488,7 +1496,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 185,
+    "new_records": 186,
     "limitations": []
   }
 }
