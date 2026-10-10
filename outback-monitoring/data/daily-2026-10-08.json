@@ -11,6 +11,17 @@
       "link": "https://www.threads.com/@jimlee_jimlee/post/DWP0RvyE6kL/",
       "sentiment": "positive",
       "tags": ""
+    },
+    {
+      "date": "2026-10-08",
+      "source": "Jetso Today（香港著數媒體）",
+      "platform": "新聞/媒體",
+      "author": "",
+      "title": "【Outback十月限定】頂級牛扒盛宴！送精選紅白酒或香草燒蝦（Jetso Today報道）",
+      "summary": "香港著數媒體Jetso Today報道Outback Steakhouse十月限定「Wine on Side Steak Pairing」推廣（即日起至10月31日、全線分店）：惠顧200天穀飼美國頂級紐約牛扒或肉眼牛扒（12oz），每客附是日餐湯或迷你沙律、一客尊尚特色配菜，並送精選紅/白酒一杯或香草燒蝦八隻。內容沿用官方INSIDE OUTBACK品牌企劃及官方公布之優惠詳情，屬十月推廣之媒體轉載報道。（資料來源：Jetso Today／Outback Steakhouse）",
+      "link": "https://www.jetsotoday.com/outback-steak-pairing-20261031",
+      "sentiment": "positive",
+      "tags": ""
     }
   ],
   "alerts": [],
@@ -18,8 +29,8 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 1,
-    "new_records": 1,
+    "checked_sources": 2,
+    "new_records": 2,
     "limitations": []
   }
 }

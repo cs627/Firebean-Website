@@ -1,20 +1,16 @@
 {
   "meta": {
-    "last_updated": "2026-10-10",
-    "total_records": 186,
+    "last_updated": "2026-10-11",
+    "total_records": 188,
     "daily_avg": 3.5,
     "date_range": "2026-03-06 → 2026-10-08",
-    "sources_checked": 42,
-    "new_verified": 5,
-    "coverage_ratio": "42/46",
+    "sources_checked": 43,
+    "new_verified": 4,
+    "coverage_ratio": "43/46",
     "negative_alerts": 25,
-    "positive_pct": 52
+    "positive_pct": 53
   },
   "trend": [
-    {
-      "date": "2026-09-21",
-      "count": 2
-    },
     {
       "date": "2026-09-23",
       "count": 1
@@ -36,8 +32,12 @@
       "count": 1
     },
     {
-      "date": "2026-10-08",
+      "date": "2026-10-07",
       "count": 1
+    },
+    {
+      "date": "2026-10-08",
+      "count": 2
     }
   ],
   "source_breakdown": [
@@ -90,20 +90,20 @@
       "count": 2
     },
     {
+      "source": "Jetso Today（香港著數媒體）",
+      "count": 2
+    },
+    {
       "source": "Outback Hong Kong Official Website",
       "count": 1
     },
     {
       "source": "TOPick",
       "count": 1
-    },
-    {
-      "source": "am730",
-      "count": 1
     }
   ],
   "sentiment": {
-    "positive": 97,
+    "positive": 99,
     "neutral": 61,
     "negative": 25,
     "mixed": 3
@@ -2154,6 +2154,28 @@
       "sentiment": "negative",
       "sentiment_label": "負面",
       "keywords": "Outback, 銅鑼灣, 美式慢燒安格斯肉眼牛扒, 五成熟, 生肉, 網絡熱話"
+    },
+    {
+      "date": "2026-10-08",
+      "source": "Jetso Today（香港著數媒體）",
+      "platform": "新聞/媒體",
+      "title": "【Outback十月限定】頂級牛扒盛宴！送精選紅白酒或香草燒蝦（Jetso Today報道）",
+      "summary": "香港著數媒體Jetso Today報道Outback Steakhouse十月限定「Wine on Side Steak Pairing」推廣（即日起至10月31日、全線分店）：惠顧200天穀飼美國頂級紐約牛扒或肉眼牛扒（12oz），每客附是日餐湯或迷你沙律、一客尊尚特色配菜，並送精選紅/白酒一杯或香草燒蝦八隻。內容沿用官方INSIDE OUTBACK品牌企劃及官方公布之優惠詳情，屬十月推廣之媒體轉載報道。（資料來源：Jetso Today／Outback Steakhouse）",
+      "link": "https://www.jetsotoday.com/outback-steak-pairing-20261031",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 十月限定, Wine on Side Steak Pairing, 200天穀飼美國頂級牛扒, 香草燒蝦, 送紅白酒"
+    },
+    {
+      "date": "2026-10-07",
+      "source": "Jetso Today（香港著數媒體）",
+      "platform": "新聞/媒體",
+      "title": "【Outback有獎遊戲】構思新菜式贏$10,000禮卡！最有創意送$200（Jetso Today報道）",
+      "summary": "香港著數媒體Jetso Today報道Outback「INSIDE OUTBACK｜新品研發部要人」有獎遊戲：參加者需讚好及追蹤官方專頁、讚好及公開分享帖文，並構思創意新菜式（50字以上）標註兩位朋友；活動日期10月2日至10月11日晚上11時59分（香港時間），最有創意50位參加者各贏$200 Klook電子禮品卡，獎品總值$10,000，得獎名單將於10月23日或之前公布。（資料來源：Jetso Today／Outback Steakhouse）",
+      "link": "https://www.jetsotoday.com/outback-steakhouse-giveaway-20261011",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, INSIDE OUTBACK, 有獎遊戲, 構思新菜式, $10,000禮卡, Giveaway"
     }
   ],
   "media_records": [
@@ -3322,6 +3344,28 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, 黑糖麵包, 黑糖包, 性價比"
+    },
+    {
+      "date": "2026-10-08",
+      "source": "Jetso Today（香港著數媒體）",
+      "platform": "新聞/媒體",
+      "title": "【Outback十月限定】頂級牛扒盛宴！送精選紅白酒或香草燒蝦（Jetso Today報道）",
+      "summary": "香港著數媒體Jetso Today報道Outback Steakhouse十月限定「Wine on Side Steak Pairing」推廣（即日起至10月31日、全線分店）：惠顧200天穀飼美國頂級紐約牛扒或肉眼牛扒（12oz），每客附是日餐湯或迷你沙律、一客尊尚特色配菜，並送精選紅/白酒一杯或香草燒蝦八隻。內容沿用官方INSIDE OUTBACK品牌企劃及官方公布之優惠詳情，屬十月推廣之媒體轉載報道。（資料來源：Jetso Today／Outback Steakhouse）",
+      "link": "https://www.jetsotoday.com/outback-steak-pairing-20261031",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 十月限定, Wine on Side Steak Pairing, 200天穀飼美國頂級牛扒, 香草燒蝦, 送紅白酒"
+    },
+    {
+      "date": "2026-10-07",
+      "source": "Jetso Today（香港著數媒體）",
+      "platform": "新聞/媒體",
+      "title": "【Outback有獎遊戲】構思新菜式贏$10,000禮卡！最有創意送$200（Jetso Today報道）",
+      "summary": "香港著數媒體Jetso Today報道Outback「INSIDE OUTBACK｜新品研發部要人」有獎遊戲：參加者需讚好及追蹤官方專頁、讚好及公開分享帖文，並構思創意新菜式（50字以上）標註兩位朋友；活動日期10月2日至10月11日晚上11時59分（香港時間），最有創意50位參加者各贏$200 Klook電子禮品卡，獎品總值$10,000，得獎名單將於10月23日或之前公布。（資料來源：Jetso Today／Outback Steakhouse）",
+      "link": "https://www.jetsotoday.com/outback-steakhouse-giveaway-20261011",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, INSIDE OUTBACK, 有獎遊戲, 構思新菜式, $10,000禮卡, Giveaway"
     }
   ],
   "social_records": [
