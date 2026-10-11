@@ -37,11 +37,11 @@
     <priority>0.8</priority>
   </url>
 
-                                                                        <!-- EDM newsletter issues — auto-generated from Google Sheets -->
-  <!-- Last updated: 2026-10-04 -->
+                                                                          <!-- EDM newsletter issues — auto-generated from Google Sheets -->
+  <!-- Last updated: 2026-10-11 -->
   <url>
     <loc>https://firebean.net/edm/</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -126,6 +126,13 @@
   <url> <!-- Amplifying Local Voices: Micro-Influencers Reshaping Hong Kong's Civic Conversat -->
     <loc>https://firebean.net/edm/edm_EDM_012.html</loc>
     <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url> <!-- Cyber Gap: Digital Event Platforms Are Government's Softest Target -->
+    <loc>https://firebean.net/edm/edm_EDM_013.html</loc>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
