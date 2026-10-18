@@ -37,11 +37,11 @@
     <priority>0.8</priority>
   </url>
 
-                                                                                          <!-- EDM newsletter issues — auto-generated from Google Sheets -->
-  <!-- Last updated: 2026-10-11 -->
+                                                                                            <!-- EDM newsletter issues — auto-generated from Google Sheets -->
+  <!-- Last updated: 2026-10-18 -->
   <url>
     <loc>https://firebean.net/edm/</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -133,6 +133,13 @@
   <url> <!-- Cyber Gap: Digital Event Platforms Are Government's Softest Target -->
     <loc>https://firebean.net/edm/edm_EDM_013.html</loc>
     <lastmod>2026-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url> <!-- Mascot Magic: How Visual Identity Transforms Government Public Engagement -->
+    <loc>https://firebean.net/edm/edm_EDM_014.html</loc>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
