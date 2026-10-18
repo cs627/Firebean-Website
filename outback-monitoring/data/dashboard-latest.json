@@ -1,7 +1,7 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-10-18T14:06:18.166445+00:00",
+  "generatedAt": "2026-10-18T17:04:28.134524+00:00",
   "run": {
     "runDate": "2026-10-18",
     "dateRange": {
@@ -2668,6 +2668,54 @@
       "link": "https://www.facebook.com/TAIKOOPLACEHK/videos/flat-iron-steak",
       "branchCount": "7間",
       "expansion": "擴張中"
+    },
+    {
+      "date": "2026-10-01",
+      "competitor": "Ruby Tuesday",
+      "type": "新菜/菜單",
+      "title": "【Ruby Tuesday 10月精選】10月新品 $59 韓式辣醬雞翼（Gochujang Wings）全線分店供應",
+      "summary": "Ruby Tuesday 香港官方網站「2026 10月精選」公布10月新品：HK$59 韓式辣醬雞翼（Gochujang Wings），酥脆雞翼裹韓式辣醬，配碎椰菜及香脆紫菜；推廣期2026年10月1至31日，全線分店有售，須惠顧任何主菜，另收加一服務費。競品以每月$59小食新品維持價格吸引力。（資料來源：Ruby Tuesday 香港官網）",
+      "sentiment": "中性",
+      "source": "Ruby Tuesday 香港官網",
+      "link": "https://rubytuesday.com.hk/ch/2026-10%E6%9C%88%E7%B2%BE%E9%81%B8",
+      "branchCount": "全線分店",
+      "expansion": "穩定"
+    },
+    {
+      "date": "2026-10-19",
+      "competitor": "Ruby Tuesday",
+      "type": "推廣/優惠",
+      "title": "Ruby Tuesday So-connected 限時迎新優惠：免費酥炸雞粒＋主餐牌牛扒5折電子券（優惠期至11月30日）",
+      "summary": "Ruby Tuesday 香港官方 Instagram／Facebook 公布 So-connected 會員迎新優惠：即日起成功登記成為新會員，即送免費酥炸雞粒一份及主餐牌牛扒5折電子優惠券；會員另享主餐牌9折、優先睇限定菜式情報。優惠期至2026年11月30日，全線分店可即場查詢及登記。以會籍＋高折扣券鎖定新客，屬直接搶客攻勢。（資料來源：Ruby Tuesday 香港官方 Instagram／Facebook）",
+      "sentiment": "中性",
+      "source": "Instagram / Facebook 官方專頁",
+      "link": "https://www.instagram.com/reel/DeeFwpvKRVd",
+      "branchCount": "全線分店",
+      "expansion": "穩定"
+    },
+    {
+      "date": "2026-10-19",
+      "competitor": "Ruby Tuesday",
+      "type": "推廣/優惠",
+      "title": "Ruby Tuesday 預告新一輪推廣：2026年10月20日至11月30日（菜式詳情未公布）",
+      "summary": "Ruby Tuesday 香港官方 Facebook 專頁最新帖文公布新一輪推廣，推廣期為2026年10月20日至11月30日，文案為「鮮甜與濃郁嘅完美結合 最適合分享，細味每一刻」，條款註明只限堂食、須收加一服務費、不適用於額外折扣。菜式及價格詳情於發現時未公布，屬未經核實之官方預告。（資料來源：Ruby Tuesday 香港 Facebook 官方專頁）",
+      "sentiment": "中性",
+      "source": "Facebook 官方專頁",
+      "link": "https://www.facebook.com/rubytuesdayhongkong",
+      "branchCount": "全線分店",
+      "expansion": "穩定"
+    },
+    {
+      "date": "2026-10-16",
+      "competitor": "Dan Ryan's",
+      "type": "活動",
+      "title": "Dan Ryan's 萬聖節主題布置登場：海港城分店驚嚇稻草人＋南瓜軍團（另預告10月31日主題彩繪日）",
+      "summary": "Dan Ryan's Chicago Grill 官方 Instagram（2026-10-16）公布各分店陸續換上萬聖節鬼馬布置，海港城分店設驚嚇稻草人與南瓜裝飾供打卡，附訂座連結（inline.app/booking/dan_ryans）；官方 Facebook 專頁另公布10月31日「萬聖節主題彩繪日（面／手）」：太古城中心店3:30pm–5:30pm、銅鑼灣翡翠明珠廣場店同步（彩繪日詳情據官方FB專頁帖文）。租戶級節慶活動，爭奪家庭客群。（資料來源：Dan Ryan's 官方 Instagram／Facebook）",
+      "sentiment": "中性",
+      "source": "Instagram / Facebook 官方專頁",
+      "link": "https://www.instagram.com/reel/DelbOFHBJBm",
+      "branchCount": "4間",
+      "expansion": "穩定"
     }
   ],
   "trend": [
