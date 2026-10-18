@@ -1,20 +1,16 @@
 {
   "meta": {
-    "last_updated": "2026-10-11",
-    "total_records": 188,
-    "daily_avg": 3.5,
-    "date_range": "2026-03-06 → 2026-10-08",
-    "sources_checked": 43,
+    "last_updated": "2026-10-18 22:00:08",
+    "total_records": 189,
+    "daily_avg": 3.4,
+    "date_range": "2026-03-06 → 2026-10-18",
+    "sources_checked": 44,
     "new_verified": 4,
-    "coverage_ratio": "43/46",
+    "coverage_ratio": "44/46",
     "negative_alerts": 25,
     "positive_pct": 53
   },
   "trend": [
-    {
-      "date": "2026-09-23",
-      "count": 1
-    },
     {
       "date": "2026-10-01",
       "count": 4
@@ -38,6 +34,10 @@
     {
       "date": "2026-10-08",
       "count": 2
+    },
+    {
+      "date": "2026-10-18",
+      "count": 1
     }
   ],
   "source_breakdown": [
@@ -103,7 +103,7 @@
     }
   ],
   "sentiment": {
-    "positive": 99,
+    "positive": 100,
     "neutral": 61,
     "negative": 25,
     "mixed": 3
@@ -2176,6 +2176,17 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, INSIDE OUTBACK, 有獎遊戲, 構思新菜式, $10,000禮卡, Giveaway"
+    },
+    {
+      "date": "2026-10-18",
+      "source": "recruit",
+      "platform": "新聞媒體",
+      "title": "Bloomin",
+      "summary": "國際名廚是如何煉成的？除了鍥而不捨的努力，原來還靠一個單純的信念：「就是想用美食令人快樂！」早前Ou...",
+      "link": "https://www.recruit.com.hk/Resources/ArticleDetail.aspx?articleId=45822",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": ""
     }
   ],
   "media_records": [
@@ -3366,6 +3377,17 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, INSIDE OUTBACK, 有獎遊戲, 構思新菜式, $10,000禮卡, Giveaway"
+    },
+    {
+      "date": "2026-10-18",
+      "source": "recruit",
+      "platform": "新聞媒體",
+      "title": "Bloomin",
+      "summary": "國際名廚是如何煉成的？除了鍥而不捨的努力，原來還靠一個單純的信念：「就是想用美食令人快樂！」早前Ou...",
+      "link": "https://www.recruit.com.hk/Resources/ArticleDetail.aspx?articleId=45822",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": ""
     }
   ],
   "social_records": [

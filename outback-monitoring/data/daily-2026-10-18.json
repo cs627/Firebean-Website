@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-18",
+  "items": [
+    {
+      "date": "2026-10-18",
+      "source": "recruit",
+      "platform": "新聞媒體",
+      "author": "",
+      "title": "Bloomin",
+      "summary": "國際名廚是如何煉成的？除了鍥而不捨的努力，原來還靠一個單純的信念：「就是想用美食令人快樂！」早前Ou...",
+      "link": "https://www.recruit.com.hk/Resources/ArticleDetail.aspx?articleId=45822",
+      "sentiment": "positive",
+      "tags": ""
+    }
+  ],
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 1,
+    "new_records": 1,
+    "limitations": []
+  }
+}
