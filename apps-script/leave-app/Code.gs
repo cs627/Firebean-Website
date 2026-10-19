@@ -117,6 +117,18 @@ function _imageIds_() {
 }
 
 /**
+ * 由各種 Google 連結抽出檔案 ID；唔係 Google 連結就回 ''
+ * 支援：/file/d/<ID>/view、/d/<ID>、?id=<ID>、lh3.googleusercontent.com/d/<ID>
+ */
+function _driveIdFromUrl(u) {
+  const s = String(u || '');
+  if (!/(googleusercontent\.com|drive\.google\.com|docs\.google\.com)/i.test(s)) return '';
+  const m = s.match(/\/(?:file\/)?d\/([A-Za-z0-9_-]{10,})/)
+         || s.match(/[?&]id=([A-Za-z0-9_-]{10,})/);
+  return m ? m[1] : '';
+}
+
+/**
  * Staff!E 可能係 "Staff_Images/Francesai.gif" 或純檔名
  * → 回傳可直接 <img src> 嘅網址
  * preferStill = true 時優先用同名 .jpeg/.jpg（名單用小圖，避免載入幾 MB 嘅 GIF）
@@ -124,7 +136,13 @@ function _imageIds_() {
 function _avatarUrl(cell, preferStill) {
   const raw = String(cell || '').trim();
   if (!raw) return '';
-  if (/^https?:\/\//i.test(raw)) return raw;          // 已經係網址就照用
+  if (/^https?:\/\//i.test(raw)) {
+    // Google 相關連結 → 抽出檔案 ID，改寫成可以直接 <img src> 嘅網址
+    // （Drive 檢視頁 /file/d/ID/view 係 text/html，<img> 攞唔到圖，會靜靜死圖）
+    const id = _driveIdFromUrl(raw);
+    if (id) return 'https://lh3.googleusercontent.com/d/' + id;
+    return raw;                                       // 其他網址照用
+  }
   const name = raw.split('/').pop();
   if (!name) return '';
   const map = _imageIds_();
