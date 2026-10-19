@@ -1,7 +1,7 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-10-19T17:04:23.477479+00:00",
+  "generatedAt": "2026-10-19T17:05:04.963407+00:00",
   "run": {
     "runDate": "2026-10-19",
     "dateRange": {
@@ -2535,6 +2535,30 @@
       "link": "https://www.stheadline.com/food/3608484/",
       "branchCount": "3",
       "expansion": "擴張中（旺角新店已開）"
+    },
+    {
+      "date": "2026-09-03",
+      "competitor": "Dan Ryan's Chicago Grill",
+      "type": "推廣/優惠",
+      "title": "全線分店「周年慶・晚市指定菜式75折」",
+      "summary": "Dan Ryan's於2026年9月1日至29日期間，全線分店逢星期一至四下午5時後推出「周年慶・晚市指定菜式75折限定優惠」。現全港3間分店（銅鑼灣翡翠明珠廣場、太古城、尖沙咀海港城）。",
+      "sentiment": "正面",
+      "source": "Facebook 官方專頁（Dan Ryan's Hong Kong）",
+      "link": "https://www.facebook.com/danryanshongkong",
+      "branchCount": "3",
+      "expansion": "穩定（維持3間分店）"
+    },
+    {
+      "date": "2026-09-03",
+      "competitor": "Ruby Tuesday",
+      "type": "推廣/分店",
+      "title": "MegaBox新店重磅升級 + 季節限定5折/Brunch $268",
+      "summary": "Ruby Tuesday官網推廣頁顯示「MegaBox新店重磅升級」帶來全新體驗美饌，另推出季節限定5折狂熱、Brunch $268起、全新早餐餐牌及RT Premier會員半價等。社交媒體推廣持續活躍。",
+      "sentiment": "中性",
+      "source": "Ruby Tuesday 香港官網",
+      "link": "https://rubytuesday.com.hk/ch/promotions",
+      "branchCount": "9",
+      "expansion": "MegaBox分店遷至17樓重開（無淨新增分店）"
     },
     {
       "date": "2026-09-04",
