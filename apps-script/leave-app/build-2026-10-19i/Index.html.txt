@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<base target="_top">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Firebean — Leave</title>
+<link rel="icon" type="image/png" href="https://firebean.net/leaveapp/favicon.png">
+<link rel="apple-touch-icon" href="https://firebean.net/leaveapp/favicon.png">
+<meta name="theme-color" content="#ff3333">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Firebean brand tokens (taken from firebean.net) */
+    --bg-primary:#f4f4f4;
+    --bg-secondary:#ffffff;
+    --bg-card:#e5e7eb;
+    --text-primary:#0a0a0a;
+    --text-secondary:#4b5563;
+    --text-tertiary:#9ca3af;
+    --border-subtle:rgba(0,0,0,.05);
+    --nav-bg:rgba(244,244,244,.85);
+    --brand:#ff3333;
+    --ok:#12864a;
+    --warn:#b26205;
+    --r:16px;
+    --safe-b:env(safe-area-inset-bottom,0px);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    background:var(--bg-primary); color:var(--text-primary);
+    font-size:15px; line-height:1.55; font-weight:400;
+    padding-bottom:calc(78px + var(--safe-b));
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:540px;margin:0 auto;padding:0 18px}
+
+  header{
+    background:var(--bg-secondary);
+    border-bottom:1px solid var(--border-subtle);
+    padding:16px 0 26px;
+    padding-top:calc(16px + env(safe-area-inset-top,0px));
+  }
+  .hrow{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+  .mark{font-family:'Anton',sans-serif;font-size:19px;letter-spacing:.06em;line-height:1;text-transform:uppercase}
+  .mark i{color:var(--brand);font-style:normal}
+  .mark small{
+    display:block;font-family:'Oswald',sans-serif;font-weight:400;font-size:10px;
+    letter-spacing:.34em;color:var(--text-tertiary);margin-top:6px;
+  }
+  .who{text-align:right;font-size:12.5px;line-height:1.45}
+  .who b{display:block;font-weight:600;font-size:13.5px}
+  .who span{color:var(--text-tertiary);font-family:'Oswald',sans-serif;font-size:10px;
+    letter-spacing:.2em;text-transform:uppercase}
+  .whoin{display:flex;align-items:center;gap:10px}
+  .whoTxt{text-align:right}
+  .avw{position:relative;display:inline-block;border-radius:50%;overflow:hidden;
+    background:var(--text-primary);flex:0 0 auto;vertical-align:middle}
+  .avw img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;
+    border:0;display:block}
+  .avw i{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    color:#fff;font-style:normal;font-family:'Oswald',sans-serif;font-weight:500;
+    letter-spacing:.04em;text-transform:uppercase}
+
+  .hero{margin-top:24px}
+  .hero .label{
+    font-family:'Oswald',sans-serif;font-size:10.5px;font-weight:500;
+    letter-spacing:.3em;text-transform:uppercase;color:var(--text-tertiary);
+  }
+  .hero .big{
+    font-family:'Anton',sans-serif;font-size:68px;line-height:.92;letter-spacing:-.01em;
+    margin-top:6px;display:flex;align-items:baseline;gap:9px;
+  }
+  .hero .big em{
+    font-family:'Oswald',sans-serif;font-style:normal;font-weight:400;
+    font-size:14px;letter-spacing:.24em;text-transform:uppercase;color:var(--text-secondary);
+  }
+  .hero .big.neg{color:var(--brand)}
+
+  .chips{display:flex;gap:7px;margin-top:18px;flex-wrap:wrap}
+  .chip{
+    font-family:'Oswald',sans-serif;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+    border:1px solid var(--bg-card);border-radius:999px;padding:6px 11px;color:var(--text-secondary);
+    white-space:nowrap;
+  }
+  .chip b{color:var(--text-primary);font-weight:500;letter-spacing:.04em}
+
+  .card{
+    background:var(--bg-secondary);border-radius:var(--r);padding:18px;
+    margin-top:12px;border:1px solid var(--border-subtle);
+  }
+  .card h3{
+    margin:0 0 14px;font-family:'Oswald',sans-serif;font-size:11px;font-weight:500;
+    letter-spacing:.26em;text-transform:uppercase;color:var(--text-tertiary);
+  }
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .kpi{background:var(--bg-primary);border-radius:11px;padding:12px 13px}
+  .kpi .k{
+    font-family:'Oswald',sans-serif;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--text-tertiary);line-height:1.4;
+  }
+  .kpi .v{font-family:'Anton',sans-serif;font-size:26px;line-height:1.1;margin-top:5px}
+  .kpi .v.neg{color:var(--brand)}
+  .kpi .v.pos{color:var(--ok)}
+  .kpi.hl{background:#fff4f4;border:1px solid rgba(255,51,51,.18)}
+  .kpi.hl .v{color:var(--brand)}
+
+  .legend{font-size:11.5px;color:var(--text-tertiary);line-height:1.75;margin-top:14px;
+    padding-top:14px;border-top:1px solid var(--border-subtle)}
+  .legend b{color:var(--text-secondary);font-weight:600}
+
+  /* ── 計算公式 ── */
+  .calc{margin-top:16px;padding-top:15px;border-top:1px solid var(--border-subtle)}
+  .calc .ch{
+    font-family:'Oswald',sans-serif;font-size:9.5px;font-weight:500;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--text-tertiary);margin-bottom:8px}
+  .calcRow{display:flex;align-items:baseline;gap:10px;padding:9px 0;
+    border-bottom:1px dashed var(--border-subtle);flex-wrap:wrap}
+  .calcRow:last-child{border-bottom:0;padding-bottom:0}
+  .calcRow .cl{flex:1 1 auto;min-width:0;font-size:12.5px;color:var(--text-secondary);font-weight:600}
+  .calcRow .cm{flex:1 1 100%;order:3;font-family:'Oswald',sans-serif;font-size:12.5px;
+    letter-spacing:.03em;color:var(--text-tertiary);text-align:right;line-height:1.5;
+    padding-top:1px}
+  .calcRow .cr{flex:0 0 auto;min-width:76px;text-align:right;
+    font-family:'Anton',sans-serif;font-size:17px;color:var(--text-primary);white-space:nowrap}
+  .calcRow .cr small{font-family:'Oswald',sans-serif;font-size:9.5px;font-weight:400;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--text-tertiary);margin-left:3px}
+  .kpi .v small{font-family:'Oswald',sans-serif;font-size:10px;font-weight:400;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--text-tertiary);margin-left:3px}
+
+  /* ── hero 副題 ── */
+  .heroNote{margin-top:13px;font-family:'Oswald',sans-serif;font-size:10.5px;
+    font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--text-tertiary)}
+
+  /* ── 同事列（可點入）── */
+  .pRow{cursor:pointer;border-radius:14px;padding:14px 12px;margin:0 -12px;
+    transition:background .15s;-webkit-tap-highlight-color:transparent}
+  .pRow:active{background:var(--bg-primary)}
+  .pRow .pname{font-weight:600;font-size:17px;line-height:1.15}
+  .pRow .prole{font-family:'Oswald',sans-serif;font-size:9.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--text-tertiary);margin-top:4px}
+  .pRow .pbal{font-family:'Anton',sans-serif;font-size:26px;line-height:1;letter-spacing:-.01em}
+  .pRow .pbal small{font-family:'Oswald',sans-serif;font-size:9.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--text-tertiary);margin-left:4px}
+  .pRow .chev{color:var(--text-tertiary);font-size:20px;line-height:1}
+
+  /* ── 同事詳細頁 ── */
+  .backRow{margin:0 0 16px}
+  .back{background:none;border:0;padding:0;cursor:pointer;
+    font-family:'Oswald',sans-serif;font-size:10.5px;font-weight:500;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--brand)}
+  .memHead{display:flex;align-items:center;gap:16px}
+  .memName{font-family:'Anton',sans-serif;font-size:27px;line-height:1;text-transform:uppercase}
+  .memRole{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:.13em;
+    text-transform:uppercase;color:var(--text-tertiary);margin-top:7px;word-break:break-all}
+
+  label{
+    display:block;font-family:'Oswald',sans-serif;font-size:9.5px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--text-tertiary);margin:16px 0 7px;font-weight:500;
+  }
+  label:first-child{margin-top:0}
+  input,select,textarea{
+    width:100%;border:1px solid var(--bg-card);border-radius:11px;padding:13px;
+    font-size:16px;font-family:'Inter',sans-serif;background:var(--bg-primary);
+    color:var(--text-primary);appearance:none;
+  }
+  select{
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8'><path d='M1 1l5 5 5-5' stroke='%234b5563' stroke-width='1.6' fill='none' stroke-linecap='round'/></svg>");
+    background-repeat:no-repeat;background-position:right 14px center;padding-right:38px;
+  }
+  textarea{resize:vertical;min-height:70px}
+  input:focus,select:focus,textarea:focus{
+    outline:none;border-color:var(--text-primary);background:var(--bg-secondary);
+  }
+  input:disabled{opacity:.5}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+  .btn{
+    width:100%;border:0;border-radius:999px;padding:16px;font-family:'Oswald',sans-serif;
+    font-size:12px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;
+    background:var(--text-primary);color:#fff;margin-top:20px;cursor:pointer;
+    transition:opacity .15s, transform .1s;
+  }
+  .btn:active{transform:scale(.985);opacity:.88}
+  .btn:disabled{background:var(--text-tertiary);cursor:default;opacity:1}
+  .btn.ghost{background:transparent;color:var(--text-primary);border:1px solid var(--bg-card)}
+  .btn.sm{padding:12px;font-size:10.5px;letter-spacing:.16em;margin-top:0;border-radius:999px}
+  .btn.ok{background:var(--ok)}
+  .btn.bad{background:var(--brand)}
+
+  .item{border-top:1px solid var(--border-subtle);padding:14px 0}
+  .item:first-of-type{border-top:0;padding-top:0}
+  .item .top{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+  .item .t{font-weight:600;font-size:14.5px}
+  .item .d{font-size:12.5px;color:var(--text-secondary);margin-top:4px}
+  .item .d.mono{font-family:'Oswald',sans-serif;letter-spacing:.04em;font-size:12.5px}
+  .item .c{
+    font-size:12.5px;margin-top:8px;padding:9px 11px;background:var(--bg-primary);
+    border-radius:9px;color:var(--text-secondary);border-left:2px solid var(--bg-card);
+  }
+  .tag{
+    font-family:'Oswald',sans-serif;font-size:9.5px;font-weight:500;letter-spacing:.16em;
+    text-transform:uppercase;padding:4px 10px;border-radius:999px;white-space:nowrap;
+  }
+  .tag.Pending{background:#fff4e6;color:var(--warn)}
+  .tag.Approved{background:#e8f6ee;color:var(--ok)}
+  .tag.Rejected{background:#fff0f0;color:var(--brand)}
+  .empty{text-align:center;color:var(--text-tertiary);font-size:13px;padding:28px 0}
+
+  nav{
+    position:fixed;left:0;right:0;bottom:0;z-index:20;
+    background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+    border-top:1px solid var(--border-subtle);display:flex;
+    padding-bottom:var(--safe-b);
+  }
+  nav button{
+    flex:1;border:0;background:none;padding:10px 4px 9px;cursor:pointer;
+    font-family:'Oswald',sans-serif;font-size:9px;font-weight:500;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--text-tertiary);
+    display:flex;flex-direction:column;align-items:center;gap:5px;
+  }
+  nav button.on{color:var(--text-primary)}
+  nav button.on .ic:after{content:"";display:block;height:2px;background:var(--brand);
+    border-radius:2px;margin-top:5px;width:16px}
+  nav .ic{font-size:17px;line-height:1}
+
+  .view{display:none}
+  .view.on{display:block}
+
+  .center{padding:52px 26px;text-align:center}
+  /* 主視覺（Take LEAVE 霓虹）*/
+  .splash{
+    width:min(76vw,300px);height:auto;display:block;margin:0 auto 28px;
+    -webkit-user-select:none;user-select:none;-webkit-user-drag:none;
+    pointer-events:none;
+  }
+  .splash.sm{width:min(54vw,190px);margin-bottom:24px}
+  /* 頂部品牌標誌 */
+  .markRow{display:flex;align-items:center;gap:11px}
+  .brandLogo{
+    width:40px;height:40px;object-fit:contain;display:block;flex:0 0 auto;
+    -webkit-user-drag:none;
+  }
+  .spinner{
+    width:24px;height:24px;border:2px solid var(--bg-card);border-top-color:var(--brand);
+    border-radius:50%;margin:0 auto 16px;animation:sp .75s linear infinite;
+  }
+  @keyframes sp{to{transform:rotate(360deg)}}
+  .toast{
+    position:fixed;left:50%;transform:translateX(-50%);bottom:calc(96px + var(--safe-b));
+    background:var(--text-primary);color:#fff;padding:12px 20px;border-radius:999px;
+    font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.1em;
+    max-width:86%;text-align:center;opacity:0;transition:opacity .25s;z-index:50;
+    pointer-events:none;line-height:1.5;
+  }
+  .toast.show{opacity:1}
+  .toast.err{background:var(--brand)}
+  .divider{height:1px;background:var(--border-subtle);margin:16px 0}
+  .foot{
+    text-align:center;font-family:'Oswald',sans-serif;font-size:9px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--text-tertiary);padding:22px 0 6px;
+  }
+</style>
+</head>
+<body>
+
+<div id="root">
+  <div class="center">
+    <img class="splash" src="https://firebean.net/leaveapp/visual.webp"
+         alt="Firebean Leave" onerror="this.style.display='none'">
+    <div class="spinner"></div>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+/* ---------------- utils ---------------- */
+var $ = function(id){ return document.getElementById(id); };
+/* 品牌素材（放喺 firebean.net/leaveapp/，由 GitHub Pages 提供）*/
+var ASSET = 'https://firebean.net/leaveapp/';
+var VISUAL = ASSET + 'visual.webp';
+var LOGO   = ASSET + 'logo.webp';
+function splashHtml(cls){
+  return '<img class="splash' + (cls ? ' ' + cls : '') + '" src="' + VISUAL +
+    '" alt="" onerror="this.style.display=\'none\'">';
+}
+var S = { sess:null, data:null, mgr:null, tab:'v-bal' };
+
+function toast(msg, isErr){
+  var t = $('toast');
+  t.textContent = msg;
+  t.className = 'toast show' + (isErr ? ' err' : '');
+  clearTimeout(t._h);
+  t._h = setTimeout(function(){ t.className = 'toast'; }, 4200);
+}
+function esc(s){
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });
+}
+function avatarHtml(url, name, size){
+  var ini = String(name || '?').trim().charAt(0).toUpperCase() || '?';
+  var st = 'width:' + size + 'px;height:' + size + 'px;font-size:' + Math.round(size * 0.42) + 'px';
+  return '<span class="avw" style="' + st + '">' +
+    (url ? '<img src="' + esc(url) + '" alt="" onerror="this.remove()">' : '') +
+    '<i>' + esc(ini) + '</i></span>';
+}
+function num(n){
+  if (n === null || n === undefined || n === '') return '\u2013';
+  var v = Math.round(Number(n) * 100) / 100;
+  return (v % 1 === 0) ? String(v) : v.toFixed(2).replace(/0$/,'');
+}
+function fmtDate(d){
+  if (!d) return '\u2013';
+  var p = String(d).split('-');
+  if (p.length === 3){
+    var mo = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][(+p[1]) - 1];
+    return (+p[2]) + ' ' + mo;
+  }
+  return d;
+}
+function cnType(t){
+  return t === 'Compensation Leave' ? 'Comp Leave' : t;
+}
+function cnStatus(s){ return s || 'Pending'; }
+
+/* ---------------- identity ---------------- */
+function boot(){
+  google.script.run.withSuccessHandler(function(r){
+    if (!r || !r.ok){ showDenied(r && r.email); return; }
+    S.sess = r;
+    loadDashboard();
+  }).withFailureHandler(function(e){
+    showError(e && e.message ? e.message : 'Could not load');
+  }).getSession();
+}
+
+function showDenied(email){
+  $('root').innerHTML =
+    '<div class="center">' +
+      splashHtml('sm') +
+      '<div style="font-family:\'Anton\',sans-serif;font-size:15px;letter-spacing:.2em;text-transform:uppercase;' +
+        'color:#ff3333;margin-bottom:14px">Access Restricted</div>' +
+      '<div style="font-weight:600;font-size:17px;margin-bottom:10px">Not on the staff list</div>' +
+      '<div style="color:#4b5563;font-size:13.5px;line-height:1.75">' +
+        (email ? 'Signed in as <b>' + esc(email) + '</b><br>' : '') +
+        'This app is for Firebean team members only.<br>Ask Dickson to add you to the Staff tab.' +
+      '</div>' +
+    '</div>';
+}
+
+function showError(msg){
+  $('root').innerHTML =
+    '<div class="center">' +
+      splashHtml('sm') +
+      '<div style="font-family:\'Anton\',sans-serif;font-size:15px;letter-spacing:.2em;text-transform:uppercase;' +
+        'color:#ff3333;margin-bottom:14px">Something went wrong</div>' +
+      '<div style="color:#4b5563;font-size:13px">' + esc(msg) + '</div>' +
+      '<button class="btn ghost" style="margin-top:24px;max-width:220px" onclick="location.reload()">Try again</button>' +
+    '</div>';
+}
+
+/* ---------------- dashboard ---------------- */
+function loadDashboard(){
+  google.script.run.withSuccessHandler(function(d){
+    if (!d || !d.ok){ showDenied(d && d.email); return; }
+    S.data = d;
+    render();
+  }).withFailureHandler(function(e){
+    showError(e && e.message ? e.message : 'Could not load');
+  }).getDashboard();
+}
+
+/* ── 共用元件：餘額卡（含公式）────────────────────────────── */
+function calcRow(label, expr, result, unit){
+  return '<div class="calcRow"><span class="cl">' + esc(label) + '</span>' +
+    '<span class="cm">' + esc(expr) + '</span>' +
+    '<span class="cr">' + num(result) + (unit ? '<small>' + esc(unit) + '</small>' : '') + '</span></div>';
+}
+function fmtMonth(iso){
+  if (!iso) return '';
+  var d = new Date(String(iso).slice(0,10) + 'T00:00:00');
+  if (isNaN(d.getTime())) return String(iso);
+  var M = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return M[d.getMonth()] + ' ' + d.getFullYear();
+}
+function calcBlockHtml(b, segs){
+  // 累積算式：逐段列出（年度中調整 entitlement 時會有多過一段）
+  var expr;
+  if (segs && segs.length) {
+    expr = segs.map(function(x){
+      if (x.upfront) return num(x.ent) + ' days (full year)';
+      return '(' + num(x.ent) + ' days \u00d7 ' + x.months + ' months) \u00f7 12 months';
+    }).join('   +   ');
+  } else {
+    expr = '\u2013';
+  }
+  var used = num(b.used), pend = num(b.pending);
+  var raw = (b.accruedRaw === undefined || b.accruedRaw === null) ? b.accrued : b.accruedRaw;
+  var toLbl = fmtMonth(b.accruedTo);
+  var rows = calcRow('Accrued' + (toLbl ? ' (to ' + toLbl + ')' : ''), expr, raw, 'days');
+  // 有零碎日數先顯示對齊步驟，免得無謂多一行
+  if (Number(raw) !== Number(b.accrued)) {
+    rows += '<div class="calcRow"><span class="cl">Rounded up to next half day</span>' +
+      '<span class="cm">' + num(raw) + ' days \u2192</span>' +
+      '<span class="cr">' + num(b.accrued) + '<small>days</small></span></div>';
+  }
+  return '<div class="calc">' +
+    '<div class="ch">How this is calculated</div>' +
+    rows +
+    calcRow('Annual leave left',
+      'Accrued ' + num(b.accrued) + ' days \u2212 Used ' + used + ' days \u2212 Pending ' + pend + ' days',
+      b.available, 'days') +
+  '</div>';
+}
+function balanceCardHtml(b, segs){
+  return '<div class="card">' +
+    '<h3>Leave Balance</h3>' +
+    '<div class="grid2">' +
+      '<div class="kpi hl"><div class="k">Annual Leave Left</div><div class="v">' + num(b.available) + '<small>days</small></div></div>' +
+      '<div class="kpi"><div class="k">Accrued' + (fmtMonth(b.accruedTo) ? ' to ' + fmtMonth(b.accruedTo) : '') + '</div><div class="v">' + num(b.accrued) + '<small>days</small></div></div>' +
+    '</div>' +
+    '<div class="divider"></div>' +
+    '<div class="grid2">' +
+      '<div class="kpi"><div class="k">Used</div><div class="v">' + num(b.used) + '<small>days</small></div></div>' +
+      '<div class="kpi"><div class="k">Pending</div><div class="v">' + num(b.pending) + '<small>days</small></div></div>' +
+    '</div>' +
+    calcBlockHtml(b, segs) +
+    '<div class="legend">' +
+      '<b>Accrued</b> \u2014 complete months from 1 Jan, each at that leave year\u2019s entitlement \u00f7 12, rounded UP to the next half day.<br>' +
+      '<b>Annual Leave Left</b> \u2014 Accrued \u2212 Used \u2212 Pending. The only figure you need to book leave.<br>' +
+      '<b>Entitlement</b> \u2014 ' + num(b.entitlement) + ' days per leave year (1 Jul \u2013 30 Jun).' +
+    '</div>' +
+  '</div>';
+}
+function accrualCardHtml(segs){
+  if (!segs || !segs.length) return '';
+  var h = '<div class="card"><h3>Accrual Breakdown</h3>';
+  segs.forEach(function(x){
+    h += '<div class="item"><div class="top">' +
+      '<div class="t">' + num(x.ent) + ' days entitlement</div>' +
+      '<div class="d mono">' + x.months + ' month' + (x.months === 1 ? '' : 's') +
+        ' \u00d7 ' + num(x.ent) + ' days \u00f7 12 = ' + num(x.days) + ' days</div>' +
+    '</div><div class="d">Effective ' + esc(x.from) + '</div></div>';
+  });
+  return h + '</div>';
+}
+function historyCardHtml(reqs, title, limit){
+  var h = '<div class="card"><h3>' + esc(title) + '</h3>';
+  if (!reqs || !reqs.length) h += '<div class="empty">No requests yet</div>';
+  else (limit ? reqs.slice(0, limit) : reqs).forEach(function(r){ h += reqHtml(r, false); });
+  return h + '</div>';
+}
+
+function render(){
+  var d = S.data, b = d.balance, s = d.session;
+  var avail = Number(b.available);
+  var neg = avail < 0;
+
+  var html = '';
+
+  html += '<header><div class="wrap">' +
+    '<div class="hrow">' +
+      '<div class="markRow">' +
+        '<img class="brandLogo" src="' + LOGO + '" alt="" onerror="this.style.display=\'none\'">' +
+        '<div class="mark">FIREBEAN<small>Leave</small></div>' +
+      '</div>' +
+      '<div class="who"><div class="whoin"><div class="whoTxt"><b>' + esc(s.name) + '</b><span>' +
+        (s.isManager ? 'Manager' : 'Team') + '</span></div>' +
+        avatarHtml(s.avatar, s.name, 54) + '</div></div>' +
+    '</div>' +
+    '<div class="hero">' +
+      '<div class="label">Annual Leave Left</div>' +
+      '<div class="big' + (neg ? ' neg' : '') + '">' + num(avail) + '<em>Days</em></div>' +
+      '<div class="heroNote">Annual Leave \u00b7 as of ' + esc(s.today) + '</div>' +
+    '</div>' +
+  '</div></header>';
+
+  html += '<div class="wrap">';
+
+  /* ===== My Leave ===== */
+  html += '<div id="v-bal" class="view on">';
+  html += balanceCardHtml(b, d.accrualBreakdown);
+  html += accrualCardHtml(d.accrualBreakdown);
+  html += historyCardHtml(d.requests, 'My History', 8);
+
+  if (Number(b.otherUsed) > 0) {
+    html += '<div class="card"><div class="d">Sick / compensation leave taken this year: <b>' +
+      num(b.otherUsed) + ' days</b> (does not affect annual leave).</div></div>';
+  }
+
+  html += '<div class="foot">Firebean \u00b7 Leave</div>';
+  html += '</div>';
+
+  /* ===== Apply ===== */
+  html += '<div id="v-apply" class="view">';
+  html += '<div class="card">' +
+    '<h3>New Request</h3>' +
+    '<label>Name</label>' +
+    '<input type="text" id="f-name" value="' + esc(s.name) + '" disabled>' +
+    '<label>Leave Type</label>' +
+    '<select id="f-type" onchange="onTypeChange()">' +
+      '<option value="Annual Leave">Annual Leave</option>' +
+      '<option value="Sick Leave">Sick Leave</option>' +
+      '<option value="Compensation Leave">Compensation Leave</option>' +
+    '</select>' +
+    '<div id="ot-box" style="display:none">' +
+      '<label>OT Date (required)</label>' +
+      '<input type="date" id="f-ot">' +
+      '<label>Event Name</label>' +
+      '<input type="text" id="f-event" placeholder="e.g. CMAB District Election \u2013 Lei Yue Mun">' +
+    '</div>' +
+    '<label>Duration</label>' +
+    '<select id="f-dur" onchange="onDurChange()">' +
+      '<option value="Full Day">Full Day</option>' +
+      '<option value="Half Day 0900-1300">Morning Half Day \u00b7 09:00\u201313:00</option>' +
+      '<option value="Half Day 1400-1800">Afternoon Half Day \u00b7 14:00\u201318:00</option>' +
+    '</select>' +
+    '<div class="row2">' +
+      '<div><label>Start Date</label><input type="date" id="f-start" onchange="onDateChange()"></div>' +
+      '<div><label>End Date</label><input type="date" id="f-end"></div>' +
+    '</div>' +
+    '<label>Reason (optional)</label>' +
+    '<textarea id="f-reason" placeholder="e.g. Family trip"></textarea>' +
+    '<div id="f-preview" class="legend" style="margin-top:16px;border-top:0;padding-top:0"></div>' +
+    '<button class="btn" id="f-submit" onclick="doSubmit()">Submit Request</button>' +
+  '</div></div>';
+
+  /* ===== My Records ===== */
+  html += '<div id="v-mine" class="view"><div class="card"><h3>My Requests</h3>';
+  if (!d.requests || !d.requests.length) {
+    html += '<div class="empty">No requests yet</div>';
+  } else {
+    d.requests.forEach(function(r){ html += reqHtml(r, false); });
+  }
+  html += '</div></div>';
+
+  /* ===== Approvals ===== */
+  if (s.isManager) {
+    html += '<div id="v-mgr" class="view"><div class="card"><h3>Pending Approval</h3>' +
+      '<div id="mgr-pending"><div class="empty"><div class="spinner"></div></div></div>' +
+      '</div>' +
+      '<div class="card"><h3>Team Balances</h3>' +
+        '<div class="d" style="font-size:12px;color:var(--text-tertiary);margin:-6px 0 12px">' +
+        'Tap a name to open their full dashboard</div>' +
+        '<div id="mgr-people" class="empty">Loading\u2026</div></div>' +
+      '<div class="card"><h3>Recent Requests</h3><div id="mgr-recent" class="empty">Loading\u2026</div></div>' +
+      '<div class="foot">Firebean \u00b7 Leave</div>' +
+      '</div>';
+    /* 同事詳細頁（唯讀，由 Team Balances 點入） */
+    html += '<div id="v-member" class="view"></div>';
+  }
+
+  html += '<div style="height:10px"></div></div>';
+
+  html += '<nav>';
+  var tabs = [
+    ['v-bal',  '\u25cf', 'My Leave'],
+    ['v-apply','+',      'Apply'],
+    ['v-mine', '\u2261', 'Records']
+  ];
+  if (s.isManager) tabs.push(['v-mgr','\u2713','Approvals']);
+  tabs.forEach(function(t, i){
+    html += '<button id="t-' + t[0] + '" class="' + (i === 0 ? 'on' : '') +
+      '" onclick="tab(\'' + t[0] + '\')"><span class="ic">' + t[1] + '</span>' + t[2] + '</button>';
+  });
+  html += '</nav>';
+
+  $('root').innerHTML = html;
+  var today = S.sess.today || '';
+  if (today) { $('f-start').value = today; $('f-end').value = today; }
+  onTypeChange(); updatePreview();
+  if (S.tab && $('t-' + S.tab)) tab(S.tab, true);
+}
+
+function reqHtml(r, showButtons){
+  var half = String(r.duration || '').indexOf('Half') >= 0;
+  var h = '<div class="item">' +
+    '<div class="top">' +
+      '<div class="t">' + cnType(r.type) + (showButtons && r.name ? ' \u00b7 ' + esc(r.name) : '') + '</div>' +
+      '<div class="tag ' + esc(r.status) + '">' + cnStatus(r.status) + '</div>' +
+    '</div>' +
+    '<div class="d mono">' + fmtDate(r.start) + (r.start !== r.end ? ' \u2192 ' + fmtDate(r.end) : '') +
+      ' \u00b7 ' + num(r.days) + ' d' + (half ? ' \u00b7 half day' : '') + '</div>';
+  if (r.reason) h += '<div class="d">' + esc(r.reason) + '</div>';
+  if (r.eventName) h += '<div class="d">' + esc(r.eventName) +
+    (r.otDate ? ' \u00b7 OT ' + fmtDate(r.otDate) : '') + '</div>';
+  if (r.comment) h += '<div class="c">' + esc(r.comment) + '</div>';
+  if (r.calId) h += '<div class="d" style="color:#12864a">\u2713 Added to team calendar</div>';
+
+  if (showButtons && r.status === 'Pending') {
+    h += '<div class="row2" style="margin-top:12px">' +
+      '<button class="btn sm ok" onclick="decide(\'' + esc(r.id) + '\',\'Approved\')">Approve</button>' +
+      '<button class="btn sm bad" onclick="decide(\'' + esc(r.id) + '\',\'Rejected\')">Reject</button>' +
+    '</div>';
+  }
+  return h + '</div>';
+}
+
+function tab(id, skipScroll){
+  S.tab = id;
+  ['v-bal','v-apply','v-mine','v-mgr','v-member'].forEach(function(v){
+    var el = $(v); if (el) el.className = 'view';
+    var b = $('t-' + v); if (b) b.className = '';
+  });
+  if (!$(id)) return;
+  $(id).className = 'view on';
+  // v-member 冇自己嘅 tab，保持 Approvals 亮住
+  var tabId = (id === 'v-member') ? 't-v-mgr' : ('t-' + id);
+  if ($(tabId)) $(tabId).className = 'on';
+  if (!skipScroll) window.scrollTo(0,0);
+  if (id === 'v-mgr' && !S.mgr) loadManager();
+}
+
+function onTypeChange(){
+  var t = $('f-type').value;
+  $('ot-box').style.display = (t === 'Compensation Leave') ? 'block' : 'none';
+}
+function onDurChange(){
+  if ($('f-dur').value.indexOf('Half') >= 0) {
+    $('f-end').value = $('f-start').value;
+    $('f-end').disabled = true;
+  } else {
+    $('f-end').disabled = false;
+  }
+  updatePreview();
+}
+function onDateChange(){
+  if ($('f-dur').value.indexOf('Half') >= 0) $('f-end').value = $('f-start').value;
+  if (!$('f-end').value || $('f-end').value < $('f-start').value) $('f-end').value = $('f-start').value;
+  updatePreview();
+}
+function updatePreview(){
+  var p = $('f-preview'); if (!p) return;
+  var s = $('f-start').value, e = $('f-end').value, d = $('f-dur').value;
+  if (!s || !e || e < s) { p.innerHTML = ''; return; }
+  var n = workdays(s, e);
+  if (d.indexOf('Half') >= 0) n = 0.5;
+  var type = $('f-type').value;
+  var txt = 'This request: <b>' + num(n) + ' day' + (n === 1 ? '' : 's') + '</b> (weekends &amp; public holidays excluded)';
+  if (type === 'Annual Leave' && S.data && S.data.balance) {
+    var left = Number(S.data.balance.available) - n;
+    txt += '<br>Annual leave left after booking: <b style="color:' +
+      (left < 0 ? '#ff3333' : '#12864a') + '">' + num(left) + ' days</b>';
+    if (left < 0) txt += ' \u2014 exceeds your balance';
+  }
+  p.innerHTML = txt;
+}
+function workdays(s, e){
+  var hol = (S.data && S.data.holidays) ? S.data.holidays : [];
+  var d = new Date(s + 'T00:00:00'), end = new Date(e + 'T00:00:00'), n = 0;
+  while (d <= end) {
+    var dow = d.getDay();
+    var iso = d.getFullYear() + '-' + pad(d.getMonth()+1) + '-' + pad(d.getDate());
+    if (dow !== 0 && dow !== 6 && hol.indexOf(iso) < 0) n++;
+    d.setDate(d.getDate() + 1);
+  }
+  return n;
+}
+function pad(n){ return n < 10 ? '0' + n : '' + n; }
+
+function doSubmit(){
+  var btn = $('f-submit');
+  var payload = {
+    leaveType: $('f-type').value,
+    duration:  $('f-dur').value,
+    startDate: $('f-start').value,
+    endDate:   $('f-end').value,
+    reason:    $('f-reason').value,
+    otDate:    $('ot-box').style.display !== 'none' ? $('f-ot').value : '',
+    eventName: $('ot-box').style.display !== 'none' ? $('f-event').value : ''
+  };
+  if (!payload.startDate || !payload.endDate) { toast('Please pick your dates', true); return; }
+
+  btn.disabled = true; btn.textContent = 'Submitting\u2026';
+  google.script.run.withSuccessHandler(function(r){
+    btn.disabled = false; btn.textContent = 'Submit Request';
+    if (r && r.ok){
+      toast(r.message || 'Request submitted');
+      $('f-reason').value = '';
+      if ($('f-ot')) $('f-ot').value = '';
+      if ($('f-event')) $('f-event').value = '';
+      loadDashboard();
+    } else {
+      toast((r && r.error) || 'Could not submit', true);
+    }
+  }).withFailureHandler(function(e){
+    btn.disabled = false; btn.textContent = 'Submit Request';
+    toast(e && e.message ? e.message : 'Could not submit', true);
+  }).submitLeave(payload);
+}
+
+function loadManager(){
+  google.script.run.withSuccessHandler(function(m){
+    if (!m || !m.ok) return;
+    S.mgr = m;
+    renderManager();
+  }).withFailureHandler(function(e){ console.error(e); }).getManagerView();
+}
+
+function renderManager(){
+  var m = S.mgr; if (!m) return;
+  var el;
+
+  el = $('mgr-pending');
+  if (el) {
+    el.innerHTML = m.pending.length
+      ? m.pending.map(function(r){ return reqHtml(r, true); }).join('')
+      : '<div class="empty">Nothing waiting</div>';
+  }
+  el = $('mgr-people');
+  if (el) {
+    el.innerHTML = m.people.map(function(p){
+      var b = p.balance;
+      var neg = Number(b.available) < 0;
+      return '<div class="item pRow" onclick="openMember(\'' + esc(p.email) + '\')">' +
+        '<div class="top" style="align-items:center">' +
+          '<div style="display:flex;align-items:center;gap:14px;min-width:0">' +
+            avatarHtml(p.avatar, p.name, 54) +
+            '<div style="min-width:0">' +
+              '<div class="pname">' + esc(p.name) + '</div>' +
+              '<div class="prole">' + esc(p.role) + '</div>' +
+            '</div>' +
+          '</div>' +
+          '<div style="display:flex;align-items:center;gap:10px;flex:0 0 auto">' +
+            '<div class="pbal" style="color:' + (neg ? '#ff3333' : '#0a0a0a') + '">' +
+              num(b.available) + '<small>days</small></div>' +
+            '<span class="chev">\u203a</span>' +
+          '</div>' +
+        '</div>' +
+        '<div class="d mono" style="margin-top:11px">Ent ' + num(b.entitlement) +
+        ' \u00b7 Accr ' + num(b.accrued) + ' \u00b7 Used ' + num(b.used) +
+        ' \u00b7 Pend ' + num(b.pending) + '</div></div>';
+    }).join('');
+  }
+  el = $('mgr-recent');
+  if (el) {
+    el.innerHTML = m.recent.length
+      ? m.recent.slice(0, 15).map(function(r){ return reqHtml(r, false); }).join('')
+      : '<div class="empty">No records</div>';
+  }
+}
+
+/* ── 管理層：打開個別同事嘅完整 dashboard（唯讀）──────────── */
+function openMember(email){
+  tab('v-member');
+  var el = $('v-member');
+  if (el) el.innerHTML = '<div class="card"><div class="empty"><div class="spinner"></div></div></div>';
+  google.script.run
+    .withSuccessHandler(renderMember)
+    .withFailureHandler(function(e){
+      if (el) el.innerHTML = '<div class="card"><div class="empty">' +
+        esc(e && e.message ? e.message : 'Could not load') + '</div></div>';
+    })
+    .getMemberView(email);
+}
+
+function renderMember(d){
+  var el = $('v-member'); if (!el) return;
+  if (!d || !d.ok){
+    el.innerHTML = '<div class="card"><div class="backRow">' +
+      '<button class="back" onclick="tab(\'v-mgr\')">\u2190 Team</button></div>' +
+      '<div class="empty">' + esc((d && d.reason) || 'Could not load') + '</div></div>';
+    return;
+  }
+  var s = d.session, b = d.balance;
+  var neg = Number(b.available) < 0;
+  var html = '';
+  html += '<div class="card">' +
+    '<div class="backRow"><button class="back" onclick="tab(\'v-mgr\')">\u2190 Team</button></div>' +
+    '<div class="memHead">' +
+      avatarHtml(s.avatar, s.name, 76) +
+      '<div style="min-width:0">' +
+        '<div class="memName">' + esc(s.name) + '</div>' +
+        '<div class="memRole">' + esc(s.role) + ' \u00b7 ' + esc(s.email) + '</div>' +
+      '</div>' +
+    '</div>' +
+    '<div class="hero">' +
+      '<div class="label">Annual Leave Left</div>' +
+      '<div class="big' + (neg ? ' neg' : '') + '">' + num(b.available) + '<em>Days</em></div>' +
+      '<div class="heroNote">Annual Leave \u00b7 as of ' + esc(s.today) + ' \u00b7 read-only</div>' +
+    '</div>' +
+  '</div>';
+  html += balanceCardHtml(b, d.accrualBreakdown);
+  html += accrualCardHtml(d.accrualBreakdown);
+  html += historyCardHtml(d.requests, 'Full History', 0);
+  html += '<div class="foot">Firebean \u00b7 Leave</div>';
+  el.innerHTML = html;
+  window.scrollTo(0, 0);
+}
+
+function decide(id, decision){
+  if (!window.confirm(decision === 'Approved' ? 'Approve this request?' : 'Reject this request?')) return;
+  var comment = window.prompt(
+    decision === 'Approved'
+      ? 'Note (optional \u2014 saved to the record and emailed)'
+      : 'Reason for rejection (emailed to the staff member)',
+    ''
+  );
+  if (comment === null) return;
+
+  toast('Processing\u2026');
+  google.script.run.withSuccessHandler(function(r){
+    if (r && r.ok){ toast(r.message || 'Done'); loadDashboard(); }
+    else { toast((r && r.error) || 'Could not process', true); }
+  }).withFailureHandler(function(e){
+    toast(e && e.message ? e.message : 'Could not process', true);
+  }).decideLeave(id, decision, comment);
+}
+
+boot();
+</script>
+</body>
+</html>
