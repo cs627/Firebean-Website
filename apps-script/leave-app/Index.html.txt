@@ -382,6 +382,7 @@ function calcBlockHtml(b, segs){
   var expr;
   if (segs && segs.length) {
     expr = segs.map(function(x){
+      if (x.upfront) return num(x.ent) + ' (full year)';
       return num(x.ent) + ' \u00d7 ' + x.months + ' \u00f7 12';
     }).join('  +  ');
   } else {
@@ -392,7 +393,7 @@ function calcBlockHtml(b, segs){
   var rows = calcRow('Accrued', expr, raw);
   // 有零碎日數先顯示對齊步驟，免得無謂多一行
   if (Number(raw) !== Number(b.accrued)) {
-    rows += '<div class="calcRow"><span class="cl">Rounded to nearest half day</span>' +
+    rows += '<div class="calcRow"><span class="cl">Rounded up to next half day</span>' +
       '<span class="cm">' + num(raw) + ' \u2192</span>' +
       '<span class="cr">' + num(b.accrued) + '</span></div>';
   }
@@ -419,7 +420,7 @@ function balanceCardHtml(b, segs){
     '</div>' +
     calcBlockHtml(b, segs) +
     '<div class="legend">' +
-      '<b>Accrued</b> \u2014 complete months served this leave year \u00f7 12 \u00d7 annual entitlement, rounded to the nearest half day.<br>' +
+      '<b>Accrued</b> \u2014 annual entitlement for this leave year (pro-rated for mid-year joiners), rounded UP to the next half day.<br>' +
       '<b>Available Now</b> \u2014 Accrued \u2212 Used \u2212 Pending. What you can book today.<br>' +
       '<b>Full-Year Projection</b> \u2014 Annual entitlement \u2212 Used \u2212 Pending. Only if you stay the full year.' +
     '</div>' +
