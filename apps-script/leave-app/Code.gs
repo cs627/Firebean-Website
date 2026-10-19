@@ -16,10 +16,15 @@ const CFG = {
   TZ            : 'Asia/Hong_Kong',
   CALENDAR_ID   : 'primary',
   // 年假一律以 0.5 日為單位
-  //   ROUND_MODE 'nearest' = 四捨五入到最接近半日
+  //   ROUND_MODE 'ceil'    = 無條件進位到上一個半日（對員工有利，例：11.58 → 12.0）
+  //              'nearest' = 四捨五入到最接近半日（例：11.58 → 11.5）
   //              'floor'   = 向下取到半日（保守，唔會多派）
   ROUND_TO      : 0.5,
-  ROUND_MODE    : 'nearest',
+  ROUND_MODE    : 'ceil',
+  // 年假累積方式
+  //   'upfront'  = 年頭一次過派足全年額度（年內升職即用新額度）；年中入職者按比例
+  //   'pro_rata' = 逐個月累積（做滿幾多個月先有幾多假）
+  ACCRUAL_MODE  : 'upfront',
   // true = 測試模式：唔會真發 email、唔會真建日曆（副本測試用）
   // ⚠️ 正式上線前改成 false，否則同事唔會收到通知、日曆唔會有記錄
   DRY_RUN : true,
@@ -384,6 +389,21 @@ function _accrual(email, today) {
   if (!hist.length) return { ent: 0, acc: 0, segs: [] };
 
   const lyStart = _leaveYearStart(today);
+  const nowEnt = hist.filter(x => x.eff <= today);
+  const curEnt = nowEnt.length ? nowEnt[nowEnt.length - 1].ent : 0;
+
+  // 全年派足模式（默認）：年頭已在職 → 直接派足現行年度額度，唔使逐月等
+  // 年中入職者仍然按比例（否則會多派）
+  const firstEff = hist[0].eff;
+  if ((CFG.ACCRUAL_MODE || 'upfront') === 'upfront' && firstEff <= lyStart) {
+    return {
+      ent: curEnt,
+      acc: curEnt,
+      segs: [{ from: _iso(lyStart), eff: _iso(firstEff), ent: curEnt,
+               months: 12, days: curEnt, upfront: true }]
+    };
+  }
+
   let acc = 0;
   const segs = [];
   for (let i = 0; i < hist.length; i++) {
@@ -395,11 +415,13 @@ function _accrual(email, today) {
     if (m <= 0) continue;
     const days = m * hist[i].ent / 12;
     acc += days;
-    segs.push({ from: _iso(hist[i].eff), ent: hist[i].ent, months: m, days: Math.round(days * 100) / 100 });
+    // from = 實際計入嘅起點（已被本年度 1 月 1 日夾住），
+    // eff  = 呢個 entitlement 生效日（可能早過本年度，用嚟對照）
+    segs.push({ from: _iso(s), eff: _iso(hist[i].eff), ent: hist[i].ent,
+                months: m, days: Math.round(days * 100) / 100 });
   }
-  const nowEnt = hist.filter(x => x.eff <= today);
   return {
-    ent: nowEnt.length ? nowEnt[nowEnt.length - 1].ent : 0,
+    ent: curEnt,
     acc: Math.round(acc * 100) / 100,
     segs: segs
   };
@@ -409,7 +431,11 @@ function _accrual(email, today) {
 function _roundHalf(n) {
   const g = CFG.ROUND_TO || 0.5;
   const x = Number(n) / g;
-  const r = (CFG.ROUND_MODE === 'floor') ? Math.floor(x + 1e-9) : Math.round(x);
+  const m = CFG.ROUND_MODE;
+  // 1e-9 誤差保護：避免 11.5/0.5 之類嘅浮點雜訊被 ceil 推高一個單位
+  const r = (m === 'floor') ? Math.floor(x + 1e-9)
+          : (m === 'ceil')  ? Math.ceil(x - 1e-9)
+          : Math.round(x);
   return Math.round(r * g * 100) / 100;
 }
 
