@@ -9448,5 +9448,29 @@ refreshRailCatalog();
   btn.addEventListener('click',()=>apply(current()==='dark'?'light':'dark'));
 })();
 </script>
+<style>
+.artplus-pn{position:absolute;right:40px;bottom:26px;font:700 20px/1 "OPPO Sans 4.0","Noto Sans TC",system-ui,sans-serif;letter-spacing:.16em;color:rgba(24,34,48,.42);pointer-events:none;z-index:80}
+</style>
+<script>
+(function(){
+  var N=25;
+  function paint(){
+    var ss=document.querySelectorAll('#deck > .slide');
+    for(var i=0;i<ss.length;i++){
+      var s=ss[i];
+      if(!s.querySelector('.artplus-pn')){
+        var d=document.createElement('div');
+        d.className='artplus-pn';
+        d.textContent=('0'+(i+1)).slice(-2)+' / '+N;
+        s.appendChild(d);
+      }
+    }
+  }
+  paint();
+  try{new MutationObserver(function(){paint();}).observe(document.body,{childList:true,subtree:true});}catch(e){}
+  setInterval(paint,1000);
+})();
+</script>
+
 </body>
 </html>
