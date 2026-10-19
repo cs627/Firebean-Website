@@ -1,9 +1,9 @@
 {
   "meta": {
-    "last_updated": "2026-10-18 22:00:08",
-    "total_records": 189,
+    "last_updated": "2026-10-20",
+    "total_records": 190,
     "daily_avg": 3.5,
-    "date_range": "2026-03-06 → 2026-10-08",
+    "date_range": "2026-03-06 → 2026-10-17",
     "sources_checked": 44,
     "new_verified": 4,
     "coverage_ratio": "44/46",
@@ -11,10 +11,6 @@
     "positive_pct": 53
   },
   "trend": [
-    {
-      "date": "2026-09-23",
-      "count": 1
-    },
     {
       "date": "2026-10-01",
       "count": 4
@@ -38,12 +34,16 @@
     {
       "date": "2026-10-08",
       "count": 2
+    },
+    {
+      "date": "2026-10-17",
+      "count": 1
     }
   ],
   "source_breakdown": [
     {
       "source": "Threads",
-      "count": 33
+      "count": 34
     },
     {
       "source": "Instagram",
@@ -104,7 +104,7 @@
   ],
   "sentiment": {
     "positive": 100,
-    "neutral": 61,
+    "neutral": 62,
     "negative": 25,
     "mixed": 3
   },
@@ -2187,6 +2187,17 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, Bloomin' Brands, Efrem Cutler, 行政總廚, 爆谷脆皮三文魚, INSIDE OUTBACK, 品牌故事"
+    },
+    {
+      "date": "2026-10-17",
+      "source": "Threads (@852hkfoodwithyylam)",
+      "platform": "社交媒體 (Threads)",
+      "title": "Threads帖：百佳黑糖全麥麵包$18被指「可以媲美Outback」（本日補獲）",
+      "summary": "香港飲食KOL @852hkfoodwithyylam 於Threads發帖，指在百佳（fusion）發現售HK$18的黑糖全麥麵包（一包四個），形容「可以媲美Outback嘅黑糖麵包」，並註明「自費非廣告」。帖文屬第三方替代品比較，將Outback黑糖麵包視為市場基準；作者對Outback本身未作負面評價，屬中性品牌參照。同帳號IG Reel（DOPrD2xDy-E）同日發布同內容，已去重。觸達量未能核實。",
+      "link": "https://www.threads.com/@852hkfoodwithyylam/post/DOR8cE0khsW/",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, 黑糖麵包, 黑糖全麥麵包, 百佳, fusion, 替代品, Threads UGC"
     }
   ],
   "media_records": [
@@ -3388,6 +3399,17 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, Bloomin' Brands, Efrem Cutler, 行政總廚, 爆谷脆皮三文魚, INSIDE OUTBACK, 品牌故事"
+    },
+    {
+      "date": "2026-10-17",
+      "source": "Threads (@852hkfoodwithyylam)",
+      "platform": "社交媒體 (Threads)",
+      "title": "Threads帖：百佳黑糖全麥麵包$18被指「可以媲美Outback」（本日補獲）",
+      "summary": "香港飲食KOL @852hkfoodwithyylam 於Threads發帖，指在百佳（fusion）發現售HK$18的黑糖全麥麵包（一包四個），形容「可以媲美Outback嘅黑糖麵包」，並註明「自費非廣告」。帖文屬第三方替代品比較，將Outback黑糖麵包視為市場基準；作者對Outback本身未作負面評價，屬中性品牌參照。同帳號IG Reel（DOPrD2xDy-E）同日發布同內容，已去重。觸達量未能核實。",
+      "link": "https://www.threads.com/@852hkfoodwithyylam/post/DOR8cE0khsW/",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, 黑糖麵包, 黑糖全麥麵包, 百佳, fusion, 替代品, Threads UGC"
     }
   ],
   "social_records": [

@@ -1,14 +1,6 @@
 {
-  "week": "2026-09-23 ~ 2026-10-08",
+  "week": "2026-10-01 ~ 2026-10-17",
   "items": [
-    {
-      "date": "2026-09-23",
-      "source": "Threads (@jklng56)",
-      "title": "Threads高觸達帖：Outback同款黑糖麵包現身聖安娜 網民仍歸邊買番Outback（50.3K views）",
-      "summary": "用戶@jklng56於Threads發帖（#麵包控請注意），指聖安娜(Saint Honoré)竟然出現與Outback出品樣貌99.9%相似之黑糖麵包（連上面粒粒都一樣），但味道差少少——口感無Outback咁軟熟、黑糖/麥味無咁出，結論「下次都係買番Outback穩陣啲」。屬正面口碑帖，反映招牌黑糖麵包之品牌資產地位及消費者忠實認同。來源為Threads公開頁面核實（提取頁面，2026-09-23）。Threads公開頁面未展示該帖精確發佈日期，以收集日記，未能獨立核實實際發帖日期。",
-      "link": "https://www.threads.com/@jklng56/post/DQjlDyHEy0O/",
-      "sentiment": "positive"
-    },
     {
       "date": "2026-10-01",
       "source": "Outback官網 (Outback Steakhouse Hong Kong)",
@@ -112,6 +104,14 @@
       "summary": "香港著數媒體Jetso Today報道Outback Steakhouse十月限定「Wine on Side Steak Pairing」推廣（即日起至10月31日、全線分店）：惠顧200天穀飼美國頂級紐約牛扒或肉眼牛扒（12oz），每客附是日餐湯或迷你沙律、一客尊尚特色配菜，並送精選紅/白酒一杯或香草燒蝦八隻。內容沿用官方INSIDE OUTBACK品牌企劃及官方公布之優惠詳情，屬十月推廣之媒體轉載報道。（資料來源：Jetso Today／Outback Steakhouse）",
       "link": "https://www.jetsotoday.com/outback-steak-pairing-20261031",
       "sentiment": "positive"
+    },
+    {
+      "date": "2026-10-17",
+      "source": "Threads (@852hkfoodwithyylam)",
+      "title": "Threads帖：百佳黑糖全麥麵包$18被指「可以媲美Outback」（本日補獲）",
+      "summary": "香港飲食KOL @852hkfoodwithyylam 於Threads發帖，指在百佳（fusion）發現售HK$18的黑糖全麥麵包（一包四個），形容「可以媲美Outback嘅黑糖麵包」，並註明「自費非廣告」。帖文屬第三方替代品比較，將Outback黑糖麵包視為市場基準；作者對Outback本身未作負面評價，屬中性品牌參照。同帳號IG Reel（DOPrD2xDy-E）同日發布同內容，已去重。觸達量未能核實。",
+      "link": "https://www.threads.com/@852hkfoodwithyylam/post/DOR8cE0khsW/",
+      "sentiment": "neutral"
     }
   ],
   "alerts": [],

@@ -1,12 +1,12 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-10-18T17:04:28.134524+00:00",
+  "generatedAt": "2026-10-19T17:04:23.477479+00:00",
   "run": {
-    "runDate": "2026-10-18",
+    "runDate": "2026-10-19",
     "dateRange": {
       "from": "2026-03-06",
-      "to": "2026-10-18"
+      "to": "2026-10-19"
     },
     "alerts": [
       {
@@ -27,8 +27,8 @@
     ]
   },
   "counts": {
-    "total": 189,
-    "media": 109,
+    "total": 190,
+    "media": 110,
     "social": 80,
     "maps": 0,
     "stores": 10
@@ -2112,6 +2112,17 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, Bloomin' Brands, Efrem Cutler, 行政總廚, 爆谷脆皮三文魚, INSIDE OUTBACK, 品牌故事"
+    },
+    {
+      "date": "2026-10-17",
+      "source": "Threads (@852hkfoodwithyylam)",
+      "platform": "社交媒體 (Threads)",
+      "title": "Threads帖：百佳黑糖全麥麵包$18被指「可以媲美Outback」（本日補獲）",
+      "summary": "香港飲食KOL @852hkfoodwithyylam 於Threads發帖，指在百佳（fusion）發現售HK$18的黑糖全麥麵包（一包四個），形容「可以媲美Outback嘅黑糖麵包」，並註明「自費非廣告」。帖文屬第三方替代品比較，將Outback黑糖麵包視為市場基準；作者對Outback本身未作負面評價，屬中性品牌參照。同帳號IG Reel（DOPrD2xDy-E）同日發布同內容，已去重。觸達量未能核實。",
+      "link": "https://www.threads.com/@852hkfoodwithyylam/post/DOR8cE0khsW/",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, 黑糖麵包, 黑糖全麥麵包, 百佳, fusion, 替代品, Threads UGC"
     }
   ],
   "stores": [
@@ -2716,6 +2727,18 @@
       "link": "https://www.instagram.com/reel/DelbOFHBJBm",
       "branchCount": "4間",
       "expansion": "穩定"
+    },
+    {
+      "date": "2026-10-20",
+      "competitor": "Ruby Tuesday",
+      "type": "推廣/優惠",
+      "title": "Ruby Tuesday 新一輪推廣啟動：RT Premier 新會員即送價值高達$2,000優惠券集（10月20日至11月30日）",
+      "summary": "承接2026-10-19只預告日期未公布詳情之「新一輪推廣」，Ruby Tuesday 香港官方 Facebook 專頁公布具體內容：由即日起至2026年11月30日，登記成為 RT Premier 新會員即賞優惠禮券集，包括$200現金券；會籍權益為主餐牌美食及飲品（含酒精類飲品）半價、套餐八五折，720日內不限日子不限時段使用。對比2025年同期迎新為「高達$2,500」優惠券，2026年版本減至「高達$2,000」，迎新力度按年縮減約20%，反映競品在會籍鎖客策略下調優惠成本。以會籍＋半價餐飲黏住常客，屬對Outback會員制（基本9折／尊尚85折）之直接價格壓力。（資料來源：Ruby Tuesday 香港官方 Facebook 專頁）",
+      "sentiment": "中性",
+      "source": "Facebook (Ruby Tuesday Hong Kong 官方專頁)",
+      "link": "https://www.facebook.com/rubytuesdayhongkong/posts/1515878033909033",
+      "branchCount": "全線分店",
+      "expansion": "無擴張（維持現有分店，以會籍優惠鎖客）"
     }
   ],
   "trend": [
@@ -2934,6 +2957,10 @@
     {
       "date": "2026-10-08",
       "count": 2
+    },
+    {
+      "date": "2026-10-17",
+      "count": 1
     }
   ],
   "aiReport": "### 整體媒體形象\n\n8月至今，Outback Steakhouse 香港共錄得117條提及，整體輿情基調正面，反映品牌在公眾心中仍維持「性價比高、適合聚會慶生」的鮮明印象。媒體報導聚焦生日優惠、下午茶及新菜單，持續鞏固其「家庭友善、歡樂聚餐」的定位。\n\n與競爭對手相比，Outback 的「美式分享文化」與「招牌黑糖麵包」仍是獨特記憶點，但面對 Flat Iron 等新派平價扒房挑戰，年輕客群對品牌的「新鮮感」正在遞減。分店表現兩極化——新港中心（76.5%好評）、銅鑼灣及荃灣（均約75%）維持高水準，但形點分店僅得57.6%，反映服務及品質一致性出現區域落差。\n\n### 媒體新聞分析\n\n報導重點集中於「生日優惠」、「下午茶時段」及「季節新菜單」，以 U Food、新假期等大眾飲食媒體為主力，多為軟性推廣報導，公關價值評估為「穩定曝光有餘，形象深化不足」。此類報導雖能持續觸及泛大眾消費者，但未能建立更高層次的品牌差異化或情感連結。\n\n### 社交媒體表現\n\n官方 Instagram 推廣重點為「海鮮季」及飲品優惠，KOL 自發分享用餐體驗構成主要正面 UGC，多以家庭聚餐、朋友慶生為場景。需關注的負面訊號為「牛扒熟度不穩定」及「服務態度參差」，建議官方建立「負評預警機制」，以幽默誠懇語氣回應投訴並提供具體補償。\n\n### 競爭對手動向\n\n- **Dan Ryan's**：銅鑼灣260座新店直接進駐 Fashion Walk 舊 Outback 位置，威脅度最高\n- **Flat Iron**：7扒房+2漢堡急速擴張，每週優惠日低價策略直接衝擊性價比定位\n- **The Grill Room**：3間分店主攻「任食和牛」，搶佔中高消費食肉控\n- **Ruby Tuesday**：9間重整中，MegaBox 店8月26日升級\n\n### PR風險警示\n\n最需關注「分店品質不一致」引發的聲譽風險。形點分店57.6%好評率遠低於其他分店，易被媒體點名為「地雷分店」。牛扒熟度投訴若被競爭對手借題發揮，將演變為社交危機。\n\n### Campaign建議\n\n**1. 「Outback 熟度信心保證」挑戰**\n- 目標：轉化熟度負評為口碑\n- 執行：9月推出「熟度不中即換」活動，邀請KOL實測\n\n**2. 「我們的Fashion Walk回憶」情感連結**\n- 目標：借 Dan Ryan's 進駐舊址之勢，喚起顧客情感記憶\n- 執行：社交平台徵集回憶照片，推出期間限定復刻拼盤\n\n**3. 「形點大變身」透明改善日記**\n- 目標：針對低評分分店進行形象修復\n- 執行：每週發布改善進度，邀請曾留負評顧客免費回訪",
