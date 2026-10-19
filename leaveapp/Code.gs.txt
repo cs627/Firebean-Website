@@ -13,7 +13,7 @@ const CFG = {
   SHEET_ID      : '1o88_EyWURlu9vJnkCU4gTFG5OnoOSjGmXq7jekERTD4',
   MANAGER_EMAIL : 'dickson@firebean.net',
   DOMAIN        : 'firebean.net',
-  BUILD         : 'build-2026-10-19j',
+  BUILD         : 'build-2026-10-19k',
   TZ            : 'Asia/Hong_Kong',
   CALENDAR_ID   : 'primary',
   // 年假一律以 0.5 日為單位
@@ -32,7 +32,7 @@ const CFG = {
   ACCRUAL_WINDOW: 'calendar_year',
   // true = 測試模式：唔會真發 email、唔會真建日曆（副本測試用）
   // ⚠️ 正式上線前改成 false，否則同事唔會收到通知、日曆唔會有記錄
-  DRY_RUN : true,
+  DRY_RUN : false,
   // 請假活動寫入邊個日曆（填 Google Calendar 左邊欄見到嘅日曆名）：
   //   例如 'Firebean Team'。留空或填 'primary' = 寫入預設日曆。
   CALENDAR_NAME : 'Firebean Team',
@@ -744,6 +744,7 @@ function _calendar() {
   Logger.log('\u26a0\ufe0f \u627e\u5514\u5230\u65e5\u66c6 "' + want +
              '"\uff0c\u6539\u7528\u9810\u8a2d\u65e5\u66c6\u3002\u73fe\u6709\u65e5\u66c6\uff1a\n' +
              listCalendars().join('\n'));
+  _warn('找唔到日曆「' + want + '」，已改用預設日曆写入');
   return CalendarApp.getDefaultCalendar();
 }
 
