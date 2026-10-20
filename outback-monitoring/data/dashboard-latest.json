@@ -1,12 +1,12 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-10-19T17:05:04.963407+00:00",
+  "generatedAt": "2026-10-20T17:02:48.284029+00:00",
   "run": {
-    "runDate": "2026-10-19",
+    "runDate": "2026-10-20",
     "dateRange": {
       "from": "2026-03-06",
-      "to": "2026-10-19"
+      "to": "2026-10-20"
     },
     "alerts": [
       {
@@ -2763,6 +2763,18 @@
       "link": "https://www.facebook.com/rubytuesdayhongkong/posts/1515878033909033",
       "branchCount": "全線分店",
       "expansion": "無擴張（維持現有分店，以會籍優惠鎖客）"
+    },
+    {
+      "date": "2026-10-20",
+      "competitor": "Mr. Steak a la minute",
+      "type": "推廣/優惠",
+      "title": "Mr. Steak a la minute 自助餐買一送一快閃回歸：10月20日中午12時KKday開搶，人均低至HK$205",
+      "summary": "銅鑼灣世貿中心6樓海景扒房 Mr. Steak a la minute 再推自助餐買一送一，2026年10月20日中午12時於KKday開賣，用餐期2026年10月20日至11月30日。自助午餐買一送一平日人均HK$205（雪花蟹腳、翡翠螺、刺身、美國燒牛肉、即焗心太軟）；17:00晚市人均HK$280起（加生蠔、煎鴨肝）；19:30晚市人均HK$335起（加日本和牛三食、龍蝦、鮑魚花膠一品鍋）；長者同行成人買一送一＋長者半價；週末親子下午茶買兩大送一小人均HK$119。10月起晚市另加推「秋意蟹味濃」主題蟹饌。以人均二百元級「海景＋海鮮＋燒牛肉自助餐」吸家庭及聚餐客，價位與 Outback 套餐客群重疊，屬直接價格與用餐場景競爭。（資料來源：星島頭條 2026-10-18 報道；Threads @runhotel.hk 2026-10-20）",
+      "sentiment": "中性",
+      "source": "星島頭條 / Threads (@runhotel.hk)",
+      "link": "https://www.threads.com/@runhotel.hk/post/DepD9HFESwO/",
+      "branchCount": "1（銅鑼灣世貿中心6樓）",
+      "expansion": "無擴張（以快閃自助餐買一送一搶客）"
     }
   ],
   "trend": [
