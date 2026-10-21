@@ -1,20 +1,16 @@
 {
   "meta": {
-    "last_updated": "2026-10-20",
-    "total_records": 190,
-    "daily_avg": 3.5,
-    "date_range": "2026-03-06 → 2026-10-17",
-    "sources_checked": 44,
+    "last_updated": "2026-10-22 01:20",
+    "total_records": 191,
+    "daily_avg": 3.4,
+    "date_range": "2026-03-06 → 2026-10-20",
+    "sources_checked": 45,
     "new_verified": 4,
-    "coverage_ratio": "44/46",
+    "coverage_ratio": "45/46",
     "negative_alerts": 25,
     "positive_pct": 53
   },
   "trend": [
-    {
-      "date": "2026-10-01",
-      "count": 4
-    },
     {
       "date": "2026-10-02",
       "count": 2
@@ -37,6 +33,10 @@
     },
     {
       "date": "2026-10-17",
+      "count": 1
+    },
+    {
+      "date": "2026-10-20",
       "count": 1
     }
   ],
@@ -103,7 +103,7 @@
     }
   ],
   "sentiment": {
-    "positive": 100,
+    "positive": 101,
     "neutral": 62,
     "negative": 25,
     "mixed": 3
@@ -2198,6 +2198,17 @@
       "sentiment": "neutral",
       "sentiment_label": "中性",
       "keywords": "Outback, 黑糖麵包, 黑糖全麥麵包, 百佳, fusion, 替代品, Threads UGC"
+    },
+    {
+      "date": "2026-10-20",
+      "source": "Outback Steakhouse HK 官方網站",
+      "platform": "官方網站",
+      "title": "【Inside Outback｜限時會員專屬禮遇】10月20日至11月30日會員獎賞（官方公布）",
+      "summary": "Outback Steakhouse 香港官網2026-10-20更新「Inside Outback｜限時會員專屬禮遇」。VIP基本會員（免費入會）活動期間首次登記，額外獲贈免費香脆薯條混煙肉芝士一份（堂食或外賣消費滿HK$400可用）；Prestige尊尚會員（HK$488/兩年）新加入、由VIP升級或延長會籍，於原有禮遇外再享三重獎賞：禮遇一免費人氣頭盤（烤豬肋骨雞槌芝士薯條拼盤，消費滿HK$400可用）、禮遇二額外HK$400現金券（4張HK$100）、禮遇三高達4張專享75折優惠券（每張最高減HK$1,000，不設最低消費）。屬官方會籍鎖客推廣，力度較過往迎新加大。（資料來源：Outback Steakhouse 香港官方網站）",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/241?lang=tc",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 會員專屬禮遇, Inside Outback, Prestige 尊尚會員, VIP會籍, 75折優惠券"
     }
   ],
   "media_records": [
@@ -3410,6 +3421,17 @@
       "sentiment": "neutral",
       "sentiment_label": "中性",
       "keywords": "Outback, 黑糖麵包, 黑糖全麥麵包, 百佳, fusion, 替代品, Threads UGC"
+    },
+    {
+      "date": "2026-10-20",
+      "source": "Outback Steakhouse HK 官方網站",
+      "platform": "官方網站",
+      "title": "【Inside Outback｜限時會員專屬禮遇】10月20日至11月30日會員獎賞（官方公布）",
+      "summary": "Outback Steakhouse 香港官網2026-10-20更新「Inside Outback｜限時會員專屬禮遇」。VIP基本會員（免費入會）活動期間首次登記，額外獲贈免費香脆薯條混煙肉芝士一份（堂食或外賣消費滿HK$400可用）；Prestige尊尚會員（HK$488/兩年）新加入、由VIP升級或延長會籍，於原有禮遇外再享三重獎賞：禮遇一免費人氣頭盤（烤豬肋骨雞槌芝士薯條拼盤，消費滿HK$400可用）、禮遇二額外HK$400現金券（4張HK$100）、禮遇三高達4張專享75折優惠券（每張最高減HK$1,000，不設最低消費）。屬官方會籍鎖客推廣，力度較過往迎新加大。（資料來源：Outback Steakhouse 香港官方網站）",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/241?lang=tc",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 會員專屬禮遇, Inside Outback, Prestige 尊尚會員, VIP會籍, 75折優惠券"
     }
   ],
   "social_records": [

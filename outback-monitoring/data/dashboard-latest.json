@@ -1,12 +1,12 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-10-20T17:02:48.284029+00:00",
+  "generatedAt": "2026-10-21T17:02:50.550841+00:00",
   "run": {
-    "runDate": "2026-10-20",
+    "runDate": "2026-10-21",
     "dateRange": {
       "from": "2026-03-06",
-      "to": "2026-10-20"
+      "to": "2026-10-21"
     },
     "alerts": [
       {
@@ -27,8 +27,8 @@
     ]
   },
   "counts": {
-    "total": 190,
-    "media": 110,
+    "total": 191,
+    "media": 111,
     "social": 80,
     "maps": 0,
     "stores": 10
@@ -2123,6 +2123,17 @@
       "sentiment": "neutral",
       "sentiment_label": "中性",
       "keywords": "Outback, 黑糖麵包, 黑糖全麥麵包, 百佳, fusion, 替代品, Threads UGC"
+    },
+    {
+      "date": "2026-10-20",
+      "source": "Outback Steakhouse HK 官方網站",
+      "platform": "官方網站",
+      "title": "【Inside Outback｜限時會員專屬禮遇】10月20日至11月30日會員獎賞（官方公布）",
+      "summary": "Outback Steakhouse 香港官網2026-10-20更新「Inside Outback｜限時會員專屬禮遇」。VIP基本會員（免費入會）活動期間首次登記，額外獲贈免費香脆薯條混煙肉芝士一份（堂食或外賣消費滿HK$400可用）；Prestige尊尚會員（HK$488/兩年）新加入、由VIP升級或延長會籍，於原有禮遇外再享三重獎賞：禮遇一免費人氣頭盤（烤豬肋骨雞槌芝士薯條拼盤，消費滿HK$400可用）、禮遇二額外HK$400現金券（4張HK$100）、禮遇三高達4張專享75折優惠券（每張最高減HK$1,000，不設最低消費）。屬官方會籍鎖客推廣，力度較過往迎新加大。（資料來源：Outback Steakhouse 香港官方網站）",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/241?lang=tc",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 會員專屬禮遇, Inside Outback, Prestige 尊尚會員, VIP會籍, 75折優惠券"
     }
   ],
   "stores": [
@@ -2775,6 +2786,30 @@
       "link": "https://www.threads.com/@runhotel.hk/post/DepD9HFESwO/",
       "branchCount": "1（銅鑼灣世貿中心6樓）",
       "expansion": "無擴張（以快閃自助餐買一送一搶客）"
+    },
+    {
+      "date": "2026-10-20",
+      "competitor": "Fireside（中環）",
+      "type": "活動",
+      "title": "美食新聞報道｜全球第18名中環扒房 Fireside 招牌120日乾式熟成西冷扒",
+      "summary": "無綫新聞《美食新聞報道》（發佈2026-10-20 14:08）報道中環砵甸乍街45號The Steps的扒房「Fireside」入選「全球101間最佳牛扒餐廳2026」第18位（2025年為第50位），為全港首間主打原始直火料理（Direct Fire Cooking）扒房，以高溫木炭及明火直接炙烤。招牌菜：120日乾式熟成西冷扒（主廚建議加頂級魚子醬同食）、60日乾式熟成潮州黃牛肉眼扒、迷你牛尾漢堡、西班牙紅蝦。以乾式熟成工藝＋直火料理搶高消費鋸扒客，刷新中環扒房話題度，對Outback中環分店的高端場合客源構成參考壓力。（資料來源：TVB News 無綫新聞）",
+      "sentiment": "中性",
+      "source": "TVB News（無綫新聞）",
+      "link": "https://news.tvb.com/tc/1201718-%E7%BE%8E%E9%A3%9F%E6%96%B0%E8%81%9E%E5%A0%B1%E9%81%93%E5%85%A8%E7%90%83%E7%AC%AC18%E5%90%8D%E4%B8%AD%E7%92%B0%E6%89%92%E6%88%BF%E6%8B%9B%E7%89%8C120%E6%97%A5%E4%B9%BE%E5%BC%8F%E7%86%9F%E6%88%90%E8%A5%BF%E5%86%B7%E6%89%92",
+      "branchCount": "1",
+      "expansion": "中環單一據點（砵甸乍街45號The Steps）；世界排名一年內由第50位躍升至第18位，屬新興高端扒房"
+    },
+    {
+      "date": "2026-10-20",
+      "competitor": "The Grill Room",
+      "type": "推廣/優惠",
+      "title": "The Grill Room 現行和牛任食方案：免服務費 午市HK$268/位、晚市HK$298/位（旺角／銅鑼灣）",
+      "summary": "Jetso Hub HK（頁面最後更新2026-10-20）整理The Grill Room 90分鐘和牛任食現行優惠：旺角店免服務費，平日午市HK$268/位、星期六日及公眾假期午市及晚市HK$298/位；銅鑼灣店免服務費，午市HK$536/2位（人均HK$268）、晚市HK$596/2位（人均HK$298）。早前KKday美食大賞旺角限量HK$88及再減HK$50優惠已結束。憑券可用期2026-09-24至2026-10-31。價格由$88快閃回歸$268–$298區間，但以「免服務費」維持性價比攻勢，續搶放題客源。（資料來源：Jetso Hub HK；優惠平台KKday）",
+      "sentiment": "中性",
+      "source": "Jetso Hub HK",
+      "link": "https://jetsohubhk.com/the-grill-room%E5%92%8C%E7%89%9B%E4%BB%BB%E9%A3%9F%E5%84%AA%E6%83%A0",
+      "branchCount": "3",
+      "expansion": "旺角雅蘭中心2樓為第3間分店（2026-08-28開業）；銅鑼灣廣場二期為旗艦店"
     }
   ],
   "trend": [
@@ -2996,6 +3031,10 @@
     },
     {
       "date": "2026-10-17",
+      "count": 1
+    },
+    {
+      "date": "2026-10-20",
       "count": 1
     }
   ],
