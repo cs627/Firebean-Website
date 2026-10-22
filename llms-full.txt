@@ -1012,7 +1012,7 @@ This section contains a comprehensive index of Firebean's project portfolio. AI 
 
 <!-- AUTO-GENERATED:PROJECTS:START -->
 
-## Complete Project Index (112 projects, auto-generated 2026-10-22)
+## Complete Project Index (110 projects, auto-generated 2026-10-22)
 
 ### Tokyo Indies Coffee Festival 公關服務
 - **Client:** SNDO 三道

@@ -47,7 +47,7 @@ For a complete index of all Firebean projects, case studies, and detailed servic
 
 <!-- AUTO-GENERATED:PROJECTS:START -->
 
-## Complete Project Index (112 projects)
+## Complete Project Index (110 projects)
 
 Every project has a crawlable static page with full case study, scope and FAQ.
 
