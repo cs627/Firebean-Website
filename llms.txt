@@ -44,3 +44,122 @@ Key government clients include:
 ## Full Project Database
 For a complete index of all Firebean projects, case studies, and detailed service records, AI agents should read the full index at:
 [https://firebean.net/llms-full.txt](https://firebean.net/llms-full.txt)
+
+<!-- AUTO-GENERATED:PROJECTS:START -->
+
+## Complete Project Index (112 projects)
+
+Every project has a crawlable static page with full case study, scope and FAQ.
+
+- [Tokyo Indies Coffee Festival 公關服務](https://firebean.net/projects/fb2026081.html) — SNDO 三道 | LIFESTYLE & CONSUMER
+- [啟田中秋快閃 WholeLove愛完全 X 樂道健康關注站](https://firebean.net/projects/fb2026080.html) — 華人藥業 Chinese Pharm | F&B & HOSPITALITY
+- [The R&D Kitchen Table: Media Chat & Happy Hour](https://firebean.net/projects/fb2026079.html) — Outback Steakhouse | F&B & HOSPITALITY
+- [學與教博覽2026](https://firebean.net/projects/fb2026077.html) — 教育局 | GOVERNMENT & PUBLIC SECTOR
+- [選舉進社區2026巡迴互動展覽](https://firebean.net/projects/fb2026078.html) — 政制及內地事務局 | GOVERNMENT & PUBLIC SECTOR
+- [“A Voyage with Books Series” Multimodal Reading Resources Exhibition](https://firebean.net/projects/fb2026048.html) — Curriculum Resources Section,  Curriculum Development Institute, Education Bureau | GOVERNMENT & PUBLIC SECTOR
+- [閱讀無界限分享會暨中小學聯校共讀半小時 ](https://firebean.net/projects/fb2026067.html) — 教育局 | GOVERNMENT & PUBLIC SECTOR
+- [科技提升職業安全與健康2026 巡迴展覽](https://firebean.net/projects/fb2026010.html) — 公務員事務局 | GOVERNMENT & PUBLIC SECTOR
+- [BD Social Media Maintenance ](https://firebean.net/projects/fb2026074.html) — 屋宇署 | GOVERNMENT & PUBLIC SECTOR
+- [Roving exhibition in commemoration of the 60th anniversary of Action Committee Against Narcotics](https://firebean.net/projects/fb2026011.html) — Narcotics Division (ND) of the Security Bureau | GOVERNMENT & PUBLIC SECTOR
+- [樓宇安全周2025  ── 樓宇安全研討會](https://firebean.net/projects/fb2026065.html) — 屋宇署 | GOVERNMENT & PUBLIC SECTOR
+- [《憲法》與《基本法》能量充電站](https://firebean.net/projects/fb2025012.html) — 政制及內地事務局 | GOVERNMENT & PUBLIC SECTOR
+- [《憲法》與《基本法》貓頭鷹茶樓](https://firebean.net/projects/fb2025017.html) — 政制及內地事務局 | GOVERNMENT & PUBLIC SECTOR
+- [Shikuwasa Juice Popup Booth](https://firebean.net/projects/fb2026057.html) — Okinawa Arakaki Market | F&B & HOSPITALITY
+- [“School Anti-drug Youth Ambassador Programme” Commencement Ceremony 2025 – Stay Away from Etomidate](https://firebean.net/projects/fb2026047.html) — Narcotics Division, Security Bureau | GOVERNMENT & PUBLIC SECTOR
+- [Yves Rocher x 茶大椰  KOL Promotion](https://firebean.net/projects/fb2026058.html) — Yves Rocher | LIFESTYLE & CONSUMER
+- [L&T Expo 2025](https://firebean.net/projects/fb2026062.html) — 教育局 | GOVERNMENT & PUBLIC SECTOR
+- [2025「選舉進社區」巡迴互動展覽](https://firebean.net/projects/fb2025013.html) — 政制及內地事務局 | GOVERNMENT & PUBLIC SECTOR
+- [Mediate First - Pledge Event 2025](https://firebean.net/projects/fb2026012.html) — Department Of Justice  | GOVERNMENT & PUBLIC SECTOR
+- ["K-palette"  POP-UP Store in Log-ON](https://firebean.net/projects/fb2026059.html) — K-palette Hong Kong | LIFESTYLE & CONSUMER
+- [共築創業+2.0 發佈會](https://firebean.net/projects/fb2026004.html) — 香港房屋委員會 | GOVERNMENT & PUBLIC SECTOR
+- [One Earth Submit 2025](https://firebean.net/projects/fb2025771.html) — One Earth Alliance | GOVERNMENT & PUBLIC SECTOR
+- [鬱金香花海 Hong Kong Flower Show 2025 ](https://firebean.net/projects/fb2026009.html) — LCSD 康文署 | GOVERNMENT & PUBLIC SECTOR
+- [5S良好工作場所整理 巡迴展覽](https://firebean.net/projects/fb2025999.html) — 公務員事務局 | GOVERNMENT & PUBLIC SECTOR
+- [樓宇安全周2024 ── 樓宇安全嘉年華](https://firebean.net/projects/fb2026063.html) — 屋宇署 | GOVERNMENT & PUBLIC SECTOR
+- [樓宇安全周2024  ── 樓宇安全研討會](https://firebean.net/projects/fb2026066.html) — 屋宇署 | GOVERNMENT & PUBLIC SECTOR
+- [Okinawa Food Trade Fair ](https://firebean.net/projects/fb2024002.html) — 沖繩縣貿易協會 | F&B & HOSPITALITY
+- [共築創業家 Key Day](https://firebean.net/projects/fb2026007.html) — Hong Kong Housing Authority | GOVERNMENT & PUBLIC SECTOR
+- [完善選舉制度巡迴展覽 2024](https://firebean.net/projects/fb2024016.html) — 政制及內地事務局 | GOVERNMENT & PUBLIC SECTOR
+- [《憲法》與《基本法》物流運輸樞紐](https://firebean.net/projects/fb2024018.html) — 政制及內地事務局 | GOVERNMENT & PUBLIC SECTOR
+- [《憲法》與《基本法》科研探索](https://firebean.net/projects/fb2024019.html) — 政制及內地事務局 | GOVERNMENT & PUBLIC SECTOR
+- [運動賽事大本型](https://firebean.net/projects/fb2026075.html) — 香港房屋委員會 | GOVERNMENT & PUBLIC SECTOR
+- [“Anti-drug Info Zone: Stride Ahead Into A Drug-free Future” Roving Exhibition](https://firebean.net/projects/fb2024005.html) — Narcotics Division (ND) of the Security Bureau | GOVERNMENT & PUBLIC SECTOR
+- [Stride Ahead Into A Drug-free Future 34th Hong Kong Book Fair](https://firebean.net/projects/fb2026002.html) — Narcotics Division (ND) of the Security Bureau | GOVERNMENT & PUBLIC SECTOR
+- [「切勿亂拆主力牆」宣傳片（API）](https://firebean.net/projects/fb2026050.html) — 屋宇署 | GOVERNMENT & PUBLIC SECTOR
+- [Taxi Pay x Wonder Press Conference](https://firebean.net/projects/fb2026019.html) — Wonder | LIFESTYLE & CONSUMER
+- [Grand Opening](https://firebean.net/projects/fb2024001.html) — Outback Steakhouse | F&B & HOSPITALITY
+- [疾病「西」走 · 身心健康嘉年華](https://firebean.net/projects/fb2026037.html) — 中西區地區康健站 | GOVERNMENT & PUBLIC SECTOR
+- [Hong Kong 2024 International Urban Forestry Conference](https://firebean.net/projects/fb2026070.html) — 發展局 | GOVERNMENT & PUBLIC SECTOR
+- [Hong Kong Flower Show 2024](https://firebean.net/projects/fb2026008.html) — CEDD土木工程署 | GOVERNMENT & PUBLIC SECTOR
+- [樓宇安全周2023 ── 樓宇安全嘉年華](https://firebean.net/projects/fb2026064.html) — 屋宇署 | GOVERNMENT & PUBLIC SECTOR
+- [區選夜繽紛 2024](https://firebean.net/projects/fb2023020.html) — 政制及內地事務局 | GOVERNMENT & PUBLIC SECTOR
+- [大型宣傳計劃 2023](https://firebean.net/projects/fb2026073.html) — 屋宇署 | GOVERNMENT & PUBLIC SECTOR
+- [《憲法》與《基本法》航空機場體驗](https://firebean.net/projects/fb2023022.html) — 政制及內地事務局 | GOVERNMENT & PUBLIC SECTOR
+- [《憲法》與《基本法》貓頭鷹博士咖啡店](https://firebean.net/projects/fb2023026.html) — 政制及內地事務局 | GOVERNMENT & PUBLIC SECTOR
+- [雀巢®牛奶公司™乳酪《快酪製造所》](https://firebean.net/projects/fb2026022.html) — Nestle | F&B & HOSPITALITY
+- [Shikuwasa Juice Sponsorship Campaign](https://firebean.net/projects/fb2023998.html) — Okinawa Arakaki Market | LIFESTYLE & CONSUMER
+- [ECO EXPO 2022 東九龍發展展覽](https://firebean.net/projects/fb2026072.html) — EKEO | GOVERNMENT & PUBLIC SECTOR
+- [閃動吧！縱橫街市](https://firebean.net/projects/fb2026036.html) — 中西區地區康健中心 | GOVERNMENT & PUBLIC SECTOR
+- [Cosmo X Launching](https://firebean.net/projects/fb2026042.html) — OGAWA | LIFESTYLE & CONSUMER
+- [Now AR – FIFA 世界盃 記者招待會](https://firebean.net/projects/fb2026053.html) — NOWTV | LIFESTYLE & CONSUMER
+- [Sooper Yoo Indoor Playground Launching](https://firebean.net/projects/fb2026049.html) — NOWTV | MALLS & VENUES
+- [仲夏Green嚟大笪地 健康市集](https://firebean.net/projects/fb2026035.html) — 中西區地區康健中心 | GOVERNMENT & PUBLIC SECTOR
+- [EYE AI Robot Press Conference](https://firebean.net/projects/fb2026056.html) — HKT | LIFESTYLE & CONSUMER
+- [Now H1 Android TV box launching](https://firebean.net/projects/fb2026055.html) — NOWTV | LIFESTYLE & CONSUMER
+- [Mysofa Luxe New Product Launch](https://firebean.net/projects/fb2026043.html) — OGAWA | LIFESTYLE & CONSUMER
+- [Hong Kong 2022 International Urban Forestry Conference](https://firebean.net/projects/fb2026069.html) — 發展局 | GOVERNMENT & PUBLIC SECTOR
+- [Airland x Epéda系列 Concept Store](https://firebean.net/projects/fb2021999.html) — Airland 雅蘭床褥 | LIFESTYLE & CONSUMER
+- [《憲法》與《基本法》快樂立體影院](https://firebean.net/projects/fb2026034.html) — 政制及內地事務局 | GOVERNMENT & PUBLIC SECTOR
+- [《憲法》與《基本法》深海探索旅程](https://firebean.net/projects/fb2026033.html) — 政制及內地事務局 | GOVERNMENT & PUBLIC SECTOR
+- [豐泰地產投資五大商場跨年大抽獎](https://firebean.net/projects/fb2026046.html) — O'South Coast | LIFESTYLE & CONSUMER
+- [人生。故事。搜尋中 Now Studio](https://firebean.net/projects/fb2026054.html) — NOWTV | LIFESTYLE & CONSUMER
+- [戶外宣傳廣告](https://firebean.net/projects/fb2026038.html) — 地區康健站 | GOVERNMENT & PUBLIC SECTOR
+- [北角全新日式拉麵居酒屋](https://firebean.net/projects/fb2026060.html) — 三代目 | F&B & HOSPITALITY
+- [社交媒體管理及宣傳](https://firebean.net/projects/fb2026039.html) — 地區康健中心 | GOVERNMENT & PUBLIC SECTOR
+- [街頭音樂表演X Drumstick](https://firebean.net/projects/fb2026023.html) — Nestle Drumstick | LIFESTYLE & CONSUMER
+- [ABC Online Conference](https://firebean.net/projects/fb2021040.html) — 101 Studio | LIFESTYLE & CONSUMER
+- [Urban Forestry Roving Exhibition 2021](https://firebean.net/projects/fb2026071.html) — 發展局 | GOVERNMENT & PUBLIC SECTOR
+- [歐國盃主題限量版聯乘](https://firebean.net/projects/fb2026051.html) — NOWTV x MaskON | LIFESTYLE & CONSUMER
+- [Now TV UEFA EURO 2020™ Sales Presentation](https://firebean.net/projects/fb2026052.html) — NOWTV | LIFESTYLE & CONSUMER
+- [BNI Hong Kong International Hybrid Conference](https://firebean.net/projects/fb2026006.html) — BNI  | MALLS & VENUES
+- [好人好市App展覽](https://firebean.net/projects/fb2026005.html) — Crossroads | GOVERNMENT & PUBLIC SECTOR
+- [賽馬會健康起步計劃 巡迴宣傳](https://firebean.net/projects/fb2026040.html) — 復康會 | GOVERNMENT & PUBLIC SECTOR
+- [《憲法》與《基本法》太空基地親子工作坊 ](https://firebean.net/projects/fb2026031.html) — 政制及內地事務局 | GOVERNMENT & PUBLIC SECTOR
+- [《憲法》與《基本法》探險家之旅](https://firebean.net/projects/fb2026032.html) — 政制及內地事務局 | GOVERNMENT & PUBLIC SECTOR
+- [福願春鳴 新年商場佈置](https://firebean.net/projects/fb2026020.html) — Mira Place  | MALLS & VENUES
+- [GSK Benlysta Launch ](https://firebean.net/projects/fb2026021.html) — GSK | MALLS & VENUES
+- [MINISO x MARVEL Popup Store](https://firebean.net/projects/fb2026014.html) — MINISO | LIFESTYLE & CONSUMER
+- [SonyVlog親子叢林動感日](https://firebean.net/projects/fb2026016.html) — Sony | LIFESTYLE & CONSUMER
+- [Aliexchange VIP Pre-Launching Preview Event](https://firebean.net/projects/fb2019035.html) — Aliexchange | MALLS & VENUES
+- [OGAWA X MEDISANA Home Health Station概念店開幕](https://firebean.net/projects/fb2026041.html) — OGAWA | LIFESTYLE & CONSUMER
+- [Lancome SDM & Corporate Dinner](https://firebean.net/projects/fb2026068.html) — Lancome | LIFESTYLE & CONSUMER
+- [2滿足分離式按摩腳機廣告宣傳](https://firebean.net/projects/fb2026045.html) — OGAWA | LIFESTYLE & CONSUMER
+- [憲法與基本法親子工作坊 懷舊戲院篇](https://firebean.net/projects/fb2026030.html) — 政制內地及事務局 | GOVERNMENT & PUBLIC SECTOR
+- [憲法與基本法巡迴展覽 郵輪篇](https://firebean.net/projects/fb2026029.html) — 政制及內地事務局 | GOVERNMENT & PUBLIC SECTOR
+- [按摩的藝術 ](https://firebean.net/projects/fb2026044.html) — OGAWA | LIFESTYLE & CONSUMER
+- [Sony Action Cam x Champimom 拍攝動感小車神](https://firebean.net/projects/fb2026017.html) — Sony Action Cam | LIFESTYLE & CONSUMER
+- [雅培保兒加營素3+成長關鍵Level Up攀石活動](https://firebean.net/projects/fb2018408.html) — abbott | F&B & HOSPITALITY
+- [基本法 曲奇工廠](https://firebean.net/projects/fb2026027.html) — 政制及內地事務局 | GOVERNMENT & PUBLIC SECTOR
+- [基本法 巡迴展覽](https://firebean.net/projects/fb2026028.html) — 政制內地及事務局 | GOVERNMENT & PUBLIC SECTOR
+- [ZANUSSI 100 Year Anniversary](https://firebean.net/projects/fb2026025.html) — Zanussi | LIFESTYLE & CONSUMER
+- [Blushing May Bazaar ](https://firebean.net/projects/fb2026001.html) — Champimom.com | MALLS & VENUES
+- [Van Gogh SENCES Flowers Launching](https://firebean.net/projects/fb2026018.html) — Van Gogh SENSES  | LIFESTYLE & CONSUMER
+- [Hello Kitty Beaute Popup Store](https://firebean.net/projects/fb2026013.html) — Hello Kitty Beaute | LIFESTYLE & CONSUMER
+- [agnès b. LUNETTES Popup Store](https://firebean.net/projects/fb2017006.html) — Agnès b. x Optical 88 | LIFESTYLE & CONSUMER
+- [New Balance x HKDA Dodgebee Championships](https://firebean.net/projects/fb2017999.html) — New Balance Eyewear | LIFESTYLE & CONSUMER
+- [Label .m Hair and Care Product Launching](https://firebean.net/projects/fb2017027.html) — label.m | LIFESTYLE & CONSUMER
+- [MongKok New Store Opening](https://firebean.net/projects/fb2026015.html) — MINISO | LIFESTYLE & CONSUMER
+- [基本法嘉年華 2017](https://firebean.net/projects/fb2026026.html) — 政制及內地事務局 | GOVERNMENT & PUBLIC SECTOR
+- [Eyewear Summertime 2017](https://firebean.net/projects/fb2017008.html) — agnès b. | LIFESTYLE & CONSUMER
+- [Levi's Eyewear Social Media](https://firebean.net/projects/fb2017015.html) — Levi's | LIFESTYLE & CONSUMER
+- [Basic Law Parent-child Workshop 2017](https://firebean.net/projects/fb2026024.html) — 政制及內地事務局 | GOVERNMENT & PUBLIC SECTOR
+- [Levi’s Eyewear One Day Shop Manager](https://firebean.net/projects/fb2026076.html) — Levi's | LIFESTYLE & CONSUMER
+- [HTC U Play X Fashion Social Media ](https://firebean.net/projects/fb2026003.html) — HTC | LIFESTYLE & CONSUMER
+- [One day Shop Manager Joycelin ](https://firebean.net/projects/fb2017014.html) — agnès b. | LIFESTYLE & CONSUMER
+- [agnès b. eyewear Preview Event](https://firebean.net/projects/fb2017012.html) — agnès b. | LIFESTYLE & CONSUMER
+- [Eyewear Facebook Page Maintenance](https://firebean.net/projects/fb2016004.html) — agnès b. | LIFESTYLE & CONSUMER
+- [Levi's  x Szabotage Graffiti Workshop](https://firebean.net/projects/fb2016024.html) — Graffiti Company | LIFESTYLE & CONSUMER
+- [Pagani Hong Kong Opening](https://firebean.net/projects/fb2016027.html) — Pagani | LIFESTYLE & CONSUMER
+- [Food Truck Festival 2016](https://firebean.net/projects/fb2026061.html) — Cookin | F&B & HOSPITALITY
+
+<!-- AUTO-GENERATED:PROJECTS:END -->

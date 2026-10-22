@@ -1009,3 +1009,779 @@ This section contains a comprehensive index of Firebean's project portfolio. AI 
 - **Solution:** Firebean developed a multi-faceted launch strategy encompassing targeted branding, engaging social media content, strategic influencer and parent-platform collaborations, and meticulous event manageme
 - **Link:** [https://firebean.net/profile.html?id=fb2026049](https://firebean.net/profile.html?id=fb2026049)
 
+
+<!-- AUTO-GENERATED:PROJECTS:START -->
+
+## Complete Project Index (112 projects, auto-generated 2026-10-22)
+
+### Tokyo Indies Coffee Festival 公關服務
+- **Client:** SNDO 三道
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** 啟德雙子匯第二期「三道 SNDO」7樓
+- **Scope:** Branding Strategy, PR Consulting, Media Relations, Influencer Seeding, RSVP Management, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026081.html](https://firebean.net/projects/fb2026081.html)
+
+### 啟田中秋快閃 WholeLove愛完全 X 樂道健康關注站
+- **Client:** 華人藥業 Chinese Pharm
+- **Category:** F&B & HOSPITALITY
+- **Venue:** 啟田商場
+- **Scope:** Concept Development, Theme Design, Visual Identity, Social Media Content, Event Planning, Event Production, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026080.html](https://firebean.net/projects/fb2026080.html)
+
+### The R&D Kitchen Table: Media Chat & Happy Hour
+- **Client:** Outback Steakhouse
+- **Category:** F&B & HOSPITALITY
+- **Venue:** CulinArt 1862
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Media Relations, Theme Design, Visual Identity, Social Media Content, Influencer Seeding, Event Planning, Event Production, RSVP Management, Talent Management, On-site Operation, Technical Support
+- **Page:** [https://firebean.net/projects/fb2026079.html](https://firebean.net/projects/fb2026079.html)
+
+### 學與教博覽2026
+- **Client:** 教育局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** 香港會議展覽中心
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Theme Design, Visual Identity, UI/UX Design, Video Production, Motion Graphics, Interactive Installation, Event Planning, Event Production, Talent Management, On-site Operation, Technical Support
+- **Page:** [https://firebean.net/projects/fb2026077.html](https://firebean.net/projects/fb2026077.html)
+
+### 選舉進社區2026巡迴互動展覽
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** 各大商場 
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Theme Design, Visual Identity, UI/UX Design, Video Production, Motion Graphics, Interactive Installation, Event Planning, Event Production, On-site Operation, Technical Support
+- **Page:** [https://firebean.net/projects/fb2026078.html](https://firebean.net/projects/fb2026078.html)
+
+### “A Voyage with Books Series” Multimodal Reading Resources Exhibition
+- **Client:** Curriculum Resources Section,  Curriculum Development Institute, Education Bureau
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Times Square
+- **Scope:** Concept Development, Theme Design, Event Planning, Event Production, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026048.html](https://firebean.net/projects/fb2026048.html)
+
+### 閱讀無界限分享會暨中小學聯校共讀半小時 
+- **Client:** 教育局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** 啟德主場館
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Theme Design, Visual Identity, UI/UX Design, Video Production, Motion Graphics, Event Planning, Event Production, RSVP Management, Talent Management, On-site Operation, Technical Support
+- **Page:** [https://firebean.net/projects/fb2026067.html](https://firebean.net/projects/fb2026067.html)
+
+### 科技提升職業安全與健康2026 巡迴展覽
+- **Client:** 公務員事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** 政府大樓 (例如政府總部、工業貿易大樓等等)
+- **Scope:** Concept Development,Theme Design,Visual Identity,UI/UX Design,Interactive Installation,Event Planning,Event Production,On-site Operation,Technical Support
+- **Page:** [https://firebean.net/projects/fb2026010.html](https://firebean.net/projects/fb2026010.html)
+
+### BD Social Media Maintenance 
+- **Client:** 屋宇署
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Hong Kong
+- **Scope:** Branding Strategy, PR Consulting, Theme Design, Visual Identity, Social Media Content, Video Production, Motion Graphics
+- **Page:** [https://firebean.net/projects/fb2026074.html](https://firebean.net/projects/fb2026074.html)
+
+### Roving exhibition in commemoration of the 60th anniversary of Action Committee Against Narcotics
+- **Client:** Narcotics Division (ND) of the Security Bureau
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Hong Kong City Hall, Hong Kong Baptist University, Times Square, etc.
+- **Scope:** Concept Development,Branding Strategy,Theme Design,Visual Identity,UI/UX Design,Social Media Content,Video Production,Interactive Installation,Event Planning,Event Production,RSVP Management,On-site Operation,Technical Support
+- **Page:** [https://firebean.net/projects/fb2026011.html](https://firebean.net/projects/fb2026011.html)
+
+### 樓宇安全周2025  ── 樓宇安全研討會
+- **Client:** 屋宇署
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** 香港會議展覽中心
+- **Scope:** PR Consulting, Media Relations, Event Planning, Event Production, RSVP Management, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026065.html](https://firebean.net/projects/fb2026065.html)
+
+### 《憲法》與《基本法》能量充電站
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Shopping malls  (inc. Citywalk2,  Olympian City 2, The Wai, etc.)
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, PR Consulting
+- **Page:** [https://firebean.net/projects/fb2025012.html](https://firebean.net/projects/fb2025012.html)
+
+### 《憲法》與《基本法》貓頭鷹茶樓
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Shopping malls  (inc. Lok Fu Plaza,  Central Market, Cheung Fat Plaza, etc.)
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, PR Consulting
+- **Page:** [https://firebean.net/projects/fb2025017.html](https://firebean.net/projects/fb2025017.html)
+
+### Shikuwasa Juice Popup Booth
+- **Client:** Okinawa Arakaki Market
+- **Category:** F&B & HOSPITALITY
+- **Venue:** Airside
+- **Scope:** Concept Development, Theme Design, Visual Identity, Event Planning, Event Production, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026057.html](https://firebean.net/projects/fb2026057.html)
+
+### “School Anti-drug Youth Ambassador Programme” Commencement Ceremony 2025 – Stay Away from Etomidate
+- **Client:** Narcotics Division, Security Bureau
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** 油塘大本營
+- **Scope:** Concept Development, Theme Design, Event Planning, Event Production, RSVP Management, Talent Management, On-site Operation, Technical Support
+- **Page:** [https://firebean.net/projects/fb2026047.html](https://firebean.net/projects/fb2026047.html)
+
+### Yves Rocher x 茶大椰  KOL Promotion
+- **Client:** Yves Rocher
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** Hong Kong
+- **Scope:** PR Consulting, Media Relations, Influencer Seeding
+- **Page:** [https://firebean.net/projects/fb2026058.html](https://firebean.net/projects/fb2026058.html)
+
+### L&T Expo 2025
+- **Client:** 教育局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** 香港會議展覽中心
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Theme Design, Visual Identity, UI/UX Design, Video Production, Motion Graphics, Interactive Installation, Event Planning, Event Production, On-site Operation, Technical Support
+- **Page:** [https://firebean.net/projects/fb2026062.html](https://firebean.net/projects/fb2026062.html)
+
+### 2025「選舉進社區」巡迴互動展覽
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** 各大商場 (例如)
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development
+- **Page:** [https://firebean.net/projects/fb2025013.html](https://firebean.net/projects/fb2025013.html)
+
+### Mediate First - Pledge Event 2025
+- **Client:** Department Of Justice 
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** HKCEC
+- **Scope:** Concept Development,Theme Design,Visual Identity,Social Media Content,Video Production,Event Planning,Event Production,RSVP Management,On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026012.html](https://firebean.net/projects/fb2026012.html)
+
+### "K-palette"  POP-UP Store in Log-ON
+- **Client:** K-palette Hong Kong
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** LOG-ON Fashion Walk
+- **Scope:** Concept Development, Theme Design, Event Planning, Event Production, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026059.html](https://firebean.net/projects/fb2026059.html)
+
+### 共築創業+2.0 發佈會
+- **Client:** 香港房屋委員會
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Domain Mall
+- **Scope:** Concept Development, Branding Strategy, Media Relations, Theme Design, Visual Identity, Video Production, Motion Graphics, Interactive Installation, Event Planning, Event Production, RSVP Management, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026004.html](https://firebean.net/projects/fb2026004.html)
+
+### One Earth Submit 2025
+- **Client:** One Earth Alliance
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Regal Airport Hotel
+- **Scope:** Media Pitching
+- **Page:** [https://firebean.net/projects/fb2025771.html](https://firebean.net/projects/fb2025771.html)
+
+### 鬱金香花海 Hong Kong Flower Show 2025 
+- **Client:** LCSD 康文署
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Victoria Park
+- **Scope:** Theme Design,Interactive Installation,Event Planning,Event Production,On-site Operation,Technical Support
+- **Page:** [https://firebean.net/projects/fb2026009.html](https://firebean.net/projects/fb2026009.html)
+
+### 5S良好工作場所整理 巡迴展覽
+- **Client:** 公務員事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** 各政府大樓
+- **Scope:** Event Coordination, Event Production, Theme Design, Concept Development, Souvenir Sourcing
+- **Page:** [https://firebean.net/projects/fb2025999.html](https://firebean.net/projects/fb2025999.html)
+
+### 樓宇安全周2024 ── 樓宇安全嘉年華
+- **Client:** 屋宇署
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** 屯門市廣場一期 & 奧海城二期
+- **Scope:** Concept Development, PR Consulting, Social Media Content, Event Planning, Event Production, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026063.html](https://firebean.net/projects/fb2026063.html)
+
+### 樓宇安全周2024  ── 樓宇安全研討會
+- **Client:** 屋宇署
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** 柴灣青年廣場Ｙ綜藝館
+- **Scope:** PR Consulting, Event Planning, Event Production, RSVP Management, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026066.html](https://firebean.net/projects/fb2026066.html)
+
+### Okinawa Food Trade Fair 
+- **Client:** 沖繩縣貿易協會
+- **Category:** F&B & HOSPITALITY
+- **Venue:** CulinArt 1867
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, KOL / MI Line up, Media Pitching, PR Consulting
+- **Page:** [https://firebean.net/projects/fb2024002.html](https://firebean.net/projects/fb2024002.html)
+
+### 共築創業家 Key Day
+- **Client:** Hong Kong Housing Authority
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Domain Mall
+- **Scope:** Concept Development,Branding Strategy,Media Relations,Theme Design,Visual Identity,Social Media Content,Video Production,Event Planning,Event Production,RSVP Management,On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026007.html](https://firebean.net/projects/fb2026007.html)
+
+### 完善選舉制度巡迴展覽 2024
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** 室外 (例如沙田公園、城門谷運動場) 及室內場地 (例如社區客廳、政府大樓)
+- **Scope:** Event Coordination, Event Production, Theme Design, Concept Development, Souvenir Sourcing
+- **Page:** [https://firebean.net/projects/fb2024016.html](https://firebean.net/projects/fb2024016.html)
+
+### 《憲法》與《基本法》物流運輸樞紐
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Shopping malls  (inc. CityWalk2, Yoho Mall II, Amoy Plaza, etc.)
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, Souvenir Sourcing
+- **Page:** [https://firebean.net/projects/fb2024018.html](https://firebean.net/projects/fb2024018.html)
+
+### 《憲法》與《基本法》科研探索
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Shopping malls  (inc. SPOT,  Amoy Plaza, CityWalk  etc.)
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, Souvenir Sourcing
+- **Page:** [https://firebean.net/projects/fb2024019.html](https://firebean.net/projects/fb2024019.html)
+
+### 運動賽事大本型
+- **Client:** 香港房屋委員會
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** 油塘大本型
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Media Relations, Theme Design, Visual Identity, Video Production, Motion Graphics, Interactive Installation, Event Planning, Event Production, RSVP Management, Talent Management, On-site Operation, Technical Support
+- **Page:** [https://firebean.net/projects/fb2026075.html](https://firebean.net/projects/fb2026075.html)
+
+### “Anti-drug Info Zone: Stride Ahead Into A Drug-free Future” Roving Exhibition
+- **Client:** Narcotics Division (ND) of the Security Bureau
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Central Market, The University of Hong Kong, MegaBox, etc.
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development
+- **Page:** [https://firebean.net/projects/fb2024005.html](https://firebean.net/projects/fb2024005.html)
+
+### Stride Ahead Into A Drug-free Future 34th Hong Kong Book Fair
+- **Client:** Narcotics Division (ND) of the Security Bureau
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Hong Kong Convention Center
+- **Scope:** Concept Development,Branding Strategy,Theme Design,Visual Identity,UI/UX Design,Influencer Seeding,Video Production,Motion Graphics,Interactive Installation,Event Planning,Event Production,RSVP Management,Talent Management,On-site Operation,Technical Support
+- **Page:** [https://firebean.net/projects/fb2026002.html](https://firebean.net/projects/fb2026002.html)
+
+### 「切勿亂拆主力牆」宣傳片（API）
+- **Client:** 屋宇署
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Studio
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Theme Design, Visual Identity, Social Media Content, Video Production, Motion Graphics, Talent Management, On-site Operation, Technical Support
+- **Page:** [https://firebean.net/projects/fb2026050.html](https://firebean.net/projects/fb2026050.html)
+
+### Taxi Pay x Wonder Press Conference
+- **Client:** Wonder
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** Science Park
+- **Scope:** Media Relations, Visual Identity, Social Media Content, Influencer Seeding, Event Planning, Event Production, RSVP Management, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026019.html](https://firebean.net/projects/fb2026019.html)
+
+### Grand Opening
+- **Client:** Outback Steakhouse
+- **Category:** F&B & HOSPITALITY
+- **Venue:** Central
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Souvenir Sourcing
+- **Page:** [https://firebean.net/projects/fb2024001.html](https://firebean.net/projects/fb2024001.html)
+
+### 疾病「西」走 · 身心健康嘉年華
+- **Client:** 中西區地區康健站
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Westwood 西寶城
+- **Scope:** Concept Development, Branding Strategy, Theme Design, Visual Identity, Interactive Installation, Event Planning, Event Production, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026037.html](https://firebean.net/projects/fb2026037.html)
+
+### Hong Kong 2024 International Urban Forestry Conference
+- **Client:** 發展局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** HKSTP
+- **Scope:** PR Consulting, RSVP Management, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026070.html](https://firebean.net/projects/fb2026070.html)
+
+### Hong Kong Flower Show 2024
+- **Client:** CEDD土木工程署
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Victoria Park
+- **Scope:** Branding Strategy,Theme Design,Visual Identity,Video Production,Interactive Installation,Event Planning,Event Production,On-site Operation,Technical Support
+- **Page:** [https://firebean.net/projects/fb2026008.html](https://firebean.net/projects/fb2026008.html)
+
+### 樓宇安全周2023 ── 樓宇安全嘉年華
+- **Client:** 屋宇署
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** 荃新天地
+- **Scope:** Concept Development, PR Consulting, Social Media Content, Event Planning, Event Production, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026064.html](https://firebean.net/projects/fb2026064.html)
+
+### 區選夜繽紛 2024
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** 戶外場地 (例如灣仔海濱、觀塘海濱等)
+- **Scope:** Event Coordination, Event Production, Theme Design, Concept Development
+- **Page:** [https://firebean.net/projects/fb2023020.html](https://firebean.net/projects/fb2023020.html)
+
+### 大型宣傳計劃 2023
+- **Client:** 屋宇署
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Hong Kong
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Theme Design, Visual Identity, UI/UX Design, Social Media Content, Video Production, Motion Graphics, Interactive Installation, Technical Support
+- **Page:** [https://firebean.net/projects/fb2026073.html](https://firebean.net/projects/fb2026073.html)
+
+### 《憲法》與《基本法》航空機場體驗
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Shopping malls  (inc. TKO Plaza, Central Market etc.)
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, Souvenir Sourcing
+- **Page:** [https://firebean.net/projects/fb2023022.html](https://firebean.net/projects/fb2023022.html)
+
+### 《憲法》與《基本法》貓頭鷹博士咖啡店
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Shopping Malls (inc. Citywalk, etc.)
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, Souvenir Sourcing
+- **Page:** [https://firebean.net/projects/fb2023026.html](https://firebean.net/projects/fb2023026.html)
+
+### 雀巢®牛奶公司™乳酪《快酪製造所》
+- **Client:** Nestle
+- **Category:** F&B & HOSPITALITY
+- **Venue:** New Town Plaza
+- **Scope:** Concept Development, Branding Strategy, Media Relations, Theme Design, Visual Identity, Social Media Content, Influencer Seeding, Video Production, Event Planning, Event Production, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026022.html](https://firebean.net/projects/fb2026022.html)
+
+### Shikuwasa Juice Sponsorship Campaign
+- **Client:** Okinawa Arakaki Market
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** O2 Pilates
+- **Scope:** Event Coordination, Social Media Management, KOL / MI Line up
+- **Page:** [https://firebean.net/projects/fb2023998.html](https://firebean.net/projects/fb2023998.html)
+
+### ECO EXPO 2022 東九龍發展展覽
+- **Client:** EKEO
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** HKCEC 會議展覽中心
+- **Scope:** Branding Strategy, Theme Design, Visual Identity, Event Production
+- **Page:** [https://firebean.net/projects/fb2026072.html](https://firebean.net/projects/fb2026072.html)
+
+### 閃動吧！縱橫街市
+- **Client:** 中西區地區康健中心
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Central Market 中環街市
+- **Scope:** Concept Development, Branding Strategy, Theme Design, Visual Identity, Event Planning, Event Production, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026036.html](https://firebean.net/projects/fb2026036.html)
+
+### Cosmo X Launching
+- **Client:** OGAWA
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** Hong Kong
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Media Relations, Theme Design, Visual Identity, Social Media Content, Influencer Seeding, Video Production, Motion Graphics, Talent Management
+- **Page:** [https://firebean.net/projects/fb2026042.html](https://firebean.net/projects/fb2026042.html)
+
+### Now AR – FIFA 世界盃 記者招待會
+- **Client:** NOWTV
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** Holiday Inn Hotel
+- **Scope:** PR Consulting, Media Relations, RSVP Management
+- **Page:** [https://firebean.net/projects/fb2026053.html](https://firebean.net/projects/fb2026053.html)
+
+### Sooper Yoo Indoor Playground Launching
+- **Client:** NOWTV
+- **Category:** MALLS & VENUES
+- **Venue:** Westwood
+- **Scope:** Branding Strategy, Social Media Content, Influencer Seeding, Event Planning, RSVP Management, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026049.html](https://firebean.net/projects/fb2026049.html)
+
+### 仲夏Green嚟大笪地 健康市集
+- **Client:** 中西區地區康健中心
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** 堅尼地城
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Media Relations, Theme Design, Visual Identity, Social Media Content, Influencer Seeding, Video Production, Event Planning, Event Production, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026035.html](https://firebean.net/projects/fb2026035.html)
+
+### EYE AI Robot Press Conference
+- **Client:** HKT
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** PCCW Tower
+- **Scope:** Concept Development, PR Consulting, Media Relations, Influencer Seeding, Event Planning, RSVP Management, Talent Management, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026056.html](https://firebean.net/projects/fb2026056.html)
+
+### Now H1 Android TV box launching
+- **Client:** NOWTV
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** io.t by HKT 西九龍
+- **Scope:** PR Consulting, Media Relations, RSVP Management
+- **Page:** [https://firebean.net/projects/fb2026055.html](https://firebean.net/projects/fb2026055.html)
+
+### Mysofa Luxe New Product Launch
+- **Client:** OGAWA
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** Hong Kong
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Theme Design, Visual Identity, Social Media Content, Influencer Seeding, Talent Management
+- **Page:** [https://firebean.net/projects/fb2026043.html](https://firebean.net/projects/fb2026043.html)
+
+### Hong Kong 2022 International Urban Forestry Conference
+- **Client:** 發展局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Hotel Stage
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Theme Design, Visual Identity, UI/UX Design, Video Production, Motion Graphics, Interactive Installation, Event Planning, Event Production, RSVP Management, On-site Operation, Technical Support
+- **Page:** [https://firebean.net/projects/fb2026069.html](https://firebean.net/projects/fb2026069.html)
+
+### Airland x Epéda系列 Concept Store
+- **Client:** Airland 雅蘭床褥
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** MegaBox
+- **Scope:** Event Production, Concept Development, KOL / MI Line up, Media Pitching
+- **Page:** [https://firebean.net/projects/fb2021999.html](https://firebean.net/projects/fb2021999.html)
+
+### 《憲法》與《基本法》快樂立體影院
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Shopping malls  (inc. Megabox, SPOT, MOSTown, Olympian City,  etc.)
+- **Scope:** Concept Development, Branding Strategy, Media Relations, Theme Design, Visual Identity, Video Production, Motion Graphics, Interactive Installation, Event Planning, Event Production, On-site Operation, Technical Support
+- **Page:** [https://firebean.net/projects/fb2026034.html](https://firebean.net/projects/fb2026034.html)
+
+### 《憲法》與《基本法》深海探索旅程
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Shopping malls (inc. Amoy Plaza, the Westwood, Citywalk2  etc.)
+- **Scope:** Concept Development, Branding Strategy, Theme Design, Visual Identity, Video Production, Interactive Installation, Event Planning, Event Production, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026033.html](https://firebean.net/projects/fb2026033.html)
+
+### 豐泰地產投資五大商場跨年大抽獎
+- **Client:** O'South Coast
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** O'South Coast, Tower 535, Cubus
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Media Relations, Theme Design, Visual Identity, UI/UX Design, Social Media Content, Influencer Seeding, Video Production, Motion Graphics, Interactive Installation, Event Planning, Event Production, RSVP Management, Talent Management, On-site Operation, Technical Support
+- **Page:** [https://firebean.net/projects/fb2026046.html](https://firebean.net/projects/fb2026046.html)
+
+### 人生。故事。搜尋中 Now Studio
+- **Client:** NOWTV
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** NOWTV studio
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Media Relations, Theme Design, Visual Identity, Event Planning, Event Production, RSVP Management, Talent Management, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026054.html](https://firebean.net/projects/fb2026054.html)
+
+### 戶外宣傳廣告
+- **Client:** 地區康健站
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** HONG KONG ISLAND
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Theme Design, Visual Identity, Social Media Content
+- **Page:** [https://firebean.net/projects/fb2026038.html](https://firebean.net/projects/fb2026038.html)
+
+### 北角全新日式拉麵居酒屋
+- **Client:** 三代目
+- **Category:** F&B & HOSPITALITY
+- **Venue:** 北角
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Media Relations, Social Media Content, Influencer Seeding, Event Planning, RSVP Management
+- **Page:** [https://firebean.net/projects/fb2026060.html](https://firebean.net/projects/fb2026060.html)
+
+### 社交媒體管理及宣傳
+- **Client:** 地區康健中心
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** HK
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Theme Design, Visual Identity, Social Media Content, Video Production, Motion Graphics
+- **Page:** [https://firebean.net/projects/fb2026039.html](https://firebean.net/projects/fb2026039.html)
+
+### 街頭音樂表演X Drumstick
+- **Client:** Nestle Drumstick
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** 尖沙咀天星碼頭
+- **Scope:** Concept Development, Branding Strategy, Visual Identity, Social Media Content, Influencer Seeding, Event Planning, Event Production, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026023.html](https://firebean.net/projects/fb2026023.html)
+
+### ABC Online Conference
+- **Client:** 101 Studio
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** Hong Kong
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, KOL / MI Line up
+- **Page:** [https://firebean.net/projects/fb2021040.html](https://firebean.net/projects/fb2021040.html)
+
+### Urban Forestry Roving Exhibition 2021
+- **Client:** 發展局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Shopping Mall
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Theme Design, Visual Identity, Video Production, Interactive Installation, Event Planning, Event Production, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026071.html](https://firebean.net/projects/fb2026071.html)
+
+### 歐國盃主題限量版聯乘
+- **Client:** NOWTV x MaskON
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** VIUTV STUDIO
+- **Scope:** Branding Strategy, PR Consulting, Media Relations, Social Media Content, Influencer Seeding
+- **Page:** [https://firebean.net/projects/fb2026051.html](https://firebean.net/projects/fb2026051.html)
+
+### Now TV UEFA EURO 2020™ Sales Presentation
+- **Client:** NOWTV
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** VIUTV STUDIO
+- **Scope:** PR Consulting, Media Relations, Social Media Content, Influencer Seeding, RSVP Management
+- **Page:** [https://firebean.net/projects/fb2026052.html](https://firebean.net/projects/fb2026052.html)
+
+### BNI Hong Kong International Hybrid Conference
+- **Client:** BNI 
+- **Category:** MALLS & VENUES
+- **Venue:** Causeway Bay 
+- **Scope:** Concept Development,PR Consulting,Theme Design,Visual Identity,Video Production,Motion Graphics,Event Planning,Event Production,RSVP Management,On-site Operation,Technical Support
+- **Page:** [https://firebean.net/projects/fb2026006.html](https://firebean.net/projects/fb2026006.html)
+
+### 好人好市App展覽
+- **Client:** Crossroads
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** 太古城中心
+- **Scope:** Concept Development,Media Relations,Theme Design,Social Media Content,Event Production
+- **Page:** [https://firebean.net/projects/fb2026005.html](https://firebean.net/projects/fb2026005.html)
+
+### 賽馬會健康起步計劃 巡迴宣傳
+- **Client:** 復康會
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** 香港各大屋苑
+- **Scope:** Concept Development, Theme Design, Event Planning, Event Production, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026040.html](https://firebean.net/projects/fb2026040.html)
+
+### 《憲法》與《基本法》太空基地親子工作坊 
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Shopping malls  (inc. SPOT,  Amoy Plaza, CityWalk etc.)
+- **Scope:** Concept Development, Branding Strategy, Theme Design, Visual Identity, Video Production, Interactive Installation, Event Planning, Event Production, On-site Operation, Technical Support
+- **Page:** [https://firebean.net/projects/fb2026031.html](https://firebean.net/projects/fb2026031.html)
+
+### 《憲法》與《基本法》探險家之旅
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Shopping malls (inc. Cheung Fat Plaza, Kai Tin Shopping Centre, etc.)
+- **Scope:** Concept Development, Branding Strategy, Theme Design, Visual Identity, Interactive Installation, Event Planning, Event Production, On-site Operation, Technical Support
+- **Page:** [https://firebean.net/projects/fb2026032.html](https://firebean.net/projects/fb2026032.html)
+
+### 福願春鳴 新年商場佈置
+- **Client:** Mira Place 
+- **Category:** MALLS & VENUES
+- **Venue:** Mira Place 
+- **Scope:** Concept Development, Branding Strategy, Theme Design, Visual Identity, UI/UX Design, Video Production, Motion Graphics, Interactive Installation, Event Planning, Event Production, On-site Operation, Technical Support
+- **Page:** [https://firebean.net/projects/fb2026020.html](https://firebean.net/projects/fb2026020.html)
+
+### GSK Benlysta Launch 
+- **Client:** GSK
+- **Category:** MALLS & VENUES
+- **Venue:** HKCEC Convention Hall
+- **Scope:** Concept Development, Theme Design, Visual Identity, UI/UX Design, Interactive Installation, Event Planning, Event Production, Technical Support
+- **Page:** [https://firebean.net/projects/fb2026021.html](https://firebean.net/projects/fb2026021.html)
+
+### MINISO x MARVEL Popup Store
+- **Client:** MINISO
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** 金鐘廊
+- **Scope:** Media Relations, Theme Design, Influencer Seeding, Video Production, Event Planning, Event Production, RSVP Management, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026014.html](https://firebean.net/projects/fb2026014.html)
+
+### SonyVlog親子叢林動感日
+- **Client:** Sony
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** The Mills
+- **Scope:** Branding Strategy, Media Relations, Theme Design, Visual Identity, Social Media Content, Influencer Seeding, Video Production, Interactive Installation, Event Planning, Event Production, RSVP Management, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026016.html](https://firebean.net/projects/fb2026016.html)
+
+### Aliexchange VIP Pre-Launching Preview Event
+- **Client:** Aliexchange
+- **Category:** MALLS & VENUES
+- **Venue:** Sheraton Grand Tokyo Bay Club
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, Artist Endorsement
+- **Page:** [https://firebean.net/projects/fb2019035.html](https://firebean.net/projects/fb2019035.html)
+
+### OGAWA X MEDISANA Home Health Station概念店開幕
+- **Client:** OGAWA
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** CITYWALK
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Media Relations, Theme Design, Visual Identity, Social Media Content, Influencer Seeding, Video Production, Event Planning, Event Production, RSVP Management, Talent Management, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026041.html](https://firebean.net/projects/fb2026041.html)
+
+### Lancome SDM & Corporate Dinner
+- **Client:** Lancome
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** Renaissance Hotel
+- **Scope:** Concept Development, Branding Strategy, Theme Design, Visual Identity, Video Production, Event Planning, Event Production, RSVP Management, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026068.html](https://firebean.net/projects/fb2026068.html)
+
+### 2滿足分離式按摩腳機廣告宣傳
+- **Client:** OGAWA
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** Hong Kong
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Media Relations, Theme Design, Visual Identity, Social Media Content, Influencer Seeding, Video Production, Motion Graphics, Event Planning, Event Production, Talent Management, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026045.html](https://firebean.net/projects/fb2026045.html)
+
+### 憲法與基本法親子工作坊 懷舊戲院篇
+- **Client:** 政制內地及事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Large shopping malls (inc.  Amoy Plaza, Olympian City etc.)
+- **Scope:** Concept Development, Branding Strategy, Media Relations, Theme Design, Visual Identity, Event Planning, Event Production, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026030.html](https://firebean.net/projects/fb2026030.html)
+
+### 憲法與基本法巡迴展覽 郵輪篇
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Shopping malls (inc. TKO Plaza,  MegaBox, etc.)
+- **Scope:** Concept Development, Branding Strategy, Theme Design, Visual Identity, UI/UX Design, Video Production, Interactive Installation, Event Planning, Event Production, On-site Operation, Technical Support
+- **Page:** [https://firebean.net/projects/fb2026029.html](https://firebean.net/projects/fb2026029.html)
+
+### 按摩的藝術 
+- **Client:** OGAWA
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** Yoho Mall
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Media Relations, Theme Design, Visual Identity, Social Media Content, Influencer Seeding, Video Production, Motion Graphics, Event Planning, Event Production, RSVP Management, Talent Management, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026044.html](https://firebean.net/projects/fb2026044.html)
+
+### Sony Action Cam x Champimom 拍攝動感小車神
+- **Client:** Sony Action Cam
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** Kowloon Bay
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Theme Design, Visual Identity, Social Media Content, Influencer Seeding, Video Production, Event Planning, Event Production, RSVP Management, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026017.html](https://firebean.net/projects/fb2026017.html)
+
+### 雅培保兒加營素3+成長關鍵Level Up攀石活動
+- **Client:** abbott
+- **Category:** F&B & HOSPITALITY
+- **Venue:** Verm City
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, Social Media Management, KOL / MI Line up, Artist Endorsement, Media Pitching, Souvenir Sourcing
+- **Page:** [https://firebean.net/projects/fb2018408.html](https://firebean.net/projects/fb2018408.html)
+
+### 基本法 曲奇工廠
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Shopping malls (inc. Plaza Hollywood,  Megabox, Marina Square, etc.)
+- **Scope:** Concept Development, Branding Strategy, Theme Design, Visual Identity, Event Planning, Event Production, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026027.html](https://firebean.net/projects/fb2026027.html)
+
+### 基本法 巡迴展覽
+- **Client:** 政制內地及事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Shopping malls  (inc. Tseung Kwan O Plaza, Olympian City, etc.)
+- **Scope:** Concept Development, Branding Strategy, Theme Design, Visual Identity, UI/UX Design, Video Production, Motion Graphics, Interactive Installation, Event Planning, Event Production, On-site Operation, Technical Support
+- **Page:** [https://firebean.net/projects/fb2026028.html](https://firebean.net/projects/fb2026028.html)
+
+### ZANUSSI 100 Year Anniversary
+- **Client:** Zanussi
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** Olympian City 2
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, Media Pitching
+- **Page:** [https://firebean.net/projects/fb2026025.html](https://firebean.net/projects/fb2026025.html)
+
+### Blushing May Bazaar 
+- **Client:** Champimom.com
+- **Category:** MALLS & VENUES
+- **Venue:** Marina Square
+- **Scope:** Concept Development,Branding Strategy,PR Consulting,Theme Design,Visual Identity,Social Media Content,Event Planning,Event Production,RSVP Management,On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026001.html](https://firebean.net/projects/fb2026001.html)
+
+### Van Gogh SENCES Flowers Launching
+- **Client:** Van Gogh SENSES 
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** 尖沙咀 1881
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Media Relations, Theme Design, Visual Identity, Social Media Content, Influencer Seeding, Event Planning, Event Production, RSVP Management, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026018.html](https://firebean.net/projects/fb2026018.html)
+
+### Hello Kitty Beaute Popup Store
+- **Client:** Hello Kitty Beaute
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** Causeway Bay Sogo
+- **Scope:** Media Relations, Theme Design, Visual Identity, Event Planning, Event Production, RSVP Management
+- **Page:** [https://firebean.net/projects/fb2026013.html](https://firebean.net/projects/fb2026013.html)
+
+### agnès b. LUNETTES Popup Store
+- **Client:** Agnès b. x Optical 88
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** Metroplaza 
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, KOL / MI Line up, Media Pitching, PR Consulting
+- **Page:** [https://firebean.net/projects/fb2017006.html](https://firebean.net/projects/fb2017006.html)
+
+### New Balance x HKDA Dodgebee Championships
+- **Client:** New Balance Eyewear
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** Southorn Stadium,Wan Chai
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development
+- **Page:** [https://firebean.net/projects/fb2017999.html](https://firebean.net/projects/fb2017999.html)
+
+### Label .m Hair and Care Product Launching
+- **Client:** label.m
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** Fringe Dairy@Fringe Club
+- **Scope:** Event Planning, Event Coordination, Event Production, KOL / MI Line up, Media Pitching
+- **Page:** [https://firebean.net/projects/fb2017027.html](https://firebean.net/projects/fb2017027.html)
+
+### MongKok New Store Opening
+- **Client:** MINISO
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** MongKok
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Media Relations, Theme Design, Visual Identity, Influencer Seeding, Event Planning, Event Production, Talent Management, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026015.html](https://firebean.net/projects/fb2026015.html)
+
+### 基本法嘉年華 2017
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Shopping malls (inc. Windsor House, MCP II, etc.)
+- **Scope:** Concept Development, Theme Design, Visual Identity, Video Production, Interactive Installation, Event Planning, Event Production, On-site Operation, Technical Support
+- **Page:** [https://firebean.net/projects/fb2026026.html](https://firebean.net/projects/fb2026026.html)
+
+### Eyewear Summertime 2017
+- **Client:** agnès b.
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** Tsim Sha Tsui Optical 88 Shop
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, KOL / MI Line up, Artist Endorsement, Media Pitching, PR Consulting
+- **Page:** [https://firebean.net/projects/fb2017008.html](https://firebean.net/projects/fb2017008.html)
+
+### Levi's Eyewear Social Media
+- **Client:** Levi's
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** Hong Kong
+- **Scope:** Social Media Management, KOL / MI Line up
+- **Page:** [https://firebean.net/projects/fb2017015.html](https://firebean.net/projects/fb2017015.html)
+
+### Basic Law Parent-child Workshop 2017
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Shopping malls (inc. Mikiki, Tuen Mun Town Plaza, etc.)
+- **Scope:** Concept Development, Branding Strategy, Theme Design, Visual Identity, Video Production, Event Planning, Event Production, On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026024.html](https://firebean.net/projects/fb2026024.html)
+
+### Levi’s Eyewear One Day Shop Manager
+- **Client:** Levi's
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** TST
+- **Scope:** Concept Development<br>Branding Strategy<br>PR Consulting<br>Media Relations<br>Theme Design<br>Visual Identity<br>Social Media Content<br>Influencer Seeding<br>Video Production<br>Event Production<br>RSVP Management<br>Talent Management<br>On-site Operation
+- **Page:** [https://firebean.net/projects/fb2026076.html](https://firebean.net/projects/fb2026076.html)
+
+### HTC U Play X Fashion Social Media 
+- **Client:** HTC
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** Hong Kong
+- **Scope:** Concept Development,Media Relations,Visual Identity,Social Media Content,Influencer Seeding
+- **Page:** [https://firebean.net/projects/fb2026003.html](https://firebean.net/projects/fb2026003.html)
+
+### One day Shop Manager Joycelin 
+- **Client:** agnès b.
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** Image Optical @ MOSTown
+- **Scope:** Event Coordination, Social Media Management, Artist Endorsement, Media Pitching, PR Consulting
+- **Page:** [https://firebean.net/projects/fb2017014.html](https://firebean.net/projects/fb2017014.html)
+
+### agnès b. eyewear Preview Event
+- **Client:** agnès b.
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** Tsim Sha Tsui K11 
+- **Scope:** Event Planning, Event Coordination, Event Production, Theme Design, Concept Development, KOL / MI Line up, Media Pitching
+- **Page:** [https://firebean.net/projects/fb2017012.html](https://firebean.net/projects/fb2017012.html)
+
+### Eyewear Facebook Page Maintenance
+- **Client:** agnès b.
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** Hong Kong
+- **Scope:** Concept Development, Social Media Management, KOL / MI Line up, Artist Endorsement, Media Pitching
+- **Page:** [https://firebean.net/projects/fb2016004.html](https://firebean.net/projects/fb2016004.html)
+
+### Levi's  x Szabotage Graffiti Workshop
+- **Client:** Graffiti Company
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** California Tower
+- **Scope:** Event Planning, Event Coordination, Social Media Management
+- **Page:** [https://firebean.net/projects/fb2016024.html](https://firebean.net/projects/fb2016024.html)
+
+### Pagani Hong Kong Opening
+- **Client:** Pagani
+- **Category:** LIFESTYLE & CONSUMER
+- **Venue:** Hong Kong
+- **Scope:** Event Planning, Event Production, Theme Design, Concept Development, Souvenir Sourcing
+- **Page:** [https://firebean.net/projects/fb2016027.html](https://firebean.net/projects/fb2016027.html)
+
+### Food Truck Festival 2016
+- **Client:** Cookin
+- **Category:** F&B & HOSPITALITY
+- **Venue:** PMQ
+- **Scope:** Media Relations, Social Media Content, RSVP Management
+- **Page:** [https://firebean.net/projects/fb2026061.html](https://firebean.net/projects/fb2026061.html)
+
+<!-- AUTO-GENERATED:PROJECTS:END -->
