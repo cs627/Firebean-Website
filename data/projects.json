@@ -8429,6 +8429,29 @@
       "galleryPhotos": [],
       "sortDate": "",
       "youtube": ""
+    },
+    {
+      "id": "fb2026083",
+      "projectId": "FB2026083",
+      "projectName": "Project Recap",
+      "client": "",
+      "venue": "",
+      "year": "",
+      "category": "",
+      "categories": [],
+      "scope": "",
+      "webEN": "",
+      "webTC": "",
+      "webJP": "",
+      "faqEN": [],
+      "faqTC": [],
+      "faqJP": [],
+      "heroPhoto": "",
+      "logoBlack": "",
+      "logoWhite": "",
+      "galleryPhotos": [],
+      "sortDate": "",
+      "youtube": ""
     }
   ],
   "polaroids": [
@@ -8653,5 +8676,5 @@
     "data/images/fb2026081-photo-1.webp",
     "data/images/fb2026081-photo-2.webp"
   ],
-  "lastSync": "2026-10-22T06:50:46.524Z"
+  "lastSync": "2026-10-22T06:51:43.301Z"
 }
