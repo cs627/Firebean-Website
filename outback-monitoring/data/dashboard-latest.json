@@ -1,12 +1,12 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-10-21T17:02:50.550841+00:00",
+  "generatedAt": "2026-10-22T17:02:27.884146+00:00",
   "run": {
-    "runDate": "2026-10-21",
+    "runDate": "2026-10-22",
     "dateRange": {
       "from": "2026-03-06",
-      "to": "2026-10-21"
+      "to": "2026-10-22"
     },
     "alerts": [
       {
@@ -2810,6 +2810,30 @@
       "link": "https://jetsohubhk.com/the-grill-room%E5%92%8C%E7%89%9B%E4%BB%BB%E9%A3%9F%E5%84%AA%E6%83%A0",
       "branchCount": "3",
       "expansion": "旺角雅蘭中心2樓為第3間分店（2026-08-28開業）；銅鑼灣廣場二期為旗艦店"
+    },
+    {
+      "date": "2026-10-22",
+      "competitor": "牛屋餐廳（佐敦）",
+      "type": "結業/市場變化",
+      "title": "佐敦逾半世紀老牌扒房「牛屋餐廳」疑結業：網民發現招租告示",
+      "summary": "星島頭條於2026-10-22報道，有網民在社交平台發現佐敦白加士街老牌扒房「牛屋餐廳」門外貼出招租告示，疑已結業。該店以招牌「威靈頓牛柳」聞名，開業逾半世紀，屬香港傳統港式扒房代表之一。帖文由網民及媒體轉述，結業消息及停業日期未見店方官方公布，屬未經獨立核實的市場觀察。若屬實，反映香港老牌扒房在租金及客源壓力下持續萎縮，與Outback同類「鋸扒」需求正被新式扒房及放題分流。（資料來源：星島頭條；原始線索來自網民Threads帖文）",
+      "sentiment": "中性",
+      "source": "星島頭條",
+      "link": "https://www.stheadline.com/food/3628868/%E4%BD%90%E6%95%A6%E9%80%BE%E5%8D%8A%E4%B8%96%E7%B4%80%E8%80%81%E7%89%8C%E6%89%92%E6%88%BF%E7%89%9B%E5%B1%8B%E9%A4%90%E5%BB%B3%E7%96%91%E7%B5%90%E6%A5%AD%E7%B6%B2%E6%B0%91%E4%B8%8D%E6%8D%A8%E6%8B%9B%E7%89%8C%E5%A8%81%E9%9D%88%E9%A0%93%E7%89%9B%E6%9F%B3",
+      "branchCount": "1",
+      "expansion": "佐敦單一店舖；結業仍屬「疑結業」，未經店方或官方確認"
+    },
+    {
+      "date": "2026-10-23",
+      "competitor": "Landau's Steakhouse（灣仔）",
+      "type": "新店/擴張",
+      "title": "Landau's（灣仔胡忠大廈）2026年升級定位為 Steakhouse：主打全球四大牛肉產區（本日補獲）",
+      "summary": "OKiBook《西式餐廳香港推介2026》列出灣仔胡忠大廈的 Landau's Steakhouse：由 Jimmy's Kitchen 家族後人主理，2026年正式把主廳定位升級為 Steakhouse，以彩繪玻璃天花主廳及全球四大頂級牛肉產區（澳洲M6/7和牛西冷、韓牛、阿根廷牛等）為賣點，晚市澳洲和牛西冷 HK$488/250g，人均約HK$500–900。該店屬2026年新晉扒房定位的競爭者，主攻中價至中高價鋸扒客，與Outback的「性價比牛扒」客群部分重疊。文章頁面未標示明確更新日期，故 DATE 以本日收集日記錄，屬本日補獲的舊資訊。（資料來源：OKiBook 香港西式餐廳推介2026）",
+      "sentiment": "中性",
+      "source": "OKiBook（香港西式餐廳推介2026）",
+      "link": "https://www.okibook.com/hk/zh-HK/promotions/hong-kong-western-restaurant",
+      "branchCount": "1",
+      "expansion": "灣仔胡忠大廈單一店舖；2026年由歐陸餐廳升級為 Steakhouse 定位"
     }
   ],
   "trend": [
