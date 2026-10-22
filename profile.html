@@ -871,7 +871,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       // Photo Interleaving
       function interleave() {
-        var photoUrls = project.galleryPhotos;
+        var photoUrls = (project.galleryPhotos || []).filter(function(u) { return u !== project.heroPhoto; });
         if (!photoUrls || !Array.isArray(photoUrls) || photoUrls.length < 1) return;
         document.querySelectorAll('.interleaved-photo-pair, .extra-photo-pair').forEach(el => el.remove());
         

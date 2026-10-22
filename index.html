@@ -3037,7 +3037,7 @@
       var polaroidPool = [];
       projects.forEach(function(p) {
         if (p.galleryPhotos && p.galleryPhotos.length) {
-          p.galleryPhotos.forEach(function(g) { polaroidPool.push(g); });
+          p.galleryPhotos.forEach(function(g) { if (g !== p.heroPhoto) polaroidPool.push(g); });
         }
       });
       // Fallback: if no gallery photos yet (pre-sync), use heroPhotoSmall
