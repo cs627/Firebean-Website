@@ -1,12 +1,12 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-10-22T17:02:27.884146+00:00",
+  "generatedAt": "2026-10-23T17:02:18.223834+00:00",
   "run": {
-    "runDate": "2026-10-22",
+    "runDate": "2026-10-23",
     "dateRange": {
       "from": "2026-03-06",
-      "to": "2026-10-22"
+      "to": "2026-10-23"
     },
     "alerts": [
       {
@@ -27,8 +27,8 @@
     ]
   },
   "counts": {
-    "total": 191,
-    "media": 111,
+    "total": 192,
+    "media": 112,
     "social": 80,
     "maps": 0,
     "stores": 10
@@ -2134,6 +2134,17 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, 會員專屬禮遇, Inside Outback, Prestige 尊尚會員, VIP會籍, 75折優惠券"
+    },
+    {
+      "date": "2026-10-22",
+      "source": "KONGGOK 港角（著數媒體）",
+      "platform": "新聞/媒體",
+      "title": "著數優惠｜Outback $488 尊尚會籍加送 $400 券、最多四張 75 折券（20/10－30/11）",
+      "summary": "香港著數媒體 KONGGOK 港角（作者林芷晴）於2026-10-22報道 Outback「INSIDE OUTBACK」限時會員獎賞：活動期2026年10月20日至11月30日。免費登記VIP基本會員首次登記送「香脆薯條混煙肉芝士」換領券（堂食或外賣滿HK$400可用，有效至2026-12-15）；以HK$488新加入／升級／延長兩年 Prestige 尊尚會籍，於原有禮遇外再加送三重獎賞：烤豬肋骨雞槌芝士薯條拼盤換領券（滿HK$400，有效至2027-01-31）、4張HK$100現金券（共HK$400）、最多4張75折券（每張最高減HK$1,000、不設最低消費，分四段時段使用：10/20-31、11/1-15、11/16-30、12/1-15）。報道同時提示兩類會籍換領食品不同、75折券能否全取視乎參加日期，屬媒體中立補充解讀。此為官方10月20日公布之會員推廣的獨立香港媒體來源記錄（該推廣已於本表官方網站記錄），反映香港著數媒體對會員制優惠的主動轉載與消費提示。（資料來源：KONGGOK 港角）",
+      "link": "https://konggokhk.com/outback_membership_prestige_offer_2026",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 尊尚會籍, Prestige, $488, INSIDE OUTBACK, 75折券, 會員優惠, 著數"
     }
   ],
   "stores": [
@@ -2834,6 +2845,30 @@
       "link": "https://www.okibook.com/hk/zh-HK/promotions/hong-kong-western-restaurant",
       "branchCount": "1",
       "expansion": "灣仔胡忠大廈單一店舖；2026年由歐陸餐廳升級為 Steakhouse 定位"
+    },
+    {
+      "date": "2026-10-21",
+      "competitor": "Darkleaf Meat & Cocktail（尖沙咀）",
+      "type": "新店/擴張",
+      "title": "尖沙咀山林道新開暗黑風扒房酒吧「Darkleaf Meat & Cocktail」：主打熟成牛扒及海鮮意粉，主食供應至凌晨",
+      "summary": "U Lifestyle（U Community 社群帖，發佈2026-10-21）及 Instagram 探店帖（@barbaours_）報道尖沙咀山林道38號銀座38 15樓B新開扒房酒吧「Darkleaf Meat & Cocktail」：裝潢走暗黑工業風配柔和燈光，主打熟成牛扒及精緻海鮮意粉，招牌為澳洲M9+頂級肉眼牛扒（選用飼養最少420天但馬血統黑毛和牛）、香蒜白酒虎蝦意粉、醬爆鮮魷、流心心太軟；營業時間17:30–02:00，主食供應至凌晨12點，人均消費約HK$200–400，現推晚市飲品九折。屬2026年新晉「暗黑風扒房酒吧」，以深夜鋸扒＋飲酒場景搶佔尖沙咀年輕及約會客群，與Outback的商場家庭／朋友聚餐定位部分重疊（人均價位亦相近）。帖文屬食客探店評價，未經獨立核實。（資料來源：U Lifestyle U Community；Instagram @barbaours_ 探店）",
+      "sentiment": "中性",
+      "source": "U Lifestyle（U Community 社群）／Instagram 探店",
+      "link": "https://www.ulifestyle.com.hk/community/detailpost/3f84333e-42c6-4866-a895-4cfe388ab8a6/%E9%A6%99%E6%B8%AF%E6%94%BB%E7%95%A5/%E5%B0%96%E6%B2%99%E5%92%80%E6%96%B0%E9%96%8B-%E9%AB%98%E8%B3%AA%E5%9E%8B%E6%A0%BC/Taka-Tam/182331",
+      "branchCount": "1",
+      "expansion": "尖沙咀山林道單一店舖（2026年10月新開）；以酒吧＋深夜時段作差異化"
+    },
+    {
+      "date": "2026-10-24",
+      "competitor": "Dan Ryan's Chicago Grill",
+      "type": "新菜/菜單",
+      "title": "Dan Ryan's 萬聖節限定主題飲品：10月22至31日「萬聖節魔藥」Bloody Eyeball Fizz 無酒精特調",
+      "summary": "Dan Ryan's Chicago Grill 官方 Instagram 公布萬聖節限定主題飲品，推廣期2026年10月22至31日，主打Bloody Eyeball Fizz（緋紅之眼，無酒精特調），文案以「揀杯專屬你嘅萬聖節魔藥」帶動到店；配合全線分店萬聖節布置及10月31日太古城中心店／銅鑼灣翡翠明珠廣場店「萬聖節主題彩繪日（面／手）」。屬節日限定飲品菜單（新菜/菜單），以節日氛圍帶動家庭客到店消費，屬低價切入的季節性推廣。帖文發佈日無法直接核實，DATE 以本日收集日記錄。（資料來源：Dan Ryan's 官方 Instagram；官方 Facebook 專頁）",
+      "sentiment": "中性",
+      "source": "Instagram 官方專頁",
+      "link": "https://www.instagram.com/p/DeszhGFnyid",
+      "branchCount": "4",
+      "expansion": "維持現有分店；以節日限定飲品及親子活動帶客，無擴張"
     }
   ],
   "trend": [
@@ -3059,6 +3094,10 @@
     },
     {
       "date": "2026-10-20",
+      "count": 1
+    },
+    {
+      "date": "2026-10-22",
       "count": 1
     }
   ],

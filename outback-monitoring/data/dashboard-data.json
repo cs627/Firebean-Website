@@ -1,20 +1,16 @@
 {
   "meta": {
-    "last_updated": "2026-10-22 01:20",
-    "total_records": 191,
+    "last_updated": "2026-10-24 09:40",
+    "total_records": 192,
     "daily_avg": 3.4,
-    "date_range": "2026-03-06 → 2026-10-20",
-    "sources_checked": 45,
-    "new_verified": 4,
-    "coverage_ratio": "45/46",
+    "date_range": "2026-03-06 → 2026-10-22",
+    "sources_checked": 46,
+    "new_verified": 3,
+    "coverage_ratio": "46/46",
     "negative_alerts": 25,
     "positive_pct": 53
   },
   "trend": [
-    {
-      "date": "2026-10-02",
-      "count": 2
-    },
     {
       "date": "2026-10-03",
       "count": 3
@@ -37,6 +33,10 @@
     },
     {
       "date": "2026-10-20",
+      "count": 1
+    },
+    {
+      "date": "2026-10-22",
       "count": 1
     }
   ],
@@ -103,7 +103,7 @@
     }
   ],
   "sentiment": {
-    "positive": 101,
+    "positive": 102,
     "neutral": 62,
     "negative": 25,
     "mixed": 3
@@ -2209,6 +2209,17 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, 會員專屬禮遇, Inside Outback, Prestige 尊尚會員, VIP會籍, 75折優惠券"
+    },
+    {
+      "date": "2026-10-22",
+      "source": "KONGGOK 港角（著數媒體）",
+      "platform": "新聞/媒體",
+      "title": "著數優惠｜Outback $488 尊尚會籍加送 $400 券、最多四張 75 折券（20/10－30/11）",
+      "summary": "香港著數媒體 KONGGOK 港角（作者林芷晴）於2026-10-22報道 Outback「INSIDE OUTBACK」限時會員獎賞：活動期2026年10月20日至11月30日。免費登記VIP基本會員首次登記送「香脆薯條混煙肉芝士」換領券（堂食或外賣滿HK$400可用，有效至2026-12-15）；以HK$488新加入／升級／延長兩年 Prestige 尊尚會籍，於原有禮遇外再加送三重獎賞：烤豬肋骨雞槌芝士薯條拼盤換領券（滿HK$400，有效至2027-01-31）、4張HK$100現金券（共HK$400）、最多4張75折券（每張最高減HK$1,000、不設最低消費，分四段時段使用：10/20-31、11/1-15、11/16-30、12/1-15）。報道同時提示兩類會籍換領食品不同、75折券能否全取視乎參加日期，屬媒體中立補充解讀。此為官方10月20日公布之會員推廣的獨立香港媒體來源記錄（該推廣已於本表官方網站記錄），反映香港著數媒體對會員制優惠的主動轉載與消費提示。（資料來源：KONGGOK 港角）",
+      "link": "https://konggokhk.com/outback_membership_prestige_offer_2026",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 尊尚會籍, Prestige, $488, INSIDE OUTBACK, 75折券, 會員優惠, 著數"
     }
   ],
   "media_records": [
@@ -3432,6 +3443,17 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, 會員專屬禮遇, Inside Outback, Prestige 尊尚會員, VIP會籍, 75折優惠券"
+    },
+    {
+      "date": "2026-10-22",
+      "source": "KONGGOK 港角（著數媒體）",
+      "platform": "新聞/媒體",
+      "title": "著數優惠｜Outback $488 尊尚會籍加送 $400 券、最多四張 75 折券（20/10－30/11）",
+      "summary": "香港著數媒體 KONGGOK 港角（作者林芷晴）於2026-10-22報道 Outback「INSIDE OUTBACK」限時會員獎賞：活動期2026年10月20日至11月30日。免費登記VIP基本會員首次登記送「香脆薯條混煙肉芝士」換領券（堂食或外賣滿HK$400可用，有效至2026-12-15）；以HK$488新加入／升級／延長兩年 Prestige 尊尚會籍，於原有禮遇外再加送三重獎賞：烤豬肋骨雞槌芝士薯條拼盤換領券（滿HK$400，有效至2027-01-31）、4張HK$100現金券（共HK$400）、最多4張75折券（每張最高減HK$1,000、不設最低消費，分四段時段使用：10/20-31、11/1-15、11/16-30、12/1-15）。報道同時提示兩類會籍換領食品不同、75折券能否全取視乎參加日期，屬媒體中立補充解讀。此為官方10月20日公布之會員推廣的獨立香港媒體來源記錄（該推廣已於本表官方網站記錄），反映香港著數媒體對會員制優惠的主動轉載與消費提示。（資料來源：KONGGOK 港角）",
+      "link": "https://konggokhk.com/outback_membership_prestige_offer_2026",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 尊尚會籍, Prestige, $488, INSIDE OUTBACK, 75折券, 會員優惠, 著數"
     }
   ],
   "social_records": [
