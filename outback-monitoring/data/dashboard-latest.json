@@ -1,12 +1,12 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-10-23T17:02:18.223834+00:00",
+  "generatedAt": "2026-10-24T17:04:02.212309+00:00",
   "run": {
-    "runDate": "2026-10-23",
+    "runDate": "2026-10-24",
     "dateRange": {
       "from": "2026-03-06",
-      "to": "2026-10-23"
+      "to": "2026-10-25"
     },
     "alerts": [
       {
@@ -27,8 +27,8 @@
     ]
   },
   "counts": {
-    "total": 192,
-    "media": 112,
+    "total": 194,
+    "media": 114,
     "social": 80,
     "maps": 0,
     "stores": 10
@@ -2145,6 +2145,28 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, 尊尚會籍, Prestige, $488, INSIDE OUTBACK, 75折券, 會員優惠, 著數"
+    },
+    {
+      "date": "2026-10-23",
+      "source": "Instagram（@outbacksteakhousehk 官方帳號）",
+      "platform": "社交媒體 (Instagram)",
+      "title": "【INSIDE OUTBACK｜「新品研發部要人！」有獎遊戲 得獎名單公佈】（官方IG帖，2026-10-23）",
+      "summary": "Outback Steakhouse HK 官方 Instagram（@outbacksteakhousehk）於2026-10-23公布「INSIDE OUTBACK｜新品研發部要人！」有獎遊戲得獎名單。活動（10月2日至10月11日23:59）要求參加者讚好／追蹤官方專頁、公開分享帖文並構思50字以上創意新菜式，最有創意50位各得HK$200 Klook電子禮品卡（總值HK$10,000）。得獎名單帖以中英雙語公布，要求得獎者於10月26日前私訊官方並於48小時內確認領獎，否則視作棄權；帖文附官方餐單連結，並保留最終決定權。帖文互動：約245個讚，留言區出現爭議（見同日另一條負面留言記錄）。屬官方社群活動收尾，正面品牌互動內容。（資料來源：Outback Steakhouse HK 官方 Instagram；Jetso Today 2026-10-07 活動報道作背景核對）",
+      "link": "https://www.instagram.com/p/De1SxikDPSJ",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, INSIDE OUTBACK, 有獎遊戲, 得獎名單, 新品研發部要人, Instagram官方帖, 領獎確認"
+    },
+    {
+      "date": "2026-10-25",
+      "source": "Instagram 用戶 @mar._rrrrr_（官方得獎帖留言）",
+      "platform": "社交媒體 (Instagram)",
+      "title": "留言指控：「新品研發部要人」得獎名單中至少9個帳號疑屬同一「姓Choi」人士的假帳號，並指官方刪除其留言（未經獨立核實）",
+      "summary": "在 Outback Steakhouse HK 官方 Instagram「新品研發部要人」得獎名單帖（2026-10-23）留言區，用戶 @mar._rrrrr_ 先後發出四條留言，點名 Una Soda、Tiffany Tsui、Erinys Ky、iriissbeluv、circirbellyy、kkkris2019、kkkchoi0318、tinnmeiigutt、tilemute 九個得獎帳號，指「至少呢9個帳號都係姓Choi果位全職玩家假帳號」，稱同一人不斷開假帳號贏取獎品並轉售，並指控其在 Facebook 及 Instagram 的留言被 Outback 官方刪除，質疑「黑箱作業」、「好唔公平」。留言互動量低（分別3、2、2個讚），未見官方或其他用戶回覆。所有指控均由留言作者提出，未經獨立核實，不構成已證實事實；此為抽獎公平性及留言管理的潛在聲譽風險，建議官方以統一客服口徑回應並檢視抽獎防作弊機制。（資料來源：Instagram 官方帖留言區）",
+      "link": "https://www.instagram.com/p/De1SxikDPSJ",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback, 有獎遊戲, 得獎名單, 假帳號指控, 抽獎公平性, 刪留言指控, 黑箱作業, PR風險"
     }
   ],
   "stores": [
@@ -3098,6 +3120,14 @@
     },
     {
       "date": "2026-10-22",
+      "count": 1
+    },
+    {
+      "date": "2026-10-23",
+      "count": 1
+    },
+    {
+      "date": "2026-10-25",
       "count": 1
     }
   ],

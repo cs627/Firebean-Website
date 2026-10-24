@@ -1536,6 +1536,22 @@
       "summary": "香港著數媒體 KONGGOK 港角（作者林芷晴）於2026-10-22報道 Outback「INSIDE OUTBACK」限時會員獎賞：活動期2026年10月20日至11月30日。免費登記VIP基本會員首次登記送「香脆薯條混煙肉芝士」換領券（堂食或外賣滿HK$400可用，有效至2026-12-15）；以HK$488新加入／升級／延長兩年 Prestige 尊尚會籍，於原有禮遇外再加送三重獎賞：烤豬肋骨雞槌芝士薯條拼盤換領券（滿HK$400，有效至2027-01-31）、4張HK$100現金券（共HK$400）、最多4張75折券（每張最高減HK$1,000、不設最低消費，分四段時段使用：10/20-31、11/1-15、11/16-30、12/1-15）。報道同時提示兩類會籍換領食品不同、75折券能否全取視乎參加日期，屬媒體中立補充解讀。此為官方10月20日公布之會員推廣的獨立香港媒體來源記錄（該推廣已於本表官方網站記錄），反映香港著數媒體對會員制優惠的主動轉載與消費提示。（資料來源：KONGGOK 港角）",
       "link": "https://konggokhk.com/outback_membership_prestige_offer_2026",
       "sentiment": "positive"
+    },
+    {
+      "date": "2026-10-23",
+      "source": "Instagram（@outbacksteakhousehk 官方帳號）",
+      "title": "【INSIDE OUTBACK｜「新品研發部要人！」有獎遊戲 得獎名單公佈】（官方IG帖，2026-10-23）",
+      "summary": "Outback Steakhouse HK 官方 Instagram（@outbacksteakhousehk）於2026-10-23公布「INSIDE OUTBACK｜新品研發部要人！」有獎遊戲得獎名單。活動（10月2日至10月11日23:59）要求參加者讚好／追蹤官方專頁、公開分享帖文並構思50字以上創意新菜式，最有創意50位各得HK$200 Klook電子禮品卡（總值HK$10,000）。得獎名單帖以中英雙語公布，要求得獎者於10月26日前私訊官方並於48小時內確認領獎，否則視作棄權；帖文附官方餐單連結，並保留最終決定權。帖文互動：約245個讚，留言區出現爭議（見同日另一條負面留言記錄）。屬官方社群活動收尾，正面品牌互動內容。（資料來源：Outback Steakhouse HK 官方 Instagram；Jetso Today 2026-10-07 活動報道作背景核對）",
+      "link": "https://www.instagram.com/p/De1SxikDPSJ",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-10-25",
+      "source": "Instagram 用戶 @mar._rrrrr_（官方得獎帖留言）",
+      "title": "留言指控：「新品研發部要人」得獎名單中至少9個帳號疑屬同一「姓Choi」人士的假帳號，並指官方刪除其留言（未經獨立核實）",
+      "summary": "在 Outback Steakhouse HK 官方 Instagram「新品研發部要人」得獎名單帖（2026-10-23）留言區，用戶 @mar._rrrrr_ 先後發出四條留言，點名 Una Soda、Tiffany Tsui、Erinys Ky、iriissbeluv、circirbellyy、kkkris2019、kkkchoi0318、tinnmeiigutt、tilemute 九個得獎帳號，指「至少呢9個帳號都係姓Choi果位全職玩家假帳號」，稱同一人不斷開假帳號贏取獎品並轉售，並指控其在 Facebook 及 Instagram 的留言被 Outback 官方刪除，質疑「黑箱作業」、「好唔公平」。留言互動量低（分別3、2、2個讚），未見官方或其他用戶回覆。所有指控均由留言作者提出，未經獨立核實，不構成已證實事實；此為抽獎公平性及留言管理的潛在聲譽風險，建議官方以統一客服口徑回應並檢視抽獎防作弊機制。（資料來源：Instagram 官方帖留言區）",
+      "link": "https://www.instagram.com/p/De1SxikDPSJ",
+      "sentiment": "negative"
     }
   ],
   "alerts": [],
@@ -1544,7 +1560,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 192,
+    "new_records": 194,
     "limitations": []
   }
 }
