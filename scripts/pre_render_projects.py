@@ -114,6 +114,34 @@ for proj in projects:
     lines.append('<meta name="robots" content="%s">' % ('index,follow' if is_publishable(proj) else 'noindex,follow'))
     lines.append(f'<link rel="canonical" href="{PROJECT_CANONICAL}{pid.lower()}.html">')
 
+    # Open Graph + Twitter card.
+    # Chat/social preview scrapers (LinkedIn, Slack, WhatsApp) do not run
+    # JavaScript, so these MUST be in the static HTML. Without them a shared
+    # project link renders as a bare text row with no title, no image and no
+    # context — which is exactly what happened to the personal LinkedIn posts
+    # that pointed at /profile.html?id=... (that page sets its og:* tags in JS).
+    og_title = f'{name} — {client} | Firebean Agency Hong Kong'
+    hero = (proj.get('heroPhoto') or '').strip()
+    if hero and not hero.startswith('http'):
+        hero = SITE + '/' + hero.lstrip('/')
+    og_desc = (scope or desc)[:220]
+    lines.append('<meta property="og:type" content="article">')
+    lines.append('<meta property="og:site_name" content="Firebean Agency">')
+    lines.append(f'<meta property="og:url" content="{PROJECT_CANONICAL}{pid.lower()}.html">')
+    lines.append(f'<meta property="og:title" content="{esc(og_title)}">')
+    lines.append(f'<meta property="og:description" content="{esc(og_desc)}">')
+    if hero:
+        lines.append(f'<meta property="og:image" content="{esc(hero)}">')
+        lines.append('<meta property="og:image:width" content="1200">')
+        lines.append('<meta property="og:image:height" content="800">')
+    lines.append(f'<meta property="og:locale" content="en_HK">')
+    lines.append(f'<meta property="og:locale:alternate" content="zh_HK">')
+    lines.append('<meta name="twitter:card" content="summary_large_image">')
+    lines.append(f'<meta name="twitter:title" content="{esc(og_title)}">')
+    lines.append(f'<meta name="twitter:description" content="{esc(og_desc)}">')
+    if hero:
+        lines.append(f'<meta name="twitter:image" content="{esc(hero)}">')
+
     creative_work = {
         '@context': 'https://schema.org',
         '@type': 'CreativeWork',
