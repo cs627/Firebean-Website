@@ -99,7 +99,6 @@ label{font-size:13px}
 <main class="shell">
   <header class="top">
     <div class="brand"><div class="pulse">⌁</div><div><h1>Outback Steakhouse HK</h1><p>Social listening · verified signals · store rankings</p></div></div>
-      <div class="source-truth"><b>Hermes native pipeline</b><a href="#" id="sheetLink">Google Sheet</a></div>
   </header>
 
   <section class="kpis" id="kpis"></section>
@@ -386,7 +385,6 @@ async function init(){
   const allDates=[...new Set(m.map(x=>x.date).filter(validDate))].sort();
   state.from=d.run.dateRange.from&&validDate(d.run.dateRange.from)?d.run.dateRange.from:(allDates[0]||null);
   state.to=d.run.dateRange.to&&validDate(d.run.dateRange.to)?d.run.dateRange.to:(allDates[allDates.length-1]||null);
-  $("sheetLink").href="https://docs.google.com/spreadsheets/d/1uj_3EYaeJFcIYOXJhECJXzmFb3643issOrKIB4WTSe4/edit";
   $("generated").textContent="Generated "+new Date(d.generatedAt).toLocaleString("en-HK",{timeZone:"Asia/Hong_Kong"})+" HKT"+(d._live?" · 即時讀取 Google Sheet":"");
   $("fromLabel").textContent=fmtDate(state.from);$("toLabel").textContent=fmtDate(state.to);
   $("tabMedia").textContent=(m.filter(x=>sectionOf(x)==="media").length)+" records";
