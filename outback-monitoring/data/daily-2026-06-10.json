@@ -1,0 +1,25 @@
+{
+  "date": "2026-06-10",
+  "items": [
+    {
+      "date": "2026-06-10",
+      "source": "Google Maps (將軍澳中心)",
+      "platform": "地圖評論",
+      "author": "",
+      "title": "將軍澳顧客5星評價：服務非常好，有足夠嘅員工，黑糖麵包任點五個人只係叫咗三條，每次叫麵包員工都有禮貌",
+      "summary": "將軍澳分店 Google Maps 5星評論（二花Eva Chan，4 個月前）：服務非常好，有足夠嘅員工，黑糖麵包任點五個人只係叫咗三條，每次叫麵包員工都有禮貌同樂意，建議大家提前登記會員，因為會員需要二十四小時之後先能開通可以儲分同埋每次全單九折",
+      "link": "https://www.google.com/maps/contrib/100393003957851663402/reviews",
+      "sentiment": "positive",
+      "tags": ""
+    }
+  ],
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 1,
+    "new_records": 1,
+    "limitations": []
+  }
+}

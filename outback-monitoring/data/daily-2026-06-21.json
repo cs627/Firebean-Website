@@ -1,0 +1,33 @@
+{
+  "date": "2026-06-21",
+  "items": [
+    {
+      "date": "2026-06-21",
+      "source": "Google Maps (東薈城名店倉)",
+      "platform": "地圖評論",
+      "author": "",
+      "title": "東涌顧客1星評價：為了慶祝父親節，早前特登親自落鋪想預約大枱，當時職員明確表示「大枱冇得Book，",
+      "summary": "東涌分店 Google Maps 1星評論（Pui Ki Ho，4 個月前）：為了慶祝父親節，早前特登親自落鋪想預約大枱，當時職員明確表示「大枱冇得Book，只能Walk-in」。  點知今日（父親節）我哋 6:45pm 到達攞飛輪候，見到不斷有人入座，於是上前詢問要等幾多張。職員竟然答我哋：「其實大枱係有得Book，不過早幾日已經 Full Booking。」  咁即係當初落鋪問嘅時候，職員根本係俾錯資訊！如果一早知有得 Book 只是 Full 咗，我哋絕對會去第間，而唔係俾你哋欺騙、要一家人喺現場白等。親自落鋪問都可以俾錯資料，真係好失望。",
+      "link": "https://www.google.com/maps/contrib/107983323084384618228/reviews",
+      "sentiment": "negative",
+      "tags": ""
+    }
+  ],
+  "alerts": [
+    {
+      "title": "東涌顧客1星評價：為了慶祝父親節，早前特登親自落鋪想預約大枱，當時職員明確表示「大枱冇得Book，",
+      "summary": "東涌分店 Google Maps 1星評論（Pui Ki Ho，4 個月前）：為了慶祝父親節，早前特登親自落鋪想預約大枱，當時職員明確表示「大枱冇得Book，只能Walk-in」。  點知今日（父親節）我哋 6:45pm 到達攞飛輪候，見到不斷有人入座，於是上前詢問要等幾多張。職員竟然答我哋：「其實大枱係有得Book，不過早幾日已經 Full Booking。」  咁即係當初落鋪問嘅時候，職員根本係俾錯資訊！如果一早知有得 Book 只是 Full 咗，我哋絕對會去第間，而唔係俾你哋欺騙、要一家人喺現場白等。親自落鋪問都可以俾錯資料，真係好失望。",
+      "source": "Google Maps (東薈城名店倉)",
+      "link": "https://www.google.com/maps/contrib/107983323084384618228/reviews",
+      "severity": "MEDIUM"
+    }
+  ],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 1,
+    "new_records": 1,
+    "limitations": []
+  }
+}

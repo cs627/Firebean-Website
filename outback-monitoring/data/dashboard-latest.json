@@ -1,7 +1,7 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-10-26T12:55:54.361441+00:00",
+  "generatedAt": "2026-10-26T13:10:07.041954+00:00",
   "run": {
     "runDate": "2026-10-26",
     "dateRange": {
@@ -27,10 +27,10 @@
     ]
   },
   "counts": {
-    "total": 194,
+    "total": 209,
     "media": 114,
-    "social": 80,
-    "maps": 23,
+    "social": 95,
+    "maps": 38,
     "stores": 10
   },
   "mentions": [
@@ -2167,6 +2167,171 @@
       "sentiment": "negative",
       "sentiment_label": "負面",
       "keywords": "Outback, 有獎遊戲, 得獎名單, 假帳號指控, 抽獎公平性, 刪留言指控, 黑箱作業, PR風險"
+    },
+    {
+      "date": "2026-06-10",
+      "source": "Google Maps (將軍澳中心)",
+      "platform": "地圖評論",
+      "title": "將軍澳顧客5星評價：服務非常好，有足夠嘅員工，黑糖麵包任點五個人只係叫咗三條，每次叫麵包員工都有禮貌",
+      "summary": "將軍澳分店 Google Maps 5星評論（二花Eva Chan，4 個月前）：服務非常好，有足夠嘅員工，黑糖麵包任點五個人只係叫咗三條，每次叫麵包員工都有禮貌同樂意，建議大家提前登記會員，因為會員需要二十四小時之後先能開通可以儲分同埋每次全單九折",
+      "link": "https://www.google.com/maps/contrib/100393003957851663402/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 將軍澳, 將軍澳中心, 5星"
+    },
+    {
+      "date": "2026-06-25",
+      "source": "Google Maps (荃灣廣場)",
+      "platform": "地圖評論",
+      "title": "荃灣顧客5星評價：荃灣廣場嘅Outback不嬲都係我嘅開飯熱點之一，今次同朋友嚟食晚餐，環境闊落坐",
+      "summary": "荃灣分店 Google Maps 5星評論（UNO Leung，4 個月前）：荃灣廣場嘅Outback不嬲都係我嘅開飯熱點之一，今次同朋友嚟食晚餐，環境闊落坐得舒服，食物水準依然keep得好好，真係無令人失望！  📋 是日精選：  · 黑糖麵包：唔使講，呢個係Outback嘅招牌，上枱時仲熱辣辣，外微脆內軟熟，搽上牛油之後香氣四溢，甜度恰到好處，忍唔住食完一件又一件！ · 肉醬意粉：呢個絕對係驚喜之作！肉醬份量十足，佈滿成個碟面，醬汁濃稠得嚟均勻地掛喺每一條意粉上面，蕃茄味天然濃郁，意粉咬落去彈牙有口感，食到最後一啖都依然有滿滿嘅肉醬相伴，好滿足！ · 牛扒：嗌咗五成熟，火候控制得啱啱好。外層帶有微微炭燒香氣，切開入面呈現漂亮粉紅色，肉質軟嫩多汁，牛味濃郁，完全冇筋位，啖啖肉食得好過癮！ · 凍檸茶：超級大杯！大大杯透心涼，茶底夠濃唔會有苦澀味，配埋新鮮檸檬片，酸甜清爽，用嚟解膩啱啱好！  成餐飯由頭盤到飲品都咁有水準，…",
+      "link": "https://www.google.com/maps/contrib/102930480423216793609/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 荃灣, 荃灣廣場, 5星"
+    },
+    {
+      "date": "2026-05-26",
+      "source": "Google Maps (荃灣廣場)",
+      "platform": "地圖評論",
+      "title": "荃灣顧客4星評價：10/2024 第一次食outback! 好味！真係食返啲唔同茶記個啲牛 個包都",
+      "summary": "荃灣分店 Google Maps 4星評論（Hikari，5 個月前）：10/2024 第一次食outback! 好味！真係食返啲唔同茶記個啲牛 個包都好味！仲要免費 嘢飲太美式 略嫌太甜",
+      "link": "https://www.google.com/maps/contrib/116739609986507825975/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 荃灣, 荃灣廣場, 4星"
+    },
+    {
+      "date": "2026-06-04",
+      "source": "Google Maps (荃灣廣場)",
+      "platform": "地圖評論",
+      "title": "荃灣顧客3星評價：沙律美味．可惜訂了2種牛排，肉質比較紮實，有根，失望而回",
+      "summary": "荃灣分店 Google Maps 3星評論（Tony，4 個月前）：沙律美味．可惜訂了2種牛排，肉質比較紮實，有根，失望而回",
+      "link": "https://www.google.com/maps/contrib/100541526516307021184/reviews",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, Google Maps, 荃灣, 荃灣廣場, 3星"
+    },
+    {
+      "date": "2026-06-29",
+      "source": "Google Maps (新城市廣場三期)",
+      "platform": "地圖評論",
+      "title": "沙田顧客4星評價：豐富午餐  一行四人來到這餐廳午聚。這裏座位舒服，食物質數又有保證；再加上我們今",
+      "summary": "沙田分店 Google Maps 4星評論（Wah Wah，3 個月前）：豐富午餐  一行四人來到這餐廳午聚。這裏座位舒服，食物質數又有保證；再加上我們今天有會員生日優惠折扣，倍感滿足。  這裏的午餐已包括了湯、黑糖麵包、主食和飲品，非常豐富。今天的紅蘿蔔忌廉湯順滑美味，配黑糖麵包一流。  ～牛肉牛油果墨西哥脆餅沙律 （$158） 味道層次豐富，既有肉有蔬果，也有脆口的餅底，清新可口。  ～燒雞肉芝士夾餅 （$128） 半溶芝士非常惹味，入口軟轜。  ～燒肉醬味豬肋骨 （$148） 份量不少，骨肉分明，燒得入味可口。  ～芝士白汁燒蝦寛麵 （$158） 麵微微煙韌，蝦肉爽口，芝士白汁順滑惹味。  餐後來一杯熱飲是最好不過。",
+      "link": "https://www.google.com/maps/contrib/107521388394492080523/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 沙田, 新城市廣場三期, 4星"
+    },
+    {
+      "date": "2026-05-08",
+      "source": "Google Maps (MOKO新世紀廣場)",
+      "platform": "地圖評論",
+      "title": "旺角顧客3星評價：平日12點45分3大人帶1幼童來，$523食了3個餐。味道中上，當日服務很好，好",
+      "summary": "旺角分店 Google Maps 3星評論（ka ho lai，5 個月前）：平日12點45分3大人帶1幼童來，$523食了3個餐。味道中上，當日服務很好，好耐無係MOKO有餐廳做到優質水準。性價比合格，因為位置方便，加埋當日的服務好。預來慢慢坐和朋友傾計聚會，這裡會係好選擇。不過唔知晚市會否限時交枱 食物就正常，但上菜慢。 有位應該係經理，會適當主動招呼及詢問是否須要什麼，一般職員就爽手精神。 環境乾淨舒適，中上的商場餐廳的水準。",
+      "link": "https://www.google.com/maps/contrib/104366232887860561087/reviews",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, Google Maps, 旺角, MOKO新世紀廣場, 3星"
+    },
+    {
+      "date": "2026-06-03",
+      "source": "Google Maps (東薈城名店倉)",
+      "platform": "地圖評論",
+      "title": "東涌顧客1星評價：呢間東涌分店，擺喺門口嘅下午茶menu排版混亂，菜品配搭顯示不清，極度容易令人誤",
+      "summary": "東涌分店 Google Maps 1星評論（jdjajajsjska dhjaja，4 個月前）：呢間東涌分店，擺喺門口嘅下午茶menu排版混亂，菜品配搭顯示不清，極度容易令人誤會，擺明係專登想呃人 嗌兩個下午茶set② 睇menu以為一個下午茶set有沙律&主食+飲品，落單嗰阿姐都冇提我叫左兩個餐，然後埋單見到自己叫左兩個下午茶set，比左double價錢，我仲以為佢落錯單，結果佢勁串嘴答我話我叫左兩個set啊嘛照你咁樣意思你仲差我杯野飲啦？ 不過公道講，野食係好食嘅，不過唔會再幫襯囉，多多錢都唔係咁樣洗喺你地度仑",
+      "link": "https://www.google.com/maps/contrib/115892478954461315862/reviews",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback, Google Maps, 東涌, 東薈城名店倉, 1星"
+    },
+    {
+      "date": "2026-06-21",
+      "source": "Google Maps (東薈城名店倉)",
+      "platform": "地圖評論",
+      "title": "東涌顧客1星評價：為了慶祝父親節，早前特登親自落鋪想預約大枱，當時職員明確表示「大枱冇得Book，",
+      "summary": "東涌分店 Google Maps 1星評論（Pui Ki Ho，4 個月前）：為了慶祝父親節，早前特登親自落鋪想預約大枱，當時職員明確表示「大枱冇得Book，只能Walk-in」。  點知今日（父親節）我哋 6:45pm 到達攞飛輪候，見到不斷有人入座，於是上前詢問要等幾多張。職員竟然答我哋：「其實大枱係有得Book，不過早幾日已經 Full Booking。」  咁即係當初落鋪問嘅時候，職員根本係俾錯資訊！如果一早知有得 Book 只是 Full 咗，我哋絕對會去第間，而唔係俾你哋欺騙、要一家人喺現場白等。親自落鋪問都可以俾錯資料，真係好失望。",
+      "link": "https://www.google.com/maps/contrib/107983323084384618228/reviews",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback, Google Maps, 東涌, 東薈城名店倉, 1星"
+    },
+    {
+      "date": "2026-05-06",
+      "source": "Google Maps (娛樂行)",
+      "platform": "地圖評論",
+      "title": "中環顧客4星評價：食物唔錯但價錢又點貴",
+      "summary": "中環分店 Google Maps 4星評論（Wilson Lam，5 個月前）：食物唔錯但價錢又點貴",
+      "link": "https://www.google.com/maps/contrib/103221660855463757252/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 中環, 娛樂行, 4星"
+    },
+    {
+      "date": "2026-05-20",
+      "source": "Google Maps (奧海城二期)",
+      "platform": "地圖評論",
+      "title": "大角咀顧客5星評價：上菜速度合適，上主菜的碟也有預熱，連配菜都有花心機調味，不是一般餐廳冷冰冰的配菜",
+      "summary": "大角咀分店 Google Maps 5星評論（Karsen Ko，5 個月前）：上菜速度合適，上主菜的碟也有預熱，連配菜都有花心機調味，不是一般餐廳冷冰冰的配菜。  2人午餐  點了炸洋葱球，味道和以前吃一樣哪麼喜歡。 但二人食會有點太膩。  餐前黑糖包，外乾內裏夠熱及鬆軟，好吃。  主菜黑毛豬扒，可選全熟或7成。  (因是平常午餐，沒有影相) 我點了七成熟，不會太乾，亦沒有不熟情况。 至少吃了肚子沒有不適。",
+      "link": "https://www.google.com/maps/contrib/110863802510018707103/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 大角咀, 奧海城二期, 5星"
+    },
+    {
+      "date": "2026-08-09",
+      "source": "Google Maps (大埔超級城)",
+      "platform": "地圖評論",
+      "title": "大埔顧客4星評價：2026年7月 好食，不過有D 重口味",
+      "summary": "大埔分店 Google Maps 4星評論（Cho Cho，2 個月前）：2026年7月 好食，不過有D 重口味",
+      "link": "https://www.google.com/maps/contrib/107179936670915919311/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 大埔, 大埔超級城, 4星"
+    },
+    {
+      "date": "2026-06-19",
+      "source": "Google Maps (形點)",
+      "platform": "地圖評論",
+      "title": "元朗顧客2星評價：非常普通之一餐 意粉一啲鹽味都冇 漢堡包質感似嘉頓面包包住啲餡 最好味係薯條",
+      "summary": "元朗分店 Google Maps 2星評論（Jess，4 個月前）：非常普通之一餐 意粉一啲鹽味都冇 漢堡包質感似嘉頓面包包住啲餡 最好味係薯條",
+      "link": "https://www.google.com/maps/contrib/113846367632477007115/reviews",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback, Google Maps, 元朗, 形點, 2星"
+    },
+    {
+      "date": "2026-08-08",
+      "source": "Google Maps (形點)",
+      "platform": "地圖評論",
+      "title": "元朗顧客3星評價：服務幾好，話薯條唔熱即時炸返新嘅俾我👍🏻",
+      "summary": "元朗分店 Google Maps 3星評論（On Samsung，2 個月前）：服務幾好，話薯條唔熱即時炸返新嘅俾我👍🏻",
+      "link": "https://www.google.com/maps/contrib/110608067624245212012/reviews",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, Google Maps, 元朗, 形點, 3星"
+    },
+    {
+      "date": "2026-10-12",
+      "source": "Google Maps (形點)",
+      "platform": "地圖評論",
+      "title": "元朗顧客5星評價：地點方便，餐點美味，員工服務態度良好，有禮貌，可再次來臨",
+      "summary": "元朗分店 Google Maps 5星評論（chan kasum，2 週前）：地點方便，餐點美味，員工服務態度良好，有禮貌，可再次來臨",
+      "link": "https://www.google.com/maps/contrib/104895320475232040275/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 元朗, 形點, 5星"
+    },
+    {
+      "date": "2026-08-17",
+      "source": "Google Maps (形點)",
+      "platform": "地圖評論",
+      "title": "元朗顧客3星評價：Light meal時段幾抵食，又唔駛等位，食完去睇戲，nice",
+      "summary": "元朗分店 Google Maps 3星評論（Mrs Chan，2 個月前）：Light meal時段幾抵食，又唔駛等位，食完去睇戲，nice",
+      "link": "https://www.google.com/maps/contrib/113481308831447341327/reviews",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, Google Maps, 元朗, 形點, 3星"
     }
   ],
   "stores": [
@@ -2899,8 +3064,48 @@
       "count": 1
     },
     {
-      "date": "2026-06-29",
+      "date": "2026-05-06",
       "count": 1
+    },
+    {
+      "date": "2026-05-08",
+      "count": 1
+    },
+    {
+      "date": "2026-05-20",
+      "count": 1
+    },
+    {
+      "date": "2026-05-26",
+      "count": 1
+    },
+    {
+      "date": "2026-06-03",
+      "count": 1
+    },
+    {
+      "date": "2026-06-04",
+      "count": 1
+    },
+    {
+      "date": "2026-06-10",
+      "count": 1
+    },
+    {
+      "date": "2026-06-19",
+      "count": 1
+    },
+    {
+      "date": "2026-06-21",
+      "count": 1
+    },
+    {
+      "date": "2026-06-25",
+      "count": 1
+    },
+    {
+      "date": "2026-06-29",
+      "count": 2
     },
     {
       "date": "2026-07-01",
@@ -2948,11 +3153,11 @@
     },
     {
       "date": "2026-08-08",
-      "count": 4
+      "count": 5
     },
     {
       "date": "2026-08-09",
-      "count": 8
+      "count": 9
     },
     {
       "date": "2026-08-10",
@@ -2984,7 +3189,7 @@
     },
     {
       "date": "2026-08-17",
-      "count": 3
+      "count": 4
     },
     {
       "date": "2026-08-18",
@@ -3109,6 +3314,10 @@
     {
       "date": "2026-10-08",
       "count": 2
+    },
+    {
+      "date": "2026-10-12",
+      "count": 1
     },
     {
       "date": "2026-10-17",

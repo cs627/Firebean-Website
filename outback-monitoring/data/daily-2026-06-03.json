@@ -1,0 +1,33 @@
+{
+  "date": "2026-06-03",
+  "items": [
+    {
+      "date": "2026-06-03",
+      "source": "Google Maps (東薈城名店倉)",
+      "platform": "地圖評論",
+      "author": "",
+      "title": "東涌顧客1星評價：呢間東涌分店，擺喺門口嘅下午茶menu排版混亂，菜品配搭顯示不清，極度容易令人誤",
+      "summary": "東涌分店 Google Maps 1星評論（jdjajajsjska dhjaja，4 個月前）：呢間東涌分店，擺喺門口嘅下午茶menu排版混亂，菜品配搭顯示不清，極度容易令人誤會，擺明係專登想呃人 嗌兩個下午茶set② 睇menu以為一個下午茶set有沙律&主食+飲品，落單嗰阿姐都冇提我叫左兩個餐，然後埋單見到自己叫左兩個下午茶set，比左double價錢，我仲以為佢落錯單，結果佢勁串嘴答我話我叫左兩個set啊嘛照你咁樣意思你仲差我杯野飲啦？ 不過公道講，野食係好食嘅，不過唔會再幫襯囉，多多錢都唔係咁樣洗喺你地度仑",
+      "link": "https://www.google.com/maps/contrib/115892478954461315862/reviews",
+      "sentiment": "negative",
+      "tags": ""
+    }
+  ],
+  "alerts": [
+    {
+      "title": "東涌顧客1星評價：呢間東涌分店，擺喺門口嘅下午茶menu排版混亂，菜品配搭顯示不清，極度容易令人誤",
+      "summary": "東涌分店 Google Maps 1星評論（jdjajajsjska dhjaja，4 個月前）：呢間東涌分店，擺喺門口嘅下午茶menu排版混亂，菜品配搭顯示不清，極度容易令人誤會，擺明係專登想呃人 嗌兩個下午茶set② 睇menu以為一個下午茶set有沙律&主食+飲品，落單嗰阿姐都冇提我叫左兩個餐，然後埋單見到自己叫左兩個下午茶set，比左double價錢，我仲以為佢落錯單，結果佢勁串嘴答我話我叫左兩個set啊嘛照你咁樣意思你仲差我杯野飲啦？ 不過公道講，野食係好食嘅，不過唔會再幫襯囉，多多錢都唔係咁樣洗喺你地度仑",
+      "source": "Google Maps (東薈城名店倉)",
+      "link": "https://www.google.com/maps/contrib/115892478954461315862/reviews",
+      "severity": "MEDIUM"
+    }
+  ],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 1,
+    "new_records": 1,
+    "limitations": []
+  }
+}

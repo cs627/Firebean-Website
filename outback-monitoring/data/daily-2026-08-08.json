@@ -44,6 +44,17 @@
       "link": "https://www.linkedin.com/posts/mariusl_your-loyalty-program-is-not-buying-loyalty-activity-7483433935323062273--Ilx",
       "sentiment": "neutral",
       "tags": ""
+    },
+    {
+      "date": "2026-08-08",
+      "source": "Google Maps (形點)",
+      "platform": "地圖評論",
+      "author": "",
+      "title": "元朗顧客3星評價：服務幾好，話薯條唔熱即時炸返新嘅俾我👍🏻",
+      "summary": "元朗分店 Google Maps 3星評論（On Samsung，2 個月前）：服務幾好，話薯條唔熱即時炸返新嘅俾我👍🏻",
+      "link": "https://www.google.com/maps/contrib/110608067624245212012/reviews",
+      "sentiment": "neutral",
+      "tags": ""
     }
   ],
   "alerts": [],
@@ -51,8 +62,8 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 4,
-    "new_records": 4,
+    "checked_sources": 5,
+    "new_records": 5,
     "limitations": []
   }
 }
