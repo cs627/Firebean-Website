@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WhatsApp 自動化防封禁守則 — Firebean</title>
+<meta name="description" content="實戰版 WhatsApp 自動化防封禁守則：養號、發送行為、內容、監控應變，附一鍵複製。">
+<meta name="robots" content="noindex">
+<style>
+  :root{
+    --ink:#0d0f14; --ink-2:#1a1d26; --panel:#141821; --line:#252b38;
+    --text:#e8eaef; --muted:#98a1b3; --red:#e2231a; --red-soft:#ff4d40;
+    --amber:#ffb020; --green:#25d07a;
+    --sans:"Inter","Helvetica Neue",-apple-system,"PingFang HK","Noto Sans TC",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink); color:var(--text); font-family:var(--sans);
+    line-height:1.7; -webkit-font-smoothing:antialiased;
+    font-size:15px;
+  }
+  a{color:var(--red-soft);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* ── header ── */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(13,15,20,.88); backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .hwrap{max-width:1240px;margin:0 auto;padding:14px 22px;display:flex;align-items:center;gap:16px}
+  .logo{height:44px;width:auto;display:block;flex:0 0 auto}
+  .htitle{font-size:15px;font-weight:700;letter-spacing:.02em}
+  .hsub{font-size:12px;color:var(--muted);font-weight:400}
+  .spacer{flex:1}
+  .btn{
+    display:inline-flex;align-items:center;gap:7px;
+    background:var(--red);color:#fff;border:0;border-radius:9px;
+    padding:10px 16px;font-size:13.5px;font-weight:650;cursor:pointer;
+    font-family:inherit;transition:filter .15s,transform .1s;white-space:nowrap;
+  }
+  .btn:hover{filter:brightness(1.12)}
+  .btn:active{transform:scale(.975)}
+  .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--text)}
+  .btn.ghost:hover{border-color:#3a4356;background:#1b2029}
+  .btn.ok{background:var(--green)}
+  .btn svg{width:15px;height:15px;flex:0 0 auto}
+
+  /* ── layout: desktop sidebar + content, mobile single col ── */
+  .wrap{max-width:1240px;margin:0 auto;padding:34px 22px 90px;display:grid;grid-template-columns:236px 1fr;gap:44px;align-items:start}
+  aside{position:sticky;top:92px}
+  .toc-t{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;font-weight:700}
+  .toc a{display:block;padding:7px 12px;border-radius:7px;font-size:13.5px;color:var(--muted);border-left:2px solid transparent}
+  .toc a:hover{background:#171b24;color:var(--text);text-decoration:none}
+  .toc a.on{color:var(--text);border-left-color:var(--red);background:#171b24;font-weight:600}
+  .toc .n{display:inline-block;width:17px;color:#5c6577;font-variant-numeric:tabular-nums}
+  .toc a.on .n{color:var(--red-soft)}
+
+  /* ── hero ── */
+  .hero{margin-bottom:38px}
+  .hero h1{font-size:31px;line-height:1.25;font-weight:800;letter-spacing:-.015em;margin-bottom:12px}
+  .hero h1 em{font-style:normal;color:var(--red-soft)}
+  .hero p{color:var(--muted);max-width:62ch;font-size:15px}
+  .meta{margin-top:16px;display:flex;gap:9px;flex-wrap:wrap}
+  .tag{font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 11px}
+
+  /* ── section ── */
+  section{margin-bottom:44px;scroll-margin-top:92px}
+  .stitle{display:flex;align-items:baseline;gap:13px;margin-bottom:6px;padding-bottom:13px;border-bottom:1px solid var(--line)}
+  .snum{
+    font-size:12px;font-weight:800;color:var(--red);
+    border:1px solid rgba(226,35,26,.4);border-radius:6px;padding:3px 9px;flex:0 0 auto;
+    letter-spacing:.05em;
+  }
+  .stitle h2{font-size:19.5px;font-weight:750;letter-spacing:-.01em}
+  .sdesc{color:var(--muted);font-size:13.5px;margin:13px 0 20px;max-width:70ch}
+
+  /* ── rule cards ── */
+  .rules{display:grid;gap:12px}
+  .rule{
+    background:var(--panel);border:1px solid var(--line);border-radius:11px;
+    padding:16px 18px 16px 17px;display:grid;grid-template-columns:auto 1fr;gap:15px;
+    transition:border-color .15s,background .15s;
+  }
+  .rule:hover{border-color:#333c4e;background:#171b24}
+  .rule.key{border-color:rgba(226,35,26,.42);background:linear-gradient(180deg,rgba(226,35,26,.07),transparent 62%)}
+  .rnum{
+    width:27px;height:27px;border-radius:7px;background:#1f2530;color:var(--muted);
+    display:grid;place-items:center;font-size:12.5px;font-weight:750;
+    font-variant-numeric:tabular-nums;flex:0 0 auto;
+  }
+  .rule.key .rnum{background:var(--red);color:#fff}
+  .rb h3{font-size:14.5px;font-weight:700;margin-bottom:5px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .rb p{font-size:13.5px;color:#b9c0cd;line-height:1.68}
+  .rb p + p{margin-top:8px}
+  .rb strong{color:var(--text);font-weight:650}
+  .rb code{
+    background:#0b0e13;border:1px solid var(--line);border-radius:5px;
+    padding:1px 6px;font-size:12.5px;color:#8fd9ff;
+    font-family:"SF Mono",Menlo,Consolas,monospace;
+  }
+  .pill{
+    font-size:10.5px;font-weight:700;letter-spacing:.05em;border-radius:5px;
+    padding:2px 7px;text-transform:uppercase;
+  }
+  .pill.no{background:rgba(226,35,26,.16);color:#ff6b60;border:1px solid rgba(226,35,26,.35)}
+  .pill.yes{background:rgba(37,208,122,.14);color:#4ddb93;border:1px solid rgba(37,208,122,.32)}
+  .pill.warn{background:rgba(255,176,32,.14);color:var(--amber);border:1px solid rgba(255,176,32,.32)}
+
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+  /* ── summary ── */
+  .final{
+    background:linear-gradient(135deg,rgba(226,35,26,.12),rgba(226,35,26,.02));
+    border:1px solid rgba(226,35,26,.3);border-radius:14px;padding:26px 26px 24px;
+  }
+  .final h2{font-size:19px;font-weight:780;margin-bottom:16px}
+  .chain{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin-bottom:19px}
+  .chain span{
+    background:#12161e;border:1px solid var(--line);border-radius:8px;
+    padding:8px 13px;font-size:13px;font-weight:620;
+  }
+  .chain i{color:var(--red);font-style:normal;font-weight:800}
+  .final p{color:#c3cad6;font-size:14px;max-width:72ch}
+  .final p strong{color:#fff}
+
+  footer{border-top:1px solid var(--line);padding-top:22px;color:var(--muted);font-size:13px}
+  footer strong{color:var(--text)}
+
+  /* ── toast ── */
+  #toast{
+    position:fixed;left:50%;bottom:30px;transform:translate(-50%,26px);
+    background:var(--green);color:#04140c;font-weight:750;font-size:13.5px;
+    padding:11px 21px;border-radius:10px;opacity:0;pointer-events:none;
+    transition:opacity .22s,transform .22s;z-index:99;box-shadow:0 12px 34px rgba(0,0,0,.5);
+  }
+  #toast.show{opacity:1;transform:translate(-50%,0)}
+
+  /* ── tablet ── */
+  @media (max-width:1000px){
+    .wrap{grid-template-columns:1fr;gap:0;padding-top:26px}
+    aside{display:none}
+  }
+  /* ── mobile: unchanged single column, tighter chrome ── */
+  @media (max-width:640px){
+    body{font-size:14.5px}
+    .hwrap{padding:11px 15px;gap:11px}
+    .logo{height:34px}
+    .htitle{font-size:13px}
+    .hsub{display:none}
+    .btn{padding:9px 12px;font-size:12.5px}
+    .btn .lbl{display:none}
+    .wrap{padding:22px 15px 70px}
+    .hero h1{font-size:23px}
+    .stitle h2{font-size:17px}
+    .split{grid-template-columns:1fr}
+    .rule{padding:14px 14px 14px 13px;gap:12px}
+    .final{padding:20px 18px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hwrap">
+    <img class="logo" src="logo.png" alt="Firebean">
+    <div>
+      <div class="htitle">WhatsApp 自動化防封禁守則</div>
+      <div class="hsub">實戰版 · 2026-10</div>
+    </div>
+    <div class="spacer"></div>
+    <button class="btn" id="copyTop">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+      <span class="lbl">複製全文</span>
+    </button>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <aside>
+    <div class="toc-t">目錄</div>
+    <nav class="toc">
+      <a href="#s1"><span class="n">1</span>賬號本身</a>
+      <a href="#s2"><span class="n">2</span>發送行為</a>
+      <a href="#s3"><span class="n">3</span>內容</a>
+      <a href="#s4"><span class="n">4</span>監控應變</a>
+      <a href="#s5"><span class="n">5</span>一句話總結</a>
+    </nav>
+  </aside>
+
+  <main>
+
+    <div class="hero">
+      <h1>唔想個 WhatsApp 號被<em>封</em>，要守呢 23 條。</h1>
+      <p>呢份係 Firebean 實際運行自動化 WhatsApp 服務歸納出嚟嘅守則。核心只有一句：<strong style="color:#e8eaef">令你嘅號碼似一個真人用 WhatsApp，而唔係一部機器喺度派傳單。</strong></p>
+      <div class="meta">
+        <span class="tag">23 條規則</span>
+        <span class="tag">4 個層面</span>
+        <span class="tag">附一鍵複製</span>
+      </div>
+    </div>
+
+    <!-- 1 -->
+    <section id="s1">
+      <div class="stitle"><span class="snum">01</span><h2>賬號本身 — 養號</h2></div>
+      <p class="sdesc">呢層最多人忽略。一個號碼「底子」唔好，之後做咩都易被封。</p>
+      <div class="rules">
+
+        <div class="rule"><div class="rnum">1</div><div class="rb">
+          <h3>新號碼唔可以即刻開工 <span class="pill warn">養號期</span></h3>
+          <p>新開嘅號碼頭 <strong>1–2 星期</strong>唔好做任何自動發送。先當普通用戶用：加幾個聯絡人、傾幾句、發幾張相。WhatsApp 對「一開號就大量發訊」嘅偵測最敏感。</p>
+        </div></div>
+
+        <div class="rule"><div class="rnum">2</div><div class="rb">
+          <h3>用真實 SIM 卡 <span class="pill no">唔好用虛擬號</span></h3>
+          <p>虛擬號／一次性號碼被 ban 率極高。要長期用嘅號碼一定要係實體 SIM。</p>
+        </div></div>
+
+        <div class="rule"><div class="rnum">3</div><div class="rb">
+          <h3>填好 profile</h3>
+          <p>要有大頭相、有名、有狀態。空白 profile 加上大量發訊，就係典型 spam bot 特徵。</p>
+        </div></div>
+
+        <div class="rule"><div class="rnum">4</div><div class="rb">
+          <h3>唔好頻繁換裝置</h3>
+          <p>同一個 session 不停重新 link／unlink 手機會觸發風控。要定期備份 session，出事可以還原，唔好每次都重新 pair。</p>
+        </div></div>
+
+        <div class="rule"><div class="rnum">5</div><div class="rb">
+          <h3>明白技術選擇嘅風險</h3>
+          <div class="split">
+            <p><span class="pill yes">合規</span> <strong>官方 Cloud API</strong><br>合規，但要先過 template 審批，唔可以隨意發任意內容。</p>
+            <p><span class="pill no">有風險</span> <strong>非官方 bridge</strong><br>Baileys / whatsapp-web.js 等，靈活但違反 ToS，帳號有被封風險，要用保守策略運行。</p>
+          </div>
+          <p>兩者風險模型唔同，唔好當一樣。</p>
+        </div></div>
+
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section id="s2">
+      <div class="stitle"><span class="snum">02</span><h2>發送行為 — 最易出事</h2></div>
+      <p class="sdesc">九成封號都係死喺呢一層。如果只可以記三條，記第 6、11、12 條。</p>
+      <div class="rules">
+
+        <div class="rule key"><div class="rnum">6</div><div class="rb">
+          <h3>唔好 cold message <span class="pill no">第一鐵律</span></h3>
+          <p>冇雙向溝通記錄嘅號碼，<strong>唔可以主動 DM</strong>。要等對方先 pm 你（opt-in），你先可以回覆。呢條係防封禁嘅第一道閘。</p>
+        </div></div>
+
+        <div class="rule"><div class="rnum">7</div><div class="rb">
+          <h3>每個新人每日上限 1 次</h3>
+          <p>每個陌生號碼，每日最多自動回覆一次。</p>
+        </div></div>
+
+        <div class="rule"><div class="rnum">8</div><div class="rb">
+          <h3>全局每日上限</h3>
+          <p>自動回覆要設全日總上限（例如 <code>12</code> 次）。超出即靜音，全部轉真人處理。</p>
+        </div></div>
+
+        <div class="rule"><div class="rnum">9</div><div class="rb">
+          <h3>只喺營業時間發</h3>
+          <p>例如 <code>09:00–23:00</code>。凌晨三點發訊息係極明顯嘅機械人特徵。</p>
+        </div></div>
+
+        <div class="rule"><div class="rnum">10</div><div class="rb">
+          <h3>要有真人節奏</h3>
+          <p>唔好同一秒／同一分鐘連環發。每條訊息之間加<strong>隨機延遲</strong>，模擬真人打字、停頓、隔一陣再覆。</p>
+        </div></div>
+
+        <div class="rule key"><div class="rnum">11</div><div class="rb">
+          <h3>唔好重覆同一條訊息 <span class="pill no">spam 核心特徵</span></h3>
+          <p>一模一樣嘅文字連環發去多個 chat，係 WhatsApp spam 偵測最核心嘅特徵。同一個內容唔好原封不動複製去唔同人。</p>
+        </div></div>
+
+        <div class="rule key"><div class="rnum">12</div><div class="rb">
+          <h3>唔好群發廣播 <span class="pill no">高風險</span></h3>
+          <p>未經同意嘅大量群發 = 直接高風險。任何群發都要建立喺<strong>明確 opt-in</strong> 之上。</p>
+        </div></div>
+
+        <div class="rule"><div class="rnum">13</div><div class="rb">
+          <h3>群組發言要克制</h3>
+          <p>喺群組度低頻發言。同一個群組唔好短時間內連環貼。</p>
+        </div></div>
+
+        <div class="rule"><div class="rnum">14</div><div class="rb">
+          <h3>追料要低頻</h3>
+          <p>跟進（chase）唔可以密集。低頻率 ＋ 真人語氣 ＋ 營業時間，三樣齊。</p>
+        </div></div>
+
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section id="s3">
+      <div class="stitle"><span class="snum">03</span><h2>內容</h2></div>
+      <p class="sdesc">內容唔止影響開信率，仲直接影響風控評分。</p>
+      <div class="rules">
+
+        <div class="rule"><div class="rnum">15</div><div class="rb">
+          <h3>唔好塞大量連結</h3>
+          <p>短網址（<code>bit.ly</code> 之類）同陌生 domain 係高風險信號。要用完整 <code>https://</code> 連結。</p>
+        </div></div>
+
+        <div class="rule"><div class="rnum">16</div><div class="rb">
+          <h3>唔好有機械人痕跡</h3>
+          <p>唔好有 markdown（<code>**</code>、<code>```</code>）、JSON、數字列表、程式字眼。WhatsApp 係平舖對話，唔係文件。</p>
+        </div></div>
+
+        <div class="rule"><div class="rnum">17</div><div class="rb">
+          <h3>Soft CTA</h3>
+          <p>唔好 hard sell。聚焦一件事，唔好一次推五樣嘢。</p>
+        </div></div>
+
+        <div class="rule"><div class="rnum">18</div><div class="rb">
+          <h3>個人化</h3>
+          <p>每條訊息要有對象嘅名／具體 context。同一個模板發 50 人 = 即死。</p>
+        </div></div>
+
+      </div>
+    </section>
+
+    <!-- 4 -->
+    <section id="s4">
+      <div class="stitle"><span class="snum">04</span><h2>監控同應變</h2></div>
+      <p class="sdesc">出事之後點反應，決定你係損失一個號，定係損失成個號碼池。</p>
+      <div class="rules">
+
+        <div class="rule"><div class="rnum">19</div><div class="rb">
+          <h3>403 = 即停 <span class="pill no">唔好硬試</span></h3>
+          <p>收到 HTTP <code>403</code> 就係明確信號。即刻停止發送，唔好連環重試。</p>
+        </div></div>
+
+        <div class="rule"><div class="rnum">20</div><div class="rb">
+          <h3>被 block／report 係最強警號</h3>
+          <p>有人封鎖你或者舉報你，風險等級即刻跳升。要停一段時間先再試。</p>
+        </div></div>
+
+        <div class="rule"><div class="rnum">21</div><div class="rb">
+          <h3>定期備份 session</h3>
+          <p>出咗事可以還原，唔使重新 pair —— 重新 pair 本身又係一個風險動作。</p>
+        </div></div>
+
+        <div class="rule"><div class="rnum">22</div><div class="rb">
+          <h3>「sent 成功」唔等於「真係送到」</h3>
+          <p>API 回 <code>success</code> 只代表程式送出咗。要確認真係入到對方個 chat。唔好靠程式回報嘅 boolean 當事實。</p>
+        </div></div>
+
+        <div class="rule"><div class="rnum">23</div><div class="rb">
+          <h3>單一 active 連線</h3>
+          <p>同一個號碼只可以有一個 bridge／session 在線。開多過一個會互相搶線，兩邊都唔穩。</p>
+        </div></div>
+
+      </div>
+    </section>
+
+    <!-- 5 -->
+    <section id="s5">
+      <div class="final">
+        <h2>一句話總結</h2>
+        <div class="chain">
+          <span>等對方先開口 (opt-in)</span><i>→</i>
+          <span>低頻</span><i>→</i>
+          <span>真人節奏</span><i>→</i>
+          <span>營業時間</span><i>→</i>
+          <span>唔重覆</span><i>→</i>
+          <span>唔群發</span><i>→</i>
+          <span>出事即刻停</span>
+        </div>
+        <p>核心邏輯：<strong>令你嘅號碼「似一個真人用 WhatsApp」，而唔係「一部機器喺度派傳單」。</strong>技術上做得到嘅事，唔代表行為上應該做 —— 封號永遠係死喺行為，唔係死喺技術。</p>
+      </div>
+
+      <div style="margin-top:26px;display:flex;gap:11px;flex-wrap:wrap">
+        <button class="btn" id="copyBottom">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+          複製全文（純文字）
+        </button>
+        <a class="btn ghost" href="wa-rules.txt" download>下載 .txt</a>
+      </div>
+    </section>
+
+    <footer>
+      <strong>Firebean</strong> · 香港 PR／創意 agency<br>
+      本頁內容為 Firebean 實戰歸納，非 WhatsApp 官方文件。實際政策以 WhatsApp 官方條款為準。
+    </footer>
+
+  </main>
+</div>
+
+<div id="toast">已複製全文 ✅</div>
+
+<script>
+(function(){
+  // ---- text payload for the copy button (kept in sync with the page) ----
+  var PLAIN = [
+"WhatsApp 自動化防封禁守則 (Firebean 實戰版)",
+"",
+"═══ 第一層：賬號本身（養號）═══",
+"",
+"1. 新號碼唔可以即刻開工",
+"   新開號碼頭 1-2 星期唔好做任何自動發送。先當普通用戶：加幾個聯絡人、",
+"   傾幾句、發幾張相。WhatsApp 對「一開號就大量發訊」嘅偵測最敏感。",
+"",
+"2. 用真實 SIM 卡，唔好用虛擬號",
+"   虛擬號／一次性號碼被 ban 率極高。長期用嘅號碼要係實體 SIM。",
+"",
+"3. 填好 profile",
+"   有大頭相、有名、有狀態。空白 profile + 大量發訊 = 典型 spam bot 特徵。",
+"",
+"4. 唔好頻繁換裝置",
+"   不停重新 link／unlink 手機會觸發風控。要備份 session，唔好出事就重新 pair。",
+"",
+"5. 明白技術選擇嘅風險",
+"   官方 Cloud API：合規，但要 template 審批，唔可以隨意發。",
+"   非官方 bridge（Baileys 等）：靈活但違反 ToS，帳號有被封風險。",
+"   兩者風險模型唔同，唔好當一樣。",
+"",
+"═══ 第二層：發送行為（最易出事）═══",
+"",
+"6. 【最重要】唔好 cold message",
+"   冇雙向溝通記錄嘅號碼，唔可以主動 DM。要等對方先 pm 你（opt-in）。",
+"   呢條係防封禁嘅第一道閘。",
+"",
+"7. 每個陌生號碼每日最多回覆 1 次。",
+"",
+"8. 全局每日上限：自動回覆設全日上限（例如 12 次），超出即靜音轉真人。",
+"",
+"9. 只喺營業時間發（例如 09:00-23:00）。凌晨發訊係明顯機械人特徵。",
+"",
+"10. 要有真人節奏：唔好同一秒連環發，每條之間加隨機延遲。",
+"",
+"11. 唔好重覆同一條訊息 —— 一模一樣嘅文字連環發多個 chat，",
+"    係 WhatsApp spam 偵測最核心嘅特徵。",
+"",
+"12. 唔好群發廣播。未經同意嘅大量群發 = 直接高風險。",
+"",
+"13. 群組發言要克制，唔好短時間內連環貼。",
+"",
+"14. 追料要低頻：低頻率 + 真人語氣 + 營業時間。",
+"",
+"═══ 第三層：內容 ═══",
+"",
+"15. 唔好塞大量連結。短網址／陌生 domain 係高風險，要用完整 https。",
+"",
+"16. 唔好有機械人痕跡（markdown、JSON、數字列表、程式字眼）。",
+"     WhatsApp 係平舖對話，唔係文件。",
+"",
+"17. Soft CTA，唔好 hard sell，聚焦一件事。",
+"",
+"18. 個人化：每條要有對象嘅名／具體 context。同模板發 50 人 = 即死。",
+"",
+"═══ 第四層：監控同應變 ═══",
+"",
+"19. 403 = 即停。收到 HTTP 403 即刻停止發送，唔好硬試。",
+"",
+"20. 被 block／report 係最強警號，要停一段時間。",
+"",
+"21. 定期備份 session，出事可以還原，唔使重新 pair。",
+"",
+"22. 「sent 成功」唔等於「真係送到」。API 回 success 只代表程式送出咗。",
+"",
+"23. 單一 active 連線。同一個號碼只可以有一個 bridge 在線。",
+"",
+"═══ 一句話總結 ═══",
+"",
+"等對方先開口 (opt-in) → 低頻 → 真人節奏 → 營業時間 →",
+"唔重覆 → 唔群發 → 出事即刻停。",
+"",
+"核心邏輯：令你嘅號碼「似一個真人用 WhatsApp」，",
+"而唔係「一部機器喺度派傳單」。",
+"",
+"技術上做得到嘅事，唔代表行為上應該做 ——",
+"封號永遠係死喺行為，唔係死喺技術。"
+  ].join("\n");
+
+  function copy(btn){
+    var done = function(){
+      var t = document.getElementById('toast');
+      t.classList.add('show');
+      clearTimeout(window.__tt);
+      window.__tt = setTimeout(function(){ t.classList.remove('show'); }, 1900);
+      var old = btn.innerHTML;
+      btn.classList.add('ok');
+      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5.2 5.2L20 7"/></svg><span class="lbl">已複製</span>';
+      setTimeout(function(){ btn.classList.remove('ok'); btn.innerHTML = old; }, 1900);
+    };
+    var fallback = function(){
+      var ta = document.createElement('textarea');
+      ta.value = PLAIN;
+      ta.setAttribute('readonly','');
+      ta.style.cssText = 'position:absolute;left:-9999px;top:0';
+      document.body.appendChild(ta);
+      ta.select(); ta.setSelectionRange(0, PLAIN.length);
+      try{ document.execCommand('copy'); done(); }catch(e){ alert('複製失敗，請手動選取。'); }
+      document.body.removeChild(ta);
+    };
+    if (navigator.clipboard && window.isSecureContext){
+      navigator.clipboard.writeText(PLAIN).then(done).catch(fallback);
+    } else { fallback(); }
+  }
+
+  ['copyTop','copyBottom'].forEach(function(id){
+    var b = document.getElementById(id);
+    if (b) b.addEventListener('click', function(){ copy(b); });
+  });
+
+  // ---- scroll spy ----
+  var links = [].slice.call(document.querySelectorAll('.toc a'));
+  var secs  = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function spy(){
+    var y = window.scrollY + 130, cur = 0;
+    secs.forEach(function(s,i){ if (s && s.offsetTop <= y) cur = i; });
+    links.forEach(function(a,i){ a.classList.toggle('on', i === cur); });
+  }
+  window.addEventListener('scroll', spy, {passive:true});
+  spy();
+})();
+</script>
+</body>
+</html>
