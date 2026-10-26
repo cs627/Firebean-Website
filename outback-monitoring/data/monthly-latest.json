@@ -3,7 +3,7 @@
   "items": [
     {
       "date": "2026-08-01",
-      "source": "Outback Hong Kong Official Website",
+      "source": "Outback 官方網站",
       "title": "Outback 8月份August Sip Escape飲品優惠低至6折",
       "summary": "Outback香港官方活動頁公布8月全月飲品優惠：惠顧正餐可享指定Mocktails HK$38、蘋果酒雞尾酒HK$58及500ml Peroni生啤HK$48，折扣低至6折。",
       "link": "https://www.outback.com.hk/news-and-promotions/page/1?lang=tc",
@@ -15,11 +15,11 @@
       "title": "世界盃直播餐廳2026 - Outback Steakhouse睇波好去處",
       "summary": "U Food推介世界盃2026直播餐廳合集，Outback Steakhouse列入名單",
       "link": "https://ufood.com.hk/restaurant/news/detail/20099252/",
-      "sentiment": "neutral"
+      "sentiment": "positive"
     },
     {
       "date": "2026-08-01",
-      "source": "Facebook (Official)",
+      "source": "Facebook (官方)",
       "title": "【8月生日嘅你注意！】Outback App生日優惠",
       "summary": "8月生日壽星可在Outback App領取$88電子優惠券及外賣到會套餐8折優惠券",
       "link": "https://www.facebook.com/outbacksteakhousehk?locale=fr_FR",
@@ -83,11 +83,11 @@
     },
     {
       "date": "2026-08-02",
-      "source": "Instagram (Official)",
+      "source": "Instagram (官方 @outbacksteakhousehk)",
       "title": "「美食零距離」有獎遊戲得獎名單公佈",
       "summary": "Outback Steakhouse HK Instagram有獎遊戲結果公佈，活動於8月2日截止，得獎者8月3日收到通知",
       "link": "https://www.instagram.com/p/DbAx0rCCcB5/",
-      "sentiment": "neutral"
+      "sentiment": "positive"
     },
     {
       "date": "2026-08-03",
@@ -95,11 +95,11 @@
       "title": "Outback Steakhouse夏日新菜單推介",
       "summary": "am730報導Outback Steakhouse推出夏日新菜單，包括海鮮系列及新款沙律",
       "link": "https://www.am730.com.hk/lifestyle/outback-steakhouse-summer-2026",
-      "sentiment": "neutral"
+      "sentiment": "positive"
     },
     {
       "date": "2026-08-03",
-      "source": "Instagram (Official)",
+      "source": "Instagram (官方 @outbacksteakhousehk)",
       "title": "Outback夏日新菜單 - Italian Fresh Burrata Arugula Salad",
       "summary": "Outback Steakhouse HK推出全新夏日菜單，包括Italian Fresh Burrata Arugula Salad with Pesto",
       "link": "https://www.facebook.com/outbacksteakhousehk?locale=bg_BG",
@@ -111,7 +111,7 @@
       "title": "食評：黑糖麵包好正 同事Lunch",
       "summary": "同事lunch食評，嘢食素質OK，黑糖麵包真係好正",
       "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-r15759/reviews",
-      "sentiment": "neutral"
+      "sentiment": "positive"
     },
     {
       "date": "2026-08-03",
@@ -231,7 +231,7 @@
       "title": "食評：10間分店將結業 襯未執再去食",
       "summary": "食評提及Outback將結束分店，趁未結業再去食。肉眼扒拼豬肋骨$488極大份",
       "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-r671539/reviews",
-      "sentiment": "neutral"
+      "sentiment": "negative"
     },
     {
       "date": "2026-08-07",
@@ -271,7 +271,7 @@
       "title": "奧海城美食推介 - OUTBACK STEAKHOUSE 澳洲風格連鎖扒房",
       "summary": "U Food推介奧海城美食，Outback Steakhouse主打各式澳洲風味牛扒及西式美食",
       "link": "https://ufood.com.hk/restaurant/news/detail/20070384/",
-      "sentiment": "neutral"
+      "sentiment": "positive"
     },
     {
       "date": "2026-08-07",
@@ -283,7 +283,7 @@
     },
     {
       "date": "2026-08-07",
-      "source": "Facebook (Official)",
+      "source": "Facebook (官方)",
       "title": "【神級鮮味！好食到令人瞬間定格？】海鮮推廣",
       "summary": "Outback HK推出海鮮推廣影片，主打燒加拿大龍蝦尾及滋味海鮮拼盤，強調每款海鮮經精挑細選",
       "link": "https://www.facebook.com/outbacksteakhousehk/videos/1044306998006696/",
@@ -435,7 +435,7 @@
     },
     {
       "date": "2026-08-11",
-      "source": "Facebook (Official)",
+      "source": "Facebook (官方)",
       "title": "Outback海鮮推廣 - 燒加拿大龍蝦尾及海鮮拼盤",
       "summary": "Outback HK持續推廣海鮮系列，主打燒加拿大龍蝦尾及滋味海鮮拼盤，強調鮮味十足",
       "link": "https://www.facebook.com/outbacksteakhousehk/posts/1502553345243206",
@@ -803,7 +803,7 @@
     },
     {
       "date": "2026-08-01",
-      "source": "Outback Steakhouse 官方網站",
+      "source": "Outback 官方網站",
       "title": "Outback 推出八月夏日飲品優惠「August Sip Escape」",
       "summary": "Outback Steakhouse 香港官方網站推出八月限定夏日飲品優惠「August Sip Escape」，凡購買食物即可享指定飲品高達四折：水果無酒精雞尾酒（特價$38）、蘋果酒雞尾酒（特價$58）、Peroni 生啤 500ml（特價$48）。優惠涵蓋整個八月。",
       "link": "https://www.outback.com.hk/news-and-promotions/article/236?lang=en",
@@ -819,7 +819,7 @@
     },
     {
       "date": "2026-08-20",
-      "source": "Instagram @outbacksteakhousehk",
+      "source": "Instagram (官方 @outbacksteakhousehk)",
       "title": "Outback官方IG創意短片「OutBackrooms」：打工仔無限loop主題",
       "summary": "Outback Steakhouse HK官方Instagram發布創意短片，以「OutBackrooms」為主題，將辦公室打工仔每日無限loop的日常與Outback用餐體驗結合，影片風格幽默，旨在提升品牌在年輕族群中的社交媒體互動率。此為品牌內容營銷（content marketing）帖文。",
       "link": "https://www.instagram.com/reel/DcQSmmklBqq",
@@ -827,7 +827,7 @@
     },
     {
       "date": "2026-08-12",
-      "source": "Instagram @outbacksteakhousehk",
+      "source": "Instagram (官方 @outbacksteakhousehk)",
       "title": "Outback官方IG夏日消暑飲品推廣影片 推廣$38起Mocktail及啤酒優惠",
       "summary": "Outback官方Instagram發布夏日飲品推廣影片，主打「Cool-Down Special」夏日消暑優惠，Mocktail $38起、蘋果酒雞尾酒$58及Peroni啤酒$48。帖文標註優惠期為8月1日至31日。此為「August Sip Escape」活動的社交媒體延伸推廣。",
       "link": "https://www.instagram.com/reel/DcQSmmklBqq",
@@ -835,7 +835,7 @@
     },
     {
       "date": "2026-08-06",
-      "source": "Instagram @outbacksteakhousehk",
+      "source": "Instagram (官方 @outbacksteakhousehk)",
       "title": "Outback官方IG「SeafoodFest」海鮮推廣：燒加拿大龍蝦尾",
       "summary": "Outback官方Instagram發布「SeafoodFest」滋味海鮮拼盤推廣影片，主打燒加拿大龍蝦尾及其他海鮮菜式。影片以美食定格風格呈現，呼籲顧客下載Outback App訂座。此帖為品牌常規產品推廣。",
       "link": "https://www.instagram.com/reel/DcQSmmklBqq",
@@ -851,7 +851,7 @@
     },
     {
       "date": "2026-08-24",
-      "source": "Instagram @outbacksteakhousehk",
+      "source": "Instagram (官方 @outbacksteakhousehk)",
       "title": "Outback官方IG以「Keep Fit無限循環」推廣招牌菜",
       "summary": "Outback Steakhouse HK官方Instagram以運動與美食的循環為創意主題，推介巨型加拿大龍蝦包、特製洋蔥花球、美國頂級斧頭扒及朱古力花生醬餅配雲尼拿雪糕，屬正面品牌推廣內容。",
       "link": "https://www.instagram.com/p/Dca9A8Ak41q/",
@@ -1003,7 +1003,7 @@
     },
     {
       "date": "2026-08-27",
-      "source": "Outback.com.hk",
+      "source": "Outback 官方網站",
       "title": "August Sip Escape — 夏日消暑飲品優惠高達4折",
       "summary": "精選Mocktails $38（Pink Lychee Lemonade、Mango Mojito等）；Peroni生啤500ml $48。優惠至8月31日。",
       "link": "https://www.outback.com.hk/news-and-promotions/article/236?lang=en",
@@ -1011,7 +1011,7 @@
     },
     {
       "date": "2026-08-27",
-      "source": "Outback.com.hk",
+      "source": "Outback 官方網站",
       "title": "The Secret of Great Flavor — 全新菜式登場",
       "summary": "意大利Burrata沙律、巴馬臣芝士輪龍蝦汁意粉配燒帶子、黑糖麵包香蕉船。Updated July 28, 2026。",
       "link": "https://www.outback.com.hk/news-and-promotions/page/1?lang=",
@@ -1083,7 +1083,7 @@
     },
     {
       "date": "2026-08-27",
-      "source": "Outback官網",
+      "source": "Outback 官方網站",
       "title": "「八月夏日消暑飲品優惠」— 精選飲品高達4折",
       "summary": "Outback 8月份推出「August Sip Escape」飲品優惠：Mocktails $38、蘋果酒沙冰 $58、Peroni生啤 $48，精選飲品高達4折。活動至8月31日。",
       "link": "https://www.outback.com.hk/news-and-promotions/page/1?lang=",
@@ -1091,7 +1091,7 @@
     },
     {
       "date": "2026-08-27",
-      "source": "Outback官網",
+      "source": "Outback 官方網站",
       "title": "「夏日美食秘笈」新菜單 — 布拉塔芝士沙律、熔岩芝士帶子意粉、黑糖麥包香蕉船",
       "summary": "Outback夏日新菜單包括：意大利布拉塔流心芝士沙律、意大利熔岩芝士帶子意粉（Parmigiano-Reggiano芝士輪即場製作）、以及首次以黑糖麥包作甜品主角的香蕉船。",
       "link": "https://www.outback.com.hk/news-and-promotions/page/1?lang=",
@@ -1099,7 +1099,7 @@
     },
     {
       "date": "2026-08-27",
-      "source": "Outback Facebook",
+      "source": "Facebook (官方)",
       "title": "「Opps！跌入Keep Fit無限循環」— 官方社交貼文",
       "summary": "Outback官方Facebook於8月26日發布趣味互動貼文「Opps！跌入Keep Fit無限循環」，獲51個互動反應，以輕鬆幽默方式與粉絲互動。",
       "link": "https://www.facebook.com/outbacksteakhousehk",
@@ -1107,7 +1107,7 @@
     },
     {
       "date": "2026-08-27",
-      "source": "Instagram @outbacksteakhousehk",
+      "source": "Instagram (官方 @outbacksteakhousehk)",
       "title": "官方IG近期貼文 — DSE考生75折 + 日常推廣 + VIP會員生日獎賞",
       "summary": "Outback官方IG近期發布多項推廣：8月24日最新照片、8月20日影片、DSE放榜75折優惠（7月15-17日）、VIP/Prestige會員8月生日獎賞等。追蹤者4,684人。",
       "link": "https://www.instagram.com/outbacksteakhousehk",
@@ -1147,7 +1147,7 @@
     },
     {
       "date": "2026-08-25",
-      "source": "Facebook (Outback Official)",
+      "source": "Facebook (官方)",
       "title": "Opps！跌入Keep Fit無限循環 — Outback官方美食推廣帖文",
       "summary": "Outback官方Facebook帖文，以Keep Fit循環為主題推廣美食，推介巨型加拿大龍蝦包、特製洋蔥花球、美國頂級斧頭扒及朱古力花生醬餅配雲尼拿雪糕。獲212 reactions、2 comments、3 shares。",
       "link": "https://www.facebook.com/outbacksteakhousehk/posts/pfbid02Bx1Yi8BPx5XqjXb7mffXrFfkRujh3j14Ucy2kP4TKoXZACzhpd9NGtjY6h3tSAKZl",
@@ -1163,7 +1163,7 @@
     },
     {
       "date": "2026-09-02",
-      "source": "Outback官網",
+      "source": "Outback 官方網站",
       "title": "會員專享｜Outback 9月晚市大激賞 加碼回歸",
       "summary": "官方網站於9月2日更新9月晚市會員優惠：VIP及Prestige會員可0分兌換晚市全單折扣獎賞，每週可獲2張優惠券。VIP全單8折、Prestige全單7折，適用於星期一至四晚上5點後。獎賞週期涵蓋9月1日至29日多個時段。",
       "link": "https://www.outback.com.hk/news-and-promotions/article/237?lang=tc",
@@ -1187,7 +1187,7 @@
     },
     {
       "date": "2026-09-04",
-      "source": "Facebook (Outback Official)",
+      "source": "Facebook (官方)",
       "title": "將軍澳Outback期間限定快閃Pop-up店（Park Central）",
       "summary": "Outback官方Facebook公布於將軍澳中心（Park Central）G/F近入口設期間限定快閃店：以優惠價$60（原價$78）購買指定探險小食艦，即送$100 Outback現金券+拼圖磁石扭蛋（共10款），另設限定文具套裝及影相攤位。活動為假期fans-meeting型式推廣品牌周邊。",
       "link": "https://www.facebook.com/outbacksteakhousehk/posts/1240520411446502",
@@ -1251,7 +1251,7 @@
     },
     {
       "date": "2026-09-03",
-      "source": "outback.com.hk 官方網站",
+      "source": "Outback 官方網站",
       "title": "官方9月會員晚市獎賞 Outback September Dinner Rewards（VIP 8折 / Prestige 7折）",
       "summary": "Outback官方於9月3日更新推廣：整個9月，會員可於Reward Market以0點兌換會員專屬折扣券，VIP會員晚市全單8折、Prestige會員全單7折，每週最多2次，適用晚市5pm後週一至四，優惠至9月29日。反映9月以會員晚市折扣為主軸催谷客流量。",
       "link": "https://www.outback.com.hk/news-and-promotions/article/237?lang=en",
@@ -1307,7 +1307,7 @@
     },
     {
       "date": "2026-09-13",
-      "source": "Instagram @outbacksteakhousehk",
+      "source": "Instagram (官方 @outbacksteakhousehk)",
       "title": "官方IG：9月晚市會員折扣再度回歸（低至7折）",
       "summary": "Outback官方IG於2026-09-10發帖宣傳9月晚市會員優惠：即日起至9月29日，會員可於App「獎賞市場」以0分兌換每週兩張晚市折扣優惠券；逢星期一至四晚上5點後，VIP會員享全單8折（新登記會員1日後生效）、Prestige尊尚會員享7折（升級後即用）。屬官方社交渠道對9月晚市大激賞活動之再度推廣。",
       "link": "https://www.instagram.com/p/DdHCUFmk5Ev/",
@@ -1323,7 +1323,7 @@
     },
     {
       "date": "2026-09-10",
-      "source": "Outback官網",
+      "source": "Outback 官方網站",
       "title": "官方公告：9月會員積分將於9月30日到期（逾期積分10月1日清除）",
       "summary": "Outback官網「最新消息」公告（article 238）：部分會員積分將於2026年9月30日到期，10月1日所有未用到期積分會被取消（「變全熟」揼心口），籲會員在到期日前打開Outback App查看餘額並兌換積分禮遇、到門市享用牛扒及招牌美食。屬官方會員促銷公告；來源為官方網站頁面核實（web提取，2026-09-17）。更新於2026年9月10日。",
       "link": "https://www.outback.com.hk/news-and-promotions/article/238?lang=tc",
@@ -1363,7 +1363,7 @@
     },
     {
       "date": "2026-09-04",
-      "source": "Instagram @outbacksteakhousehk",
+      "source": "Instagram (官方 @outbacksteakhousehk)",
       "title": "官方IG：9月生日之星會員專屬 $88現金優惠券（生日獎賞）",
       "summary": "Outback官方IG(@outbacksteakhousehk)於2026年9月4日發帖，為9月生日的VIP及Prestige會員推送專屬生日獎賞「SEPTEMBER STAR!」，會員可領取HK$88現金優惠券（頁面備註文字：Happy Birthday September Star!! $88 Cash Coupon 現金優惠券，MEMBERS EXCLUSIVE）。屬官方每月生日會員激勵之9月版本。來源為官方帳號公開頁面核實（Web提取頁面備註文字，2026-09-19）。基礎內容與7月、8月已捕獲之同類官方生日帖一致，惟此9月帖此前未被捕獲。",
       "link": "https://www.instagram.com/p/Dc3EqYQCShX/",
@@ -1403,7 +1403,7 @@
     },
     {
       "date": "2026-10-01",
-      "source": "Outback官網 (Outback Steakhouse Hong Kong)",
+      "source": "Outback 官方網站",
       "title": "10月限定｜Outback黑糖麥包 HK$10/條（10月1-4日快閃）",
       "summary": "Outback官方網站於9月30日發布10月限定優惠：10月1日至10月4日，全線香港分店可以HK$10購入黑糖麥包（外帶裝）一條，不設限購，先到先得、售完即止。屬官方Owned Media新活動公告。",
       "link": "https://www.outback.com.hk/news-and-promotions/article/239?lang=tc",
@@ -1411,7 +1411,7 @@
     },
     {
       "date": "2026-10-01",
-      "source": "Facebook (Outback Steakhouse Hong Kong Official)",
+      "source": "Facebook (官方)",
       "title": "【10月驚喜大放送！Outback黑糖麥包$10/條】（官方帖）",
       "summary": "Outback官方Facebook帖（中英雙語）宣傳10月1-4日黑糖麥包（外帶裝）HK$10一條，不設限購、售完即止。帖文約13個表情反應、2評論、1分享，屬品牌官方推廣。",
       "link": "https://www.facebook.com/outbacksteakhousehk/posts/1551340447031162",
@@ -1435,7 +1435,7 @@
     },
     {
       "date": "2026-10-03",
-      "source": "Facebook (Outback Steakhouse Hong Kong Official)",
+      "source": "Facebook (官方)",
       "title": "【Outback x美國運通特別優惠】即日起至10月19日（官方帖）",
       "summary": "Outback官方Facebook帖宣布與美國運通(American Express)攜手推出特別優惠，由即日起至10月19日，顧客於下午5點後以美國運通卡消費即可享用相關禮遇。屬品牌官方與AE的聯合推廣活動。註：FB帖本身需登入才可抓取，內容以Google搜尋對官方FB頁之公開摘要核實。",
       "link": "https://www.facebook.com/outbacksteamhousehk/posts/1496512060413140",
@@ -1451,7 +1451,7 @@
     },
     {
       "date": "2026-10-01",
-      "source": "Facebook (Outback Steakhouse Hong Kong Official)／Instagram (@outbacksteakhousehk)",
+      "source": "Facebook (官方)",
       "title": "十月限定｜Wine on Side Steak Pairing 葡萄酒配牛扒（1-31/10 全線分店）",
       "summary": "Outback官方社交媒體（Facebook專頁及Instagram）發布十月限定推廣：Wine on Side Steak Pairing，由10月1日至31日於全線香港分店推出，精選200天穀飼美國頂級紐約牛扒(12oz)及肉眼牛扒(12oz)，每客牛扒均配餐酒與配菜，藉葡萄酒配搭帶出牛扒不同層次。屬品牌官方Owned Media新活動，十月主打的推廣組合。",
       "link": "https://www.instagram.com/p/DeBC0WPj9A2",
@@ -1459,7 +1459,7 @@
     },
     {
       "date": "2026-10-02",
-      "source": "Outback官網 (Outback Steakhouse Hong Kong)",
+      "source": "Outback 官方網站",
       "title": "官方網站「INSIDE OUTBACK 滋味，由此而生」品牌企劃文章（行政總廚Chef Efrem 研發故事＋USDA Prime牛扒配餐酒/香草燒蝦至10/31）",
       "summary": "Outback官方網站推出全新品牌企劃「INSIDE OUTBACK — 滋味，由此而生」文章（article/240）：帶食客走進餐桌背後，講述研發副總裁暨行政總廚 Chef Efrem Cutler（逾40年餐飲經驗）如何由一個味道、一個想法開始，經食材揀選、味道配搭、烹調測試及多次試味調整，最終成就熟悉嘅Outback菜式。文章並載十月限定推廣：即日起至10月31日，惠顧指定200日穀飼 USDA Prime 美國頂級牛扒（美國頂級紐約牛扒或美國頂級肉眼牛扒）即可免費揀選精選白酒/紅酒一杯 或 香草燒蝦八隻，並以Outback App預約訂座。屬品牌官方 Owned Media 之新品牌企劃，聚焦行政總廚之研發敘事。",
       "link": "https://www.outback.com.hk/news-and-promotions/article/240?lang=tc",
@@ -1539,7 +1539,7 @@
     },
     {
       "date": "2026-10-23",
-      "source": "Instagram（@outbacksteakhousehk 官方帳號）",
+      "source": "Instagram (官方 @outbacksteakhousehk)",
       "title": "【INSIDE OUTBACK｜「新品研發部要人！」有獎遊戲 得獎名單公佈】（官方IG帖，2026-10-23）",
       "summary": "Outback Steakhouse HK 官方 Instagram（@outbacksteakhousehk）於2026-10-23公布「INSIDE OUTBACK｜新品研發部要人！」有獎遊戲得獎名單。活動（10月2日至10月11日23:59）要求參加者讚好／追蹤官方專頁、公開分享帖文並構思50字以上創意新菜式，最有創意50位各得HK$200 Klook電子禮品卡（總值HK$10,000）。得獎名單帖以中英雙語公布，要求得獎者於10月26日前私訊官方並於48小時內確認領獎，否則視作棄權；帖文附官方餐單連結，並保留最終決定權。帖文互動：約245個讚，留言區出現爭議（見同日另一條負面留言記錄）。屬官方社群活動收尾，正面品牌互動內容。（資料來源：Outback Steakhouse HK 官方 Instagram；Jetso Today 2026-10-07 活動報道作背景核對）",
       "link": "https://www.instagram.com/p/De1SxikDPSJ",

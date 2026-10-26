@@ -4,8 +4,8 @@
     {
       "date": "2026-08-06",
       "source": "Google Play",
-      "platform": "",
-      "author": "",
+      "platform": "新聞媒體",
+      "author": "未記錄",
       "title": "Outback Steakhouse Hong Kong App Updated",
       "summary": "Outback Steakhouse HK App更新，提供獨家10%或15%折扣優惠",
       "link": "https://play.google.com/store/apps/details?id=hk.com.outback&hl=en_US",
@@ -15,8 +15,8 @@
     {
       "date": "2026-08-06",
       "source": "新假期 Weekend Weekly",
-      "platform": "",
-      "author": "",
+      "platform": "新聞媒體",
+      "author": "未記錄",
       "title": "Outback Steakhouse親子週末半自助午餐優惠",
       "summary": "新假期報導Outback推出親子週末優惠，同行小童享半價",
       "link": "https://www.weekendhk.com/dining/outback-family-lunch-2026/",
@@ -26,8 +26,8 @@
     {
       "date": "2026-08-06",
       "source": "Instagram (Eber)",
-      "platform": "",
-      "author": "",
+      "platform": "社交媒體",
+      "author": "未記錄",
       "title": "One app feature, 6,000 new members in a month",
       "summary": "Eber分享Outback Steakhouse HK如何透過一個App功能在一個月內獲得6000新會員，無需大幅折扣",
       "link": "https://www.instagram.com/reel/DbptyA5j3Fq/",
@@ -37,8 +37,8 @@
     {
       "date": "2026-08-06",
       "source": "Eber Blog",
-      "platform": "",
-      "author": "",
+      "platform": "新聞媒體",
+      "author": "未記錄",
       "title": "Restaurant Loyalty System - Outback Steakhouse Hong Kong Case Study",
       "summary": "Eber博客以Outback Steakhouse HK為案例，分析餐廳數碼會員制度在新加坡及香港的應用",
       "link": "https://eber.co/blogs/restaurant-loyalty-system-singapore-digital-membership-for-fb-brands-eber/",
@@ -48,17 +48,17 @@
     {
       "date": "2026-08-06",
       "source": "OpenRice (新港中心)",
-      "platform": "",
-      "author": "",
+      "platform": "OpenRice",
+      "author": "未記錄",
       "title": "食評：10間分店將結業 襯未執再去食",
       "summary": "食評提及Outback將結束分店，趁未結業再去食。肉眼扒拼豬肋骨$488極大份",
       "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-r671539/reviews",
-      "sentiment": "neutral",
+      "sentiment": "negative",
       "tags": ""
     },
     {
       "date": "2026-08-06",
-      "source": "Instagram @outbacksteakhousehk",
+      "source": "Instagram (官方 @outbacksteakhousehk)",
       "platform": "社交媒體",
       "author": "",
       "title": "Outback官方IG「SeafoodFest」海鮮推廣：燒加拿大龍蝦尾",
@@ -68,7 +68,15 @@
       "tags": ""
     }
   ],
-  "alerts": [],
+  "alerts": [
+    {
+      "title": "食評：10間分店將結業 襯未執再去食",
+      "summary": "食評提及Outback將結束分店，趁未結業再去食。肉眼扒拼豬肋骨$488極大份",
+      "source": "OpenRice (新港中心)",
+      "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-r671539/reviews",
+      "severity": "MEDIUM"
+    }
+  ],
   "trends": "",
   "recommendations": [],
   "coverage": {

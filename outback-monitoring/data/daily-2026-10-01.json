@@ -3,8 +3,8 @@
   "items": [
     {
       "date": "2026-10-01",
-      "source": "Outback官網 (Outback Steakhouse Hong Kong)",
-      "platform": "官方網站",
+      "source": "Outback 官方網站",
+      "platform": "新聞媒體",
       "author": "Outback Steakhouse Hong Kong, Bloom No.1 Limited",
       "title": "10月限定｜Outback黑糖麥包 HK$10/條（10月1-4日快閃）",
       "summary": "Outback官方網站於9月30日發布10月限定優惠：10月1日至10月4日，全線香港分店可以HK$10購入黑糖麥包（外帶裝）一條，不設限購，先到先得、售完即止。屬官方Owned Media新活動公告。",
@@ -14,8 +14,8 @@
     },
     {
       "date": "2026-10-01",
-      "source": "Facebook (Outback Steakhouse Hong Kong Official)",
-      "platform": "社交媒體 (Facebook)",
+      "source": "Facebook (官方)",
+      "platform": "社交媒體",
       "author": "Outback Steakhouse Hong Kong (Official)",
       "title": "【10月驚喜大放送！Outback黑糖麥包$10/條】（官方帖）",
       "summary": "Outback官方Facebook帖（中英雙語）宣傳10月1-4日黑糖麥包（外帶裝）HK$10一條，不設限購、售完即止。帖文約13個表情反應、2評論、1分享，屬品牌官方推廣。",
@@ -26,7 +26,7 @@
     {
       "date": "2026-10-01",
       "source": "Instagram @jetsobear 著數熊",
-      "platform": "社交媒體 (Instagram)",
+      "platform": "社交媒體",
       "author": "Jetso Bear (@jetsobear)",
       "title": "Jetso Bear：Outback黑糖麥包外帶裝限時快閃$10/條（10月1-4日）",
       "summary": "著數優惠平台Jetso Bear於IG發布宣傳帖，轉載Outback官方資料：10月1日至10月4日，Outback黑糖麥包（外帶裝）HK$10一條，不設限購，先到先得。屬第三方優惠媒體轉載。",
@@ -36,8 +36,8 @@
     },
     {
       "date": "2026-10-01",
-      "source": "Facebook (Outback Steakhouse Hong Kong Official)／Instagram (@outbacksteakhousehk)",
-      "platform": "社交媒體 (Facebook/IG)",
+      "source": "Facebook (官方)",
+      "platform": "社交媒體",
       "author": "Outback Steakhouse Hong Kong (官方)",
       "title": "十月限定｜Wine on Side Steak Pairing 葡萄酒配牛扒（1-31/10 全線分店）",
       "summary": "Outback官方社交媒體（Facebook專頁及Instagram）發布十月限定推廣：Wine on Side Steak Pairing，由10月1日至31日於全線香港分店推出，精選200天穀飼美國頂級紐約牛扒(12oz)及肉眼牛扒(12oz)，每客牛扒均配餐酒與配菜，藉葡萄酒配搭帶出牛扒不同層次。屬品牌官方Owned Media新活動，十月主打的推廣組合。",
@@ -51,7 +51,7 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 4,
+    "checked_sources": 3,
     "new_records": 4,
     "limitations": []
   }

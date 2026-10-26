@@ -3,8 +3,8 @@
   "items": [
     {
       "date": "2026-08-01",
-      "source": "Outback Hong Kong Official Website",
-      "platform": "官方網站",
+      "source": "Outback 官方網站",
+      "platform": "新聞媒體",
       "author": "Outback Steakhouse Hong Kong",
       "title": "Outback 8月份August Sip Escape飲品優惠低至6折",
       "summary": "Outback香港官方活動頁公布8月全月飲品優惠：惠顧正餐可享指定Mocktails HK$38、蘋果酒雞尾酒HK$58及500ml Peroni生啤HK$48，折扣低至6折。",
@@ -15,19 +15,19 @@
     {
       "date": "2026-08-01",
       "source": "U Food",
-      "platform": "",
-      "author": "",
+      "platform": "新聞媒體",
+      "author": "未記錄",
       "title": "世界盃直播餐廳2026 - Outback Steakhouse睇波好去處",
       "summary": "U Food推介世界盃2026直播餐廳合集，Outback Steakhouse列入名單",
       "link": "https://ufood.com.hk/restaurant/news/detail/20099252/",
-      "sentiment": "neutral",
+      "sentiment": "positive",
       "tags": ""
     },
     {
       "date": "2026-08-01",
-      "source": "Facebook (Official)",
-      "platform": "",
-      "author": "",
+      "source": "Facebook (官方)",
+      "platform": "社交媒體",
+      "author": "未記錄",
       "title": "【8月生日嘅你注意！】Outback App生日優惠",
       "summary": "8月生日壽星可在Outback App領取$88電子優惠券及外賣到會套餐8折優惠券",
       "link": "https://www.facebook.com/outbacksteakhousehk?locale=fr_FR",
@@ -37,8 +37,8 @@
     {
       "date": "2026-08-01",
       "source": "TOPick (HKET)",
-      "platform": "",
-      "author": "",
+      "platform": "新聞媒體",
+      "author": "未記錄",
       "title": "DSE放榜優惠合集 - Outback Steakhouse全單75折",
       "summary": "TOPick報導DSE放榜優惠，Outback出示2026 DSE成績表正本即享75折",
       "link": "https://www.threads.com/@jetso.topick/post/Daw5jZFkTPg/",
@@ -48,8 +48,8 @@
     {
       "date": "2026-08-01",
       "source": "OpenRice (尖沙咀中心)",
-      "platform": "",
-      "author": "",
+      "platform": "OpenRice",
+      "author": "未記錄",
       "title": "食評：外賣收錯錢 成盒雞肉冇俾到",
       "summary": "長期會員投訴外賣收錯錢，叫左雞肉沙律結果冇雞肉，豬鞍又硬到橡膠",
       "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-r15759/reviews#neg",
@@ -58,8 +58,8 @@
     },
     {
       "date": "2026-08-01",
-      "source": "Outback Steakhouse 官方網站",
-      "platform": "官方網站",
+      "source": "Outback 官方網站",
+      "platform": "新聞媒體",
       "author": "",
       "title": "Outback 推出八月夏日飲品優惠「August Sip Escape」",
       "summary": "Outback Steakhouse 香港官方網站推出八月限定夏日飲品優惠「August Sip Escape」，凡購買食物即可享指定飲品高達四折：水果無酒精雞尾酒（特價$38）、蘋果酒雞尾酒（特價$58）、Peroni 生啤 500ml（特價$48）。優惠涵蓋整個八月。",
@@ -92,7 +92,7 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 7,
+    "checked_sources": 6,
     "new_records": 7,
     "limitations": []
   }
