@@ -25,7 +25,7 @@
     },
     {
       "date": "2026-08-16",
-      "source": "Google Maps (MOKO)",
+      "source": "Google Maps (旺角MOKO)",
       "platform": "地圖",
       "author": "victoriay_eatwithvic",
       "title": "MOKO顧客5星評價讚黑糖麵包熱辣鬆軟",
@@ -36,7 +36,7 @@
     },
     {
       "date": "2026-08-16",
-      "source": "Google Maps (New Town Plaza)",
+      "source": "Google Maps (沙田新城市廣場三期)",
       "platform": "地圖",
       "author": "ATTIS playz",
       "title": "沙田顧客1星投訴牛扒生熟度及跟進速度",
@@ -47,7 +47,7 @@
     },
     {
       "date": "2026-08-16",
-      "source": "Google Maps (New Town Plaza)",
+      "source": "Google Maps (沙田新城市廣場三期)",
       "platform": "地圖",
       "author": "Vincent Tsoi",
       "title": "沙田顧客1星指沙律生菜變黃變軟",
@@ -72,14 +72,14 @@
     {
       "title": "沙田顧客1星投訴牛扒生熟度及跟進速度",
       "summary": "ATTIS playz 的公開評價聲稱點選三分熟牛扒但上桌時接近全生且難以咀嚼，並稱用餐完結後所要求的物品仍未送到。",
-      "source": "Google Maps (New Town Plaza)",
+      "source": "Google Maps (沙田新城市廣場三期)",
       "link": "https://maps.app.goo.gl/sKAWDQ72aA11a9qu6",
       "severity": "MEDIUM"
     },
     {
       "title": "沙田顧客1星指沙律生菜變黃變軟",
       "summary": "Vincent Tsoi 的公開評價聲稱沙律生菜有黃邊及已變軟，並質疑食材已放置一段時間仍被出餐。",
-      "source": "Google Maps (New Town Plaza)",
+      "source": "Google Maps (沙田新城市廣場三期)",
       "link": "https://maps.app.goo.gl/cjQgAz7XeNxgYyXy6",
       "severity": "MEDIUM"
     },

@@ -47,7 +47,7 @@
     },
     {
       "date": "2026-08-09",
-      "source": "Google Maps (Causeway Bay Plaza One)",
+      "source": "Google Maps (銅鑼灣廣場一期)",
       "platform": "地圖",
       "author": "Cherry Wong",
       "title": "銅鑼灣顧客5星評價：晚餐體驗整體正面",
@@ -58,7 +58,7 @@
     },
     {
       "date": "2026-08-09",
-      "source": "Google Maps (Causeway Bay Plaza One)",
+      "source": "Google Maps (銅鑼灣廣場一期)",
       "platform": "地圖",
       "author": "Week end foodie hk",
       "title": "銅鑼灣顧客5星評價：食物、服務及環境均獲4分",
@@ -69,7 +69,7 @@
     },
     {
       "date": "2026-08-09",
-      "source": "Google Maps (Causeway Bay Plaza One)",
+      "source": "Google Maps (銅鑼灣廣場一期)",
       "platform": "地圖",
       "author": "Puipui HYP",
       "title": "銅鑼灣顧客5星評價：食物及服務各獲4分",
@@ -80,7 +80,7 @@
     },
     {
       "date": "2026-08-09",
-      "source": "Google Maps (Tai Po Mega Mall)",
+      "source": "Google Maps (大埔超級城)",
       "platform": "地圖",
       "author": "Cho Cho",
       "title": "大埔顧客認為食物好吃但口味偏重",
@@ -106,7 +106,7 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 7,
+    "checked_sources": 6,
     "new_records": 9,
     "limitations": []
   }

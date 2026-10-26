@@ -4,9 +4,9 @@
     "total_records": 209,
     "daily_avg": 3.0,
     "date_range": "2026-03-06 → 2026-10-25",
-    "sources_checked": 41,
+    "sources_checked": 38,
     "new_verified": 3,
-    "coverage_ratio": "41/46",
+    "coverage_ratio": "38/46",
     "negative_alerts": 30,
     "positive_pct": 56
   },
@@ -43,7 +43,7 @@
   "source_breakdown": [
     {
       "source": "Instagram",
-      "count": 40
+      "count": 41
     },
     {
       "source": "Google Maps",
@@ -55,7 +55,7 @@
     },
     {
       "source": "OpenRice",
-      "count": 19
+      "count": 20
     },
     {
       "source": "Facebook",
@@ -63,7 +63,7 @@
     },
     {
       "source": "Outback 官方網站",
-      "count": 11
+      "count": 12
     },
     {
       "source": "U Food",
@@ -298,7 +298,7 @@
     },
     {
       "date": "2026-08-04",
-      "source": "OpenRice (東薈城Citygate)",
+      "source": "OpenRice (東薈城名店倉)",
       "platform": "OpenRice",
       "title": "食評：東涌Citygate分店 All Day Lunch",
       "summary": "Outback東涌東薈城分店，主要菜式包括黑糖麵包、燒雞肉芝士夾餅",
@@ -342,7 +342,7 @@
     },
     {
       "date": "2026-08-05",
-      "source": "OpenRice (沙田新城市廣場)",
+      "source": "OpenRice (沙田新城市廣場三期)",
       "platform": "OpenRice",
       "title": "食評：豐富午餐 - 會員生日優惠折扣",
       "summary": "一行四人午聚，座位舒服食物質數有保證。午餐包湯、黑糖麵包、主食和飲品",
@@ -364,7 +364,7 @@
     },
     {
       "date": "2026-08-05",
-      "source": "OpenRice (銅鑼灣廣場)",
+      "source": "OpenRice (銅鑼灣廣場一期)",
       "platform": "OpenRice",
       "title": "食評：銅鑼灣分店 扒房適合大夥人",
       "summary": "Outback銅鑼灣廣場一期分店，3/F Shop 305-308，扒房及派對食物",
@@ -430,7 +430,7 @@
     },
     {
       "date": "2026-08-07",
-      "source": "Google Maps (Citygate Outlets)",
+      "source": "Google Maps (東薈城名店倉)",
       "platform": "地圖",
       "title": "Citygate評論者投訴兩次上菜均見頭髮及經理處理方式",
       "summary": "評論者稱首次點吞拿魚時碟上有頭髮，要求重做後新一碟再次發現頭髮；亦稱經理當眾斥責員工，令其失去胃口。以上均為評論者個人陳述，未經獨立核實。",
@@ -441,7 +441,7 @@
     },
     {
       "date": "2026-08-07",
-      "source": "Google Maps (Olympian City 2)",
+      "source": "Google Maps (奧海城二期)",
       "platform": "地圖",
       "title": "奧海城評論給予食物、服務及環境全數5分",
       "summary": "評論者給予食物5分、服務5分及環境5分。",
@@ -485,7 +485,7 @@
     },
     {
       "date": "2026-08-07",
-      "source": "OpenRice (MOKO旺角)",
+      "source": "OpenRice (旺角MOKO)",
       "platform": "OpenRice",
       "title": "食評：午餐好多選擇 黑糖麵包可以不停refill",
       "summary": "午餐選擇多包餐湯麵包主菜飲品，黑糖麵包可以不停refill",
@@ -529,7 +529,7 @@
     },
     {
       "date": "2026-08-08",
-      "source": "OpenRice (娛樂行中環)",
+      "source": "OpenRice (中環娛樂行)",
       "platform": "OpenRice",
       "title": "食評相片：中環娛樂行分店最新相片",
       "summary": "OpenRice用戶上傳Outback中環娛樂行分店最新食物相片",
@@ -606,7 +606,7 @@
     },
     {
       "date": "2026-08-10",
-      "source": "OpenRice (形點I元朗)",
+      "source": "OpenRice (元朗形點)",
       "platform": "OpenRice",
       "title": "食評：元朗形點I分店 Popular Dishes",
       "summary": "Outback形點I元朗分店熱門菜式，位於Shop 2047-2048",
@@ -804,7 +804,7 @@
     },
     {
       "date": "2026-08-13",
-      "source": "Google Maps (Citygate Outlets)",
+      "source": "Google Maps (東薈城名店倉)",
       "platform": "地圖",
       "title": "Citygate顧客讚揚食物及親子友善服務",
       "summary": "評論者表示一家人在Citygate Outlets分店用餐愉快，食物美味、員工細心有禮並保持笑容，特別感謝經理Bonnie介紹菜式及分享親子用餐建議。",
@@ -815,7 +815,7 @@
     },
     {
       "date": "2026-08-13",
-      "source": "Google Maps (Citygate Outlets)",
+      "source": "Google Maps (東薈城名店倉)",
       "platform": "地圖",
       "title": "Citygate午餐評論給予服務5分及安靜環境評價",
       "summary": "評論者指兩人午餐人均HK$400至450，食物4分、服務5分、環境4分，並形容餐廳安靜、方便交談。",
@@ -826,7 +826,7 @@
     },
     {
       "date": "2026-08-13",
-      "source": "Google Maps (New Town Plaza)",
+      "source": "Google Maps (沙田新城市廣場三期)",
       "platform": "地圖",
       "title": "沙田顧客5星評價讚服務、熱麵包及牛扒質素",
       "summary": "評論者表示相隔十年再訪Outback，服務依然有效率；雖然份量較以前小，但味道保持水準，麵包上桌時仍熱、牛扒質素高、飲品份量足以分享。",
@@ -837,7 +837,7 @@
     },
     {
       "date": "2026-08-13",
-      "source": "Google Maps (New Town Plaza)",
+      "source": "Google Maps (沙田新城市廣場三期)",
       "platform": "地圖",
       "title": "沙田顧客2星評價指黑糖包不熱及牛扒性價比下降",
       "summary": "評論者表示黑糖包不熱、味道不及以往，並認為牛扒質素不值其價格，形容整體退步。",
@@ -1046,7 +1046,7 @@
     },
     {
       "date": "2026-08-09",
-      "source": "Google Maps (Causeway Bay Plaza One)",
+      "source": "Google Maps (銅鑼灣廣場一期)",
       "platform": "地圖",
       "title": "銅鑼灣顧客5星評價：晚餐體驗整體正面",
       "summary": "Cherry Wong 的公開Google Maps評價顯示整體5星；晚餐每人約HK$300–350，食物4分、服務4分、環境5分。",
@@ -1057,7 +1057,7 @@
     },
     {
       "date": "2026-08-09",
-      "source": "Google Maps (Causeway Bay Plaza One)",
+      "source": "Google Maps (銅鑼灣廣場一期)",
       "platform": "地圖",
       "title": "銅鑼灣顧客5星評價：食物、服務及環境均獲4分",
       "summary": "Week end foodie hk 的公開Google Maps評價顯示整體5星，食物、服務及環境各為4分；頁面未顯示額外文字評論。",
@@ -1068,7 +1068,7 @@
     },
     {
       "date": "2026-08-09",
-      "source": "Google Maps (Causeway Bay Plaza One)",
+      "source": "Google Maps (銅鑼灣廣場一期)",
       "platform": "地圖",
       "title": "銅鑼灣顧客5星評價：食物及服務各獲4分",
       "summary": "Puipui HYP 的公開Google Maps評價顯示整體5星，食物4分、服務4分；頁面未顯示額外文字評論。",
@@ -1079,7 +1079,7 @@
     },
     {
       "date": "2026-08-09",
-      "source": "Google Maps (Tai Po Mega Mall)",
+      "source": "Google Maps (大埔超級城)",
       "platform": "地圖",
       "title": "大埔顧客認為食物好吃但口味偏重",
       "summary": "Cho Cho 表示2026年7月到訪，食物好吃但味道較重；公開Google Maps頁面顯示整體5星。",
@@ -1090,7 +1090,7 @@
     },
     {
       "date": "2026-08-16",
-      "source": "Google Maps (MOKO)",
+      "source": "Google Maps (旺角MOKO)",
       "platform": "地圖",
       "title": "MOKO顧客5星評價讚黑糖麵包熱辣鬆軟",
       "summary": "victoriay_eatwithvic 表示久未到訪Outback，並讚賞黑糖麵包熱辣鬆軟、帶黑糖香氣，配牛油呈甜鹹平衡。",
@@ -1101,7 +1101,7 @@
     },
     {
       "date": "2026-08-16",
-      "source": "Google Maps (New Town Plaza)",
+      "source": "Google Maps (沙田新城市廣場三期)",
       "platform": "地圖",
       "title": "沙田顧客1星投訴牛扒生熟度及跟進速度",
       "summary": "ATTIS playz 的公開評價聲稱點選三分熟牛扒但上桌時接近全生且難以咀嚼，並稱用餐完結後所要求的物品仍未送到。",
@@ -1112,7 +1112,7 @@
     },
     {
       "date": "2026-08-16",
-      "source": "Google Maps (New Town Plaza)",
+      "source": "Google Maps (沙田新城市廣場三期)",
       "platform": "地圖",
       "title": "沙田顧客1星指沙律生菜變黃變軟",
       "summary": "Vincent Tsoi 的公開評價聲稱沙律生菜有黃邊及已變軟，並質疑食材已放置一段時間仍被出餐。",
@@ -1123,7 +1123,7 @@
     },
     {
       "date": "2026-08-17",
-      "source": "Google Maps (YOHO MALL)",
+      "source": "Google Maps (元朗形點)",
       "platform": "地圖",
       "title": "YOHO MALL顧客5星讚下午茶抵食及方便睇戲",
       "summary": "Mrs Chan 表示下午茶時段價錢實惠、不需等位，用餐後亦方便去看電影。",
@@ -1134,7 +1134,7 @@
     },
     {
       "date": "2026-08-19",
-      "source": "Google Maps (New Town Plaza)",
+      "source": "Google Maps (沙田新城市廣場三期)",
       "platform": "地圖",
       "title": "沙田顧客5星午餐評分（無文字評論）",
       "summary": "Chan Stephen（上官警我）的公開Google Maps評價顯示整體5星及餐種為午餐；頁面未顯示額外文字評論，因此不推斷具體意見。",
@@ -1145,7 +1145,7 @@
     },
     {
       "date": "2026-08-19",
-      "source": "Google Maps (Tai Po Mega Mall)",
+      "source": "Google Maps (大埔超級城)",
       "platform": "地圖",
       "title": "大埔顧客投訴兩度上錯牛扒及落單流程",
       "summary": "J M 的公開評價聲稱即使餐牌有編號及圖片仍被錯誤落單，兩次收到錯誤牛扒；同時稱員工態度友善，但期望服務流程改善。頁面顯示整體5星。",
@@ -1156,7 +1156,7 @@
     },
     {
       "date": "2026-08-20",
-      "source": "Instagram (Official Page)",
+      "source": "Instagram (官方 @outbacksteakhousehk)",
       "platform": "社交媒體",
       "title": "OutBackrooms短片以黑糖麥包定位品牌為工作壓力安全地帶",
       "summary": "Outback Steakhouse HK官方Instagram發布雙語OutBackrooms短片，以日常工作壓力作情境，推廣Bushman Bread配自家製牛油及餐單連結。",
@@ -1167,7 +1167,7 @@
     },
     {
       "date": "2026-08-20",
-      "source": "Google Maps (Causeway Bay Plaza One)",
+      "source": "Google Maps (銅鑼灣廣場一期)",
       "platform": "地圖",
       "title": "銅鑼灣顧客5星午餐評價：食物5分、服務及環境各3分",
       "summary": "Ho Yan Chu 的公開Google Maps評價顯示整體5星；午餐項目中食物5分、服務3分、環境3分。",
@@ -1178,7 +1178,7 @@
     },
     {
       "date": "2026-08-22",
-      "source": "Google Maps (Citygate Outlets)",
+      "source": "Google Maps (東薈城名店倉)",
       "platform": "地圖",
       "title": "東薈城顧客5星讚牛扒及黑糖包",
       "summary": "simon lam 表示食物好吃、牛扒出色，並特別稱讚黑糖包。",
@@ -1189,7 +1189,7 @@
     },
     {
       "date": "2026-08-23",
-      "source": "Google Maps (New Town Plaza)",
+      "source": "Google Maps (沙田新城市廣場三期)",
       "platform": "地圖",
       "title": "沙田顧客5星評價：食物4分、服務5分",
       "summary": "Patrick Yip 的公開Google Maps評價顯示整體5星，食物4分及服務5分；頁面未顯示額外文字評論。",
@@ -1299,7 +1299,7 @@
     },
     {
       "date": "2026-08-24",
-      "source": "Google Maps (Citygate Outlets)",
+      "source": "Google Maps (東薈城名店倉)",
       "platform": "地圖",
       "title": "東薈城顧客5星評價讚賞薯條、沙律及漢堡，亦指音樂偏大",
       "summary": "Chris Tofield給予5星，表示食物及價格不錯，沙律份量大、芒果新鮮、漢堡美味，並稱薯條是三星期旅程中最好吃；同時認為店內音樂太大聲。分項評分為食物5、服務4、氣氛3，午餐等候時間為毋須等候。",
@@ -1310,7 +1310,7 @@
     },
     {
       "date": "2026-08-22",
-      "source": "Google Maps (Citygate Outlets)",
+      "source": "Google Maps (東薈城名店倉)",
       "platform": "地圖",
       "title": "東薈城顧客讚牛扒及黑糖麵包美味",
       "summary": "Google Maps用戶simon lam表示牛扒很好，並特別讚賞黑糖麵包美味。原頁未提供可可靠擷取的整體星級或分項評分，因此不作推斷。",
@@ -1321,7 +1321,7 @@
     },
     {
       "date": "2026-08-21",
-      "source": "Google Maps (Citygate Outlets)",
+      "source": "Google Maps (東薈城名店倉)",
       "platform": "地圖",
       "title": "東薈城Google Maps分項低評：食物1、服務1、氣氛2",
       "summary": "Google Maps用戶Yu Hua Yu未留下文字評論，只標示人均消費HK$150–200，並給予食物1分、服務1分及氣氛2分。原頁的整體星級未能可靠擷取，因此不作推斷。",
@@ -1332,7 +1332,7 @@
     },
     {
       "date": "2026-08-23",
-      "source": "Google Maps (Park Central)",
+      "source": "Google Maps (將軍澳中心)",
       "platform": "地圖",
       "title": "將軍澳中心顧客給予食物、服務及氣氛全5分",
       "summary": "Google Maps用戶Fenny Ng未留下文字評論，給予食物5分、服務5分及氣氛5分；標示人均消費HK$500以上、建議預約、環境安靜易於交談，等候時間10至30分鐘。",
@@ -1365,7 +1365,7 @@
     },
     {
       "date": "2026-08-24",
-      "source": "Outback Steakhouse HK (Official Instagram)",
+      "source": "Instagram (官方 @outbacksteakhousehk)",
       "platform": "社交媒體",
       "title": "Outback IG Photo Post (Aug 24)",
       "summary": "Official Outback Steakhouse HK Instagram published a new photo on August 24, 2026. Content visible via web_extract confirms brand attribution. Platform: Instagram @outbacksteakhousehk.",
@@ -1728,7 +1728,7 @@
     },
     {
       "date": "2026-06-29",
-      "source": "OpenRice (形點 I 元朗)",
+      "source": "OpenRice (元朗形點)",
       "platform": "OpenRice",
       "title": "元朗Outback食評：Popcorn蝦+封門牛柳推介",
       "summary": "食客or#Tm66468237食評：推介Popcorn Shrimp（炸得香脆）及封門牛柳（火候好、肉質嫩滑juicy）。服務friendly、上菜快，黑糖包可任食。認為以連鎖扒房嚟講價錢唔算平。",
@@ -1860,7 +1860,7 @@
     },
     {
       "date": "2026-09-07",
-      "source": "Facebook ",
+      "source": "Facebook",
       "platform": "社交媒體",
       "title": "❣️Outback Steakhouse R&D Kitchen Table · 味蕾極致饗宴❣️",
       "summary": "用戶 @sinmamaftm 發帖分享出席Bloomin' Brands研發副總裁Chef Efrem Cutler親自主理嘅廚師發辦，形容體驗是一場高級味覺旅程",
@@ -1992,7 +1992,7 @@
     },
     {
       "date": "2026-09-07",
-      "source": "OpenRice 東薈城名店倉分店食評 (or#tm66893195)",
+      "source": "OpenRice (東薈城名店倉)",
       "platform": "OpenRice",
       "title": "OpenRice食評：東涌東薈城Outback聚餐滿意 份量足美式風味",
       "summary": "用戶or#tm66893195於2026-09-07在OpenRice東薈城名店倉分店食評頁發帖（等級3），評總分及味道3、環境4、服務4、衛生4、抵食4。內容稱跟朋友去東涌東薈城Outback聚餐整體食評體驗相當滿意，食物份量十足有美式風格；招牌熱騰騰黑糖麵包塗上香滑牛油軟綿甜香；必試炸洋蔥花（Bloomin' Onion）外脆內開胃；牛油果沙律配料豐富新鮮；鮮蝦奶油寬條麵蝦爽彈奶香濃；烤豬仔骨配炸雞翼拼盤驚喜（豬仔骨軟腍醬汁鹹甜入味）；最後以果香冰沙與特飲作結。價錢屬中高價位，但份量大、環境闊落，適合大班朋友或一家去東涌放假聚餐。屬正面食評。來源為OpenRice公開食評頁核實（提取頁面，2026-09-20）。該句為用戶個人意見，不代表OpenRice觀點。",
@@ -2069,7 +2069,7 @@
     },
     {
       "date": "2026-10-03",
-      "source": "Instagram (@outbacksteakhousehk 官方)",
+      "source": "Instagram (官方 @outbacksteakhousehk)",
       "platform": "社交媒體",
       "title": "【10月生日嘅你注意！】Outback $88電子優惠券及外賣到會8折（官方）",
       "summary": "Outback官方IG帖宣傳10月生日禮遇：10月壽星可於Outback App領取$88電子優惠券及外賣到會套餐8折優惠券，再約三五知己慶祝生日。帖文附#扒房#牛扒#OutbackSteakhouseHK等標籤，約7個讚好，屬品牌官方Owned Media新活動。",
@@ -2201,7 +2201,7 @@
     },
     {
       "date": "2026-10-20",
-      "source": "Outback Steakhouse HK 官方網站",
+      "source": "Outback 官方網站",
       "platform": "新聞媒體",
       "title": "【Inside Outback｜限時會員專屬禮遇】10月20日至11月30日會員獎賞（官方公布）",
       "summary": "Outback Steakhouse 香港官網2026-10-20更新「Inside Outback｜限時會員專屬禮遇」。VIP基本會員（免費入會）活動期間首次登記，額外獲贈免費香脆薯條混煙肉芝士一份（堂食或外賣消費滿HK$400可用）；Prestige尊尚會員（HK$488/兩年）新加入、由VIP升級或延長會籍，於原有禮遇外再享三重獎賞：禮遇一免費人氣頭盤（烤豬肋骨雞槌芝士薯條拼盤，消費滿HK$400可用）、禮遇二額外HK$400現金券（4張HK$100）、禮遇三高達4張專享75折優惠券（每張最高減HK$1,000，不設最低消費）。屬官方會籍鎖客推廣，力度較過往迎新加大。（資料來源：Outback Steakhouse 香港官方網站）",
@@ -2289,7 +2289,7 @@
     },
     {
       "date": "2026-06-29",
-      "source": "Google Maps (新城市廣場三期)",
+      "source": "Google Maps (沙田新城市廣場三期)",
       "platform": "地圖",
       "title": "沙田顧客4星評價：豐富午餐  一行四人來到這餐廳午聚。這裏座位舒服，食物質數又有保證；再加上我們今",
       "summary": "沙田分店 Google Maps 4星評論（Wah Wah，3 個月前）：豐富午餐  一行四人來到這餐廳午聚。這裏座位舒服，食物質數又有保證；再加上我們今天有會員生日優惠折扣，倍感滿足。  這裏的午餐已包括了湯、黑糖麵包、主食和飲品，非常豐富。今天的紅蘿蔔忌廉湯順滑美味，配黑糖麵包一流。  ～牛肉牛油果墨西哥脆餅沙律 （$158） 味道層次豐富，既有肉有蔬果，也有脆口的餅底，清新可口。  ～燒雞肉芝士夾餅 （$128） 半溶芝士非常惹味，入口軟轜。  ～燒肉醬味豬肋骨 （$148） 份量不少，骨肉分明，燒得入味可口。  ～芝士白汁燒蝦寛麵 （$158） 麵微微煙韌，蝦肉爽口，芝士白汁順滑惹味。  餐後來一杯熱飲是最好不過。",
@@ -2300,7 +2300,7 @@
     },
     {
       "date": "2026-05-08",
-      "source": "Google Maps (MOKO新世紀廣場)",
+      "source": "Google Maps (旺角MOKO)",
       "platform": "地圖",
       "title": "旺角顧客3星評價：平日12點45分3大人帶1幼童來，$523食了3個餐。味道中上，當日服務很好，好",
       "summary": "旺角分店 Google Maps 3星評論（ka ho lai，5 個月前）：平日12點45分3大人帶1幼童來，$523食了3個餐。味道中上，當日服務很好，好耐無係MOKO有餐廳做到優質水準。性價比合格，因為位置方便，加埋當日的服務好。預來慢慢坐和朋友傾計聚會，這裡會係好選擇。不過唔知晚市會否限時交枱 食物就正常，但上菜慢。 有位應該係經理，會適當主動招呼及詢問是否須要什麼，一般職員就爽手精神。 環境乾淨舒適，中上的商場餐廳的水準。",
@@ -2333,7 +2333,7 @@
     },
     {
       "date": "2026-05-06",
-      "source": "Google Maps (娛樂行)",
+      "source": "Google Maps (中環娛樂行)",
       "platform": "地圖",
       "title": "中環顧客4星評價：食物唔錯但價錢又點貴",
       "summary": "中環分店 Google Maps 4星評論（Wilson Lam，5 個月前）：食物唔錯但價錢又點貴",
@@ -2366,7 +2366,7 @@
     },
     {
       "date": "2026-06-19",
-      "source": "Google Maps (形點)",
+      "source": "Google Maps (元朗形點)",
       "platform": "地圖",
       "title": "元朗顧客2星評價：非常普通之一餐 意粉一啲鹽味都冇 漢堡包質感似嘉頓面包包住啲餡 最好味係薯條",
       "summary": "元朗分店 Google Maps 2星評論（Jess，4 個月前）：非常普通之一餐 意粉一啲鹽味都冇 漢堡包質感似嘉頓面包包住啲餡 最好味係薯條",
@@ -2377,7 +2377,7 @@
     },
     {
       "date": "2026-08-08",
-      "source": "Google Maps (形點)",
+      "source": "Google Maps (元朗形點)",
       "platform": "地圖",
       "title": "元朗顧客3星評價：服務幾好，話薯條唔熱即時炸返新嘅俾我👍🏻",
       "summary": "元朗分店 Google Maps 3星評論（On Samsung，2 個月前）：服務幾好，話薯條唔熱即時炸返新嘅俾我👍🏻",
@@ -2388,7 +2388,7 @@
     },
     {
       "date": "2026-10-12",
-      "source": "Google Maps (形點)",
+      "source": "Google Maps (元朗形點)",
       "platform": "地圖",
       "title": "元朗顧客5星評價：地點方便，餐點美味，員工服務態度良好，有禮貌，可再次來臨",
       "summary": "元朗分店 Google Maps 5星評論（chan kasum，2 週前）：地點方便，餐點美味，員工服務態度良好，有禮貌，可再次來臨",
@@ -2399,7 +2399,7 @@
     },
     {
       "date": "2026-08-17",
-      "source": "Google Maps (形點)",
+      "source": "Google Maps (元朗形點)",
       "platform": "地圖",
       "title": "元朗顧客3星評價：Light meal時段幾抵食，又唔駛等位，食完去睇戲，nice",
       "summary": "元朗分店 Google Maps 3星評論（Mrs Chan，2 個月前）：Light meal時段幾抵食，又唔駛等位，食完去睇戲，nice",
@@ -2500,7 +2500,7 @@
     },
     {
       "date": "2026-08-04",
-      "source": "OpenRice (東薈城Citygate)",
+      "source": "OpenRice (東薈城名店倉)",
       "platform": "OpenRice",
       "title": "食評：東涌Citygate分店 All Day Lunch",
       "summary": "Outback東涌東薈城分店，主要菜式包括黑糖麵包、燒雞肉芝士夾餅",
@@ -2522,7 +2522,7 @@
     },
     {
       "date": "2026-08-05",
-      "source": "OpenRice (沙田新城市廣場)",
+      "source": "OpenRice (沙田新城市廣場三期)",
       "platform": "OpenRice",
       "title": "食評：豐富午餐 - 會員生日優惠折扣",
       "summary": "一行四人午聚，座位舒服食物質數有保證。午餐包湯、黑糖麵包、主食和飲品",
@@ -2544,7 +2544,7 @@
     },
     {
       "date": "2026-08-05",
-      "source": "OpenRice (銅鑼灣廣場)",
+      "source": "OpenRice (銅鑼灣廣場一期)",
       "platform": "OpenRice",
       "title": "食評：銅鑼灣分店 扒房適合大夥人",
       "summary": "Outback銅鑼灣廣場一期分店，3/F Shop 305-308，扒房及派對食物",
@@ -2621,7 +2621,7 @@
     },
     {
       "date": "2026-08-07",
-      "source": "OpenRice (MOKO旺角)",
+      "source": "OpenRice (旺角MOKO)",
       "platform": "OpenRice",
       "title": "食評：午餐好多選擇 黑糖麵包可以不停refill",
       "summary": "午餐選擇多包餐湯麵包主菜飲品，黑糖麵包可以不停refill",
@@ -2632,7 +2632,7 @@
     },
     {
       "date": "2026-08-08",
-      "source": "OpenRice (娛樂行中環)",
+      "source": "OpenRice (中環娛樂行)",
       "platform": "OpenRice",
       "title": "食評相片：中環娛樂行分店最新相片",
       "summary": "OpenRice用戶上傳Outback中環娛樂行分店最新食物相片",
@@ -2698,7 +2698,7 @@
     },
     {
       "date": "2026-08-10",
-      "source": "OpenRice (形點I元朗)",
+      "source": "OpenRice (元朗形點)",
       "platform": "OpenRice",
       "title": "食評：元朗形點I分店 Popular Dishes",
       "summary": "Outback形點I元朗分店熱門菜式，位於Shop 2047-2048",
@@ -2929,7 +2929,7 @@
     },
     {
       "date": "2026-06-29",
-      "source": "OpenRice (形點 I 元朗)",
+      "source": "OpenRice (元朗形點)",
       "platform": "OpenRice",
       "title": "元朗Outback食評：Popcorn蝦+封門牛柳推介",
       "summary": "食客or#Tm66468237食評：推介Popcorn Shrimp（炸得香脆）及封門牛柳（火候好、肉質嫩滑juicy）。服務friendly、上菜快，黑糖包可任食。認為以連鎖扒房嚟講價錢唔算平。",
@@ -3017,7 +3017,7 @@
     },
     {
       "date": "2026-09-07",
-      "source": "OpenRice 東薈城名店倉分店食評 (or#tm66893195)",
+      "source": "OpenRice (東薈城名店倉)",
       "platform": "OpenRice",
       "title": "OpenRice食評：東涌東薈城Outback聚餐滿意 份量足美式風味",
       "summary": "用戶or#tm66893195於2026-09-07在OpenRice東薈城名店倉分店食評頁發帖（等級3），評總分及味道3、環境4、服務4、衛生4、抵食4。內容稱跟朋友去東涌東薈城Outback聚餐整體食評體驗相當滿意，食物份量十足有美式風格；招牌熱騰騰黑糖麵包塗上香滑牛油軟綿甜香；必試炸洋蔥花（Bloomin' Onion）外脆內開胃；牛油果沙律配料豐富新鮮；鮮蝦奶油寬條麵蝦爽彈奶香濃；烤豬仔骨配炸雞翼拼盤驚喜（豬仔骨軟腍醬汁鹹甜入味）；最後以果香冰沙與特飲作結。價錢屬中高價位，但份量大、環境闊落，適合大班朋友或一家去東涌放假聚餐。屬正面食評。來源為OpenRice公開食評頁核實（提取頁面，2026-09-20）。該句為用戶個人意見，不代表OpenRice觀點。",
@@ -3094,7 +3094,7 @@
     },
     {
       "date": "2026-10-20",
-      "source": "Outback Steakhouse HK 官方網站",
+      "source": "Outback 官方網站",
       "platform": "新聞媒體",
       "title": "【Inside Outback｜限時會員專屬禮遇】10月20日至11月30日會員獎賞（官方公布）",
       "summary": "Outback Steakhouse 香港官網2026-10-20更新「Inside Outback｜限時會員專屬禮遇」。VIP基本會員（免費入會）活動期間首次登記，額外獲贈免費香脆薯條混煙肉芝士一份（堂食或外賣消費滿HK$400可用）；Prestige尊尚會員（HK$488/兩年）新加入、由VIP升級或延長會籍，於原有禮遇外再享三重獎賞：禮遇一免費人氣頭盤（烤豬肋骨雞槌芝士薯條拼盤，消費滿HK$400可用）、禮遇二額外HK$400現金券（4張HK$100）、禮遇三高達4張專享75折優惠券（每張最高減HK$1,000，不設最低消費）。屬官方會籍鎖客推廣，力度較過往迎新加大。（資料來源：Outback Steakhouse 香港官方網站）",
@@ -3250,7 +3250,7 @@
     },
     {
       "date": "2026-08-07",
-      "source": "Google Maps (Citygate Outlets)",
+      "source": "Google Maps (東薈城名店倉)",
       "platform": "地圖",
       "title": "Citygate評論者投訴兩次上菜均見頭髮及經理處理方式",
       "summary": "評論者稱首次點吞拿魚時碟上有頭髮，要求重做後新一碟再次發現頭髮；亦稱經理當眾斥責員工，令其失去胃口。以上均為評論者個人陳述，未經獨立核實。",
@@ -3261,7 +3261,7 @@
     },
     {
       "date": "2026-08-07",
-      "source": "Google Maps (Olympian City 2)",
+      "source": "Google Maps (奧海城二期)",
       "platform": "地圖",
       "title": "奧海城評論給予食物、服務及環境全數5分",
       "summary": "評論者給予食物5分、服務5分及環境5分。",
@@ -3492,7 +3492,7 @@
     },
     {
       "date": "2026-08-13",
-      "source": "Google Maps (Citygate Outlets)",
+      "source": "Google Maps (東薈城名店倉)",
       "platform": "地圖",
       "title": "Citygate顧客讚揚食物及親子友善服務",
       "summary": "評論者表示一家人在Citygate Outlets分店用餐愉快，食物美味、員工細心有禮並保持笑容，特別感謝經理Bonnie介紹菜式及分享親子用餐建議。",
@@ -3503,7 +3503,7 @@
     },
     {
       "date": "2026-08-13",
-      "source": "Google Maps (Citygate Outlets)",
+      "source": "Google Maps (東薈城名店倉)",
       "platform": "地圖",
       "title": "Citygate午餐評論給予服務5分及安靜環境評價",
       "summary": "評論者指兩人午餐人均HK$400至450，食物4分、服務5分、環境4分，並形容餐廳安靜、方便交談。",
@@ -3514,7 +3514,7 @@
     },
     {
       "date": "2026-08-13",
-      "source": "Google Maps (New Town Plaza)",
+      "source": "Google Maps (沙田新城市廣場三期)",
       "platform": "地圖",
       "title": "沙田顧客5星評價讚服務、熱麵包及牛扒質素",
       "summary": "評論者表示相隔十年再訪Outback，服務依然有效率；雖然份量較以前小，但味道保持水準，麵包上桌時仍熱、牛扒質素高、飲品份量足以分享。",
@@ -3525,7 +3525,7 @@
     },
     {
       "date": "2026-08-13",
-      "source": "Google Maps (New Town Plaza)",
+      "source": "Google Maps (沙田新城市廣場三期)",
       "platform": "地圖",
       "title": "沙田顧客2星評價指黑糖包不熱及牛扒性價比下降",
       "summary": "評論者表示黑糖包不熱、味道不及以往，並認為牛扒質素不值其價格，形容整體退步。",
@@ -3701,7 +3701,7 @@
     },
     {
       "date": "2026-08-09",
-      "source": "Google Maps (Causeway Bay Plaza One)",
+      "source": "Google Maps (銅鑼灣廣場一期)",
       "platform": "地圖",
       "title": "銅鑼灣顧客5星評價：晚餐體驗整體正面",
       "summary": "Cherry Wong 的公開Google Maps評價顯示整體5星；晚餐每人約HK$300–350，食物4分、服務4分、環境5分。",
@@ -3712,7 +3712,7 @@
     },
     {
       "date": "2026-08-09",
-      "source": "Google Maps (Causeway Bay Plaza One)",
+      "source": "Google Maps (銅鑼灣廣場一期)",
       "platform": "地圖",
       "title": "銅鑼灣顧客5星評價：食物、服務及環境均獲4分",
       "summary": "Week end foodie hk 的公開Google Maps評價顯示整體5星，食物、服務及環境各為4分；頁面未顯示額外文字評論。",
@@ -3723,7 +3723,7 @@
     },
     {
       "date": "2026-08-09",
-      "source": "Google Maps (Causeway Bay Plaza One)",
+      "source": "Google Maps (銅鑼灣廣場一期)",
       "platform": "地圖",
       "title": "銅鑼灣顧客5星評價：食物及服務各獲4分",
       "summary": "Puipui HYP 的公開Google Maps評價顯示整體5星，食物4分、服務4分；頁面未顯示額外文字評論。",
@@ -3734,7 +3734,7 @@
     },
     {
       "date": "2026-08-09",
-      "source": "Google Maps (Tai Po Mega Mall)",
+      "source": "Google Maps (大埔超級城)",
       "platform": "地圖",
       "title": "大埔顧客認為食物好吃但口味偏重",
       "summary": "Cho Cho 表示2026年7月到訪，食物好吃但味道較重；公開Google Maps頁面顯示整體5星。",
@@ -3745,7 +3745,7 @@
     },
     {
       "date": "2026-08-16",
-      "source": "Google Maps (MOKO)",
+      "source": "Google Maps (旺角MOKO)",
       "platform": "地圖",
       "title": "MOKO顧客5星評價讚黑糖麵包熱辣鬆軟",
       "summary": "victoriay_eatwithvic 表示久未到訪Outback，並讚賞黑糖麵包熱辣鬆軟、帶黑糖香氣，配牛油呈甜鹹平衡。",
@@ -3756,7 +3756,7 @@
     },
     {
       "date": "2026-08-16",
-      "source": "Google Maps (New Town Plaza)",
+      "source": "Google Maps (沙田新城市廣場三期)",
       "platform": "地圖",
       "title": "沙田顧客1星投訴牛扒生熟度及跟進速度",
       "summary": "ATTIS playz 的公開評價聲稱點選三分熟牛扒但上桌時接近全生且難以咀嚼，並稱用餐完結後所要求的物品仍未送到。",
@@ -3767,7 +3767,7 @@
     },
     {
       "date": "2026-08-16",
-      "source": "Google Maps (New Town Plaza)",
+      "source": "Google Maps (沙田新城市廣場三期)",
       "platform": "地圖",
       "title": "沙田顧客1星指沙律生菜變黃變軟",
       "summary": "Vincent Tsoi 的公開評價聲稱沙律生菜有黃邊及已變軟，並質疑食材已放置一段時間仍被出餐。",
@@ -3778,7 +3778,7 @@
     },
     {
       "date": "2026-08-17",
-      "source": "Google Maps (YOHO MALL)",
+      "source": "Google Maps (元朗形點)",
       "platform": "地圖",
       "title": "YOHO MALL顧客5星讚下午茶抵食及方便睇戲",
       "summary": "Mrs Chan 表示下午茶時段價錢實惠、不需等位，用餐後亦方便去看電影。",
@@ -3789,7 +3789,7 @@
     },
     {
       "date": "2026-08-19",
-      "source": "Google Maps (New Town Plaza)",
+      "source": "Google Maps (沙田新城市廣場三期)",
       "platform": "地圖",
       "title": "沙田顧客5星午餐評分（無文字評論）",
       "summary": "Chan Stephen（上官警我）的公開Google Maps評價顯示整體5星及餐種為午餐；頁面未顯示額外文字評論，因此不推斷具體意見。",
@@ -3800,7 +3800,7 @@
     },
     {
       "date": "2026-08-19",
-      "source": "Google Maps (Tai Po Mega Mall)",
+      "source": "Google Maps (大埔超級城)",
       "platform": "地圖",
       "title": "大埔顧客投訴兩度上錯牛扒及落單流程",
       "summary": "J M 的公開評價聲稱即使餐牌有編號及圖片仍被錯誤落單，兩次收到錯誤牛扒；同時稱員工態度友善，但期望服務流程改善。頁面顯示整體5星。",
@@ -3811,7 +3811,7 @@
     },
     {
       "date": "2026-08-20",
-      "source": "Instagram (Official Page)",
+      "source": "Instagram (官方 @outbacksteakhousehk)",
       "platform": "社交媒體",
       "title": "OutBackrooms短片以黑糖麥包定位品牌為工作壓力安全地帶",
       "summary": "Outback Steakhouse HK官方Instagram發布雙語OutBackrooms短片，以日常工作壓力作情境，推廣Bushman Bread配自家製牛油及餐單連結。",
@@ -3822,7 +3822,7 @@
     },
     {
       "date": "2026-08-20",
-      "source": "Google Maps (Causeway Bay Plaza One)",
+      "source": "Google Maps (銅鑼灣廣場一期)",
       "platform": "地圖",
       "title": "銅鑼灣顧客5星午餐評價：食物5分、服務及環境各3分",
       "summary": "Ho Yan Chu 的公開Google Maps評價顯示整體5星；午餐項目中食物5分、服務3分、環境3分。",
@@ -3833,7 +3833,7 @@
     },
     {
       "date": "2026-08-22",
-      "source": "Google Maps (Citygate Outlets)",
+      "source": "Google Maps (東薈城名店倉)",
       "platform": "地圖",
       "title": "東薈城顧客5星讚牛扒及黑糖包",
       "summary": "simon lam 表示食物好吃、牛扒出色，並特別稱讚黑糖包。",
@@ -3844,7 +3844,7 @@
     },
     {
       "date": "2026-08-23",
-      "source": "Google Maps (New Town Plaza)",
+      "source": "Google Maps (沙田新城市廣場三期)",
       "platform": "地圖",
       "title": "沙田顧客5星評價：食物4分、服務5分",
       "summary": "Patrick Yip 的公開Google Maps評價顯示整體5星，食物4分及服務5分；頁面未顯示額外文字評論。",
@@ -3921,7 +3921,7 @@
     },
     {
       "date": "2026-08-24",
-      "source": "Google Maps (Citygate Outlets)",
+      "source": "Google Maps (東薈城名店倉)",
       "platform": "地圖",
       "title": "東薈城顧客5星評價讚賞薯條、沙律及漢堡，亦指音樂偏大",
       "summary": "Chris Tofield給予5星，表示食物及價格不錯，沙律份量大、芒果新鮮、漢堡美味，並稱薯條是三星期旅程中最好吃；同時認為店內音樂太大聲。分項評分為食物5、服務4、氣氛3，午餐等候時間為毋須等候。",
@@ -3932,7 +3932,7 @@
     },
     {
       "date": "2026-08-22",
-      "source": "Google Maps (Citygate Outlets)",
+      "source": "Google Maps (東薈城名店倉)",
       "platform": "地圖",
       "title": "東薈城顧客讚牛扒及黑糖麵包美味",
       "summary": "Google Maps用戶simon lam表示牛扒很好，並特別讚賞黑糖麵包美味。原頁未提供可可靠擷取的整體星級或分項評分，因此不作推斷。",
@@ -3943,7 +3943,7 @@
     },
     {
       "date": "2026-08-21",
-      "source": "Google Maps (Citygate Outlets)",
+      "source": "Google Maps (東薈城名店倉)",
       "platform": "地圖",
       "title": "東薈城Google Maps分項低評：食物1、服務1、氣氛2",
       "summary": "Google Maps用戶Yu Hua Yu未留下文字評論，只標示人均消費HK$150–200，並給予食物1分、服務1分及氣氛2分。原頁的整體星級未能可靠擷取，因此不作推斷。",
@@ -3954,7 +3954,7 @@
     },
     {
       "date": "2026-08-23",
-      "source": "Google Maps (Park Central)",
+      "source": "Google Maps (將軍澳中心)",
       "platform": "地圖",
       "title": "將軍澳中心顧客給予食物、服務及氣氛全5分",
       "summary": "Google Maps用戶Fenny Ng未留下文字評論，給予食物5分、服務5分及氣氛5分；標示人均消費HK$500以上、建議預約、環境安靜易於交談，等候時間10至30分鐘。",
@@ -3965,7 +3965,7 @@
     },
     {
       "date": "2026-08-24",
-      "source": "Outback Steakhouse HK (Official Instagram)",
+      "source": "Instagram (官方 @outbacksteakhousehk)",
       "platform": "社交媒體",
       "title": "Outback IG Photo Post (Aug 24)",
       "summary": "Official Outback Steakhouse HK Instagram published a new photo on August 24, 2026. Content visible via web_extract confirms brand attribution. Platform: Instagram @outbacksteakhousehk.",
@@ -4284,7 +4284,7 @@
     },
     {
       "date": "2026-09-07",
-      "source": "Facebook ",
+      "source": "Facebook",
       "platform": "社交媒體",
       "title": "❣️Outback Steakhouse R&D Kitchen Table · 味蕾極致饗宴❣️",
       "summary": "用戶 @sinmamaftm 發帖分享出席Bloomin' Brands研發副總裁Chef Efrem Cutler親自主理嘅廚師發辦，形容體驗是一場高級味覺旅程",
@@ -4438,7 +4438,7 @@
     },
     {
       "date": "2026-10-03",
-      "source": "Instagram (@outbacksteakhousehk 官方)",
+      "source": "Instagram (官方 @outbacksteakhousehk)",
       "platform": "社交媒體",
       "title": "【10月生日嘅你注意！】Outback $88電子優惠券及外賣到會8折（官方）",
       "summary": "Outback官方IG帖宣傳10月生日禮遇：10月壽星可於Outback App領取$88電子優惠券及外賣到會套餐8折優惠券，再約三五知己慶祝生日。帖文附#扒房#牛扒#OutbackSteakhouseHK等標籤，約7個讚好，屬品牌官方Owned Media新活動。",
@@ -4592,7 +4592,7 @@
     },
     {
       "date": "2026-06-29",
-      "source": "Google Maps (新城市廣場三期)",
+      "source": "Google Maps (沙田新城市廣場三期)",
       "platform": "地圖",
       "title": "沙田顧客4星評價：豐富午餐  一行四人來到這餐廳午聚。這裏座位舒服，食物質數又有保證；再加上我們今",
       "summary": "沙田分店 Google Maps 4星評論（Wah Wah，3 個月前）：豐富午餐  一行四人來到這餐廳午聚。這裏座位舒服，食物質數又有保證；再加上我們今天有會員生日優惠折扣，倍感滿足。  這裏的午餐已包括了湯、黑糖麵包、主食和飲品，非常豐富。今天的紅蘿蔔忌廉湯順滑美味，配黑糖麵包一流。  ～牛肉牛油果墨西哥脆餅沙律 （$158） 味道層次豐富，既有肉有蔬果，也有脆口的餅底，清新可口。  ～燒雞肉芝士夾餅 （$128） 半溶芝士非常惹味，入口軟轜。  ～燒肉醬味豬肋骨 （$148） 份量不少，骨肉分明，燒得入味可口。  ～芝士白汁燒蝦寛麵 （$158） 麵微微煙韌，蝦肉爽口，芝士白汁順滑惹味。  餐後來一杯熱飲是最好不過。",
@@ -4603,7 +4603,7 @@
     },
     {
       "date": "2026-05-08",
-      "source": "Google Maps (MOKO新世紀廣場)",
+      "source": "Google Maps (旺角MOKO)",
       "platform": "地圖",
       "title": "旺角顧客3星評價：平日12點45分3大人帶1幼童來，$523食了3個餐。味道中上，當日服務很好，好",
       "summary": "旺角分店 Google Maps 3星評論（ka ho lai，5 個月前）：平日12點45分3大人帶1幼童來，$523食了3個餐。味道中上，當日服務很好，好耐無係MOKO有餐廳做到優質水準。性價比合格，因為位置方便，加埋當日的服務好。預來慢慢坐和朋友傾計聚會，這裡會係好選擇。不過唔知晚市會否限時交枱 食物就正常，但上菜慢。 有位應該係經理，會適當主動招呼及詢問是否須要什麼，一般職員就爽手精神。 環境乾淨舒適，中上的商場餐廳的水準。",
@@ -4636,7 +4636,7 @@
     },
     {
       "date": "2026-05-06",
-      "source": "Google Maps (娛樂行)",
+      "source": "Google Maps (中環娛樂行)",
       "platform": "地圖",
       "title": "中環顧客4星評價：食物唔錯但價錢又點貴",
       "summary": "中環分店 Google Maps 4星評論（Wilson Lam，5 個月前）：食物唔錯但價錢又點貴",
@@ -4669,7 +4669,7 @@
     },
     {
       "date": "2026-06-19",
-      "source": "Google Maps (形點)",
+      "source": "Google Maps (元朗形點)",
       "platform": "地圖",
       "title": "元朗顧客2星評價：非常普通之一餐 意粉一啲鹽味都冇 漢堡包質感似嘉頓面包包住啲餡 最好味係薯條",
       "summary": "元朗分店 Google Maps 2星評論（Jess，4 個月前）：非常普通之一餐 意粉一啲鹽味都冇 漢堡包質感似嘉頓面包包住啲餡 最好味係薯條",
@@ -4680,7 +4680,7 @@
     },
     {
       "date": "2026-08-08",
-      "source": "Google Maps (形點)",
+      "source": "Google Maps (元朗形點)",
       "platform": "地圖",
       "title": "元朗顧客3星評價：服務幾好，話薯條唔熱即時炸返新嘅俾我👍🏻",
       "summary": "元朗分店 Google Maps 3星評論（On Samsung，2 個月前）：服務幾好，話薯條唔熱即時炸返新嘅俾我👍🏻",
@@ -4691,7 +4691,7 @@
     },
     {
       "date": "2026-10-12",
-      "source": "Google Maps (形點)",
+      "source": "Google Maps (元朗形點)",
       "platform": "地圖",
       "title": "元朗顧客5星評價：地點方便，餐點美味，員工服務態度良好，有禮貌，可再次來臨",
       "summary": "元朗分店 Google Maps 5星評論（chan kasum，2 週前）：地點方便，餐點美味，員工服務態度良好，有禮貌，可再次來臨",
@@ -4702,7 +4702,7 @@
     },
     {
       "date": "2026-08-17",
-      "source": "Google Maps (形點)",
+      "source": "Google Maps (元朗形點)",
       "platform": "地圖",
       "title": "元朗顧客3星評價：Light meal時段幾抵食，又唔駛等位，食完去睇戲，nice",
       "summary": "元朗分店 Google Maps 3星評論（Mrs Chan，2 個月前）：Light meal時段幾抵食，又唔駛等位，食完去睇戲，nice",

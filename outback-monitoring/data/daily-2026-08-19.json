@@ -14,7 +14,7 @@
     },
     {
       "date": "2026-08-19",
-      "source": "Google Maps (New Town Plaza)",
+      "source": "Google Maps (沙田新城市廣場三期)",
       "platform": "地圖",
       "author": "Chan Stephen (上官警我)",
       "title": "沙田顧客5星午餐評分（無文字評論）",
@@ -25,7 +25,7 @@
     },
     {
       "date": "2026-08-19",
-      "source": "Google Maps (Tai Po Mega Mall)",
+      "source": "Google Maps (大埔超級城)",
       "platform": "地圖",
       "author": "J M",
       "title": "大埔顧客投訴兩度上錯牛扒及落單流程",
@@ -39,7 +39,7 @@
     {
       "title": "大埔顧客投訴兩度上錯牛扒及落單流程",
       "summary": "J M 的公開評價聲稱即使餐牌有編號及圖片仍被錯誤落單，兩次收到錯誤牛扒；同時稱員工態度友善，但期望服務流程改善。頁面顯示整體5星。",
-      "source": "Google Maps (Tai Po Mega Mall)",
+      "source": "Google Maps (大埔超級城)",
       "link": "https://maps.app.goo.gl/xokZGZp1zvsLWWE4A",
       "severity": "MEDIUM"
     }

@@ -3,7 +3,7 @@
   "items": [
     {
       "date": "2026-08-07",
-      "source": "Google Maps (Citygate Outlets)",
+      "source": "Google Maps (東薈城名店倉)",
       "platform": "地圖",
       "author": "Romvlvschow",
       "title": "Citygate評論者投訴兩次上菜均見頭髮及經理處理方式",
@@ -14,7 +14,7 @@
     },
     {
       "date": "2026-08-07",
-      "source": "Google Maps (Olympian City 2)",
+      "source": "Google Maps (奧海城二期)",
       "platform": "地圖",
       "author": "hin humble",
       "title": "奧海城評論給予食物、服務及環境全數5分",
@@ -58,7 +58,7 @@
     },
     {
       "date": "2026-08-07",
-      "source": "OpenRice (MOKO旺角)",
+      "source": "OpenRice (旺角MOKO)",
       "platform": "OpenRice",
       "author": "未記錄",
       "title": "食評：午餐好多選擇 黑糖麵包可以不停refill",
@@ -105,7 +105,7 @@
     {
       "title": "Citygate評論者投訴兩次上菜均見頭髮及經理處理方式",
       "summary": "評論者稱首次點吞拿魚時碟上有頭髮，要求重做後新一碟再次發現頭髮；亦稱經理當眾斥責員工，令其失去胃口。以上均為評論者個人陳述，未經獨立核實。",
-      "source": "Google Maps (Citygate Outlets)",
+      "source": "Google Maps (東薈城名店倉)",
       "link": "https://maps.app.goo.gl/FH5mk6YR9rK5pmUMA",
       "severity": "MEDIUM"
     }

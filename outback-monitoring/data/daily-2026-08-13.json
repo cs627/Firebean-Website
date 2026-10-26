@@ -3,7 +3,7 @@
   "items": [
     {
       "date": "2026-08-13",
-      "source": "Google Maps (Citygate Outlets)",
+      "source": "Google Maps (東薈城名店倉)",
       "platform": "地圖",
       "author": "aoi sakamoto",
       "title": "Citygate顧客讚揚食物及親子友善服務",
@@ -14,7 +14,7 @@
     },
     {
       "date": "2026-08-13",
-      "source": "Google Maps (Citygate Outlets)",
+      "source": "Google Maps (東薈城名店倉)",
       "platform": "地圖",
       "author": "jay Wong (jay)",
       "title": "Citygate午餐評論給予服務5分及安靜環境評價",
@@ -25,7 +25,7 @@
     },
     {
       "date": "2026-08-13",
-      "source": "Google Maps (New Town Plaza)",
+      "source": "Google Maps (沙田新城市廣場三期)",
       "platform": "地圖",
       "author": "Chan Anna",
       "title": "沙田顧客5星評價讚服務、熱麵包及牛扒質素",
@@ -36,7 +36,7 @@
     },
     {
       "date": "2026-08-13",
-      "source": "Google Maps (New Town Plaza)",
+      "source": "Google Maps (沙田新城市廣場三期)",
       "platform": "地圖",
       "author": "J Chan",
       "title": "沙田顧客2星評價指黑糖包不熱及牛扒性價比下降",
@@ -116,7 +116,7 @@
     {
       "title": "沙田顧客2星評價指黑糖包不熱及牛扒性價比下降",
       "summary": "評論者表示黑糖包不熱、味道不及以往，並認為牛扒質素不值其價格，形容整體退步。",
-      "source": "Google Maps (New Town Plaza)",
+      "source": "Google Maps (沙田新城市廣場三期)",
       "link": "https://maps.app.goo.gl/7kH85aXUiCwWja4D6",
       "severity": "MEDIUM"
     },

@@ -3,7 +3,7 @@
   "items": [
     {
       "date": "2026-08-20",
-      "source": "Instagram (Official Page)",
+      "source": "Instagram (官方 @outbacksteakhousehk)",
       "platform": "社交媒體",
       "author": "Outback Steakhouse HK (@outbacksteakhousehk)",
       "title": "OutBackrooms短片以黑糖麥包定位品牌為工作壓力安全地帶",
@@ -14,7 +14,7 @@
     },
     {
       "date": "2026-08-20",
-      "source": "Google Maps (Causeway Bay Plaza One)",
+      "source": "Google Maps (銅鑼灣廣場一期)",
       "platform": "地圖",
       "author": "Ho Yan Chu",
       "title": "銅鑼灣顧客5星午餐評價：食物5分、服務及環境各3分",
@@ -62,7 +62,7 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 5,
+    "checked_sources": 4,
     "new_records": 5,
     "limitations": []
   }

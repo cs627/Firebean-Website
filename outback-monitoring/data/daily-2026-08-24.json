@@ -25,7 +25,7 @@
     },
     {
       "date": "2026-08-24",
-      "source": "Google Maps (Citygate Outlets)",
+      "source": "Google Maps (東薈城名店倉)",
       "platform": "地圖",
       "author": "Chris Tofield",
       "title": "東薈城顧客5星評價讚賞薯條、沙律及漢堡，亦指音樂偏大",
@@ -47,7 +47,7 @@
     },
     {
       "date": "2026-08-24",
-      "source": "Outback Steakhouse HK (Official Instagram)",
+      "source": "Instagram (官方 @outbacksteakhousehk)",
       "platform": "社交媒體",
       "author": "",
       "title": "Outback IG Photo Post (Aug 24)",
@@ -73,7 +73,7 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 6,
+    "checked_sources": 5,
     "new_records": 6,
     "limitations": []
   }
