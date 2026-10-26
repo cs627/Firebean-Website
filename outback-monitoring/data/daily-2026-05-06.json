@@ -5,7 +5,18 @@
       "date": "2026-05-06",
       "source": "Google Maps (中環娛樂行)",
       "platform": "地圖",
-      "author": "",
+      "author": "未記錄",
+      "title": "中環顧客4星評價：食物唔錯但價錢又點貴",
+      "summary": "中環分店 Google Maps 4星評論（Wilson Lam，5 個月前）：食物唔錯但價錢又點貴",
+      "link": "https://www.google.com/maps/contrib/103221660855463757252/reviews",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-05-06",
+      "source": "Google Maps (中環娛樂行)",
+      "platform": "地圖",
+      "author": "Wilson Lam",
       "title": "中環顧客4星評價：食物唔錯但價錢又點貴",
       "summary": "中環分店 Google Maps 4星評論（Wilson Lam，5 個月前）：食物唔錯但價錢又點貴",
       "link": "https://www.google.com/maps/contrib/103221660855463757252/reviews",
@@ -19,7 +30,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 1,
-    "new_records": 1,
+    "new_records": 2,
     "limitations": []
   }
 }

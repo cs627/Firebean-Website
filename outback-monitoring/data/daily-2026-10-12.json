@@ -5,7 +5,18 @@
       "date": "2026-10-12",
       "source": "Google Maps (元朗形點)",
       "platform": "地圖",
-      "author": "",
+      "author": "未記錄",
+      "title": "元朗顧客5星評價：地點方便，餐點美味，員工服務態度良好，有禮貌，可再次來臨",
+      "summary": "元朗分店 Google Maps 5星評論（chan kasum，2 週前）：地點方便，餐點美味，員工服務態度良好，有禮貌，可再次來臨",
+      "link": "https://www.google.com/maps/contrib/104895320475232040275/reviews",
+      "sentiment": "positive",
+      "tags": ""
+    },
+    {
+      "date": "2026-10-12",
+      "source": "Google Maps (元朗形點)",
+      "platform": "地圖",
+      "author": "chan kasum",
       "title": "元朗顧客5星評價：地點方便，餐點美味，員工服務態度良好，有禮貌，可再次來臨",
       "summary": "元朗分店 Google Maps 5星評論（chan kasum，2 週前）：地點方便，餐點美味，員工服務態度良好，有禮貌，可再次來臨",
       "link": "https://www.google.com/maps/contrib/104895320475232040275/reviews",
@@ -19,7 +30,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 1,
-    "new_records": 1,
+    "new_records": 2,
     "limitations": []
   }
 }

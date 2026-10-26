@@ -38,7 +38,18 @@
       "date": "2026-08-17",
       "source": "Google Maps (元朗形點)",
       "platform": "地圖",
-      "author": "",
+      "author": "未記錄",
+      "title": "元朗顧客3星評價：Light meal時段幾抵食，又唔駛等位，食完去睇戲，nice",
+      "summary": "元朗分店 Google Maps 3星評論（Mrs Chan，2 個月前）：Light meal時段幾抵食，又唔駛等位，食完去睇戲，nice",
+      "link": "https://www.google.com/maps/contrib/113481308831447341327/reviews",
+      "sentiment": "neutral",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-17",
+      "source": "Google Maps (元朗形點)",
+      "platform": "地圖",
+      "author": "Mrs Chan",
       "title": "元朗顧客3星評價：Light meal時段幾抵食，又唔駛等位，食完去睇戲，nice",
       "summary": "元朗分店 Google Maps 3星評論（Mrs Chan，2 個月前）：Light meal時段幾抵食，又唔駛等位，食完去睇戲，nice",
       "link": "https://www.google.com/maps/contrib/113481308831447341327/reviews",
@@ -52,7 +63,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 2,
-    "new_records": 4,
+    "new_records": 5,
     "limitations": []
   }
 }

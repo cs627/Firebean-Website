@@ -49,7 +49,18 @@
       "date": "2026-08-08",
       "source": "Google Maps (元朗形點)",
       "platform": "地圖",
-      "author": "",
+      "author": "未記錄",
+      "title": "元朗顧客3星評價：服務幾好，話薯條唔熱即時炸返新嘅俾我👍🏻",
+      "summary": "元朗分店 Google Maps 3星評論（On Samsung，2 個月前）：服務幾好，話薯條唔熱即時炸返新嘅俾我👍🏻",
+      "link": "https://www.google.com/maps/contrib/110608067624245212012/reviews",
+      "sentiment": "neutral",
+      "tags": ""
+    },
+    {
+      "date": "2026-08-08",
+      "source": "Google Maps (元朗形點)",
+      "platform": "地圖",
+      "author": "On Samsung",
       "title": "元朗顧客3星評價：服務幾好，話薯條唔熱即時炸返新嘅俾我👍🏻",
       "summary": "元朗分店 Google Maps 3星評論（On Samsung，2 個月前）：服務幾好，話薯條唔熱即時炸返新嘅俾我👍🏻",
       "link": "https://www.google.com/maps/contrib/110608067624245212012/reviews",
@@ -63,7 +74,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 5,
-    "new_records": 5,
+    "new_records": 6,
     "limitations": []
   }
 }

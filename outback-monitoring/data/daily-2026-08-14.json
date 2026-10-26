@@ -33,15 +33,34 @@
       "link": "https://www.linkedin.com/posts/eber-loyalty-marketing_outbacksteakhousehk-customerretention-activity-7493909905603530752-ONgV",
       "sentiment": "positive",
       "tags": ""
+    },
+    {
+      "date": "2026-08-14",
+      "source": "OpenRice (沙田新城市廣場三期)",
+      "platform": "OpenRice",
+      "author": "Elsa_HK",
+      "title": "OpenRice食評（1星）：沙田分店被指「歧視普通話」、對講普通話客人態度不友善",
+      "summary": "OpenRice用戶Elsa_HK（等級1）於2026-08-14發帖，題為「歧視普通話，大家慎重考慮」，指穿條紋上衣的中性服務員非常不友好，對說普通話的客人與粵語/外國朋友態度明顯不同，明言「不會再去」；帖文當時約686瀏覽。屬服務態度及語言歧視指控（單方指控，未經品牌或第三方核實）。",
+      "link": "https://www.openrice.com/zh/hongkong/review/%E6%AD%A7%E8%A6%96%E6%99%AE%E9%80%9A%E8%A9%B1-%E5%A4%A7%E5%AE%B6%E6%85%8E%E9%87%8D%E8%80%83%E6%85%AE-e6579561",
+      "sentiment": "negative",
+      "tags": ""
     }
   ],
-  "alerts": [],
+  "alerts": [
+    {
+      "title": "OpenRice食評（1星）：沙田分店被指「歧視普通話」、對講普通話客人態度不友善",
+      "summary": "OpenRice用戶Elsa_HK（等級1）於2026-08-14發帖，題為「歧視普通話，大家慎重考慮」，指穿條紋上衣的中性服務員非常不友好，對說普通話的客人與粵語/外國朋友態度明顯不同，明言「不會再去」；帖文當時約686瀏覽。屬服務態度及語言歧視指控（單方指控，未經品牌或第三方核實）。",
+      "source": "OpenRice (沙田新城市廣場三期)",
+      "link": "https://www.openrice.com/zh/hongkong/review/%E6%AD%A7%E8%A6%96%E6%99%AE%E9%80%9A%E8%A9%B1-%E5%A4%A7%E5%AE%B6%E6%85%8E%E9%87%8D%E8%80%83%E6%85%AE-e6579561",
+      "severity": "MEDIUM"
+    }
+  ],
   "trends": "",
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 2,
-    "new_records": 3,
+    "checked_sources": 3,
+    "new_records": 4,
     "limitations": []
   }
 }

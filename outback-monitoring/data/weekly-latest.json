@@ -26,6 +26,14 @@
       "sentiment": "positive"
     },
     {
+      "date": "2026-10-12",
+      "source": "Google Maps (元朗形點)",
+      "title": "元朗顧客5星評價：地點方便，餐點美味，員工服務態度良好，有禮貌，可再次來臨",
+      "summary": "元朗分店 Google Maps 5星評論（chan kasum，2 週前）：地點方便，餐點美味，員工服務態度良好，有禮貌，可再次來臨",
+      "link": "https://www.google.com/maps/contrib/104895320475232040275/reviews",
+      "sentiment": "positive"
+    },
+    {
       "date": "2026-10-17",
       "source": "Threads (@852hkfoodwithyylam)",
       "title": "Threads帖：百佳黑糖全麥麵包$18被指「可以媲美Outback」（本日補獲）",
@@ -72,7 +80,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 8,
+    "new_records": 9,
     "limitations": []
   }
 }

@@ -1,14 +1,14 @@
 {
   "meta": {
-    "last_updated": "2026-10-26T21:09:55+08:00",
-    "total_records": 209,
-    "daily_avg": 3.0,
+    "last_updated": "2026-10-27T01:01:18+08:00",
+    "total_records": 218,
+    "daily_avg": 3.1,
     "date_range": "2026-03-06 → 2026-10-25",
     "sources_checked": 38,
     "new_verified": 3,
     "coverage_ratio": "38/46",
-    "negative_alerts": 30,
-    "positive_pct": 56
+    "negative_alerts": 33,
+    "positive_pct": 55
   },
   "trend": [
     {
@@ -17,7 +17,7 @@
     },
     {
       "date": "2026-10-12",
-      "count": 1
+      "count": 2
     },
     {
       "date": "2026-10-17",
@@ -42,12 +42,12 @@
   ],
   "source_breakdown": [
     {
-      "source": "Instagram",
-      "count": 41
+      "source": "Google Maps",
+      "count": 45
     },
     {
-      "source": "Google Maps",
-      "count": 38
+      "source": "Instagram",
+      "count": 41
     },
     {
       "source": "Threads",
@@ -55,7 +55,7 @@
     },
     {
       "source": "OpenRice",
-      "count": 20
+      "count": 22
     },
     {
       "source": "Facebook",
@@ -103,9 +103,9 @@
     }
   ],
   "sentiment": {
-    "positive": 116,
-    "neutral": 60,
-    "negative": 30,
+    "positive": 119,
+    "neutral": 63,
+    "negative": 33,
     "mixed": 3
   },
   "all_records": [
@@ -2407,6 +2407,105 @@
       "sentiment": "neutral",
       "sentiment_label": "中性",
       "keywords": "Outback, Google Maps, 元朗, 形點, 3星"
+    },
+    {
+      "date": "2026-06-29",
+      "source": "Google Maps (沙田新城市廣場三期)",
+      "platform": "地圖",
+      "title": "沙田顧客4星評價：豐富午餐  一行四人來到這餐廳午聚。這裏座位舒服，食物質數又有保證；再加上我們今",
+      "summary": "沙田分店 Google Maps 4星評論（Wah Wah，3 個月前）：豐富午餐  一行四人來到這餐廳午聚。這裏座位舒服，食物質數又有保證；再加上我們今天有會員生日優惠折扣，倍感滿足。  這裏的午餐已包括了湯、黑糖麵包、主食和飲品，非常豐富。今天的紅蘿蔔忌廉湯順滑美味，配黑糖麵包一流。  ～牛肉牛油果墨西哥脆餅沙律 （$158） 味道層次豐富，既有肉有蔬果，也有脆口的餅底，清新可口。  ～燒雞肉芝士夾餅 （$128） 半溶芝士非常惹味，入口軟轜。  ～燒肉醬味豬肋骨 （$148） 份量不少，骨肉分明，燒得入味可口。  ～芝士白汁燒蝦寛麵 （$158） 麵微微煙韌，蝦肉爽口，芝士白汁順滑惹味。  餐後來一杯熱飲是最好不過。",
+      "link": "https://www.google.com/maps/contrib/107521388394492080523/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 沙田, 新城市廣場三期, 4星"
+    },
+    {
+      "date": "2026-05-08",
+      "source": "Google Maps (旺角MOKO)",
+      "platform": "地圖",
+      "title": "旺角顧客3星評價：平日12點45分3大人帶1幼童來，$523食了3個餐。味道中上，當日服務很好，好",
+      "summary": "旺角分店 Google Maps 3星評論（ka ho lai，5 個月前）：平日12點45分3大人帶1幼童來，$523食了3個餐。味道中上，當日服務很好，好耐無係MOKO有餐廳做到優質水準。性價比合格，因為位置方便，加埋當日的服務好。預來慢慢坐和朋友傾計聚會，這裡會係好選擇。不過唔知晚市會否限時交枱 食物就正常，但上菜慢。 有位應該係經理，會適當主動招呼及詢問是否須要什麼，一般職員就爽手精神。 環境乾淨舒適，中上的商場餐廳的水準。",
+      "link": "https://www.google.com/maps/contrib/104366232887860561087/reviews",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, Google Maps, 旺角, MOKO新世紀廣場, 3星"
+    },
+    {
+      "date": "2026-05-06",
+      "source": "Google Maps (中環娛樂行)",
+      "platform": "地圖",
+      "title": "中環顧客4星評價：食物唔錯但價錢又點貴",
+      "summary": "中環分店 Google Maps 4星評論（Wilson Lam，5 個月前）：食物唔錯但價錢又點貴",
+      "link": "https://www.google.com/maps/contrib/103221660855463757252/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 中環, 娛樂行, 4星"
+    },
+    {
+      "date": "2026-06-19",
+      "source": "Google Maps (元朗形點)",
+      "platform": "地圖",
+      "title": "元朗顧客2星評價：非常普通之一餐 意粉一啲鹽味都冇 漢堡包質感似嘉頓面包包住啲餡 最好味係薯條",
+      "summary": "元朗分店 Google Maps 2星評論（Jess，4 個月前）：非常普通之一餐 意粉一啲鹽味都冇 漢堡包質感似嘉頓面包包住啲餡 最好味係薯條",
+      "link": "https://www.google.com/maps/contrib/113846367632477007115/reviews",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback, Google Maps, 元朗, 形點, 2星"
+    },
+    {
+      "date": "2026-08-08",
+      "source": "Google Maps (元朗形點)",
+      "platform": "地圖",
+      "title": "元朗顧客3星評價：服務幾好，話薯條唔熱即時炸返新嘅俾我👍🏻",
+      "summary": "元朗分店 Google Maps 3星評論（On Samsung，2 個月前）：服務幾好，話薯條唔熱即時炸返新嘅俾我👍🏻",
+      "link": "https://www.google.com/maps/contrib/110608067624245212012/reviews",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, Google Maps, 元朗, 形點, 3星"
+    },
+    {
+      "date": "2026-10-12",
+      "source": "Google Maps (元朗形點)",
+      "platform": "地圖",
+      "title": "元朗顧客5星評價：地點方便，餐點美味，員工服務態度良好，有禮貌，可再次來臨",
+      "summary": "元朗分店 Google Maps 5星評論（chan kasum，2 週前）：地點方便，餐點美味，員工服務態度良好，有禮貌，可再次來臨",
+      "link": "https://www.google.com/maps/contrib/104895320475232040275/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 元朗, 形點, 5星"
+    },
+    {
+      "date": "2026-08-17",
+      "source": "Google Maps (元朗形點)",
+      "platform": "地圖",
+      "title": "元朗顧客3星評價：Light meal時段幾抵食，又唔駛等位，食完去睇戲，nice",
+      "summary": "元朗分店 Google Maps 3星評論（Mrs Chan，2 個月前）：Light meal時段幾抵食，又唔駛等位，食完去睇戲，nice",
+      "link": "https://www.google.com/maps/contrib/113481308831447341327/reviews",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, Google Maps, 元朗, 形點, 3星"
+    },
+    {
+      "date": "2026-10-07",
+      "source": "OpenRice (沙田新城市廣場三期)",
+      "platform": "OpenRice",
+      "title": "OpenRice食評（1星）：沙田新城市廣場三期「牛肉勁嚡、擺盤已經係零分」，食客感「大不如前」",
+      "summary": "OpenRice用戶1006w（等級1）於2026-10-07在Outback沙田新城市廣場三期分店食評頁發帖（標題「大不如前」），內容指牛肉唔好食、擺盤零分、牛肉勁嚡；並質疑Popcorn Shrimp嘅檸檬「擺到皮都乾埋」，懷疑擺放多日或循環再用。屬食物品質及擺盤負評，未見品牌回覆。",
+      "link": "https://www.openrice.com/zh/hongkong/review/--e6619514",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback, 澳美客, 沙田, 食評, 牛肉, 大不如前"
+    },
+    {
+      "date": "2026-08-14",
+      "source": "OpenRice (沙田新城市廣場三期)",
+      "platform": "OpenRice",
+      "title": "OpenRice食評（1星）：沙田分店被指「歧視普通話」、對講普通話客人態度不友善",
+      "summary": "OpenRice用戶Elsa_HK（等級1）於2026-08-14發帖，題為「歧視普通話，大家慎重考慮」，指穿條紋上衣的中性服務員非常不友好，對說普通話的客人與粵語/外國朋友態度明顯不同，明言「不會再去」；帖文當時約686瀏覽。屬服務態度及語言歧視指控（單方指控，未經品牌或第三方核實）。",
+      "link": "https://www.openrice.com/zh/hongkong/review/%E6%AD%A7%E8%A6%96%E6%99%AE%E9%80%9A%E8%A9%B1-%E5%A4%A7%E5%AE%B6%E6%85%8E%E9%87%8D%E8%80%83%E6%85%AE-e6579561",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback, 澳美客, 沙田, 食評, 歧視普通話, 服務態度"
     }
   ],
   "media_records": [
@@ -3113,6 +3212,28 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, 尊尚會籍, Prestige, $488, INSIDE OUTBACK, 75折券, 會員優惠, 著數"
+    },
+    {
+      "date": "2026-10-07",
+      "source": "OpenRice (沙田新城市廣場三期)",
+      "platform": "OpenRice",
+      "title": "OpenRice食評（1星）：沙田新城市廣場三期「牛肉勁嚡、擺盤已經係零分」，食客感「大不如前」",
+      "summary": "OpenRice用戶1006w（等級1）於2026-10-07在Outback沙田新城市廣場三期分店食評頁發帖（標題「大不如前」），內容指牛肉唔好食、擺盤零分、牛肉勁嚡；並質疑Popcorn Shrimp嘅檸檬「擺到皮都乾埋」，懷疑擺放多日或循環再用。屬食物品質及擺盤負評，未見品牌回覆。",
+      "link": "https://www.openrice.com/zh/hongkong/review/--e6619514",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback, 澳美客, 沙田, 食評, 牛肉, 大不如前"
+    },
+    {
+      "date": "2026-08-14",
+      "source": "OpenRice (沙田新城市廣場三期)",
+      "platform": "OpenRice",
+      "title": "OpenRice食評（1星）：沙田分店被指「歧視普通話」、對講普通話客人態度不友善",
+      "summary": "OpenRice用戶Elsa_HK（等級1）於2026-08-14發帖，題為「歧視普通話，大家慎重考慮」，指穿條紋上衣的中性服務員非常不友好，對說普通話的客人與粵語/外國朋友態度明顯不同，明言「不會再去」；帖文當時約686瀏覽。屬服務態度及語言歧視指控（單方指控，未經品牌或第三方核實）。",
+      "link": "https://www.openrice.com/zh/hongkong/review/%E6%AD%A7%E8%A6%96%E6%99%AE%E9%80%9A%E8%A9%B1-%E5%A4%A7%E5%AE%B6%E6%85%8E%E9%87%8D%E8%80%83%E6%85%AE-e6579561",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback, 澳美客, 沙田, 食評, 歧視普通話, 服務態度"
     }
   ],
   "social_records": [
@@ -4666,6 +4787,83 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, Google Maps, 大埔, 大埔超級城, 4星"
+    },
+    {
+      "date": "2026-06-19",
+      "source": "Google Maps (元朗形點)",
+      "platform": "地圖",
+      "title": "元朗顧客2星評價：非常普通之一餐 意粉一啲鹽味都冇 漢堡包質感似嘉頓面包包住啲餡 最好味係薯條",
+      "summary": "元朗分店 Google Maps 2星評論（Jess，4 個月前）：非常普通之一餐 意粉一啲鹽味都冇 漢堡包質感似嘉頓面包包住啲餡 最好味係薯條",
+      "link": "https://www.google.com/maps/contrib/113846367632477007115/reviews",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback, Google Maps, 元朗, 形點, 2星"
+    },
+    {
+      "date": "2026-08-08",
+      "source": "Google Maps (元朗形點)",
+      "platform": "地圖",
+      "title": "元朗顧客3星評價：服務幾好，話薯條唔熱即時炸返新嘅俾我👍🏻",
+      "summary": "元朗分店 Google Maps 3星評論（On Samsung，2 個月前）：服務幾好，話薯條唔熱即時炸返新嘅俾我👍🏻",
+      "link": "https://www.google.com/maps/contrib/110608067624245212012/reviews",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, Google Maps, 元朗, 形點, 3星"
+    },
+    {
+      "date": "2026-10-12",
+      "source": "Google Maps (元朗形點)",
+      "platform": "地圖",
+      "title": "元朗顧客5星評價：地點方便，餐點美味，員工服務態度良好，有禮貌，可再次來臨",
+      "summary": "元朗分店 Google Maps 5星評論（chan kasum，2 週前）：地點方便，餐點美味，員工服務態度良好，有禮貌，可再次來臨",
+      "link": "https://www.google.com/maps/contrib/104895320475232040275/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 元朗, 形點, 5星"
+    },
+    {
+      "date": "2026-08-17",
+      "source": "Google Maps (元朗形點)",
+      "platform": "地圖",
+      "title": "元朗顧客3星評價：Light meal時段幾抵食，又唔駛等位，食完去睇戲，nice",
+      "summary": "元朗分店 Google Maps 3星評論（Mrs Chan，2 個月前）：Light meal時段幾抵食，又唔駛等位，食完去睇戲，nice",
+      "link": "https://www.google.com/maps/contrib/113481308831447341327/reviews",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, Google Maps, 元朗, 形點, 3星"
+    },
+    {
+      "date": "2026-06-29",
+      "source": "Google Maps (沙田新城市廣場三期)",
+      "platform": "地圖",
+      "title": "沙田顧客4星評價：豐富午餐  一行四人來到這餐廳午聚。這裏座位舒服，食物質數又有保證；再加上我們今",
+      "summary": "沙田分店 Google Maps 4星評論（Wah Wah，3 個月前）：豐富午餐  一行四人來到這餐廳午聚。這裏座位舒服，食物質數又有保證；再加上我們今天有會員生日優惠折扣，倍感滿足。  這裏的午餐已包括了湯、黑糖麵包、主食和飲品，非常豐富。今天的紅蘿蔔忌廉湯順滑美味，配黑糖麵包一流。  ～牛肉牛油果墨西哥脆餅沙律 （$158） 味道層次豐富，既有肉有蔬果，也有脆口的餅底，清新可口。  ～燒雞肉芝士夾餅 （$128） 半溶芝士非常惹味，入口軟轜。  ～燒肉醬味豬肋骨 （$148） 份量不少，骨肉分明，燒得入味可口。  ～芝士白汁燒蝦寛麵 （$158） 麵微微煙韌，蝦肉爽口，芝士白汁順滑惹味。  餐後來一杯熱飲是最好不過。",
+      "link": "https://www.google.com/maps/contrib/107521388394492080523/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 沙田, 新城市廣場三期, 4星"
+    },
+    {
+      "date": "2026-05-08",
+      "source": "Google Maps (旺角MOKO)",
+      "platform": "地圖",
+      "title": "旺角顧客3星評價：平日12點45分3大人帶1幼童來，$523食了3個餐。味道中上，當日服務很好，好",
+      "summary": "旺角分店 Google Maps 3星評論（ka ho lai，5 個月前）：平日12點45分3大人帶1幼童來，$523食了3個餐。味道中上，當日服務很好，好耐無係MOKO有餐廳做到優質水準。性價比合格，因為位置方便，加埋當日的服務好。預來慢慢坐和朋友傾計聚會，這裡會係好選擇。不過唔知晚市會否限時交枱 食物就正常，但上菜慢。 有位應該係經理，會適當主動招呼及詢問是否須要什麼，一般職員就爽手精神。 環境乾淨舒適，中上的商場餐廳的水準。",
+      "link": "https://www.google.com/maps/contrib/104366232887860561087/reviews",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, Google Maps, 旺角, MOKO新世紀廣場, 3星"
+    },
+    {
+      "date": "2026-05-06",
+      "source": "Google Maps (中環娛樂行)",
+      "platform": "地圖",
+      "title": "中環顧客4星評價：食物唔錯但價錢又點貴",
+      "summary": "中環分店 Google Maps 4星評論（Wilson Lam，5 個月前）：食物唔錯但價錢又點貴",
+      "link": "https://www.google.com/maps/contrib/103221660855463757252/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 中環, 娛樂行, 4星"
     },
     {
       "date": "2026-06-19",

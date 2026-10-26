@@ -5,21 +5,40 @@
       "date": "2026-10-07",
       "source": "Jetso Today（香港著數媒體）",
       "platform": "新聞媒體",
-      "author": "",
+      "author": "未記錄",
       "title": "【Outback有獎遊戲】構思新菜式贏$10,000禮卡！最有創意送$200（Jetso Today報道）",
       "summary": "香港著數媒體Jetso Today報道Outback「INSIDE OUTBACK｜新品研發部要人」有獎遊戲：參加者需讚好及追蹤官方專頁、讚好及公開分享帖文，並構思創意新菜式（50字以上）標註兩位朋友；活動日期10月2日至10月11日晚上11時59分（香港時間），最有創意50位參加者各贏$200 Klook電子禮品卡，獎品總值$10,000，得獎名單將於10月23日或之前公布。（資料來源：Jetso Today／Outback Steakhouse）",
       "link": "https://www.jetsotoday.com/outback-steakhouse-giveaway-20261011",
       "sentiment": "positive",
       "tags": ""
+    },
+    {
+      "date": "2026-10-07",
+      "source": "OpenRice (沙田新城市廣場三期)",
+      "platform": "OpenRice",
+      "author": "1006w",
+      "title": "OpenRice食評（1星）：沙田新城市廣場三期「牛肉勁嚡、擺盤已經係零分」，食客感「大不如前」",
+      "summary": "OpenRice用戶1006w（等級1）於2026-10-07在Outback沙田新城市廣場三期分店食評頁發帖（標題「大不如前」），內容指牛肉唔好食、擺盤零分、牛肉勁嚡；並質疑Popcorn Shrimp嘅檸檬「擺到皮都乾埋」，懷疑擺放多日或循環再用。屬食物品質及擺盤負評，未見品牌回覆。",
+      "link": "https://www.openrice.com/zh/hongkong/review/--e6619514",
+      "sentiment": "negative",
+      "tags": ""
     }
   ],
-  "alerts": [],
+  "alerts": [
+    {
+      "title": "OpenRice食評（1星）：沙田新城市廣場三期「牛肉勁嚡、擺盤已經係零分」，食客感「大不如前」",
+      "summary": "OpenRice用戶1006w（等級1）於2026-10-07在Outback沙田新城市廣場三期分店食評頁發帖（標題「大不如前」），內容指牛肉唔好食、擺盤零分、牛肉勁嚡；並質疑Popcorn Shrimp嘅檸檬「擺到皮都乾埋」，懷疑擺放多日或循環再用。屬食物品質及擺盤負評，未見品牌回覆。",
+      "source": "OpenRice (沙田新城市廣場三期)",
+      "link": "https://www.openrice.com/zh/hongkong/review/--e6619514",
+      "severity": "MEDIUM"
+    }
+  ],
   "trends": "",
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 1,
-    "new_records": 1,
+    "checked_sources": 2,
+    "new_records": 2,
     "limitations": []
   }
 }
