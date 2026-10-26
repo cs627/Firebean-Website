@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Outback HK — 啟用 Google Places API 設定指南</title>
+<style>
+  :root{
+    --bg:#0d0f12; --card:#16191d; --card2:#1c2026; --line:#2a2f36;
+    --txt:#e8eaed; --dim:#9aa3ad; --grn:#34d399; --amb:#fbbf24; --red:#f87171; --blu:#60a5fa;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--txt);
+       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif;
+       font-size:15px;line-height:1.7}
+  .wrap{max-width:860px;margin:0 auto;padding:32px 20px 80px}
+  header{border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:28px}
+  h1{font-size:26px;margin:0 0 6px;letter-spacing:-.3px}
+  header p{margin:0;color:var(--dim);font-size:14px}
+  .badge{display:inline-block;background:#1e3a2f;color:var(--grn);border:1px solid #2d5c47;
+         border-radius:6px;padding:2px 9px;font-size:12px;font-weight:600;margin-left:8px;vertical-align:middle}
+  .lead{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--blu);
+        border-radius:8px;padding:16px 18px;margin:24px 0}
+  .lead p{margin:0;font-size:15px}
+  .lead .big{font-size:17px;font-weight:600;color:var(--blu);margin-bottom:6px}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:10px;
+        padding:20px 22px;margin:16px 0;position:relative}
+  .step h2{font-size:17px;margin:0 0 4px;display:flex;align-items:center;gap:10px}
+  .num{background:var(--blu);color:#0d0f12;width:26px;height:26px;border-radius:50%;
+       display:inline-flex;align-items:center;justify-content:center;
+       font-size:14px;font-weight:700;flex:0 0 26px}
+  .step ul{margin:10px 0 0;padding-left:22px}
+  .step li{margin:7px 0}
+  .step li::marker{color:var(--dim)}
+  code,.mono{background:#0a0c0f;border:1px solid var(--line);border-radius:5px;
+       padding:1px 7px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+       font-size:13.5px;color:#7dd3fc}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:#1d4ed8;color:#fff;
+       text-decoration:none;font-weight:600;font-size:14.5px;padding:11px 18px;
+       border-radius:8px;border:none;cursor:pointer;margin:12px 8px 4px 0;
+       transition:.15s}
+  .btn:hover{background:#2563eb;transform:translateY(-1px)}
+  .btn.grey{background:#272c33}
+  .btn.grey:hover{background:#333941}
+  .btn.grn{background:#059669}
+  .btn.grn:hover{background:#10b981}
+  .note{background:#241d10;border:1px solid #4a3a17;border-left:3px solid var(--amb);
+        border-radius:8px;padding:12px 16px;margin:14px 0;font-size:14px}
+  .note b{color:var(--amb)}
+  .ok{background:#12241c;border:1px solid #23543e;border-left:3px solid var(--grn);
+      border-radius:8px;padding:12px 16px;margin:14px 0;font-size:14px}
+  .ok b{color:var(--grn)}
+  .danger{background:#241414;border:1px solid #542323;border-left:3px solid var(--red);
+      border-radius:8px;padding:12px 16px;margin:14px 0;font-size:14px}
+  .danger b{color:var(--red)}
+  .copybox{background:#0a0c0f;border:1px solid var(--line);border-radius:8px;
+           padding:12px 14px;display:flex;justify-content:space-between;
+           align-items:center;gap:12px;margin:12px 0}
+  .copybox .val{font-family:ui-monospace,Menlo,monospace;font-size:13.5px;color:#7dd3fc;
+           overflow-wrap:anywhere;flex:1}
+  .copy{background:#272c33;color:var(--txt);border:1px solid var(--line);border-radius:6px;
+        padding:7px 14px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap}
+  .copy:hover{background:#333941}
+  .copy.done{background:#059669;color:#fff}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line)}
+  th{color:var(--dim);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.4px}
+  footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);
+         color:var(--dim);font-size:13px}
+  .faq{margin:10px 0}
+  .faq summary{cursor:pointer;font-weight:600;padding:8px 0;color:var(--blu)}
+  .faq p{margin:6px 0 14px;color:var(--dim);font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>啟用 Google Places API<span class="badge">一次性設定 · 約 3 分鐘</span></h1>
+  <p>Outback HK 社交聆聽 · 補回 03 Google Maps 記錄（已停 63 日）</p>
+</header>
+
+<div class="lead">
+  <p class="big">你要做嘅只有 3 件事，之後全部我自己搞掂。</p>
+  <p>完成後我嘅 pipeline（<code>maps_places_fetch.py</code>）會每日自動抓 10 間分店嘅 Google Maps 評論、分類情緒、寫入 Sheet、更新 Dashboard。你唔需要改任何 code。</p>
+</div>
+
+<div class="step">
+  <h2><span class="num">1</span>登入 Google Cloud Console</h2>
+  <p style="margin:6px 0 0;color:var(--dim);font-size:14px">
+    用你嘅 Google 帳號登入（同 <code>dickson@firebean.net</code> 同一組帳號最簡單）。
+  </p>
+  <a class="btn" href="https://console.cloud.google.com/" target="_blank" rel="noopener">開啟 Google Cloud Console ↗</a>
+</div>
+
+<div class="step">
+  <h2><span class="num">2</span>啟用「Places API (New)」</h2>
+  <ul>
+    <li>左邊菜單 → <b>APIs &amp; Services</b> → <b>Library</b></li>
+    <li>搜尋 <code>Places API (New)</code>（<b>要揀有「(New)」嗰個</b>）</li>
+    <li>撳入去 → 按藍色 <b>ENABLE</b> 掣</li>
+    <li>如果叫你揀 project：<b>揀你現有嗰個</b>（即係而家 Gemini 用緊嗰個，個 key 尾號 <code>ux3_-M</code>）</li>
+  </ul>
+  <a class="btn" href="https://console.cloud.google.com/apis/library/places.googleapis.com" target="_blank" rel="noopener">直接開啟 Places API (New) 頁 ↗</a>
+  <div class="note">
+    <b>⚠️ 唔好揀錯：</b>要 <code>Places API (New)</code>，唔係舊嘅 <code>Places API</code>。
+    舊版已經停用（我實測過 → <code>REQUEST_DENIED: legacy API not enabled</code>）。
+  </div>
+</div>
+
+<div class="step">
+  <h2><span class="num">3</span>確認已啟用 Billing（付款）</h2>
+  <ul>
+    <li>左邊菜單 → <b>Billing</b></li>
+    <li>如果顯示 <b>「This project has no billing account」</b> → 撳 <b>Link a billing account</b>，加信用卡</li>
+    <li>如果已經有 billing account（你 Gemini API 用緊）→ 通常<b>已經 OK，唔使做嘢</b></li>
+  </ul>
+  <div class="ok">
+    <b>✅ 好消息：Google 每月有免費額度</b>，而我只會每日抓 <b>10 間分店</b>（每次 1–2 個 API call），
+    用量極低（每月約 <b>600–900 calls</b>），正常情況下<b>唔會超出免費額度</b>。
+  </div>
+  <div class="danger">
+    <b>🔒 防止意外收費：</b>建議順手去 <b>Billing → Budgets &amp; alerts</b>，
+    設一個 <b>US$5 預算警報</b>。超額只會 email 通知你，唔會自動停服務。
+  </div>
+</div>
+
+<div class="step">
+  <h2><span class="num">4</span>話我知搞掂咗</h2>
+  <p style="margin:6px 0 0">
+    唔需要 copy 任何 API key 畀我 —— 你現有嗰個 key（<code>…ux3_-M</code>）啟用後就會即刻生效。
+    <b>喺 Discord 覆我一句「搞掂」</b>，我會自動：
+  </p>
+  <ul>
+    <li>解析 10 間分店嘅 <code>place_id</code> 並永久儲存（ToS 允許）</li>
+    <li>抓取最新評論 → 情緒分類 → 去重 → 寫入 Sheet <code>平台類型 = 地圖評論</code></li>
+    <li>Re-deploy Dashboard，03 Google Maps tab 即刻有料到</li>
+    <li>將 Maps 步驟加入每日 cron（以後全自動）</li>
+  </ul>
+</div>
+
+<h2 style="font-size:18px;margin:34px 0 8px">📋 一次性 vs 之後</h2>
+<table>
+  <tr><th>項目</th><th>你要做？</th></tr>
+  <tr><td>啟用 Places API (New)</td><td>✅ 一次性</td></tr>
+  <tr><td>確認 Billing</td><td>✅ 一次性</td></tr>
+  <tr><td>之後每日抓評論</td><td>❌ 全自動</td></tr>
+  <tr><td>寫 Sheet + 更新 Dashboard</td><td>❌ 全自動</td></tr>
+  <tr><td>情緒分類 / 去重</td><td>❌ 全自動</td></tr>
+</table>
+
+<h2 style="font-size:18px;margin:34px 0 8px">❓ 常見問題</h2>
+<details class="faq"><summary>為何唔可以直接爬 Google Maps 網頁？</summary>
+  <p>Google Maps Platform ToS §3.2.3(a)「No Scraping」明文禁止提取、複製用戶評論，亦不可建立商戶評論資料庫。用官方 Places API 係唯一合規路線（亦係我幫你揀嘅路）。</p>
+</details>
+<details class="faq"><summary>要唔要開新 API key？</summary>
+  <p>唔需要。只要喺同一個 project 啟用 Places API (New)，現有 key 就會生效。如果你想隔離風險，可以另開一個新 key 只准 Places API，我照樣可以接。</p>
+</details>
+<details class="faq"><summary>抓幾多條評論？會唔會好貴？</summary>
+  <p>每間分店每次抓最新 5 條（Places API 上限），10 間分店 = 每日約 20 個 call。一個月約 600–900 calls，遠低於一般免費額度。</p>
+</details>
+<details class="faq"><summary>會唔會儲存太多評論內容？</summary>
+  <p>我嘅腳本跟 Places 政策：只永久儲存 <code>place_id</code>（明文豁免），其餘即時抓取；並內建 <code>--purge-days 30</code> 選項，可將超過 30 日嘅評論內容自動匿名化（保留日期／星級／情緒）。</p>
+</details>
+<details class="faq"><summary>如果之後想停？</summary>
+  <p>去 Cloud Console 停用 Places API，或刪走 billing，pipeline 會自動跳過 Maps 步驟，其餘社交聆聽照常運作。</p>
+</details>
+
+<footer>
+  技術細節：<code>/opt/data/outback/maps_places_fetch.py</code> ·
+  分店 <code>place_id</code> 快取 <code>/opt/data/outback/maps_place_ids.json</code><br>
+  Firebean · Hermes Apollo · 2026-10
+</footer>
+
+</div>
+<script>
+document.querySelectorAll('.copy').forEach(b=>{
+  b.addEventListener('click',()=>{
+    const t=b.dataset.copy||b.previousElementSibling.innerText;
+    navigator.clipboard.writeText(t.trim()).then(()=>{
+      const o=b.innerText;b.innerText='✅ 已複製';b.classList.add('done');
+      setTimeout(()=>{b.innerText=o;b.classList.remove('done')},1600);
+    });
+  });
+});
+</script>
+</body>
+</html>
