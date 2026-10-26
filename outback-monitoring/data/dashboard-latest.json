@@ -1,7 +1,7 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-10-26T13:10:07.041954+00:00",
+  "generatedAt": "2026-10-26T13:20:19.629587+00:00",
   "run": {
     "runDate": "2026-10-26",
     "dateRange": {
@@ -2460,7 +2460,7 @@
     {
       "date": "2026-10-01",
       "competitor": "Flat Iron",
-      "type": "擴張",
+      "type": "新店/擴張",
       "title": "Flat Iron Steak進駐ifc mall開新分店",
       "summary": "Flat Iron Steak將於2026年10月1日在ifc mall開設新分店，為香港第6間分店，繼續擴張中環高級扒房版圖。",
       "sentiment": "正面",
@@ -2472,7 +2472,7 @@
     {
       "date": "2026-04-14",
       "competitor": "Dan Ryan's",
-      "type": "擴張",
+      "type": "新店/擴張",
       "title": "Dan Ryan's Chicago Grill銅鑼灣新店開幕",
       "summary": "Dan Ryan's Chicago Grill在銅鑼灣開設新分店，提供豪華nachos、T骨牛扒、燒美國豬肋骨等，消費滿$500送$100餐飲券。",
       "sentiment": "正面",
@@ -2484,7 +2484,7 @@
     {
       "date": "2026-04-22",
       "competitor": "Ruby Tuesday",
-      "type": "Campaign",
+      "type": "活動",
       "title": "Ruby Tuesday聯乘HSBC信用卡7折優惠",
       "summary": "Ruby Tuesday Hong Kong推出HSBC信用卡優惠，4月22日至5月31日期間惠顧享7折優惠。",
       "sentiment": "正面",
@@ -2496,7 +2496,7 @@
     {
       "date": "2026-08-27",
       "competitor": "The Grill Room",
-      "type": "Campaign",
+      "type": "活動",
       "title": "The Grill Room聖誕菜單推出",
       "summary": "The Grill Room已上載聖誕菜單至官方網站，並推出訂座優惠推廣。",
       "sentiment": "正面",
@@ -2508,7 +2508,7 @@
     {
       "date": "2026-08-01",
       "competitor": "La Vache!",
-      "type": "新競爭者",
+      "type": "新店/擴張",
       "title": "La Vache!中環開設最大旗艦店",
       "summary": "La Vache!在中環開設最大分店，推出全新漢堡菜單及副線Peak Pizza供應紐約式薄餅。",
       "sentiment": "正面",
@@ -2520,7 +2520,7 @@
     {
       "date": "2026-08-01",
       "competitor": "Top Blade Steak Lab",
-      "type": "新競爭者",
+      "type": "新店/擴張",
       "title": "Top Blade Steak Lab銅鑼灣開店",
       "summary": "Top Blade Steak Lab在銅鑼灣開設新店，主打高質平鐵牛扒，性價比高。",
       "sentiment": "正面",
@@ -2532,7 +2532,7 @@
     {
       "date": "2026-08-26",
       "competitor": "Ruby Tuesday",
-      "type": "分店",
+      "type": "新店/擴張",
       "title": "Ruby Tuesday 全線9間分店確認",
       "summary": "銅鑼灣/九龍灣MegaBox/尖沙咀K11/鰂魚涌K11/將軍澳/荃灣海之戀/沙田好運/屯門時代/科學園。旺角友誠已不列官網（疑結業）。IG 12.5K followers",
       "sentiment": "中性",
@@ -2544,7 +2544,7 @@
     {
       "date": "2026-08-26",
       "competitor": "Dan Ryan's",
-      "type": "擴張",
+      "type": "新店/擴張",
       "title": "銅鑼灣翡翠明珠廣場新店（品牌最大，260座位）",
       "summary": "新店直接取代Fashion Walk已結業Outback位置，係直接搶客動作",
       "sentiment": "正面",
@@ -2556,7 +2556,7 @@
     {
       "date": "2026-08-26",
       "competitor": "Dan Ryan's",
-      "type": "Campaign",
+      "type": "活動",
       "title": "開業優惠：每消費$500送$100餐飲券",
       "summary": "4月22至5月31日期間每消費$500送$100餐飲券（已完成，觀察未來會否重推）",
       "sentiment": "中性",
@@ -2568,7 +2568,7 @@
     {
       "date": "2026-08-26",
       "competitor": "Dan Ryan's",
-      "type": "Campaign",
+      "type": "活動",
       "title": "Father's Day 2026 優惠（6月18-21日）",
       "summary": "父親節推廣：減$71優惠，4日限定；IG Story Highlights 仍保留 Flash Deals",
       "sentiment": "正面",
@@ -2580,7 +2580,7 @@
     {
       "date": "2026-08-26",
       "competitor": "Dan Ryan's",
-      "type": "分店",
+      "type": "新店/擴張",
       "title": "Dan Ryan's IG 983 followers + 3間分店",
       "summary": "IG profile 標示銅鑼灣新店開幕 story highlight。全線3間：太古城/又一城/銅鑼灣",
       "sentiment": "中性",
@@ -2592,7 +2592,7 @@
     {
       "date": "2026-08-26",
       "competitor": "The Grill Room",
-      "type": "擴張",
+      "type": "新店/擴張",
       "title": "旺角 Grand Plaza 新店 Grand Opening（第3間分店！）",
       "summary": "IG profile 新增 🆕 Grand Plaza, Mong Kok 分店，品牌由2間擴至3間",
       "sentiment": "正面",
@@ -2604,7 +2604,7 @@
     {
       "date": "2026-08-26",
       "competitor": "The Grill Room",
-      "type": "Campaign",
+      "type": "活動",
       "title": "All-You-Can-Eat Wagyu Steakhouse 概念",
       "summary": "IG profile 更新為「任食和牛扒房」定位，Grilled To Order，明顯轉型中",
       "sentiment": "正面",
@@ -2616,7 +2616,7 @@
     {
       "date": "2026-08-26",
       "competitor": "The Grill Room",
-      "type": "分店",
+      "type": "新店/擴張",
       "title": "The Grill Room IG 6,775 followers + 3間分店",
       "summary": "銅鑼灣廣場二期/尖沙咀The Humphreys/🆕旺角Grand Plaza。6.7K followers",
       "sentiment": "中性",
@@ -2628,7 +2628,7 @@
     {
       "date": "2026-08-27",
       "competitor": "Dan Ryan's Chicago Grill",
-      "type": "擴張",
+      "type": "新店/擴張",
       "title": "Dan Ryan's 銅鑼灣JP Plaza新店開幕（2026年4月）",
       "summary": "銅鑼灣JP Plaza全港最大分店4月22日開幕。開幕優惠：每$500送$100餐券。現3間分店：太古城、九龍塘、海港城。",
       "sentiment": "正面",
@@ -2640,7 +2640,7 @@
     {
       "date": "2026-08-27",
       "competitor": "Flat Iron Steak",
-      "type": "擴張",
+      "type": "新店/擴張",
       "title": "Flat Iron Steak 上環新店，全港增至7間",
       "summary": "上環新分店開幕。現7間香港分店+1間澳門。Flat Iron Burger有2間（灣仔+海港城）。Happy Hour全線12-7:30pm啤酒餐酒半價。",
       "sentiment": "正面",
@@ -2652,7 +2652,7 @@
     {
       "date": "2026-08-27",
       "competitor": "Ruby Tuesday",
-      "type": "Campaign",
+      "type": "活動",
       "title": "Ruby Tuesday 限時優惠$59（2026年8月）",
       "summary": "Facebook推限時$59優惠。HSBC信用卡主餐牌7折。會員主餐牌餐飲半價。6間分店。",
       "sentiment": "中性",
@@ -2664,7 +2664,7 @@
     {
       "date": "2026-08-27",
       "competitor": "The Orient（新競爭者）",
-      "type": "新店",
+      "type": "新店/擴張",
       "title": "The Orient — 海港城新亞洲風扒房（2026年5月開幕）",
       "summary": "S&S Hospitality新概念亞洲風扒房，位於海港城。西班牙Josper炭烤乾式熟成牛扒，融入亞洲風味。直接競爭Outback中高價位客群。",
       "sentiment": "中性",
@@ -2676,7 +2676,7 @@
     {
       "date": "2026-08-27",
       "competitor": "OMAROO Grill（新競爭者）",
-      "type": "新店",
+      "type": "新店/擴張",
       "title": "OMAROO Grill by Wooloomooloo — 中環H Queen's新澳洲扒房",
       "summary": "Wooloomooloo Group新澳洲扒房，中環H Queen's頂層。澳洲濕式熟成牛扒，招牌rib-eye $1,528/kg。2-course set dinner $498/位。",
       "sentiment": "中性",
@@ -2688,10 +2688,10 @@
     {
       "date": "2026-08-28",
       "competitor": "Flat Iron Steak",
-      "type": "擴張",
+      "type": "新店/擴張",
       "title": "Flat Iron Steak進駐尖沙咀朗廷酒店 + 全港7間分店",
       "summary": "Flat Iron Steak於尖沙咀朗廷酒店低層大堂開設新分店，新店優惠低至$298。現全港7間分店（上環、銅鑼灣、灣仔、中環IFC、尖沙咀、鰂魚涌）+ 澳門1間。全線設M9 Monday及Happy Hour半價。",
-      "sentiment": "一般",
+      "sentiment": "中性",
       "source": "Portal Sina (新浪香港)",
       "link": "https://portal.sina.com.hk/lifestyle/v1paper/2026/06/04/1798966/flat-iron-steak進駐尖沙咀朗廷酒店-新店優惠抵至港幣298",
       "branchCount": "7間",
@@ -2703,7 +2703,7 @@
       "type": "推廣/優惠",
       "title": "Ruby Tuesday主餐牌75折 + 活躍IG推廣",
       "summary": "Ruby Tuesday透過OpenRice提供主餐牌75折優惠（至2026年底）。IG近期頻繁發布推廣影片（8月26/25/24/18/15日），社交媒體活躍度高。另有多項商戶聯乘優惠。",
-      "sentiment": "一般",
+      "sentiment": "中性",
       "source": "Instagram / OpenRice",
       "link": "https://www.instagram.com/rubytuesdayhk",
       "branchCount": "多間",
@@ -2712,10 +2712,10 @@
     {
       "date": "2026-08-28",
       "competitor": "Dan Ryan's Chicago Grill",
-      "type": "新店/活動",
+      "type": "新店/擴張",
       "title": "Dan Ryan's銅鑼灣新店 + 3分店營運 + 8月兒童活動",
       "summary": "Dan Ryan's現3間分店（銅鑼灣翡翠明珠廣場、太古城、尖沙咀海港城）。8月每周末舉辦兒童彩繪及扭氣球活動，主攻家庭客群。銅鑼灣新店2026年4-5月開幕。",
-      "sentiment": "一般",
+      "sentiment": "中性",
       "source": "danryans.com",
       "link": "https://www.danryans.com",
       "branchCount": "3間",
@@ -2727,7 +2727,7 @@
       "type": "推廣/優惠",
       "title": "The Grill Room推廣活躍：Restaurant Week $148起 + eatigo折扣",
       "summary": "The Grill Room（銅鑼灣/尖沙咀）參與2026夏季Restaurant Week（$148起），另設eatigo訂座折扣及午市行政套餐7折。尖沙咀店龍蝦Risotto獲食客好評。",
-      "sentiment": "一般",
+      "sentiment": "中性",
       "source": "diningcity.hk",
       "link": "https://www.diningcity.hk/hongkong/id2050847_the_grill_room_tst",
       "branchCount": "2間",
@@ -2736,10 +2736,10 @@
     {
       "date": "2026-08-28",
       "competitor": "The Grill Room",
-      "type": "擴張",
+      "type": "新店/擴張",
       "title": "The Grill Room旺角雅蘭中心分店正式開幕（午市$268起，晚市任食$298-468）",
       "summary": "星島頭條/新假期/U Food報道The Grill Room旺角第三間分店8月28日正式開幕，雅蘭中心2樓208號舖。午市套餐HK$268起，晚市任食Classic Cuts $298/Signature Cuts $368/Prime Cuts $468，可任食美國SRF極黑和牛、澳洲Bell Valley和牛、日本A4薩摩和牛（Prime）。直接進駐旺角與Outback MOKO競爭，價格具侵略性（$268起任食和牛 vs Outback午市$128-218 set）。",
-      "sentiment": "正面（競爭者威脅）",
+      "sentiment": "正面",
       "source": "星島頭條 / 新假期 / U Food",
       "link": "https://www.stheadline.com/food/3608484/",
       "branchCount": "3",
@@ -2760,7 +2760,7 @@
     {
       "date": "2026-09-03",
       "competitor": "Ruby Tuesday",
-      "type": "推廣/分店",
+      "type": "推廣/優惠",
       "title": "MegaBox新店重磅升級 + 季節限定5折/Brunch $268",
       "summary": "Ruby Tuesday官網推廣頁顯示「MegaBox新店重磅升級」帶來全新體驗美饌，另推出季節限定5折狂熱、Brunch $268起、全新早餐餐牌及RT Premier會員半價等。社交媒體推廣持續活躍。",
       "sentiment": "中性",
@@ -2778,20 +2778,20 @@
       "sentiment": "中性",
       "source": "U Food / KKday",
       "link": "https://ufood.com.hk/restaurant/news/detail/20108026",
-      "branchCount": "3",
-      "expansion": ""
+      "branchCount": "3間",
+      "expansion": "擴張中"
     },
     {
       "date": "2026-09-05",
       "competitor": "Ruby Tuesday",
-      "type": "新店/地段",
+      "type": "新店/擴張",
       "title": "MegaBox新店重磅升級（遷至17樓重開）",
       "summary": "Ruby Tuesday MegaBox分店於2026年8月遷至17樓重磅升級重開，主打全新體驗及驚喜美饌，配合九月主廚推介及九月特調上架。反映其持續投資擴充美式扒房據點，與Outback新界及市區客源構成間接競爭。",
       "sentiment": "中性",
       "source": "Ruby Tuesday官網",
       "link": "https://rubytuesday.com.hk/ch/promotions",
       "branchCount": "多間（科學園/MegaBox等）",
-      "expansion": ""
+      "expansion": "穩定（MegaBox遷至17樓重開，無淨新增分店）"
     },
     {
       "date": "2026-09-05",
@@ -2803,7 +2803,7 @@
       "source": "Ruby Tuesday官網",
       "link": "https://rubytuesday.com.hk/ch/promotions",
       "branchCount": "─",
-      "expansion": ""
+      "expansion": "穩定"
     },
     {
       "date": "2026-09-06",
@@ -2811,11 +2811,11 @@
       "type": "推廣/優惠",
       "title": "周年慶・晚市指定菜式75折（2026/9/1-29 逢一至四5pm後）",
       "summary": "Dan Ryan's全線分店於2026年9月1日至29日，逢星期一至四下午5時後推『周年慶・晚市指定菜式75折』，焦點如炭烤封門牛柳/芝加哥拼盤/松露野菌意大利飯，藉周年慶檔期以夜間75折正面搶奪晚餐客。",
-      "sentiment": "高",
+      "sentiment": "正面",
       "source": "Facebook",
       "link": "https://www.facebook.com/danryanshongkong",
-      "branchCount": "",
-      "expansion": ""
+      "branchCount": "3間",
+      "expansion": "穩定（維持3間分店）"
     },
     {
       "date": "2026-09-06",
@@ -2823,11 +2823,11 @@
       "type": "新店/擴張",
       "title": "集團擴充：Flat Iron Burger海港城開首間九龍分店＋Flat Iron Steak中環IFC第5店",
       "summary": "Hidden Gem餐飲集團旗下人氣品牌持續逆市擴張：Flat Iron Burger於海港城開設首間九龍區分店（主打黑安格斯平鐵堡及300g/200g平鐵牛扒），同集團Flat Iron Steak亦開設中環IFC第5分店（首間維港景點店）。以『平價高質』定位正面攔截Outback的鋸扒客源。",
-      "sentiment": "中",
+      "sentiment": "中性",
       "source": "Facebook",
       "link": "https://www.facebook.com/JaaMatHou/posts/1158611306281123",
-      "branchCount": "",
-      "expansion": ""
+      "branchCount": "多間",
+      "expansion": "擴張中"
     },
     {
       "date": "2026-09-07",
@@ -2839,12 +2839,12 @@
       "source": "香港人遊香港 / IG @flatiron_hk",
       "link": "https://hkppltravel.com/245308/flatironsteak%E9%B0%82%E9%AD%9A%E6%B6%8C%E9%96%8B%E5%B9%95",
       "branchCount": "8",
-      "expansion": ""
+      "expansion": "擴張中"
     },
     {
       "date": "2026-09-23",
       "competitor": "Flat Iron Steak",
-      "type": "推廣/活動",
+      "type": "推廣/優惠",
       "title": "Flat Iron Steak 國慶煙花晚宴登陸IFC + 十月全新法式酒館套餐",
       "summary": "Flat Iron Steak 宣布雙重推廣：10月1日國慶當晚ifc分店舉辦煙花饗宴，坐擁維港最前排靠窗觀景席（$2,400）；另由10月起全線分店推出法式酒館套餐，每位$388（原價$698）三道菜，主打300克Rangers Station法式胡椒汁牛扒，可加$48升級和牛肉眼。",
       "sentiment": "中性",
@@ -2892,7 +2892,7 @@
     {
       "date": "2026-10-18",
       "competitor": "La Vache!",
-      "type": "擴張",
+      "type": "新店/擴張",
       "title": "La Vache! 中環交易廣場開設品牌史上最大新分店＋山頂凌霄閣新店",
       "summary": "法式扒房 La Vache! 進駐中環交易廣場（Landmark/Exchange Square），開設品牌史上規模最大新店，首次增設新店限定 Burger Maison（HK$238），打破以往只供應一款牛扒套餐的傳統；另於山頂凌霄閣開設新分店。$418 套餐、Free flow 薯條為招牌。直接搶佔中環及山頂高消費扒房客群。",
       "sentiment": "中性",
@@ -2904,7 +2904,7 @@
     {
       "date": "2026-10-18",
       "competitor": "Flat Iron Steak",
-      "type": "擴張",
+      "type": "新店/擴張",
       "title": "Flat Iron Steak 進駐太古坊（Taikoo Place）",
       "summary": "平鐵牛扒 Flat Iron Steak 進駐鰂魚涌太古坊，進一步擴展港島東版圖，現全港已達7間分店（上環、銅鑼灣、灣仔、中環ifc、尖沙咀、鰂魚涌、太古坊）。品牌繼續以平價牛扒（$168起）及逢星期二半價優惠搶佔市場。",
       "sentiment": "中性",
