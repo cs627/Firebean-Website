@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-06",
+  "items": [
+    {
+      "date": "2026-10-06",
+      "source": "OpenRice (荃灣廣場)",
+      "platform": "OpenRice",
+      "author": "NarutoAshJJZ",
+      "title": "OpenRice食評（5星）：荃灣廣場「環境座位好、黑糖麥包最好味」",
+      "summary": "OpenRice 用戶 NarutoAshJJZ（等級1）於 2026-10-06 給予 5 星：指餐廳環境座位好、食物多選擇，特別推介黑糖麥包，形容包身鬆軟香甜、牛油出色，並主動推薦他人前往。屬正面口碑。",
+      "link": "https://www.openrice.com/zh/hongkong/review/--e6618511",
+      "sentiment": "positive",
+      "tags": ""
+    }
+  ],
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 1,
+    "new_records": 1,
+    "limitations": []
+  }
+}

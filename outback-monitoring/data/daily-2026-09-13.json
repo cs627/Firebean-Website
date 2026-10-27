@@ -22,6 +22,17 @@
       "link": "https://www.instagram.com/reel/DdOnsTVjcQ3/",
       "sentiment": "positive",
       "tags": ""
+    },
+    {
+      "date": "2026-09-13",
+      "source": "Google Maps (東薈城名店倉)",
+      "platform": "地圖",
+      "author": "C Google",
+      "title": "東涌顧客5星評價：整體而言，呢個午市套餐性價比幾高  餐湯味道出色，香濃得嚟唔會太膩；主菜飯亦有水",
+      "summary": "東涌分店 Google Maps 5星評論（C Google，1 個月前）：整體而言，呢個午市套餐性價比幾高  餐湯味道出色，香濃得嚟唔會太膩；主菜飯亦有水準，份量足，食材同調味配搭得幾好，令人滿意。相比之下，甜品就比較遜色，味道同口感都較為普通  不過以一個 lunch set 嚟講，能夠提供餐湯、主菜同甜品，而且有呢個整體質素，價錢已經算幾抵。雖然甜品仍有進步空間，但整體表現值得一試。",
+      "link": "https://www.google.com/maps/contrib/107103539081379686978/reviews",
+      "sentiment": "positive",
+      "tags": ""
     }
   ],
   "alerts": [],
@@ -29,8 +40,8 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 2,
-    "new_records": 2,
+    "checked_sources": 3,
+    "new_records": 3,
     "limitations": []
   }
 }

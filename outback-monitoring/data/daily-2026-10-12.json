@@ -22,6 +22,17 @@
       "link": "https://www.google.com/maps/contrib/104895320475232040275/reviews",
       "sentiment": "positive",
       "tags": ""
+    },
+    {
+      "date": "2026-10-12",
+      "source": "OpenRice (元朗形點)",
+      "platform": "OpenRice",
+      "author": "tracytrip2017",
+      "title": "OpenRice食評（4星）：元朗形點「牛扒熟到剛剛好、牛味濃郁」",
+      "summary": "OpenRice 用戶 tracytrip2017（等級2）於 2026-10-12 給予 4 星：慶祝活動到元朗形點店鋸扒，黑糖麵包 refill 一次，吞拿魚沙律軟腍惹味，牛扒熟度「剛剛好、牛味濃郁、非常滿足」，並稱海鮮拼盤最好食，會再光顧。屬正面口碑。",
+      "link": "https://www.openrice.com/zh/hongkong/review/--e6625024",
+      "sentiment": "positive",
+      "tags": ""
     }
   ],
   "alerts": [],
@@ -29,8 +40,8 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 1,
-    "new_records": 2,
+    "checked_sources": 2,
+    "new_records": 3,
     "limitations": []
   }
 }

@@ -33,6 +33,17 @@
       "link": "https://www.google.com/maps/contrib/107521388394492080523/reviews",
       "sentiment": "positive",
       "tags": ""
+    },
+    {
+      "date": "2026-06-29",
+      "source": "Google Maps (沙田新城市廣場三期)",
+      "platform": "地圖",
+      "author": "Wah Wah",
+      "title": "沙田顧客4星評價：豐富午餐  一行四人來到這餐廳午聚。這裏座位舒服，食物質數又有保證；再加上我們今",
+      "summary": "沙田分店 Google Maps 4星評論（Wah Wah，4 個月前）：豐富午餐  一行四人來到這餐廳午聚。這裏座位舒服，食物質數又有保證；再加上我們今天有會員生日優惠折扣，倍感滿足。  這裏的午餐已包括了湯、黑糖麵包、主食和飲品，非常豐富。今天的紅蘿蔔忌廉湯順滑美味，配黑糖麵包一流。  ～牛肉牛油果墨西哥脆餅沙律 （$158） 味道層次豐富，既有肉有蔬果，也有脆口的餅底，清新可口。  ～燒雞肉芝士夾餅 （$128） 半溶芝士非常惹味，入口軟轜。  ～燒肉醬味豬肋骨 （$148） 份量不少，骨肉分明，燒得入味可口。  ～芝士白汁燒蝦寛麵 （$158） 麵微微煙韌，蝦肉爽口，芝士白汁順滑惹味。  餐後來一杯熱飲是最好不過。",
+      "link": "https://www.google.com/maps/contrib/107521388394492080523/reviews",
+      "sentiment": "positive",
+      "tags": ""
     }
   ],
   "alerts": [],
@@ -41,7 +52,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 2,
-    "new_records": 3,
+    "new_records": 4,
     "limitations": []
   }
 }

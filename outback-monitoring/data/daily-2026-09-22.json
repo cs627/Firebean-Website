@@ -1,0 +1,25 @@
+{
+  "date": "2026-09-22",
+  "items": [
+    {
+      "date": "2026-09-22",
+      "source": "OpenRice (銅鑼灣廣場一期)",
+      "platform": "OpenRice",
+      "author": "jap.nomnom",
+      "title": "OpenRice食評（3星）：銅鑼灣廣場一期「黑糖包最好味」、寬條麵偏淋",
+      "summary": "OpenRice 用戶 jap.nomnom（等級3）於 2026-09-22 給予 3 星（味道3/環境4/服務3/衛生3）：認為黑糖包是全餐最好味，但寬條麵偏淋、洋蔥球「睇落好靚但食落唔係預期味道」；當日等位個半鐘，侍應忙碌仍維持服務質素。整體中性。",
+      "link": "https://www.openrice.com/zh/hongkong/review/%E9%BB%91%E7%B3%96%E5%8C%85%E4%BF%82%E6%9C%80%E5%A5%BD%E5%91%B3-e6600350",
+      "sentiment": "neutral",
+      "tags": ""
+    }
+  ],
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 1,
+    "new_records": 1,
+    "limitations": []
+  }
+}

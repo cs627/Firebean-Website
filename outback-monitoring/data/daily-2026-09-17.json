@@ -11,6 +11,17 @@
       "link": "https://www.threads.com/share/_wFjz9E70/",
       "sentiment": "negative",
       "tags": ""
+    },
+    {
+      "date": "2026-09-17",
+      "source": "Google Maps (奧海城二期)",
+      "platform": "地圖",
+      "author": "VPN1314",
+      "title": "大角咀顧客4星評價：前台女服務員（長染髪）態度非常差！男服務員尚好！",
+      "summary": "大角咀分店 Google Maps 4星評論（VPN1314，1 個月前）：前台女服務員（長染髪）態度非常差！男服務員尚好！",
+      "link": "https://www.google.com/maps/contrib/108795114471969023365/reviews",
+      "sentiment": "positive",
+      "tags": ""
     }
   ],
   "alerts": [
@@ -26,8 +37,8 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 1,
-    "new_records": 1,
+    "checked_sources": 2,
+    "new_records": 2,
     "limitations": []
   }
 }

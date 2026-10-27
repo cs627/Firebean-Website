@@ -1,0 +1,33 @@
+{
+  "date": "2026-08-30",
+  "items": [
+    {
+      "date": "2026-08-30",
+      "source": "OpenRice (沙田新城市廣場三期)",
+      "platform": "OpenRice",
+      "author": "CocoFung4200",
+      "title": "OpenRice食評（2星）：沙田新城市廣場三期「服務超差、牛油果爛、埋單多計沙律錢」",
+      "summary": "OpenRice 用戶 CocoFung4200（等級1）於 2026-08-30 給予 2 星（味道2/環境1/服務3/衛生1）：指多次要求沙律醬分開上但最終仍是拌好、牛油果「爛」要換、要熱水卻給凍水，埋單更被計了兩個沙律錢；並指同一集團其他分店（東涌、尖沙咀）服務食物都好，唯獨沙田店令其失望。屬作者單方體驗陳述，未經品牌核實。",
+      "link": "https://www.openrice.com/zh/hongkong/review/--e6571357",
+      "sentiment": "negative",
+      "tags": ""
+    }
+  ],
+  "alerts": [
+    {
+      "title": "OpenRice食評（2星）：沙田新城市廣場三期「服務超差、牛油果爛、埋單多計沙律錢」",
+      "summary": "OpenRice 用戶 CocoFung4200（等級1）於 2026-08-30 給予 2 星（味道2/環境1/服務3/衛生1）：指多次要求沙律醬分開上但最終仍是拌好、牛油果「爛」要換、要熱水卻給凍水，埋單更被計了兩個沙律錢；並指同一集團其他分店（東涌、尖沙咀）服務食物都好，唯獨沙田店令其失望。屬作者單方體驗陳述，未經品牌核實。",
+      "source": "OpenRice (沙田新城市廣場三期)",
+      "link": "https://www.openrice.com/zh/hongkong/review/--e6571357",
+      "severity": "MEDIUM"
+    }
+  ],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 1,
+    "new_records": 1,
+    "limitations": []
+  }
+}

@@ -22,15 +22,34 @@
       "link": "https://www.recruit.com.hk/article/bloomin-brands-%E7%A0%94%E7%99%BC%E5%89%AF%E7%B8%BD%E8%A3%81%E5%85%BC%E9%9B%86%E5%9C%98%E8%A1%8C%E6%94%BF%E7%B8%BD%E5%BB%9A-efrem-cutler-%E5%85%A5%E5%BB%9A%E5%88%9D%E8%A1%B7%E6%98%AF%E5%BF%AB%E6%A8%82/45822",
       "sentiment": "positive",
       "tags": ""
+    },
+    {
+      "date": "2026-10-02",
+      "source": "Google Maps (大埔超級城)",
+      "platform": "地圖",
+      "author": "jamie leung",
+      "title": "大埔顧客1星評價：4人共花超過2000, 牛有樣冇味好硬，豬脾扒勁硬， 二條高級腸又係雪藏味。得麵",
+      "summary": "大埔分店 Google Maps 1星評論（jamie leung，3 週前）：4人共花超過2000, 牛有樣冇味好硬，豬脾扒勁硬， 二條高級腸又係雪藏味。得麵包、意粉和薯條好食d, 芝士夾“三文治個印度款餅” 好彩芝士夠多。 叫主任攞麵包（應該是每人一條仔），請佢上第四條時，佢問你會唔會食完先叫。。。O左咀（ 其實只係得返兩舊仔）， 奶昔都勁甜  咁樣埋單2000， 真係等執笠",
+      "link": "https://www.google.com/maps/contrib/116480023901190051070/reviews",
+      "sentiment": "negative",
+      "tags": ""
     }
   ],
-  "alerts": [],
+  "alerts": [
+    {
+      "title": "大埔顧客1星評價：4人共花超過2000, 牛有樣冇味好硬，豬脾扒勁硬， 二條高級腸又係雪藏味。得麵",
+      "summary": "大埔分店 Google Maps 1星評論（jamie leung，3 週前）：4人共花超過2000, 牛有樣冇味好硬，豬脾扒勁硬， 二條高級腸又係雪藏味。得麵包、意粉和薯條好食d, 芝士夾“三文治個印度款餅” 好彩芝士夠多。 叫主任攞麵包（應該是每人一條仔），請佢上第四條時，佢問你會唔會食完先叫。。。O左咀（ 其實只係得返兩舊仔）， 奶昔都勁甜  咁樣埋單2000， 真係等執笠",
+      "source": "Google Maps (大埔超級城)",
+      "link": "https://www.google.com/maps/contrib/116480023901190051070/reviews",
+      "severity": "MEDIUM"
+    }
+  ],
   "trends": "",
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 2,
-    "new_records": 2,
+    "checked_sources": 3,
+    "new_records": 3,
     "limitations": []
   }
 }

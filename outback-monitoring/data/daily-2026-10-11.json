@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-11",
+  "items": [
+    {
+      "date": "2026-10-11",
+      "source": "Google Maps (東薈城名店倉)",
+      "platform": "地圖",
+      "author": "imGreek",
+      "title": "東涌顧客4星評價：食物質素良好，性價比尚算一般，但侍應熱衷服務，見你水杯冇水就即刻斟水。",
+      "summary": "東涌分店 Google Maps 4星評論（imGreek，2 週前）：食物質素良好，性價比尚算一般，但侍應熱衷服務，見你水杯冇水就即刻斟水。",
+      "link": "https://www.google.com/maps/contrib/117109195535592161849/reviews",
+      "sentiment": "positive",
+      "tags": ""
+    }
+  ],
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 1,
+    "new_records": 1,
+    "limitations": []
+  }
+}
