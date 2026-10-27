@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Perplexity × Hermes 連線指南 — Firebean</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+  :root{
+    --ink:#0d0f14; --panel:#141821; --line:#252b38; --panel2:#171b24;
+    --text:#e8eaef; --muted:#98a1b3; --red:#e2231a; --red-soft:#ff4d40;
+    --amber:#ffb020; --green:#25d07a; --blue:#4aa8ff;
+    --sans:"Inter","Helvetica Neue",-apple-system,"PingFang HK","Noto Sans TC",sans-serif;
+    --mono:"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--ink);color:var(--text);font-family:var(--sans);line-height:1.7;font-size:15px;-webkit-font-smoothing:antialiased}
+  a{color:var(--red-soft);text-decoration:none} a:hover{text-decoration:underline}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(13,15,20,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .hwrap{max-width:1180px;margin:0 auto;padding:13px 22px;display:flex;align-items:center;gap:14px}
+  .logo{height:40px;width:auto;display:block;flex:0 0 auto}
+  .htitle{font-size:14.5px;font-weight:700}
+  .hsub{font-size:11.5px;color:var(--muted)}
+  .spacer{flex:1}
+  .btn{display:inline-flex;align-items:center;gap:7px;background:var(--red);color:#fff;border:0;border-radius:9px;padding:9px 15px;font-size:13px;font-weight:650;cursor:pointer;font-family:inherit;transition:filter .15s,transform .1s;white-space:nowrap}
+  .btn:hover{filter:brightness(1.12)} .btn:active{transform:scale(.975)}
+  .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--text)}
+  .btn.ghost:hover{border-color:#3a4356;background:var(--panel2)}
+  .btn.ok{background:var(--green)}
+  .btn svg{width:14px;height:14px;flex:0 0 auto}
+  .btn.sm{padding:6px 11px;font-size:12px}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:32px 22px 90px;display:grid;grid-template-columns:224px 1fr;gap:42px;align-items:start}
+  aside{position:sticky;top:88px}
+  .toc-t{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:13px;font-weight:700}
+  .toc a{display:block;padding:6px 12px;border-radius:7px;font-size:13.5px;color:var(--muted);border-left:2px solid transparent}
+  .toc a:hover{background:var(--panel2);color:var(--text);text-decoration:none}
+  .toc a.on{color:var(--text);border-left-color:var(--red);background:var(--panel2);font-weight:600}
+  .toc .n{display:inline-block;width:16px;color:#5c6577;font-variant-numeric:tabular-nums}
+  .toc a.on .n{color:var(--red-soft)}
+
+  .hero{margin-bottom:32px}
+  .hero h1{font-size:29px;line-height:1.25;font-weight:800;letter-spacing:-.015em;margin-bottom:11px}
+  .hero h1 em{font-style:normal;color:var(--red-soft)}
+  .hero p{color:var(--muted);max-width:64ch}
+  .meta{margin-top:15px;display:flex;gap:8px;flex-wrap:wrap}
+  .tag{font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 11px}
+  .tag.live{color:#4ddb93;border-color:rgba(37,208,122,.35);background:rgba(37,208,122,.08)}
+
+  section{margin-bottom:40px;scroll-margin-top:88px}
+  .stitle{display:flex;align-items:baseline;gap:12px;margin-bottom:6px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+  .snum{font-size:11.5px;font-weight:800;color:var(--red);border:1px solid rgba(226,35,26,.4);border-radius:6px;padding:3px 9px;flex:0 0 auto}
+  .stitle h2{font-size:19px;font-weight:750}
+  .sdesc{color:var(--muted);font-size:13.5px;margin:12px 0 18px;max-width:70ch}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:17px 18px;margin-bottom:12px}
+  .card h3{font-size:14.5px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .card p{font-size:13.5px;color:#b9c0cd}
+  .card p+p{margin-top:8px}
+  .card strong{color:var(--text)}
+  code{background:#0b0e13;border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-size:12.5px;color:#8fd9ff;font-family:var(--mono)}
+
+  .cmd{position:relative;background:#0a0d12;border:1px solid var(--line);border-radius:9px;padding:12px 46px 12px 14px;margin-top:10px;font-family:var(--mono);font-size:12.5px;color:#c8d4e2;overflow-x:auto;white-space:pre;line-height:1.55}
+  .cmd .cp{position:absolute;top:7px;right:7px;background:#1f2530;border:1px solid var(--line);color:var(--muted);border-radius:6px;padding:4px 6px;cursor:pointer;display:grid;place-items:center;transition:.15s}
+  .cmd .cp:hover{background:#2a3140;color:var(--text)}
+  .cmd .cp.ok{background:var(--green);border-color:var(--green);color:#04140c}
+  .cmd .cp svg{width:13px;height:13px;display:block}
+
+  .pill{font-size:10.5px;font-weight:700;letter-spacing:.05em;border-radius:5px;padding:2px 7px;text-transform:uppercase}
+  .pill.no{background:rgba(226,35,26,.16);color:#ff6b60;border:1px solid rgba(226,35,26,.35)}
+  .pill.yes{background:rgba(37,208,122,.14);color:#4ddb93;border:1px solid rgba(37,208,122,.32)}
+  .pill.warn{background:rgba(255,176,32,.14);color:var(--amber);border:1px solid rgba(255,176,32,.32)}
+  .pill.info{background:rgba(74,168,255,.14);color:var(--blue);border:1px solid rgba(74,168,255,.32)}
+
+  .steps{counter-reset:s;display:grid;gap:12px}
+  .step{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:16px 18px 16px 17px;display:grid;grid-template-columns:auto 1fr;gap:14px}
+  .step .sn{counter-increment:s;width:26px;height:26px;border-radius:7px;background:var(--red);color:#fff;display:grid;place-items:center;font-size:12.5px;font-weight:750}
+  .step .sn::before{content:counter(s)}
+  .step h3{font-size:14.5px;font-weight:700;margin-bottom:6px}
+
+  .flow{background:#0a0d12;border:1px solid var(--line);border-radius:11px;padding:18px;font-family:var(--mono);font-size:12.5px;color:#a9b6c6;line-height:1.9;overflow-x:auto;white-space:pre}
+  .flow b{color:#ff6b60;font-weight:650}
+  .flow i{color:#4ddb93;font-style:normal}
+
+  table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+  th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line)}
+  th{color:var(--muted);font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
+  td code{font-size:12px}
+  .deny{color:#ff6b60;font-weight:600}
+
+  .warnbox{background:linear-gradient(135deg,rgba(226,35,26,.12),rgba(226,35,26,.02));border:1px solid rgba(226,35,26,.32);border-radius:12px;padding:20px}
+  .warnbox h2{font-size:17px;font-weight:780;margin-bottom:12px}
+  .warnbox ul{margin:0;padding-left:20px}
+  .warnbox li{font-size:13.5px;color:#c3cad6;margin-bottom:7px}
+  .warnbox strong{color:#fff}
+
+  #toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,26px);background:var(--green);color:#04140c;font-weight:750;font-size:13.5px;padding:10px 20px;border-radius:10px;opacity:0;pointer-events:none;transition:.22s;z-index:99;box-shadow:0 12px 34px rgba(0,0,0,.5)}
+  #toast.show{opacity:1;transform:translate(-50%,0)}
+
+  footer{border-top:1px solid var(--line);padding-top:20px;color:var(--muted);font-size:12.5px}
+
+  @media (max-width:1000px){ .wrap{grid-template-columns:1fr;gap:0;padding-top:24px} aside{display:none} }
+  @media (max-width:640px){
+    .hwrap{padding:10px 14px;gap:10px} .logo{height:32px} .htitle{font-size:12.5px} .hsub{display:none}
+    .btn{padding:8px 11px;font-size:12px} .btn .lbl{display:none}
+    .wrap{padding:20px 14px 70px}
+    .hero h1{font-size:22px} .stitle h2{font-size:16.5px}
+    .step{padding:14px 14px 14px 13px;gap:11px}
+    .flow{font-size:11px}
+    table{font-size:12px} th,td{padding:7px 8px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hwrap">
+    <img class="logo" src="../wa-rules/logo.png" alt="Firebean">
+    <div>
+      <div class="htitle">Perplexity × Hermes 連線指南</div>
+      <div class="hsub">MCP 遠端連接器設定</div>
+    </div>
+    <div class="spacer"></div>
+    <button class="btn" id="copyUrl">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+      <span class="lbl">複製 Endpoint</span>
+    </button>
+  </div>
+</header>
+
+<div class="wrap">
+  <aside>
+    <div class="toc-t">目錄</div>
+    <nav class="toc">
+      <a href="#s0"><span class="n">0</span>架構</a>
+      <a href="#s1"><span class="n">1</span>設定步驟</a>
+      <a href="#s2"><span class="n">2</span>開放嘅工具</a>
+      <a href="#s3"><span class="n">3</span>安全守則</a>
+      <a href="#s4"><span class="n">4</span>維運</a>
+    </nav>
+  </aside>
+
+  <main>
+    <div class="hero">
+      <h1>令 Perplexity 直接同 <em>Hermes</em> 對話</h1>
+      <p>Hermes 本身有內建 MCP server，但只支援本機 <code>stdio</code>；Perplexity 係雲端服務，只食公開 <code>HTTPS</code>。呢條橋就係補嗰個缺口 —— 現已建好並上線。</p>
+      <div class="meta">
+        <span class="tag live">● 已上線</span>
+        <span class="tag">Streamable HTTP</span>
+        <span class="tag">Bearer 認證</span>
+        <span class="tag">6 個唯讀工具</span>
+      </div>
+    </div>
+
+    <section id="s0">
+      <div class="stitle"><span class="snum">00</span><h2>架構</h2></div>
+      <p class="sdesc">四層，每層做一件簡單嘅事。</p>
+      <div class="flow">Perplexity（雲端）
+      │   HTTPS + Bearer token
+      ▼
+<i>mcp.firbeanpr.com</i>           ← Cloudflare Tunnel（只出不入）
+      │
+      ▼
+<i>127.0.0.1:8931</i>              ← supergateway（stdio → Streamable HTTP）
+      │
+      ▼
+<b>hermes mcp serve</b>            ← Hermes 原生 MCP server（本機 stdio）</div>
+      <div class="card" style="margin-top:12px">
+        <p><strong>為什麼要咁繞？</strong> Hermes 原生 MCP server 只講 stdio（本機程序之間嘅管道），雲端服務連唔到。supergateway 將佢轉成 HTTP，Cloudflare Tunnel 再將 HTTP 安全咁推出公網 —— <strong>完全唔需要開放任何入站端口</strong>。</p>
+      </div>
+    </section>
+
+    <section id="s1">
+      <div class="stitle"><span class="snum">01</span><h2>設定步驟</h2></div>
+      <p class="sdesc">喺 Perplexity 側邊做，一次搞掂。</p>
+      <div class="steps">
+
+        <div class="step"><div class="sn"></div><div>
+          <h3>開 Perplexity 設定</h3>
+          <p>撳左下角你嘅頭像 → <strong>Settings</strong> → <strong>Connectors</strong>。</p>
+          <p><span class="pill info">注意</span> 自訂連接器需要 <strong>Pro / Max / Enterprise</strong> 計劃 —— 你嘅 Max 計劃符合。</p>
+        </div></div>
+
+        <div class="step"><div class="sn"></div><div>
+          <h3>新增自訂連接器</h3>
+          <p>撳 <strong>+ Custom connector</strong>，然後揀 <strong>Remote</strong>（唔係 Local）。</p>
+        </div></div>
+
+        <div class="step"><div class="sn"></div><div>
+          <h3>填 Name</h3>
+          <p>隨便改，例如 <code>Hermes</code> 或 <code>Firebean Hermes</code>。</p>
+        </div></div>
+
+        <div class="step"><div class="sn"></div><div>
+          <h3>填 URL</h3>
+          <p>貼呢個：</p>
+          <div class="cmd" data-copy="https://mcp.firbeanpr.com/mcp">https://mcp.firbeanpr.com/mcp<button class="cp" title="複製"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button></div>
+        </div></div>
+
+        <div class="step"><div class="sn"></div><div>
+          <h3>揀認證方式</h3>
+          <p>Authentication 揀 <strong>API Key</strong>，然後貼上金鑰。</p>
+          <p><span class="pill warn">金鑰唔喺呢頁</span> 為咗安全，API key 冇放上呢個網頁。金鑰喺 <strong>Firebean Test Discord 嘅 #it 頻道</strong>，Hermes 發嘅訊息入面有得複製。</p>
+        </div></div>
+
+        <div class="step"><div class="sn"></div><div>
+          <h3>儲存並測試</h3>
+          <p>撳 <strong>Save</strong>。Perplexity 會即時握手；成功嘅話喺對話入面打「列出我 Hermes 嘅對話」，佢就會叫用 <code>conversations_list</code>。</p>
+        </div></div>
+
+      </div>
+    </section>
+
+    <section id="s2">
+      <div class="stitle"><span class="snum">02</span><h2>開放嘅工具</h2></div>
+      <p class="sdesc">Hermes 原生有 10 個工具，但我哋<strong>只開放 6 個唯讀嘅</strong>。</p>
+      <div class="card">
+        <h3>✅ 已開放 <span class="pill yes">唯讀</span></h3>
+        <table>
+          <tr><th>工具</th><th>做咩</th></tr>
+          <tr><td><code>conversations_list</code></td><td>列出各平台嘅對話</td></tr>
+          <tr><td><code>conversation_get</code></td><td>睇單一對話詳情</td></tr>
+          <tr><td><code>messages_read</code></td><td>讀訊息歷史</td></tr>
+          <tr><td><code>attachments_fetch</code></td><td>攞附件</td></tr>
+          <tr><td><code>events_poll</code></td><td>輪詢即時事件</td></tr>
+          <tr><td><code>channels_list</code></td><td>列出頻道</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3>🛑 刻意封鎖 <span class="pill no">高風險</span></h3>
+        <table>
+          <tr><th>工具</th><th>為什麼唔開</th></tr>
+          <tr><td class="deny">messages_send</td><td>可以代 Mary / Dickson 發 WhatsApp、Discord 訊息</td></tr>
+          <tr><td class="deny">permissions_respond</td><td>可以自動批准執行指令／插件權限</td></tr>
+          <tr><td class="deny">permissions_list_open</td><td>待批清單 —— 會洩露有咩等緊批</td></tr>
+        </table>
+        <p style="margin-top:11px">呢三個係白名單以外，<strong>預設封鎖</strong>。要開 <code>messages_send</code> 就要改設定檔再重啟； <code>permissions_respond</code> <strong>永遠唔應該開</strong>。</p>
+      </div>
+    </section>
+
+    <section id="s3">
+      <div class="stitle"><span class="snum">03</span><h2>安全守則</h2></div>
+      <div class="warnbox">
+        <h2>呢個 endpoint 等於你嘅對話大門</h2>
+        <ul>
+          <li><strong>API key 就係鎖匙。</strong> 任何人有 key 就可以讀你 Hermes 嘅對話。唔好貼上網、唔好入 git。</li>
+          <li><strong>只出不入。</strong> Host 完全冇開放入站端口，tunnel 係由內向外連 —— 攻擊面好細。</li>
+          <li><strong>要換鎖就換 key。</strong> 一行指令換新 key，重啟即生效。</li>
+          <li><strong>流量經 Cloudflare。</strong> 開放嘅內容係對話中繼資料同歷史，當佢係「內部可信」級別。</li>
+          <li><strong>分享 key 之後要即刻輪換。</strong> 尤其係截圖、示範、畀朋友睇嘅時候。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="s4">
+      <div class="stitle"><span class="snum">04</span><h2>維運</h2></div>
+      <p class="sdesc">已經自動化 —— 有 cron 每 5 分鐘看門。</p>
+      <div class="card">
+        <h3>檢查狀態</h3>
+        <div class="cmd" data-copy="curl -s -o /dev/null -w '%{http_code}\n' -X POST https://mcp.firbeanpr.com/mcp -H 'Content-Type: application/json' -H 'Accept: application/json, text/event-stream' -H &quot;Authorization: Bearer $(cat /opt/data/hermes-mcp-bridge/api.key)&quot; -d '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:1,&quot;method&quot;:&quot;initialize&quot;,&quot;params&quot;:{&quot;protocolVersion&quot;:&quot;2025-06-18&quot;,&quot;capabilities&quot;:{},&quot;clientInfo&quot;:{&quot;name&quot;:&quot;t&quot;,&quot;version&quot;:&quot;1&quot;}}}'">curl -s -o /dev/null -w '%{http_code}\n' -X POST https://mcp.firbeanpr.com/mcp \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json, text/event-stream' \
+  -H "Authorization: Bearer $(cat /opt/data/hermes-mcp-bridge/api.key)" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"t","version":"1"}}}'<button class="cp" title="複製"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button></div>
+        <p style="margin-top:9px">預期 <code>200</code>。冇 key 應該 <code>401</code>。</p>
+      </div>
+      <div class="card">
+        <h3>手動修復</h3>
+        <div class="cmd" data-copy="bash /opt/data/hermes-mcp-bridge/boot.sh">bash /opt/data/hermes-mcp-bridge/boot.sh<button class="cp" title="複製"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button></div>
+        <p style="margin-top:9px">有 PID 防重複 —— 健康時跑都唔會出事。</p>
+      </div>
+      <div class="card">
+        <h3>換 API key</h3>
+        <div class="cmd" data-copy="head -c 32 /dev/urandom | od -An -tx1 | tr -d ' \n' > /opt/data/hermes-mcp-bridge/api.key && chmod 600 /opt/data/hermes-mcp-bridge/api.key && bash /opt/data/hermes-mcp-bridge/boot.sh">head -c 32 /dev/urandom | od -An -tx1 | tr -d ' \n' > /opt/data/hermes-mcp-bridge/api.key
+chmod 600 /opt/data/hermes-mcp-bridge/api.key
+bash /opt/data/hermes-mcp-bridge/boot.sh<button class="cp" title="複製"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button></div>
+        <p style="margin-top:9px">換完要去 Perplexity 更新連接器嘅 key。</p>
+      </div>
+      <div class="card">
+        <h3>自動化</h3>
+        <p>Hermes cron <code>a82eda2325a6</code> 每 5 分鐘跑看門狗。健康時<strong>完全靜音</strong>；只有修復過嘢才會出聲。</p>
+      </div>
+    </section>
+
+    <footer>
+      <strong>Firebean</strong> · 香港 PR／創意 agency · Hermes Apollo<br>
+      本頁唔含任何憑證。API key 只喺 Discord #it 頻道發放。
+    </footer>
+  </main>
+</div>
+
+<div id="toast">已複製 ✅</div>
+
+<script>
+(function(){
+  function flash(btn){
+    var t=document.getElementById('toast');
+    t.classList.add('show'); clearTimeout(window.__tt);
+    window.__tt=setTimeout(function(){t.classList.remove('show')},1700);
+    if(btn){ btn.classList.add('ok'); setTimeout(function(){btn.classList.remove('ok')},1700); }
+  }
+  function copyText(txt,btn){
+    var fb=function(){
+      var ta=document.createElement('textarea'); ta.value=txt; ta.setAttribute('readonly','');
+      ta.style.cssText='position:absolute;left:-9999px'; document.body.appendChild(ta);
+      ta.select(); ta.setSelectionRange(0,txt.length);
+      try{document.execCommand('copy');flash(btn)}catch(e){alert('複製失敗，請手動選取。')}
+      document.body.removeChild(ta);
+    };
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(txt).then(function(){flash(btn)}).catch(fb)}else{fb()}
+  }
+  // every .cmd block gets its own copy button
+  document.querySelectorAll('.cmd').forEach(function(block){
+    var raw = block.getAttribute('data-copy') || block.textContent.replace(/\s*$/, '');
+    var btn = block.querySelector('.cp');
+    if(!btn) return;
+    btn.addEventListener('click', function(e){ e.stopPropagation(); copyText(raw.trim(), btn); });
+  });
+  var cu=document.getElementById('copyUrl');
+  if(cu) cu.addEventListener('click', function(){ copyText('https://mcp.firbeanpr.com/mcp', cu); });
+
+  var links=[].slice.call(document.querySelectorAll('.toc a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+  function spy(){
+    var y=window.scrollY+125, cur=0;
+    secs.forEach(function(s,i){ if(s&&s.offsetTop<=y) cur=i; });
+    links.forEach(function(a,i){ a.classList.toggle('on', i===cur); });
+  }
+  window.addEventListener('scroll',spy,{passive:true}); spy();
+})();
+</script>
+</body>
+</html>
