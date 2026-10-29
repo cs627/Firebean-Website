@@ -56,6 +56,35 @@
     只係「讀出嚟睇」。
   </div>
 
+  <h2>開工前 30 秒檢查表（做錯會不可逆）</h2>
+  <div class="warn">
+    <p><b class="r">① NAS 必須已完全關機 + 拔掉電源線。</b>
+       唔可以開住機抽碟。抽完之後，其餘 3 隻硬碟<b>原封不動留喺機箱</b>。</p>
+    <p><b class="r">② 抽任意一隻硬碟</b> → 接 USB 底座／硬碟盒 → 接 MacBook Pro。</p>
+    <p><b class="r">③ macOS 彈「此電腦無法讀取此磁碟」→ 一定按 Ignore（忽略）。</b><br>
+       <b>千萬、千萬唔好按 Initialize / Erase（初始化 / 清除）</b> —— 一按就永遠冇咗，
+       冇得救。彈幾次就按幾次 Ignore。</p>
+    <p><b class="y">④ 掃描完成、攞到金鑰之後，硬碟要插返原本嗰一格</b>，然後才可以為 NAS 開機。<br>
+       <span class="dim">4-bay 鐵律：唔可以喺少一隻碟嘅狀態開機（會令 RAID 降級）。</span></p>
+  </div>
+
+  <h2>跑完之後 · 你需要交啲咩俾我</h2>
+  <div class="card">
+    <table>
+      <tr><th>桌面出現咩</th><th>代表</th><th>你要做</th></tr>
+      <tr><td><code>master.key</code></td><td>✅ 搵到萬能鑰匙</td>
+          <td>將呢個檔案拖入 Discord 傳俾我（48 bytes 細檔）</td></tr>
+      <tr><td><code>master.key</code> + <code>key_structs.txt</code></td>
+          <td>✅ 兩樣都搵到</td><td>兩個一齊傳</td></tr>
+      <tr><td><code>key_structs.txt</code>（冇 master.key）</td>
+          <td>⚠ 只搵到逐個檔案嘅鑰匙</td><td>傳俾我，仍可逐檔還原</td></tr>
+      <tr><td>桌面冇新檔案</td><td>❌ 搵唔到</td>
+          <td>將整個終端機視窗嘅字複製俾我</td></tr>
+    </table>
+    <p class="dim" style="margin-top:14px">為安全理由，工具<b>刻意唔會喺畫面顯示完整鑰匙</b>，
+       所以唔會「見到一堆密碼」。鑰匙只會寫入桌面嗰個檔案。</p>
+  </div>
+
   <h2>唔使裝任何程式 · 先學識打開「終端機」</h2>
   <div class="card">
     <p>Mac 本身已經內置「<b>終端機</b>」（Terminal）—— 唔使下載、唔使買。打開方法任揀一個：</p>
