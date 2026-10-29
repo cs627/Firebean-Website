@@ -87,6 +87,18 @@
     <p class="dim">為安全起見，工具<b>刻意唔會</b>喺畫面顯示完整鑰匙，只會顯示指紋同 SHA-256。</p>
   </div>
 
+  <h2>階段二：攞到鑰匙之後 · 還原檔案</h2>
+  <div class="card">
+    <p>將 <code>master.key</code> 放喺 NAS 上面（例如 <code>/volume1/master.key</code>），
+       然後喺 NAS 嘅 <b>SSH</b> 或 <b>控制台 → 終端機</b> 執行：</p>
+    <div class="cmdbox"><code id="cmd2">curl -fsSL https://firebean.net/nasrescue/decrypt.sh | sudo bash -s -- /volume1/master.key /volume1</code></div>
+    <button class="copy" id="btn2" onclick="doCopy2()">📋 複製還原指令</button>
+    <p class="dim" style="margin-top:14px">呢個工具會<b>先跑驗證模式</b>，只報告、唔寫任何檔案。
+       確認結果無誤之後，先加重 <code>-inplace</code> 真正還原。</p>
+    <p><b class="g">安全保證</b>：先寫暫存檔 → 檢查大小 → 才改名；<b>永不覆蓋</b>已存在嘅檔案；
+       原始 <code>.L0CK3D</code> 只會喺還原成功後、而且你額外加 <code>-remove-encrypted</code> 才會刪除。</p>
+  </div>
+
   <h2>最後一步（重要）</h2>
   <div class="warn">
     <p>掃描完之後，<b>硬碟要插返原本嗰一格</b>，然後才可以為 NAS 開機。</p>
@@ -106,16 +118,13 @@
 </div>
 
 <script>
-function doCopy(){
-  var t=document.getElementById('cmd').innerText.trim();
-  var b=document.getElementById('btn');
+function copyFrom(cmdId, btnId, label){
+  var t=document.getElementById(cmdId).innerText.trim();
+  var b=document.getElementById(btnId);
   function done(){
-    b.classList.add('ok'); b.textContent='✅ 已複製！去 Terminal 貼上（⌘V）';
-    setTimeout(function(){b.classList.remove('ok'); b.textContent='📋 複製指令';},3500);
+    b.classList.add('ok'); b.textContent='✅ 已複製！';
+    setTimeout(function(){b.classList.remove('ok'); b.textContent=label;},3500);
   }
-  if(navigator.clipboard && window.isSecureContext){
-    navigator.clipboard.writeText(t).then(done).catch(fallback);
-  } else { fallback(); }
   function fallback(){
     var ta=document.createElement('textarea'); ta.value=t;
     ta.style.position='fixed'; ta.style.opacity='0';
@@ -124,7 +133,12 @@ function doCopy(){
     catch(e){alert('請手動複製：\n'+t);}
     document.body.removeChild(ta);
   }
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(t).then(done).catch(fallback);
+  } else { fallback(); }
 }
+function doCopy(){ copyFrom('cmd','btn','📋 複製指令'); }
+function doCopy2(){ copyFrom('cmd2','btn2','📋 複製還原指令'); }
 </script>
 </body>
 </html>
