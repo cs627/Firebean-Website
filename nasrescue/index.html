@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Firebean — NAS 金鑰掃描器</title>
+<style>
+  :root{--bg:#0d0e12;--card:#161821;--line:#272a36;--fg:#e8eaf0;--dim:#9aa1b5;
+        --red:#e8402a;--grn:#2ecc71;--ylw:#f5b301}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);
+       font-family:-apple-system,BlinkMacSystemFont,"PingFang HK","Microsoft JhengHei",sans-serif;
+       line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:860px;margin:0 auto;padding:32px 20px 80px}
+  .logo{font-size:26px;font-weight:900;letter-spacing:.5px;margin-bottom:2px}
+  .logo span{color:var(--red)}
+  .sub{color:var(--dim);font-size:13px;margin-bottom:26px}
+  h1{font-size:26px;margin:0 0 6px}
+  h2{font-size:17px;margin:34px 0 12px;padding-left:11px;border-left:3px solid var(--red)}
+  p{margin:9px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:18px 0}
+  .cmdbox{position:relative;background:#0a0b0f;border:1px solid #333747;border-radius:10px;
+          padding:16px 16px;margin:14px 0;overflow-x:auto}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13.5px;
+       color:#8fe3a8;white-space:pre-wrap;word-break:break-all}
+  .copy{display:block;width:100%;margin-top:12px;padding:16px;font-size:17px;font-weight:800;
+        background:var(--red);color:#fff;border:0;border-radius:10px;cursor:pointer;
+        transition:.15s;letter-spacing:.3px}
+  .copy:hover{filter:brightness(1.12)}
+  .copy.ok{background:var(--grn);color:#06210f}
+  ol{padding-left:22px;margin:10px 0}
+  li{margin:9px 0}
+  .warn{background:#241a10;border:1px solid #5a3c14;border-radius:10px;padding:14px 16px;margin:14px 0}
+  .ok{background:#0f2418;border:1px solid #1c5233;border-radius:10px;padding:14px 16px;margin:14px 0}
+  b.y{color:var(--ylw)} b.g{color:var(--grn)} b.r{color:var(--red)}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+  td,th{border:1px solid var(--line);padding:9px 11px;text-align:left}
+  th{background:#1c1f2a;color:var(--dim);font-weight:600}
+  .dim{color:var(--dim);font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="logo">FIRE<span>BEAN</span></div>
+  <div class="sub">NAS 救援工具 · 只讀取證</div>
+
+  <h1>NAS 金鑰掃描器</h1>
+  <p class="dim">在一隻已離線嘅 Synology 硬碟上，唯讀搜尋勒索軟件遺留嘅解密金鑰。</p>
+
+  <div class="ok">
+    <b class="g">✅ 全程唯讀</b> — 唔會格式化、唔會寫入、唔會改動你隻碟任何一個 byte。
+    只係「讀出嚟睇」。
+  </div>
+
+  <h2>使用步驟</h2>
+  <ol>
+    <li>NAS <b>息機 + 拔電源線</b>（已經做咗）</li>
+    <li>抽<b>任意一隻</b>硬碟出嚟 → 接落 USB 底座 → 接 Mac</li>
+    <li>macOS 彈「無法讀取此磁碟」→ 按 <b class="r">Ignore（忽略）</b><br>
+        <span class="dim">千萬唔好按 Initialize / Erase —— 一按就冇咗</span></li>
+    <li>打開 <b>Terminal</b>（應用程式 → 工具程式 → 終端機）</li>
+    <li>複製下面嗰行 → 貼上 → 按 Enter → 輸入你 Mac 嘅密碼</li>
+  </ol>
+
+  <h2>複製呢一行貼上 Terminal</h2>
+  <div class="cmdbox"><code id="cmd">curl -fsSL https://firebean.net/nasrescue/run.sh | sudo bash</code></div>
+  <button class="copy" id="btn" onclick="doCopy()">📋 複製指令</button>
+
+  <h2>會發生咩事</h2>
+  <div class="card">
+    <p>工具會自動搵到你嗰隻外接硬碟，然後：</p>
+    <table>
+      <tr><th>步驟</th><th>內容</th><th>時間</th></tr>
+      <tr><td>1</td><td>掃描 ChaCha8 金鑰結構（即時）</td><td>幾秒</td></tr>
+      <tr><td>2</td><td>逐 byte 窮舉 48-byte 主鑰匙</td><td>約 3–10 分鐘</td></tr>
+      <tr><td>3</td><td>寫出結果到桌面</td><td>即時</td></tr>
+    </table>
+    <p class="dim">掃描範圍：硬碟最前面嘅細分割區（系統區 + swap，合計約 12 GB）。
+    你嘅 4 TB 資料區唔會被讀取。</p>
+  </div>
+
+  <h2>完成後</h2>
+  <div class="card">
+    <p><b class="g">搵到金鑰</b> → 桌面會出現 <code>master.key</code>（48 bytes）。<br>
+       將呢個檔案交俾 Hermes，就可以解密全部檔案。</p>
+    <p><b class="y">搵唔到</b> → 將 Terminal 全部輸出複製俾 Hermes，會調整範圍再試。</p>
+    <p class="dim">為安全起見，工具<b>刻意唔會</b>喺畫面顯示完整鑰匙，只會顯示指紋同 SHA-256。</p>
+  </div>
+
+  <h2>最後一步（重要）</h2>
+  <div class="warn">
+    <p>掃描完之後，<b>硬碟要插返原本嗰一格</b>，然後才可以為 NAS 開機。</p>
+    <p class="dim">⚠️ 4-bay 鐵律：唔可以喺少一隻碟嘅狀態開機（會令 RAID 降級）。
+    其餘 3 隻碟由頭到尾唔使動。</p>
+  </div>
+
+  <h2>如果 Terminal 話冇權限讀取</h2>
+  <div class="card">
+    <p>去 <b>系統設定 → 私隱與保安 → 完整磁碟取樣</b>，將 <b>Terminal</b> 加入並開啟，
+       然後關掉 Terminal 再開（Cmd+Q 完全退出），再貼一次指令。</p>
+  </div>
+
+  <p class="dim" style="margin-top:40px">
+    Firebean · 內部救援工具 · 只用於自己嘅資料復原
+  </p>
+</div>
+
+<script>
+function doCopy(){
+  var t=document.getElementById('cmd').innerText.trim();
+  var b=document.getElementById('btn');
+  function done(){
+    b.classList.add('ok'); b.textContent='✅ 已複製！去 Terminal 貼上（⌘V）';
+    setTimeout(function(){b.classList.remove('ok'); b.textContent='📋 複製指令';},3500);
+  }
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(t).then(done).catch(fallback);
+  } else { fallback(); }
+  function fallback(){
+    var ta=document.createElement('textarea'); ta.value=t;
+    ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select();
+    try{document.execCommand('copy'); done();}
+    catch(e){alert('請手動複製：\n'+t);}
+    document.body.removeChild(ta);
+  }
+}
+</script>
+</body>
+</html>
