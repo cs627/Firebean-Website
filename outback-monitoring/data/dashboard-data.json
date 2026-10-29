@@ -1,13 +1,13 @@
 {
   "meta": {
-    "last_updated": "2026-10-28T01:06:10+08:00",
-    "total_records": 229,
-    "daily_avg": 3.0,
-    "date_range": "2026-03-06 → 2026-10-25",
+    "last_updated": "2026-10-30T01:01:10+08:00",
+    "total_records": 233,
+    "daily_avg": 2.9,
+    "date_range": "2025-06-09 → 2026-10-25",
     "sources_checked": 38,
     "new_verified": 3,
     "coverage_ratio": "38/46",
-    "negative_alerts": 35,
+    "negative_alerts": 36,
     "positive_pct": 55
   },
   "trend": [
@@ -43,7 +43,7 @@
   "source_breakdown": [
     {
       "source": "Google Maps",
-      "count": 50
+      "count": 51
     },
     {
       "source": "Instagram",
@@ -51,7 +51,7 @@
     },
     {
       "source": "Threads",
-      "count": 34
+      "count": 37
     },
     {
       "source": "OpenRice",
@@ -103,10 +103,10 @@
     }
   ],
   "sentiment": {
-    "positive": 126,
+    "positive": 128,
     "neutral": 64,
-    "negative": 35,
-    "mixed": 4
+    "negative": 36,
+    "mixed": 5
   },
   "all_records": [
     {
@@ -2627,6 +2627,50 @@
       "sentiment": "neutral",
       "sentiment_label": "中性",
       "keywords": "Outback, 銅鑼灣, 黑糖包, 意粉"
+    },
+    {
+      "date": "2026-08-10",
+      "source": "Google Maps (旺角MOKO)",
+      "platform": "地圖",
+      "title": "旺角顧客4星評價：這裡的配菜吸引，手工薯片，焗薯和甜薯好味道。",
+      "summary": "旺角分店 Google Maps 4星評論（sky lau，2 個月前）：這裡的配菜吸引，手工薯片，焗薯和甜薯好味道。",
+      "link": "https://www.google.com/maps/contrib/116290473874335961826/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 旺角, 旺角MOKO, 4星"
+    },
+    {
+      "date": "2025-06-09",
+      "source": "Threads (@hkmalls)",
+      "platform": "社交媒體",
+      "title": "Threads 討論「真希望Outback捱得住」：留言區憂慮Outback與隔鄰Ruby Tuesday經營前景",
+      "summary": "Threads 用戶 @hkmalls 於 2025-06-09 發帖「真 希望Outback 捱得住」，留言區有網民回應指隔鄰 Ruby Tuesday 亦「唔樂觀」、行會員制餐廳更危險，亦有網民稱「唔好食，我寧願過返荃灣廣場食Outback」。帖文發佈日由 Threads 原帖頁面核實；屬本日補獲之舊帖（非本日發佈）。",
+      "link": "https://www.threads.com/@hkmalls/post/DKrU9FQvvMC",
+      "sentiment": "mixed",
+      "sentiment_label": "混合",
+      "keywords": "Outback, 結業憂慮, Ruby Tuesday, 會員制"
+    },
+    {
+      "date": "2025-12-26",
+      "source": "Threads (@tree_hole_mind)",
+      "platform": "社交媒體",
+      "title": "Threads 食評比較帖：指其他扒房「唔吸引、唔值」，稱「食outback好過」",
+      "summary": "Threads 用戶 @tree_hole_mind 於 2025-12-26 發帖，比較某餐廳漢堡包後表示「仲要睇menu又唔吸引，又唔值！食outback好過」，對Outback表述正面。帖文發佈日由 Threads 原帖頁面核實；屬本日補獲之舊帖（非本日發佈）。",
+      "link": "https://www.threads.com/@tree_hole_mind/post/DSut80CgRo3",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 性價比, 食評比較"
+    },
+    {
+      "date": "2026-02-26",
+      "source": "Threads (@louisling8)",
+      "platform": "社交媒體",
+      "title": "Threads 討論帖指「Outback 牛扒出名難食」並詢問其他選擇",
+      "summary": "Threads 用戶 @louisling8 於 2026-02-26 發帖「但outback 牛扒出名難食。邊間好食？」，反映部分消費者對Outback牛扒品質的負面印象。帖文發佈日由 Threads 原帖頁面核實；屬本日補獲之舊帖（非本日發佈）。",
+      "link": "https://www.threads.com/@louisling8/post/DVNPzKDE0bh",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback, 食物品質, 品牌形象"
     }
   ],
   "media_records": [
@@ -5150,6 +5194,50 @@
       "sentiment": "negative",
       "sentiment_label": "負面",
       "keywords": "Outback, Google Maps, 大埔, 大埔超級城, 1星"
+    },
+    {
+      "date": "2026-08-10",
+      "source": "Google Maps (旺角MOKO)",
+      "platform": "地圖",
+      "title": "旺角顧客4星評價：這裡的配菜吸引，手工薯片，焗薯和甜薯好味道。",
+      "summary": "旺角分店 Google Maps 4星評論（sky lau，2 個月前）：這裡的配菜吸引，手工薯片，焗薯和甜薯好味道。",
+      "link": "https://www.google.com/maps/contrib/116290473874335961826/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 旺角, 旺角MOKO, 4星"
+    },
+    {
+      "date": "2025-06-09",
+      "source": "Threads (@hkmalls)",
+      "platform": "社交媒體",
+      "title": "Threads 討論「真希望Outback捱得住」：留言區憂慮Outback與隔鄰Ruby Tuesday經營前景",
+      "summary": "Threads 用戶 @hkmalls 於 2025-06-09 發帖「真 希望Outback 捱得住」，留言區有網民回應指隔鄰 Ruby Tuesday 亦「唔樂觀」、行會員制餐廳更危險，亦有網民稱「唔好食，我寧願過返荃灣廣場食Outback」。帖文發佈日由 Threads 原帖頁面核實；屬本日補獲之舊帖（非本日發佈）。",
+      "link": "https://www.threads.com/@hkmalls/post/DKrU9FQvvMC",
+      "sentiment": "mixed",
+      "sentiment_label": "混合",
+      "keywords": "Outback, 結業憂慮, Ruby Tuesday, 會員制"
+    },
+    {
+      "date": "2025-12-26",
+      "source": "Threads (@tree_hole_mind)",
+      "platform": "社交媒體",
+      "title": "Threads 食評比較帖：指其他扒房「唔吸引、唔值」，稱「食outback好過」",
+      "summary": "Threads 用戶 @tree_hole_mind 於 2025-12-26 發帖，比較某餐廳漢堡包後表示「仲要睇menu又唔吸引，又唔值！食outback好過」，對Outback表述正面。帖文發佈日由 Threads 原帖頁面核實；屬本日補獲之舊帖（非本日發佈）。",
+      "link": "https://www.threads.com/@tree_hole_mind/post/DSut80CgRo3",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 性價比, 食評比較"
+    },
+    {
+      "date": "2026-02-26",
+      "source": "Threads (@louisling8)",
+      "platform": "社交媒體",
+      "title": "Threads 討論帖指「Outback 牛扒出名難食」並詢問其他選擇",
+      "summary": "Threads 用戶 @louisling8 於 2026-02-26 發帖「但outback 牛扒出名難食。邊間好食？」，反映部分消費者對Outback牛扒品質的負面印象。帖文發佈日由 Threads 原帖頁面核實；屬本日補獲之舊帖（非本日發佈）。",
+      "link": "https://www.threads.com/@louisling8/post/DVNPzKDE0bh",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback, 食物品質, 品牌形象"
     }
   ],
   "store_ranking": [

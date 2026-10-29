@@ -1832,6 +1832,38 @@
       "summary": "OpenRice 用戶 jap.nomnom（等級3）於 2026-09-22 給予 3 星（味道3/環境4/服務3/衛生3）：認為黑糖包是全餐最好味，但寬條麵偏淋、洋蔥球「睇落好靚但食落唔係預期味道」；當日等位個半鐘，侍應忙碌仍維持服務質素。整體中性。",
       "link": "https://www.openrice.com/zh/hongkong/review/%E9%BB%91%E7%B3%96%E5%8C%85%E4%BF%82%E6%9C%80%E5%A5%BD%E5%91%B3-e6600350",
       "sentiment": "neutral"
+    },
+    {
+      "date": "2026-08-10",
+      "source": "Google Maps (旺角MOKO)",
+      "title": "旺角顧客4星評價：這裡的配菜吸引，手工薯片，焗薯和甜薯好味道。",
+      "summary": "旺角分店 Google Maps 4星評論（sky lau，2 個月前）：這裡的配菜吸引，手工薯片，焗薯和甜薯好味道。",
+      "link": "https://www.google.com/maps/contrib/116290473874335961826/reviews",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2025-06-09",
+      "source": "Threads (@hkmalls)",
+      "title": "Threads 討論「真希望Outback捱得住」：留言區憂慮Outback與隔鄰Ruby Tuesday經營前景",
+      "summary": "Threads 用戶 @hkmalls 於 2025-06-09 發帖「真 希望Outback 捱得住」，留言區有網民回應指隔鄰 Ruby Tuesday 亦「唔樂觀」、行會員制餐廳更危險，亦有網民稱「唔好食，我寧願過返荃灣廣場食Outback」。帖文發佈日由 Threads 原帖頁面核實；屬本日補獲之舊帖（非本日發佈）。",
+      "link": "https://www.threads.com/@hkmalls/post/DKrU9FQvvMC",
+      "sentiment": "mixed"
+    },
+    {
+      "date": "2025-12-26",
+      "source": "Threads (@tree_hole_mind)",
+      "title": "Threads 食評比較帖：指其他扒房「唔吸引、唔值」，稱「食outback好過」",
+      "summary": "Threads 用戶 @tree_hole_mind 於 2025-12-26 發帖，比較某餐廳漢堡包後表示「仲要睇menu又唔吸引，又唔值！食outback好過」，對Outback表述正面。帖文發佈日由 Threads 原帖頁面核實；屬本日補獲之舊帖（非本日發佈）。",
+      "link": "https://www.threads.com/@tree_hole_mind/post/DSut80CgRo3",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-02-26",
+      "source": "Threads (@louisling8)",
+      "title": "Threads 討論帖指「Outback 牛扒出名難食」並詢問其他選擇",
+      "summary": "Threads 用戶 @louisling8 於 2026-02-26 發帖「但outback 牛扒出名難食。邊間好食？」，反映部分消費者對Outback牛扒品質的負面印象。帖文發佈日由 Threads 原帖頁面核實；屬本日補獲之舊帖（非本日發佈）。",
+      "link": "https://www.threads.com/@louisling8/post/DVNPzKDE0bh",
+      "sentiment": "negative"
     }
   ],
   "alerts": [],
@@ -1840,7 +1872,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 229,
+    "new_records": 233,
     "limitations": []
   }
 }

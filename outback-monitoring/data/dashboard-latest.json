@@ -1,12 +1,12 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-10-28T17:09:39.274161+00:00",
+  "generatedAt": "2026-10-29T17:14:34.656821+00:00",
   "run": {
-    "runDate": "2026-10-29",
+    "runDate": "2026-10-30",
     "dateRange": {
-      "from": "2026-03-06",
-      "to": "2026-10-29"
+      "from": "2025-06-09",
+      "to": "2026-10-30"
     },
     "alerts": [
       {
@@ -27,10 +27,10 @@
     ]
   },
   "counts": {
-    "total": 229,
+    "total": 233,
     "media": 72,
-    "social": 157,
-    "maps": 50,
+    "social": 161,
+    "maps": 51,
     "stores": 10
   },
   "mentions": [
@@ -2552,6 +2552,50 @@
       "sentiment": "neutral",
       "sentiment_label": "中性",
       "keywords": "Outback, 銅鑼灣, 黑糖包, 意粉"
+    },
+    {
+      "date": "2026-08-10",
+      "source": "Google Maps (旺角MOKO)",
+      "platform": "地圖",
+      "title": "旺角顧客4星評價：這裡的配菜吸引，手工薯片，焗薯和甜薯好味道。",
+      "summary": "旺角分店 Google Maps 4星評論（sky lau，2 個月前）：這裡的配菜吸引，手工薯片，焗薯和甜薯好味道。",
+      "link": "https://www.google.com/maps/contrib/116290473874335961826/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 旺角, 旺角MOKO, 4星"
+    },
+    {
+      "date": "2025-06-09",
+      "source": "Threads (@hkmalls)",
+      "platform": "社交媒體",
+      "title": "Threads 討論「真希望Outback捱得住」：留言區憂慮Outback與隔鄰Ruby Tuesday經營前景",
+      "summary": "Threads 用戶 @hkmalls 於 2025-06-09 發帖「真 希望Outback 捱得住」，留言區有網民回應指隔鄰 Ruby Tuesday 亦「唔樂觀」、行會員制餐廳更危險，亦有網民稱「唔好食，我寧願過返荃灣廣場食Outback」。帖文發佈日由 Threads 原帖頁面核實；屬本日補獲之舊帖（非本日發佈）。",
+      "link": "https://www.threads.com/@hkmalls/post/DKrU9FQvvMC",
+      "sentiment": "mixed",
+      "sentiment_label": "混合",
+      "keywords": "Outback, 結業憂慮, Ruby Tuesday, 會員制"
+    },
+    {
+      "date": "2025-12-26",
+      "source": "Threads (@tree_hole_mind)",
+      "platform": "社交媒體",
+      "title": "Threads 食評比較帖：指其他扒房「唔吸引、唔值」，稱「食outback好過」",
+      "summary": "Threads 用戶 @tree_hole_mind 於 2025-12-26 發帖，比較某餐廳漢堡包後表示「仲要睇menu又唔吸引，又唔值！食outback好過」，對Outback表述正面。帖文發佈日由 Threads 原帖頁面核實；屬本日補獲之舊帖（非本日發佈）。",
+      "link": "https://www.threads.com/@tree_hole_mind/post/DSut80CgRo3",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 性價比, 食評比較"
+    },
+    {
+      "date": "2026-02-26",
+      "source": "Threads (@louisling8)",
+      "platform": "社交媒體",
+      "title": "Threads 討論帖指「Outback 牛扒出名難食」並詢問其他選擇",
+      "summary": "Threads 用戶 @louisling8 於 2026-02-26 發帖「但outback 牛扒出名難食。邊間好食？」，反映部分消費者對Outback牛扒品質的負面印象。帖文發佈日由 Threads 原帖頁面核實；屬本日補獲之舊帖（非本日發佈）。",
+      "link": "https://www.threads.com/@louisling8/post/DVNPzKDE0bh",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback, 食物品質, 品牌形象"
     }
   ],
   "stores": [
@@ -3288,9 +3332,33 @@
       "link": "https://ufood.com.hk/restaurant/news/detail/20114008/%E9%8A%85%E9%91%BC%E7%81%A3mr-steak%E5%85%A8%E6%96%B0-%E7%A7%8B%E6%84%8F%E8%9F%B9%E5%91%B3%E6%BF%83%E8%87%AA%E5%8A%A9%E9%A4%90-%E4%BB%BB%E9%A3%9F%E4%BF%84%E7%BE%85%E6%96%AF%E9%95%B7%E8%85%B3%E8%9F%B9-%E9%81%BF%E9%A2%A8%E5%A1%98%E9%9D%92%E8%8A%B1%E6%A4%92%E8%BB%9F%E6%AE%BC%E8%9F%B9-%E8%8A%B1%E8%86%A0%E9%AE%91%E9%AD%9A",
       "branchCount": "2（報道涵蓋：銅鑼灣世貿店、沙田 The Palate）",
       "expansion": "維持現有分店；以秋蟹主題自助餐及和牛放題菜式更新吸客，無擴張計劃公布"
+    },
+    {
+      "date": "2026-10-24",
+      "competitor": "GYU+ Bar by Miyoshi（銅鑼灣利園一期）",
+      "type": "新店/擴張",
+      "title": "銅鑼灣利園一期新開柴火炙燒法日扒房酒吧「GYU+ Bar by Miyoshi」正式開幕",
+      "summary": "U Food（發佈 2026-10-24）報道，銅鑼灣希慎道33號利園一期4樓401-404號舖新開法日風格和牛扒房酒吧「GYU+ Bar by Miyoshi」，以荔枝木柴火500°C以上炙燒為核心，訂製火山岩烤爐；設10道和牛菜單（松露牛肉醇湯、和牛刺身、鹿兒島A5和牛西冷涮涮鍋、三芳和牛壽司等）。位於銅鑼灣利園一期，與 Outback 銅鑼灣廣場一期同區，屬同區新增高端競爭者。",
+      "sentiment": "中性",
+      "source": "U Food（香港經濟日報）",
+      "link": "https://ufood.com.hk/restaurant/news/detail/20108380/",
+      "branchCount": "1",
+      "expansion": "銅鑼灣利園一期單一店舖（2026年10月開幕）；以日法柴火料理＋A5和牛走高端差異化路線"
     }
   ],
   "trend": [
+    {
+      "date": "2025-06-09",
+      "count": 1
+    },
+    {
+      "date": "2025-12-26",
+      "count": 1
+    },
+    {
+      "date": "2026-02-26",
+      "count": 1
+    },
     {
       "date": "2026-03-06",
       "count": 1
@@ -3393,7 +3461,7 @@
     },
     {
       "date": "2026-08-10",
-      "count": 5
+      "count": 6
     },
     {
       "date": "2026-08-11",

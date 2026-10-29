@@ -55,6 +55,17 @@
       "link": "https://www.threads.com/@arjoejoe0227/post/Db3W8H_k-Ny",
       "sentiment": "negative",
       "tags": ""
+    },
+    {
+      "date": "2026-08-10",
+      "source": "Google Maps (旺角MOKO)",
+      "platform": "地圖",
+      "author": "sky lau",
+      "title": "旺角顧客4星評價：這裡的配菜吸引，手工薯片，焗薯和甜薯好味道。",
+      "summary": "旺角分店 Google Maps 4星評論（sky lau，2 個月前）：這裡的配菜吸引，手工薯片，焗薯和甜薯好味道。",
+      "link": "https://www.google.com/maps/contrib/116290473874335961826/reviews",
+      "sentiment": "positive",
+      "tags": ""
     }
   ],
   "alerts": [
@@ -70,8 +81,8 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 5,
-    "new_records": 5,
+    "checked_sources": 6,
+    "new_records": 6,
     "limitations": []
   }
 }
