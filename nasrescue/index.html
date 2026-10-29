@@ -23,6 +23,10 @@
           padding:16px 16px;margin:14px 0;overflow-x:auto}
   code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13.5px;
        color:#8fe3a8;white-space:pre-wrap;word-break:break-all}
+  kbd{display:inline-block;padding:2px 9px;margin:0 2px;border-radius:6px;
+      background:#26303d;border:1px solid #3a4757;border-bottom-width:3px;
+      font-family:inherit;font-size:.95em;font-weight:700;color:#eaf0f6}
+  ol li{margin-bottom:9px}
   .copy{display:block;width:100%;margin-top:12px;padding:16px;font-size:17px;font-weight:800;
         background:var(--red);color:#fff;border:0;border-radius:10px;cursor:pointer;
         transition:.15s;letter-spacing:.3px}
@@ -52,13 +56,36 @@
     只係「讀出嚟睇」。
   </div>
 
+  <h2>唔使裝任何程式 · 先學識打開「終端機」</h2>
+  <div class="card">
+    <p>Mac 本身已經內置「<b>終端機</b>」（Terminal）—— 唔使下載、唔使買。打開方法任揀一個：</p>
+    <p style="margin-top:14px"><b class="g">方法 A：最快（3 秒）</b></p>
+    <ol>
+      <li>同時㩒住 <kbd>⌘</kbd> 再㩒 <kbd>Space</kbd>（即 Command 鍵 + 空格鍵）</li>
+      <li>放開後畫面中間會出現一個搜尋框，打 <code>terminal</code></li>
+      <li>按 <kbd>Enter</kbd> → 彈出一個視窗（黑底白字或白底黑字），就係佢</li>
+    </ol>
+    <p style="margin-top:16px"><b class="g">方法 B：搵唔到就用呢個</b></p>
+    <ol>
+      <li>打開 <b>Finder</b>（Dock 最左邊嗰個笑臉圖示）</li>
+      <li>左邊欄揀 <b>應用程式</b> → 入面再開 <b>工具程式</b></li>
+      <li>雙擊 <b>終端機</b>（英文版叫 Terminal）</li>
+    </ol>
+    <div class="warn" style="margin-top:16px">
+      <p><b class="y">⚠️ 一定會問你密碼 —— 要留意呢點</b></p>
+      <p>貼上指令按 Enter 之後，會叫你打密碼。當你打字時，<b>畫面完全唔會顯示任何字</b>
+         —— 唔會出 ••• 唔會出星星，乜都冇。呢個係 Mac 嘅正常設計，<b>唔係壞咗、唔係打唔到</b>。</p>
+      <p>照打你平時開機嘅密碼（打完直接按 <kbd>Enter</kbd>）就係。打錯就再嚟一次。</p>
+    </div>
+  </div>
+
   <h2>使用步驟</h2>
   <ol>
     <li>NAS <b>息機 + 拔電源線</b>（已經做咗）</li>
     <li>抽<b>任意一隻</b>硬碟出嚟 → 接落 USB 底座 → 接 Mac</li>
     <li>macOS 彈「無法讀取此磁碟」→ 按 <b class="r">Ignore（忽略）</b><br>
         <span class="dim">千萬唔好按 Initialize / Erase —— 一按就冇咗</span></li>
-    <li>打開 <b>Terminal</b>（應用程式 → 工具程式 → 終端機）</li>
+    <li>打開 <b>終端機</b> —— 方法睇上面嗰段</li>
     <li>複製下面嗰行 → 貼上 → 按 Enter → 輸入你 Mac 嘅密碼</li>
   </ol>
 
