@@ -2,32 +2,49 @@
 # ============================================================================
 #  Firebean — 把 Btrfs 無密鑰還原工具送入 NAS
 #
-#  喺 iMac 嘅「終端機」執行：
+#  ⚠️ 喺【iMac 嘅 Terminal】執行
+#     iMac 提示符 = dicksonimac@Dicksons-iMac ~ %
+#     唔好喺 NAS 執行（NAS 提示符 = root@DiskStation:~#）—— NAS 冇上網，一定失敗
+#
 #      curl -fsSL https://firebean.net/nasbtrfs/bridge.sh | bash
 #
-#  佢會做三件事（全部唯讀、唔會改 NAS 任何檔案）：
+#  佢會做四件事（全部唯讀、唔會改 NAS 任何檔案）：
 #      1. 由 firebean.net 下載工具
 #      2. 核對 SHA-256（確認冇被改過）
-#      3. 經 SSH 放入 NAS 嘅 /tmp/c3r/
-#
-#  ⚠️ 唔會刪檔、唔會改檔、唔會 format、唔會寫入任何資料卷
+#      3. 自動偵測你嘅 NAS SSH 帳號 → 傳入 NAS 嘅 /tmp/c3r/
+#      4. 遠端核實
 # ============================================================================
 set -u
 
-NAS="${NAS_HOST:-${NAS_USER:-dickson}@${NAS_IP:-169.254.71.131}}"
-# 如 login 名唔係 dickson，可以咁改： NAS_USER=你嘅名 bash
-# 如 NAS IP 唔同：              NAS_IP=169.254.x.x bash
+NAS_IP="${NAS_IP:-169.254.71.131}"
 REMOTE_DIR="/tmp/c3r"
 TOOL_SHA="cc356fb6bf57b033a36a8b1115e6048364f0651e84b50f9f213a3a02d919eede"
 BASE="https://firebean.net/nasbtrfs"
 
+# ── 防呆：如果係喺 NAS 上面跑，即刻講清楚 ──────────────────────────────────
+if [ -d /volume1 ] || [ -d /volume2 ] || [ -f /etc/synoinfo.conf ]; then
+  echo "════════════════════════════════════════════════════"
+  echo "  ❌ 呢句唔可以喺 NAS 度跑"
+  echo "════════════════════════════════════════════════════"
+  echo "  NAS 冇上網，所以永遠都會出："
+  echo "      curl: (6) Could not resolve host: firebean.net"
+  echo
+  echo "  ➜ 去 iMac 開「終端機」（⌘+空白鍵 → 打 terminal → Enter）"
+  echo "    iMac 嘅提示符係：  dicksonimac@Dicksons-iMac ~ %"
+  echo "    喺嗰度貼呢句："
+  echo "      curl -fsSL $BASE/bridge.sh | bash"
+  echo
+  exit 1
+fi
+
 echo "════════════════════════════════════════════════════"
 echo "  Firebean — Btrfs 無密鑰還原：工具傳送"
 echo "════════════════════════════════════════════════════"
-echo "  NAS        : $NAS"
-echo "  放去        : $REMOTE_DIR/c3r_btrfs.py"
-echo "  寫入 NAS   : 只係 /tmp（暫存區，唔關資料卷事）"
-echo "  動你嘅檔案 : ❌ 絕對唔會（唯讀工具）"
+echo "  由              : $(whoami)@$(hostname)"
+echo "  目標 NAS        : $NAS_IP"
+echo "  放去 NAS        : $REMOTE_DIR/c3r_btrfs.py"
+echo "  寫入 NAS        : 只係 /tmp（暫存區，唔關資料卷事）"
+echo "  動你嘅檔案      : ❌ 絕對唔會（唯讀工具）"
 echo "════════════════════════════════════════════════════"
 echo
 
@@ -38,11 +55,10 @@ trap cleanup EXIT
 # ── 1. 下載 ────────────────────────────────────────────────────────────────
 echo "① 下載工具…"
 if ! curl -fsSL "$BASE/c3r_btrfs.py" -o "$TMP/c3r_btrfs.py"; then
-  echo "   ❌ 下載失敗 —— 請檢查 iMac 上網係唔係正常"
+  echo "   ❌ 下載失敗 —— 請檢查 iMac 上網（開 Safari 睇下上唔上到網）"
   exit 1
 fi
-SZ=$(wc -c < "$TMP/c3r_btrfs.py" | tr -d ' ')
-echo "   下載完成：$SZ bytes"
+echo "   下載完成：$(wc -c < "$TMP/c3r_btrfs.py" | tr -d ' ') bytes"
 
 # ── 2. 核對 SHA-256 ───────────────────────────────────────────────────────
 echo
@@ -56,31 +72,81 @@ if [ "$GOT" != "$TOOL_SHA" ]; then
 fi
 echo "   ✅ SHA-256 吻合：$GOT"
 
-# ── 3. 傳送入 NAS ─────────────────────────────────────────────────────────
+# ── 3. 自動偵測 NAS SSH 目標 ──────────────────────────────────────────────
+detect_target() {
+  # a) 環境變數最優先
+  if [ -n "${NAS_USER:-}" ]; then echo "${NAS_USER}@${NAS_IP}"; return; fi
+  # b) 由 shell 歷史搵佢實際用過嘅 ssh 命令
+  for h in "$HOME/.zsh_history" "$HOME/.bash_history" "$HOME/.sh_history"; do
+    [ -f "$h" ] || continue
+    line=$(strings "$h" 2>/dev/null | grep -oE "ssh +[^|;&]*${NAS_IP}[^ ]*" | tail -1)
+    if [ -n "$line" ]; then
+      tgt=$(echo "$line" | tr ' ' '\n' | grep "${NAS_IP}" | tail -1)
+      case "$tgt" in
+        *"@"*) echo "$tgt"; return ;;
+      esac
+    fi
+  done
+  # c) 由 ~/.ssh/config 搵 HostName 對應
+  if [ -f "$HOME/.ssh/config" ]; then
+    tgt=$(awk -v ip="$NAS_IP" '
+      /^[Hh]ost[ \t]/ {h=$2}
+      /^[ \t]*[Hh]ost[Nn]ame[ \t]/ {if ($2==ip) print h}
+    ' "$HOME/.ssh/config" | tail -1)
+    [ -n "$tgt" ] && { echo "$tgt"; return; }
+  fi
+  echo ""
+}
+
+TARGET="$(detect_target)"
 echo
-echo "③ 傳送入 NAS 嘅 $REMOTE_DIR …"
-echo "   ⚠️ 跟住會問 NAS 密碼。"
-echo "   ⚠️ 打字時畫面【唔會顯示任何字】（冇 ••、冇星號）—— 呢個係正常，唔係壞。"
-echo "      打完直接按 Enter 就得。"
+if [ -n "$TARGET" ]; then
+  echo "③ 自動偵測到你用嘅 NAS 帳號：$TARGET"
+else
+  TARGET="dickson@${NAS_IP}"
+  echo "③ 用預設帳號：$TARGET"
+fi
+
+try_target() {
+  ssh -o ConnectTimeout=12 -o StrictHostKeyChecking=accept-new "$1" "mkdir -p $REMOTE_DIR" 2>&1
+}
+
+OK=0
 echo
-if ! ssh -o ConnectTimeout=15 "$NAS" "mkdir -p $REMOTE_DIR" ; then
-  echo "   ❌ 連唔到 NAS（SSH 失敗）"
-  echo "      → 檢查 NAS 電源、網絡線，同埋 IP／登入名係唔係 "$NAS""
-  echo "      → 如果係登入名唔啱，改用："
-  echo "         NAS_USER=你嘅登入名 bash <(curl -fsSL $BASE/bridge.sh)"
-  echo "      → 如果係 IP 唔啱，先喺 NAS 打 ifconfig | grep 169.254 睇實際 IP，然後："
-  echo "         NAS_IP=實際IP bash <(curl -fsSL $BASE/bridge.sh)"
+echo "   ⚠️ 會問 NAS 密碼。打字時畫面【唔會顯示任何字】（冇 ••、冇星號）"
+echo "      呢個係正常，打完直接按 Enter。"
+echo
+TRIED=""
+for t in "$TARGET" "dickson@${NAS_IP}" "admin@${NAS_IP}" "root@${NAS_IP}"; do
+  [ -z "$t" ] && continue
+  case " $TRIED " in *" $t "*) continue ;; esac
+  TRIED="$TRIED $t"
+  echo "   → 試 $t …"
+  if try_target "$t" >/dev/null 2>&1; then OK=1; TARGET="$t"; break; fi
+  echo "     （唔通，試下一個）"
+done
+
+if [ "$OK" != "1" ]; then
+  echo
+  echo "   ❌ 全部帳號都連唔到 NAS（試過：$TRIED）"
+  echo "      → ① 先喺 NAS 視窗打： ifconfig | grep 169.254   睇實際 IP"
+  echo "      → ② 再喺 iMac 打："
+  echo "           NAS_IP=實際IP NAS_USER=你嘅帳號 bash <(curl -fsSL $BASE/bridge.sh)"
+  echo "      → 或者完全唔用 SSH，改用 USB 隨身碟（見網頁步驟 ④）"
   exit 1
 fi
-if ! scp -q "$TMP/c3r_btrfs.py" "$NAS:$REMOTE_DIR/c3r_btrfs.py"; then
+
+# ── 4. 傳送 + 核實 ────────────────────────────────────────────────────────
+echo
+echo "   ✅ 連上 $TARGET"
+echo
+echo "④ 傳送入 NAS 嘅 $REMOTE_DIR …"
+if ! scp -q "$TMP/c3r_btrfs.py" "$TARGET:$REMOTE_DIR/c3r_btrfs.py"; then
   echo "   ❌ 傳送失敗"
   exit 1
 fi
 
-# ── 4. 遠端核實 ───────────────────────────────────────────────────────────
-echo
-echo "④ 核實遠端檔案…"
-RSHA=$(ssh -o ConnectTimeout=15 "$NAS" "shasum -a 256 $REMOTE_DIR/c3r_btrfs.py 2>/dev/null || sha256sum $REMOTE_DIR/c3r_btrfs.py 2>/dev/null" | awk '{print $1}')
+RSHA=$(ssh -o ConnectTimeout=12 "$TARGET" "shasum -a 256 $REMOTE_DIR/c3r_btrfs.py 2>/dev/null || sha256sum $REMOTE_DIR/c3r_btrfs.py 2>/dev/null" | awk '{print $1}')
 if [ "$RSHA" = "$TOOL_SHA" ]; then
   echo "   ✅ NAS 上面嘅檔案 SHA-256 一致"
 else
@@ -92,9 +158,9 @@ echo "════════════════════════�
 echo "  ✅ 完成！工具已經喺 NAS 嘅 $REMOTE_DIR/"
 echo "════════════════════════════════════════════════════"
 echo
-echo "  ➜ 下一步（喺你嗰個 NAS SSH 視窗貼）："
+echo "  ➜ 下一步：返去你嗰個 NAS 視窗（提示符 root@DiskStation:~# 嗰個）貼："
 echo
-echo "     sudo python3 $REMOTE_DIR/c3r_btrfs.py preflight /volume3/FirebeanShare 2>&1 | head -60"
+echo "     sudo python3 $REMOTE_DIR/c3r_btrfs.py preflight /volume3/FirebeanShare 2>&1 | head -80"
 echo
-echo "  跑完將全部輸出掟返俾 Hermes。"
+echo "  跑完將全部輸出掟返俾 Hermes。（可以喺 Discord 直接複製貼上，或者打字文件都可以）"
 echo
