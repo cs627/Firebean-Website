@@ -100,6 +100,9 @@ a.btn{display:inline-flex;align-items:center;justify-content:center;text-decorat
 /* 卡片係 scroll container（overflow:hidden）：實測會令部分子元素（例如 CTA 按鈕）在窄屏被自家卡片攔截 hit-test，
    導致「撳落去冇反應」。將 CTA 提升到明確圖層＋強制可點擊，即可修好。 */
 .btnrow{position:relative;z-index:5}
+/* 內部頁面（九型圖鑑／調研數據／匯報要點）：公眾唔會見到任何入口，
+   但可以直接開 URL（#atlas / #data / #proposal）或者加 ?internal=1 解鎖側欄連結。 */
+body:not(.team-access) .internal-only{display:none!important}
 .btnrow>.btn{position:relative;z-index:1;pointer-events:auto;touch-action:manipulation}
 .btnrow .btn{flex:1 1 180px}
 
@@ -425,9 +428,9 @@ footer.foot b{color:var(--ink2)}
       <button data-go="intro" class="on"><span class="ni">◆</span>測驗簡介</button>
       <button data-go="quiz"><span class="ni">✎</span>開始作答</button>
       <button data-go="result"><span class="ni">★</span>我的分析報告</button>
-      <button data-go="atlas"><span class="ni">❖</span>九型圖鑑</button>
-      <button data-go="data"><span class="ni">▤</span>調研數據</button>
-      <button data-go="proposal"><span class="ni">▣</span>匯報要點</button>
+      <button data-go="atlas" class="internal-only"><span class="ni">❖</span>九型圖鑑</button>
+      <button data-go="data" class="internal-only"><span class="ni">▤</span>調研數據</button>
+      <button data-go="proposal" class="internal-only"><span class="ni">▣</span>匯報要點</button>
     </nav>
     <img class="railmasc mascot" src="img/hero.webp" alt="" onerror="this.style.display='none'">
     <div class="railprog">
@@ -441,7 +444,7 @@ footer.foot b{color:var(--ink2)}
       <div class="mt-row">
         <span class="mt-t" id="mobTitle">都會生活鏡像測驗</span>
         <button class="mt-link" data-go="intro">簡介</button>
-        <button class="mt-link" data-go="atlas">圖鑑</button>
+        <button class="mt-link internal-only" data-go="atlas">圖鑑</button>
       </div>
       <div class="progcap"><span class="pc-ico">✦</span><span id="mobProgTxt">仲有 20 題解鎖你的都會鏡像</span></div>
       <div class="pbar"><i id="mobProgBar"></i></div>
@@ -474,7 +477,7 @@ footer.foot b{color:var(--ink2)}
           </div>
           <div class="btnrow" style="margin-top:22px">
             <a class="btn primary" data-go="quiz" id="startBtn" href="#quiz" role="button">開始測驗 →</a>
-            <a class="btn ghost" data-go="atlas" href="#atlas" role="button">先睇九型圖鑑</a>
+            <a class="btn ghost internal-only" data-go="atlas" href="#atlas" role="button">先睇九型圖鑑</a>
           </div>
         </div>
       </div>
@@ -686,9 +689,10 @@ function renderQuestion(){
   const left=D.questions.length-idx;
   $("#qCount").textContent="第 "+(idx+1)+" / "+D.questions.length+" 題　·　仲有 "+left+" 題";
   $("#qText").textContent=q.text;
+  /* 多選：不限項數，想揀幾多就幾多；單選：明確講明只揀一個 */
   $("#qNote").textContent=(q.kind==="multi")
-      ? (q.max? "可複選，最多 "+q.max+" 項":"可選取多於一項") + "　·　已選 "+((answers[q.id]||[]).length)+" 項"
-      : "單選題";
+      ? "可選取多於一項（不限）　·　已選 "+((answers[q.id]||[]).length)+" 項"
+      : "請選擇一個選項";
   $("#qOrig").innerHTML="原問卷題號：<b>"+q.orig+"</b>　·　"+part.name;
   const sel=answers[q.id]||[];
   const box=$("#qOpts"); box.innerHTML="";
@@ -709,14 +713,8 @@ function renderQuestion(){
   dimOverflow(q);
 }
 function dimOverflow(q){
-  const sel=answers[q.id]||[];
-  if(q.kind!=="multi"||!q.max||sel.length<q.max) {
-    $$("#qOpts .opt").forEach(function(b){b.classList.remove("dim")}); return;
-  }
-  $$("#qOpts .opt").forEach(function(b){
-    const on=sel.indexOf(b.dataset.k)>-1;
-    b.classList.toggle("dim", !on);
-  });
+  /* 多選題已無項數上限，所以永遠唔會 dim 走未揀嘅選項 */
+  $$("#qOpts .opt").forEach(function(b){b.classList.remove("dim")});
 }
 function pick(q,k){
   if(q.kind==="single"){
@@ -725,8 +723,7 @@ function pick(q,k){
     let sel=answers[q.id]||[];
     if(sel.indexOf(k)>-1) sel=sel.filter(function(x){return x!==k});
     else{
-      if(q.max&&sel.length>=q.max) { flash(q.max); return; }
-      sel=sel.concat([k]);
+      sel=sel.concat([k]);   /* 無上限：唔會再攔截第 N 個選項 */
     }
     answers[q.id]=sel;
   }
@@ -735,11 +732,7 @@ function pick(q,k){
     setTimeout(function(){ step(1); }, 240);
   }
 }
-function flash(max){
-  const n=$("#qNote"); n.textContent="最多只可以揀 "+max+" 項，先取消一個再揀。";
-  n.style.color="var(--rose)";
-  setTimeout(function(){ n.style.color=""; renderQuestion(); }, 1400);
-}
+/**/
 function step(d){
   const q=D.questions[idx];
   if(d>0 && !(answers[q.id]&&answers[q.id].length)) return;
@@ -908,7 +901,7 @@ function showResult(){
       '<div class="btnrow" style="margin-top:16px">'+
         '<button class="btn primary" id="rShare">分享我的結果</button>'+
         '<button class="btn ghost" id="rCopy">複製結果文字</button>'+
-        '<button class="btn ghost" data-go="atlas">睇齊九型圖鑑</button>'+
+        '<button class="btn ghost internal-only" data-go="atlas">睇齊九型圖鑑</button>'+
         '<button class="btn ghost" id="rAgain">重新測驗</button>'+
       '</div>'+
       '<div class="share-note" id="rNote">已複製！可以直接貼去 WhatsApp／IG。</div>'+
@@ -1277,6 +1270,14 @@ window.__ENNEA={ result:function(){return result}, answers:function(){return ans
 /* 深層連結：firebean.net/enneagram/#data 可直接開數據看板（先讀 hash，否則 setView 會改寫 URL） */
 let _initHash="";
 try{ _initHash=(location.hash||"").replace(/^#/,""); }catch(e){}
+/* 內部頁面（圖鑑／數據／匯報）唔對公眾露出任何入口。
+   內部人：URL 加 ?internal=1，或者直接開 #atlas / #data / #proposal，側欄連結就會出現。 */
+try{
+  const INTERNAL=["atlas","data","proposal"];
+  const q=(location.search||"");
+  if(/(?:^|[?&])internal=1(?:&|$)/.test(q) || INTERNAL.indexOf(_initHash)>-1)
+    document.body.classList.add("team-access");
+}catch(e){}
 setView("intro");
 try{ if(_initHash && document.querySelector("#v-"+_initHash)) setView(_initHash); }catch(e){}
 setTimeout(enneaFlush,800);          // retry any response that failed to upload earlier
