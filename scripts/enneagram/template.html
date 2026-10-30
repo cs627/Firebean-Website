@@ -96,7 +96,11 @@ a.btn{display:inline-flex;align-items:center;justify-content:center;text-decorat
   -webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .btn.ghost:active{transform:translateY(3px);box-shadow:0 1px 0 #EBDCC6}
 .btn:disabled{opacity:.45;cursor:not-allowed;box-shadow:0 4px 0 #EFE4D4;transform:none}
-.btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+/* 卡片係 scroll container（overflow:hidden）：實測會令部分子元素（例如 CTA 按鈕）在窄屏被自家卡片攔截 hit-test，
+   導致「撳落去冇反應」。將 CTA 提升到明確圖層＋強制可點擊，即可修好。 */
+.btnrow{position:relative;z-index:5}
+.btnrow>.btn{position:relative;z-index:1;pointer-events:auto;touch-action:manipulation}
 .btnrow .btn{flex:1 1 180px}
 
 /* ---------- mascot ---------- */
