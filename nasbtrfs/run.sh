@@ -21,6 +21,7 @@ SHARE="/volume3/FirebeanShare"
 LOGDIR="$HOME/fb-nas-logs"
 
 TASK="${1:-help}"
+STREAM=""
 
 case "$TASK" in
   doctor)
@@ -39,6 +40,26 @@ case "$TASK" in
     REMOTE="python3 $TOOL gens $SHARE --sample 120 2>&1 | tail -40"
     SUDO="sudo"
     ;;
+  list)
+    REMOTE="ls -lS \$(find $SHARE -maxdepth 2 -name '*.L0CK3D' 2>/dev/null | head -400) 2>/dev/null | head -16"
+    SUDO="sudo"
+    ;;
+  plan1)
+    FILE="${2:?用法: bash ~/fb-run.sh plan1 \"完整路徑.L0CK3D\" [G]}"
+    G="${3:-1}"
+    REMOTE="python3 $TOOL plan \"$FILE\" --g $G 2>&1 | head -60"
+    SUDO="sudo"
+    ;;
+  survey)
+    G="${2:-1}"
+    REMOTE="python3 $TOOL survey $SHARE --g $G"
+    SUDO="sudo"; STREAM="survey"
+    ;;
+  extract)
+    G="${2:-1}"
+    REMOTE="python3 $TOOL extract $SHARE --g $G"
+    SUDO="sudo"; STREAM="extract"
+    ;;
   help|*)
     cat <<'EOF'
 Firebean — 喺 iMac 直接叫 NAS 做嘢
@@ -51,7 +72,10 @@ Firebean — 喺 iMac 直接叫 NAS 做嘢
   bash ~/fb-run.sh gens        數 extent 代數 → 得出 G_ATTACK
 
 之後（等上面結果）：
-  survey / extract
+  survey [G]                   全卷分類（輸出存檔）
+  extract [G]                  重組原檔（輸出 .tar）
+  list                         列最大嘅受害檔（做證明測試用）
+  plan1 "路徑.L0CK3D" [G]      單一檔重組計劃（證明測試）
 
 ⚠️ 會問 NAS 密碼（可能問兩次：SSH 一次、sudo 一次）。
    打字時畫面唔會顯示任何字，係正常。
@@ -76,12 +100,34 @@ mkdir -p "$LOGDIR"
 STAMP=$(date '+%Y%m%d-%H%M%S')
 LOG="$LOGDIR/${TASK}-${STAMP}.txt"
 
-if [ -n "$SUDO" ]; then
+if [ -n "$STREAM" ]; then
+  # 大流量／二進位輸出：唔可以用 ssh -t（tty 會做 CR/LF 轉換，會搞爛 tar / gz）
+  # 用 sudo -S 由本機讀密碼，保持 stdout 純淨
+  if [ "$STREAM" = "extract" ]; then OUTF="$LOGDIR/extract-${STAMP}.tar"; else OUTF="$LOG"; fi
+  printf "  🔑 NAS sudo 密碼（唔會顯示、唔會記錄）："
+  read -r -s SUDOPW
+  echo
+  printf '%s\n' "$SUDOPW" | ssh -T -o ConnectTimeout=15 "$TARGET" "${SUDO} -S -p '' sh -c \"$REMOTE\"" > "$OUTF" 2>"$LOGDIR/${TASK}-${STAMP}.err"
+  RC=$?
+  unset SUDOPW
+  echo
+  echo "  ✅ 輸出檔：$OUTF"
+  echo "     大小：$(ls -lh "$OUTF" 2>/dev/null | awk '{print $5}')"
+  echo
+  echo "  ── 最後 15 行 ──"
+  tail -15 "$OUTF" 2>/dev/null
+  if [ -s "$LOGDIR/${TASK}-${STAMP}.err" ]; then
+    echo
+    echo "  ── stderr ──"
+    tail -15 "$LOGDIR/${TASK}-${STAMP}.err"
+  fi
+elif [ -n "$SUDO" ]; then
   ssh -t -o ConnectTimeout=15 "$TARGET" "${SUDO} sh -c \"$REMOTE\"" 2>&1 | tee "$LOG"
+  RC=${PIPESTATUS[0]}
 else
   ssh -t -o ConnectTimeout=15 "$TARGET" "sh -c \"$REMOTE\"" 2>&1 | tee "$LOG"
+  RC=${PIPESTATUS[0]}
 fi
-RC=${PIPESTATUS[0]}
 
 echo
 echo "════════════════════════════════════════════════════"
