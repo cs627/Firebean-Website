@@ -12,7 +12,7 @@
 #  全程唯讀，唔會改你任何檔案。
 # ============================================================================
 set -u
-VERSION="fb2-20261030-2130"
+VERSION="fb3-20261030-2135"
 
 NAS_IP="${NAS_IP:-169.254.71.131}"
 TARGET="${NAS_USER:-dickson}@${NAS_IP}"
@@ -69,6 +69,12 @@ case "$TASK" in
     REMOTE="echo '=== 50-600MB 圖／片／PDF（肉眼可驗證）==='; find '$SHARE' \\( -name '*.jpg.L0CK3D' -o -name '*.jpeg.L0CK3D' -o -name '*.png.L0CK3D' -o -name '*.pdf.L0CK3D' -o -name '*.mp4.L0CK3D' \\) -size +50M -size -600M -exec ls -ld {} + 2>/dev/null | sort -k5 -rn | head -20"
     SUDO="sudo"
     ;;
+  prove)
+    FILE="${2:?用法: bash ~/fb.sh prove \"完整路徑.L0CK3D\" [G]}"
+    G="${3:-23082}"
+    REMOTE="python3 $TOOL plan \"$FILE\" --g $G 1>&2; echo '=== PLAN 完，開始重組原檔 ===' 1>&2; python3 $TOOL extract \"$FILE\" --g $G"
+    SUDO="sudo"; STREAM="extract"
+    ;;
   extract1)
     FILE="${2:?用法: bash ~/fb.sh extract1 \"完整路徑.L0CK3D\" [G]}"
     G="${3:-23082}"
@@ -91,7 +97,8 @@ Firebean — 喺 iMac 直接叫 NAS 做嘢
   extract [G]                  重組原檔（輸出 .tar）
   list                         列最大嘅受害檔
   pick                         列 50-600MB 圖／片／PDF（做證明測試最好）
-  extract1 "路徑" [G]          還原單一檔 → .tar（證明測試）
+  prove "路徑" [G]             ★ 一次過：分析 + 還原單一檔（證明測試）
+  extract1 "路徑" [G]          還原單一檔 → .tar
   plan1 "路徑.L0CK3D" [G]      單一檔重組計劃（證明測試）
 
 ⚠️ 會問 NAS 密碼（可能問兩次：SSH 一次、sudo 一次）。
@@ -103,7 +110,7 @@ EOF
     echo "  ❌ 冇呢個任務：「$TASK」"
     echo
     echo "  可用任務：doctor / preflight / env / gens / list / pick /"
-    echo "            plan1 <路徑> / extract1 <路徑> / survey / extract"
+    echo "            prove <路徑> / plan1 <路徑> / extract1 <路徑> / survey / extract"
     echo
     echo "  打「bash ~/fb.sh help」睇詳細用法。"
     exit 2
