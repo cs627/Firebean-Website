@@ -19,8 +19,8 @@ for _L in en_US.UTF-8 en_US.utf8 C.UTF-8 zh_HK.UTF-8 UTF-8; do
   fi
 done
 unset _L
-VERSION="fb10-20261030-2240"
-BUILD=10
+VERSION="fb11-20261030-2250"
+BUILD=11
 
 NAS_IP="${NAS_IP:-169.254.71.131}"
 TARGET="${NAS_USER:-dickson}@${NAS_IP}"
@@ -60,6 +60,32 @@ if [ "${FB_NO_UPDATE:-0}" != "1" ]; then
   esac
   unset _NEW _NV _NB _SELF
 fi
+
+# ── 持久 SSH 連線（ControlMaster）：只需打一次【SSH 登入密碼】──────────
+# 冇呢個，auto 會逐個資料夾問一次登入密碼（200 次）→ 冇人值守就一定死。
+# ⚠️ ControlMaster 只喺本機開 socket，【唔會寫入 NAS】任何嘢。
+FB_SSH_SOCK=""
+cm_setup() {
+  [ -n "$FB_SSH_SOCK" ] && return 0
+  mkdir -p "$HOME/.ssh" 2>/dev/null; chmod 700 "$HOME/.ssh" 2>/dev/null
+  FB_SSH_SOCK="$HOME/.ssh/fb-cm-$$"
+  echo "  🔌 建立持久連線…（會問一次 NAS 登入密碼，之後唔會再問）"
+  if ssh -M -S "$FB_SSH_SOCK" -o ControlPersist=12h -o ConnectTimeout=20 -o NumberOfPasswordPrompts=3 -fN "$TARGET" 2>/dev/null; then
+    echo "  ✅ 持久連線已建立（全程唔會再問登入密碼）"
+    return 0
+  fi
+  echo "  ⚠️ 持久連線失敗 → 每個資料夾都會再問登入密碼（仍然可行，但要你坐喺度）"
+  FB_SSH_SOCK=""
+  return 1
+}
+cm_close() { [ -n "$FB_SSH_SOCK" ] && ssh -S "$FB_SSH_SOCK" -O exit "$TARGET" 2>/dev/null; FB_SSH_SOCK=""; }
+rssh() {  # rssh "<remote cmd>"   —— stdin 由呼叫者提供
+  if [ -n "$FB_SSH_SOCK" ]; then
+    ssh -S "$FB_SSH_SOCK" -T -o ConnectTimeout=20 "$TARGET" "$1"
+  else
+    ssh -T -o ConnectTimeout=20 "$TARGET" "$1"
+  fi
+}
 
 TASK="${1:-help}"
 STREAM=""
@@ -217,10 +243,12 @@ if [ "$STREAM" = "auto" ]; then
   echo "  報告檔     : $REP"
   echo "  ══════════════════════════════════════════════════════════"
   echo
+  cm_setup
+  echo
   printf "  🔑 NAS sudo 密碼（唔會顯示、唔會寫入磁碟）："
   read -r -s A_PW
   echo; echo
-  if ! printf '%s\n' "$A_PW" | ssh -T -o ConnectTimeout=15 "$TARGET" "sudo -S -p '' true" 2>/dev/null; then
+  if ! printf '%s\n' "$A_PW" | rssh "sudo -S -p '' true" 2>/dev/null; then
     echo "  ❌ 密碼唔啱或連唔上 NAS —— 中止，冇改動過任何嘢。"
     unset A_PW; exit 1
   fi
@@ -232,7 +260,7 @@ if [ "$STREAM" = "auto" ]; then
   # 防止 Mac 休眠
   caffeinate -i -w $$ 2>/dev/null &
   # 取批次清單：由細至大，排除 #recycle / sparsebundle / @eaDir
-  A_LIST=$(ssh -T -o ConnectTimeout=20 "$TARGET" "sudo sh -c \"cd '$SHARE' && du -sk */ 2>/dev/null\"" 2>/dev/null \
+  A_LIST=$(rssh "sudo sh -c \"cd '$SHARE' && du -sk */ 2>/dev/null\"" 2>/dev/null \
            | grep -vE '#recycle|sparsebundle|@eaDir' | sort -n)
   if [ -z "$A_LIST" ]; then echo "  ❌ 攞唔到資料夾清單"; unset A_PW; exit 1; fi
   A_TOTAL=$(printf '%s\n' "$A_LIST" | grep -c .)
@@ -258,7 +286,7 @@ if [ "$STREAM" = "auto" ]; then
     fi
     A_DQ=$(sq "$SHARE/$A_DIR")
     A_R="python3 $TOOL extract '$A_DQ' --g 23082"
-    printf '%s\n' "$A_PW" | ssh -T -o ConnectTimeout=20 "$TARGET" "sudo -S -p '' sh -c \"$A_R\"" 2>>"$ERRF" \
+    printf '%s\n' "$A_PW" | rssh "sudo -S -p '' sh -c \"$A_R\"" 2>>"$ERRF" \
       | tar -xf - -C "$DEST" 2>>"$ERRF"
     A_MAN="$DEST/_c3r_manifest.jsonl"
     if [ -f "$A_MAN" ]; then
@@ -288,6 +316,7 @@ if [ "$STREAM" = "auto" ]; then
   done < <(printf '%s\n' "$A_LIST")
 
   unset A_PW
+  cm_close
   echo
   echo "  ══════════════════ 最終驗收報告 ══════════════════"
   echo "  📁 處理資料夾    ：$A_N / $A_TOTAL（跳過 $A_SKIP）"
@@ -305,12 +334,14 @@ elif [ "$STREAM" = "pull" ]; then
   # ★ 直接串流：NAS 的 tar → 本機 tar -xf（唔會留中間 .tar，省一半空間）
   mkdir -p "$DEST"
   echo "  📂 目的地：$DEST"
+  cm_setup
+  echo
   printf "  🔑 NAS sudo 密碼（唔會顯示、唔會記錄）："
   read -r -s SUDOPW
   echo
   echo "  ⬇️  串流還原中…（大檔可能要幾分鐘）"
   echo
-  printf '%s\n' "$SUDOPW" | ssh -T -o ConnectTimeout=15 "$TARGET" "${SUDO} -S -p '' sh -c \"$REMOTE\"" 2>"$LOGDIR/${TASK}-${STAMP}.err" | tar -xf - -C "$DEST" 2>>"$LOGDIR/${TASK}-${STAMP}.err"
+  printf '%s\n' "$SUDOPW" | rssh "${SUDO} -S -p '' sh -c \"$REMOTE\"" 2>"$LOGDIR/${TASK}-${STAMP}.err" | tar -xf - -C "$DEST" 2>>"$LOGDIR/${TASK}-${STAMP}.err"
   RC=${PIPESTATUS[1]}
   unset SUDOPW
   echo "  ✅ 解壓完成"
