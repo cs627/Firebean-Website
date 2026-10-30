@@ -19,8 +19,8 @@ for _L in en_US.UTF-8 en_US.utf8 C.UTF-8 zh_HK.UTF-8 UTF-8; do
   fi
 done
 unset _L
-VERSION="fb13-20261030-2320"
-BUILD=13
+VERSION="fb14-20261030-2335"
+BUILD=14
 
 NAS_IP="${NAS_IP:-169.254.71.131}"
 TARGET="${NAS_USER:-dickson}@${NAS_IP}"
@@ -189,6 +189,7 @@ Firebean — 喺 iMac 直接叫 NAS 做嘢
   list                         列最大嘅受害檔
   pick                         列 50-600MB 圖／片／PDF（做證明測試最好）
   auto [目的地]                ★★ 無人值守：一次密碼→自動還原全部→逐批驗收
+                              （有續跑功能：已完整還原嘅資料夾會自動跳過）
   pull "NAS 路徑" [G] [目的地]  直接串流還原 + 自動核 SHA-256（單一批次）
   folders                      各頂層資料夾嘅受害檔數＋大細（排批次次序）
   space                        睇 iMac／外接碟剩餘空間（完全本機，唔連 NAS）
@@ -285,10 +286,17 @@ if [ "$STREAM" = "auto" ]; then
   echo "  📋 共 $A_TOTAL 個資料夾（由細至大處理）"
   echo
 
-  A_N=0; A_OK=0; A_BAD=0; A_MISS=0; A_BYTES=0; A_SKIP=0
+  A_N=0; A_OK=0; A_BAD=0; A_MISS=0; A_BYTES=0; A_SKIP=0; A_DONE=0
+  A_MARKDIR="$DEST/_done"; mkdir -p "$A_MARKDIR" 2>/dev/null
   while IFS=$'\t' read -r A_KB A_DIR; do
     [ -z "$A_DIR" ] && continue
     A_N=$((A_N+1))
+    A_TAG=$(printf '%s' "$A_DIR" | tr -d '/' | tr ' ' '_')
+    if [ -f "$A_MARKDIR/$A_TAG" ]; then
+      A_DONE=$((A_DONE+1))
+      echo "  [已還原，跳過] $A_DIR"
+      continue
+    fi
     # ⚠️ 單位鐵律：du -sk 同 df -k 都係 KB。A_NEED 必須係 KB（×1.1 安全邊際）。
     A_NEED=$(( A_KB * 11 / 10 + 1024 ))
     A_FREE=$(df -k "$DEST" 2>/dev/null | tail -1 | awk '{print $4}')
@@ -326,6 +334,8 @@ if [ "$STREAM" = "auto" ]; then
       A_OK=$((A_OK+B_OK)); A_BAD=$((A_BAD+B_BAD)); A_MISS=$((A_MISS+B_MISS)); A_BYTES=$((A_BYTES+B_BYTES))
       echo "     ✅ $B_OK 通過 ／ ❌ $B_BAD 唔對 ／ ❌ $B_MISS 唔見 ／ 📦 $((B_BYTES/1048576)) MB"
       printf '✅ %s\t通過 %s\t唔對 %s\t唔見 %s\tbytes %s\n' "$A_DIR" "$B_OK" "$B_BAD" "$B_MISS" "$B_BYTES" >> "$REP"
+      # 只有「完全乾淨」才落 marker（有唔對／唔見 = 下次要重做）
+      if [ "$B_BAD" -eq 0 ] && [ "$B_MISS" -eq 0 ]; then touch "$A_MARKDIR/$A_TAG"; fi
       rm -f "$A_MAN"
     else
       echo "     ⚠️ 冇 manifest，跳過核對"
@@ -337,7 +347,9 @@ if [ "$STREAM" = "auto" ]; then
   cm_close
   echo
   echo "  ══════════════════ 最終驗收報告 ══════════════════"
-  echo "  📁 處理資料夾    ：$A_N / $A_TOTAL（跳過 $A_SKIP）"
+  echo "  📁 處理資料夾    ：$A_N / $A_TOTAL"
+  echo "  ⏭️  之前已完成    ：$A_DONE 個（自動跳過，唔會重複搬）"
+  echo "  ⏭️  空間不足跳過  ：$A_SKIP 個（下次插新碟再跑會自動補做）"
   echo "  ✅ SHA-256 通過  ：$A_OK 個檔案"
   echo "  ❌ SHA-256 唔對  ：$A_BAD 個"
   echo "  ❌ 檔案唔見      ：$A_MISS 個"
