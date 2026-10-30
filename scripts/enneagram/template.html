@@ -158,7 +158,7 @@ body.showorig .orig{display:block}
   display:none;gap:10px;box-shadow:0 -14px 30px -24px rgba(122,92,64,.9)}
 .actionbar.on{display:flex}
 .actionbar .btn{flex:1}
-.actionbar .btn.back{flex:0 0 auto;min-width:96px}
+.actionbar .btn.back{flex:1 1 0;min-width:96px}
 
 /* ---------- result ---------- */
 .rhero{border-radius:var(--r2);padding:22px 20px;position:relative;overflow:hidden;text-align:center;
@@ -260,7 +260,7 @@ table.src th{color:var(--muted);font-size:12.5px}
 .matchRow .tm{font-weight:800;font-size:14px;color:#3E7A5E}
 .matchRow .mm{font-size:14.5px}
 
-footer.foot{padding:26px 16px 40px;color:var(--muted);font-size:12.5px;line-height:1.72}
+footer.foot{padding:26px 16px 40px;color:var(--ink2);font-size:14.5px;line-height:1.85}
 footer.foot b{color:var(--ink2)}
 
 /* ================= Desktop / iPad ================= */
@@ -282,19 +282,20 @@ footer.foot b{color:var(--ink2)}
     box-shadow:0 3px 0 #8CC5A6;color:#274737}
   .rail nav button .ni{width:20px;text-align:center;font-size:15px}
   .rail .railprog{margin-top:auto;padding-top:22px}
-  .rail .railprog .pl{display:flex;justify-content:space-between;gap:8px;font-size:12.5px;color:#7A5C2E;font-weight:800;margin-bottom:8px}
-  .rail .railprog .pt{height:12px;border-radius:999px;background:#F6E9D6;overflow:hidden;box-shadow:inset 0 2px 4px rgba(122,92,64,.16)}
+  .rail .railprog .pl{display:flex;justify-content:space-between;gap:8px;font-size:14px;color:#7A5C2E;font-weight:800;margin-bottom:8px}
+  .rail .railprog .pt{height:14px;border-radius:999px;background:#F6E9D6;overflow:hidden;box-shadow:inset 0 2px 4px rgba(122,92,64,.16)}
   .rail .railprog .pt i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#FFE39B,#A8D8BE 55%,#7FC5A2);transition:width .38s}
   .rail .railmasc{width:150px;margin:6px auto 4px}
-  .rail .railfoot{margin-top:16px;font-size:11.5px;color:var(--muted);line-height:1.65}
+  .rail .railfoot{margin-top:16px;font-size:12.5px;color:var(--muted);line-height:1.7}
   .mobtop{display:none}
   main{padding:0 0 60px}
   .wrap{max-width:1080px;margin:0 auto;padding:0 40px}
   .view{padding:34px 0 14px}
   .actionbar{position:static;background:none;border:0;box-shadow:none;padding:0;margin-top:20px;display:flex}
   .actionbar.on{display:flex}
-  .actionbar .btn.back{min-width:130px}
+  .actionbar .btn.back{flex:1 1 0;min-width:130px}
   .opts.two{grid-template-columns:1fr 1fr}
+  .opts.two .opt:last-child:nth-child(odd){grid-column:1 / -1}
   .rgrid{grid-template-columns:1fr 1fr}
   .atlasgrid{grid-template-columns:repeat(3,1fr)}
   .card{padding:30px}
