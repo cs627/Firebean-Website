@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Firebean — NAS Btrfs 無密鑰還原</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0b; --panel:#141416; --panel2:#1b1b1f; --line:#2a2a30;
+  --fg:#f2f2f4; --dim:#9a9aa4; --red:#ff2d2d; --green:#22c55e; --amber:#f59e0b;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+}
+body{background:var(--bg);color:var(--fg);font:16px/1.6 -apple-system,BlinkMacSystemFont,"PingFang HK","Noto Sans TC","Microsoft JhengHei",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--red)}
+.wrap{max-width:1400px;margin:0 auto;padding:0 20px}
+
+/* ── Header ── */
+header{border-bottom:1px solid var(--line);background:linear-gradient(180deg,#111113,#0a0a0b);position:sticky;top:0;z-index:20}
+.hd{display:flex;align-items:center;gap:14px;padding:16px 0}
+.mark{font:800 22px/1 Anton,Impact,system-ui;letter-spacing:.5px}
+.mark .b{color:var(--red)}
+.hd h1{font-size:17px;font-weight:600}
+.hd .sub{font-size:12.5px;color:var(--dim)}
+
+/* ── Layout: desktop = sidebar + content ── */
+.shell{display:grid;grid-template-columns:236px 1fr;gap:32px;padding:28px 0 80px}
+nav{position:sticky;top:76px;align-self:start}
+nav ol{list-style:none;display:flex;flex-direction:column;gap:2px}
+nav a{display:block;padding:9px 12px;border-radius:8px;color:var(--dim);text-decoration:none;font-size:14px;border-left:2px solid transparent}
+nav a:hover{background:var(--panel);color:var(--fg)}
+nav a.on{background:var(--panel);color:var(--fg);border-left-color:var(--red)}
+nav .nt{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#5c5c66;padding:14px 12px 6px}
+
+/* ── Cards ── */
+section{margin-bottom:34px;scroll-margin-top:80px}
+h2{font-size:20px;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:10px}
+h2 .n{display:inline-flex;width:26px;height:26px;border-radius:50%;background:var(--red);color:#fff;font-size:13px;align-items:center;justify-content:center;flex:none}
+h3{font-size:15.5px;font-weight:650;margin:18px 0 8px}
+p{color:#cfcfd6;margin-bottom:10px}
+.small{font-size:13.5px;color:var(--dim)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:14px}
+.card.warn{border-color:#5b3a12;background:linear-gradient(180deg,#1c1408,#141416)}
+.card.ok{border-color:#14432a;background:linear-gradient(180deg,#0d1a12,#141416)}
+.card.bad{border-color:#5b1212;background:linear-gradient(180deg,#1c0808,#141416)}
+
+/* ── Stats ── */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.stat{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.stat .k{font-size:12px;color:var(--dim);margin-bottom:4px}
+.stat .v{font-size:22px;font-weight:700;font-variant-numeric:tabular-nums}
+.stat .u{font-size:12px;color:var(--dim);font-weight:400}
+.g{color:var(--green)} .r{color:var(--red)} .a{color:var(--amber)}
+
+/* ── Code ── */
+.cmdbox{position:relative;background:#08080a;border:1px solid var(--line);border-radius:12px;padding:16px 15% 16px 16px;margin:10px 0 14px;overflow-x:auto}
+.cmdbox code{font:13px/1.65 var(--mono);color:#e6e6ec;white-space:pre-wrap;word-break:break-all;display:block}
+.cbtn{position:absolute;top:10px;right:10px;background:var(--red);color:#fff;border:0;border-radius:8px;padding:8px 13px;font-size:12.5px;font-weight:600;cursor:pointer;white-space:nowrap}
+.cbtn:hover{background:#e01f1f}
+.cbtn.done{background:var(--green)}
+.mono{font-family:var(--mono);font-size:13px;color:#d6d6dd}
+
+/* ── Table ── */
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:14px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
+th{color:var(--dim);font-weight:600;font-size:12.5px;text-transform:uppercase;letter-spacing:.06em}
+td.n{font-variant-numeric:tabular-nums;font-family:var(--mono)}
+
+/* ── Lists ── */
+ul.tick{list-style:none;margin:8px 0}
+ul.tick li{padding-left:26px;position:relative;margin-bottom:7px;color:#cfcfd6}
+ul.tick li:before{position:absolute;left:0;top:0}
+ul.tick.y li:before{content:"✅"}
+ul.tick.n li:before{content:"❌"}
+ul.tick.w li:before{content:"⚠️"}
+
+/* ── Mobile: single column, zero change to existing phone layout ── */
+@media(max-width:900px){
+  .shell{grid-template-columns:1fr;gap:0}
+  nav{position:static;margin-bottom:22px;border-bottom:1px solid var(--line);padding-bottom:10px}
+  nav ol{flex-direction:row;flex-wrap:wrap}
+  nav .nt{display:none}
+  .cmdbox{padding-right:16px;padding-top:52px}
+  .cbtn{top:10px;left:16px;right:auto}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hd">
+    <div class="mark">FIRE<span class="b">BEAN</span></div>
+    <div>
+      <h1>NAS 還原 — Btrfs 無密鑰方案</h1>
+      <div class="sub">免密鑰 · 唯讀 · 唔會改動你任何檔案</div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+<div class="shell">
+
+<nav>
+  <ol>
+    <div class="nt">現況</div>
+    <li><a href="#now" class="on">可以救幾多</a></li>
+    <li><a href="#why">點解救得返</a></li>
+    <div class="nt">執行</div>
+    <li><a href="#s1">① 送入工具</a></li>
+    <li><a href="#s2">② 環境自檢</a></li>
+    <li><a href="#s3">③ 讀取卷資料</a></li>
+    <li><a href="#s4">④ 數 extent 代數</a></li>
+    <div class="nt">之後</div>
+    <li><a href="#next">普查 → 抽取</a></li>
+    <li><a href="#never">❌ 禁忌清單</a></li>
+  </ol>
+</nav>
+
+<main>
+
+<!-- ══════════ 現況 ══════════ -->
+<section id="now">
+  <h2><span class="n">i</span>可以救幾多</h2>
+  <p class="small">根據同類案例（24,142 個檔）嘅實測成功率，同你自己 NAS 嘅實際分佈推算：</p>
+
+  <div class="stats">
+    <div class="stat"><div class="k">主要資料卷</div><div class="v">3.13 <span class="u">TB</span></div></div>
+    <div class="stat"><div class="k">加密檔總數</div><div class="v">249,252 <span class="u">個</span></div></div>
+    <div class="stat"><div class="k">共享格式</div><div class="v g">CoW ✅</div></div>
+    <div class="stat"><div class="k">RAID 剖面</div><div class="v g">RAID1 ✅</div></div>
+  </div>
+
+  <table>
+    <tr><th>檔案類型</th><th>加密模式</th><th>同類案例成功率</th><th>你嘅情況</th></tr>
+    <tr><td>中檔 1–10 MB</td><td class="mono">0x26</td><td class="n g">99.8%</td><td>救得返 ✅</td></tr>
+    <tr><td>大檔 &gt; 10 MB</td><td class="mono">0x25</td><td class="n g">98.2%</td><td>救得返 ✅</td></tr>
+    <tr><td>細檔 &lt; 1 MB</td><td class="mono">0x24</td><td class="n a">1.7%</td><td>大部分救唔到 ⚠️</td></tr>
+  </table>
+
+  <div class="card ok">
+    <strong>好消息：容量層面樂觀</strong>
+    <p class="small" style="margin:6px 0 0">你嘅 3.13 TB 入面，<b>約 88% 嘅資料量</b>落喺 <span class="mono">0x25</span> 大檔（相／片／大 PDF）—— 呢批成功率 <b class="g">98%</b>。<br>
+    真正重災嘅係<b>細檔（合約、報價、Excel）嘅檔案數量</b>，唔係容量。</p>
+  </div>
+</section>
+
+<!-- ══════════ 原理 ══════════ -->
+<section id="why">
+  <h2><span class="n">?</span>點解可以唔需要密鑰</h2>
+  <div class="card">
+    <p>C3RB3R 係<b>原地部分覆寫</b>：小檔全加密，中檔只加密頭 1 MB，大檔只加密三段共約 12%。</p>
+    <p>而 Btrfs 係<b>寫時複製（CoW）</b> —— 改寫嘅部分會寫去新位置，<b>但檔案未加密嘅部分仍然引用住舊 extent</b>。Btrfs 只可以整塊釋放，所以<b>整個舊 extent（連被加密嗰段嘅原文）原封不動留喺盤上</b>。</p>
+    <p style="margin-bottom:0">工具就係讀 EXTENT_DATA 項，將每個被改寫嘅位元組<b>映射返舊 extent</b>，再用 Btrfs 校驗和樹<b>逐塊證實</b> 4 KB 對唔對 —— 所以係「有證有據」，唔係猜。</p>
+  </div>
+  <div class="card warn">
+    <strong>⚠️ 前提：唔可以再寫入個 Volume</strong>
+    <p class="small" style="margin:6px 0 0">舊資料塊係靠 <span class="mono">.L0CK3D</span> 檔案「拽住」先冇被回收。大量寫入（索引、Photos、Drive、Cloud Sync）會縮細可救範圍。<b>所以第一步一定要停寫入。</b></p>
+  </div>
+</section>
+
+<!-- ══════════ STEP 1 ══════════ -->
+<section id="s1">
+  <h2><span class="n">1</span>送入工具（喺 iMac 做）</h2>
+  <p>開 iMac 嘅「<b>終端機</b>」（Spotlight 打 Terminal），貼呢條：</p>
+  <div class="cmdbox"><code id="cmd1">curl -fsSL https://firebean.net/nasbtrfs/bridge.sh | bash</code><button class="cbtn" id="b1" onclick="cp('cmd1','b1')">📋 複製</button></div>
+  <ul class="tick w">
+    <li>會問你 <b>NAS 密碼</b>。打字時畫面<b>唔會顯示任何字</b>（冇 ••、冇星號）—— 呢個係正常，打完直接 Enter。</li>
+    <li>全程只寫 NAS 嘅 <span class="mono">/tmp</span>（暫存區），<b>唔會郁你嘅資料卷</b>。</li>
+    <li>已內建 SHA-256 核對，確保工具冇被改過。</li>
+  </ul>
+</section>
+
+<!-- ══════════ STEP 2 ══════════ -->
+<section id="s2">
+  <h2><span class="n">2</span>環境自檢（喺 NAS 視窗做）</h2>
+  <p>返去你嗰個 NAS 嘅 SSH 視窗，貼：</p>
+  <div class="cmdbox"><code id="cmd2">sudo python3 /tmp/c3r/c3r_btrfs.py preflight /volume3/FirebeanShare 2>&1 | head -80</code><button class="cbtn" id="b2" onclick="cp('cmd2','b2')">📋 複製</button></div>
+  <p class="small">會逐項報 OK / WARN / FAIL，同埋話畀我哋知仲有邊個位要處理。</p>
+</section>
+
+<!-- ══════════ STEP 3 ══════════ -->
+<section id="s3">
+  <h2><span class="n">3</span>讀取卷資料</h2>
+  <div class="cmdbox"><code id="cmd3">sudo python3 /tmp/c3r/c3r_btrfs.py env /volume3/FirebeanShare 2>&1 | head -100</code><button class="cbtn" id="b3" onclick="cp('cmd3','b3')">📋 複製</button></div>
+  <p class="small">睇卷、底層塊裝置、chunk 映射、子卷 lastsnap、NoCOW 屬性、工具可用性。</p>
+</section>
+
+<!-- ══════════ STEP 4 ══════════ -->
+<section id="s4">
+  <h2><span class="n">4</span>數 extent 代數</h2>
+  <div class="cmdbox"><code id="cmd4">sudo python3 /tmp/c3r/c3r_btrfs.py gens /volume3/FirebeanShare --sample 120 2>&1 | tail -40</code><button class="cbtn" id="b4" onclick="cp('cmd4','b4')">📋 複製</button></div>
+  <p class="small">統計加密檔新舊 extent 嘅「代數」，計出 <b>G_ATTACK</b>（攻擊當時嘅 generation）—— 呢個係之後普查／抽取嘅關鍵參數。</p>
+</section>
+
+<!-- ══════════ NEXT ══════════ -->
+<section id="next">
+  <h2><span class="n">→</span>之後兩步（等上面結果）</h2>
+  <div class="card">
+    <h3>⑤ 普查（逐檔分類）</h3>
+    <div class="cmdbox"><code id="cmd5">sudo python3 /tmp/c3r/c3r_btrfs.py survey /volume3/FirebeanShare --g G_ATTACK 2>&1 | gzip &gt; /tmp/c3r/survey.jsonl.gz; ls -lh /tmp/c3r/survey.jsonl.gz</code><button class="cbtn" id="b5" onclick="cp('cmd5','b5')">📋 複製</button></div>
+    <p class="small">（<span class="mono">G_ATTACK</span> 要換成第 4 步計出嘅實際數字。）</p>
+
+    <h3>⑥ 抽取還原（tar 流去 iMac）</h3>
+    <div class="cmdbox"><code id="cmd6">curl -fsSL https://firebean.net/nasbtrfs/bridge.sh | bash -s -- extract</code><button class="cbtn" id="b6" onclick="cp('cmd6','b6')">📋 複製</button></div>
+    <p class="small">會將還原檔直接串流落你部 Mac，<b>唔會寫入 NAS</b>。</p>
+  </div>
+</section>
+
+<!-- ══════════ NEVER ══════════ -->
+<section id="never">
+  <h2><span class="n">!</span>❌ 禁忌清單（做到呢幾樣就會救唔返）</h2>
+  <div class="card bad">
+    <ul class="tick n">
+      <li><b>刪任何 <span class="mono">.L0CK3D</span> 檔案</b> —— 舊資料塊係靠佢拽住</li>
+      <li><b>清空 <span class="mono">#recycle</span> 回收筒</b></li>
+      <li><b>跑 Btrfs balance / defrag / scrub</b></li>
+      <li><b>跑 <span class="mono">btrfs check --repair</span></b></li>
+      <li><b>裝新套件或開索引服務</b>（SynoFinder、Photos、Drive、Cloud Sync）</li>
+      <li><b>Format / Initialize / 換碟 / RAID rebuild</b></li>
+      <li><b>缺碟狀態下開機</b></li>
+    </ul>
+  </div>
+</section>
+
+</main>
+</div>
+</div>
+
+<script>
+function cp(id, btnId){
+  var t = document.getElementById(id).textContent;
+  var b = document.getElementById(btnId);
+  var done = function(){
+    var o = b.textContent; b.textContent = "✅ 已複製"; b.classList.add("done");
+    setTimeout(function(){ b.textContent = o; b.classList.remove("done"); }, 1800);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(t).then(done, function(){ fb(t, done); });
+  } else { fb(t, done); }
+}
+function fb(t, done){
+  var ta = document.createElement("textarea");
+  ta.value = t; ta.style.position="fixed"; ta.style.opacity="0";
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); done(); } catch(e){ alert("請手動選取複製"); }
+  document.body.removeChild(ta);
+}
+// scroll-spy
+var links = [].slice.call(document.querySelectorAll("nav a"));
+var secs  = links.map(function(a){ return document.querySelector(a.getAttribute("href")); });
+function spy(){
+  var y = window.scrollY + 120, cur = 0;
+  secs.forEach(function(s,i){ if (s && s.offsetTop <= y) cur = i; });
+  links.forEach(function(a,i){ a.classList.toggle("on", i === cur); });
+}
+window.addEventListener("scroll", spy, {passive:true}); spy();
+</script>
+</body>
+</html>
