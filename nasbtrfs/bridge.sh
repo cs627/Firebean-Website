@@ -16,6 +16,12 @@
 # ============================================================================
 set -u
 
+# ── 若果係用 `curl … | bash` 執行，ssh 會同 bash 爭 stdin ──────────────
+#    本腳本所有 ssh/scp 都已加 -n / </dev/null 修正；
+#    但如果偵測到 stdin 唔係 terminal，仍然建議改用落檔方式跑（更穩）。
+PIPED=0
+[ -t 0 ] || PIPED=1
+
 NAS_IP="${NAS_IP:-169.254.71.131}"
 REMOTE_DIR="/tmp/c3r"
 TOOL_SHA="cc356fb6bf57b033a36a8b1115e6048364f0651e84b50f9f213a3a02d919eede"
@@ -35,6 +41,13 @@ if [ -d /volume1 ] || [ -d /volume2 ] || [ -f /etc/synoinfo.conf ]; then
   echo "      curl -fsSL $BASE/bridge.sh | bash"
   echo
   exit 1
+fi
+
+if [ "$PIPED" = "1" ]; then
+  echo "ℹ️  偵測到係用 pipe 執行（curl | bash）。如果中途停低冇反應，"
+  echo "    請改用落檔方式（更穩）："
+  echo "      curl -fsSL -o ~/fb-bridge.sh $BASE/bridge.sh && bash ~/fb-bridge.sh"
+  echo
 fi
 
 echo "════════════════════════════════════════════════════"
@@ -108,7 +121,7 @@ else
 fi
 
 try_target() {
-  ssh -o ConnectTimeout=12 -o StrictHostKeyChecking=accept-new "$1" "mkdir -p $REMOTE_DIR" 2>&1
+  ssh -n -o ConnectTimeout=12 -o StrictHostKeyChecking=accept-new "$1" "mkdir -p $REMOTE_DIR" 2>&1
 }
 
 OK=0
@@ -141,12 +154,12 @@ echo
 echo "   ✅ 連上 $TARGET"
 echo
 echo "④ 傳送入 NAS 嘅 $REMOTE_DIR …"
-if ! scp -q "$TMP/c3r_btrfs.py" "$TARGET:$REMOTE_DIR/c3r_btrfs.py"; then
+if ! scp -q -o ConnectTimeout=12 "$TMP/c3r_btrfs.py" "$TARGET:$REMOTE_DIR/c3r_btrfs.py" </dev/null; then
   echo "   ❌ 傳送失敗"
   exit 1
 fi
 
-RSHA=$(ssh -o ConnectTimeout=12 "$TARGET" "shasum -a 256 $REMOTE_DIR/c3r_btrfs.py 2>/dev/null || sha256sum $REMOTE_DIR/c3r_btrfs.py 2>/dev/null" | awk '{print $1}')
+RSHA=$(ssh -n -o ConnectTimeout=12 "$TARGET" "shasum -a 256 $REMOTE_DIR/c3r_btrfs.py 2>/dev/null || sha256sum $REMOTE_DIR/c3r_btrfs.py 2>/dev/null" | awk '{print $1}')
 if [ "$RSHA" = "$TOOL_SHA" ]; then
   echo "   ✅ NAS 上面嘅檔案 SHA-256 一致"
 else

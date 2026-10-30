@@ -176,8 +176,9 @@ ul.tick.w li:before{content:"⚠️"}
   <span class="small">（係「終端機」<b>Terminal</b>，唔係 Finder 笑臉、唔係瀏覽器。）</span></p>
 
   <h3>② 貼呢條（iMac 視窗）</h3>
-  <div class="cmdbox"><code id="cmd1">curl -fsSL https://firebean.net/nasbtrfs/bridge.sh | bash</code><button class="cbtn" id="b1" onclick="cp('cmd1','b1')">📋 複製</button></div>
+  <div class="cmdbox"><code id="cmd1">curl -fsSL -o ~/fb-bridge.sh https://firebean.net/nasbtrfs/bridge.sh && bash ~/fb-bridge.sh</code><button class="cbtn" id="b1" onclick="cp('cmd1','b1')">📋 複製</button></div>
   <p class="small"><b>貼上三步：</b>① 先用滑鼠㩒一下終端機視窗（唔㩒會貼落 Discord）② ⌘V ③ Enter</p>
+  <p class="small">（呢條係「先落檔再跑」，最穩陣。一行式 <span class="mono">curl … | bash</span> 亦得，但落檔方式唔會撞到 SSH 爭 stdin 嘅問題。）</p>
 
   <h3>③ 佢會問你 NAS 密碼</h3>
   <ul class="tick w">
