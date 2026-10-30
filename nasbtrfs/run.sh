@@ -24,7 +24,7 @@ TASK="${1:-help}"
 
 case "$TASK" in
   doctor)
-    REMOTE="echo '=== 工具 ==='; ls -l $REMOTE_DIR/ 2>&1; echo; echo '=== Python ==='; python3 -V 2>&1; echo; echo '=== 卷 ==='; df -h /volume3 2>&1 | tail -2; echo; echo '=== 病毒殘留 ==='; ps w 2>/dev/null | grep -c '[l]ibgld' ; ls -l /bin/libgld 2>&1 | head -1"
+    REMOTE="echo '=== 工具 ==='; ls -l $REMOTE_DIR/ 2>&1; echo; echo '=== Python ==='; python3 -V 2>&1; echo; echo '=== 卷 ==='; df -h /volume3 2>&1 | tail -2; echo; echo '=== 病毒殘留 ==='; ps w 2>/dev/null | grep -c '[l]ibgld' ; ls -l /bin/libgld 2>/dev/null || echo '/bin/libgld 已不存在（重裝 DSM 清走）'"
     SUDO=""
     ;;
   preflight)
