@@ -19,8 +19,8 @@ for _L in en_US.UTF-8 en_US.utf8 C.UTF-8 zh_HK.UTF-8 UTF-8; do
   fi
 done
 unset _L
-VERSION="fb17-20261031-0915"
-BUILD=17
+VERSION="fb20-20261031-1015"
+BUILD=20
 
 NAS_IP="${NAS_IP:-169.254.71.131}"
 TARGET="${NAS_USER:-dickson}@${NAS_IP}"
@@ -155,6 +155,198 @@ case "$TASK" in
     echo; echo "=== 所有掛載卷 ==="; df -h | grep -vE "^devfs|^map " 
     exit 0
     ;;
+  cloud)
+    # ⭐ 純雲救援：NAS → 本地暫存 .tar → 逐檔核 SHA-256 → 上傳 Google Drive → 刪本地
+    CLOUD_TMP=${2:-$HOME/fb-cloud-tmp}
+    CLOUD_REM=${3:-gdrive:FirebeanRescue}
+    echo "  ═══════ Firebean 雲端救援（NAS → Google Drive）═══════"
+    echo "  暫存目錄   : $CLOUD_TMP（放大 tar，用完即刪）"
+    echo "  雲端目的地 : $CLOUD_REM"
+    echo "  ══════════════════════════════════════════════════════"
+    echo
+    if ! command -v rclone >/dev/null 2>&1; then
+      echo "  ❌ 未安裝 rclone。請先執行：  brew install rclone"
+      echo "     然後：  rclone config    （設定一個叫 gdrive 嘅遙端，類型揀 drive）"
+      exit 1
+    fi
+    echo "  🔎 檢查雲端連線…"
+    if ! rclone mkdir "$CLOUD_REM" 2>/dev/null; then
+      echo "  ❌ 連唔上 $CLOUD_REM"
+      echo "     請先跑：rclone config  → 新增遙端，名 gdrive，類型 drive"
+      exit 1
+    fi
+    echo "  ✅ 雲端就緒"
+    mkdir -p "$CLOUD_TMP/_done" || exit 1
+    cat > "$CLOUD_TMP/fb_verify_tar.py" <<'PYV'
+#!/usr/bin/env python3
+# fb_verify_tar.py —— 單次讀取核對 tar 內每個檔嘅 SHA-256（完全唔解壓、唔佔額外空間）
+import sys, tarfile, hashlib, json, os
+MAN = '_c3r_manifest.jsonl'
+def main(path):
+    ok = bad = miss = 0
+    nbytes = 0
+    hashes = {}
+    sizes = {}
+    manlines = []
+    with tarfile.open(path, 'r|*') as tf:
+        for m in tf:
+            if not m.isfile():
+                continue
+            f = tf.extractfile(m)
+            if f is None:
+                continue
+            if os.path.basename(m.name) == MAN:
+                manlines = f.read().decode('utf-8', 'replace').splitlines()
+                continue
+            h = hashlib.sha256(); n = 0
+            while True:
+                b = f.read(4 * 1024 * 1024)
+                if not b:
+                    break
+                h.update(b); n += len(b)
+            hashes[m.name] = h.hexdigest(); sizes[m.name] = n
+    if not manlines:
+        print(json.dumps({'ok': 0, 'bad': 0, 'miss': 0, 'bytes': 0, 'err': 'no-manifest'}))
+        return
+    for line in manlines:
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            e = json.loads(line)
+        except Exception:
+            continue
+        mem = (e.get('member') or '').lstrip('./')
+        exp = (e.get('sha256') or '').lower()
+        got = hashes.get(mem)
+        if got is None:
+            base = os.path.basename(mem)
+            cand = [v for k, v in hashes.items() if os.path.basename(k) == base]
+            got = cand[0] if len(cand) == 1 else None
+        if got is None:
+            miss += 1
+        elif got == exp:
+            ok += 1; nbytes += sizes.get(mem, 0)
+        else:
+            bad += 1
+    print(json.dumps({'ok': ok, 'bad': bad, 'miss': miss, 'bytes': nbytes}))
+if __name__ == '__main__':
+    import traceback
+    try:
+        main(sys.argv[1])
+    except Exception as e:
+        print(json.dumps({'ok': 0, 'bad': 0, 'miss': 0, 'bytes': 0,
+                          'err': type(e).__name__ + ': ' + str(e)[:120]}))
+
+
+PYV
+    echo
+    cm_setup
+    echo
+    printf "  🔑 NAS sudo 密碼（唔會顯示、唔會寫入磁碟）："
+    read -r -s C_PW
+    echo; echo
+    if ! printf '%s\n' "$C_PW" | rssh "sudo -S -p '' true" 2>/dev/null; then
+      echo "  ❌ 密碼唔正確"; unset C_PW; cm_close; exit 1
+    fi
+    echo "  ✅ 密碼正確"
+    A_EXCL='#recycle|sparsebundle|MobileSync|Time Machine|TimeMachine|iPhone|iPad|iTunes|iDevice|/Backup/$'
+    C_ALL=$(printf '%s\n' "$C_PW" | rssh "sudo -S -p '' sh -c \"cd '$SHARE' && du -sk */ 2>/dev/null\"" 2>/dev/null | grep -vE '@eaDir')
+    C_LIST=$(printf '%s\n' "$C_ALL" | grep -Eiv "$A_EXCL" | sort -n)
+    if [ -z "$C_LIST" ]; then
+      echo "  ❌ 攞唔到資料夾清單 —— 掟返俾 Hermes"; unset C_PW; cm_close; exit 1
+    fi
+    C_TOTAL=$(printf '%s\n' "$C_LIST" | grep -c .)
+    C_OK=0; C_BAD=0; C_DONE=0; C_N=0; C_BYTES=0
+    C_REP="$LOGDIR/cloud-$STAMP.report.txt"
+    : > "$C_REP"
+    echo
+    echo "  📋 共 $C_TOTAL 個資料夾（由細至大）"
+    printf '%s\n' "$C_LIST" | while IFS=$'\t' read -r C_K C_D; do
+      [ -n "$C_D" ] || continue
+      C_N=$((C_N+1))
+      C_TAG=$(printf '%s' "$C_D" | tr -d '/' | tr ' ' '_')
+      if [ -f "$CLOUD_TMP/_done/$C_TAG" ]; then
+        echo "  [已上雲，跳過] $C_D"
+        continue
+      fi
+      echo "  ────────────────────────────────────────────────"
+      echo "  [$C_N/$C_TOTAL] $C_D"
+      C_TAR="$CLOUD_TMP/$C_TAG.tar"
+      echo "     ⬇️  串流抽出（NAS → 本地暫存 tar）…"
+      C_R="cd '$SHARE' && python3 /tmp/c3r/c3r_btrfs.py extract --root '$SHARE/$C_D' --out - 2>/dev/null && echo -n ''"
+      printf '%s\n' "$C_PW" | rssh "sudo -S -p '' sh -c \"$C_R\"" 2>"$LOGDIR/cloud-$STAMP.err" > "$C_TAR"
+      if [ ! -s "$C_TAR" ]; then
+        echo "     ⚠️ 收唔到資料 → 重試一次…"
+        printf '%s\n' "$C_PW" | rssh "sudo -S -p '' sh -c \"$C_R\"" 2>>"$LOGDIR/cloud-$STAMP.err" > "$C_TAR"
+      fi
+      if [ ! -s "$C_TAR" ]; then
+        echo "     ❌ 仍然收唔到 → 跳過（報告已記錄）"
+        printf '⚠️ 冇資料\t%s\n' "$C_D" >> "$C_REP"
+        rm -f "$C_TAR"
+        continue
+      fi
+      C_SZ=$(wc -c < "$C_TAR" | tr -d ' ')
+      echo "     🔍 逐檔核 SHA-256（單次讀取，唔解壓）… tar 大細 $((C_SZ/1048576)) MB"
+      C_OUT=$(python3 "$CLOUD_TMP/fb_verify_tar.py" "$C_TAR" 2>/dev/null)
+      # ⚠️ 鐵律：空輸出或任何 err ＝ 失敗（唔可以當通過，否则壞檔照上雲）
+      C_ERR=""
+      case "$C_OUT" in
+        '')       C_ERR="核對器冇輸出（tar 可能損壞或截斷）" ;;
+        *'"err"'*) C_ERR="核對器報錯 $(printf '%s' "$C_OUT" | sed -n 's/.*"err": *"\([^"]*\)".*/\1/p')" ;;
+      esac
+      if [ -n "$C_ERR" ]; then
+        echo "     ❌ $C_ERR → 唔會上傳（下次自動重做）"
+        printf '❗ %s\t%s\n' "$C_D" "$C_ERR" >> "$C_REP"
+        C_BAD=$((C_BAD+1))
+        rm -f "$C_TAR"
+        continue
+      fi
+      C_B=$(printf '%s' "$C_OUT" | sed -n 's/.*"bad": *\([0-9]*\).*/\1/p')
+      C_M=$(printf '%s' "$C_OUT" | sed -n 's/.*"miss": *\([0-9]*\).*/\1/p')
+      C_O=$(printf '%s' "$C_OUT" | sed -n 's/.*"ok": *\([0-9]*\).*/\1/p')
+      C_BY=$(printf '%s' "$C_OUT" | sed -n 's/.*"bytes": *\([0-9]*\).*/\1/p')
+      C_B=${C_B:-0}; C_M=${C_M:-0}; C_O=${C_O:-0}; C_BY=${C_BY:-0}
+      printf '     ✅ 通過 %s ／ ❌ 唔對 %s ／ ❌ 唔見 %s ／ 📦 %s MB\n' "$C_O" "$C_B" "$C_M" "$((C_BY/1048576))"
+      if [ "$C_B" -ne 0 ] || [ "$C_M" -ne 0 ]; then
+        echo "     ❌ 核對唔過 → 唔會上傳（下次自動重做）"
+        printf '❗ %s\t通過 %s\t唔對 %s\t唔見 %s\n' "$C_D" "$C_O" "$C_B" "$C_M" >> "$C_REP"
+        C_BAD=$((C_BAD+1))
+        rm -f "$C_TAR"
+        continue
+      fi
+      echo "     ☁️  上傳去 Drive…"
+      if rclone copyto "$C_TAR" "$CLOUD_REM/$C_TAG.tar" --drive-chunk-size 64M --stats-one-line --log-level ERROR >>"$LOGDIR/cloud-$STAMP.log" 2>>"$LOGDIR/cloud-$STAMP.err"; then
+        echo "     ✅ 已上雲：$CLOUD_REM/$C_TAG.tar"
+        printf '✅ %s\t通過 %s\t唔對 0\t唔見 0\tbytes %s\n' "$C_D" "$C_O" "$C_BY" >> "$C_REP"
+        touch "$CLOUD_TMP/_done/$C_TAG"
+        C_OK=$((C_OK+1)); C_BYTES=$((C_BYTES+C_BY))
+      else
+        echo "     ❌ 上傳失敗 → 保留本地 tar，下次可重傳"
+        printf '❌上傳失敗\t%s\n' "$C_D" >> "$C_REP"
+        C_BAD=$((C_BAD+1))
+        continue
+      fi
+      rm -f "$C_TAR"
+      df -h "$CLOUD_TMP" 2>/dev/null | tail -1 | awk '{print "     💾 暫存碟 剩 "$4}'
+    done
+    unset C_PW
+    cm_close
+    echo
+    C_OK=$(grep -c '^✅' "$C_REP" 2>/dev/null || echo 0)
+    C_BAD=$(grep -cE '^(❗|❌|⚠️)' "$C_REP" 2>/dev/null || echo 0)
+    C_DONE=$(ls -1 "$CLOUD_TMP/_done" 2>/dev/null | wc -l | tr -d ' ')
+    C_BYTES=$(awk -F'\t' '/^✅/{b=$NF; sub("bytes ","",b); s+=b} END{printf "%d", s+0}' "$C_REP" 2>/dev/null)
+    echo "  ═════════ 雲端救援總結 ═════════"
+    echo "  ✅ 成功上雲 : $C_OK 格（累計標記 $C_DONE 格）"
+    echo "  ❌ 有問題   : $C_BAD 格"
+    echo "  📦 已上雲量 : $(( ${C_BYTES:-0} / 1073741824 )) GB"
+    echo "  📄 報告     : $C_REP"
+    echo "  ☁️  雲端位置 : $CLOUD_REM"
+    echo "  ═══════════════════════════════"
+    exit 0
+    ;;
+
   status)
     # ⭐ 早上總覽：唔連 NAS、唔問密碼
     echo "  ══════════ 還原進度總覽（本機，唔會連 NAS）══════════"
@@ -245,6 +437,7 @@ Firebean — 喺 iMac 直接叫 NAS 做嘢
   extract [G]                  重組原檔（輸出 .tar）
   list                         列最大嘅受害檔
   pick                         列 50-600MB 圖／片／PDF（做證明測試最好）
+  cloud [暫存目錄] [遙端]      ★★ 純雲救援：NAS→Drive（逐檔核 SHA-256 後才上傳）
   status                       ★ 早上總覽（唔連 NAS、唔問密碼）
   auto [目的地]                ★★ 無人值守：一次密碼→自動還原全部→逐批驗收
                               （有續跑功能：已完整還原嘅資料夾會自動跳過）
