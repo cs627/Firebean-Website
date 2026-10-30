@@ -12,7 +12,14 @@
 #  全程唯讀，唔會改你任何檔案。
 # ============================================================================
 set -u
-VERSION="fb5-20261030-2150"
+# 靜默挑一個真存在嘅 UTF-8 locale（唔存在就唔設定，避免 setlocale warning）
+for _L in en_US.UTF-8 en_US.utf8 C.UTF-8 zh_HK.UTF-8 UTF-8; do
+  if locale -a 2>/dev/null | grep -qx "$_L"; then
+    export LC_ALL="$_L" LANG="$_L"; break
+  fi
+done
+unset _L
+VERSION="fb6-20261030-2155"
 
 NAS_IP="${NAS_IP:-169.254.71.131}"
 TARGET="${NAS_USER:-dickson}@${NAS_IP}"
@@ -126,7 +133,7 @@ EOF
     exit 0
     ;;
   *)
-    echo "  ❌ 冇呢個任務：「$TASK」"
+    echo "  ❌ 冇呢個任務：「${TASK}」"
     echo
     echo "  可用任務：doctor / preflight / env / gens / list / pick /"
     echo "            prove <路徑> / plan1 <路徑> / extract1 <路徑> / survey / extract"
@@ -138,7 +145,7 @@ EOF
 esac
 
 echo "════════════════════════════════════════════════════"
-echo "  Firebean — NAS 任務：$TASK"
+echo "  Firebean — NAS 任務：${TASK}"
 echo "════════════════════════════════════════════════════"
 echo "  目標      : $TARGET"
 echo "  動作      : $REMOTE"
