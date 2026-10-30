@@ -26,7 +26,22 @@ PORT = 8901
 LIVE = "https://firebean.net/enneagram/"
 SHOTS = "/opt/data/cache/scratch/ennea_shots"
 os.makedirs(SHOTS, exist_ok=True)
-EXE = "/opt/data/home/.cache/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-linux64/chrome-headless-shell"
+def exe():
+    """Resolve a Playwright chromium binary by globbing — Playwright bumps its
+    revision (1234 -> 1248 ...) and a hardcoded revision silently breaks tests."""
+    import glob
+    roots = ["/opt/data/home/.cache/ms-playwright", "/opt/data/.playwright",
+             "/opt/data/.playwright_cache", "/opt/hermes/tools"]
+    pats = ["chromium_headless_shell-*/chrome-headless-shell-linux64/chrome-headless-shell",
+            "chromium-*/chrome-linux64/chrome", "chromium-*/chrome-linux/chrome"]
+    found = []
+    for r in roots:
+        for p in pats:
+            found += sorted(glob.glob(os.path.join(r, p)))
+    for f in found:
+        if os.access(f, os.X_OK):
+            return f
+    return None
 
 payload = B.payload()
 questions = payload["questions"]
@@ -60,7 +75,7 @@ def main():
 
     try:
         with sync_playwright() as p:
-            browser = p.chromium.launch(executable_path=EXE, args=["--no-sandbox", "--disable-dev-shm-usage"])
+            browser = p.chromium.launch(executable_path=exe(), args=["--no-sandbox", "--disable-dev-shm-usage"])
             ctx = browser.new_context(viewport={"width": 1440, "height": 950},
                                       user_agent=("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
                                                   "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"))
