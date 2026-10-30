@@ -19,7 +19,8 @@ for _L in en_US.UTF-8 en_US.utf8 C.UTF-8 zh_HK.UTF-8 UTF-8; do
   fi
 done
 unset _L
-VERSION="fb7-20261030-2200"
+VERSION="fb09-20261030-2210"
+BUILD=9
 
 NAS_IP="${NAS_IP:-169.254.71.131}"
 TARGET="${NAS_USER:-dickson}@${NAS_IP}"
@@ -32,6 +33,33 @@ LOGDIR="$HOME/fb-nas-logs"
 # ⚠️ 千萬唔可以用雙引號包路徑：REMOTE 本身已經喺 ssh 嘅 "…" 同 sh -c "…" 之中，
 #    再套雙引號會令引號提早收口 → --g 參數會掉出 sh -c 外面（實測中過）。
 sq() { printf '%s' "$1" | sed "s/'/'\\''/g"; }
+
+# ══════════════════════════════════════════════════════════════
+# 自我更新：用 GitHub API（零 CDN cache），確保永遠跑最新版。
+# ⚠️ firebean.net 走 GitHub Pages，CDN cache 10 分鐘，連 ?v= 都攔唔住。
+# ⚠️ 用獨立數字 BUILD 比較（唔可以用版本字串字典序：'fb09' < 'fb7'）。
+# ══════════════════════════════════════════════════════════════
+if [ "${FB_NO_UPDATE:-0}" != "1" ]; then
+  _NEW=$(curl -fsSL --max-time 25 \
+    "https://api.github.com/repos/cs627/Firebean-Website/contents/nasbtrfs/fb.sh?ref=main" 2>/dev/null \
+    | perl -MMIME::Base64 -MJSON::PP -0777 -ne 'print decode_base64(decode_json($_)->{content})' 2>/dev/null)
+  case "$_NEW" in
+    \#!*) _NV=$(printf '%s' "$_NEW" | grep -m1 '^VERSION=' | cut -d'"' -f2)
+          _NB=$(printf '%s' "$_NEW" | grep -m1 '^BUILD=' | cut -d= -f2 | tr -d '" ')
+          [ -z "$_NB" ] && _NB=0
+          if [ "$_NB" -gt "${BUILD:-0}" ] 2>/dev/null; then
+            _SELF="$0"; case "$_SELF" in */*) ;; *) _SELF="./$_SELF" ;; esac
+            if printf '%s' "$_NEW" > "$_SELF.new" 2>/dev/null; then
+              mv "$_SELF.new" "$_SELF" && chmod +x "$_SELF" 2>/dev/null
+              export FB_NO_UPDATE=1
+              echo "  🔄 已自動更新：$VERSION → $_NV，重新執行…"
+              echo
+              exec bash "$_SELF" "$@"
+            fi
+          fi ;;
+  esac
+  unset _NEW _NV _NB _SELF
+fi
 
 TASK="${1:-help}"
 STREAM=""
