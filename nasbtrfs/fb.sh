@@ -19,8 +19,8 @@ for _L in en_US.UTF-8 en_US.utf8 C.UTF-8 zh_HK.UTF-8 UTF-8; do
   fi
 done
 unset _L
-VERSION="fb11-20261030-2250"
-BUILD=11
+VERSION="fb12-20261030-2305"
+BUILD=12
 
 NAS_IP="${NAS_IP:-169.254.71.131}"
 TARGET="${NAS_USER:-dickson}@${NAS_IP}"
@@ -260,8 +260,18 @@ if [ "$STREAM" = "auto" ]; then
   # 防止 Mac 休眠
   caffeinate -i -w $$ 2>/dev/null &
   # 取批次清單：由細至大，排除 #recycle / sparsebundle / @eaDir
-  A_LIST=$(rssh "sudo sh -c \"cd '$SHARE' && du -sk */ 2>/dev/null\"" 2>/dev/null \
-           | grep -vE '#recycle|sparsebundle|@eaDir' | sort -n)
+  # 排除清單（Dickson 指定：唔要 #recycle、唔要 iPhone／iMac 時光機備份）
+  A_EXCL='#recycle|sparsebundle|MobileSync|Time Machine|TimeMachine|iPhone|iPad|iTunes|iDevice|/Backup/$'
+  A_ALL=$(rssh "sudo sh -c \"cd '$SHARE' && du -sk */ 2>/dev/null\"" 2>/dev/null | grep -vE '@eaDir')
+  A_DROP=$(printf '%s\n' "$A_ALL" | grep -Ei "$A_EXCL")
+  A_LIST=$(printf '%s\n' "$A_ALL" | grep -Eiv "$A_EXCL" | sort -n)
+  echo "  🚫 排除清單（唔會還原）："
+  if [ -n "$A_DROP" ]; then
+    printf '%s\n' "$A_DROP" | while IFS=$'\t' read -r k d; do echo "       ✗ $d  （$((k/1048576)) GB）"; done
+  else
+    echo "       （冇搵到符合嘅備份／回收目錄）"
+  fi
+  echo
   if [ -z "$A_LIST" ]; then echo "  ❌ 攞唔到資料夾清單"; unset A_PW; exit 1; fi
   A_TOTAL=$(printf '%s\n' "$A_LIST" | grep -c .)
   echo "  📋 共 $A_TOTAL 個資料夾（由細至大處理）"
