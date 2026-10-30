@@ -91,7 +91,7 @@ def payload():
     for q in M.Q:
         questions.append(dict(
             id=q["id"], orig=q["orig"], text=q["text"], kind=q["kind"],
-            max=q["max"], note=q["note"],
+            short=q.get("short", ""), max=q["max"], note=q["note"],
             options=[dict(k=o["k"], label=o["label"], w=o["w"]) for o in q["options"]],
         ))
     assert len(questions) == 20, len(questions)

@@ -196,3 +196,20 @@ if __name__ == "__main__":
     print("questions:", len(Q))
     for m in simulate():
         print("  MISS target T%d -> got T%d (%d vs %d)" % m)
+
+
+# ---- short labels used by the personalised result page (答案驅動解說) ----
+SHORT = {
+    "age": "年齡組別", "occ": "職業範疇", "holding": "居住及物業狀況",
+    "handling": "物業事務處理經驗", "aware": "對新註冊制嘅了解程度",
+    "channel": "政策資訊接觸渠道", "booklet_habit": "紙本小冊子使用習慣",
+    "limitation": "紙本推廣嘅痛點", "concern": "對新制嘅關注點",
+    "risk": "最擔心嘅法律風險", "shortform": "碎片時間睇短片習慣",
+    "duration": "每日睇片時間", "dramareact": "對戲劇化短片嘅反應",
+    "accept": "對政府拍微短劇嘅接受度", "style": "最吸引嘅演繹風格",
+    "transit": "最留意嘅接觸渠道", "seminar": "對傳統講座嘅印象",
+    "element": "期望加入嘅跨界元素", "souvenir_effect": "紀念品對參與意欲嘅影響",
+    "souvenir_type": "最期望嘅紀念品類型",
+}
+for _q in Q:
+    _q["short"] = SHORT.get(_q["id"], _q["text"][:14])

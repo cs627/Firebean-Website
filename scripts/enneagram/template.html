@@ -191,6 +191,25 @@ body.showorig .orig{display:block}
   padding:17px 16px;margin-top:16px;box-shadow:var(--sh)}
 .tipcard h3{color:#3E7A5E}
 .tipcard p{margin:0;font-size:15.5px;color:#33523F}
+.pat{background:linear-gradient(180deg,#FFFBF0,#FFF6E4);border:1.5px solid #F0E2C2;border-radius:var(--r);
+  padding:17px 16px;margin-top:16px;box-shadow:var(--sh)}
+.pat h3{margin:0 0 10px;color:#8A6A24}
+.patRow{display:grid;grid-template-columns:88px minmax(0,1fr);gap:10px;padding:7px 0;border-top:1px dashed #EEE0C4;
+  font-size:15px;color:#4A3B21;align-items:start}
+.patRow:first-of-type{border-top:0}
+.patRow b{color:#8A6A24;font-weight:800;font-size:13.5px;letter-spacing:.3px;display:block}
+.patRow>*{min-width:0}
+.patRow span{word-break:break-word}
+.patRow .hl{color:#B4552B;font-weight:800}
+.ev{background:var(--card);border:1.5px solid var(--line2);border-radius:var(--r);padding:17px 16px;margin-top:16px;box-shadow:var(--sh)}
+.ev h3{margin:0 0 6px}
+.evRow{display:grid;grid-template-columns:minmax(0,1fr);gap:2px;padding:9px 0;border-top:1px dashed var(--line2)}
+.evRow:first-of-type{border-top:0}
+.evQ{font-size:13.5px;color:var(--muted);font-weight:700}
+.evA{font-size:15.5px;color:var(--ink)}
+.evA b{color:#2F6B4F;background:#EFF8F2;border-left:3px solid #7FBF9C;border-radius:6px;
+  padding:3px 8px;display:inline-block;margin-top:3px;font-weight:800}
+.evNote{margin-top:10px;padding-top:10px;border-top:1.5px solid var(--line2);font-size:15px;color:#33523F}
 .centerline{display:flex;gap:12px;align-items:center;background:var(--card);border:1.5px solid var(--line2);
   border-radius:var(--r);padding:14px 16px;margin-top:16px;box-shadow:var(--sh)}
 .centerline .dot{width:14px;height:14px;border-radius:50%;flex:0 0 14px;box-shadow:0 2px 4px rgba(122,92,64,.3)}
@@ -661,7 +680,18 @@ function compute(){
   Object.keys(cen).forEach(function(c){ D.centers[c].types.forEach(function(t){ cen[c]+=s[t] }) });
   let cwin="head"; Object.keys(cen).forEach(function(c){ if(cen[c]>cen[cwin]) cwin=c });
   const ms=Math.max(1,Math.max.apply(null,Object.keys(s).map(function(t){return s[t]})));
-  result={ scores:s, type:win, center:cwin, centerScores:cen, topScore:ms, elapsed:Math.round((Date.now()-started)/1000) };
+  /* --- 個人化：睇分數形狀，唔止睇最高分 --- */
+  const order=Object.keys(s).map(function(x){return parseInt(x,10)}).sort(function(a,b){return s[b]-s[a]});
+  const gap=s[order[0]]-s[order[1]];
+  const dd=Math.abs(order[1]-order[0]);
+  const adjacent=(dd===1||dd===8);                 // 9-1 亦算鄰型
+  const _pct=pct3(cen.head,cen.heart,cen.gut);
+  result={ scores:s, type:win, center:cwin, centerScores:cen, topScore:ms,
+           second:order[1], third:order[2], order:order, gap:gap,
+           wing: adjacent?order[1]:null, latent: adjacent?null:order[1],
+           lowest:order[8],
+           cenPct:{ head:_pct[0], heart:_pct[1], gut:_pct[2] },
+           elapsed:Math.round((Date.now()-started)/1000) };
   try{ localStorage.setItem("ennea_last_result", JSON.stringify(result)); }catch(e){}
   submit();
 }
@@ -672,7 +702,7 @@ function typeBlock(n){
   return '<div class="rhero c-'+t.center+'">'+
     '<div class="mascot-wrap"><img class="mascot" src="'+MASCOT(n)+'" alt="第 '+n+' 型 3D 都會角色" onerror="this.parentNode.style.display=\'none\'"></div>'+
     '<div>'+
-      '<div class="badge">第 '+n+' 型 ・ '+c.n+'</div>'+
+      '<div class="badge">第 '+n+' 型 ・ '+c.n+((result&&result.type===n&&result.wing)?" ・ "+n+"w"+result.wing:"")+'</div>'+
       '<div class="tn">'+t.n+'</div>'+
       '<div class="en">'+t.en+'</div>'+
       '<div class="rep">'+t.rep+'</div>'+
@@ -689,6 +719,66 @@ function typeBlock(n){
     '<div class="sec"><h3><span class="ic">✦</span>外界對你的印象</h3><div class="imp">'+t.imp.map(function(x){return "<span>"+x+"</span>"}).join("")+'</div></div>'+
   '</div>'+
   '<div class="tipcard"><h3>💡 你的專屬土地安全錦囊</h3><p>'+t.tip+'</p></div>';
+}
+function pct3(a,b,c){
+  const t=Math.max(1,a+b+c), raw=[a/t*100,b/t*100,c/t*100], fl=raw.map(Math.floor);
+  let rem=100-fl.reduce(function(x,y){return x+y},0);
+  const idx=[0,1,2].sort(function(i,j){ return (raw[j]-fl[j])-(raw[i]-fl[i]) });
+  for(let i=0;i<rem;i++) fl[idx[i%3]]++;
+  return fl;
+}
+function strengthLabel(g){
+  if(g>=10) return "主型非常清晰，你嘅取向相當一致";
+  if(g>=5)  return "主型清晰，但帶有明顯嘅第二傾向";
+  return "兩型分數幾乎並排（雙核心），你會隨情況喺兩型之間切換";
+}
+/* 由你實際揀過嘅選項，反推邊幾題最呼應某個型 */
+function evidence(type,k){
+  const rows=[];
+  D.questions.forEach(function(q){
+    (answers[q.id]||[]).forEach(function(key){
+      const o=(q.options||[]).filter(function(x){return x.k===key})[0]; if(!o) return;
+      const w=(o.w&&o.w[type])||0; if(w<=0) return;
+      rows.push({ w:w, orig:q.orig, q:q.short||q.text, label:o.label });
+    });
+  });
+  rows.sort(function(a,b){ return b.w-a.w || (a.orig<b.orig?-1:1) });
+  return rows.slice(0,k||3);
+}
+function patternHTML(){
+  if(!result) return "";
+  const r=result, t=D.types[r.type], s2=D.types[r.second], s3=D.types[r.lowest], sc=r.scores;
+  const plt=D.centers[r.center];
+  let h='<div class="pat"><h3>◈ 你嘅組合畫像（唔止睇最高分）</h3>';
+  h+='<div class="patRow"><b>主型</b><span>第 '+r.type+' 型 <span class="hl">'+t.n+'</span>　'+t.tag+'　（'+sc[r.type]+' 分）</span></div>';
+  if(r.wing){
+    h+='<div class="patRow"><b>翼型 '+r.type+'w'+r.wing+'</b><span>第 '+r.wing+' 型 '+s2.n+' 嘅痕跡最明顯：'+s2.shade+'　（'+sc[r.second]+' 分）</span></div>';
+  }else{
+    h+='<div class="patRow"><b>潛藏傾向</b><span>你嘅第二位係<b>非鄰型</b>嘅第 '+r.second+' 型 '+s2.n+'：'+s2.shade+'　—— 呢個係你平時唔為意、但壓力大時會浮面嘅一面（'+sc[r.second]+' 分）</span></div>';
+  }
+  h+='<div class="patRow"><b>強度</b><span>'+strengthLabel(r.gap)+'（主型 '+sc[r.type]+' 分 vs 次型 '+sc[r.second]+' 分，相差 '+r.gap+' 分）；你最少用嘅模式係第 '+r.lowest+' 型 '+s3.n+'。</span></div>';
+  h+='<div class="patRow"><b>中心分佈</b><span>腦（思考）'+r.cenPct.head+'% ・ 心（情感）'+r.cenPct.heart+'% ・ 腹（本能）'+r.cenPct.gut+'%　—— 你主要靠「'+plt.n+'」做決定。</span></div>';
+  h+='</div>';
+  return h;
+}
+function evHTML(){
+  if(!result) return "";
+  const rows=evidence(result.type,3), t=D.types[result.type];
+  if(!rows.length) return "";
+  let h='<div class="ev"><h3>◉ 你嘅答案點樣砌出『第 '+result.type+' 型 '+t.n+'』</h3>';
+  h+='<div class="small muted" style="margin:0 0 4px">你 20 題之中，以下幾項最直接扣連你呢個型（按關聯度排序，所以題號未必順序）：</div>';
+  rows.forEach(function(x){
+    h+='<div class="evRow"><span class="evQ">'+x.orig+' · '+x.q+'</span>'+
+       '<span class="evA">你揀咗「<b>'+x.label+'</b>」</span></div>';
+  });
+  const w=r2w();
+  h+='<div class="evNote">→ 呢啲選擇互相扣連，所以系統判定你嘅核心係「'+t.n+'」，'+(w||"而唔係單靠一題就定型")+'。</div></div>';
+  return h;
+}
+function r2w(){
+  const r=result; if(!r) return "";
+  if(r.wing) return '同時帶有 '+r.type+'w'+r.wing+' 嘅行為傾向';
+  return '並隱藏住第 '+r.second+' 型 '+D.types[r.second].n+' 嘅一面';
 }
 function barsHTML(){
   if(!result) return "";
@@ -707,10 +797,14 @@ function showResult(){
   if(!result){ $("#resultEmpty").style.display=""; $("#resultBody").style.display="none"; return; }
   $("#resultEmpty").style.display="none";
   const t=D.types[result.type];
-  const txt="我喺【都會生活鏡像測驗】測出：第"+result.type+"型 "+t.n+"（"+t.en+"）\n"+t.tag+"\n專屬錦囊："+t.tip+"\n👉 "+location.href;
+  const wtag = result.wing ? "（"+result.type+"w"+result.wing+"）" : "（帶第"+result.second+"型潛藏傾向）";
+  const ev = evidence(result.type,1)[0];
+  const txt="我喺【都會生活鏡像測驗】測出：第"+result.type+"型 "+t.n+wtag+"\n"+t.tag+"\n"+strengthLabel(result.gap)+
+    (ev? "\n最呼應我嘅選擇："+ev.orig+"「"+ev.label+"」" : "")+
+    "\n專屬錦囊："+t.tip+"\n👉 "+location.href;
   const body=$("#resultBody");
   body.style.display="";
-  body.innerHTML = typeBlock(result.type) +
+  body.innerHTML = typeBlock(result.type) + patternHTML() + evHTML() +
     '<div class="card" style="margin-top:16px">'+ barsHTML() +
       '<div class="btnrow" style="margin-top:16px">'+
         '<button class="btn primary" id="rShare">分享我的結果</button>'+
@@ -866,6 +960,7 @@ document.addEventListener("visibilitychange", function(){
   if(result===null) return;
   try{ localStorage.setItem("ennea_last_result",JSON.stringify(result)); }catch(e){}
 });
+window.__ENNEA={ result:function(){return result}, answers:function(){return answers} };
 setView("intro");
 setTimeout(enneaFlush,800);          // retry any response that failed to upload earlier
 })();
