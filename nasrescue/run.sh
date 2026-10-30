@@ -41,7 +41,27 @@ echo
 RC=$?
 echo
 if [ $RC -eq 0 ]; then
-  echo "完成。結果已放喺 $UHOME/Desktop/（master.key / key_structs.txt）"
+  # ── 只講真話：按實際寫出嘅檔案報告 ──
+  MK="$UHOME/Desktop/master.key"; KS="$UHOME/Desktop/key_structs.txt"
+  if [ -f "$MK" ]; then
+    echo ""
+    echo "✅✅ 搵到 MASTER KEY！唔使再做任何掃描。"
+    echo "     檔案      : $MK"
+    echo "     大小      : $(wc -c < "$MK" | tr -d ' ') bytes（正常＝48）"
+    echo "     寫入時間  : $(stat -f '%Sm' -t '%H:%M:%S' "$MK" 2>/dev/null || date -r "$MK" '+%H:%M:%S' 2>/dev/null)"
+    echo ""
+    echo "     ➜ 下一步：將 master.key 拖入 Discord 交俾 Hermes，即可解密全部檔案。"
+  elif [ -f "$KS" ]; then
+    echo ""
+    echo "⚠️  未搵到 master key，但搵到檔案層鑰匙（較弱，仍可能救到部分檔案）："
+    echo "     檔案 : $KS（$(wc -l < "$KS" | tr -d ' ') 筆）"
+    echo "     ➜ 請將 key_structs.txt 交俾 Hermes。"
+  else
+    echo ""
+    echo "❌ 未搵到任何鑰匙 —— 桌面亦冇產生任何檔案。"
+    echo "   ⚠️  請睇返上面「實際讀取 : X GB」一句："
+    echo "        若遠低於掃描量（例如 0 B）＝ 今次根本冇讀到碟，唔係搵唔到。"
+  fi
 else
   echo "掃描器結束碼 $RC — 請將上面全部輸出影低／複製俾 Hermes。"
 fi
