@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>都會生活鏡像測驗 ｜ 九型人格 × 香港土地政策公眾調研</title>
+<meta name="description" content="20 條土地政策調研題目，化成一次自我探索：測出你的九型人格原型、處世防禦方式，以及專屬的都會土地安全錦囊。">
+<meta name="theme-color" content="#FFF7EB">
+<link rel="canonical" href="https://firebean.net/enneagram/">
+<style>
+:root{
+  --ink:#4A3728;--ink2:#6B5344;--muted:#9A8571;--line:#F0E2CE;--line2:#F7EDDD;
+  --cream:#FFF7EB;--cream2:#FFF1DE;--card:#FFFDF8;
+  --mint:#A8D8BE;--mint2:#7FC5A2;--mintbg:#EAF7F0;
+  --butter:#FFE39B;--peach:#FFC3A0;--rose:#F08A8A;--sky:#A9CBEF;--lilac:#D4C4F0;
+  --head:#7FAFE0;--heart:#F09A9A;--gut:#84C8A8;
+  --gold:#C89A4E;--goldbg:#FFF6DF;
+  --sh:0 2px 0 rgba(255,255,255,.9) inset,0 16px 32px -16px rgba(122,92,64,.32),0 3px 10px -5px rgba(122,92,64,.16);
+  --sh2:0 2px 0 rgba(255,255,255,.9) inset,0 26px 48px -22px rgba(122,92,64,.34);
+  --r:20px;--r2:30px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  color:var(--ink);background:var(--cream);
+  background-image:
+    radial-gradient(760px 420px at 8% -6%, #FFF0D2 0%, rgba(255,240,210,0) 62%),
+    radial-gradient(620px 380px at 96% 4%, #E8F6EE 0%, rgba(232,246,238,0) 60%),
+    radial-gradient(700px 460px at 52% 104%, #FFF2E0 0%, rgba(255,242,224,0) 64%);
+  background-attachment:fixed;
+  font:16px/1.72 -apple-system,BlinkMacSystemFont,"PingFang HK","Noto Sans HK","Noto Sans TC","Microsoft JhengHei","Heiti TC",sans-serif;
+  -webkit-text-size-adjust:100%;text-rendering:optimizeLegibility;
+}
+h1,h2,h3,h4{line-height:1.34;margin:0 0 .5em;letter-spacing:-.01em;font-weight:800}
+h1{font-size:clamp(26px,6.6vw,44px)}
+h2{font-size:clamp(20px,4.8vw,28px)}
+h3{font-size:17.5px}
+h4{font-size:15px;color:var(--muted)}
+p{margin:0 0 1em}
+a{color:#4E8A6C}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:8px;top:8px;z-index:99;background:#fff;padding:10px 14px;border-radius:12px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+:focus-visible{outline:3px solid #7FC5A2;outline-offset:3px;border-radius:10px}
+
+/* ---------- shell: mobile first ---------- */
+.shell{display:block;min-height:100vh}
+.rail{display:none}
+main{display:block;padding-bottom:118px}
+.wrap{padding:0 16px}
+.mobtop{
+  position:sticky;top:0;z-index:40;background:rgba(255,247,235,.94);color:var(--ink);
+  padding:10px 14px 12px;backdrop-filter:saturate(150%) blur(10px);
+  border-bottom:1px solid var(--line2);box-shadow:0 10px 24px -22px rgba(122,92,64,.7);
+}
+.mobtop .mt-row{display:flex;align-items:center;gap:8px}
+.mobtop .mt-t{font-size:15px;font-weight:800;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mobtop .mt-link{color:var(--ink2);font-size:12.5px;font-weight:700;border:1.5px solid var(--line);
+  border-radius:999px;padding:5px 11px;background:#FFFDF8;cursor:pointer;font-family:inherit;box-shadow:0 2px 0 #EBDCC6}
+.mobtop .mt-link:active{transform:translateY(2px);box-shadow:none}
+.progcap{display:flex;align-items:center;gap:8px;margin-top:9px;background:linear-gradient(180deg,#FFEDBC,#FFE39B);
+  color:#7A5C2E;border-radius:999px;padding:7px 14px;font-weight:800;font-size:12.5px;
+  box-shadow:0 3px 0 #EFD189,0 10px 18px -12px rgba(200,154,78,.8)}
+.progcap .pc-ico{font-size:14px}
+.progcap b{color:#5C4318}
+.pbar{height:10px;background:#F6E9D6;border-radius:999px;margin-top:10px;overflow:hidden;
+  box-shadow:inset 0 2px 4px rgba(122,92,64,.16)}
+.pbar i{display:block;height:100%;width:0;border-radius:999px;
+  background:linear-gradient(90deg,#FFE39B,#A8D8BE 55%,#7FC5A2);transition:width .38s cubic-bezier(.3,1.3,.5,1)}
+
+/* ---------- views ---------- */
+.view{display:none;padding:20px 0 10px}
+.view.on{display:block;animation:pop .3s cubic-bezier(.3,1.2,.5,1)}
+@keyframes pop{from{opacity:0;transform:translateY(10px) scale(.995)}to{opacity:1;transform:none}}
+.card{background:var(--card);border:1.5px solid var(--line2);border-radius:var(--r2);box-shadow:var(--sh);padding:20px}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:800;letter-spacing:.04em;
+  color:#4E8A6C;background:var(--mintbg);border:1.5px solid #D2EBDD;border-radius:999px;padding:6px 13px;margin-bottom:14px;
+  box-shadow:0 2px 0 rgba(127,197,162,.35)}
+.lead{font-size:16.5px;color:var(--ink2)}
+.muted{color:var(--muted)}
+.small{font-size:13.5px;line-height:1.68}
+.hr{height:1.5px;background:var(--line2);margin:20px 0;border:0}
+
+/* ---------- buttons: clay press ---------- */
+.btn{
+  appearance:none;font-family:inherit;font-size:16px;font-weight:800;cursor:pointer;border:0;
+  border-radius:999px;padding:15px 22px;transition:transform .12s,box-shadow .12s;min-height:52px;
+}
+.btn.primary{background:linear-gradient(180deg,#B9E4CC,#8FCFAE);color:#274737;
+  box-shadow:0 5px 0 #79BD99,0 16px 26px -14px rgba(121,189,153,.9)}
+.btn.primary:hover{background:linear-gradient(180deg,#C2E9D4,#98D5B6)}
+.btn.primary:active{transform:translateY(4px);box-shadow:0 1px 0 #79BD99}
+.btn.ghost{background:#FFFDF8;color:var(--ink);box-shadow:0 4px 0 #EBDCC6,0 14px 22px -16px rgba(122,92,64,.7)}
+.btn.ghost:hover{background:#FFF8EA}
+.btn.ghost:active{transform:translateY(3px);box-shadow:0 1px 0 #EBDCC6}
+.btn:disabled{opacity:.45;cursor:not-allowed;box-shadow:0 4px 0 #EFE4D4;transform:none}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.btnrow .btn{flex:1 1 180px}
+
+/* ---------- mascot ---------- */
+.mascot-wrap{position:relative;width:min(52vw,200px);aspect-ratio:1;margin:0 auto 10px}
+.mascot-wrap:before{content:"";position:absolute;left:4%;right:4%;top:10%;bottom:2%;border-radius:50%;
+  background:var(--blob,#FFE39B);opacity:.9;filter:blur(1px)}
+.mascot-wrap:after{content:"";position:absolute;left:22%;right:22%;bottom:0;height:14px;border-radius:50%;
+  background:rgba(122,92,64,.18);filter:blur(6px)}
+.mascot{position:relative;width:100%;height:100%;object-fit:contain;display:block;
+  filter:drop-shadow(0 16px 20px rgba(122,92,64,.26))}
+
+/* ---------- intro ---------- */
+.hero-intro{position:relative;overflow:hidden}
+.hero-intro:before{content:"";position:absolute;right:-70px;top:-70px;width:230px;height:230px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,#FFEDC0,rgba(255,237,192,0) 70%)}
+.hero-intro:after{content:"";position:absolute;left:-80px;bottom:-90px;width:250px;height:250px;border-radius:50%;
+  background:radial-gradient(circle at 40% 40%,#E4F5EC,rgba(228,245,236,0) 70%)}
+.hero-intro>*{position:relative}
+.hero-mascot{width:min(58vw,220px);margin:2px auto 8px}
+.kv{display:grid;gap:10px;margin:18px 0 4px}
+.kv div{display:flex;gap:10px;align-items:flex-start;font-size:15px}
+.kv b{flex:0 0 auto;color:#4E8A6C}
+.parts-preview{display:grid;gap:10px;margin-top:14px}
+.parts-preview>div{background:#FFFBF2;border:1.5px solid var(--line2);border-radius:16px;padding:12px 14px;
+  box-shadow:0 3px 0 #F3E6D2}
+.parts-preview b{color:#4A3728}
+
+/* ---------- quiz ---------- */
+.qhead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px;flex-wrap:wrap}
+.parttag{font-size:12.5px;font-weight:800;color:#8A6A2E;background:var(--goldbg);
+  border:1.5px solid #F0DFB6;border-radius:999px;padding:5px 12px;box-shadow:0 2px 0 #EFE0B8}
+.qcount{font-size:13px;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
+.qtext{font-size:clamp(18px,4.8vw,24px);line-height:1.52;margin:12px 0 4px}
+.qnote{font-size:13.5px;color:var(--muted);margin:0 0 16px}
+.opts{display:grid;gap:12px}
+.opt{
+  display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;
+  background:#FFFDF8;border:2px solid var(--line);border-radius:18px;padding:15px 16px;
+  font:inherit;font-size:15.5px;line-height:1.6;color:var(--ink);cursor:pointer;
+  transition:transform .12s,border-color .16s,background .16s,box-shadow .12s;min-height:58px;
+  box-shadow:0 3px 0 #F0E2CE,0 12px 20px -18px rgba(122,92,64,.8);
+}
+.opt:hover{border-color:var(--mint);background:#FFFCF4}
+.opt:active{transform:translateY(2px);box-shadow:0 1px 0 #F0E2CE}
+.opt .mk{flex:0 0 26px;height:26px;border-radius:50%;border:2px solid var(--line);background:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--muted);margin-top:1px}
+.opt[aria-pressed="true"]{border-color:var(--mint2);background:var(--mintbg);box-shadow:0 3px 0 #A6DCC0}
+.opt[aria-pressed="true"] .mk{background:linear-gradient(180deg,#A8D8BE,#7FC5A2);border-color:var(--mint2);color:#fff}
+.opt.dim{opacity:.45}
+.opt .lbl{flex:1;min-width:0}
+.opt .sub{display:block;font-size:13px;color:var(--muted);margin-top:3px;font-weight:400}
+.orig{display:none;font-size:12.5px;color:var(--muted);margin-top:14px}
+body.showorig .orig{display:block}
+.qfoot{display:flex;align-items:center;gap:12px;margin-top:16px;flex-wrap:wrap}
+.qfoot .mini{background:none;border:0;font:inherit;font-size:13px;color:var(--muted);
+  text-decoration:underline;cursor:pointer;padding:8px 2px}
+
+/* sticky quiz action bar */
+.actionbar{position:fixed;left:0;right:0;bottom:0;z-index:45;background:rgba(255,247,235,.97);
+  border-top:1.5px solid var(--line2);padding:11px 14px calc(11px + env(safe-area-inset-bottom));
+  display:none;gap:10px;box-shadow:0 -14px 30px -24px rgba(122,92,64,.9)}
+.actionbar.on{display:flex}
+.actionbar .btn{flex:1}
+.actionbar .btn.back{flex:0 0 auto;min-width:96px}
+
+/* ---------- result ---------- */
+.rhero{border-radius:var(--r2);padding:22px 20px;position:relative;overflow:hidden;text-align:center;
+  border:1.5px solid var(--line2);box-shadow:var(--sh2)}
+.rhero.c-head{background:linear-gradient(160deg,#EAF3FD,#D3E6FA);--blob:#A9CBEF}
+.rhero.c-heart{background:linear-gradient(160deg,#FFF0EC,#FFDCD2);--blob:#FFC3A0}
+.rhero.c-gut{background:linear-gradient(160deg,#EDF8F1,#D6EFE2);--blob:#A8D8BE}
+.rhero:before{content:"";position:absolute;inset:auto -40% -70% auto;width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,rgba(255,255,255,.85),rgba(255,255,255,0) 65%)}
+.rhero>*{position:relative}
+.rhero .badge{display:inline-flex;align-items:center;gap:8px;background:#FFFDF8;color:var(--ink);
+  border-radius:999px;padding:7px 16px;font-weight:800;font-size:14px;box-shadow:0 4px 0 rgba(122,92,64,.14)}
+.rhero .tn{font-size:clamp(24px,6.4vw,36px);margin:10px 0 2px}
+.rhero .en{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);font-weight:800}
+.rhero .rep{font-size:16px;margin:12px auto 0;max-width:44ch;color:var(--ink2)}
+.rhero .chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.chip{font-size:12.5px;font-weight:800;background:#FFFDF8;border:1.5px solid var(--line);
+  border-radius:999px;padding:6px 12px;box-shadow:0 3px 0 #F0E4D2}
+.rhero .cap3d{font-size:12.5px;color:var(--muted);font-weight:700;margin-top:10px}
+.rgrid{display:grid;gap:14px;margin-top:16px}
+.sec{background:var(--card);border:1.5px solid var(--line2);border-radius:var(--r);padding:17px 16px;box-shadow:var(--sh)}
+.sec h3{display:flex;align-items:center;gap:9px;margin-bottom:8px}
+.sec h3 .ic{width:28px;height:28px;flex:0 0 28px;border-radius:10px;background:var(--mintbg);color:#4E8A6C;
+  display:flex;align-items:center;justify-content:center;font-size:14px;box-shadow:0 2px 0 #D3EBDD}
+.sec p{margin:0;font-size:15.5px}
+.imp{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
+.imp span{font-size:14px;font-weight:700;background:#FFF8EC;border:1.5px solid var(--line);border-radius:999px;
+  padding:6px 12px;box-shadow:0 3px 0 #F2E6D4}
+.tipcard{background:linear-gradient(180deg,#F2FBF6,#EAF7F0);border:1.5px solid #D2EBDD;border-radius:var(--r);
+  padding:17px 16px;margin-top:16px;box-shadow:var(--sh)}
+.tipcard h3{color:#3E7A5E}
+.tipcard p{margin:0;font-size:15.5px;color:#33523F}
+.centerline{display:flex;gap:12px;align-items:center;background:var(--card);border:1.5px solid var(--line2);
+  border-radius:var(--r);padding:14px 16px;margin-top:16px;box-shadow:var(--sh)}
+.centerline .dot{width:14px;height:14px;border-radius:50%;flex:0 0 14px;box-shadow:0 2px 4px rgba(122,92,64,.3)}
+.bars{margin-top:8px;display:grid;gap:9px}
+.bar{display:grid;grid-template-columns:26px minmax(0,1fr);gap:10px;align-items:center;position:relative}
+.bar .tn{font-size:13px;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
+.bar .track{height:28px;background:#F7EDDD;border-radius:999px;overflow:hidden;position:relative;
+  box-shadow:inset 0 2px 4px rgba(122,92,64,.14)}
+.bar .fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#E9DCC9,#D9CBB6);transition:width .6s cubic-bezier(.3,1.2,.5,1)}
+.bar.me .fill{background:linear-gradient(90deg,#B9E4CC,#7FC5A2)}
+.bar .lab{position:absolute;left:12px;top:0;height:100%;display:flex;align-items:center;font-size:12.5px;
+  font-weight:800;color:#5C4630;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:calc(100% - 54px)}
+.bar .val{position:absolute;right:12px;top:0;height:100%;display:flex;align-items:center;font-size:12.5px;
+  font-weight:800;color:#5C4630;font-variant-numeric:tabular-nums}
+.share-note{display:none;margin-top:10px;font-size:13.5px;color:#3E7A5E;font-weight:800}
+.share-note.on{display:block}
+
+/* ---------- atlas ---------- */
+.atlasgrid{display:grid;gap:12px;margin-top:6px}
+.acard{text-align:center;width:100%;background:var(--card);border:1.5px solid var(--line2);border-radius:var(--r);
+  padding:14px 14px 16px;box-shadow:var(--sh);cursor:pointer;font:inherit;transition:transform .14s,box-shadow .14s;position:relative}
+.acard:hover{transform:translateY(-3px);box-shadow:var(--sh2)}
+.acard.ct-head{--blob:#A9CBEF}
+.acard.ct-heart{--blob:#FFC3A0}
+.acard.ct-gut{--blob:#A8D8BE}
+.acard .amasc{position:relative;width:104px;height:104px;margin:2px auto 8px}
+.acard .amasc img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 12px rgba(122,92,64,.24))}
+.acard .an{font-size:12.5px;font-weight:800;color:var(--muted);letter-spacing:.06em}
+.acard .at{font-size:18px;font-weight:800;margin:2px 0 3px}
+.acard .ae{font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:800}
+.acard .ar{font-size:14px;color:var(--ink2);margin-top:8px}
+
+/* ---------- modal ---------- */
+.modal{position:fixed;inset:0;z-index:80;background:rgba(74,55,40,.5);display:none;
+  align-items:flex-start;justify-content:center;padding:16px;overflow:auto;backdrop-filter:blur(3px)}
+.modal.on{display:flex}
+.mbox{background:var(--cream);border-radius:var(--r2);max-width:760px;width:100%;margin:auto;
+  box-shadow:0 34px 80px -30px rgba(74,55,40,.6);overflow:hidden;border:1.5px solid var(--line2)}
+.mtop{display:flex;align-items:center;justify-content:space-between;gap:12px;background:linear-gradient(180deg,#FFF1DE,#FFE7C9);padding:14px 16px;border-bottom:1.5px solid var(--line2)}
+.mtop .mt2{font-weight:800;font-size:16px;color:var(--ink)}
+.mtop button{background:#FFFDF8;border:1.5px solid var(--line);color:var(--ink);border-radius:999px;
+  font:inherit;font-size:14px;font-weight:700;padding:7px 14px;cursor:pointer;box-shadow:0 3px 0 #EBDCC6}
+.mbody{padding:18px 16px 24px}
+
+/* ---------- data view ---------- */
+.statline{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-end;margin:6px 0 4px}
+.statline .big{font-size:56px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums;color:#3E7A5E}
+.statline .cap{font-size:13.5px;color:var(--muted);font-weight:700}
+.dbar{display:grid;grid-template-columns:64px minmax(0,1fr) 52px;gap:10px;align-items:center;font-size:13.5px}
+.dbar .track{height:24px;background:#F7EDDD;border-radius:999px;overflow:hidden;box-shadow:inset 0 2px 4px rgba(122,92,64,.14)}
+.dbar .fill{height:100%;background:linear-gradient(90deg,#B9E4CC,#7FC5A2);border-radius:999px;transition:width .6s}
+.dbar .v{text-align:right;font-weight:800;font-variant-numeric:tabular-nums;color:var(--ink2)}
+table.src{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:8px}
+table.src th,table.src td{text-align:left;padding:8px 6px;border-bottom:1.5px solid var(--line2);vertical-align:top}
+table.src th{color:var(--muted);font-size:12.5px}
+
+/* ---------- proposal ---------- */
+.pblock{background:var(--card);border:1.5px solid var(--line2);border-radius:var(--r);padding:18px 16px;box-shadow:var(--sh);margin-bottom:14px}
+.pblock .pn{font-size:12.5px;font-weight:800;color:#8A6A2E;letter-spacing:.06em}
+.pblock h3{margin:4px 0 8px;font-size:19px}
+.pblock p{margin:0 0 .8em;font-size:15.5px}
+.pblock p:last-child{margin:0}
+.pblock .q{background:var(--goldbg);border-left:5px solid #E4C57E;border-radius:12px;padding:12px 13px;margin-top:10px;font-size:15px}
+.matchList{display:grid;gap:10px;margin-top:6px}
+.matchRow{display:grid;grid-template-columns:92px minmax(0,1fr);gap:12px;align-items:start;
+  background:var(--card);border:1.5px solid var(--line2);border-radius:16px;padding:12px 14px;box-shadow:var(--sh)}
+.matchRow .tm{font-weight:800;font-size:14px;color:#3E7A5E}
+.matchRow .mm{font-size:14.5px}
+
+footer.foot{padding:26px 16px 40px;color:var(--muted);font-size:12.5px;line-height:1.72}
+footer.foot b{color:var(--ink2)}
+
+/* ================= Desktop / iPad ================= */
+@media (min-width:1000px){
+  .shell{display:grid;grid-template-columns:290px minmax(0,1fr);align-items:start}
+  .rail{display:flex;flex-direction:column;gap:6px;position:sticky;top:0;height:100vh;padding:26px 22px;
+    background:linear-gradient(180deg,#FFF6E7,#FFEFDA);border-right:1.5px solid var(--line2);overflow:auto}
+  .rail .brand{display:flex;align-items:center;gap:11px;margin-bottom:20px}
+  .rail .brand .bl{font-family:Anton,Impact,sans-serif;font-size:21px;letter-spacing:.06em;line-height:1;color:var(--ink)}
+  .rail .brand .bl i{font-style:normal;color:#E4572E}
+  .rail .brand .bs{font-size:11.5px;color:var(--muted);letter-spacing:.04em;font-weight:700}
+  .rail nav{display:grid;gap:6px}
+  .rail nav button{display:flex;align-items:center;gap:11px;width:100%;background:#FFFDF8;border:1.5px solid var(--line2);
+    color:var(--ink);font:inherit;font-size:15px;font-weight:700;text-align:left;padding:12px 13px;border-radius:14px;
+    cursor:pointer;box-shadow:0 3px 0 #F0E4D2;transition:transform .12s,box-shadow .12s,background .16s}
+  .rail nav button:hover{background:#FFF8EA}
+  .rail nav button:active{transform:translateY(2px);box-shadow:0 1px 0 #F0E4D2}
+  .rail nav button.on{background:linear-gradient(180deg,#C6E9D6,#A8D8BE);border-color:#9BD2B8;
+    box-shadow:0 3px 0 #8CC5A6;color:#274737}
+  .rail nav button .ni{width:20px;text-align:center;font-size:15px}
+  .rail .railprog{margin-top:auto;padding-top:22px}
+  .rail .railprog .pl{display:flex;justify-content:space-between;gap:8px;font-size:12.5px;color:#7A5C2E;font-weight:800;margin-bottom:8px}
+  .rail .railprog .pt{height:12px;border-radius:999px;background:#F6E9D6;overflow:hidden;box-shadow:inset 0 2px 4px rgba(122,92,64,.16)}
+  .rail .railprog .pt i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#FFE39B,#A8D8BE 55%,#7FC5A2);transition:width .38s}
+  .rail .railmasc{width:150px;margin:6px auto 4px}
+  .rail .railfoot{margin-top:16px;font-size:11.5px;color:var(--muted);line-height:1.65}
+  .mobtop{display:none}
+  main{padding:0 0 60px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 40px}
+  .view{padding:34px 0 14px}
+  .actionbar{position:static;background:none;border:0;box-shadow:none;padding:0;margin-top:20px;display:flex}
+  .actionbar.on{display:flex}
+  .actionbar .btn.back{min-width:130px}
+  .opts.two{grid-template-columns:1fr 1fr}
+  .rgrid{grid-template-columns:1fr 1fr}
+  .atlasgrid{grid-template-columns:repeat(3,1fr)}
+  .card{padding:30px}
+  .hero-intro{padding:36px}
+  .hero-intro .hero-mascot{width:230px;margin-top:-4px}
+  .kv{grid-template-columns:1fr 1fr;gap:12px 26px}
+  .parts-preview{grid-template-columns:1fr 1fr}
+  .modal{padding:40px}
+  .rhero{padding:30px 34px}
+  .rhero .mascot-wrap{width:230px}
+  .rhero{display:grid;grid-template-columns:230px minmax(0,1fr);gap:26px;align-items:center;text-align:left}
+  .rhero .mascot-wrap{margin:0}
+  .rhero .chips,.rhero .badge{justify-content:flex-start}
+  .rhero .rep{margin-left:0}
+  .proposalGrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .proposalGrid .pblock{margin:0}
+}
+@media (min-width:1360px){
+  .wrap{max-width:1180px}
+  .atlasgrid{grid-template-columns:repeat(3,1fr)}
+}
+@media print{
+  .rail,.mobtop,.actionbar,.btnrow{display:none!important}
+  .shell{display:block}.view{display:block!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#mainv">跳去主內容</a>
+
+<div class="shell">
+  <aside class="rail" aria-label="主導覽">
+    <div class="brand">
+      <div>
+        <div class="bl">FIRE<i>BEAN</i></div>
+        <div class="bs">都會生活研究室</div>
+      </div>
+    </div>
+    <nav id="railnav">
+      <button data-go="intro" class="on"><span class="ni">◆</span>測驗簡介</button>
+      <button data-go="quiz"><span class="ni">✎</span>開始作答</button>
+      <button data-go="result"><span class="ni">★</span>我的分析報告</button>
+      <button data-go="atlas"><span class="ni">❖</span>九型圖鑑</button>
+      <button data-go="data"><span class="ni">▤</span>調研數據</button>
+      <button data-go="proposal"><span class="ni">▣</span>匯報要點</button>
+    </nav>
+    <img class="railmasc mascot" src="img/hero.webp" alt="" onerror="this.style.display='none'">
+    <div class="railprog">
+      <div class="pl"><span>作答進度</span><span id="railProgTxt">0 / 20</span></div>
+      <div class="pt"><i id="railProgBar"></i></div>
+    </div>
+    <div class="railfoot">
+      題目源自《香港土地政策新法規與公眾溝通策略》市場調查問卷（共 20 題，原文題號 Q1–Q9、Q11–Q21）。<br>匿名作答，不作商業推銷。
+    </div>
+  </aside>
+
+  <main id="mainv">
+    <div class="mobtop">
+      <div class="mt-row">
+        <span class="mt-t" id="mobTitle">都會生活鏡像測驗</span>
+        <button class="mt-link" data-go="intro">簡介</button>
+        <button class="mt-link" data-go="atlas">圖鑑</button>
+      </div>
+      <div class="progcap"><span class="pc-ico">✦</span><span id="mobProgTxt">仲有 20 題解鎖你的都會鏡像</span></div>
+      <div class="pbar"><i id="mobProgBar"></i></div>
+    </div>
+
+    <!-- ============ INTRO ============ -->
+    <section class="view on" id="v-intro">
+      <div class="wrap">
+        <div class="card hero-intro">
+          <span class="eyebrow">互動市場研究 ｜ 九型人格 × 土地政策</span>
+          <img class="hero-mascot mascot" src="img/hero.webp" alt="" onerror="this.style.display='none'">
+          <h1>【都會生活鏡像測驗】</h1>
+          <p class="lead" style="font-size:18px;font-weight:800;margin-bottom:14px">
+            從生活決策與直覺，測出你的九型人格原型，解鎖專屬你的 3D 都會角色！
+          </p>
+          <p>在節奏緊湊的香港，面對置業抉擇、資產安全、每日海量資訊與生活細節，你的潛意識正在如何為你導航？</p>
+          <p>透過 20 道涵蓋日常習慣、危機防禦與感官直覺的題目，揭開你的真實九型人格——剖析你的<b>內心真實想法</b>、<b>處事作風</b>、<b>潛藏性格</b>與<b>外界對你的第一印象</b>，並為你解鎖專屬的<b>都會生活安全密碼</b>。</p>
+          <div class="kv">
+            <div><b>約 5–6 分鐘</b><span class="muted">20 題，逐題作答，可隨時返回修改</span></div>
+            <div><b>匿名進行</b><span class="muted">資料只作統計分析與公關策劃參考，絕不作商業推銷</span></div>
+            <div><b>即時報告</b><span class="muted">完成後即出九型分析卡＋3D 專屬角色＋土地政策安全錦囊</span></div>
+            <div><b>真實題目</b><span class="muted">題目與選項原文不變，只以心理測驗形式呈現</span></div>
+          </div>
+          <div class="btnrow" style="margin-top:22px">
+            <button class="btn primary" data-go="quiz" id="startBtn">開始測驗 →</button>
+            <button class="btn ghost" data-go="atlas">先睇九型圖鑑</button>
+          </div>
+          <div class="hr"></div>
+          <h4>測驗涵蓋七個面向</h4>
+          <div class="parts-preview" id="partsPreview"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ QUIZ ============ -->
+    <section class="view" id="v-quiz">
+      <div class="wrap">
+        <div class="card" id="qcard">
+          <div class="qhead">
+            <span class="parttag" id="qPart">第一部分</span>
+            <span class="qcount" id="qCount">第 1 / 20 題</span>
+          </div>
+          <h2 class="qtext" id="qText" tabindex="-1">—</h2>
+          <p class="qnote" id="qNote"></p>
+          <div class="opts" id="qOpts" role="group" aria-labelledby="qText"></div>
+          <div class="orig" id="qOrig"></div>
+          <div class="qfoot">
+            <button class="mini" id="origToggle" type="button">顯示原問卷題號對照</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESULT ============ -->
+    <section class="view" id="v-result">
+      <div class="wrap">
+        <div id="resultEmpty" class="card" style="display:none">
+          <h2>仲未有結果</h2>
+          <p class="muted">先完成 20 題，就會即刻生成你的專屬分析報告同 3D 都會角色。</p>
+          <div class="btnrow"><button class="btn primary" data-go="quiz">開始測驗 →</button></div>
+        </div>
+        <div id="resultBody" style="display:none"></div>
+      </div>
+    </section>
+
+    <!-- ============ ATLAS ============ -->
+    <section class="view" id="v-atlas">
+      <div class="wrap">
+        <div class="card">
+          <span class="eyebrow">九型圖鑑 ｜ 都會原型</span>
+          <h2>九種都會生活原型</h2>
+          <p class="muted small">點任何一張卡，睇齊【內心諗法】【處事方法】【潛藏性格】【外界印象】同專屬土地安全錦囊。</p>
+          <div class="hr"></div>
+          <div class="atlasgrid" id="atlasGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DATA ============ -->
+    <section class="view" id="v-data">
+      <div class="wrap">
+        <div class="card">
+          <span class="eyebrow">調研數據 ｜ 匿名匯總</span>
+          <h2>全港累計分佈</h2>
+          <p class="muted small">只顯示匯總數字，不含任何個人資料。每一份匿名作答，都同時係一份土地政策公眾調研樣本。</p>
+          <div class="statline">
+            <div class="big" id="dTotal">—</div>
+            <div class="cap">份已完成測驗<br><span id="dStatus" class="muted">連線中…</span></div>
+          </div>
+          <div class="hr"></div>
+          <div id="dCanvas" class="bars"></div>
+          <hr class="hr">
+          <button class="mini" id="srcToggle" type="button" style="background:none;border:0;font:inherit;font-size:13px;color:var(--muted);text-decoration:underline;cursor:pointer;padding:0">顯示數據來源</button>
+          <div id="dSrc" style="display:none" class="small muted"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROPOSAL ============ -->
+    <section class="view" id="v-proposal">
+      <div class="wrap">
+        <div class="card">
+          <span class="eyebrow">匯報要點 ｜ 給評審／官員</span>
+          <h2>數碼互動王牌：點樣用「九型人格」講呢個調研？</h2>
+          <p class="muted small">同一套題目，兩種用途：對市民係自我探索測驗，對決策者係一份帶民意數據的分眾傳播導航圖。</p>
+          <div class="hr"></div>
+          <div class="proposalGrid">
+            <div class="pblock">
+              <div class="pn">01 破除調研痛點</div>
+              <h3>創造病毒式參與<br>（Viral Engagement）</h3>
+              <p>我們打破傳統問卷冷冰冰的填表形式，將 20 條嚴謹的調研題目，無縫融入專為香港人設計的「九型都會人格測驗」。受訪者在探索自我性格的同時，不知不覺完成所有數據採集。</p>
+              <div class="q">預計填答完成率將較傳統問卷提升 <b>300%</b>。</div>
+            </div>
+            <div class="pblock">
+              <div class="pn">02 精準分眾傳播矩陣</div>
+              <h3>受眾導航儀<br>（Precision Segmentation）</h3>
+              <p>這套九型人格模型不單是問卷，更是整套公關方案的受眾導航儀——每一型都對應一條最有效的接觸路線。</p>
+            </div>
+          </div>
+          <div class="hr"></div>
+          <h3>每一型 → 一條傳播路線</h3>
+          <div class="matchList" id="matchList"></div>
+          <div class="hr"></div>
+          <div class="pblock" style="margin-bottom:0">
+            <div class="pn">03 無痕置入政策定心丸</div>
+            <h3>Native Policy Education</h3>
+            <p>每一位市民測驗完畢後，除了獲得性格分析，結果頁均會量身送上一句為其訂造的「土地政策安全錦囊」，在公眾心中建立最強烈的政策信任度。</p>
+          </div>
+          <div class="hr"></div>
+          <h3>回收數據後：標書三步曲</h3>
+          <div class="matchList">
+            <div class="matchRow"><div class="tm">① 破除舊思維</div><div class="mm">引用紙本小冊子與傳統講座的觀感數據，指出「快速翻閱即丟」、「沉悶官腔」，推翻「繼續印單張、辦普通簡介會」的陳舊思路。</div></div>
+            <div class="matchRow"><div class="tm">② 鎖定新行為</div><div class="mm">引用短片觀看時長與交通媒體接觸數據，證明微短劇與交通媒體投放緊扣市民每日生活軌跡，絕非隨意發想。</div></div>
+            <div class="matchRow"><div class="tm">③ 策略全落地</div><div class="mm">引用各項支持度百分比，證明「微短劇」、「3D 田兔兔」、「商業綜藝級生動講座」及「巡迴展覽定心丸」皆為壓倒性支持項目。</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="actionbar" id="actionbar">
+      <button class="btn ghost back" id="btnPrev">← 上一題</button>
+      <button class="btn primary" id="btnNext">下一題</button>
+    </div>
+
+    <footer class="foot">
+      <div class="wrap">
+        <b>資料說明：</b>題目及選項原文出自《香港土地政策新法規與公眾溝通策略》市場調查問卷（Doc 版共 20 題，原文題號 Q1–Q9、Q11–Q21），本測驗不作任何內容改動，僅以心理測驗形式呈現，並加入九型人格計分作為分眾分析框架。<br>
+        問卷採匿名方式進行，資料只作統計分析與公關策劃參考，絕不作任何商業推銷。<br>
+        <span class="muted">Firebean ・ 都會生活研究室 ｜ 互動市場研究交付</span>
+      </div>
+    </footer>
+  </main>
+</div>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="人格原型詳細內容">
+  <div class="mbox">
+    <div class="mtop"><span class="mt2" id="mTitle">原型</span><button id="mClose">關閉</button></div>
+    <div class="mbody" id="mBody"></div>
+  </div>
+</div>
+
+<script>
+const D = /*__DATA__*/;
+(function(){
+"use strict";
+const $=function(s,r){return (r||document).querySelector(s)};
+const $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+const CENTERCOLOR={head:"var(--head)",heart:"var(--heart)",gut:"var(--gut)"};
+const MASCOT=function(n){ return "img/t"+n+".webp" };
+
+let answers={};      // qid -> [keys]
+let idx=0;           // current question index
+let result=null;     // computed result
+let started=0;       // ms
+
+/* ---------- nav ---------- */
+function setView(name){
+  $$(".view").forEach(function(v){v.classList.remove("on")});
+  const v=$("#v-"+name); if(v) v.classList.add("on");
+  $$("#railnav button").forEach(function(b){b.classList.toggle("on", b.dataset.go===name)});
+  if(name==="quiz"){ renderQuestion(); $("#actionbar").classList.add("on"); }
+  else { $("#actionbar").classList.remove("on"); }
+  if(name==="result") showResult();
+  if(name==="data") loadData();
+  if(name==="atlas") renderAtlas();
+  window.scrollTo(0,0);
+  const map={intro:"都會生活鏡像測驗",quiz:"作答中",result:"我的分析報告",atlas:"九型圖鑑",data:"調研數據",proposal:"匯報要點"};
+  $("#mobTitle").textContent = map[name]||"都會生活鏡像測驗";
+}
+document.addEventListener("click", function(e){
+  const t=e.target.closest("[data-go]"); if(!t) return;
+  setView(t.dataset.go);
+});
+
+/* ---------- intro parts ---------- */
+(function(){
+  const box=$("#partsPreview");
+  D.parts.forEach(function(p){
+    const d=document.createElement("div");
+    d.className="small";
+    d.innerHTML="<b>"+p.name+"</b> <span class='muted'>· "+p.qids.length+" 題</span><br><span class='muted'>"+p.goal+"</span>";
+    box.appendChild(d);
+  });
+})();
+
+/* ---------- quiz ---------- */
+function answeredCount(){ return Object.keys(answers).filter(function(k){return answers[k]&&answers[k].length}).length; }
+function updateProgress(){
+  const n=answeredCount(), tot=D.questions.length, pc=Math.round(n/tot*100), left=tot-n;
+  $("#mobProgBar").style.width=pc+"%";
+  $("#railProgBar").style.width=pc+"%";
+  $("#railProgTxt").textContent=n+" / "+tot;
+  const cap=$("#mobProgTxt");
+  if(cap) cap.textContent = left>0 ? ("仲有 "+left+" 題解鎖你的都會鏡像") : "已解鎖你的都會鏡像 ✓";
+}
+function renderQuestion(){
+  const q=D.questions[idx], part=D.parts.filter(function(p){return p.qids.indexOf(q.id)>-1})[0];
+  $("#qPart").textContent=part?part.name:"";
+  const left=D.questions.length-idx;
+  $("#qCount").textContent="第 "+(idx+1)+" / "+D.questions.length+" 題　·　仲有 "+left+" 題";
+  $("#qText").textContent=q.text;
+  $("#qNote").textContent=(q.kind==="multi")
+      ? (q.max? "可複選，最多 "+q.max+" 項":"可選取多於一項") + "　·　已選 "+((answers[q.id]||[]).length)+" 項"
+      : "單選題";
+  $("#qOrig").innerHTML="原問卷題號：<b>"+q.orig+"</b>　·　"+part.name;
+  const sel=answers[q.id]||[];
+  const box=$("#qOpts"); box.innerHTML="";
+  box.className = "opts" + (q.options.length>3 ? " two":"");
+  q.options.forEach(function(o,i){
+    const b=document.createElement("button");
+    b.type="button"; b.className="opt"; b.dataset.k=o.k;
+    b.setAttribute("aria-pressed", sel.indexOf(o.k)>-1 ? "true":"false");
+    b.innerHTML='<span class="mk">'+(sel.indexOf(o.k)>-1? "✓":String.fromCharCode(65+i))+'</span><span class="lbl">'+o.label+'</span>';
+    b.addEventListener("click", function(){ pick(q,o.k); });
+    box.appendChild(b);
+  });
+  $("#btnPrev").disabled = idx===0;
+  $("#btnNext").textContent = idx===D.questions.length-1 ? "睇我的分析報告 →" : "下一題";
+  $("#btnNext").disabled = !(answers[q.id]&&answers[q.id].length);
+  $("#qText").focus({preventScroll:true});
+  updateProgress();
+  dimOverflow(q);
+}
+function dimOverflow(q){
+  const sel=answers[q.id]||[];
+  if(q.kind!=="multi"||!q.max||sel.length<q.max) {
+    $$("#qOpts .opt").forEach(function(b){b.classList.remove("dim")}); return;
+  }
+  $$("#qOpts .opt").forEach(function(b){
+    const on=sel.indexOf(b.dataset.k)>-1;
+    b.classList.toggle("dim", !on);
+  });
+}
+function pick(q,k){
+  if(q.kind==="single"){
+    answers[q.id]=[k];
+  }else{
+    let sel=answers[q.id]||[];
+    if(sel.indexOf(k)>-1) sel=sel.filter(function(x){return x!==k});
+    else{
+      if(q.max&&sel.length>=q.max) { flash(q.max); return; }
+      sel=sel.concat([k]);
+    }
+    answers[q.id]=sel;
+  }
+  renderQuestion();
+  if(q.kind==="single"){
+    setTimeout(function(){ step(1); }, 240);
+  }
+}
+function flash(max){
+  const n=$("#qNote"); n.textContent="最多只可以揀 "+max+" 項，先取消一個再揀。";
+  n.style.color="var(--rose)";
+  setTimeout(function(){ n.style.color=""; renderQuestion(); }, 1400);
+}
+function step(d){
+  const q=D.questions[idx];
+  if(d>0 && !(answers[q.id]&&answers[q.id].length)) return;
+  if(d>0 && idx===D.questions.length-1){ compute(); setView("result"); return; }
+  idx=Math.max(0,Math.min(D.questions.length-1, idx+d));
+  renderQuestion();
+}
+$("#btnNext").addEventListener("click", function(){ step(1) });
+$("#btnPrev").addEventListener("click", function(){ step(-1) });
+$("#origToggle").addEventListener("click", function(){
+  document.body.classList.toggle("showorig");
+  this.textContent=document.body.classList.contains("showorig")?"隱藏原問卷題號對照":"顯示原問卷題號對照";
+});
+document.addEventListener("keydown", function(e){
+  if(!$("#v-quiz").classList.contains("on")) return;
+  const q=D.questions[idx];
+  if(e.key==="Enter"||e.key==="ArrowRight"){ if(!$("#btnNext").disabled) step(1); }
+  if(e.key==="ArrowLeft"){ step(-1); }
+  const n=parseInt(e.key,10);
+  if(n>=1&&n<=q.options.length){ pick(q,q.options[n-1].k); }
+});
+
+/* ---------- scoring ---------- */
+function compute(){
+  const s={1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0};
+  D.questions.forEach(function(q){
+    const sel=answers[q.id]||[];
+    sel.forEach(function(k){
+      const o=q.options.filter(function(x){return x.k===k})[0];
+      if(!o) return;
+      Object.keys(o.w).forEach(function(t){ s[t]+=o.w[t] });
+    });
+  });
+  let win=1;
+  Object.keys(s).forEach(function(t){ if(s[t]>s[win]) win=parseInt(t,10) });
+  const cen={head:0,heart:0,gut:0};
+  Object.keys(cen).forEach(function(c){ D.centers[c].types.forEach(function(t){ cen[c]+=s[t] }) });
+  let cwin="head"; Object.keys(cen).forEach(function(c){ if(cen[c]>cen[cwin]) cwin=c });
+  const ms=Math.max(1,Math.max.apply(null,Object.keys(s).map(function(t){return s[t]})));
+  result={ scores:s, type:win, center:cwin, centerScores:cen, topScore:ms, elapsed:Math.round((Date.now()-started)/1000) };
+  try{ localStorage.setItem("ennea_last_result", JSON.stringify(result)); }catch(e){}
+  submit();
+}
+
+/* ---------- result ---------- */
+function typeBlock(n){
+  const t=D.types[n], c=D.centers[t.center];
+  return '<div class="rhero c-'+t.center+'">'+
+    '<div class="mascot-wrap"><img class="mascot" src="'+MASCOT(n)+'" alt="第 '+n+' 型 3D 都會角色" onerror="this.parentNode.style.display=\'none\'"></div>'+
+    '<div>'+
+      '<div class="badge">第 '+n+' 型 ・ '+c.n+'</div>'+
+      '<div class="tn">'+t.n+'</div>'+
+      '<div class="en">'+t.en+'</div>'+
+      '<div class="rep">'+t.rep+'</div>'+
+      '<div class="chips"><span class="chip">'+t.tag+'</span><span class="chip">同中心鄰型：'+c.list+' 號</span></div>'+
+      '<div class="cap3d">✦ 你的專屬 3D 都會角色已解鎖</div>'+
+    '</div>'+
+  '</div>'+
+  '<div class="centerline"><span class="dot" style="background:'+CENTERCOLOR[t.center]+'"></span>'+
+    '<div><b>你的能量中心：'+c.n+'</b><br><span class="small muted">'+c.role+'　·　同中心鄰型：'+c.list+' 號</span></div></div>'+
+  '<div class="rgrid">'+
+    '<div class="sec"><h3><span class="ic">◉</span>內心真實諗法</h3><p>'+t.mind+'</p></div>'+
+    '<div class="sec"><h3><span class="ic">◈</span>日常處事方法</h3><p>'+t.act+'</p></div>'+
+    '<div class="sec"><h3><span class="ic">◐</span>潛藏性格（盲點）</h3><p>'+t.blind+'</p></div>'+
+    '<div class="sec"><h3><span class="ic">✦</span>外界對你的印象</h3><div class="imp">'+t.imp.map(function(x){return "<span>"+x+"</span>"}).join("")+'</div></div>'+
+  '</div>'+
+  '<div class="tipcard"><h3>💡 你的專屬土地安全錦囊</h3><p>'+t.tip+'</p></div>';
+}
+function barsHTML(){
+  if(!result) return "";
+  const s=result.scores, mx=result.topScore;
+  let h='<h3 style="margin-top:4px">九型分數分佈</h3><div class="small muted" style="margin:-4px 0 10px">分數最高者為你的主型；同一能量中心內的鄰型，通常係你最易共鳴的處事方式。</div><div class="bars">';
+  for(let n=1;n<=9;n++){
+    const p=Math.round(s[n]/mx*100);
+    h+='<div class="bar'+(n===result.type?" me":"")+'" title="第'+n+'型 '+D.types[n].n+'：'+s[n]+' 分">'+
+      '<span class="tn">'+n+'</span><span class="track"><span class="fill" style="width:'+Math.max(6,p)+'%"></span>'+
+      '<span class="lab">'+D.types[n].n+'</span><span class="val">'+s[n]+'</span></span></div>';
+  }
+  h+='</div>';
+  return h;
+}
+function showResult(){
+  if(!result){ $("#resultEmpty").style.display=""; $("#resultBody").style.display="none"; return; }
+  $("#resultEmpty").style.display="none";
+  const t=D.types[result.type];
+  const txt="我喺【都會生活鏡像測驗】測出：第"+result.type+"型 "+t.n+"（"+t.en+"）\n"+t.tag+"\n專屬錦囊："+t.tip+"\n👉 "+location.href;
+  const body=$("#resultBody");
+  body.style.display="";
+  body.innerHTML = typeBlock(result.type) +
+    '<div class="card" style="margin-top:16px">'+ barsHTML() +
+      '<div class="btnrow" style="margin-top:16px">'+
+        '<button class="btn primary" id="rShare">分享我的結果</button>'+
+        '<button class="btn ghost" id="rCopy">複製結果文字</button>'+
+        '<button class="btn ghost" data-go="atlas">睇齊九型圖鑑</button>'+
+        '<button class="btn ghost" id="rAgain">重新測驗</button>'+
+      '</div>'+
+      '<div class="share-note" id="rNote">已複製！可以直接貼去 WhatsApp／IG。</div>'+
+    '</div>';
+  $("#rAgain").addEventListener("click", function(){
+    answers={}; idx=0; result=null; started=0;
+    $("#resultBody").style.display="none"; setView("quiz");
+  });
+  $("#rCopy").addEventListener("click", function(){
+    navigator.clipboard && navigator.clipboard.writeText(txt).then(function(){
+      const n=$("#rNote"); n.classList.add("on"); setTimeout(function(){n.classList.remove("on")},2600);
+    });
+  });
+  $("#rShare").addEventListener("click", function(){
+    if(navigator.share){ navigator.share({title:"都會生活鏡像測驗", text:txt}).catch(function(){}); }
+    else { $("#rCopy").click(); }
+  });
+}
+
+/* ---------- atlas ---------- */
+function renderAtlas(){
+  const g=$("#atlasGrid"); if(g.dataset.done) return;
+  let h="";
+  for(let n=1;n<=9;n++){
+    const t=D.types[n];
+    h+='<button class="acard ct-'+t.center+'" data-type="'+n+'">'+
+      '<div class="amasc"><img class="mascot" src="'+MASCOT(n)+'" alt="第 '+n+' 型 3D 角色" onerror="this.style.display=\'none\'"></div>'+
+      '<div class="an">第 '+n+' 型</div><div class="at">'+t.n+'</div>'+
+      '<div class="ae">'+t.en+'</div><div class="ar">'+t.rep+'</div></button>';
+  }
+  g.innerHTML=h; g.dataset.done="1";
+  g.addEventListener("click", function(e){
+    const b=e.target.closest("[data-type]"); if(!b) return; openType(parseInt(b.dataset.type,10));
+  });
+}
+function openType(n){
+  const t=D.types[n];
+  $("#mTitle").textContent="第 "+n+" 型 ‧ "+t.n;
+  $("#mBody").innerHTML=typeBlock(n);
+  $("#modal").classList.add("on");
+  $("#modal").scrollTop=0;
+}
+$("#mClose").addEventListener("click", function(){ $("#modal").classList.remove("on") });
+$("#modal").addEventListener("click", function(e){ if(e.target===this) this.classList.remove("on") });
+document.addEventListener("keydown", function(e){ if(e.key==="Escape") $("#modal").classList.remove("on") });
+
+/* ---------- proposal match list ---------- */
+(function(){
+  const rows=D.match, box=$("#matchList");
+  let h="";
+  rows.forEach(function(r){ h+='<div class="matchRow"><div class="tm">'+r[0]+'</div><div class="mm">'+r[1]+'</div></div>' });
+  box.innerHTML=h;
+})();
+
+/* ---------- data view ---------- */
+function loadData(){
+  const box=$("#dCanvas"), st=$("#dStatus"), tot=$("#dTotal");
+  function paint(obj){
+    tot.textContent=(obj.total||0).toLocaleString("en-HK");
+    const counts=obj.counts||{};
+    let max=1; Object.keys(counts).forEach(function(k){ max=Math.max(max,counts[k]) });
+    let h="";
+    for(let n=1;n<=9;n++){
+      const v=counts[String(n)]||0;
+      h+='<div class="dbar"><span>第 '+n+' 型 '+D.types[n].n+'</span><span class="track">'+
+         '<span class="fill" style="width:'+Math.round(v/max*100)+'%;background:'+CENTERCOLOR[D.types[n].center]+'"></span>'+
+         '</span><span class="v">'+v+'</span></div>';
+    }
+    box.innerHTML=h;
+  }
+  if(!D.meta.endpoint){
+    st.textContent="（本機示範模式：未接駁後台，只顯示你本機的作答紀錄）";
+    paint({total:(+(localStorage.getItem("ennea_local_total")||0)),counts:JSON.parse(localStorage.getItem("ennea_local_counts")||"{}")});
+    return;
+  }
+  st.textContent="連線中…";
+  fetch(D.meta.endpoint, {method:"GET"})
+   .then(function(r){ return r.json() })
+   .then(function(j){ st.textContent="即時更新 · 最後讀取 "+new Date().toLocaleTimeString("zh-HK",{hour:"2-digit",minute:"2-digit"}); paint(j) })
+   .catch(function(){ st.textContent="後台暫時連唔到，以下係本機紀錄"; paint({total:0,counts:{}}) });
+}
+$("#srcToggle").addEventListener("click", function(){
+  const d=$("#dSrc");
+  const on=d.style.display==="none";
+  d.style.display=on?"":"none";
+  this.textContent=on?"隱藏數據來源":"顯示數據來源";
+  if(on) d.innerHTML="匿名作答紀錄經 HTTPS 直接寫入 Firebean 調研試算表，只儲存答案與測驗結果，不含姓名、電話、電郵或 IP 位址。<br>端點："+(D.meta.endpoint||"（未接駁）");
+});
+
+/* ---------- submit (anonymous, fire & forget) ---------- */
+function submit(){
+  try{
+    const c=JSON.parse(localStorage.getItem("ennea_local_counts")||"{}");
+    c[result.type]=(c[result.type]||0)+1;
+    localStorage.setItem("ennea_local_counts",JSON.stringify(c));
+    localStorage.setItem("ennea_local_total",String((+(localStorage.getItem("ennea_local_total")||0))+1));
+  }catch(e){}
+  if(!D.meta.endpoint) return;
+  const payload={session_id:"s"+Date.now().toString(36)+Math.random().toString(36).slice(2,7)};
+  D.questions.forEach(function(q){
+    const a=answers[q.id]||[];
+    payload[q.id]=(q.kind==="multi")? a.join(";") : (a[0]||"");
+  });
+  payload.result_type=result.type;
+  payload.result_name=(D.types[result.type]||{}).n||"";
+  payload.center=result.center;
+  payload.scores=Object.keys(result.scores).map(function(t){return "T"+t+"="+result.scores[t]}).join(",");
+  payload.elapsed_sec=result.elapsed;
+  payload.ua_lang=(navigator.language||"");
+  try{
+    fetch(D.meta.endpoint,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});
+  }catch(e){}
+}
+
+/* ---------- boot ---------- */
+started=Date.now();
+$("#startBtn").addEventListener("click", function(){ started=Date.now(); });
+try{
+  const saved=localStorage.getItem("ennea_last_result");
+  if(saved){ const j=JSON.parse(saved); result=j; }
+}catch(e){}
+document.addEventListener("visibilitychange", function(){
+  if(result===null) return;
+  try{ localStorage.setItem("ennea_last_result",JSON.stringify(result)); }catch(e){}
+});
+setView("intro");
+})();
+</script>
+</body>
+</html>

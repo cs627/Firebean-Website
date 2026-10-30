@@ -1,0 +1,5 @@
+{
+  "exec_url": "https://ennea.firbeanpr.com/submit",
+  "note": "Anonymous POST sink for the 都會生活鏡像測驗. Served by /opt/data/scripts/ennea_collector.py on the Firebean host, exposed through the Cloudflare tunnel 'ennea-collector' (ennea.firbeanpr.com). Writes rows to the Google Sheet 1WErH4Ej8chi9mSB47c73i7tbA8xmMzMoPC-sZpzVKGY tab 'responses'. GET on the same URL returns aggregate counts for the 調研數據 view.",
+  "updated": "2026-10-30"
+}
