@@ -12,7 +12,7 @@
 #  全程唯讀，唔會改你任何檔案。
 # ============================================================================
 set -u
-VERSION="fb3-20261030-2135"
+VERSION="fb4-20261030-2140"
 
 NAS_IP="${NAS_IP:-169.254.71.131}"
 TARGET="${NAS_USER:-dickson}@${NAS_IP}"
@@ -20,6 +20,11 @@ REMOTE_DIR="/tmp/c3r"
 TOOL="$REMOTE_DIR/c3r_btrfs.py"
 SHARE="/volume3/FirebeanShare"
 LOGDIR="$HOME/fb-nas-logs"
+
+# 把路徑安全包成單引號（可處理檔名內嘅單引號）。
+# ⚠️ 千萬唔可以用雙引號包路徑：REMOTE 本身已經喺 ssh 嘅 "…" 同 sh -c "…" 之中，
+#    再套雙引號會令引號提早收口 → --g 參數會掉出 sh -c 外面（實測中過）。
+sq() { printf '%s' "$1" | sed "s/'/'\\''/g"; }
 
 TASK="${1:-help}"
 STREAM=""
@@ -49,8 +54,9 @@ case "$TASK" in
     ;;
   plan1)
     FILE="${2:?用法: bash ~/fb.sh plan1 \"完整路徑.L0CK3D\" [G]}"
+    FILE_Q=$(sq "$FILE")
     G="${3:-23082}"
-    REMOTE="python3 $TOOL plan \"$FILE\" --g $G 2>&1 | head -60"
+    REMOTE="python3 $TOOL plan '$FILE_Q' --g $G 2>&1 | head -60"
     SUDO="sudo"
     ;;
   survey)
@@ -71,14 +77,16 @@ case "$TASK" in
     ;;
   prove)
     FILE="${2:?用法: bash ~/fb.sh prove \"完整路徑.L0CK3D\" [G]}"
+    FILE_Q=$(sq "$FILE")
     G="${3:-23082}"
-    REMOTE="python3 $TOOL plan \"$FILE\" --g $G 1>&2; echo '=== PLAN 完，開始重組原檔 ===' 1>&2; python3 $TOOL extract \"$FILE\" --g $G"
+    REMOTE="python3 $TOOL plan '$FILE_Q' --g $G 1>&2; echo '=== PLAN 完，開始重組原檔 ===' 1>&2; python3 $TOOL extract '$FILE_Q' --g $G"
     SUDO="sudo"; STREAM="extract"
     ;;
   extract1)
     FILE="${2:?用法: bash ~/fb.sh extract1 \"完整路徑.L0CK3D\" [G]}"
+    FILE_Q=$(sq "$FILE")
     G="${3:-23082}"
-    REMOTE="python3 $TOOL extract \"$FILE\" --g $G"
+    REMOTE="python3 $TOOL extract '$FILE_Q' --g $G"
     SUDO="sudo"; STREAM="extract"
     ;;
   help)
