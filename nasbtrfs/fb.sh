@@ -19,8 +19,8 @@ for _L in en_US.UTF-8 en_US.utf8 C.UTF-8 zh_HK.UTF-8 UTF-8; do
   fi
 done
 unset _L
-VERSION="fb14-20261030-2335"
-BUILD=14
+VERSION="fb15-20261030-2345"
+BUILD=15
 
 NAS_IP="${NAS_IP:-169.254.71.131}"
 TARGET="${NAS_USER:-dickson}@${NAS_IP}"
@@ -259,7 +259,8 @@ if [ "$STREAM" = "auto" ]; then
   echo "  ⚠️  想安全中斷：按 Control-C（已還原嘅檔唔會消失，可續跑）"
   echo
   # 防止 Mac 休眠
-  caffeinate -i -w $$ 2>/dev/null &
+  caffeinate -i -s -w $$ 2>/dev/null &
+  FB_CAFF=$!
   # 取批次清單：由細至大，排除 #recycle / sparsebundle / @eaDir
   # 排除清單（Dickson 指定：唔要 #recycle、唔要 iPhone／iMac 時光機備份）
   A_EXCL='#recycle|sparsebundle|MobileSync|Time Machine|TimeMachine|iPhone|iPad|iTunes|iDevice|/Backup/$'
@@ -292,6 +293,15 @@ if [ "$STREAM" = "auto" ]; then
     [ -z "$A_DIR" ] && continue
     A_N=$((A_N+1))
     A_TAG=$(printf '%s' "$A_DIR" | tr -d '/' | tr ' ' '_')
+    # 檢查持久連線（macOS 睡醒後可能斷）
+    if [ -n "$FB_SSH_SOCK" ] && ! ssh -S "$FB_SSH_SOCK" -O check "$TARGET" >/dev/null 2>&1; then
+      echo "     🔄 持久連線斷咗 → 嘗試重建…"
+      if ssh -S "$FB_SSH_SOCK" -o ControlPersist=12h -o BatchMode=yes -o ConnectTimeout=15 -fN "$TARGET" 2>/dev/null; then
+        echo "     ✅ 連線已重建"
+      else
+        echo "     ⚠️ 重建失敗（可能睡過機）→ 之後每格都要重新登入；建議 Control-C 重跑"
+      fi
+    fi
     if [ -f "$A_MARKDIR/$A_TAG" ]; then
       A_DONE=$((A_DONE+1))
       echo "  [已還原，跳過] $A_DIR"
@@ -315,6 +325,11 @@ if [ "$STREAM" = "auto" ]; then
     printf '%s\n' "$A_PW" | rssh "sudo -S -p '' sh -c \"$A_R\"" 2>>"$ERRF" \
       | tar -xf - -C "$DEST" 2>>"$ERRF"
     A_MAN="$DEST/_c3r_manifest.jsonl"
+    if [ ! -f "$A_MAN" ]; then
+      echo "     🔄 今次冇收到資料 → 自動重試一次…"
+      printf '%s\n' "$A_PW" | rssh "sudo -S -p '' sh -c \"$A_R\"" 2>>"$ERRF" \
+        | tar -xf - -C "$DEST" 2>>"$ERRF"
+    fi
     if [ -f "$A_MAN" ]; then
       B_OK=0; B_BAD=0; B_MISS=0; B_BYTES=0
       while IFS= read -r A_LINE; do
