@@ -12,7 +12,7 @@
 #  全程唯讀，唔會改你任何檔案。
 # ============================================================================
 set -u
-VERSION="fb4-20261030-2140"
+VERSION="fb5-20261030-2150"
 
 NAS_IP="${NAS_IP:-169.254.71.131}"
 TARGET="${NAS_USER:-dickson}@${NAS_IP}"
@@ -89,6 +89,15 @@ case "$TASK" in
     REMOTE="python3 $TOOL extract '$FILE_Q' --g $G"
     SUDO="sudo"; STREAM="extract"
     ;;
+  space)
+    echo "=== Mac 家目錄 ==="; df -h "$HOME"
+    echo; echo "=== 所有掛載卷 ==="; df -h | grep -vE "^devfs|^map " 
+    exit 0
+    ;;
+  folders)
+    REMOTE="echo '=== 各頂層資料夾：受害檔數（Top 30）==='; find '$SHARE' -name '*.L0CK3D' 2>/dev/null | awk -F/ '{print \$4}' | sort | uniq -c | sort -rn | head -30; echo; echo '=== 各頂層資料夾：大細（Top 30）==='; du -sh '$SHARE'/*/ 2>/dev/null | sort -rh | head -30"
+    SUDO="sudo"
+    ;;
   help)
     cat <<'EOF'
 Firebean — 喺 iMac 直接叫 NAS 做嘢
@@ -105,6 +114,8 @@ Firebean — 喺 iMac 直接叫 NAS 做嘢
   extract [G]                  重組原檔（輸出 .tar）
   list                         列最大嘅受害檔
   pick                         列 50-600MB 圖／片／PDF（做證明測試最好）
+  folders                      各頂層資料夾嘅受害檔數＋大細（排批次次序）
+  space                        睇 iMac／外接碟剩餘空間（完全本機，唔連 NAS）
   prove "路徑" [G]             ★ 一次過：分析 + 還原單一檔（證明測試）
   extract1 "路徑" [G]          還原單一檔 → .tar
   plan1 "路徑.L0CK3D" [G]      單一檔重組計劃（證明測試）
@@ -119,6 +130,7 @@ EOF
     echo
     echo "  可用任務：doctor / preflight / env / gens / list / pick /"
     echo "            prove <路徑> / plan1 <路徑> / extract1 <路徑> / survey / extract"
+    echo "            folders / space"
     echo
     echo "  打「bash ~/fb.sh help」睇詳細用法。"
     exit 2
