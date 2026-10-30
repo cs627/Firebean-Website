@@ -41,7 +41,9 @@ case "$TASK" in
     SUDO="sudo"
     ;;
   list)
-    REMOTE="ls -lS \$(find $SHARE -maxdepth 2 -name '*.L0CK3D' 2>/dev/null | head -400) 2>/dev/null | head -16"
+    # ⚠️ 千萬唔可以用 $( )：喺 Mac 端會先展開（冇 root 權）→ 一定空。
+    #    所有展開都要喺 NAS 端以 root 做。
+    REMOTE="echo '=== 共享頂層 ==='; ls -la '$SHARE' | head -25; echo; echo '=== 最大 20 個受害檔 ==='; find '$SHARE' -name '*.L0CK3D' -exec ls -ld {} + 2>/dev/null | sort -k5 -rn | head -20; echo; echo '=== 受害檔總數 ==='; find '$SHARE' -name '*.L0CK3D' 2>/dev/null | wc -l; echo; echo '=== 勒索信 ==='; ls -l '$SHARE'/read-me* 2>/dev/null"
     SUDO="sudo"
     ;;
   plan1)
