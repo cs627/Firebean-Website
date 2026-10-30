@@ -156,11 +156,6 @@ body:not(.team-access) .internal-only{display:none!important}
 .opt.dim{opacity:.45}
 .opt .lbl{flex:1;min-width:0}
 .opt .sub{display:block;font-size:13px;color:var(--muted);margin-top:3px;font-weight:400}
-.orig{display:none;font-size:12.5px;color:var(--muted);margin-top:14px}
-body.showorig .orig{display:block}
-.qfoot{display:flex;align-items:center;gap:12px;margin-top:16px;flex-wrap:wrap}
-.qfoot .mini{background:none;border:0;font:inherit;font-size:13px;color:var(--muted);
-  text-decoration:underline;cursor:pointer;padding:8px 2px}
 
 /* sticky quiz action bar */
 .actionbar{position:fixed;left:0;right:0;bottom:0;z-index:45;background:rgba(255,247,235,.97);
@@ -496,10 +491,6 @@ footer.foot b{color:var(--ink2)}
           <h2 class="qtext" id="qText" tabindex="-1">—</h2>
           <p class="qnote" id="qNote"></p>
           <div class="opts" id="qOpts" role="group" aria-labelledby="qText"></div>
-          <div class="orig" id="qOrig"></div>
-          <div class="qfoot">
-            <button class="mini" id="origToggle" type="button">顯示原問卷題號對照</button>
-          </div>
         </div>
       </div>
     </section>
@@ -695,7 +686,6 @@ function renderQuestion(){
   $("#qNote").textContent=(q.kind==="multi")
       ? "可選取多於一項（不限）　·　已選 "+((answers[q.id]||[]).length)+" 項"
       : "請選擇一個選項";
-  $("#qOrig").innerHTML="原問卷題號：<b>"+q.orig+"</b>　·　"+part.name;
   const sel=answers[q.id]||[];
   const box=$("#qOpts"); box.innerHTML="";
   box.className = "opts" + (q.options.length>3 ? " two":"");
@@ -744,10 +734,6 @@ function step(d){
 }
 $("#btnNext").addEventListener("click", function(){ step(1) });
 $("#btnPrev").addEventListener("click", function(){ step(-1) });
-$("#origToggle").addEventListener("click", function(){
-  document.body.classList.toggle("showorig");
-  this.textContent=document.body.classList.contains("showorig")?"隱藏原問卷題號對照":"顯示原問卷題號對照";
-});
 document.addEventListener("keydown", function(e){
   if(!$("#v-quiz").classList.contains("on")) return;
   const q=D.questions[idx];
@@ -860,9 +846,9 @@ function evHTML(){
   const rows=evidence(result.type,3), t=D.types[result.type];
   if(!rows.length) return "";
   let h='<div class="ev"><h3>◉ 你嘅答案點樣砌出『第 '+result.type+' 型 '+t.n+'』</h3>';
-  h+='<div class="small muted" style="margin:0 0 4px">你 20 題之中，以下幾項最直接扣連你呢個型（按關聯度排序，所以題號未必順序）：</div>';
+  h+='<div class="small muted" style="margin:0 0 4px">你 20 題之中，以下幾項最直接扣連你呢個型（按關聯度排序）：</div>';
   rows.forEach(function(x){
-    h+='<div class="evRow"><span class="evQ">'+x.orig+' · '+x.q+'</span>'+
+    h+='<div class="evRow"><span class="evQ">'+x.q+'</span>'+
        '<span class="evA">你揀咗「<b>'+x.label+'</b>」</span></div>';
   });
   const w=r2w();
@@ -894,7 +880,7 @@ function showResult(){
   const wtag = result.wing ? "（"+result.type+"w"+result.wing+"）" : "（帶第"+result.second+"型潛藏傾向）";
   const ev = evidence(result.type,1)[0];
   const txt="我喺【都會生活鏡像測驗】測出：第"+result.type+"型 "+t.n+wtag+"\n"+t.tag+"\n"+strengthLabel(result.gap)+
-    (ev? "\n最呼應我嘅選擇："+ev.orig+"「"+ev.label+"」" : "")+
+    (ev? "\n最呼應我嘅選擇：「"+ev.label+"」" : "")+
     "\n專屬錦囊："+t.tip+"\n👉 "+location.href;
   const body=$("#resultBody");
   body.style.display="";
