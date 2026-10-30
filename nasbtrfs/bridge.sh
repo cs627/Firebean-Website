@@ -16,12 +16,6 @@
 # ============================================================================
 set -u
 
-# ── 若果係用 `curl … | bash` 執行，ssh 會同 bash 爭 stdin ──────────────
-#    本腳本所有 ssh/scp 都已加 -n / </dev/null 修正；
-#    但如果偵測到 stdin 唔係 terminal，仍然建議改用落檔方式跑（更穩）。
-PIPED=0
-[ -t 0 ] || PIPED=1
-
 NAS_IP="${NAS_IP:-169.254.71.131}"
 REMOTE_DIR="/tmp/c3r"
 TOOL_SHA="cc356fb6bf57b033a36a8b1115e6048364f0651e84b50f9f213a3a02d919eede"
@@ -43,12 +37,6 @@ if [ -d /volume1 ] || [ -d /volume2 ] || [ -f /etc/synoinfo.conf ]; then
   exit 1
 fi
 
-if [ "$PIPED" = "1" ]; then
-  echo "ℹ️  偵測到係用 pipe 執行（curl | bash）。如果中途停低冇反應，"
-  echo "    請改用落檔方式（更穩）："
-  echo "      curl -fsSL -o ~/fb-bridge.sh $BASE/bridge.sh && bash ~/fb-bridge.sh"
-  echo
-fi
 
 echo "════════════════════════════════════════════════════"
 echo "  Firebean — Btrfs 無密鑰還原：工具傳送"
@@ -120,48 +108,45 @@ else
   echo "③ 用預設帳號：$TARGET"
 fi
 
-try_target() {
-  ssh -n -o ConnectTimeout=12 -o StrictHostKeyChecking=accept-new "$1" "mkdir -p $REMOTE_DIR" 2>&1
-}
+# ── 3+4. 一次連線搞掂：建目錄 + 寫入工具 + 即場核對 SHA-256 ───────────────
+#  ⚠️ 唔用 scp：macOS 新版 scp 走 SFTP 子系統，而 DSM 通常冇開 → 會 "Connection closed"。
+#  用 `ssh host "cat > 檔案" < 本地檔` 最原始、最穩，而且只需打一次密碼。
+REMOTE_CMD="mkdir -p $REMOTE_DIR && cat > $REMOTE_DIR/c3r_btrfs.py && { sha256sum $REMOTE_DIR/c3r_btrfs.py 2>/dev/null || shasum -a 256 $REMOTE_DIR/c3r_btrfs.py; }"
 
 OK=0
+TRIED=""
 echo
 echo "   ⚠️ 會問 NAS 密碼。打字時畫面【唔會顯示任何字】（冇 ••、冇星號）"
-echo "      呢個係正常，打完直接按 Enter。"
+echo "      呢個係正常，打完直接按 Enter。（只需要打一次）"
 echo
-TRIED=""
 for t in "$TARGET" "dickson@${NAS_IP}" "admin@${NAS_IP}" "root@${NAS_IP}"; do
   [ -z "$t" ] && continue
   case " $TRIED " in *" $t "*) continue ;; esac
   TRIED="$TRIED $t"
   echo "   → 試 $t …"
-  if try_target "$t" >/dev/null 2>&1; then OK=1; TARGET="$t"; break; fi
+  if ssh -o ConnectTimeout=15 -o StrictHostKeyChecking=accept-new "$t" "$REMOTE_CMD" \
+        < "$TMP/c3r_btrfs.py" > "$TMP/remote_sha.txt" 2>"$TMP/remote_err.txt"; then
+    OK=1; TARGET="$t"; break
+  fi
   echo "     （唔通，試下一個）"
 done
 
 if [ "$OK" != "1" ]; then
   echo
-  echo "   ❌ 全部帳號都連唔到 NAS（試過：$TRIED）"
+  echo "   ❌ 全部帳號都傳唔到入 NAS（試過：$TRIED）"
+  [ -s "$TMP/remote_err.txt" ] && { echo "      最後錯誤："; sed 's/^/        /' "$TMP/remote_err.txt" | head -5; }
   echo "      → ① 先喺 NAS 視窗打： ifconfig | grep 169.254   睇實際 IP"
   echo "      → ② 再喺 iMac 打："
-  echo "           NAS_IP=實際IP NAS_USER=你嘅帳號 bash <(curl -fsSL $BASE/bridge.sh)"
+  echo "           NAS_IP=實際IP NAS_USER=你嘅帳號 bash ~/fb-bridge.sh"
   echo "      → 或者完全唔用 SSH，改用 USB 隨身碟（見網頁步驟 ④）"
   exit 1
 fi
 
-# ── 4. 傳送 + 核實 ────────────────────────────────────────────────────────
 echo
-echo "   ✅ 連上 $TARGET"
-echo
-echo "④ 傳送入 NAS 嘅 $REMOTE_DIR …"
-if ! scp -q -o ConnectTimeout=12 "$TMP/c3r_btrfs.py" "$TARGET:$REMOTE_DIR/c3r_btrfs.py" </dev/null; then
-  echo "   ❌ 傳送失敗"
-  exit 1
-fi
-
-RSHA=$(ssh -n -o ConnectTimeout=12 "$TARGET" "shasum -a 256 $REMOTE_DIR/c3r_btrfs.py 2>/dev/null || sha256sum $REMOTE_DIR/c3r_btrfs.py 2>/dev/null" | awk '{print $1}')
+echo "   ✅ 已傳送入 $TARGET:$REMOTE_DIR/"
+RSHA=$(awk '{print $1}' "$TMP/remote_sha.txt" | head -1)
 if [ "$RSHA" = "$TOOL_SHA" ]; then
-  echo "   ✅ NAS 上面嘅檔案 SHA-256 一致"
+  echo "   ✅ NAS 上面嘅檔案 SHA-256 一致（逐 byte 核對通過）"
 else
   echo "   ⚠️ NAS 上面嘅 SHA-256 唔一致（$RSHA）—— 請通知 Hermes"
 fi
