@@ -19,8 +19,8 @@ for _L in en_US.UTF-8 en_US.utf8 C.UTF-8 zh_HK.UTF-8 UTF-8; do
   fi
 done
 unset _L
-VERSION="fb12-20261030-2305"
-BUILD=12
+VERSION="fb13-20261030-2320"
+BUILD=13
 
 NAS_IP="${NAS_IP:-169.254.71.131}"
 TARGET="${NAS_USER:-dickson}@${NAS_IP}"
@@ -262,14 +262,22 @@ if [ "$STREAM" = "auto" ]; then
   # 取批次清單：由細至大，排除 #recycle / sparsebundle / @eaDir
   # 排除清單（Dickson 指定：唔要 #recycle、唔要 iPhone／iMac 時光機備份）
   A_EXCL='#recycle|sparsebundle|MobileSync|Time Machine|TimeMachine|iPhone|iPad|iTunes|iDevice|/Backup/$'
-  A_ALL=$(rssh "sudo sh -c \"cd '$SHARE' && du -sk */ 2>/dev/null\"" 2>/dev/null | grep -vE '@eaDir')
+  # ⚠️ sudo 要密碼（stdin）—— 之前漏咗餵 → sudo 靜靜失敗 → 清單空白
+  A_ALL=$(printf '%s\n' "$A_PW" | rssh "sudo -S -p '' sh -c \"cd '$SHARE' && du -sk */ 2>/dev/null\"" 2>/dev/null | grep -vE '@eaDir')
+  if [ -z "$A_ALL" ]; then
+    echo "  ⚠️ 攞唔到清單，即刻診斷："
+    printf '%s\n' "$A_PW" | rssh "sudo -S -p '' sh -c \"cd '$SHARE' && echo '--- ls ---'; ls -1 './' | head -8; echo '--- du ---'; du -sk ./*/ 2>&1 | head -5\"" 2>&1 | head -20
+    echo
+    echo "  ❌ 仍然攞唔到資料夾清單 —— 把上面診斷掟返俾 Hermes。"
+    unset A_PW; cm_close; exit 1
+  fi
   A_DROP=$(printf '%s\n' "$A_ALL" | grep -Ei "$A_EXCL")
   A_LIST=$(printf '%s\n' "$A_ALL" | grep -Eiv "$A_EXCL" | sort -n)
   echo "  🚫 排除清單（唔會還原）："
   if [ -n "$A_DROP" ]; then
     printf '%s\n' "$A_DROP" | while IFS=$'\t' read -r k d; do echo "       ✗ $d  （$((k/1048576)) GB）"; done
   else
-    echo "       （冇搵到符合嘅備份／回收目錄）"
+    echo "       （今次冇剔除任何目錄）"
   fi
   echo
   if [ -z "$A_LIST" ]; then echo "  ❌ 攞唔到資料夾清單"; unset A_PW; exit 1; fi
