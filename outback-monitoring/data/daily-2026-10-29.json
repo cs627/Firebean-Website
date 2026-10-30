@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-29",
+  "items": [
+    {
+      "date": "2026-10-29",
+      "source": "Outback 官方網站",
+      "platform": "新聞媒體",
+      "author": "Outback 官方網站",
+      "title": "Outback 萬聖節限定「Trick or Treat」：10月30日至11月1日到任何分店講暗號即送萬聖節糖果包",
+      "summary": "Outback Steakhouse 香港官方網站於 2026-10-29 更新優惠文章（#242）：由 2026 年 10 月 30 日至 11 月 1 日，凡蒞臨 Outback 香港任何分店，向職員講一句「Trick or Treat」，即可免費獲得 Outback 萬聖節糖果包乙份，數量有限、送完即止。屬節日限定的到店互動推廣，以零消費門檻的免費贈品帶動萬聖節檔期客流；官方文案附品牌 hashtag（#OutbackSteakhouseHK #萬聖節好去處 #TrickOrTreat #限時優惠 #萬聖節糖果）。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/242?lang=tc",
+      "sentiment": "positive",
+      "tags": ""
+    }
+  ],
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 1,
+    "new_records": 1,
+    "limitations": []
+  }
+}

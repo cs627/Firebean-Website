@@ -1,30 +1,6 @@
 {
-  "week": "2026-10-12 ~ 2026-10-25",
+  "week": "2026-10-17 ~ 2026-10-29",
   "items": [
-    {
-      "date": "2026-10-12",
-      "source": "Google Maps (元朗形點)",
-      "title": "元朗顧客5星評價：地點方便，餐點美味，員工服務態度良好，有禮貌，可再次來臨",
-      "summary": "元朗分店 Google Maps 5星評論（chan kasum，2 週前）：地點方便，餐點美味，員工服務態度良好，有禮貌，可再次來臨",
-      "link": "https://www.google.com/maps/contrib/104895320475232040275/reviews",
-      "sentiment": "positive"
-    },
-    {
-      "date": "2026-10-12",
-      "source": "Google Maps (元朗形點)",
-      "title": "元朗顧客5星評價：地點方便，餐點美味，員工服務態度良好，有禮貌，可再次來臨",
-      "summary": "元朗分店 Google Maps 5星評論（chan kasum，2 週前）：地點方便，餐點美味，員工服務態度良好，有禮貌，可再次來臨",
-      "link": "https://www.google.com/maps/contrib/104895320475232040275/reviews",
-      "sentiment": "positive"
-    },
-    {
-      "date": "2026-10-12",
-      "source": "OpenRice (元朗形點)",
-      "title": "OpenRice食評（4星）：元朗形點「牛扒熟到剛剛好、牛味濃郁」",
-      "summary": "OpenRice 用戶 tracytrip2017（等級2）於 2026-10-12 給予 4 星：慶祝活動到元朗形點店鋸扒，黑糖麵包 refill 一次，吞拿魚沙律軟腍惹味，牛扒熟度「剛剛好、牛味濃郁、非常滿足」，並稱海鮮拼盤最好食，會再光顧。屬正面口碑。",
-      "link": "https://www.openrice.com/zh/hongkong/review/--e6625024",
-      "sentiment": "positive"
-    },
     {
       "date": "2026-10-17",
       "source": "Threads (@852hkfoodwithyylam)",
@@ -72,6 +48,14 @@
       "summary": "在 Outback Steakhouse HK 官方 Instagram「新品研發部要人」得獎名單帖（2026-10-23）留言區，用戶 @mar._rrrrr_ 先後發出四條留言，點名 Una Soda、Tiffany Tsui、Erinys Ky、iriissbeluv、circirbellyy、kkkris2019、kkkchoi0318、tinnmeiigutt、tilemute 九個得獎帳號，指「至少呢9個帳號都係姓Choi果位全職玩家假帳號」，稱同一人不斷開假帳號贏取獎品並轉售，並指控其在 Facebook 及 Instagram 的留言被 Outback 官方刪除，質疑「黑箱作業」、「好唔公平」。留言互動量低（分別3、2、2個讚），未見官方或其他用戶回覆。所有指控均由留言作者提出，未經獨立核實，不構成已證實事實；此為抽獎公平性及留言管理的潛在聲譽風險，建議官方以統一客服口徑回應並檢視抽獎防作弊機制。（資料來源：Instagram 官方帖留言區）",
       "link": "https://www.instagram.com/p/De1SxikDPSJ",
       "sentiment": "negative"
+    },
+    {
+      "date": "2026-10-29",
+      "source": "Outback 官方網站",
+      "title": "Outback 萬聖節限定「Trick or Treat」：10月30日至11月1日到任何分店講暗號即送萬聖節糖果包",
+      "summary": "Outback Steakhouse 香港官方網站於 2026-10-29 更新優惠文章（#242）：由 2026 年 10 月 30 日至 11 月 1 日，凡蒞臨 Outback 香港任何分店，向職員講一句「Trick or Treat」，即可免費獲得 Outback 萬聖節糖果包乙份，數量有限、送完即止。屬節日限定的到店互動推廣，以零消費門檻的免費贈品帶動萬聖節檔期客流；官方文案附品牌 hashtag（#OutbackSteakhouseHK #萬聖節好去處 #TrickOrTreat #限時優惠 #萬聖節糖果）。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/242?lang=tc",
+      "sentiment": "positive"
     }
   ],
   "alerts": [],
@@ -80,7 +64,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 9,
+    "new_records": 7,
     "limitations": []
   }
 }

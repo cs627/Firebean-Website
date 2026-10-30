@@ -1,20 +1,16 @@
 {
   "meta": {
-    "last_updated": "2026-10-30T01:01:10+08:00",
-    "total_records": 233,
+    "last_updated": "2026-10-31T01:06+08:00",
+    "total_records": 235,
     "daily_avg": 2.9,
-    "date_range": "2025-06-09 → 2026-10-25",
+    "date_range": "2025-06-09 → 2026-10-29",
     "sources_checked": 38,
     "new_verified": 3,
     "coverage_ratio": "38/46",
-    "negative_alerts": 36,
+    "negative_alerts": 37,
     "positive_pct": 55
   },
   "trend": [
-    {
-      "date": "2026-10-12",
-      "count": 3
-    },
     {
       "date": "2026-10-17",
       "count": 1
@@ -38,12 +34,16 @@
     {
       "date": "2026-10-25",
       "count": 1
+    },
+    {
+      "date": "2026-10-29",
+      "count": 1
     }
   ],
   "source_breakdown": [
     {
       "source": "Google Maps",
-      "count": 51
+      "count": 52
     },
     {
       "source": "Instagram",
@@ -63,7 +63,7 @@
     },
     {
       "source": "Outback 官方網站",
-      "count": 12
+      "count": 13
     },
     {
       "source": "U Food",
@@ -103,9 +103,9 @@
     }
   ],
   "sentiment": {
-    "positive": 128,
+    "positive": 129,
     "neutral": 64,
-    "negative": 36,
+    "negative": 37,
     "mixed": 5
   },
   "all_records": [
@@ -2671,6 +2671,28 @@
       "sentiment": "negative",
       "sentiment_label": "負面",
       "keywords": "Outback, 食物品質, 品牌形象"
+    },
+    {
+      "date": "2026-10-02",
+      "source": "Google Maps (大埔超級城)",
+      "platform": "地圖",
+      "title": "大埔顧客1星評價：4人共花超過2000, 牛有樣冇味好硬，豬脾扒勁硬， 二條高級腸又係雪藏味。得麵",
+      "summary": "大埔分店 Google Maps 1星評論（jamie leung，4 週前）：4人共花超過2000, 牛有樣冇味好硬，豬脾扒勁硬， 二條高級腸又係雪藏味。得麵包、意粉和薯條好食d, 芝士夾“三文治個印度款餅” 好彩芝士夠多。 叫主任攞麵包（應該是每人一條仔），請佢上第四條時，佢問你會唔會食完先叫。。。O左咀（ 其實只係得返兩舊仔）， 奶昔都勁甜  咁樣埋單2000， 真係等執笠",
+      "link": "https://www.google.com/maps/contrib/116480023901190051070/reviews",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback, Google Maps, 大埔, 大埔超級城, 1星"
+    },
+    {
+      "date": "2026-10-29",
+      "source": "Outback 官方網站",
+      "platform": "新聞媒體",
+      "title": "Outback 萬聖節限定「Trick or Treat」：10月30日至11月1日到任何分店講暗號即送萬聖節糖果包",
+      "summary": "Outback Steakhouse 香港官方網站於 2026-10-29 更新優惠文章（#242）：由 2026 年 10 月 30 日至 11 月 1 日，凡蒞臨 Outback 香港任何分店，向職員講一句「Trick or Treat」，即可免費獲得 Outback 萬聖節糖果包乙份，數量有限、送完即止。屬節日限定的到店互動推廣，以零消費門檻的免費贈品帶動萬聖節檔期客流；官方文案附品牌 hashtag（#OutbackSteakhouseHK #萬聖節好去處 #TrickOrTreat #限時優惠 #萬聖節糖果）。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/242?lang=tc",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 澳美客, 萬聖節, 限時優惠, Trick or Treat"
     }
   ],
   "media_records": [
@@ -3465,6 +3487,17 @@
       "sentiment": "neutral",
       "sentiment_label": "中性",
       "keywords": "Outback, 銅鑼灣, 黑糖包, 意粉"
+    },
+    {
+      "date": "2026-10-29",
+      "source": "Outback 官方網站",
+      "platform": "新聞媒體",
+      "title": "Outback 萬聖節限定「Trick or Treat」：10月30日至11月1日到任何分店講暗號即送萬聖節糖果包",
+      "summary": "Outback Steakhouse 香港官方網站於 2026-10-29 更新優惠文章（#242）：由 2026 年 10 月 30 日至 11 月 1 日，凡蒞臨 Outback 香港任何分店，向職員講一句「Trick or Treat」，即可免費獲得 Outback 萬聖節糖果包乙份，數量有限、送完即止。屬節日限定的到店互動推廣，以零消費門檻的免費贈品帶動萬聖節檔期客流；官方文案附品牌 hashtag（#OutbackSteakhouseHK #萬聖節好去處 #TrickOrTreat #限時優惠 #萬聖節糖果）。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/242?lang=tc",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 澳美客, 萬聖節, 限時優惠, Trick or Treat"
     }
   ],
   "social_records": [
@@ -5238,6 +5271,17 @@
       "sentiment": "negative",
       "sentiment_label": "負面",
       "keywords": "Outback, 食物品質, 品牌形象"
+    },
+    {
+      "date": "2026-10-02",
+      "source": "Google Maps (大埔超級城)",
+      "platform": "地圖",
+      "title": "大埔顧客1星評價：4人共花超過2000, 牛有樣冇味好硬，豬脾扒勁硬， 二條高級腸又係雪藏味。得麵",
+      "summary": "大埔分店 Google Maps 1星評論（jamie leung，4 週前）：4人共花超過2000, 牛有樣冇味好硬，豬脾扒勁硬， 二條高級腸又係雪藏味。得麵包、意粉和薯條好食d, 芝士夾“三文治個印度款餅” 好彩芝士夠多。 叫主任攞麵包（應該是每人一條仔），請佢上第四條時，佢問你會唔會食完先叫。。。O左咀（ 其實只係得返兩舊仔）， 奶昔都勁甜  咁樣埋單2000， 真係等執笠",
+      "link": "https://www.google.com/maps/contrib/116480023901190051070/reviews",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback, Google Maps, 大埔, 大埔超級城, 1星"
     }
   ],
   "store_ranking": [

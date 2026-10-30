@@ -1,12 +1,12 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-10-29T17:14:34.656821+00:00",
+  "generatedAt": "2026-10-30T17:04:15.134841+00:00",
   "run": {
-    "runDate": "2026-10-30",
+    "runDate": "2026-10-31",
     "dateRange": {
       "from": "2025-06-09",
-      "to": "2026-10-30"
+      "to": "2026-10-31"
     },
     "alerts": [
       {
@@ -27,10 +27,10 @@
     ]
   },
   "counts": {
-    "total": 233,
-    "media": 72,
-    "social": 161,
-    "maps": 51,
+    "total": 235,
+    "media": 73,
+    "social": 162,
+    "maps": 52,
     "stores": 10
   },
   "mentions": [
@@ -2596,6 +2596,28 @@
       "sentiment": "negative",
       "sentiment_label": "負面",
       "keywords": "Outback, 食物品質, 品牌形象"
+    },
+    {
+      "date": "2026-10-02",
+      "source": "Google Maps (大埔超級城)",
+      "platform": "地圖",
+      "title": "大埔顧客1星評價：4人共花超過2000, 牛有樣冇味好硬，豬脾扒勁硬， 二條高級腸又係雪藏味。得麵",
+      "summary": "大埔分店 Google Maps 1星評論（jamie leung，4 週前）：4人共花超過2000, 牛有樣冇味好硬，豬脾扒勁硬， 二條高級腸又係雪藏味。得麵包、意粉和薯條好食d, 芝士夾“三文治個印度款餅” 好彩芝士夠多。 叫主任攞麵包（應該是每人一條仔），請佢上第四條時，佢問你會唔會食完先叫。。。O左咀（ 其實只係得返兩舊仔）， 奶昔都勁甜  咁樣埋單2000， 真係等執笠",
+      "link": "https://www.google.com/maps/contrib/116480023901190051070/reviews",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback, Google Maps, 大埔, 大埔超級城, 1星"
+    },
+    {
+      "date": "2026-10-29",
+      "source": "Outback 官方網站",
+      "platform": "新聞媒體",
+      "title": "Outback 萬聖節限定「Trick or Treat」：10月30日至11月1日到任何分店講暗號即送萬聖節糖果包",
+      "summary": "Outback Steakhouse 香港官方網站於 2026-10-29 更新優惠文章（#242）：由 2026 年 10 月 30 日至 11 月 1 日，凡蒞臨 Outback 香港任何分店，向職員講一句「Trick or Treat」，即可免費獲得 Outback 萬聖節糖果包乙份，數量有限、送完即止。屬節日限定的到店互動推廣，以零消費門檻的免費贈品帶動萬聖節檔期客流；官方文案附品牌 hashtag（#OutbackSteakhouseHK #萬聖節好去處 #TrickOrTreat #限時優惠 #萬聖節糖果）。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/242?lang=tc",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 澳美客, 萬聖節, 限時優惠, Trick or Treat"
     }
   ],
   "stores": [
@@ -3344,6 +3366,18 @@
       "link": "https://ufood.com.hk/restaurant/news/detail/20108380/",
       "branchCount": "1",
       "expansion": "銅鑼灣利園一期單一店舖（2026年10月開幕）；以日法柴火料理＋A5和牛走高端差異化路線"
+    },
+    {
+      "date": "2026-10-02",
+      "competitor": "Smokehouse Bar & Grill（旺角朗豪坊）",
+      "type": "新菜/菜單",
+      "title": "旺角朗豪坊 Smokehouse Bar & Grill 推出10月限定「The Pitmaster's Choice」木炭煙燻菜單＋$298三道菜晚市套餐",
+      "summary": "U Food（發佈 2026-10-02）報道，位於旺角亞皆老街8號朗豪坊13樓的 Smokehouse Bar & Grill 於 2026 年 10 月推出期間限定主題「The Pitmaster's Choice」，主打正宗木炭／山毛櫸木煙燻工藝：招牌為雙層煙燻牛胸肉漢堡配薯條（$188）及低溫慢燻8小時的德州風味豬𦟌肉（$248）。同期推出「The Smokehouse Edit」三道菜晚市套餐（每位 $298，包頭盤、主菜、甜品，16款頭盤及20款以上主菜可選），並可加 $138 升級二人份肉類盛宴拼盤、加 $288 升級二人份自家乾式熟成有骨肉眼扒。另設煙燻雞尾酒及無酒精特調。定位為中價位燒烤／扒類餐廳，客群與 Outback 的家庭／朋友聚餐客群重疊（旺角區）。屬本日補獲的 10 月菜單資訊，非本日發佈。",
+      "sentiment": "中性",
+      "source": "U Food",
+      "link": "https://ufood.com.hk/restaurant/news/detail/20112339/",
+      "branchCount": "1",
+      "expansion": "單一分店（旺角朗豪坊13樓），報道無提及擴張計劃；本日補獲"
     }
   ],
   "trend": [
@@ -3609,7 +3643,7 @@
     },
     {
       "date": "2026-10-02",
-      "count": 3
+      "count": 4
     },
     {
       "date": "2026-10-03",
@@ -3661,6 +3695,10 @@
     },
     {
       "date": "2026-10-25",
+      "count": 1
+    },
+    {
+      "date": "2026-10-29",
       "count": 1
     }
   ],
