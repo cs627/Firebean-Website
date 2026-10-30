@@ -19,8 +19,8 @@ for _L in en_US.UTF-8 en_US.utf8 C.UTF-8 zh_HK.UTF-8 UTF-8; do
   fi
 done
 unset _L
-VERSION="fb15-20261030-2345"
-BUILD=15
+VERSION="fb17-20261031-0915"
+BUILD=17
 
 NAS_IP="${NAS_IP:-169.254.71.131}"
 TARGET="${NAS_USER:-dickson}@${NAS_IP}"
@@ -155,6 +155,63 @@ case "$TASK" in
     echo; echo "=== 所有掛載卷 ==="; df -h | grep -vE "^devfs|^map " 
     exit 0
     ;;
+  status)
+    # ⭐ 早上總覽：唔連 NAS、唔問密碼
+    echo "  ══════════ 還原進度總覽（本機，唔會連 NAS）══════════"
+    echo
+    echo "  ── 1. 外置碟／卷空間 ──────────────────────"
+    for _V in /Volumes/*; do
+      [ -d "$_V" ] || continue
+      case "$_V" in */synology*) continue ;; esac
+      _D=$(df -h "$_V" 2>/dev/null | tail -1 | awk '{print $3" 已用 / "$4" 可用 / "$2" 總"}')
+      printf "  %-34s %s\n" "$(basename "$_V")" "$_D"
+    done
+    echo
+    echo "  ── 2. 已還原總量（由驗收報告加總，唔掃碟）─────"
+    _ALLR=$(ls -t "$LOGDIR"/auto-*.report.txt 2>/dev/null)
+    _R=$(printf '%s\n' "$_ALLR" | head -1)   # 最新一份（＝真實最終狀態）
+    _R5=$(printf '%s\n' "$_ALLR" | head -5)  # 只作檔案列表顯示
+    if [ -z "$_R" ]; then
+      echo "  （未搵到自動報告）"
+    else
+      awk -F'\t' '
+        /^✅/ { n++; b=$NF; sub("bytes ","",b); s+=b }
+        /^跳過/ { k++ }
+        /^⚠️/  { m++ }
+        END { printf "  （最新一份：%s）\n     ✅ 完成 %d 格 ／ ⏭️ 跳過 %d 格 ／ ⚠️ 冇資料 %d 格 ／ 📦 %.1f GB\n", FILENAME, n, k, m, s/1073741824 }
+      ' "$_R"
+      echo
+      echo "  ── 3. 自動報告（最近 5 個）──"
+      printf '%s\n' "$_R" | sed 's/^/     /'
+    fi
+    echo
+    echo "  ── 4. 已完成標記（重跑時會自動跳過）──────────"
+    for _M in "$HOME"/recovered/_done /Volumes/*/recovered/_done /Volumes/*/*/recovered/_done; do
+      [ -d "$_M" ] || continue
+      echo "     $_M ：$(ls -1 "$_M" 2>/dev/null | wc -l | tr -d ' ') 格"
+    done
+    echo
+    echo "  ── 5. 有問題嘅格（要重做）──────────────────"
+    if [ -n "$_R" ]; then
+      _BAD=$(awk -F'\t' '
+        function num(x,  a){ split(x,a," "); return a[2]+0 }
+        /^⚠️/ { print "     ⚠️ 冇資料（下次自動重做）: " $2 }
+        /^✅/ { if (num($3)>0 || num($4)>0) print "     ❗ " $1 "  唔對=" num($3) "  唔見=" num($4) }
+      ' "$_R")
+      if [ -n "$_BAD" ]; then printf '%s\n' "$_BAD"; else echo "     ✅ 冇任何問題格"; fi
+    fi
+    echo
+    echo "  ── 6. 跳過（空間不足）清單 ─────────────────"
+    if [ -n "$_R" ]; then
+      _SK=$(awk -F'\t' '/^跳過/ {print "     ⏭️  " $2}' "$_R" | sort -u)
+      if [ -n "$_SK" ]; then printf '%s\n' "$_SK"; else echo "     （冇）"; fi
+    fi
+    echo
+    echo "  ══════════════════════════════════════════════"
+    echo "  ➜ 把以上全部掟返俾 Hermes，我幫你決定下一步。"
+    echo
+    exit 0
+    ;;
   auto)
     DEST="${2:-$HOME/recovered}"
     REMOTE="auto"
@@ -188,6 +245,7 @@ Firebean — 喺 iMac 直接叫 NAS 做嘢
   extract [G]                  重組原檔（輸出 .tar）
   list                         列最大嘅受害檔
   pick                         列 50-600MB 圖／片／PDF（做證明測試最好）
+  status                       ★ 早上總覽（唔連 NAS、唔問密碼）
   auto [目的地]                ★★ 無人值守：一次密碼→自動還原全部→逐批驗收
                               （有續跑功能：已完整還原嘅資料夾會自動跳過）
   pull "NAS 路徑" [G] [目的地]  直接串流還原 + 自動核 SHA-256（單一批次）
