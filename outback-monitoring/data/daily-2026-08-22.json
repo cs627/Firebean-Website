@@ -3,7 +3,7 @@
   "items": [
     {
       "date": "2026-08-22",
-      "source": "Weekend Weekly / 新假期",
+      "source": "新假期 Weekend Weekly",
       "platform": "新聞媒體",
       "author": "新假期編輯部",
       "title": "新假期必吃食店大獎2026將Outback列為西餐編輯推介",
@@ -51,7 +51,7 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 3,
+    "checked_sources": 2,
     "new_records": 4,
     "limitations": []
   }

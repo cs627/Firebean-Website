@@ -1,7 +1,7 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-10-30T17:04:15.134841+00:00",
+  "generatedAt": "2026-10-30T22:13:04.788688+00:00",
   "run": {
     "runDate": "2026-10-31",
     "dateRange": {
@@ -80,7 +80,7 @@
     },
     {
       "date": "2026-08-01",
-      "source": "OpenRice (尖沙咀中心)",
+      "source": "OpenRice (尖沙咀中心／新港中心)",
       "platform": "OpenRice",
       "title": "食評：外賣收錯錢 成盒雞肉冇俾到",
       "summary": "長期會員投訴外賣收錯錢，叫左雞肉沙律結果冇雞肉，豬鞍又硬到橡膠",
@@ -135,7 +135,7 @@
     },
     {
       "date": "2026-08-02",
-      "source": "OpenRice (尖沙咀中心)",
+      "source": "OpenRice (尖沙咀中心／新港中心)",
       "platform": "OpenRice",
       "title": "食評：星期五同事Lunch 燒豬仔骨好味",
       "summary": "兩個人叫一個餐啱啱好，沙律蔬菜新鮮，燒豬仔骨好味，兩樣加埋150蚊",
@@ -179,7 +179,7 @@
     },
     {
       "date": "2026-08-03",
-      "source": "OpenRice (尖沙咀中心)",
+      "source": "OpenRice (尖沙咀中心／新港中心)",
       "platform": "OpenRice",
       "title": "食評：黑糖麵包好正 同事Lunch",
       "summary": "同事lunch食評，嘢食素質OK，黑糖麵包真係好正",
@@ -344,7 +344,7 @@
     },
     {
       "date": "2026-08-06",
-      "source": "OpenRice (新港中心)",
+      "source": "OpenRice (尖沙咀中心／新港中心)",
       "platform": "OpenRice",
       "title": "食評：10間分店將結業 襯未執再去食",
       "summary": "食評提及Outback將結束分店，趁未結業再去食。肉眼扒拼豬肋骨$488極大份",
@@ -861,7 +861,7 @@
     },
     {
       "date": "2026-08-18",
-      "source": "Threads (Authenticated)",
+      "source": "Threads",
       "platform": "社交媒體",
       "title": "用戶描述於 Outback 用餐後出現不適並求醫",
       "summary": "作者以個人經歷描述：食用沙律、牛扒及草莓奶昔後約兩小時出現腸胃不適，其後曾求醫。此為未經獨立核實的個人陳述，並不證明任何食物或餐廳引致病情。",
@@ -905,7 +905,7 @@
     },
     {
       "date": "2026-08-15",
-      "source": "YOHO MALL Official",
+      "source": "YOHO MALL",
       "platform": "新聞媒體",
       "title": "YOHO MALL形點官網更新Outback Steakhouse分店資訊",
       "summary": "YOHO MALL形點官方網站更新Outback Steakhouse元朗分店頁面，列出營業時間11:30-22:00、電話3102 8688及位置YOHO MALL I L2 2047&2048，並註明7人以上派對需直接致電餐廳預約。",
@@ -938,7 +938,7 @@
     },
     {
       "date": "2026-08-22",
-      "source": "Weekend Weekly / 新假期",
+      "source": "新假期 Weekend Weekly",
       "platform": "新聞媒體",
       "title": "新假期必吃食店大獎2026將Outback列為西餐編輯推介",
       "summary": "《新假期》公布2026必吃食店大獎名單，Outback Steakhouse獲列入年度「必吃」西餐類別的編輯推介，屬香港本地餐飲媒體的正面品牌認可。",
@@ -1191,7 +1191,7 @@
     },
     {
       "date": "2026-08-01",
-      "source": "Threads @hkmalls",
+      "source": "Threads (@hkmalls)",
       "platform": "社交媒體",
       "title": "Patreon八月專題回顧：Outback縮水——由19間減至10間分店的鋸扒勝地興衰",
       "summary": "香港商場評論專頁hkmalls在Threads宣傳其Patreon八月全新文章，回顧Outback Steakhouse在香港的發展歷程，包括由19間分店銳減至10間，D·PARK愉景新城元祖分店結業等。文章同時回顧T.G.I. Fridays及Tony Roma's兩間曾在港曇花一現的美式餐廳。此為第三方深度分析文章。",
@@ -1213,7 +1213,7 @@
     },
     {
       "date": "2026-08-24",
-      "source": "Instagram @generation.x.mom",
+      "source": "Instagram (@generation.x.mom)",
       "platform": "社交媒體",
       "title": "香港創作者分享東涌Outback Prestige會員體驗及價值試算",
       "summary": "香港及新加坡內容創作者Jovee分享於Outback東涌店加入HK$488、兩年期Prestige Membership，並列出85折、8張HK$100優惠券及兩項免費主菜獎賞；帖文以作者自行估算方式形容潛在價值超過HK$2,600，整體為正面會員體驗。",
@@ -1301,7 +1301,7 @@
     },
     {
       "date": "2026-08-13",
-      "source": "Eber HK (Instagram B2B Marketing)",
+      "source": "Instagram (Eber HK)",
       "platform": "社交媒體",
       "title": "Outback Steakhouse Customer Retention Case Study",
       "summary": "Eber HK, a B2B marketing/retention platform, published an Instagram reel case study on how Outback Steakhouse HK has grown its customer base across all outlets. Links to full case study at eber.co. Tags: #OutbackSteakhouseHK #CustomerRetention #FnBHongKong. Features Outback Senior Marketing Lead Patrick Kwok in other related reels.",
@@ -1312,7 +1312,7 @@
     },
     {
       "date": "2026-08-26",
-      "source": "Threads @kong.news",
+      "source": "Threads (@kong.news)",
       "platform": "社交媒體",
       "title": "Outback 9間將關閉分店列表",
       "summary": "Threads user @kong.news posted a detailed list of 9 Outback Steakhouse branches that closed: JP Plaza (CWB), Fenwick Street (Wan Chai), Telford Plaza II (Kowloon Bay), TST Centre, Silvercord (TST), Deli Place (Whampoa), D·PARK (Tsuen Wan), The Lohas (TKO), Tuen Mun Town Plaza. Reply to a now-unavailable post. Documents the historical closures.",
@@ -1510,7 +1510,7 @@
     },
     {
       "date": "2026-08-27",
-      "source": "Lemon Media (Threads)",
+      "source": "Threads (Lemon Media HK)",
       "platform": "社交媒體",
       "title": "沙田新城市麵包節 — Outback $10黑糖麥包外帶優惠",
       "summary": "Lemon Media報導沙田新城市廣場8月28-30日麵包節，Outback Steakhouse提供外帶裝招牌黑糖麥包驚喜價$10，與其他商場餐飲品牌一併推廣。",
@@ -1565,7 +1565,7 @@
     },
     {
       "date": "2026-08-27",
-      "source": "Instagram @foodie",
+      "source": "Instagram (@foodie)",
       "platform": "社交媒體",
       "title": "銅鑼灣Outback食評 — 18oz Prime Rib + Tomahawk Steak",
       "summary": "食客於銅鑼灣廣場一期分店品嚐18oz Prime Rib及USDA Prime Tomahawk Steak，帖文獲多位foodie互動讚好，hashtag #outbacksteakhousehk。貼文含詳細食物照片。",
@@ -1675,7 +1675,7 @@
     },
     {
       "date": "2026-09-04",
-      "source": "Weekend HK (新假期)",
+      "source": "新假期 Weekend Weekly",
       "platform": "新聞媒體",
       "title": "3間沙田扒房推介 — Outback新城市廣場上榜",
       "summary": "新假期（WeekendHK）沙田扒房推介文章，列出Outback Steakhouse（新城市廣場三期）為沙田必食扒房之一，介紹其澳洲風味、招牌牛柳扒及烤帶子煙肉白汁燴飯，另一同榜扒房為Ruby Tuesday（香港科學園）。",
@@ -1983,7 +1983,7 @@
     },
     {
       "date": "2026-10-01",
-      "source": "Instagram @jetsobear 著數熊",
+      "source": "Instagram (@jetsobear 著數熊)",
       "platform": "社交媒體",
       "title": "Jetso Bear：Outback黑糖麥包外帶裝限時快閃$10/條（10月1-4日）",
       "summary": "著數優惠平台Jetso Bear於IG發布宣傳帖，轉載Outback官方資料：10月1日至10月4日，Outback黑糖麥包（外帶裝）HK$10一條，不設限購，先到先得。屬第三方優惠媒體轉載。",
@@ -3378,6 +3378,114 @@
       "link": "https://ufood.com.hk/restaurant/news/detail/20112339/",
       "branchCount": "1",
       "expansion": "單一分店（旺角朗豪坊13樓），報道無提及擴張計劃；本日補獲"
+    },
+    {
+      "date": "2026-10-31",
+      "competitor": "Flat Iron",
+      "type": "推廣/優惠",
+      "title": "Flat Iron 追加三款大份量分享扒優惠（官網現行）",
+      "summary": "Flat Iron 官網 Promotions 頁現行優惠：1kg Black Angus T-Bone 分享扒 5 折；Mixed Grill 5 折；1.2kg Black Angus Tomahawk 分享扒 HK$849；550g Jack's Creek M9 strip loin 二人分享 HK$788。以上屬官網現行標價，非限期新聞稿。",
+      "sentiment": "中性",
+      "source": "官方網站（headless 瀏覽器渲染，2026-10-31 抓取）",
+      "link": "https://flatironhk.com/",
+      "branchCount": "7",
+      "expansion": "維持現有分店；以「大份量 5 折」直接壓 Outback 分享扒價位帶"
+    },
+    {
+      "date": "2026-10-31",
+      "competitor": "Flat Iron",
+      "type": "推廣/優惠",
+      "title": "Flat Iron Happy Hour 12:00-19:30 啤酒及 House Wine 半價",
+      "summary": "Flat Iron 官網列明全線分店 Happy Hour 為 12:00 至 19:30，啤酒及 House Wine 半價。時段覆蓋午市至晚市前段，直接搶佔 Outback 晚市前客流。",
+      "sentiment": "中性",
+      "source": "官方網站（headless 瀏覽器渲染，2026-10-31 抓取）",
+      "link": "https://flatironhk.com/",
+      "branchCount": "7",
+      "expansion": "維持現有分店；以長時段酒精半價作引流"
+    },
+    {
+      "date": "2026-10-31",
+      "competitor": "Ruby Tuesday",
+      "type": "新店/擴張",
+      "title": "Ruby Tuesday 預告品牌升級「We're Moving Up」",
+      "summary": "Ruby Tuesday 官網 Promotions 頁置頂「We're Moving Up – and We're Bringing Something New with Us.」，屬品牌升級／搬遷預告，具體內容未公布。",
+      "sentiment": "中性",
+      "source": "官方網站（headless 瀏覽器渲染，2026-10-31 抓取）",
+      "link": "https://www.rubytuesday.com.hk/promotions/",
+      "branchCount": "9",
+      "expansion": "品牌升級訊號；分店數維持 9 間"
+    },
+    {
+      "date": "2026-10-31",
+      "competitor": "Ruby Tuesday",
+      "type": "新菜/菜單",
+      "title": "Ruby Tuesday 推出全新早餐菜單",
+      "summary": "Ruby Tuesday 官網公布「NEW Breakfast Menu Has Now Arrived!」，開拓早餐時段，屬業態延伸。",
+      "sentiment": "中性",
+      "source": "官方網站（headless 瀏覽器渲染，2026-10-31 抓取）",
+      "link": "https://www.rubytuesday.com.hk/promotions/",
+      "branchCount": "9",
+      "expansion": "增設早餐時段，擴大營業覆蓋"
+    },
+    {
+      "date": "2026-10-31",
+      "competitor": "Ruby Tuesday",
+      "type": "推廣/優惠",
+      "title": "Ruby Tuesday 限時迎新優惠＋新會員獎賞制度",
+      "summary": "Ruby Tuesday 官網現行「Limited-Time Welcome Offer」及「New Rewards Launched」，並有「EXCLUSIVE RT Premier Extension Offer」。首頁標語為會員主餐牌 5 折（50% off regular menu）。",
+      "sentiment": "中性",
+      "source": "官方網站（headless 瀏覽器渲染，2026-10-31 抓取）",
+      "link": "https://www.rubytuesday.com.hk/",
+      "branchCount": "9",
+      "expansion": "以會員制度鎖客，對抗同業折扣戰"
+    },
+    {
+      "date": "2026-10-31",
+      "competitor": "Ruby Tuesday",
+      "type": "活動",
+      "title": "Ruby Tuesday 主打兒童派對套餐（Ruby's Kids Party Set）",
+      "summary": "Ruby Tuesday 官網促銷頁列有「Ruby's Kids Party Set」及「Ruby's Packages」，針對家庭生日會／派對市場，與 Outback 的家庭慶生定位正面重疊。",
+      "sentiment": "中性",
+      "source": "官方網站（headless 瀏覽器渲染，2026-10-31 抓取）",
+      "link": "https://www.rubytuesday.com.hk/promotions/",
+      "branchCount": "9",
+      "expansion": "以派對套餐搶家庭客，直接對標 Outback"
+    },
+    {
+      "date": "2026-10-31",
+      "competitor": "The Grill Room",
+      "type": "推廣/優惠",
+      "title": "The Grill Room 二人晚餐套餐 HK$598",
+      "summary": "The Grill Room 官網 Dining Offers 頁現行優惠：Dinner Set for 2 HK$598；同時列明午市 HK$268／晚市 HK$298 每位和牛任食（免服務費）。二人套餐折算每人 HK$299，與任食價位重疊。",
+      "sentiment": "中性",
+      "source": "官方網站（headless 瀏覽器渲染，2026-10-31 抓取）",
+      "link": "https://www.thegrillroom.hk/dining-offers",
+      "branchCount": "3",
+      "expansion": "維持 3 間分店；以套餐＋任食雙軌夾擊"
+    },
+    {
+      "date": "2026-10-31",
+      "competitor": "La Vache!",
+      "type": "活動",
+      "title": "La Vache! Exchange Square 店一周年活動（11月13日）",
+      "summary": "La Vache! 官網公布「Betsy & Friends: A Toast to One Year」，慶祝 Exchange Square 分店開業一周年：11月13日 6-10pm，現場 DJ、小食及氣泡酒，免訂座、歡迎 walk-in。",
+      "sentiment": "中性",
+      "source": "官方網站（headless 瀏覽器渲染，2026-10-31 抓取）",
+      "link": "https://lavache.com.hk/",
+      "branchCount": "3",
+      "expansion": "新店滿一年，以活動鞏固中環客群"
+    },
+    {
+      "date": "2026-10-31",
+      "competitor": "Dan Ryan's",
+      "type": "推廣/優惠",
+      "title": "Dan Ryan's 官網以「Causeway Bay New Store」為主推入口",
+      "summary": "Dan Ryan's 官網首頁唯一主推內容為 Newsletter Subscription 及「Causeway Bay New Store」，即銅鑼灣新店仍為品牌首要推廣重點。官網為精簡式 Wix 站，優惠詳情不在首頁披露，需由社交渠道補。",
+      "sentiment": "中性",
+      "source": "官方網站（headless 瀏覽器渲染，2026-10-31 抓取）",
+      "link": "https://danryans.com/",
+      "branchCount": "4",
+      "expansion": "銅鑼灣新店為當前主打"
     }
   ],
   "trend": [
@@ -3702,6 +3810,6 @@
       "count": 1
     }
   ],
-  "aiReport": "### 整體媒體形象\n\n8月至今，Outback Steakhouse 香港共錄得117條提及，整體輿情基調正面，反映品牌在公眾心中仍維持「性價比高、適合聚會慶生」的鮮明印象。媒體報導聚焦生日優惠、下午茶及新菜單，持續鞏固其「家庭友善、歡樂聚餐」的定位。\n\n與競爭對手相比，Outback 的「美式分享文化」與「招牌黑糖麵包」仍是獨特記憶點，但面對 Flat Iron 等新派平價扒房挑戰，年輕客群對品牌的「新鮮感」正在遞減。分店表現兩極化——新港中心（76.5%好評）、銅鑼灣及荃灣（均約75%）維持高水準，但形點分店僅得57.6%，反映服務及品質一致性出現區域落差。\n\n### 媒體新聞分析\n\n報導重點集中於「生日優惠」、「下午茶時段」及「季節新菜單」，以 U Food、新假期等大眾飲食媒體為主力，多為軟性推廣報導，公關價值評估為「穩定曝光有餘，形象深化不足」。此類報導雖能持續觸及泛大眾消費者，但未能建立更高層次的品牌差異化或情感連結。\n\n### 社交媒體表現\n\n官方 Instagram 推廣重點為「海鮮季」及飲品優惠，KOL 自發分享用餐體驗構成主要正面 UGC，多以家庭聚餐、朋友慶生為場景。需關注的負面訊號為「牛扒熟度不穩定」及「服務態度參差」，建議官方建立「負評預警機制」，以幽默誠懇語氣回應投訴並提供具體補償。\n\n### 競爭對手動向\n\n- **Dan Ryan's**：銅鑼灣260座新店直接進駐 Fashion Walk 舊 Outback 位置，威脅度最高\n- **Flat Iron**：7扒房+2漢堡急速擴張，每週優惠日低價策略直接衝擊性價比定位\n- **The Grill Room**：3間分店主攻「任食和牛」，搶佔中高消費食肉控\n- **Ruby Tuesday**：9間重整中，MegaBox 店8月26日升級\n\n### PR風險警示\n\n最需關注「分店品質不一致」引發的聲譽風險。形點分店57.6%好評率遠低於其他分店，易被媒體點名為「地雷分店」。牛扒熟度投訴若被競爭對手借題發揮，將演變為社交危機。\n\n### Campaign建議\n\n**1. 「Outback 熟度信心保證」挑戰**\n- 目標：轉化熟度負評為口碑\n- 執行：9月推出「熟度不中即換」活動，邀請KOL實測\n\n**2. 「我們的Fashion Walk回憶」情感連結**\n- 目標：借 Dan Ryan's 進駐舊址之勢，喚起顧客情感記憶\n- 執行：社交平台徵集回憶照片，推出期間限定復刻拼盤\n\n**3. 「形點大變身」透明改善日記**\n- 目標：針對低評分分店進行形象修復\n- 執行：每週發布改善進度，邀請曾留負評顧客免費回訪",
-  "aiReportDate": "2026-08-26"
+  "aiReport": "### 整體媒體形象\n\n截至2026年10月25日，Outback Steakhouse 香港在本輪監測期內累計錄得**233條**提及，整體輿情基調仍然正面：正面情感128條（54.9%）、中性64條（27.5%）、負面36條（15.5%）、混合5條。數據橫跨2025年6月至2026年10月，覆蓋社交媒體110條、地圖51條、新聞媒體42條及OpenRice 30條，樣本結構趨向均衡。品牌在公眾心中仍維持「適合聚餐、性價比鮮明」的印象，惟須更正一點：早期報告引用的分店級好評數據，實為已結業門店所屬，品牌已於2024年8月4日關閉包括新港中心及尖沙咀中心在內共9間（19間中）分店，該批數字不應再作現況參考。現役分店為銅鑼灣、將軍澳、荃灣、沙田、旺角、東涌、中環、大角咀、大埔及元朗共10間。\n\n### 媒體新聞分析\n\n42條新聞報導以軟性推廣為主軸，主題集中於世界盃2026直播餐廳名單、DSE放榜75折、8月份飲品優惠（低至6折）、生日優惠及海鮮季龍蝦推廣，主力媒體為U Food、HK01、am730及新假期。值得注意的是報導多為優惠羅列，缺乏品牌故事與品質背書；其中颱風紅霞期間的營業安排獲媒體廣泛轉載，屬應急曝光而非主動形象建設。Trip.com創作者指南指香港人均消費約HK$201至400，與社交平台上「一份牛扒約HK$500」、「埋單隨時過千」的價格觀感形成落差，傳訊上需主動管理。\n\n### 社交媒體表現\n\n社交媒體110條中，Threads成為負面情緒的主要發源地。8月下旬「美式慢燒安格斯肉眼牛扒五成熟實為近乎全生」事件，經網民原帖（約95萬views）、餓底TV轉載（1.57萬views）到飲食媒體IG二次轉載，形成完整擴散鏈；另有荃灣西牛扒翻煮、慢服務及小飛蟲等未經獨立核實的個人陳述。9月大埔超級城店長涉向員工借貸的貼文達8.23萬瀏覽、655讚，屬人事管理層面的聲譽風險。10月25日官方IG「新品研發部要人」得獎名單被指有疑似假帳號及官方刪除留言，反映活動執行的透明度正受質疑。\n\n### 競爭對手動向\n\n- **Ruby Tuesday**：官網預告品牌升級「We're Moving Up」，並推Surf & Turf DUO、會員全單半價及Asahi買二送一，全線9間分店，優惠密度為對手之最。\n- **Flat Iron Steak**：官網力推550克Jack's Creek M9西冷扒二人分享HK$788，年內由7間扒房急速擴張至IFC、海港城及鰂魚涌等新點，直接衝擊中高價牛扒市場。\n- **The Grill Room**：午市HK$268、晚市HK$298的90分鐘和牛任食（免服務費），並在官網新增尖沙咀漢弗萊大道分店，較舊記錄多出一間，擴張速度快。\n- **La Vache!**：中環交易廣場旗艦店於11月13日舉行一周年「Betsy & Friends」活動，設live DJ及免訂座，搶攻週五晚市客流。\n- **Dan Ryan's 與 Mr. Steak a la minute**：前者銅鑼灣翡翠明珠廣場260座新店持續造勢，後者以自助餐買一送一及俄羅斯長腳蟹主題吸客。\n\n### PR風險警示\n\n首要風險為**沙田分店**：13條提及中有6條負面，為全線最高，集中於牛扒生熟度、沙律生菜變黃及性價比下降，屬結構性品質訊號，若被媒體點名將成「地雷分店」。**元朗**同錄13條提及，但正面僅5條（約38%），並出現「其他餐廳普遍較Outback好」的比較帖。**大埔**4條提及中2條負面、1條混合，另有店長借貸指控待處理。牛扒熟度爭議已具跨平台擴散能力，為最高傳訊風險。**東涌與大角咀**在社媒數據中零提及，僅有評分記錄，屬曝光不足而非表現失敗，需以內容補位。\n\n### Campaign建議\n\n**1. 「熟度標準化」信任重建計劃**\n- 目標：將牛扒熟度爭議由減分項轉化為品質承諾話題\n- 執行：全線推行「慢燒牛扒熟度卡」，隨扒附上熟度對照與Prime rib慢煮原理解說，以沙田、銅鑼灣先行試點，並邀牛扒KOL實測背書。\n\n**2. 「沙田．元朗品質護航」地區修復行動**\n- 目標：針對沙田高負評及元朗低好評，挽回兩區口碑\n- 執行：由區域總廚駐店兩週，公開改善日誌，主動邀請曾留負評的Google及OpenRice用戶免費回訪，並在區內社群發布改善進度。\n\n**3. 「東涌．大角咀補位」曝光計劃**\n- 目標：為零社媒提及的分店建立存在感\n- 執行：聯乘社區KOL製作午市及親子週末內容，配合外賣限定優惠與App會員券導流，累積首批UGC。\n",
+  "aiReportDate": "2026-10-31"
 }

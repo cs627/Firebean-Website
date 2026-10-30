@@ -47,7 +47,7 @@
     },
     {
       "date": "2026-08-01",
-      "source": "OpenRice (尖沙咀中心)",
+      "source": "OpenRice (尖沙咀中心／新港中心)",
       "platform": "OpenRice",
       "author": "未記錄",
       "title": "食評：外賣收錯錢 成盒雞肉冇俾到",
@@ -69,7 +69,7 @@
     },
     {
       "date": "2026-08-01",
-      "source": "Threads @hkmalls",
+      "source": "Threads (@hkmalls)",
       "platform": "社交媒體",
       "author": "hkmalls",
       "title": "Patreon八月專題回顧：Outback縮水——由19間減至10間分店的鋸扒勝地興衰",
@@ -83,7 +83,7 @@
     {
       "title": "食評：外賣收錯錢 成盒雞肉冇俾到",
       "summary": "長期會員投訴外賣收錯錢，叫左雞肉沙律結果冇雞肉，豬鞍又硬到橡膠",
-      "source": "OpenRice (尖沙咀中心)",
+      "source": "OpenRice (尖沙咀中心／新港中心)",
       "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-r15759/reviews#neg",
       "severity": "MEDIUM"
     }

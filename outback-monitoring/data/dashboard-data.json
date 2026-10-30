@@ -4,9 +4,9 @@
     "total_records": 235,
     "daily_avg": 2.9,
     "date_range": "2025-06-09 → 2026-10-29",
-    "sources_checked": 38,
+    "sources_checked": 28,
     "new_verified": 3,
-    "coverage_ratio": "38/46",
+    "coverage_ratio": "28/46",
     "negative_alerts": 37,
     "positive_pct": 55
   },
@@ -47,11 +47,11 @@
     },
     {
       "source": "Instagram",
-      "count": 41
+      "count": 45
     },
     {
       "source": "Threads",
-      "count": 37
+      "count": 40
     },
     {
       "source": "OpenRice",
@@ -74,11 +74,15 @@
       "count": 7
     },
     {
+      "source": "新假期 Weekend Weekly",
+      "count": 4
+    },
+    {
       "source": "HK01",
       "count": 2
     },
     {
-      "source": "新假期 Weekend Weekly",
+      "source": "YOHO MALL",
       "count": 2
     },
     {
@@ -95,10 +99,6 @@
     },
     {
       "source": "Google Play",
-      "count": 1
-    },
-    {
-      "source": "Eber Blog",
       "count": 1
     }
   ],
@@ -155,7 +155,7 @@
     },
     {
       "date": "2026-08-01",
-      "source": "OpenRice (尖沙咀中心)",
+      "source": "OpenRice (尖沙咀中心／新港中心)",
       "platform": "OpenRice",
       "title": "食評：外賣收錯錢 成盒雞肉冇俾到",
       "summary": "長期會員投訴外賣收錯錢，叫左雞肉沙律結果冇雞肉，豬鞍又硬到橡膠",
@@ -210,7 +210,7 @@
     },
     {
       "date": "2026-08-02",
-      "source": "OpenRice (尖沙咀中心)",
+      "source": "OpenRice (尖沙咀中心／新港中心)",
       "platform": "OpenRice",
       "title": "食評：星期五同事Lunch 燒豬仔骨好味",
       "summary": "兩個人叫一個餐啱啱好，沙律蔬菜新鮮，燒豬仔骨好味，兩樣加埋150蚊",
@@ -254,7 +254,7 @@
     },
     {
       "date": "2026-08-03",
-      "source": "OpenRice (尖沙咀中心)",
+      "source": "OpenRice (尖沙咀中心／新港中心)",
       "platform": "OpenRice",
       "title": "食評：黑糖麵包好正 同事Lunch",
       "summary": "同事lunch食評，嘢食素質OK，黑糖麵包真係好正",
@@ -419,7 +419,7 @@
     },
     {
       "date": "2026-08-06",
-      "source": "OpenRice (新港中心)",
+      "source": "OpenRice (尖沙咀中心／新港中心)",
       "platform": "OpenRice",
       "title": "食評：10間分店將結業 襯未執再去食",
       "summary": "食評提及Outback將結束分店，趁未結業再去食。肉眼扒拼豬肋骨$488極大份",
@@ -936,7 +936,7 @@
     },
     {
       "date": "2026-08-18",
-      "source": "Threads (Authenticated)",
+      "source": "Threads",
       "platform": "社交媒體",
       "title": "用戶描述於 Outback 用餐後出現不適並求醫",
       "summary": "作者以個人經歷描述：食用沙律、牛扒及草莓奶昔後約兩小時出現腸胃不適，其後曾求醫。此為未經獨立核實的個人陳述，並不證明任何食物或餐廳引致病情。",
@@ -980,7 +980,7 @@
     },
     {
       "date": "2026-08-15",
-      "source": "YOHO MALL Official",
+      "source": "YOHO MALL",
       "platform": "新聞媒體",
       "title": "YOHO MALL形點官網更新Outback Steakhouse分店資訊",
       "summary": "YOHO MALL形點官方網站更新Outback Steakhouse元朗分店頁面，列出營業時間11:30-22:00、電話3102 8688及位置YOHO MALL I L2 2047&2048，並註明7人以上派對需直接致電餐廳預約。",
@@ -1013,7 +1013,7 @@
     },
     {
       "date": "2026-08-22",
-      "source": "Weekend Weekly / 新假期",
+      "source": "新假期 Weekend Weekly",
       "platform": "新聞媒體",
       "title": "新假期必吃食店大獎2026將Outback列為西餐編輯推介",
       "summary": "《新假期》公布2026必吃食店大獎名單，Outback Steakhouse獲列入年度「必吃」西餐類別的編輯推介，屬香港本地餐飲媒體的正面品牌認可。",
@@ -1266,7 +1266,7 @@
     },
     {
       "date": "2026-08-01",
-      "source": "Threads @hkmalls",
+      "source": "Threads (@hkmalls)",
       "platform": "社交媒體",
       "title": "Patreon八月專題回顧：Outback縮水——由19間減至10間分店的鋸扒勝地興衰",
       "summary": "香港商場評論專頁hkmalls在Threads宣傳其Patreon八月全新文章，回顧Outback Steakhouse在香港的發展歷程，包括由19間分店銳減至10間，D·PARK愉景新城元祖分店結業等。文章同時回顧T.G.I. Fridays及Tony Roma's兩間曾在港曇花一現的美式餐廳。此為第三方深度分析文章。",
@@ -1288,7 +1288,7 @@
     },
     {
       "date": "2026-08-24",
-      "source": "Instagram @generation.x.mom",
+      "source": "Instagram (@generation.x.mom)",
       "platform": "社交媒體",
       "title": "香港創作者分享東涌Outback Prestige會員體驗及價值試算",
       "summary": "香港及新加坡內容創作者Jovee分享於Outback東涌店加入HK$488、兩年期Prestige Membership，並列出85折、8張HK$100優惠券及兩項免費主菜獎賞；帖文以作者自行估算方式形容潛在價值超過HK$2,600，整體為正面會員體驗。",
@@ -1376,7 +1376,7 @@
     },
     {
       "date": "2026-08-13",
-      "source": "Eber HK (Instagram B2B Marketing)",
+      "source": "Instagram (Eber HK)",
       "platform": "社交媒體",
       "title": "Outback Steakhouse Customer Retention Case Study",
       "summary": "Eber HK, a B2B marketing/retention platform, published an Instagram reel case study on how Outback Steakhouse HK has grown its customer base across all outlets. Links to full case study at eber.co. Tags: #OutbackSteakhouseHK #CustomerRetention #FnBHongKong. Features Outback Senior Marketing Lead Patrick Kwok in other related reels.",
@@ -1387,7 +1387,7 @@
     },
     {
       "date": "2026-08-26",
-      "source": "Threads @kong.news",
+      "source": "Threads (@kong.news)",
       "platform": "社交媒體",
       "title": "Outback 9間將關閉分店列表",
       "summary": "Threads user @kong.news posted a detailed list of 9 Outback Steakhouse branches that closed: JP Plaza (CWB), Fenwick Street (Wan Chai), Telford Plaza II (Kowloon Bay), TST Centre, Silvercord (TST), Deli Place (Whampoa), D·PARK (Tsuen Wan), The Lohas (TKO), Tuen Mun Town Plaza. Reply to a now-unavailable post. Documents the historical closures.",
@@ -1585,7 +1585,7 @@
     },
     {
       "date": "2026-08-27",
-      "source": "Lemon Media (Threads)",
+      "source": "Threads (Lemon Media HK)",
       "platform": "社交媒體",
       "title": "沙田新城市麵包節 — Outback $10黑糖麥包外帶優惠",
       "summary": "Lemon Media報導沙田新城市廣場8月28-30日麵包節，Outback Steakhouse提供外帶裝招牌黑糖麥包驚喜價$10，與其他商場餐飲品牌一併推廣。",
@@ -1640,7 +1640,7 @@
     },
     {
       "date": "2026-08-27",
-      "source": "Instagram @foodie",
+      "source": "Instagram (@foodie)",
       "platform": "社交媒體",
       "title": "銅鑼灣Outback食評 — 18oz Prime Rib + Tomahawk Steak",
       "summary": "食客於銅鑼灣廣場一期分店品嚐18oz Prime Rib及USDA Prime Tomahawk Steak，帖文獲多位foodie互動讚好，hashtag #outbacksteakhousehk。貼文含詳細食物照片。",
@@ -1750,7 +1750,7 @@
     },
     {
       "date": "2026-09-04",
-      "source": "Weekend HK (新假期)",
+      "source": "新假期 Weekend Weekly",
       "platform": "新聞媒體",
       "title": "3間沙田扒房推介 — Outback新城市廣場上榜",
       "summary": "新假期（WeekendHK）沙田扒房推介文章，列出Outback Steakhouse（新城市廣場三期）為沙田必食扒房之一，介紹其澳洲風味、招牌牛柳扒及烤帶子煙肉白汁燴飯，另一同榜扒房為Ruby Tuesday（香港科學園）。",
@@ -2058,7 +2058,7 @@
     },
     {
       "date": "2026-10-01",
-      "source": "Instagram @jetsobear 著數熊",
+      "source": "Instagram (@jetsobear 著數熊)",
       "platform": "社交媒體",
       "title": "Jetso Bear：Outback黑糖麥包外帶裝限時快閃$10/條（10月1-4日）",
       "summary": "著數優惠平台Jetso Bear於IG發布宣傳帖，轉載Outback官方資料：10月1日至10月4日，Outback黑糖麥包（外帶裝）HK$10一條，不設限購，先到先得。屬第三方優惠媒體轉載。",
@@ -2731,7 +2731,7 @@
     },
     {
       "date": "2026-08-01",
-      "source": "OpenRice (尖沙咀中心)",
+      "source": "OpenRice (尖沙咀中心／新港中心)",
       "platform": "OpenRice",
       "title": "食評：外賣收錯錢 成盒雞肉冇俾到",
       "summary": "長期會員投訴外賣收錯錢，叫左雞肉沙律結果冇雞肉，豬鞍又硬到橡膠",
@@ -2753,7 +2753,7 @@
     },
     {
       "date": "2026-08-02",
-      "source": "OpenRice (尖沙咀中心)",
+      "source": "OpenRice (尖沙咀中心／新港中心)",
       "platform": "OpenRice",
       "title": "食評：星期五同事Lunch 燒豬仔骨好味",
       "summary": "兩個人叫一個餐啱啱好，沙律蔬菜新鮮，燒豬仔骨好味，兩樣加埋150蚊",
@@ -2775,7 +2775,7 @@
     },
     {
       "date": "2026-08-03",
-      "source": "OpenRice (尖沙咀中心)",
+      "source": "OpenRice (尖沙咀中心／新港中心)",
       "platform": "OpenRice",
       "title": "食評：黑糖麵包好正 同事Lunch",
       "summary": "同事lunch食評，嘢食素質OK，黑糖麵包真係好正",
@@ -2874,7 +2874,7 @@
     },
     {
       "date": "2026-08-06",
-      "source": "OpenRice (新港中心)",
+      "source": "OpenRice (尖沙咀中心／新港中心)",
       "platform": "OpenRice",
       "title": "食評：10間分店將結業 襯未執再去食",
       "summary": "食評提及Outback將結束分店，趁未結業再去食。肉眼扒拼豬肋骨$488極大份",
@@ -3028,7 +3028,7 @@
     },
     {
       "date": "2026-08-15",
-      "source": "YOHO MALL Official",
+      "source": "YOHO MALL",
       "platform": "新聞媒體",
       "title": "YOHO MALL形點官網更新Outback Steakhouse分店資訊",
       "summary": "YOHO MALL形點官方網站更新Outback Steakhouse元朗分店頁面，列出營業時間11:30-22:00、電話3102 8688及位置YOHO MALL I L2 2047&2048，並註明7人以上派對需直接致電餐廳預約。",
@@ -3039,7 +3039,7 @@
     },
     {
       "date": "2026-08-22",
-      "source": "Weekend Weekly / 新假期",
+      "source": "新假期 Weekend Weekly",
       "platform": "新聞媒體",
       "title": "新假期必吃食店大獎2026將Outback列為西餐編輯推介",
       "summary": "《新假期》公布2026必吃食店大獎名單，Outback Steakhouse獲列入年度「必吃」西餐類別的編輯推介，屬香港本地餐飲媒體的正面品牌認可。",
@@ -3226,7 +3226,7 @@
     },
     {
       "date": "2026-09-04",
-      "source": "Weekend HK (新假期)",
+      "source": "新假期 Weekend Weekly",
       "platform": "新聞媒體",
       "title": "3間沙田扒房推介 — Outback新城市廣場上榜",
       "summary": "新假期（WeekendHK）沙田扒房推介文章，列出Outback Steakhouse（新城市廣場三期）為沙田必食扒房之一，介紹其澳洲風味、招牌牛柳扒及烤帶子煙肉白汁燴飯，另一同榜扒房為Ruby Tuesday（香港科學園）。",
@@ -3998,7 +3998,7 @@
     },
     {
       "date": "2026-08-18",
-      "source": "Threads (Authenticated)",
+      "source": "Threads",
       "platform": "社交媒體",
       "title": "用戶描述於 Outback 用餐後出現不適並求醫",
       "summary": "作者以個人經歷描述：食用沙律、牛扒及草莓奶昔後約兩小時出現腸胃不適，其後曾求醫。此為未經獨立核實的個人陳述，並不證明任何食物或餐廳引致病情。",
@@ -4273,7 +4273,7 @@
     },
     {
       "date": "2026-08-01",
-      "source": "Threads @hkmalls",
+      "source": "Threads (@hkmalls)",
       "platform": "社交媒體",
       "title": "Patreon八月專題回顧：Outback縮水——由19間減至10間分店的鋸扒勝地興衰",
       "summary": "香港商場評論專頁hkmalls在Threads宣傳其Patreon八月全新文章，回顧Outback Steakhouse在香港的發展歷程，包括由19間分店銳減至10間，D·PARK愉景新城元祖分店結業等。文章同時回顧T.G.I. Fridays及Tony Roma's兩間曾在港曇花一現的美式餐廳。此為第三方深度分析文章。",
@@ -4295,7 +4295,7 @@
     },
     {
       "date": "2026-08-24",
-      "source": "Instagram @generation.x.mom",
+      "source": "Instagram (@generation.x.mom)",
       "platform": "社交媒體",
       "title": "香港創作者分享東涌Outback Prestige會員體驗及價值試算",
       "summary": "香港及新加坡內容創作者Jovee分享於Outback東涌店加入HK$488、兩年期Prestige Membership，並列出85折、8張HK$100優惠券及兩項免費主菜獎賞；帖文以作者自行估算方式形容潛在價值超過HK$2,600，整體為正面會員體驗。",
@@ -4361,7 +4361,7 @@
     },
     {
       "date": "2026-08-13",
-      "source": "Eber HK (Instagram B2B Marketing)",
+      "source": "Instagram (Eber HK)",
       "platform": "社交媒體",
       "title": "Outback Steakhouse Customer Retention Case Study",
       "summary": "Eber HK, a B2B marketing/retention platform, published an Instagram reel case study on how Outback Steakhouse HK has grown its customer base across all outlets. Links to full case study at eber.co. Tags: #OutbackSteakhouseHK #CustomerRetention #FnBHongKong. Features Outback Senior Marketing Lead Patrick Kwok in other related reels.",
@@ -4372,7 +4372,7 @@
     },
     {
       "date": "2026-08-26",
-      "source": "Threads @kong.news",
+      "source": "Threads (@kong.news)",
       "platform": "社交媒體",
       "title": "Outback 9間將關閉分店列表",
       "summary": "Threads user @kong.news posted a detailed list of 9 Outback Steakhouse branches that closed: JP Plaza (CWB), Fenwick Street (Wan Chai), Telford Plaza II (Kowloon Bay), TST Centre, Silvercord (TST), Deli Place (Whampoa), D·PARK (Tsuen Wan), The Lohas (TKO), Tuen Mun Town Plaza. Reply to a now-unavailable post. Documents the historical closures.",
@@ -4504,7 +4504,7 @@
     },
     {
       "date": "2026-08-27",
-      "source": "Lemon Media (Threads)",
+      "source": "Threads (Lemon Media HK)",
       "platform": "社交媒體",
       "title": "沙田新城市麵包節 — Outback $10黑糖麥包外帶優惠",
       "summary": "Lemon Media報導沙田新城市廣場8月28-30日麵包節，Outback Steakhouse提供外帶裝招牌黑糖麥包驚喜價$10，與其他商場餐飲品牌一併推廣。",
@@ -4537,7 +4537,7 @@
     },
     {
       "date": "2026-08-27",
-      "source": "Instagram @foodie",
+      "source": "Instagram (@foodie)",
       "platform": "社交媒體",
       "title": "銅鑼灣Outback食評 — 18oz Prime Rib + Tomahawk Steak",
       "summary": "食客於銅鑼灣廣場一期分店品嚐18oz Prime Rib及USDA Prime Tomahawk Steak，帖文獲多位foodie互動讚好，hashtag #outbacksteakhousehk。貼文含詳細食物照片。",
@@ -4812,7 +4812,7 @@
     },
     {
       "date": "2026-10-01",
-      "source": "Instagram @jetsobear 著數熊",
+      "source": "Instagram (@jetsobear 著數熊)",
       "platform": "社交媒體",
       "title": "Jetso Bear：Outback黑糖麥包外帶裝限時快閃$10/條（10月1-4日）",
       "summary": "著數優惠平台Jetso Bear於IG發布宣傳帖，轉載Outback官方資料：10月1日至10月4日，Outback黑糖麥包（外帶裝）HK$10一條，不設限購，先到先得。屬第三方優惠媒體轉載。",
