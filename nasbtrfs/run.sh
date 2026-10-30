@@ -48,18 +48,30 @@ case "$TASK" in
     ;;
   plan1)
     FILE="${2:?用法: bash ~/fb-run.sh plan1 \"完整路徑.L0CK3D\" [G]}"
-    G="${3:-1}"
+    G="${3:-23082}"
     REMOTE="python3 $TOOL plan \"$FILE\" --g $G 2>&1 | head -60"
     SUDO="sudo"
     ;;
   survey)
-    G="${2:-1}"
-    REMOTE="python3 $TOOL survey $SHARE --g $G"
+    G="${2:-23082}"
+    SUBSET="${3:-$SHARE}"
+    REMOTE="python3 $TOOL survey '$SUBSET' --g $G"
     SUDO="sudo"; STREAM="survey"
     ;;
   extract)
-    G="${2:-1}"
-    REMOTE="python3 $TOOL extract $SHARE --g $G"
+    G="${2:-23082}"
+    SUBSET="${3:-$SHARE}"
+    REMOTE="python3 $TOOL extract '$SUBSET' --g $G"
+    SUDO="sudo"; STREAM="extract"
+    ;;
+  pick)
+    REMOTE="echo '=== 50-600MB 圖／片／PDF（肉眼可驗證）==='; find '$SHARE' \\( -name '*.jpg.L0CK3D' -o -name '*.jpeg.L0CK3D' -o -name '*.png.L0CK3D' -o -name '*.pdf.L0CK3D' -o -name '*.mp4.L0CK3D' \\) -size +50M -size -600M -exec ls -ld {} + 2>/dev/null | sort -k5 -rn | head -20"
+    SUDO="sudo"
+    ;;
+  extract1)
+    FILE="${2:?用法: bash ~/fb-run.sh extract1 \"完整路徑.L0CK3D\" [G]}"
+    G="${3:-23082}"
+    REMOTE="python3 $TOOL extract \"$FILE\" --g $G"
     SUDO="sudo"; STREAM="extract"
     ;;
   help|*)
@@ -76,7 +88,9 @@ Firebean — 喺 iMac 直接叫 NAS 做嘢
 之後（等上面結果）：
   survey [G]                   全卷分類（輸出存檔）
   extract [G]                  重組原檔（輸出 .tar）
-  list                         列最大嘅受害檔（做證明測試用）
+  list                         列最大嘅受害檔
+  pick                         列 50-600MB 圖／片／PDF（做證明測試最好）
+  extract1 "路徑" [G]          還原單一檔 → .tar（證明測試）
   plan1 "路徑.L0CK3D" [G]      單一檔重組計劃（證明測試）
 
 ⚠️ 會問 NAS 密碼（可能問兩次：SSH 一次、sudo 一次）。
