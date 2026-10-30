@@ -101,7 +101,7 @@ def payload():
             assert q in ids, "part references unknown question: " + q
     parts = [dict(name=n, sub=s, goal=g, qids=q) for n, s, g, q in PARTS]
     return dict(
-        meta=dict(endpoint=endpoint(), source_doc="11yp4XWLDAN4VruqseCECnzkhunfdSM51KP8cEVLiw7U",
+        meta=dict(endpoint=endpoint(), stats=endpoint().replace("/submit", "/stats"), source_doc="11yp4XWLDAN4VruqseCECnzkhunfdSM51KP8cEVLiw7U",
                   built=__import__("datetime").datetime.now().astimezone().strftime("%Y-%m-%d %H:%M %Z")),
         parts=parts, questions=questions,
         types={str(k): v for k, v in TYPES.items()},

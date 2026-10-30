@@ -200,6 +200,49 @@ body.showorig .orig{display:block}
 .patRow b{color:#8A6A24;font-weight:800;font-size:13.5px;letter-spacing:.3px;display:block}
 .patRow>*{min-width:0}
 .patRow span{word-break:break-word}
+/* ---------- 調研數據看板 ---------- */
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}
+.kpi{background:#F7FBF8;border:1.5px solid #E2F0E7;border-radius:14px;padding:11px 12px}
+.kpi .n{font-size:20px;font-weight:900;color:#2F6B4F;line-height:1.15}
+.kpi .l{font-size:12.5px;color:var(--muted);font-weight:700;margin-top:3px}
+.grid2{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px}
+.chartbox{background:var(--card);border:1.5px solid var(--line2);border-radius:var(--r);padding:15px 14px;box-shadow:var(--sh)}
+.chartbox h3{margin:0 0 4px;font-size:16px}
+.chartbox .sub{font-size:12.5px;color:var(--muted);margin:0 0 8px}
+svg.chart{width:100%;height:auto;display:block;overflow:visible}
+.dlegend{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:10px}
+.dlegend span{font-size:13px;color:var(--ink);display:inline-flex;align-items:center;gap:6px;max-width:100%;word-break:break-word}
+.dlegend{max-width:100%}
+.dlegend i{width:10px;height:10px;border-radius:3px;display:inline-block}
+.qpanel{margin-top:14px}
+.qpanel select{font:inherit;font-size:15px;padding:9px 11px;border-radius:12px;border:1.5px solid var(--line2);
+  background:#fff;color:var(--ink);max-width:100%}
+.qrow{display:grid;grid-template-columns:minmax(0,1fr);gap:5px;padding:9px 0;border-top:1px dashed var(--line2)}
+.qrow:first-of-type{border-top:0}
+.qrow .qt{display:flex;justify-content:space-between;gap:10px;font-size:14.5px;color:var(--ink)}
+.qrow .qt .pct{font-weight:900;color:#2F6B4F;white-space:nowrap;display:inline-flex;align-items:baseline;gap:7px}
+.qrow .qt .pct i{font-style:normal;font-weight:700;font-size:12.5px;color:var(--muted)}
+.qrow .track{height:11px;border-radius:999px;background:#EEF3F0;overflow:hidden;display:block}
+.qrow .fill{height:100%;border-radius:999px;display:block;background:linear-gradient(90deg,#7FBF9C,#3E8E68)}
+.qrow .n{font-size:12.5px;color:var(--muted)}
+.tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:10px;max-width:100%}
+.heat{width:100%;border-collapse:collapse;margin-top:0;font-size:13.5px;min-width:520px}
+.heat th,.heat td{border:1px solid var(--line2);padding:6px 8px;text-align:center}
+.heat th{background:#F5F8F6;font-weight:800;font-size:12.5px;color:#33523F}
+.heat td.rowh{text-align:left;font-weight:700;background:#FAFCFB;white-space:nowrap}
+.analysis{max-width:1200px;margin-top:16px;background:linear-gradient(180deg,#FFFDF7,#FFF8EA);border:1.5px solid #F0E2C2;
+  border-radius:var(--r);padding:17px 16px;box-shadow:var(--sh)}
+.analysis h3{margin:0 0 4px;color:#8A6A24}
+.analysis h4{margin:16px 0 6px;font-size:17px;color:#7A5C1C}
+.analysis p,.analysis li{font-size:16.4px;color:#4A3B21;line-height:1.9}
+.analysis ul{margin:6px 0 0;padding-left:20px}
+.acols{column-count:1;column-gap:30px}
+.asec{break-inside:avoid;-webkit-column-break-inside:avoid;page-break-inside:avoid;margin-bottom:12px}
+@media(min-width:1080px){.acols{column-count:2}}
+.flag{display:inline-block;font-size:12.5px;font-weight:800;padding:3px 9px;border-radius:999px;
+  background:#FDEFD6;color:#8A6A24;margin-left:6px}
+.flag.ok{background:#E7F5EC;color:#2F6B4F}
+.flag.low{background:#FBE9E4;color:#A5452B}
 .patRow .hl{color:#B4552B;font-weight:800}
 .ev{background:var(--card);border:1.5px solid var(--line2);border-radius:var(--r);padding:17px 16px;margin-top:16px;box-shadow:var(--sh)}
 .ev h3{margin:0 0 6px}
@@ -315,6 +358,7 @@ footer.foot b{color:var(--ink2)}
   .opts.two{grid-template-columns:1fr 1fr}
   .opts.two .opt:last-child:nth-child(odd){grid-column:1 / -1}
   .rgrid{grid-template-columns:1fr 1fr}
+  .grid2{grid-template-columns:1fr 1fr}
   .atlasgrid{grid-template-columns:repeat(3,1fr)}
   .card{padding:30px}
   .hero-intro{padding:36px}
@@ -456,15 +500,44 @@ footer.foot b{color:var(--ink2)}
       <div class="wrap">
         <div class="card">
           <span class="eyebrow">調研數據 ｜ 匿名匯總</span>
-          <h2>全港累計分佈</h2>
-          <p class="muted small">只顯示匯總數字，不含任何個人資料。每一份匿名作答，都同時係一份土地政策公眾調研樣本。</p>
+          <h2>土地政策公眾調研 ｜ 即時數據看板</h2>
+          <p class="muted small">只顯示匯總數字，不含任何個人資料。每一份匿名作答，都同時係一份土地政策公眾調研樣本；圖表隨新回應即時更新。</p>
           <div class="statline">
             <div class="big" id="dTotal">—</div>
             <div class="cap">份已完成測驗<br><span id="dStatus" class="muted">連線中…</span></div>
           </div>
-          <div class="hr"></div>
-          <div id="dCanvas" class="bars"></div>
+          <div class="kpis" id="dKpis"></div>
+          <div class="grid2">
+            <div class="chartbox">
+              <h3>累計回應趨勢</h3>
+              <p class="sub">折線 = 累計樣本數；圓點 = 當日有新增回應嘅日子（每日累加 1 份以上就會多一點）</p>
+              <div id="dTrend"></div>
+            </div>
+            <div class="chartbox">
+              <h3>九型分佈</h3>
+              <p class="sub">受眾分眾比例，可直接對應九條傳播路線</p>
+              <div id="dDonut"></div>
+            </div>
+          </div>
+          <div class="chartbox qpanel">
+            <h3>每一題嘅選項分佈</h3>
+            <p class="sub">揀題目睇每個選項嘅實際人數與百分比（多選題以受訪者人數為基數）</p>
+            <label class="small muted" for="dQsel">題目</label>
+            <select id="dQsel" aria-label="選擇題目"></select>
+            <div id="dQbars" style="margin-top:10px"></div>
+          </div>
+          <div class="chartbox">
+            <h3>交叉分析：年齡 × 九型</h3>
+            <p class="sub">每一格係「該年齡層中屬於此型嘅百分比」，睇得出邊個年齡層最集中喺邊一型</p>
+            <div id="dCross"></div>
+          </div>
+          <div class="analysis" id="dAnalysis"></div>
           <hr class="hr">
+          <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+            <button class="mini" id="dCopy" type="button" style="background:#2F6B4F;color:#fff;border:0;border-radius:999px;padding:9px 15px;font:inherit;font-weight:800;font-size:14px;cursor:pointer">複製綜合分析文字</button>
+            <span class="muted small" id="dCopyMsg"></span>
+          </div>
+          <div class="hr"></div>
           <button class="mini" id="srcToggle" type="button" style="background:none;border:0;font:inherit;font-size:13px;color:var(--muted);text-decoration:underline;cursor:pointer;padding:0">顯示數據來源</button>
           <div id="dSrc" style="display:none" class="small muted"></div>
         </div>
@@ -864,39 +937,253 @@ document.addEventListener("keydown", function(e){ if(e.key==="Escape") $("#modal
   box.innerHTML=h;
 })();
 
-/* ---------- data view ---------- */
-function loadData(){
-  const box=$("#dCanvas"), st=$("#dStatus"), tot=$("#dTotal");
-  function paint(obj){
-    tot.textContent=(obj.total||0).toLocaleString("en-HK");
-    const counts=obj.counts||{};
-    let max=1; Object.keys(counts).forEach(function(k){ max=Math.max(max,counts[k]) });
-    let h="";
+/* ---------- 調研數據看板（即時圖表 + 綜合分析） ---------- */
+const TYPECOL={1:"#3E8E68",2:"#C97B5A",3:"#D9A03C",4:"#9A6BB5",5:"#6E8BC4",6:"#4E9EA8",7:"#D97A6C",8:"#7A8FA6",9:"#8FB98B"};
+let DASH=null;
+
+function qById(id){ for(let i=0;i<D.questions.length;i++) if(D.questions[i].id===id) return D.questions[i]; return null }
+function optLabel(id,k){ const q=qById(id); if(!q) return k; for(let i=0;i<q.options.length;i++) if(q.options[i].k===k) return q.options[i].label; return k }
+function pctf(n,t){ return t? Math.round(n/t*1000)/10 : 0 }
+function fpct(n,t){ const p=pctf(n,t); return (Math.abs(p-Math.round(p))<0.05? Math.round(p) : p.toFixed(1))+"%" }
+function optsOf(id){ return (DASH&&DASH.answers&&DASH.answers[id])||{} }
+function sortedOpts(id,lim){ const d=optsOf(id); return Object.keys(d).sort(function(a,b){ return d[b]-d[a] || (a<b?-1:1) }).slice(0,lim||99).map(function(x){ return {k:x,n:d[x]} }) }
+function sumKeys(id,keys){ const d=optsOf(id); let t=0; keys.forEach(function(k){ t+=(d[k]||0) }); return t }
+function stripTag(s){ return String(s||"").replace(/^【[^】]*】/,"").trim() }
+function clip(s,n){ s=String(s||""); return s.length>n? s.slice(0,n)+"…" : s }
+function topList(id,k,tot){ const o=sortedOpts(id,k); if(!o.length) return "暫未有數據"; return o.map(function(x){ return clip(stripTag(optLabel(id,x.k)),26)+"（"+fpct(x.n,tot)+"／"+x.n+"人）" }).join("；") }
+
+function svgLine(pts){
+  if(!pts||!pts.length) return '<div class="muted small">暫時未有回應，第一份樣本一到就會自動畫線。</div>';
+  const W=620,H=210,PX=36,PY=26,n=pts.length;
+  const max=Math.max(1,pts[n-1][1]);
+  function X(i){ return n===1? W/2 : PX+i*(W-2*PX)/(n-1) }
+  function Y(v){ return H-PY-(v/max)*(H-2*PY) }
+  let path="",g="",dots="";
+  pts.forEach(function(p,i){ path+=(i?" L":"M")+X(i).toFixed(1)+","+Y(p[1]).toFixed(1) });
+  for(let i=0;i<=3;i++){ const v=max*i/3, y=Y(v);
+    g+='<line x1="'+PX+'" y1="'+y.toFixed(1)+'" x2="'+(W-PX)+'" y2="'+y.toFixed(1)+'" stroke="#E6EDE9" stroke-width="1"/>'+
+       '<text x="'+(PX-7)+'" y="'+(y+4).toFixed(1)+'" font-size="10" fill="#8B9A92" text-anchor="end">'+Math.round(v)+'</text>' }
+  pts.forEach(function(p,i){
+    if(n>45 && i%Math.ceil(n/45)!==0 && i!==n-1) return;
+    dots+='<circle cx="'+X(i).toFixed(1)+'" cy="'+Y(p[1]).toFixed(1)+'" r="3.6" fill="#FFFFFF" stroke="#2F6B4F" stroke-width="2"/>';
+  });
+  const area=path+" L"+X(n-1).toFixed(1)+","+(H-PY)+" L"+X(0).toFixed(1)+","+(H-PY)+" Z";
+  return '<svg class="chart" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="累計回應趨勢">'+
+    '<defs><linearGradient id="dGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7FBF9C" stop-opacity="0.55"/><stop offset="100%" stop-color="#7FBF9C" stop-opacity="0.05"/></linearGradient></defs>'+
+    g+'<path d="'+area+'" fill="url(#dGrad)"/><path d="'+path+'" fill="none" stroke="#2F6B4F" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>'+dots+
+    xlabels(pts,PX,W-PX,H)+'</svg>';
+}
+
+function xlabels(pts,x0,x1,H){
+  const n=pts.length;
+  const picks=[];
+  [0,0.25,0.5,0.75,1].forEach(function(f){ picks.push(Math.round(f*(n-1))) });
+  const uniq=picks.filter(function(v,i,a){ return a.indexOf(v)===i });
+  return uniq.map(function(i){
+    const f=n===1? 0.5 : i/(n-1), x=x0+f*(x1-x0);
+    const anc= i===0? "start" : (i===n-1? "end" : "middle");
+    return '<text x="'+x.toFixed(1)+'" y="'+(H-7)+'" font-size="10.5" fill="#8B9A92" text-anchor="'+anc+'">'+pts[i][0].slice(5)+'</text>';
+  }).join("");
+}
+
+function svgDonut(items){
+  let tot=0; items.forEach(function(x){ tot+=x.n });
+  if(!tot) return '<div class="muted small">暫時未有回應。</div>';
+  const size=200, r=size/2-16, C=2*Math.PI*r, cx=size/2, cy=size/2;
+  let off=0, seg="", lg="";
+  items.forEach(function(it){
+    const len=C*it.n/tot;
+    if(it.n) seg+='<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="none" stroke="'+it.color+'" stroke-width="26" stroke-dasharray="'+len.toFixed(2)+' '+(C-len).toFixed(2)+'" stroke-dashoffset="'+(-off).toFixed(2)+'" transform="rotate(-90 '+cx+' '+cy+')"/>';
+    off+=len;
+    if(it.n) lg+='<span><i style="background:'+it.color+'"></i>第 '+it.t+' 型 '+D.types[it.t].n+' <b>'+it.n+'</b>（'+fpct(it.n,tot)+'）</span>';
+  });
+  return '<div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">'+
+    '<svg class="chart" viewBox="0 0 '+size+' '+size+'" style="max-width:180px;flex:0 0 auto" role="img" aria-label="九型分佈">'+seg+
+    '<text x="'+cx+'" y="'+(cy-1)+'" text-anchor="middle" font-size="27" font-weight="900" fill="#2F6B4F">'+tot+'</text>'+
+    '<text x="'+cx+'" y="'+(cy+17)+'" text-anchor="middle" font-size="11" fill="#8B9A92">份樣本</text></svg>'+
+    '<div class="dlegend" style="flex:1;min-width:190px">'+lg+'</div></div>';
+}
+
+function qbarsHTML(qid){
+  const q=qById(qid); if(!q) return "";
+  const tot=(DASH.total||0), d=optsOf(qid);
+  const rows=q.options.map(function(o){ return {k:o.k,label:o.label,n:d[o.k]||0} }).sort(function(a,b){ return b.n-a.n });
+  const mx=Math.max(1,Math.max.apply(null,rows.map(function(r){ return r.n })));
+  let h="";
+  rows.forEach(function(r){
+    h+='<div class="qrow"><div class="qt"><span>'+r.label+'</span>'+
+       '<span class="pct">'+fpct(r.n,tot)+'<i>'+r.n+' 人</i></span></div>'+
+       '<span class="track"><span class="fill" style="width:'+Math.round(r.n/mx*100)+'%"></span></span></div>';
+  });
+  return h;
+}
+
+function crossHTML(){
+  const ct=(DASH.crosstab||{}).age||{};
+  const ages=(qById("age")||{options:[]}).options;
+  const keys=Object.keys(ct);
+  if(!keys.length) return '<div class="muted small">暫時未有足夠樣本做交叉分析。</div>';
+  let h='<p class="sub" style="margin:8px 0 0">欄位 1–9 = 九型編號（對應上面九型分佈嘅次序）；空格 = 該年齡層暫無此型樣本。手機上可左右滑動睇齊九欄。</p>'+
+        '<div class="tscroll"><table class="heat"><thead><tr><th>年齡層</th><th>樣本</th>';
+  for(let n=1;n<=9;n++) h+='<th>'+n+'</th>';
+  h+='</tr></thead><tbody>';
+  ages.forEach(function(a){
+    const row=ct[a.k]; if(!row) return;
+    let tot=0; Object.keys(row).forEach(function(k){ tot+=row[k] });
+    h+='<tr><td class="rowh">'+a.label+'</td><td>'+tot+'</td>';
     for(let n=1;n<=9;n++){
-      const v=counts[String(n)]||0;
-      h+='<div class="dbar"><span>第 '+n+' 型 '+D.types[n].n+'</span><span class="track">'+
-         '<span class="fill" style="width:'+Math.round(v/max*100)+'%;background:'+CENTERCOLOR[D.types[n].center]+'"></span>'+
-         '</span><span class="v">'+v+'</span></div>';
+      const v=row[String(n)]||0, p=pctf(v,tot);
+      const bg=v? "background:rgba(62,142,104,"+(0.14+Math.min(0.72,p/100*1.5)).toFixed(2)+")" : "background:#FCFDFC";
+      h+='<td style="'+bg+'">'+(v? (v+"<br><span class='small muted'>"+fpct(v,tot)+"</span>") : "—")+'</td>';
     }
-    box.innerHTML=h;
+    h+='</tr>';
+  });
+  return h+'</tbody></table></div>';
+}
+
+function analysisBuild(){
+  const s=DASH||{}, T=s.total||0;
+  const items=[], txt=[];
+  function sec(h,ps){ items.push({h:h,ps:ps}); txt.push("【"+h+"】"); ps.forEach(function(p){ txt.push("・"+p) }); txt.push("") }
+  if(!T){
+    return {html:'<h3>◈ 綜合分析</h3><p>暫時未有樣本。第一份匿名作答送達後，呢個區塊會自動用真實數字生成分析（唔會用人手估算）。</p>',
+            text:"【綜合分析】暫時未有樣本。"};
   }
-  if(!D.meta.endpoint){
-    st.textContent="（本機示範模式：未接駁後台，只顯示你本機的作答紀錄）";
-    paint({total:(+(localStorage.getItem("ennea_local_total")||0)),counts:JSON.parse(localStorage.getItem("ennea_local_counts")||"{}")});
+  const conf = T>=30? ["統計可靠","ok"] : (T>=10? ["初步趨勢",""] : ["初步觀察（樣本未夠，只作方向參考）","low"]);
+  const days=Object.keys(s.daily||{}).length;
+  const period=days? (Object.keys(s.daily)[0]+" 至 "+Object.keys(s.daily)[Object.keys(s.daily).length-1]) : "—";
+  const avgT=s.avg_elapsed_sec||0;
+
+  sec("一、樣本與代表性", [
+    "累計樣本 "+T+" 份，收集期間 "+period+"（共 "+days+" 個活躍日）；平均作答時間約 "+(avgT? Math.round(avgT)+" 秒（約 "+(avgT/60).toFixed(1)+" 分鐘）":"未記錄")+"。",
+    T<30? "樣本量仍然細，以下百分比只反映已收集嘅方向，未足以代表全港；建議樣本達到 30 份以上再作正式引用。"
+        : "樣本量已達初步可引用水平，建議配合抽樣來源說明（渠道、時間）一併呈交。"
+  ]);
+
+  const lowAware=sumKeys("aware",["never","name_only"]), sosoAware=optsOf("aware").heard||0;
+  sec("二、政策認知落差", [
+    "對「新土地先行」及新舊雙軌並行的認知分佈：非常清楚 "+fpct(optsOf("aware").clear||0,T)+"、略有聽聞 "+fpct(sosoAware,T)+"、僅聽過名稱 "+fpct(optsOf("aware").name_only||0,T)+"、完全未曾聽聞 "+fpct(optsOf("aware").never||0,T)+"。",
+    "即合共有 "+fpct(lowAware,T)+"（"+lowAware+" 人）屬於「僅聽過名稱或完全未聽聞」嘅低認知群，係宣傳要優先處理嘅對象。"
+  ]);
+
+  const riskTop=sortedOpts("risk",2), concernTop=sortedOpts("concern",2);
+  sec("三、市民最關心嘅事", [
+    "最擔心嘅法律風險："+topList("risk",2,T)+"。",
+    "對新制嘅關注點："+topList("concern",2,T)+"。",
+    "兩題加起來，最擔心嘅一項有 "+(riskTop.length? fpct(riskTop[0].n,T):"—")+" 受訪者選中，反映市民最想知嘅唔係政策背景，而係「關我層樓咩事」——現有業權、按揭有無影響，以及防騙保障。"
+  ]);
+
+  const chTop=sortedOpts("channel",3), trTop=sortedOpts("transit",3), limTop=sortedOpts("limitation",2);
+  sec("四、接觸渠道與現時盲點", [
+    "目前接觸政策資訊嘅渠道（可多選）："+topList("channel",3,T)+"。",
+    "完全未接觸過任何宣傳資訊嘅有 "+fpct(optsOf("channel").none||0,T)+"（"+(optsOf("channel").none||0)+" 人）。",
+    "市民認為最有效嘅落點："+topList("transit",3,T)+"。",
+    "紙本／傳統宣傳嘅主要痛點："+topList("limitation",2,T)+"。",
+    "有 "+fpct(optsOf("channel").none||0,T)+"（"+(optsOf("channel").none||0)+" 人）完全未接觸過任何宣傳，即傳統「等市民自己睇」嘅模式對呢批人已經失效，需要主動投放喺佢哋每日必經嘅位置。"
+  ]);
+
+  const acceptYes=sumKeys("accept",["high","ok"]), dramaYes=sumKeys("dramareact",["full","tensec"]);
+  sec("五、短片內容嘅接受度", [
+    "對政府拍攝微短劇嘅取態：高度支持 "+fpct(optsOf("accept").high||0,T)+"、可以接受 "+fpct(optsOf("accept").ok||0,T)+"，合共 "+fpct(acceptYes,T)+" 持正面態度；中立／視乎質素 "+fpct(optsOf("accept").neutral||0,T)+"。",
+    "會被戲劇化短片吸引並看完（前 10 秒吸引即看完）嘅有 "+fpct(dramaYes,T)+"；明確排斥戲劇化、只接受嚴肅官方解說嘅只有 "+fpct(optsOf("dramareact").reject||0,T)+"。",
+    "最吸引嘅演繹風格："+topList("style",2,T)+"；最想加入嘅跨界元素："+topList("element",2,T)+"。",
+    "每日睇片時間以 "+(sortedOpts("duration",1)[0]? clip(stripTag(optLabel("duration",sortedOpts("duration",1)[0].k)),18) : "—")+" 為主，短片長度應以 60 秒內為目標。"
+  ]);
+
+  const eff=sumKeys("souvenir_effect",["big","some"]);
+  sec("六、參與誘因（紀念品）", [
+    "認為實用紀念品會提升參與意欲嘅有 "+fpct(eff,T)+"；最期望嘅類型："+topList("souvenir_type",2,T)+"。",
+    "有 "+fpct(eff,T)+"（"+eff+" 人）表示實用紀念品會提升參與意欲，屬低成本高回報嘅落點：將政策要點印在市民日常會用嘅物品上。"
+  ]);
+
+  const tOrder=Object.keys(s.types||{}).sort(function(a,b){ return s.types[b]-s.types[a] });
+  const top3=tOrder.slice(0,3).map(function(t){ return "第 "+t+" 型 "+D.types[t].n+" "+fpct(s.types[t],T) }).join("；");
+  const cen=s.centers||{};
+  sec("七、受眾分眾（九型人格）", [
+    "主要分佈（首三位）："+top3+"。",
+    "能量中心分佈：腦區（思考）"+(cen.head||0)+" 人、心區（情感）"+(cen.heart||0)+" 人、腹區（本能）"+(cen.gut||0)+" 人。",
+    "可按中心比例分三條路線落手：腦區 "+fpct(cen.head||0,T)+" 要「證據＋風險對照」、心區 "+fpct(cen.heart||0,T)+" 要「人情故事＋保障家人」、腹區 "+fpct(cen.gut||0,T)+" 要「清晰步驟＋即時行動」。"
+  ]);
+
+  const rec=[];
+  rec.push("認知缺口有 "+lowAware+" 人（"+fpct(lowAware,T)+"），宣傳第一階段應以「你層樓會唔會受影響？」做切入，而非政策理念。");
+  if(trTop.length) rec.push("投放重心放在市民每日必經渠道："+clip(stripTag(optLabel("transit",trTop[0].k)),22)+"（"+fpct(trTop[0].n,T)+" 認為最有效）。");
+  rec.push("內容形式以大眾接受度最高嘅短劇為主（正面取態 "+fpct(acceptYes,T)+"），每條 60 秒內、前 10 秒必須入題。");
+  sec("八、政策宣傳啟示與下一步", rec);
+
+  const flag='<span class="flag '+(conf[1]||"")+'">樣本信心：'+conf[0]+'</span>';
+  let html='<h3>◈ 綜合分析 '+flag+'</h3><p class="muted small" style="margin-top:0">以下每句都直接引用看板數字，隨新樣本自動更新。</p>';
+  html+='<div class="acols">';
+  items.forEach(function(it){ html+='<div class="asec"><h4>'+it.h+'</h4><ul>'+it.ps.map(function(p){ return '<li>'+p+'</li>' }).join("")+'</ul></div>' });
+  html+='</div>';
+  const head="【都會生活鏡像測驗 ｜ 土地政策公眾調研 數據摘要】\n樣本："+T+" 份 ｜ 期間："+period+" ｜ 信心："+conf[0]+"\n生成時間："+new Date().toLocaleString("zh-HK")+"\n";
+  return { html:html, text:head+"\n"+(txt.join("\n")) };
+}
+
+function renderDash(s){
+  DASH=s||{};
+  const T=DASH.total||0;
+  $("#dTotal").textContent=T.toLocaleString("en-HK");
+  const tOrder=Object.keys(DASH.types||{}).sort(function(a,b){ return DASH.types[b]-DASH.types[a] });
+  const typeBase=tOrder.reduce(function(a,t){ return a+DASH.types[t] },0);   // 同九型圖同一個基數
+  let topType="—";
+  if(tOrder.length){
+    const t0=tOrder[0], ties=tOrder.filter(function(t){ return DASH.types[t]===DASH.types[t0] });
+    topType = "第 "+ties.join(" / ")+" 型"+(ties.length>1?" 並列 ":" ")+fpct(DASH.types[t0],typeBase);
+  }
+  const kpi=[["收集日數",Object.keys(DASH.daily||{}).length+" 日"],
+             ["平均作答",(DASH.avg_elapsed_sec? Math.round(DASH.avg_elapsed_sec/60*10)/10+" 分鐘" : "—")],
+             ["最多人嘅一型（佔已判型者）",topType]];
+  $("#dKpis").innerHTML=kpi.map(function(k){ return '<div class="kpi"><div class="n">'+k[1]+'</div><div class="l">'+k[0]+'</div></div>' }).join("");
+  $("#dTrend").innerHTML=svgLine(DASH.cumulative||[]);
+  $("#dDonut").innerHTML=svgDonut([1,2,3,4,5,6,7,8,9].map(function(n){ return {t:n, n:(DASH.types||{})[String(n)]||0, color:TYPECOL[n]} }));
+  $("#dCross").innerHTML=crossHTML();
+  const sel=$("#dQsel");
+  if(!sel.dataset.filled){
+    sel.innerHTML=D.questions.map(function(q){ return '<option value="'+q.id+'">'+q.orig+" · "+q.short+'</option>' }).join("");
+    sel.value="aware";
+    sel.dataset.filled="1";
+    sel.addEventListener("change", function(){ $("#dQbars").innerHTML=qbarsHTML(sel.value) });
+  }
+  $("#dQbars").innerHTML=qbarsHTML(sel.value||"aware");
+  const a=analysisBuild();
+  $("#dAnalysis").innerHTML=a.html;
+  $("#dAnalysis").dataset.txt=a.text;
+  $("#dCopy").onclick=function(){
+    const t=$("#dAnalysis").dataset.txt||"";
+    const done=function(){ $("#dCopyMsg").textContent="已複製，可直接貼入報告或給政府嘅文件"; setTimeout(function(){ $("#dCopyMsg").textContent="" },4000) };
+    if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(done,function(){ fallbackCopy(t,done) }) } else fallbackCopy(t,done);
+  };
+}
+function fallbackCopy(t,cb){
+  try{
+    const ta=document.createElement("textarea"); ta.value=t; ta.style.position="fixed"; ta.style.left="-9999px";
+    document.body.appendChild(ta); ta.select(); document.execCommand("copy"); document.body.removeChild(ta); cb();
+  }catch(e){ $("#dCopyMsg").textContent="複製唔到，請長按選取文字"; }
+}
+function statsUrl(){
+  const e=D.meta.endpoint||"";
+  return e? e.replace(/\/submit$/,"/stats") : "";
+}
+function loadData(){
+  const st=$("#dStatus");
+  if(!statsUrl()){
+    st.textContent="（本機示範模式：未接駁後台，只顯示你本機嘅作答紀錄）";
+    renderDash({total:(+(localStorage.getItem("ennea_local_total")||0)),types:JSON.parse(localStorage.getItem("ennea_local_counts")||"{}")});
     return;
   }
   st.textContent="連線中…";
-  fetch(D.meta.endpoint, {method:"GET"})
+  fetch(statsUrl(), {method:"GET"})
    .then(function(r){ return r.json() })
-   .then(function(j){ st.textContent="即時更新 · 最後讀取 "+new Date().toLocaleTimeString("zh-HK",{hour:"2-digit",minute:"2-digit"}); paint(j) })
-   .catch(function(){ st.textContent="後台暫時連唔到，以下係本機紀錄"; paint({total:0,counts:{}}) });
+   .then(function(j){ st.textContent="即時更新 · 最後讀取 "+new Date().toLocaleTimeString("zh-HK",{hour:"2-digit",minute:"2-digit"}); renderDash(j) })
+   .catch(function(){ st.textContent="後台暫時連唔到"; renderDash({total:0}) });
 }
 $("#srcToggle").addEventListener("click", function(){
   const d=$("#dSrc");
   const on=d.style.display==="none";
   d.style.display=on?"":"none";
   this.textContent=on?"隱藏數據來源":"顯示數據來源";
-  if(on) d.innerHTML="匿名作答紀錄經 HTTPS 直接寫入 Firebean 調研試算表，只儲存答案與測驗結果，不含姓名、電話、電郵或 IP 位址。<br>端點："+(D.meta.endpoint||"（未接駁）");
+  if(on) d.innerHTML="匿名作答紀錄經 HTTPS 直接寫入 Firebean 調研試算表，只儲存答案與測驗結果，不含姓名、電話、電郵或 IP 位址。<br>寫入端點："+(D.meta.endpoint||"（未接駁）")+"<br>數據讀取端點："+(statsUrl()||"（未接駁）");
 });
 
 /* ---------- submit (anonymous, verified delivery + retry queue) ---------- */
@@ -960,8 +1247,13 @@ document.addEventListener("visibilitychange", function(){
   if(result===null) return;
   try{ localStorage.setItem("ennea_last_result",JSON.stringify(result)); }catch(e){}
 });
-window.__ENNEA={ result:function(){return result}, answers:function(){return answers} };
+window.__ENNEA={ result:function(){return result}, answers:function(){return answers}, dash:function(){return DASH} };
 setView("intro");
+/* 深層連結：firebean.net/enneagram/#data 可直接開數據看板 */
+try{
+  const h=(location.hash||"").replace(/^#/,"");
+  if(h && document.querySelector("#v-"+h)) setView(h);
+}catch(e){}
 setTimeout(enneaFlush,800);          // retry any response that failed to upload earlier
 })();
 </script>
