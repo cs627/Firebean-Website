@@ -815,7 +815,31 @@ $("#srcToggle").addEventListener("click", function(){
   if(on) d.innerHTML="匿名作答紀錄經 HTTPS 直接寫入 Firebean 調研試算表，只儲存答案與測驗結果，不含姓名、電話、電郵或 IP 位址。<br>端點："+(D.meta.endpoint||"（未接駁）");
 });
 
-/* ---------- submit (anonymous, fire & forget) ---------- */
+/* ---------- submit (anonymous, verified delivery + retry queue) ---------- */
+function enneaPending(){
+  try{ return JSON.parse(localStorage.getItem("ennea_pending")||"[]") }catch(e){ return [] }
+}
+function enneaSavePending(a){ try{ localStorage.setItem("ennea_pending",JSON.stringify(a.slice(-20))) }catch(e){} }
+function enneaPost(payload){
+  /* normal CORS POST (we can read the response) with a sendBeacon fallback */
+  return fetch(D.meta.endpoint,{method:"POST",mode:"cors",
+      headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)})
+    .then(function(r){ if(!r.ok) throw new Error("http "+r.status); return true })
+    .catch(function(){
+      try{ navigator.sendBeacon(D.meta.endpoint,new Blob([JSON.stringify(payload)],{type:"text/plain;charset=utf-8"})); }catch(e){}
+      return false;
+    });
+}
+function enneaFlush(){
+  const q=enneaPending();
+  if(!q.length||!D.meta.endpoint) return;
+  const keep=[];
+  q.forEach(function(p, i){
+    enneaPost(p).then(function(ok){ if(!ok) keep.push(p); })
+      .catch(function(){ keep.push(p); });
+  });
+  setTimeout(enneaSavePending,2500,keep);
+}
 function submit(){
   try{
     const c=JSON.parse(localStorage.getItem("ennea_local_counts")||"{}");
@@ -835,9 +859,10 @@ function submit(){
   payload.scores=Object.keys(result.scores).map(function(t){return "T"+t+"="+result.scores[t]}).join(",");
   payload.elapsed_sec=result.elapsed;
   payload.ua_lang=(navigator.language||"");
-  try{
-    fetch(D.meta.endpoint,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});
-  }catch(e){}
+  enneaPost(payload).then(function(ok){
+    if(ok){ try{ localStorage.setItem("ennea_last_delivery",String(Date.now())); }catch(e){} return; }
+    const q=enneaPending(); q.push(payload); enneaSavePending(q);   // keep for a later retry
+  });
 }
 
 /* ---------- boot ---------- */
@@ -852,6 +877,7 @@ document.addEventListener("visibilitychange", function(){
   try{ localStorage.setItem("ennea_last_result",JSON.stringify(result)); }catch(e){}
 });
 setView("intro");
+setTimeout(enneaFlush,800);          // retry any response that failed to upload earlier
 })();
 </script>
 </body>
