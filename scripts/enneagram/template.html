@@ -92,6 +92,8 @@ main{display:block;padding-bottom:118px}
 .btn.primary:active{transform:translateY(4px);box-shadow:0 1px 0 #79BD99}
 .btn.ghost{background:#FFFDF8;color:var(--ink);box-shadow:0 4px 0 #EBDCC6,0 14px 22px -16px rgba(122,92,64,.7)}
 .btn.ghost:hover{background:#FFF8EA}
+a.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;line-height:1.2;
+  -webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .btn.ghost:active{transform:translateY(3px);box-shadow:0 1px 0 #EBDCC6}
 .btn:disabled{opacity:.45;cursor:not-allowed;box-shadow:0 4px 0 #EFE4D4;transform:none}
 .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
@@ -467,8 +469,8 @@ footer.foot b{color:var(--ink2)}
             </div>
           </div>
           <div class="btnrow" style="margin-top:22px">
-            <button class="btn primary" data-go="quiz" id="startBtn">開始測驗 →</button>
-            <button class="btn ghost" data-go="atlas">先睇九型圖鑑</button>
+            <a class="btn primary" data-go="quiz" id="startBtn" href="#quiz" role="button">開始測驗 →</a>
+            <a class="btn ghost" data-go="atlas" href="#atlas" role="button">先睇九型圖鑑</a>
           </div>
         </div>
       </div>
@@ -648,12 +650,20 @@ function setView(name){
   if(name==="data") loadData();
   if(name==="atlas") renderAtlas();
   window.scrollTo(0,0);
+  try{ if(("#"+name)!==location.hash) history.replaceState(null,"","#"+name); }catch(_e){}
   const map={intro:"都會生活鏡像測驗",quiz:"作答中",result:"我的分析報告",atlas:"九型圖鑑",data:"調研數據",proposal:"匯報要點"};
   $("#mobTitle").textContent = map[name]||"都會生活鏡像測驗";
 }
+window.__ennView = setView;
 document.addEventListener("click", function(e){
   const t=e.target.closest("[data-go]"); if(!t) return;
+  if(t.tagName==="A") e.preventDefault();          /* 由 setView 統一處理，避免行兩次 */
   setView(t.dataset.go);
+});
+window.addEventListener("hashchange", function(){
+  const h=(location.hash||"").replace(/^#/,"");
+  const v=h? $("#v-"+h):null;
+  if(v && !v.classList.contains("on")) setView(h);
 });
 
 /* ---------- quiz ---------- */
@@ -1260,12 +1270,11 @@ document.addEventListener("visibilitychange", function(){
   try{ localStorage.setItem("ennea_last_result",JSON.stringify(result)); }catch(e){}
 });
 window.__ENNEA={ result:function(){return result}, answers:function(){return answers}, dash:function(){return DASH} };
+/* 深層連結：firebean.net/enneagram/#data 可直接開數據看板（先讀 hash，否則 setView 會改寫 URL） */
+let _initHash="";
+try{ _initHash=(location.hash||"").replace(/^#/,""); }catch(e){}
 setView("intro");
-/* 深層連結：firebean.net/enneagram/#data 可直接開數據看板 */
-try{
-  const h=(location.hash||"").replace(/^#/,"");
-  if(h && document.querySelector("#v-"+h)) setView(h);
-}catch(e){}
+try{ if(_initHash && document.querySelector("#v-"+_initHash)) setView(_initHash); }catch(e){}
 setTimeout(enneaFlush,800);          // retry any response that failed to upload earlier
 })();
 </script>
