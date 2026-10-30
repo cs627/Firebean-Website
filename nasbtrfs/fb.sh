@@ -19,7 +19,7 @@ for _L in en_US.UTF-8 en_US.utf8 C.UTF-8 zh_HK.UTF-8 UTF-8; do
   fi
 done
 unset _L
-VERSION="fb6-20261030-2155"
+VERSION="fb7-20261030-2200"
 
 NAS_IP="${NAS_IP:-169.254.71.131}"
 TARGET="${NAS_USER:-dickson}@${NAS_IP}"
@@ -101,8 +101,16 @@ case "$TASK" in
     echo; echo "=== 所有掛載卷 ==="; df -h | grep -vE "^devfs|^map " 
     exit 0
     ;;
+  pull)
+    SUBSET="${2:?用法: bash ~/fb.sh pull \"NAS 路徑\" [G] [目的地]}"
+    G="${3:-23082}"
+    DEST="${4:-$HOME/recovered}"
+    SUBSET_Q=$(sq "$SUBSET")
+    REMOTE="python3 $TOOL extract '$SUBSET_Q' --g $G"
+    SUDO="sudo"; STREAM="pull"
+    ;;
   folders)
-    REMOTE="echo '=== 各頂層資料夾：受害檔數（Top 30）==='; find '$SHARE' -name '*.L0CK3D' 2>/dev/null | awk -F/ '{print \$4}' | sort | uniq -c | sort -rn | head -30; echo; echo '=== 各頂層資料夾：大細（Top 30）==='; du -sh '$SHARE'/*/ 2>/dev/null | sort -rh | head -30"
+    REMOTE="echo '=== 各頂層資料夾：受害檔數（Top 30）==='; find '$SHARE' -name '*.L0CK3D' 2>/dev/null | cut -d/ -f4 | sort | uniq -c | sort -rn | head -30; echo; echo '=== 各頂層資料夾：大細（Top 30）==='; du -sh '$SHARE'/*/ 2>/dev/null | sort -rh | head -30"
     SUDO="sudo"
     ;;
   help)
@@ -121,6 +129,7 @@ Firebean — 喺 iMac 直接叫 NAS 做嘢
   extract [G]                  重組原檔（輸出 .tar）
   list                         列最大嘅受害檔
   pick                         列 50-600MB 圖／片／PDF（做證明測試最好）
+  pull "NAS 路徑" [G] [目的地]  ★ 直接串流還原 + 自動核 SHA-256（批次用）
   folders                      各頂層資料夾嘅受害檔數＋大細（排批次次序）
   space                        睇 iMac／外接碟剩餘空間（完全本機，唔連 NAS）
   prove "路徑" [G]             ★ 一次過：分析 + 還原單一檔（證明測試）
@@ -137,7 +146,7 @@ EOF
     echo
     echo "  可用任務：doctor / preflight / env / gens / list / pick /"
     echo "            prove <路徑> / plan1 <路徑> / extract1 <路徑> / survey / extract"
-    echo "            folders / space"
+    echo "            pull <路徑> / folders / space"
     echo
     echo "  打「bash ~/fb.sh help」睇詳細用法。"
     exit 2
@@ -161,7 +170,52 @@ mkdir -p "$LOGDIR"
 STAMP=$(date '+%Y%m%d-%H%M%S')
 LOG="$LOGDIR/${TASK}-${STAMP}.txt"
 
-if [ -n "$STREAM" ]; then
+if [ "$STREAM" = "pull" ]; then
+  # ★ 直接串流：NAS 的 tar → 本機 tar -xf（唔會留中間 .tar，省一半空間）
+  mkdir -p "$DEST"
+  echo "  📂 目的地：$DEST"
+  printf "  🔑 NAS sudo 密碼（唔會顯示、唔會記錄）："
+  read -r -s SUDOPW
+  echo
+  echo "  ⬇️  串流還原中…（大檔可能要幾分鐘）"
+  echo
+  printf '%s\n' "$SUDOPW" | ssh -T -o ConnectTimeout=15 "$TARGET" "${SUDO} -S -p '' sh -c \"$REMOTE\"" 2>"$LOGDIR/${TASK}-${STAMP}.err" | tar -xf - -C "$DEST" 2>>"$LOGDIR/${TASK}-${STAMP}.err"
+  RC=${PIPESTATUS[1]}
+  unset SUDOPW
+  echo "  ✅ 解壓完成"
+  echo
+  MAN="$DEST/_c3r_manifest.jsonl"
+  if [ -f "$MAN" ]; then
+    echo "  ── 自動核對 SHA-256（工具自己算出嚟嘅值）──"
+    OK=0; BAD=0; MISS=0; BYTES=0
+    while IFS= read -r LINE; do
+      M=$(printf '%s' "$LINE" | sed -n 's/.*"member": "\([^"]*\)".*/\1/p')
+      H=$(printf '%s' "$LINE" | sed -n 's/.*"sha256": "\([^"]*\)".*/\1/p')
+      SZ=$(printf '%s' "$LINE" | sed -n 's/.*"orig": \([0-9]*\).*/\1/p')
+      if [ -z "$M" ] || [ -z "$H" ]; then continue; fi
+      F="$DEST/$M"
+      if [ ! -f "$F" ]; then echo "  ❌ 唔見檔：$M"; MISS=$((MISS+1)); continue; fi
+      A=$(shasum -a 256 "$F" 2>/dev/null | cut -d' ' -f1)
+      if [ "$A" = "$H" ]; then
+        OK=$((OK+1)); BYTES=$((BYTES + ${SZ:-0}))
+      else
+        echo "  ❌ SHA 唔對：$M"; BAD=$((BAD+1))
+      fi
+    done < "$MAN"
+    echo
+    echo "  ══════════ 驗收報告 ══════════"
+    echo "  ✅ SHA-256 通過    ：$OK 個"
+    echo "  ❌ SHA-256 唔對    ：$BAD 個"
+    echo "  ❌ 檔案唔見        ：$MISS 個"
+    echo "  📦 已還原總量      ：$BYTES bytes"
+    echo "  ════════════════════════════"
+  else
+    echo "  ⚠️ 冇搵到 manifest（_c3r_manifest.jsonl），跳過自動核對"
+  fi
+  echo
+  echo "  ── stderr（如有）──"
+  tail -8 "$LOGDIR/${TASK}-${STAMP}.err" 2>/dev/null
+elif [ -n "$STREAM" ]; then
   # 大流量／二進位輸出：唔可以用 ssh -t（tty 會做 CR/LF 轉換，會搞爛 tar / gz）
   # 用 sudo -S 由本機讀密碼，保持 stdout 純淨
   if [ "$STREAM" = "extract" ]; then OUTF="$LOGDIR/extract-${STAMP}.tar"; else OUTF="$LOG"; fi
