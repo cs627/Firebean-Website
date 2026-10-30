@@ -19,8 +19,8 @@ for _L in en_US.UTF-8 en_US.utf8 C.UTF-8 zh_HK.UTF-8 UTF-8; do
   fi
 done
 unset _L
-VERSION="fb09-20261030-2210"
-BUILD=9
+VERSION="fb10-20261030-2240"
+BUILD=10
 
 NAS_IP="${NAS_IP:-169.254.71.131}"
 TARGET="${NAS_USER:-dickson}@${NAS_IP}"
@@ -129,6 +129,11 @@ case "$TASK" in
     echo; echo "=== 所有掛載卷 ==="; df -h | grep -vE "^devfs|^map " 
     exit 0
     ;;
+  auto)
+    DEST="${2:-$HOME/recovered}"
+    REMOTE="auto"
+    SUDO="sudo"; STREAM="auto"
+    ;;
   pull)
     SUBSET="${2:?用法: bash ~/fb.sh pull \"NAS 路徑\" [G] [目的地]}"
     G="${3:-23082}"
@@ -157,7 +162,8 @@ Firebean — 喺 iMac 直接叫 NAS 做嘢
   extract [G]                  重組原檔（輸出 .tar）
   list                         列最大嘅受害檔
   pick                         列 50-600MB 圖／片／PDF（做證明測試最好）
-  pull "NAS 路徑" [G] [目的地]  ★ 直接串流還原 + 自動核 SHA-256（批次用）
+  auto [目的地]                ★★ 無人值守：一次密碼→自動還原全部→逐批驗收
+  pull "NAS 路徑" [G] [目的地]  直接串流還原 + 自動核 SHA-256（單一批次）
   folders                      各頂層資料夾嘅受害檔數＋大細（排批次次序）
   space                        睇 iMac／外接碟剩餘空間（完全本機，唔連 NAS）
   prove "路徑" [G]             ★ 一次過：分析 + 還原單一檔（證明測試）
@@ -174,7 +180,7 @@ EOF
     echo
     echo "  可用任務：doctor / preflight / env / gens / list / pick /"
     echo "            prove <路徑> / plan1 <路徑> / extract1 <路徑> / survey / extract"
-    echo "            pull <路徑> / folders / space"
+    echo "            auto / pull <路徑> / folders / space"
     echo
     echo "  打「bash ~/fb.sh help」睇詳細用法。"
     exit 2
@@ -198,7 +204,104 @@ mkdir -p "$LOGDIR"
 STAMP=$(date '+%Y%m%d-%H%M%S')
 LOG="$LOGDIR/${TASK}-${STAMP}.txt"
 
-if [ "$STREAM" = "pull" ]; then
+if [ "$STREAM" = "auto" ]; then
+  # ═══ 無人值守：一次密碼 → 自動順序還原所有資料夾 → 逐批驗收 ═══
+  mkdir -p "$DEST" "$LOGDIR"
+  A_STAMP=$(date '+%Y%m%d-%H%M%S')
+  REP="$LOGDIR/auto-${A_STAMP}.report.txt"
+  ERRF="$LOGDIR/auto-${A_STAMP}.err"
+  : > "$REP"; : > "$ERRF"
+  echo "  ══════════════ Firebean 自動還原（無人值守）══════════════"
+  echo "  目的地     : $DEST"
+  df -h "$DEST" | tail -1
+  echo "  報告檔     : $REP"
+  echo "  ══════════════════════════════════════════════════════════"
+  echo
+  printf "  🔑 NAS sudo 密碼（唔會顯示、唔會寫入磁碟）："
+  read -r -s A_PW
+  echo; echo
+  if ! printf '%s\n' "$A_PW" | ssh -T -o ConnectTimeout=15 "$TARGET" "sudo -S -p '' true" 2>/dev/null; then
+    echo "  ❌ 密碼唔啱或連唔上 NAS —— 中止，冇改動過任何嘢。"
+    unset A_PW; exit 1
+  fi
+  echo "  ✅ 密碼正確"
+  echo
+  echo "  ⚠️  之後請【唔好關呢個 Terminal 視窗、唔好熄機、唔好拔線】"
+  echo "  ⚠️  想安全中斷：按 Control-C（已還原嘅檔唔會消失，可續跑）"
+  echo
+  # 防止 Mac 休眠
+  caffeinate -i -w $$ 2>/dev/null &
+  # 取批次清單：由細至大，排除 #recycle / sparsebundle / @eaDir
+  A_LIST=$(ssh -T -o ConnectTimeout=20 "$TARGET" "sudo sh -c \"cd '$SHARE' && du -sk */ 2>/dev/null\"" 2>/dev/null \
+           | grep -vE '#recycle|sparsebundle|@eaDir' | sort -n)
+  if [ -z "$A_LIST" ]; then echo "  ❌ 攞唔到資料夾清單"; unset A_PW; exit 1; fi
+  A_TOTAL=$(printf '%s\n' "$A_LIST" | grep -c .)
+  echo "  📋 共 $A_TOTAL 個資料夾（由細至大處理）"
+  echo
+
+  A_N=0; A_OK=0; A_BAD=0; A_MISS=0; A_BYTES=0; A_SKIP=0
+  while IFS=$'\t' read -r A_KB A_DIR; do
+    [ -z "$A_DIR" ] && continue
+    A_N=$((A_N+1))
+    # ⚠️ 單位鐵律：du -sk 同 df -k 都係 KB。A_NEED 必須係 KB（×1.1 安全邊際）。
+    A_NEED=$(( A_KB * 11 / 10 + 1024 ))
+    A_FREE=$(df -k "$DEST" 2>/dev/null | tail -1 | awk '{print $4}')
+    [ -z "$A_FREE" ] && A_FREE=0
+    echo "  ────────────────────────────────────────────────────────"
+    echo "  [$A_N/$A_TOTAL] $A_DIR"
+    echo "     需要約 $((A_KB/1024)) MB   ／   剩餘 $((A_FREE/1048576)) GB"
+    if [ "$A_FREE" -lt "$A_NEED" ]; then
+      echo "     ⏭️  空間不足 → 跳過（留待插第二隻碟再跑）"
+      A_SKIP=$((A_SKIP+1))
+      printf '跳過(空間不足)\t%s\n' "$A_DIR" >> "$REP"
+      continue
+    fi
+    A_DQ=$(sq "$SHARE/$A_DIR")
+    A_R="python3 $TOOL extract '$A_DQ' --g 23082"
+    printf '%s\n' "$A_PW" | ssh -T -o ConnectTimeout=20 "$TARGET" "sudo -S -p '' sh -c \"$A_R\"" 2>>"$ERRF" \
+      | tar -xf - -C "$DEST" 2>>"$ERRF"
+    A_MAN="$DEST/_c3r_manifest.jsonl"
+    if [ -f "$A_MAN" ]; then
+      B_OK=0; B_BAD=0; B_MISS=0; B_BYTES=0
+      while IFS= read -r A_LINE; do
+        A_M=$(printf '%s' "$A_LINE" | sed -n 's/.*"member":[[:space:]]*"\([^"]*\)".*/\1/p')
+        A_H=$(printf '%s' "$A_LINE" | sed -n 's/.*"sha256":[[:space:]]*"\([^"]*\)".*/\1/p')
+        A_SZ=$(printf '%s' "$A_LINE" | sed -n 's/.*"orig":[[:space:]]*\([0-9]*\).*/\1/p')
+        if [ -z "$A_M" ] || [ -z "$A_H" ]; then continue; fi
+        A_F="$DEST/$A_M"
+        if [ ! -f "$A_F" ]; then B_MISS=$((B_MISS+1)); continue; fi
+        A_CK=$(shasum -a 256 "$A_F" 2>/dev/null | cut -d' ' -f1)
+        if [ "$A_CK" = "$A_H" ]; then
+          B_OK=$((B_OK+1)); B_BYTES=$((B_BYTES + ${A_SZ:-0}))
+        else
+          echo "     ❌ SHA 唔對：$A_M"; B_BAD=$((B_BAD+1))
+        fi
+      done < "$A_MAN"
+      A_OK=$((A_OK+B_OK)); A_BAD=$((A_BAD+B_BAD)); A_MISS=$((A_MISS+B_MISS)); A_BYTES=$((A_BYTES+B_BYTES))
+      echo "     ✅ $B_OK 通過 ／ ❌ $B_BAD 唔對 ／ ❌ $B_MISS 唔見 ／ 📦 $((B_BYTES/1048576)) MB"
+      printf '✅ %s\t通過 %s\t唔對 %s\t唔見 %s\tbytes %s\n' "$A_DIR" "$B_OK" "$B_BAD" "$B_MISS" "$B_BYTES" >> "$REP"
+      rm -f "$A_MAN"
+    else
+      echo "     ⚠️ 冇 manifest，跳過核對"
+      printf '⚠️ 冇manifest\t%s\n' "$A_DIR" >> "$REP"
+    fi
+  done < <(printf '%s\n' "$A_LIST")
+
+  unset A_PW
+  echo
+  echo "  ══════════════════ 最終驗收報告 ══════════════════"
+  echo "  📁 處理資料夾    ：$A_N / $A_TOTAL（跳過 $A_SKIP）"
+  echo "  ✅ SHA-256 通過  ：$A_OK 個檔案"
+  echo "  ❌ SHA-256 唔對  ：$A_BAD 個"
+  echo "  ❌ 檔案唔見      ：$A_MISS 個"
+  echo "  📦 已還原總量    ：$A_BYTES bytes"
+  echo "  📄 詳情報告      ：$REP"
+  echo "  ══════════════════════════════════════════════════"
+  df -h "$DEST" | tail -1
+  echo
+  echo "  ✅ 全部完成。你可以放心離開 —— 唔會再動 NAS 上任何嘢。"
+  exit 0
+elif [ "$STREAM" = "pull" ]; then
   # ★ 直接串流：NAS 的 tar → 本機 tar -xf（唔會留中間 .tar，省一半空間）
   mkdir -p "$DEST"
   echo "  📂 目的地：$DEST"
@@ -217,9 +320,9 @@ if [ "$STREAM" = "pull" ]; then
     echo "  ── 自動核對 SHA-256（工具自己算出嚟嘅值）──"
     OK=0; BAD=0; MISS=0; BYTES=0
     while IFS= read -r LINE; do
-      M=$(printf '%s' "$LINE" | sed -n 's/.*"member": "\([^"]*\)".*/\1/p')
-      H=$(printf '%s' "$LINE" | sed -n 's/.*"sha256": "\([^"]*\)".*/\1/p')
-      SZ=$(printf '%s' "$LINE" | sed -n 's/.*"orig": \([0-9]*\).*/\1/p')
+      M=$(printf '%s' "$LINE" | sed -n 's/.*"member":[[:space:]]*"\([^"]*\)".*/\1/p')
+      H=$(printf '%s' "$LINE" | sed -n 's/.*"sha256":[[:space:]]*"\([^"]*\)".*/\1/p')
+      SZ=$(printf '%s' "$LINE" | sed -n 's/.*"orig":[[:space:]]*\([0-9]*\).*/\1/p')
       if [ -z "$M" ] || [ -z "$H" ]; then continue; fi
       F="$DEST/$M"
       if [ ! -f "$F" ]; then echo "  ❌ 唔見檔：$M"; MISS=$((MISS+1)); continue; fi
