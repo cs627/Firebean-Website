@@ -117,8 +117,6 @@ main{display:block;padding-bottom:118px}
 .kv{display:grid;gap:10px;margin:18px 0 4px}
 .kv div{display:flex;gap:10px;align-items:flex-start;font-size:15px}
 .kv b{flex:0 0 auto;color:#4E8A6C}
-.parts-preview{display:grid;gap:10px;margin-top:14px}
-.parts-preview>div{background:#FFFBF2;border:1.5px solid var(--line2);border-radius:16px;padding:12px 14px;
   box-shadow:0 3px 0 #F3E6D2}
 .parts-preview b{color:#4A3728}
 
@@ -200,6 +198,20 @@ body.showorig .orig{display:block}
 .patRow b{color:#8A6A24;font-weight:800;font-size:13.5px;letter-spacing:.3px;display:block}
 .patRow>*{min-width:0}
 .patRow span{word-break:break-word}
+/* 簡介重點：資訊圖示條 */
+.infostrip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:20px 0 6px}
+.infostrip .info{background:linear-gradient(180deg,#FFFBF4,#FFF4E6);border:1.5px solid #F2E2CA;
+  border-radius:18px;padding:15px 13px 13px;text-align:center;box-shadow:0 3px 0 rgba(74,55,40,.04)}
+.infostrip .info b{display:block;font-size:16.5px;color:#4A3728;margin-top:9px;line-height:1.3}
+.infostrip .info>span{display:block;font-size:12.5px;color:var(--muted);margin-top:5px;line-height:1.55}
+.infostrip .ic{width:44px;height:44px;border-radius:15px;display:inline-flex;align-items:center;
+  justify-content:center;margin:0 auto;box-shadow:inset 0 -2px 0 rgba(0,0,0,.04)}
+.infostrip .ic svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:2.1;
+  stroke-linecap:round;stroke-linejoin:round}
+.infostrip .ic-time{background:#E7F5EC;color:#2F6B4F}
+.infostrip .ic-lock{background:#E6EBFA;color:#3C5199}
+.infostrip .ic-gift{background:#FDEDE6;color:#B5563A}
+
 /* ---------- 調研數據看板 ---------- */
 .kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}
 .kpi{background:#F7FBF8;border:1.5px solid #E2F0E7;border-radius:14px;padding:11px 12px}
@@ -364,7 +376,6 @@ footer.foot b{color:var(--ink2)}
   .hero-intro{padding:36px}
   .hero-intro .hero-mascot{width:230px;margin-top:-4px}
   .kv{grid-template-columns:1fr 1fr;gap:12px 26px}
-  .parts-preview{grid-template-columns:1fr 1fr}
   .modal{padding:40px}
   .rhero{padding:30px 34px}
   .rhero .mascot-wrap{width:230px}
@@ -374,6 +385,14 @@ footer.foot b{color:var(--ink2)}
   .rhero .rep{margin-left:0}
   .proposalGrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   .proposalGrid .pblock{margin:0}
+}
+@media(max-width:560px){
+  .infostrip{grid-template-columns:1fr;gap:9px;margin:16px 0 4px}
+  .infostrip .info{display:grid;grid-template-columns:44px 1fr;gap:13px;text-align:left;
+    align-items:center;padding:12px 14px}
+  .infostrip .ic{grid-row:span 2;margin:0}
+  .infostrip .info b{margin-top:0}
+  .infostrip .info>span{margin-top:2px}
 }
 @media (min-width:1360px){
   .wrap{max-width:1180px}
@@ -429,24 +448,28 @@ footer.foot b{color:var(--ink2)}
           <span class="eyebrow">互動市場研究 ｜ 九型人格 × 土地政策</span>
           <img class="hero-mascot mascot" src="img/hero.webp" alt="" onerror="this.style.display='none'">
           <h1>【都會生活鏡像測驗】</h1>
-          <p class="lead" style="font-size:18px;font-weight:800;margin-bottom:14px">
-            從生活決策與直覺，測出你的九型人格原型，解鎖專屬你的 3D 都會角色！
+          <p class="lead" style="font-size:19px;font-weight:800;margin-bottom:10px">
+            20 題，5 分鐘 — 測出你的九型人格原型，即時解鎖專屬 3D 都會角色！
           </p>
-          <p>在節奏緊湊的香港，面對置業抉擇、資產安全、每日海量資訊與生活細節，你的潛意識正在如何為你導航？</p>
-          <p>透過 20 道涵蓋日常習慣、危機防禦與感官直覺的題目，揭開你的真實九型人格——剖析你的<b>內心真實想法</b>、<b>處事作風</b>、<b>潛藏性格</b>與<b>外界對你的第一印象</b>，並為你解鎖專屬的<b>都會生活安全密碼</b>。</p>
-          <div class="kv">
-            <div><b>約 5–6 分鐘</b><span class="muted">20 題，逐題作答，可隨時返回修改</span></div>
-            <div><b>匿名進行</b><span class="muted">資料只作統計分析與公關策劃參考，絕不作商業推銷</span></div>
-            <div><b>即時報告</b><span class="muted">完成後即出九型分析卡＋3D 專屬角色＋土地政策安全錦囊</span></div>
-            <div><b>真實題目</b><span class="muted">題目與選項原文不變，只以心理測驗形式呈現</span></div>
+          <p>置業、資產安全、每日海量資訊……在節奏緊湊的香港，你的潛意識一直在幫你揀路。答完 20 題，一次看清你的<b>真實性格</b>、<b>處事作風</b>與<b>潛藏一面</b>，同時領取屬於你的<b>都會生活安全錦囊</b>。</p>
+          <div class="infostrip">
+            <div class="info">
+              <span class="ic ic-time" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.4v4.9l3.4 2"/></svg></span>
+              <b>約 5–6 分鐘</b><span>20 題，可隨時返回修改</span>
+            </div>
+            <div class="info">
+              <span class="ic ic-lock" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="9.5" rx="2.6"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/><path d="M12 14.4v2.2"/></svg></span>
+              <b>匿名進行</b><span>不收集姓名、電話或電郵</span>
+            </div>
+            <div class="info">
+              <span class="ic ic-gift" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.6" y="8.4" width="16.8" height="12" rx="2.6"/><path d="M3.6 12.6h16.8M12 8.4v12"/><path d="M12 8.4C10.6 5.6 9 5 8.1 5.9c-.9.9 0 2.5 3.9 2.5zm0 0c1.4-2.8 3-3.4 3.9-2.5.9.9 0 2.5-3.9 2.5z"/></svg></span>
+              <b>即時報告</b><span>九型分析卡＋3D 專屬角色＋安全錦囊</span>
+            </div>
           </div>
           <div class="btnrow" style="margin-top:22px">
             <button class="btn primary" data-go="quiz" id="startBtn">開始測驗 →</button>
             <button class="btn ghost" data-go="atlas">先睇九型圖鑑</button>
           </div>
-          <div class="hr"></div>
-          <h4>測驗涵蓋七個面向</h4>
-          <div class="parts-preview" id="partsPreview"></div>
         </div>
       </div>
     </section>
@@ -632,17 +655,6 @@ document.addEventListener("click", function(e){
   const t=e.target.closest("[data-go]"); if(!t) return;
   setView(t.dataset.go);
 });
-
-/* ---------- intro parts ---------- */
-(function(){
-  const box=$("#partsPreview");
-  D.parts.forEach(function(p){
-    const d=document.createElement("div");
-    d.className="small";
-    d.innerHTML="<b>"+p.name+"</b> <span class='muted'>· "+p.qids.length+" 題</span><br><span class='muted'>"+p.goal+"</span>";
-    box.appendChild(d);
-  });
-})();
 
 /* ---------- quiz ---------- */
 function answeredCount(){ return Object.keys(answers).filter(function(k){return answers[k]&&answers[k].length}).length; }
