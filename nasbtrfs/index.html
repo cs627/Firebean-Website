@@ -160,14 +160,43 @@ ul.tick.w li:before{content:"⚠️"}
 
 <!-- ══════════ STEP 1 ══════════ -->
 <section id="s1">
-  <h2><span class="n">1</span>送入工具（喺 iMac 做）</h2>
-  <p>開 iMac 嘅「<b>終端機</b>」（Spotlight 打 Terminal），貼呢條：</p>
+  <h2><span class="n">1</span>送入工具 —— ⚠️ 喺 iMac 做，唔係喺 NAS 做</h2>
+
+  <div class="card bad" style="border-width:2px">
+    <strong style="font-size:16px">🛑 呢一步一定要開一個【iMac 嘅新視窗】做</strong>
+    <p class="small" style="margin:8px 0 0">
+      NAS <b>冇上網</b>，所以喺 NAS 度打 <span class="mono">curl</span> 一定失敗（會出
+      <span class="mono">Could not resolve host: firebean.net</span>）—— 呢個<b>完全正常，唔係壞</b>。<br>
+      唯一有上網嘅係你部 <b>iMac</b>，所以要由 iMac 把工具「搬」入 NAS。
+    </p>
+  </div>
+
+  <h3>① iMac 開終端機</h3>
+  <p>㩒 <b>⌘ + 空白鍵</b> → 打 <span class="mono">terminal</span> → Enter。<br>
+  <span class="small">（係「終端機」<b>Terminal</b>，唔係 Finder 笑臉、唔係瀏覽器。）</span></p>
+
+  <h3>② 貼呢條（iMac 視窗）</h3>
   <div class="cmdbox"><code id="cmd1">curl -fsSL https://firebean.net/nasbtrfs/bridge.sh | bash</code><button class="cbtn" id="b1" onclick="cp('cmd1','b1')">📋 複製</button></div>
+  <p class="small"><b>貼上三步：</b>① 先用滑鼠㩒一下終端機視窗（唔㩒會貼落 Discord）② ⌘V ③ Enter</p>
+
+  <h3>③ 佢會問你 NAS 密碼</h3>
   <ul class="tick w">
-    <li>會問你 <b>NAS 密碼</b>。打字時畫面<b>唔會顯示任何字</b>（冇 ••、冇星號）—— 呢個係正常，打完直接 Enter。</li>
-    <li>全程只寫 NAS 嘅 <span class="mono">/tmp</span>（暫存區），<b>唔會郁你嘅資料卷</b>。</li>
-    <li>已內建 SHA-256 核對，確保工具冇被改過。</li>
+    <li>打字時畫面<b>唔會顯示任何字</b>（冇 ••、冇星號）—— 呢個係 Mac 正常設計，打完直接 Enter。</li>
+    <li>失敗會印出<strong>具體原因同點改</strong>（例如登入名或 IP 唔啱，會直接畀你一行改法）。</li>
+    <li>全程只寫 NAS 嘅 <span class="mono">/tmp</span>，<b>唔會郁你嘅資料卷</b>。</li>
+    <li>已內建 SHA-256 核對，確認工具冇被改過。</li>
   </ul>
+
+  <h3>④ 唔想用 SSH？USB 隨身碟亦得</h3>
+  <div class="card">
+    <p class="small" style="margin-bottom:6px">NAS 有 USB 埠，呢個方法零密碼、零 Terminal：</p>
+    <ol style="margin:0 0 0 20px;color:#cfcfd6;font-size:14px">
+      <li>iMac 用瀏覽器開 <span class="mono">https://firebean.net/nasbtrfs/c3r_btrfs.py</span> → 另存</li>
+      <li>抄入一支 USB 隨身碟</li>
+      <li>插落 NAS，喺 NAS 視窗打（實測用 File Station 掛載路徑）</li>
+    </ol>
+    <div class="cmdbox"><code id="cmd1b">mkdir -p /tmp/c3r; for d in /volumeUSB1/usbshare /volumeUSB2/usbshare; do [ -f "$d/c3r_btrfs.py" ] &amp;&amp; cp "$d/c3r_btrfs.py" /tmp/c3r/ &amp;&amp; echo "已複製由 $d"; done; ls -l /tmp/c3r/</code><button class="cbtn" id="b1b" onclick="cp('cmd1b','b1b')">📋 複製</button></div>
+  </div>
 </section>
 
 <!-- ══════════ STEP 2 ══════════ -->

@@ -14,7 +14,9 @@
 # ============================================================================
 set -u
 
-NAS="${NAS_HOST:-dickson@169.254.71.131}"
+NAS="${NAS_HOST:-${NAS_USER:-dickson}@${NAS_IP:-169.254.71.131}}"
+# 如 login 名唔係 dickson，可以咁改： NAS_USER=你嘅名 bash
+# 如 NAS IP 唔同：              NAS_IP=169.254.x.x bash
 REMOTE_DIR="/tmp/c3r"
 TOOL_SHA="cc356fb6bf57b033a36a8b1115e6048364f0651e84b50f9f213a3a02d919eede"
 BASE="https://firebean.net/nasbtrfs"
@@ -63,7 +65,11 @@ echo "      打完直接按 Enter 就得。"
 echo
 if ! ssh -o ConnectTimeout=15 "$NAS" "mkdir -p $REMOTE_DIR" ; then
   echo "   ❌ 連唔到 NAS（SSH 失敗）"
-  echo "      → 檢查 NAS 電源、網絡線，同埋 IP 係唔係 $NAS"
+  echo "      → 檢查 NAS 電源、網絡線，同埋 IP／登入名係唔係 "$NAS""
+  echo "      → 如果係登入名唔啱，改用："
+  echo "         NAS_USER=你嘅登入名 bash <(curl -fsSL $BASE/bridge.sh)"
+  echo "      → 如果係 IP 唔啱，先喺 NAS 打 ifconfig | grep 169.254 睇實際 IP，然後："
+  echo "         NAS_IP=實際IP bash <(curl -fsSL $BASE/bridge.sh)"
   exit 1
 fi
 if ! scp -q "$TMP/c3r_btrfs.py" "$NAS:$REMOTE_DIR/c3r_btrfs.py"; then
