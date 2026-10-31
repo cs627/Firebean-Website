@@ -9,8 +9,8 @@
 #        bash ~/fb-cloud.sh stop     ← 停
 # ═══════════════════════════════════════════════════════════════
 set -uo pipefail
-VERSION="fc5-20261031-1320"
-BUILD=5
+VERSION="fc6-20261031-1420"
+BUILD=6
 
 # rclone 可能裝喺 ~/bin（自己下載嘅情況）→ 一定要先加入 PATH
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
@@ -196,8 +196,10 @@ case "${1:-help}" in
     echo "  ⚠️  想停止：bash ~/fb-cloud.sh stop（已上傳嘅唔會消失，可續傳）"
     echo
     nohup caffeinate -i -s rclone copy "$SRC" "$REMOTE" \
-      --transfers 16 --checkers 32 --tpslimit 50 \
-      --drive-chunk-size 64M --retries 5 --low-level-retries 20 \
+      --transfers 16 --checkers 32 --tpslimit 50 --tpslimit-burst 100 \
+      --drive-chunk-size 64M \
+      --timeout 90s --contimeout 20s \
+      --retries 5 --low-level-retries 5 \
       --stats 30s --stats-one-line --log-level INFO \
       --log-file "$LOGDIR/upload.log" \
       >/dev/null 2>&1 &
@@ -225,8 +227,36 @@ case "${1:-help}" in
       echo "  ⚪ 狀態：冇跑緊（已完成 或 已停止）"
     fi
     echo
-    echo "  ── 最近記錄 ──"
-    tail -5 "$LOGDIR/upload.log" 2>/dev/null | sed 's/^/     /' || echo "     （冇記錄檔）"
+    echo "  ── 最新統計 ──"
+    if [ -f "$LOGDIR/upload.log" ]; then
+      grep -E 'xfr#|[0-9]+%' "$LOGDIR/upload.log" 2>/dev/null | tail -1 | sed 's/^/     /'
+    else
+      echo "     （冇記錄檔）"
+    fi
+    echo
+    echo "  ── ⚠️ 錯誤／警告（最近 8 條，若空白＝冇問題）──"
+    if [ -f "$LOGDIR/upload.log" ]; then
+      ERR=$(grep -aE '(ERROR|NOTICE|cannot|ailed|Forbidden|403|429|quota|malware|abuse|denied)' "$LOGDIR/upload.log" 2>/dev/null | grep -avE '[0-9]+%' | tail -8)
+      if [ -n "$ERR" ]; then printf '%s\n' "$ERR" | sed 's/^/     /'; else echo "     ✅ 冇錯誤"; fi
+    else
+      echo "     （冇記錄檔）"
+    fi
+    echo
+    echo "  ── 速度診斷 ──"
+    if [ -f "$LOGDIR/upload.log" ]; then
+      LAST2=$(grep -aE '[0-9]+%' "$LOGDIR/upload.log" 2>/dev/null | tail -2)
+      T1=$(printf '%s\n' "$LAST2" | head -1 | grep -oE '[0-9]{2}:[0-9]{2}:[0-9]{2}' | head -1)
+      B1=$(printf '%s\n' "$LAST2" | head -1 | grep -oE '[0-9.]+ [KMGT]iB' | head -1)
+      T2=$(printf '%s\n' "$LAST2" | tail -1 | grep -oE '[0-9]{2}:[0-9]{2}:[0-9]{2}' | head -1)
+      B2=$(printf '%s\n' "$LAST2" | tail -1 | grep -oE '[0-9.]+ [KMGT]iB' | head -1)
+      echo "     最早的樣本：$T1  $B1"
+      echo "     最新的樣本：$T2  $B2"
+      if [ "$B1" = "$B2" ] && [ -n "$B1" ]; then
+        echo "     🔴 兩個樣本完全相同 → 上傳已經卡住，請執行 bash ~/fb-cloud.sh stop 再跑 upload"
+      fi
+    else
+      echo "     （冇記錄檔）"
+    fi
     echo
     echo "  ── 雲端已有 ──"
     rclone size "$REMOTE" 2>/dev/null | sed 's/^/     /' || echo "     （未開始）"
@@ -257,13 +287,27 @@ case "${1:-help}" in
     fi
     ;;
 
+  restart)
+    banner "重新開始上傳"
+    if pkill -f 'rclone copy' 2>/dev/null; then
+      echo "  ✅ 已停掉卡住嘅上傳（已上傳嘅檔唔會消失）"
+    else
+      echo "  ⚪ 冇舊上傳喺度跑"
+    fi
+    sleep 2
+    echo "  🔄 用新設定重新開始…"
+    echo
+    exec bash "$0" upload
+    ;;
+
   *)
     banner "使用說明"
     cat <<'USAGE'
   bash ~/fb-cloud.sh setup     ① 一次性設定（會開瀏覽器按 Allow）
   bash ~/fb-cloud.sh fix       ①b 連線壞咗時用（重設再授權）
   bash ~/fb-cloud.sh upload    ② 開始上傳（背景跑，可關窗）
-  bash ~/fb-cloud.sh status    ③ 睇進度
+  bash ~/fb-cloud.sh restart   ②b 卡住時用（停掉再用新設定重開）
+  bash ~/fb-cloud.sh status    ③ 睇進度（會顯示錯誤同卡住警報）
   bash ~/fb-cloud.sh check     ④ 核對雲端同本地一致
   bash ~/fb-cloud.sh stop      ⑤ 停止（可續傳）
 
