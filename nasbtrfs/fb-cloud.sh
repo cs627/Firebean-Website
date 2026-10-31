@@ -9,8 +9,8 @@
 #        bash ~/fb-cloud.sh stop     ← 停
 # ═══════════════════════════════════════════════════════════════
 set -uo pipefail
-VERSION="fc3-20261031-1220"
-BUILD=3
+VERSION="fc4-20261031-1235"
+BUILD=4
 
 # rclone 可能裝喺 ~/bin（自己下載嘅情況）→ 一定要先加入 PATH
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
@@ -18,6 +18,12 @@ export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 SRC_DEFAULT="/Volumes/ExternalSSD/dicksonimac/recovered"
 REMOTE="gdrive:FirebeanRescue2026"
 LOGDIR="$HOME/fb-cloud-logs"
+
+# rclone 官方共用 OAuth client（公開資料，來自 rclone 原始碼 backend/drive/drive.go）
+# ★ 明確指定就唔會再跳出「Continue using the shared client_id anyway? y/n」提問
+# ★ 亦避免用戶誤將「y」當成 client_id 輸入（會導致 Error 401: invalid_client）
+RCLONE_SHARED_ID="202264815644.apps.googleusercontent.com"
+RCLONE_SHARED_SECRET="X4Z3ca8xfWDb1Voo-F9a7ZxJ"
 
 # ─────────────────────────────────────────────────────────────
 # 遮蔽敏感資料（rclone 會將 token 明文印出，一定要過濾）
@@ -84,6 +90,36 @@ need_rclone() {
   fi
 }
 
+# ─────────────────────────────────────────────────────────────
+# 建立／重建 gdrive 連線
+#   ★ 明確傳入 client_id + client_secret + config_is_local true
+#     → rclone 唔會再問任何 y/n 問題（實測零提問）
+#     → 直接開瀏覽器做授權
+# ─────────────────────────────────────────────────────────────
+build_gdrive() {
+  if rclone listremotes 2>/dev/null | grep -q '^gdrive:'; then
+    echo "  🗑️  刪除舊嘅 gdrive 設定（清理壞咗嘅 client_id）…"
+    rclone config delete gdrive 2>&1 | redact || true
+  fi
+  echo
+  echo "  ════════════════════════════════════════════════"
+  echo "  🌐 即將【自動開瀏覽器】："
+  echo "     ① 揀帳號：dickson@firebean.net"
+  echo "     ② 若見「Google 未驗證應用」→ 按【進階】"
+  echo "        → 再按【繼續前往 rclone（不安全）】"
+  echo "     ③ 按【允許 / Allow】"
+  echo "  ✅ 今次唔會再問你任何 y/n 問題"
+  echo "  ════════════════════════════════════════════════"
+  echo
+  read -r -p "  準備好就按 Enter 開始…" _
+  echo "  🔧 建立 gdrive 連線（等瀏覽器按完【允許】）…"
+  rclone config create gdrive drive scope drive \
+    client_id "$RCLONE_SHARED_ID" \
+    client_secret "$RCLONE_SHARED_SECRET" \
+    config_is_local true 2>&1 | redact
+  echo "  ✅ 已建立"
+}
+
 case "${1:-help}" in
 
   setup)
@@ -91,40 +127,14 @@ case "${1:-help}" in
     echo
     install_rclone || exit 1
     echo
-    # ★ 關鍵：如果連線已經通，就唔好再做第二次授權（避免開多個瀏覽器視窗）
+    # ★ 如果連線已經通，就唔好再動佢（避免重複授權、重複外洩 token）
     if rclone lsd gdrive: >/dev/null 2>&1; then
       echo "  ✅✅ 連線已經成功 —— 唔需要再授權"
       echo
       echo "  👉 下一步：bash ~/fb-cloud.sh upload"
       exit 0
     fi
-    if rclone listremotes 2>/dev/null | grep -q '^gdrive:'; then
-      echo "  ✅ gdrive 已經設定過（跳過建立，直接做授權）"
-    else
-      echo "  🔧 建立 gdrive 連線…"
-      rclone config create gdrive drive scope drive 2>&1 | redact \
-        || { echo "  ❌ 建立失敗"; exit 1; }
-      echo "  ✅ 已建立"
-      echo
-      echo "  🔎 再測一次連線…"
-      if rclone lsd gdrive: >/dev/null 2>&1; then
-        echo "  ✅✅ 連線成功！你嘅 Drive 已經可以用"
-        echo
-        echo "  👉 下一步：bash ~/fb-cloud.sh upload"
-        exit 0
-      fi
-    fi
-    echo
-    echo "  ════════════════════════════════════════════════"
-    echo "  🌐 下一步會【自動開瀏覽器】："
-    echo "     ① 揀帳號：dickson@firebean.net"
-    echo "     ② 若見「Google 未驗證應用」→ 按【進階】"
-    echo "        → 再按【繼續前往 rclone（不安全）】"
-    echo "     ③ 按【允許 / Allow】"
-    echo "  ════════════════════════════════════════════════"
-    echo
-    read -r -p "  準備好就按 Enter 開始…" _
-    rclone config reconnect gdrive: 2>&1 | redact || { echo "  ❌ 授權失敗"; exit 1; }
+    build_gdrive
     echo
     echo "  🔎 測試連線…"
     if rclone lsd gdrive: >/dev/null 2>&1; then
@@ -133,6 +143,23 @@ case "${1:-help}" in
       echo "  👉 下一步：bash ~/fb-cloud.sh upload"
     else
       echo "  ❌ 連線失敗 —— 請將以上全部輸出掟返俾 Hermes"
+      exit 1
+    fi
+    ;;
+
+  fix)
+    banner "修復 gdrive 連線"
+    need_rclone
+    echo "  重設 gdrive 連線（刪除現有設定再重建，用嚟清理壞咗嘅 client_id）"
+    build_gdrive
+    echo
+    echo "  🔎 測試連線…"
+    if rclone lsd gdrive: >/dev/null 2>&1; then
+      echo "  ✅✅ 修復成功！"
+      echo
+      echo "  👉 下一步：bash ~/fb-cloud.sh upload"
+    else
+      echo "  ❌ 仍然失敗 —— 掟返俾 Hermes"
       exit 1
     fi
     ;;
@@ -234,6 +261,7 @@ case "${1:-help}" in
     banner "使用說明"
     cat <<'USAGE'
   bash ~/fb-cloud.sh setup     ① 一次性設定（會開瀏覽器按 Allow）
+  bash ~/fb-cloud.sh fix       ①b 連線壞咗時用（重設再授權）
   bash ~/fb-cloud.sh upload    ② 開始上傳（背景跑，可關窗）
   bash ~/fb-cloud.sh status    ③ 睇進度
   bash ~/fb-cloud.sh check     ④ 核對雲端同本地一致
