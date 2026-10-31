@@ -19,8 +19,8 @@
 # ═══════════════════════════════════════════════════════════════
 set -uo pipefail
 
-VERSION="fb-nasbak-20261031-1630"
-BUILD=2
+VERSION="fb-nasbak-20261031-1700"
+BUILD=3
 
 # ─────────────────────────────────────────────────────────────
 # 主要路徑（全部可由環境覆寫 —— 只為測試用；正式跑唔需要改）
@@ -102,6 +102,24 @@ is_network_fs() {
   esac
 }
 
+# ─────────────────────────────────────────────────────────────
+# rsync 進度旗標 —— macOS 內建 rsync 係 2.6.9（2006 年），
+# 唔支援 --info=progress2（rsync 3.x 才有）。用錯會即刻
+# 印出 usage 並失敗，用戶只會見到一堆選項清單。
+#
+# ⚠️ 唔可以靠解析 --version 字串判斷：字串係
+#    "rsync  version 2.6.9  protocol version 29"
+#    貪心 regex 會捉到最後一個數字（29）而誤判成新版本。
+#    改為直接探測 rsync 認唔認得呢個旗標。
+# ─────────────────────────────────────────────────────────────
+if rsync --info=progress2 --version >/dev/null 2>&1; then
+  RSYNC_PROGRESS="--info=progress2"
+else
+  RSYNC_PROGRESS="--progress"
+fi
+# 一律包含 --partial → 呢個 pattern 喺 2.6.9 同 3.x 都存在，可用嚟認返自己嘅 job
+RSYNC_MATCH='rsync -a .*--partial'
+
 # 自動偵測目的地：$VOLUMES_DIR 下、非 ExternalSSD、且係網絡掛載嘅掛載點
 detect_dest() {
   local v ft out=""
@@ -164,7 +182,7 @@ Firebean 本機 NAS 備份（全程單向，只讀來源）
   bash ~/fb-nasbak.sh stop                 停（已複製嘅唔會消失，可續傳）
 
 預設來源：/Volumes/ExternalSSD/dicksonimac/recovered（★ 只讀，永不刪改）
-複製方法：rsync -a --info=progress2 --partial（單向、可續傳、保留時間戳）
+複製方法：rsync -a（進度顯示自動配合系統 rsync 版本）--partial（單向、可續傳、保留時間戳）
 記錄檔　：~/fb-nasbak-logs/
 
 ⚠️ 完成後：勿刪來源，最少留兩份；新 NAS 最好備份完即離線／斷網。
@@ -327,7 +345,7 @@ start_run() {
   echo
   echo "  來源     ：${SRC}   （★ 只讀，永不刪改）"
   echo "  目的地   ：${DEST}"
-  echo "  複製方法 ：rsync -a --info=progress2 --partial（單向、可續傳、保留時間戳）"
+  echo "  複製方法 ：rsync -a ${RSYNC_PROGRESS} --partial（單向、可續傳、保留時間戳）"
   echo
 
   # ── 預估時間（讀實際來源大細）──
@@ -360,14 +378,14 @@ start_run() {
   echo "  ⚠️  想停止：bash ~/fb-nasbak.sh stop（已複製嘅唔會消失，可續傳）"
   echo
   # ★ 注意：全程只讀來源；唔用任何刪除選項；唔做雙向同步
-  nohup caffeinate -i -s rsync -a --info=progress2 --partial --human-readable \
+  nohup caffeinate -i -s rsync -a ${RSYNC_PROGRESS} --partial --human-readable \
     --stats "${SRC}/" "${DEST}/" \
     > "${RUNLOG}" 2>&1 &
   # 記住目的地，方便 status 同 check（唔靠 tail log 猜）
   printf '%s\n' "${DEST}" > "${LOGDIR}/dest.path"
   printf '%s\n' "${SRC}"  > "${LOGDIR}/src.path"
   sleep 8
-  if pgrep -f 'rsync .*fb-nasbak' >/dev/null 2>&1 || pgrep -f 'rsync -a --info=progress2' >/dev/null 2>&1; then
+  if pgrep -f 'rsync .*fb-nasbak' >/dev/null 2>&1 || pgrep -f "${RSYNC_MATCH}" >/dev/null 2>&1; then
     echo "  ✅ 複製已經開始（背景跑緊）"
     echo
     echo "  📊 而家嘅進度："
@@ -389,7 +407,7 @@ status_run() {
   local DEST SRC
   DEST=$(cat "${LOGDIR}/dest.path" 2>/dev/null || true)
   SRC=$(cat "${LOGDIR}/src.path" 2>/dev/null || true)
-  if pgrep -f 'rsync -a --info=progress2' >/dev/null 2>&1; then
+  if pgrep -f "${RSYNC_MATCH}" >/dev/null 2>&1; then
     echo "  🟢 狀態：複製中"
   else
     echo "  ⚪ 狀態：冇跑緊（已完成 或 已停止）"
@@ -450,7 +468,7 @@ check_run() {
 # ─────────────────────────────────────────────────────────────
 stop_run() {
   banner "停止複製"
-  if pkill -f 'rsync -a --info=progress2' 2>/dev/null; then
+  if pkill -f "${RSYNC_MATCH}" 2>/dev/null; then
     echo "  ✅ 已停止"
     echo "  ✅ 已複製嘅檔唔會消失；下次跑 start 會自動續傳（--partial）"
   else
