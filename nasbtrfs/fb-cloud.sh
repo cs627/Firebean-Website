@@ -9,7 +9,11 @@
 #        bash ~/fb-cloud.sh stop     ← 停
 # ═══════════════════════════════════════════════════════════════
 set -uo pipefail
-VERSION="fc1-20261031-1200"
+VERSION="fc2-20261031-1210"
+BUILD=2
+
+# rclone 可能裝喺 ~/bin（自己下載嘅情況）→ 一定要先加入 PATH
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
 SRC_DEFAULT="/Volumes/ExternalSSD/dicksonimac/recovered"
 REMOTE="gdrive:FirebeanRescue2026"
@@ -22,10 +26,52 @@ banner() {
   echo "════════════════════════════════════════════════════"
 }
 
+# ─────────────────────────────────────────────────────────────
+# 安裝 rclone（★ 唔需要 Homebrew、唔需要 sudo）
+#   ① 已經有 → 直接用
+#   ② 有 Homebrew → 用 brew（最快）
+#   ③ 冇 Homebrew → 直接下載官方二進位檔放 ~/bin
+# ─────────────────────────────────────────────────────────────
+install_rclone() {
+  if command -v rclone >/dev/null 2>&1; then
+    echo "  ✅ rclone 已安裝：$(rclone version 2>/dev/null | head -1)"
+    return 0
+  fi
+  if command -v brew >/dev/null 2>&1; then
+    echo "  📦 用 Homebrew 安裝 rclone…"
+    if brew install rclone; then
+      export PATH="$(brew --prefix 2>/dev/null)/bin:$PATH"
+      return 0
+    fi
+    echo "  ⚠️ Homebrew 安裝失敗 → 改用官方二進位檔"
+  fi
+  local arch url tmpd
+  case "$(uname -m)" in
+    arm64) arch="arm64" ;;
+    x86_64) arch="amd64" ;;
+    *) arch="amd64" ;;
+  esac
+  url="https://downloads.rclone.org/rclone-current-osx-${arch}.zip"
+  echo "  📦 下載官方 rclone（${arch}）—— 唔需要 sudo…"
+  tmpd=$(mktemp -d) || { echo "  ❌ 開唔到暫存目錄"; return 1; }
+  mkdir -p "$HOME/bin"
+  if curl -fsSL -o "$tmpd/rclone.zip" "$url" \
+     && unzip -o -j "$tmpd/rclone.zip" '*/rclone' -d "$HOME/bin" >/dev/null \
+     && chmod +x "$HOME/bin/rclone"; then
+    rm -rf "$tmpd"
+    export PATH="$HOME/bin:$PATH"
+    echo "  ✅ rclone 已安裝到 ~/bin/rclone"
+    return 0
+  fi
+  rm -rf "$tmpd"
+  echo "  ❌ 自動安裝失敗。請手動下載：https://rclone.org/downloads/"
+  return 1
+}
+
 need_rclone() {
   if ! command -v rclone >/dev/null 2>&1; then
     echo "  ❌ 未安裝 rclone"
-    echo "     請先執行：brew install rclone"
+    echo "     請先執行：bash ~/fb-cloud.sh setup"
     exit 1
   fi
 }
@@ -35,22 +81,13 @@ case "${1:-help}" in
   setup)
     banner "一次性設定"
     echo
-    if ! command -v brew >/dev/null 2>&1; then
-      echo "  ❌ 搵唔到 Homebrew。請先安裝："
-      echo '     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
-      exit 1
-    fi
-    if ! command -v rclone >/dev/null 2>&1; then
-      echo "  📦 安裝 rclone（第一次可能要幾分鐘）…"
-      brew install rclone || { echo "  ❌ 安裝失敗"; exit 1; }
-    fi
-    echo "  ✅ rclone 已安裝：$(rclone version | head -1)"
+    install_rclone || exit 1
     echo
     if rclone listremotes 2>/dev/null | grep -q '^gdrive:'; then
       echo "  ✅ gdrive 已經設定過（跳過建立）"
     else
       echo "  🔧 建立 gdrive 連線…"
-      rclone config create gdrive drive scope drive config_is_local false \
+      rclone config create gdrive drive scope drive \
         || { echo "  ❌ 建立失敗"; exit 1; }
       echo "  ✅ 已建立"
     fi
