@@ -133,7 +133,7 @@ done
 
 if [ "$OK" != "1" ]; then
   echo
-  echo "   ❌ 全部帳號都傳唔到入 NAS（試過：$TRIED）"
+  echo "   ❌ 全部帳號都傳唔到入 NAS（試過：${TRIED}）"
   [ -s "$TMP/remote_err.txt" ] && { echo "      最後錯誤："; sed 's/^/        /' "$TMP/remote_err.txt" | head -5; }
   echo "      → ① 先喺 NAS 視窗打： ifconfig | grep 169.254   睇實際 IP"
   echo "      → ② 再喺 iMac 打："
@@ -148,7 +148,7 @@ RSHA=$(awk '{print $1}' "$TMP/remote_sha.txt" | head -1)
 if [ "$RSHA" = "$TOOL_SHA" ]; then
   echo "   ✅ NAS 上面嘅檔案 SHA-256 一致（逐 byte 核對通過）"
 else
-  echo "   ⚠️ NAS 上面嘅 SHA-256 唔一致（$RSHA）—— 請通知 Hermes"
+  echo "   ⚠️ NAS 上面嘅 SHA-256 唔一致（${RSHA}）—— 請通知 Hermes"
 fi
 
 echo
