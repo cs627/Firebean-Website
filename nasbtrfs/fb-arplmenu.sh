@@ -15,8 +15,8 @@
 # ============================================================================
 set -u
 
-VERSION="fb-arplmenu-20261031-2200"
-SUBNET="${1:-192.168.1}"
+VERSION="fb-arplmenu-20261031-2210"
+SUBNETS="${1:-192.168.1 192.168.2 192.168.0}"
 MINUTES="${2:-12}"
 PORT_LOADER=7681      # ARPL / RR 引導管理界面 (ttyd)
 PORT_DSM=5000         # DSM 主界面
@@ -29,7 +29,7 @@ hr()   { printf '%s\n' "──────────────────�
 
 hr
 say "${C_B}  fb-arplmenu.sh  ${VERSION}${C_0}"
-say "  目標網段：${SUBNET}.0/24"
+say "  目標網段：${SUBNETS}"
 say "  最多監聽：${MINUTES} 分鐘"
 hr
 say ""
@@ -42,11 +42,18 @@ say "    ③ 唔好關呢個 Terminal 窗口，等佢自動中"
 say ""
 
 # ── 掃描一個端口，搵出有回應嘅 IP ──────────────────────────────────────────
+host_list() {
+  local s
+  for s in $SUBNETS; do
+    seq 1 254 | sed "s|^|${s}.|"
+  done
+}
+
 scan_port() {
   local port="$1"
-  seq 1 254 \
+  host_list \
     | xargs -P 254 -I{} sh -c '
-        ip="'"${SUBNET}"'.{}"
+        ip="{}"
         code=$(curl -s -m 0.35 -o /dev/null -w "%{http_code}" "http://${ip}:'"${port}"'/" 2>/dev/null)
         if [ -n "$code" ] && [ "$code" != "000" ]; then
           printf "%s\n" "$ip"
@@ -132,8 +139,8 @@ else
   say "  請確認："
   say "    ① NAS 網線真係插咗落 router（唔係 iMac）"
   say "    ② NAS 有開機、router 燈有閃"
-  say "    ③ 網段真係 ${SUBNET}.x"
+  say "    ③ 網段真係以上其中一個"
   say ""
-  say "  再試：bash ~/fb-arplmenu.sh ${SUBNET} 15"
+  say "  再試：bash ~/fb-arplmenu.sh \"192.168.1 192.168.2\" 15"
 fi
 hr
