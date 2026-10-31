@@ -9,8 +9,8 @@
 #        bash ~/fb-cloud.sh stop     ← 停
 # ═══════════════════════════════════════════════════════════════
 set -uo pipefail
-VERSION="fc4-20261031-1235"
-BUILD=4
+VERSION="fc5-20261031-1320"
+BUILD=5
 
 # rclone 可能裝喺 ~/bin（自己下載嘅情況）→ 一定要先加入 PATH
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
@@ -196,7 +196,7 @@ case "${1:-help}" in
     echo "  ⚠️  想停止：bash ~/fb-cloud.sh stop（已上傳嘅唔會消失，可續傳）"
     echo
     nohup caffeinate -i -s rclone copy "$SRC" "$REMOTE" \
-      --transfers 8 --checkers 16 --tpslimit 10 \
+      --transfers 16 --checkers 32 --tpslimit 50 \
       --drive-chunk-size 64M --retries 5 --low-level-retries 20 \
       --stats 30s --stats-one-line --log-level INFO \
       --log-file "$LOGDIR/upload.log" \
