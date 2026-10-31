@@ -19,8 +19,8 @@ for _L in en_US.UTF-8 en_US.utf8 C.UTF-8 zh_HK.UTF-8 UTF-8; do
   fi
 done
 unset _L
-VERSION="fb20-20261031-1015"
-BUILD=20
+VERSION="fb21-20261031-1130"
+BUILD=21
 
 NAS_IP="${NAS_IP:-169.254.71.131}"
 TARGET="${NAS_USER:-dickson}@${NAS_IP}"
@@ -52,7 +52,7 @@ if [ "${FB_NO_UPDATE:-0}" != "1" ]; then
             if printf '%s' "$_NEW" > "$_SELF.new" 2>/dev/null; then
               mv "$_SELF.new" "$_SELF" && chmod +x "$_SELF" 2>/dev/null
               export FB_NO_UPDATE=1
-              echo "  🔄 已自動更新：$VERSION → $_NV，重新執行…"
+              echo "  🔄 已自動更新：$VERSION → ${_NV}，重新執行…"
               echo
               exec bash "$_SELF" "$@"
             fi
@@ -160,7 +160,7 @@ case "$TASK" in
     CLOUD_TMP=${2:-$HOME/fb-cloud-tmp}
     CLOUD_REM=${3:-gdrive:FirebeanRescue}
     echo "  ═══════ Firebean 雲端救援（NAS → Google Drive）═══════"
-    echo "  暫存目錄   : $CLOUD_TMP（放大 tar，用完即刪）"
+    echo "  暫存目錄   : ${CLOUD_TMP}（放大 tar，用完即刪）"
     echo "  雲端目的地 : $CLOUD_REM"
     echo "  ══════════════════════════════════════════════════════"
     echo
@@ -535,7 +535,7 @@ if [ "$STREAM" = "auto" ]; then
   echo
   if [ -z "$A_LIST" ]; then echo "  ❌ 攞唔到資料夾清單"; unset A_PW; exit 1; fi
   A_TOTAL=$(printf '%s\n' "$A_LIST" | grep -c .)
-  echo "  📋 共 $A_TOTAL 個資料夾（由細至大處理）"
+  echo "  📋 共 ${A_TOTAL} 個資料夾（由細至大處理）"
   echo
 
   A_N=0; A_OK=0; A_BAD=0; A_MISS=0; A_BYTES=0; A_SKIP=0; A_DONE=0
@@ -563,7 +563,7 @@ if [ "$STREAM" = "auto" ]; then
     A_FREE=$(df -k "$DEST" 2>/dev/null | tail -1 | awk '{print $4}')
     [ -z "$A_FREE" ] && A_FREE=0
     echo "  ────────────────────────────────────────────────────────"
-    echo "  [$A_N/$A_TOTAL] $A_DIR"
+    echo "  [${A_N}/${A_TOTAL}] $A_DIR"
     echo "     需要約 $((A_KB/1024)) MB   ／   剩餘 $((A_FREE/1048576)) GB"
     if [ "$A_FREE" -lt "$A_NEED" ]; then
       echo "     ⏭️  空間不足 → 跳過（留待插第二隻碟再跑）"
@@ -613,7 +613,7 @@ if [ "$STREAM" = "auto" ]; then
   cm_close
   echo
   echo "  ══════════════════ 最終驗收報告 ══════════════════"
-  echo "  📁 處理資料夾    ：$A_N / $A_TOTAL"
+  echo "  📁 處理資料夾    ：${A_N} / ${A_TOTAL}"
   echo "  ⏭️  之前已完成    ：$A_DONE 個（自動跳過，唔會重複搬）"
   echo "  ⏭️  空間不足跳過  ：$A_SKIP 個（下次插新碟再跑會自動補做）"
   echo "  ✅ SHA-256 通過  ：$A_OK 個檔案"
