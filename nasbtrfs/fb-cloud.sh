@@ -9,8 +9,8 @@
 #        bash ~/fb-cloud.sh stop     ← 停
 # ═══════════════════════════════════════════════════════════════
 set -uo pipefail
-VERSION="fc2-20261031-1210"
-BUILD=2
+VERSION="fc3-20261031-1220"
+BUILD=3
 
 # rclone 可能裝喺 ~/bin（自己下載嘅情況）→ 一定要先加入 PATH
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
@@ -18,6 +18,14 @@ export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 SRC_DEFAULT="/Volumes/ExternalSSD/dicksonimac/recovered"
 REMOTE="gdrive:FirebeanRescue2026"
 LOGDIR="$HOME/fb-cloud-logs"
+
+# ─────────────────────────────────────────────────────────────
+# 遮蔽敏感資料（rclone 會將 token 明文印出，一定要過濾）
+# ─────────────────────────────────────────────────────────────
+redact() {
+  sed -E 's/("(access_token|refresh_token|client_secret|token)"[[:space:]]*:[[:space:]]*")[^"]*/\1[已遮蔽]/g' \
+  | sed -E 's/"access_token":"[^"]*"/"access_token":"[已遮蔽]"/g'
+}
 
 banner() {
   echo "════════════════════════════════════════════════════"
@@ -83,13 +91,28 @@ case "${1:-help}" in
     echo
     install_rclone || exit 1
     echo
+    # ★ 關鍵：如果連線已經通，就唔好再做第二次授權（避免開多個瀏覽器視窗）
+    if rclone lsd gdrive: >/dev/null 2>&1; then
+      echo "  ✅✅ 連線已經成功 —— 唔需要再授權"
+      echo
+      echo "  👉 下一步：bash ~/fb-cloud.sh upload"
+      exit 0
+    fi
     if rclone listremotes 2>/dev/null | grep -q '^gdrive:'; then
-      echo "  ✅ gdrive 已經設定過（跳過建立）"
+      echo "  ✅ gdrive 已經設定過（跳過建立，直接做授權）"
     else
       echo "  🔧 建立 gdrive 連線…"
-      rclone config create gdrive drive scope drive \
+      rclone config create gdrive drive scope drive 2>&1 | redact \
         || { echo "  ❌ 建立失敗"; exit 1; }
       echo "  ✅ 已建立"
+      echo
+      echo "  🔎 再測一次連線…"
+      if rclone lsd gdrive: >/dev/null 2>&1; then
+        echo "  ✅✅ 連線成功！你嘅 Drive 已經可以用"
+        echo
+        echo "  👉 下一步：bash ~/fb-cloud.sh upload"
+        exit 0
+      fi
     fi
     echo
     echo "  ════════════════════════════════════════════════"
@@ -101,7 +124,7 @@ case "${1:-help}" in
     echo "  ════════════════════════════════════════════════"
     echo
     read -r -p "  準備好就按 Enter 開始…" _
-    rclone config reconnect gdrive: || { echo "  ❌ 授權失敗"; exit 1; }
+    rclone config reconnect gdrive: 2>&1 | redact || { echo "  ❌ 授權失敗"; exit 1; }
     echo
     echo "  🔎 測試連線…"
     if rclone lsd gdrive: >/dev/null 2>&1; then
