@@ -1,20 +1,16 @@
 {
   "meta": {
-    "last_updated": "2026-10-31T01:06+08:00",
-    "total_records": 235,
+    "last_updated": "2026-11-01T01:20+08:00",
+    "total_records": 237,
     "daily_avg": 2.9,
-    "date_range": "2025-06-09 → 2026-10-29",
+    "date_range": "2025-06-09 → 2026-10-31",
     "sources_checked": 28,
     "new_verified": 3,
     "coverage_ratio": "28/46",
-    "negative_alerts": 37,
-    "positive_pct": 55
+    "negative_alerts": 38,
+    "positive_pct": 54
   },
   "trend": [
-    {
-      "date": "2026-10-17",
-      "count": 1
-    },
     {
       "date": "2026-10-20",
       "count": 1
@@ -38,12 +34,16 @@
     {
       "date": "2026-10-29",
       "count": 1
+    },
+    {
+      "date": "2026-10-31",
+      "count": 1
     }
   ],
   "source_breakdown": [
     {
       "source": "Google Maps",
-      "count": 52
+      "count": 53
     },
     {
       "source": "Instagram",
@@ -78,15 +78,15 @@
       "count": 4
     },
     {
+      "source": "Jetso Today（香港著數媒體）",
+      "count": 3
+    },
+    {
       "source": "HK01",
       "count": 2
     },
     {
       "source": "YOHO MALL",
-      "count": 2
-    },
-    {
-      "source": "Jetso Today（香港著數媒體）",
       "count": 2
     },
     {
@@ -104,8 +104,8 @@
   ],
   "sentiment": {
     "positive": 129,
-    "neutral": 64,
-    "negative": 37,
+    "neutral": 65,
+    "negative": 38,
     "mixed": 5
   },
   "all_records": [
@@ -2693,6 +2693,28 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, 澳美客, 萬聖節, 限時優惠, Trick or Treat"
+    },
+    {
+      "date": "2026-06-03",
+      "source": "Google Maps (東薈城名店倉)",
+      "platform": "地圖",
+      "title": "東涌顧客1星評價：呢間東涌分店，擺喺門口嘅下午茶menu排版混亂，菜品配搭顯示不清，極度容易令人誤",
+      "summary": "東涌分店 Google Maps 1星評論（jdjajajsjska dhjaja，5 個月前）：呢間東涌分店，擺喺門口嘅下午茶menu排版混亂，菜品配搭顯示不清，極度容易令人誤會，擺明係專登想呃人 嗌兩個下午茶set② 睇menu以為一個下午茶set有沙律&主食+飲品，落單嗰阿姐都冇提我叫左兩個餐，然後埋單見到自己叫左兩個下午茶set，比左double價錢，我仲以為佢落錯單，結果佢勁串嘴答我話我叫左兩個set啊嘛照你咁樣意思你仲差我杯野飲啦？ 不過公道講，野食係好食嘅，不過唔會再幫襯囉，多多錢都唔係咁樣洗喺你地度仑",
+      "link": "https://www.google.com/maps/contrib/115892478954461315862/reviews",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback, Google Maps, 東涌, 東薈城名店倉, 1星"
+    },
+    {
+      "date": "2026-10-31",
+      "source": "Jetso Today（香港著數媒體）",
+      "platform": "新聞媒體",
+      "title": "Outback App 會員迎新獎賞獲著數媒體轉載：免費芝士薯條，升級尊尚會籍最多可領 20 張券（官方稱總值逾 HK$2,000）",
+      "summary": "Jetso Today 於 2026-10-31 發文轉載 Outback 現行「INSIDE OUTBACK」會員迎新獎賞：即日起至 2026 年 11 月 30 日，加入 VIP 會籍可獲「香脆薯條混煙肉芝士」換領券；新加入或升級尊尚會籍（HK$488）除基本 8 張 HK$100 迎新券及 2 張 10 安士肉眼牛扒／燒加拿大帶骨黑毛豬扒換領券外，活動期內加碼送 HK$100 迎新券 x4、烤豬肋骨雞搥芝士薯條拼盤券 x1、75 折優惠券 x4，最多共 20 張券（官方稱總值超過 HK$2,000）。屬第三方媒體對官方會員推廣的轉載，非官方新公布（官方原文已於 2026-10-20 記錄）。",
+      "link": "https://www.jetsotoday.com/outback-steakhouse-20261130/",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, 澳美客, 會員優惠, Prestige, App, Inside Outback, 著數"
     }
   ],
   "media_records": [
@@ -3498,6 +3520,17 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, 澳美客, 萬聖節, 限時優惠, Trick or Treat"
+    },
+    {
+      "date": "2026-10-31",
+      "source": "Jetso Today（香港著數媒體）",
+      "platform": "新聞媒體",
+      "title": "Outback App 會員迎新獎賞獲著數媒體轉載：免費芝士薯條，升級尊尚會籍最多可領 20 張券（官方稱總值逾 HK$2,000）",
+      "summary": "Jetso Today 於 2026-10-31 發文轉載 Outback 現行「INSIDE OUTBACK」會員迎新獎賞：即日起至 2026 年 11 月 30 日，加入 VIP 會籍可獲「香脆薯條混煙肉芝士」換領券；新加入或升級尊尚會籍（HK$488）除基本 8 張 HK$100 迎新券及 2 張 10 安士肉眼牛扒／燒加拿大帶骨黑毛豬扒換領券外，活動期內加碼送 HK$100 迎新券 x4、烤豬肋骨雞搥芝士薯條拼盤券 x1、75 折優惠券 x4，最多共 20 張券（官方稱總值超過 HK$2,000）。屬第三方媒體對官方會員推廣的轉載，非官方新公布（官方原文已於 2026-10-20 記錄）。",
+      "link": "https://www.jetsotoday.com/outback-steakhouse-20261130/",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, 澳美客, 會員優惠, Prestige, App, Inside Outback, 著數"
     }
   ],
   "social_records": [
@@ -5282,6 +5315,17 @@
       "sentiment": "negative",
       "sentiment_label": "負面",
       "keywords": "Outback, Google Maps, 大埔, 大埔超級城, 1星"
+    },
+    {
+      "date": "2026-06-03",
+      "source": "Google Maps (東薈城名店倉)",
+      "platform": "地圖",
+      "title": "東涌顧客1星評價：呢間東涌分店，擺喺門口嘅下午茶menu排版混亂，菜品配搭顯示不清，極度容易令人誤",
+      "summary": "東涌分店 Google Maps 1星評論（jdjajajsjska dhjaja，5 個月前）：呢間東涌分店，擺喺門口嘅下午茶menu排版混亂，菜品配搭顯示不清，極度容易令人誤會，擺明係專登想呃人 嗌兩個下午茶set② 睇menu以為一個下午茶set有沙律&主食+飲品，落單嗰阿姐都冇提我叫左兩個餐，然後埋單見到自己叫左兩個下午茶set，比左double價錢，我仲以為佢落錯單，結果佢勁串嘴答我話我叫左兩個set啊嘛照你咁樣意思你仲差我杯野飲啦？ 不過公道講，野食係好食嘅，不過唔會再幫襯囉，多多錢都唔係咁樣洗喺你地度仑",
+      "link": "https://www.google.com/maps/contrib/115892478954461315862/reviews",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback, Google Maps, 東涌, 東薈城名店倉, 1星"
     }
   ],
   "store_ranking": [

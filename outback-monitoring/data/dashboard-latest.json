@@ -1,12 +1,12 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-10-30T22:19:06.483160+00:00",
+  "generatedAt": "2026-10-31T17:07:55.490791+00:00",
   "run": {
-    "runDate": "2026-10-31",
+    "runDate": "2026-11-01",
     "dateRange": {
       "from": "2025-06-09",
-      "to": "2026-10-31"
+      "to": "2026-11-01"
     },
     "alerts": [
       {
@@ -27,10 +27,10 @@
     ]
   },
   "counts": {
-    "total": 235,
-    "media": 73,
-    "social": 162,
-    "maps": 52,
+    "total": 237,
+    "media": 74,
+    "social": 163,
+    "maps": 53,
     "stores": 10
   },
   "mentions": [
@@ -2618,6 +2618,28 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, 澳美客, 萬聖節, 限時優惠, Trick or Treat"
+    },
+    {
+      "date": "2026-06-03",
+      "source": "Google Maps (東薈城名店倉)",
+      "platform": "地圖",
+      "title": "東涌顧客1星評價：呢間東涌分店，擺喺門口嘅下午茶menu排版混亂，菜品配搭顯示不清，極度容易令人誤",
+      "summary": "東涌分店 Google Maps 1星評論（jdjajajsjska dhjaja，5 個月前）：呢間東涌分店，擺喺門口嘅下午茶menu排版混亂，菜品配搭顯示不清，極度容易令人誤會，擺明係專登想呃人 嗌兩個下午茶set② 睇menu以為一個下午茶set有沙律&主食+飲品，落單嗰阿姐都冇提我叫左兩個餐，然後埋單見到自己叫左兩個下午茶set，比左double價錢，我仲以為佢落錯單，結果佢勁串嘴答我話我叫左兩個set啊嘛照你咁樣意思你仲差我杯野飲啦？ 不過公道講，野食係好食嘅，不過唔會再幫襯囉，多多錢都唔係咁樣洗喺你地度仑",
+      "link": "https://www.google.com/maps/contrib/115892478954461315862/reviews",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback, Google Maps, 東涌, 東薈城名店倉, 1星"
+    },
+    {
+      "date": "2026-10-31",
+      "source": "Jetso Today（香港著數媒體）",
+      "platform": "新聞媒體",
+      "title": "Outback App 會員迎新獎賞獲著數媒體轉載：免費芝士薯條，升級尊尚會籍最多可領 20 張券（官方稱總值逾 HK$2,000）",
+      "summary": "Jetso Today 於 2026-10-31 發文轉載 Outback 現行「INSIDE OUTBACK」會員迎新獎賞：即日起至 2026 年 11 月 30 日，加入 VIP 會籍可獲「香脆薯條混煙肉芝士」換領券；新加入或升級尊尚會籍（HK$488）除基本 8 張 HK$100 迎新券及 2 張 10 安士肉眼牛扒／燒加拿大帶骨黑毛豬扒換領券外，活動期內加碼送 HK$100 迎新券 x4、烤豬肋骨雞搥芝士薯條拼盤券 x1、75 折優惠券 x4，最多共 20 張券（官方稱總值超過 HK$2,000）。屬第三方媒體對官方會員推廣的轉載，非官方新公布（官方原文已於 2026-10-20 記錄）。",
+      "link": "https://www.jetsotoday.com/outback-steakhouse-20261130/",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, 澳美客, 會員優惠, Prestige, App, Inside Outback, 著數"
     }
   ],
   "stores": [
@@ -3486,6 +3508,54 @@
       "link": "https://danryans.com/",
       "branchCount": "4",
       "expansion": "銅鑼灣新店為當前主打"
+    },
+    {
+      "date": "2026-11-01",
+      "competitor": "Ruby Tuesday",
+      "type": "新菜/菜單",
+      "title": "Ruby Tuesday 11月新品上架：主廚推介、11月特調及季節限定 Surf & Turf DUO（官網現行）",
+      "summary": "Ruby Tuesday 香港官網 Promotions 頁（headless 瀏覽器渲染，2026-11-01 抓取）現行推廣列表出現「Nov Chef Recommendation」、「Drink of the Month」及「Seasonal Special: Surf & Turf DUO」，即 11 月主廚推介菜式、11 月特調飲品及以海陸雙拼為主題的季節限定同步上架，屬每月輪替的新品節奏（10 月為 Gochujang Wings HK$59）。頁面為 JS 渲染，單品價錢未在列表頁披露。",
+      "sentiment": "中性",
+      "source": "官方網站（headless 瀏覽器渲染，2026-11-01 抓取）",
+      "link": "https://www.rubytuesday.com.hk/promotions/",
+      "branchCount": "9",
+      "expansion": "維持 9 間分店；以每月新品維持到店頻次"
+    },
+    {
+      "date": "2026-11-01",
+      "competitor": "Ruby Tuesday",
+      "type": "活動",
+      "title": "Ruby Tuesday 家庭與寵物客群攻勢：Brunch UPGRADED、Ruby's Kids Club、Pawsome Announcement!（官網現行）",
+      "summary": "同一 Promotions 頁另列「Brunch UPGRADED」、「Ruby's Kids Club」及「Pawsome Announcement!」三項：Brunch 為升級版早午餐；Kids Club 為兒童會籍；Pawsome Announcement! 從標題判斷屬寵物友善相關公布（頁面為 JS 渲染，內文需進入子頁方能確認，此點屬標題層解讀、未經內文核實）。連同 10-31 已記錄的 Ruby's Kids Party Set／Packages，可見 Ruby Tuesday 正同時向家庭客、兒童會籍及寵物客群擴張，與 Outback 的家庭聚餐定位正面重疊。",
+      "sentiment": "中性",
+      "source": "官方網站（headless 瀏覽器渲染，2026-11-01 抓取）",
+      "link": "https://www.rubytuesday.com.hk/promotions/",
+      "branchCount": "9",
+      "expansion": "維持 9 間分店；以多元客群（家庭／兒童／寵物）擴闊使用場景"
+    },
+    {
+      "date": "2026-11-01",
+      "competitor": "The Grill Room",
+      "type": "活動",
+      "title": "The Grill Room 官網高調宣傳品牌 10 周年，並列明 3 間分店含尖沙咀爵寓（2017 年開業）",
+      "summary": "The Grill Room 官網首頁及銅鑼灣分店頁（headless 瀏覽器渲染，2026-11-01 抓取）現載「Celebrating 10 Years of Success／We are proud to celebrate 10 successful years since the establishment of The Grill Room brand in 2015」，並回顧：2015 年於銅鑼灣 The L. Square 創立、2017 年開設尖沙咀 The Humphreys（堪富利士道 6-6A 爵寓 2 樓）第二間分店、2023 年創始店遷至銅鑼灣廣場二期、2026 年 8 月 28 日開旺角雅蘭中心第三間分店。即品牌盤點為 3 間：銅鑼灣廣場二期／尖沙咀爵寓／旺角雅蘭中心。⚠️ 與本表既有記述（部分行把旺角列為「第 3 間」並只列銅鑼灣＋旺角）不符，實際第 2 間為尖沙咀爵寓（2017 年開業，非新店）。",
+      "sentiment": "中性",
+      "source": "官方網站（headless 瀏覽器渲染，2026-11-01 抓取）",
+      "link": "https://www.thegrillroom.hk/",
+      "branchCount": "3",
+      "expansion": "🟢 3 間分店（銅鑼灣廣場二期、尖沙咀爵寓 2017 開業、旺角雅蘭中心 2026-08-28 開業）；現以「品牌 10 周年」作宣傳主題"
+    },
+    {
+      "date": "2026-11-01",
+      "competitor": "The Orient（新競爭者）",
+      "type": "推廣/優惠",
+      "title": "The Orient Steakhouse 參與美國運通 Gourmet Club：主餐牌全日 7 折（2026 全年）",
+      "summary": "美國運通香港 Gourmet Club 官方頁（web_extract 核實，2026-11-01）於「雅緻扒房」類別列明 The Orient（尖沙咀海港城海運大廈 4 樓 OTE401 號舖）：全日堂食自選主餐牌食品及飲品 7 折，優惠期 2026 年 1 月 1 日至 12 月 31 日，合資格卡為 Centurion／白金卡／白金信用卡。同頁另有 ALTO Bar & Grill（銅鑼灣 V Point 31 樓）及 Tango（中環蘭桂坊）同款 7 折。屬現行信用卡合作折扣（非限期公告），日期填本日。反映高端扒房以信用卡渠道鎖定高消費客群，與 Outback 的會員折扣戰形成對照。",
+      "sentiment": "中性",
+      "source": "American Express HK（Gourmet Club 官方頁）",
+      "link": "https://www.americanexpress.com/zh-hk/benefits/offers/dining/gourmet-club/index.html",
+      "branchCount": "1",
+      "expansion": "單一分店（尖沙咀海港城）；以信用卡合作折扣擴大高端客源"
     }
   ],
   "trend": [
@@ -3523,7 +3593,7 @@
     },
     {
       "date": "2026-06-03",
-      "count": 1
+      "count": 2
     },
     {
       "date": "2026-06-04",
@@ -3807,6 +3877,10 @@
     },
     {
       "date": "2026-10-29",
+      "count": 1
+    },
+    {
+      "date": "2026-10-31",
       "count": 1
     }
   ],

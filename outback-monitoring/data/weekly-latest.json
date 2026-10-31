@@ -1,14 +1,6 @@
 {
-  "week": "2026-10-17 ~ 2026-10-29",
+  "week": "2026-10-20 ~ 2026-10-31",
   "items": [
-    {
-      "date": "2026-10-17",
-      "source": "Threads (@852hkfoodwithyylam)",
-      "title": "Threads帖：百佳黑糖全麥麵包$18被指「可以媲美Outback」（本日補獲）",
-      "summary": "香港飲食KOL @852hkfoodwithyylam 於Threads發帖，指在百佳（fusion）發現售HK$18的黑糖全麥麵包（一包四個），形容「可以媲美Outback嘅黑糖麵包」，並註明「自費非廣告」。帖文屬第三方替代品比較，將Outback黑糖麵包視為市場基準；作者對Outback本身未作負面評價，屬中性品牌參照。同帳號IG Reel（DOPrD2xDy-E）同日發布同內容，已去重。觸達量未能核實。",
-      "link": "https://www.threads.com/@852hkfoodwithyylam/post/DOR8cE0khsW/",
-      "sentiment": "neutral"
-    },
     {
       "date": "2026-10-20",
       "source": "Outback 官方網站",
@@ -56,6 +48,14 @@
       "summary": "Outback Steakhouse 香港官方網站於 2026-10-29 更新優惠文章（#242）：由 2026 年 10 月 30 日至 11 月 1 日，凡蒞臨 Outback 香港任何分店，向職員講一句「Trick or Treat」，即可免費獲得 Outback 萬聖節糖果包乙份，數量有限、送完即止。屬節日限定的到店互動推廣，以零消費門檻的免費贈品帶動萬聖節檔期客流；官方文案附品牌 hashtag（#OutbackSteakhouseHK #萬聖節好去處 #TrickOrTreat #限時優惠 #萬聖節糖果）。",
       "link": "https://www.outback.com.hk/news-and-promotions/article/242?lang=tc",
       "sentiment": "positive"
+    },
+    {
+      "date": "2026-10-31",
+      "source": "Jetso Today（香港著數媒體）",
+      "title": "Outback App 會員迎新獎賞獲著數媒體轉載：免費芝士薯條，升級尊尚會籍最多可領 20 張券（官方稱總值逾 HK$2,000）",
+      "summary": "Jetso Today 於 2026-10-31 發文轉載 Outback 現行「INSIDE OUTBACK」會員迎新獎賞：即日起至 2026 年 11 月 30 日，加入 VIP 會籍可獲「香脆薯條混煙肉芝士」換領券；新加入或升級尊尚會籍（HK$488）除基本 8 張 HK$100 迎新券及 2 張 10 安士肉眼牛扒／燒加拿大帶骨黑毛豬扒換領券外，活動期內加碼送 HK$100 迎新券 x4、烤豬肋骨雞搥芝士薯條拼盤券 x1、75 折優惠券 x4，最多共 20 張券（官方稱總值超過 HK$2,000）。屬第三方媒體對官方會員推廣的轉載，非官方新公布（官方原文已於 2026-10-20 記錄）。",
+      "link": "https://www.jetsotoday.com/outback-steakhouse-20261130/",
+      "sentiment": "neutral"
     }
   ],
   "alerts": [],
