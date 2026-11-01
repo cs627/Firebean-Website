@@ -1,14 +1,14 @@
 {
   "meta": {
-    "last_updated": "2026-11-01T01:20+08:00",
-    "total_records": 237,
-    "daily_avg": 2.9,
+    "last_updated": "2026-11-02T01:01:24+08:00",
+    "total_records": 228,
+    "daily_avg": 2.8,
     "date_range": "2025-06-09 → 2026-10-31",
     "sources_checked": 28,
     "new_verified": 3,
     "coverage_ratio": "28/46",
-    "negative_alerts": 38,
-    "positive_pct": 54
+    "negative_alerts": 35,
+    "positive_pct": 55
   },
   "trend": [
     {
@@ -42,12 +42,12 @@
   ],
   "source_breakdown": [
     {
-      "source": "Google Maps",
-      "count": 53
-    },
-    {
       "source": "Instagram",
       "count": 45
+    },
+    {
+      "source": "Google Maps",
+      "count": 44
     },
     {
       "source": "Threads",
@@ -103,9 +103,9 @@
     }
   ],
   "sentiment": {
-    "positive": 129,
-    "neutral": 65,
-    "negative": 38,
+    "positive": 126,
+    "neutral": 62,
+    "negative": 35,
     "mixed": 5
   },
   "all_records": [
@@ -2409,83 +2409,6 @@
       "keywords": "Outback, Google Maps, 元朗, 形點, 3星"
     },
     {
-      "date": "2026-06-29",
-      "source": "Google Maps (沙田新城市廣場三期)",
-      "platform": "地圖",
-      "title": "沙田顧客4星評價：豐富午餐  一行四人來到這餐廳午聚。這裏座位舒服，食物質數又有保證；再加上我們今",
-      "summary": "沙田分店 Google Maps 4星評論（Wah Wah，3 個月前）：豐富午餐  一行四人來到這餐廳午聚。這裏座位舒服，食物質數又有保證；再加上我們今天有會員生日優惠折扣，倍感滿足。  這裏的午餐已包括了湯、黑糖麵包、主食和飲品，非常豐富。今天的紅蘿蔔忌廉湯順滑美味，配黑糖麵包一流。  ～牛肉牛油果墨西哥脆餅沙律 （$158） 味道層次豐富，既有肉有蔬果，也有脆口的餅底，清新可口。  ～燒雞肉芝士夾餅 （$128） 半溶芝士非常惹味，入口軟轜。  ～燒肉醬味豬肋骨 （$148） 份量不少，骨肉分明，燒得入味可口。  ～芝士白汁燒蝦寛麵 （$158） 麵微微煙韌，蝦肉爽口，芝士白汁順滑惹味。  餐後來一杯熱飲是最好不過。",
-      "link": "https://www.google.com/maps/contrib/107521388394492080523/reviews",
-      "sentiment": "positive",
-      "sentiment_label": "正面",
-      "keywords": "Outback, Google Maps, 沙田, 新城市廣場三期, 4星"
-    },
-    {
-      "date": "2026-05-08",
-      "source": "Google Maps (旺角MOKO)",
-      "platform": "地圖",
-      "title": "旺角顧客3星評價：平日12點45分3大人帶1幼童來，$523食了3個餐。味道中上，當日服務很好，好",
-      "summary": "旺角分店 Google Maps 3星評論（ka ho lai，5 個月前）：平日12點45分3大人帶1幼童來，$523食了3個餐。味道中上，當日服務很好，好耐無係MOKO有餐廳做到優質水準。性價比合格，因為位置方便，加埋當日的服務好。預來慢慢坐和朋友傾計聚會，這裡會係好選擇。不過唔知晚市會否限時交枱 食物就正常，但上菜慢。 有位應該係經理，會適當主動招呼及詢問是否須要什麼，一般職員就爽手精神。 環境乾淨舒適，中上的商場餐廳的水準。",
-      "link": "https://www.google.com/maps/contrib/104366232887860561087/reviews",
-      "sentiment": "neutral",
-      "sentiment_label": "中性",
-      "keywords": "Outback, Google Maps, 旺角, MOKO新世紀廣場, 3星"
-    },
-    {
-      "date": "2026-05-06",
-      "source": "Google Maps (中環娛樂行)",
-      "platform": "地圖",
-      "title": "中環顧客4星評價：食物唔錯但價錢又點貴",
-      "summary": "中環分店 Google Maps 4星評論（Wilson Lam，5 個月前）：食物唔錯但價錢又點貴",
-      "link": "https://www.google.com/maps/contrib/103221660855463757252/reviews",
-      "sentiment": "positive",
-      "sentiment_label": "正面",
-      "keywords": "Outback, Google Maps, 中環, 娛樂行, 4星"
-    },
-    {
-      "date": "2026-06-19",
-      "source": "Google Maps (元朗形點)",
-      "platform": "地圖",
-      "title": "元朗顧客2星評價：非常普通之一餐 意粉一啲鹽味都冇 漢堡包質感似嘉頓面包包住啲餡 最好味係薯條",
-      "summary": "元朗分店 Google Maps 2星評論（Jess，4 個月前）：非常普通之一餐 意粉一啲鹽味都冇 漢堡包質感似嘉頓面包包住啲餡 最好味係薯條",
-      "link": "https://www.google.com/maps/contrib/113846367632477007115/reviews",
-      "sentiment": "negative",
-      "sentiment_label": "負面",
-      "keywords": "Outback, Google Maps, 元朗, 形點, 2星"
-    },
-    {
-      "date": "2026-08-08",
-      "source": "Google Maps (元朗形點)",
-      "platform": "地圖",
-      "title": "元朗顧客3星評價：服務幾好，話薯條唔熱即時炸返新嘅俾我👍🏻",
-      "summary": "元朗分店 Google Maps 3星評論（On Samsung，2 個月前）：服務幾好，話薯條唔熱即時炸返新嘅俾我👍🏻",
-      "link": "https://www.google.com/maps/contrib/110608067624245212012/reviews",
-      "sentiment": "neutral",
-      "sentiment_label": "中性",
-      "keywords": "Outback, Google Maps, 元朗, 形點, 3星"
-    },
-    {
-      "date": "2026-10-12",
-      "source": "Google Maps (元朗形點)",
-      "platform": "地圖",
-      "title": "元朗顧客5星評價：地點方便，餐點美味，員工服務態度良好，有禮貌，可再次來臨",
-      "summary": "元朗分店 Google Maps 5星評論（chan kasum，2 週前）：地點方便，餐點美味，員工服務態度良好，有禮貌，可再次來臨",
-      "link": "https://www.google.com/maps/contrib/104895320475232040275/reviews",
-      "sentiment": "positive",
-      "sentiment_label": "正面",
-      "keywords": "Outback, Google Maps, 元朗, 形點, 5星"
-    },
-    {
-      "date": "2026-08-17",
-      "source": "Google Maps (元朗形點)",
-      "platform": "地圖",
-      "title": "元朗顧客3星評價：Light meal時段幾抵食，又唔駛等位，食完去睇戲，nice",
-      "summary": "元朗分店 Google Maps 3星評論（Mrs Chan，2 個月前）：Light meal時段幾抵食，又唔駛等位，食完去睇戲，nice",
-      "link": "https://www.google.com/maps/contrib/113481308831447341327/reviews",
-      "sentiment": "neutral",
-      "sentiment_label": "中性",
-      "keywords": "Outback, Google Maps, 元朗, 形點, 3星"
-    },
-    {
       "date": "2026-10-07",
       "source": "OpenRice (沙田新城市廣場三期)",
       "platform": "OpenRice",
@@ -2506,17 +2429,6 @@
       "sentiment": "negative",
       "sentiment_label": "負面",
       "keywords": "Outback, 澳美客, 沙田, 食評, 歧視普通話, 服務態度"
-    },
-    {
-      "date": "2026-06-29",
-      "source": "Google Maps (沙田新城市廣場三期)",
-      "platform": "地圖",
-      "title": "沙田顧客4星評價：豐富午餐  一行四人來到這餐廳午聚。這裏座位舒服，食物質數又有保證；再加上我們今",
-      "summary": "沙田分店 Google Maps 4星評論（Wah Wah，4 個月前）：豐富午餐  一行四人來到這餐廳午聚。這裏座位舒服，食物質數又有保證；再加上我們今天有會員生日優惠折扣，倍感滿足。  這裏的午餐已包括了湯、黑糖麵包、主食和飲品，非常豐富。今天的紅蘿蔔忌廉湯順滑美味，配黑糖麵包一流。  ～牛肉牛油果墨西哥脆餅沙律 （$158） 味道層次豐富，既有肉有蔬果，也有脆口的餅底，清新可口。  ～燒雞肉芝士夾餅 （$128） 半溶芝士非常惹味，入口軟轜。  ～燒肉醬味豬肋骨 （$148） 份量不少，骨肉分明，燒得入味可口。  ～芝士白汁燒蝦寛麵 （$158） 麵微微煙韌，蝦肉爽口，芝士白汁順滑惹味。  餐後來一杯熱飲是最好不過。",
-      "link": "https://www.google.com/maps/contrib/107521388394492080523/reviews",
-      "sentiment": "positive",
-      "sentiment_label": "正面",
-      "keywords": "Outback, Google Maps, 沙田, 沙田新城市廣場三期, 4星"
     },
     {
       "date": "2026-09-13",
@@ -2673,17 +2585,6 @@
       "keywords": "Outback, 食物品質, 品牌形象"
     },
     {
-      "date": "2026-10-02",
-      "source": "Google Maps (大埔超級城)",
-      "platform": "地圖",
-      "title": "大埔顧客1星評價：4人共花超過2000, 牛有樣冇味好硬，豬脾扒勁硬， 二條高級腸又係雪藏味。得麵",
-      "summary": "大埔分店 Google Maps 1星評論（jamie leung，4 週前）：4人共花超過2000, 牛有樣冇味好硬，豬脾扒勁硬， 二條高級腸又係雪藏味。得麵包、意粉和薯條好食d, 芝士夾“三文治個印度款餅” 好彩芝士夠多。 叫主任攞麵包（應該是每人一條仔），請佢上第四條時，佢問你會唔會食完先叫。。。O左咀（ 其實只係得返兩舊仔）， 奶昔都勁甜  咁樣埋單2000， 真係等執笠",
-      "link": "https://www.google.com/maps/contrib/116480023901190051070/reviews",
-      "sentiment": "negative",
-      "sentiment_label": "負面",
-      "keywords": "Outback, Google Maps, 大埔, 大埔超級城, 1星"
-    },
-    {
       "date": "2026-10-29",
       "source": "Outback 官方網站",
       "platform": "新聞媒體",
@@ -2695,17 +2596,6 @@
       "keywords": "Outback, 澳美客, 萬聖節, 限時優惠, Trick or Treat"
     },
     {
-      "date": "2026-06-03",
-      "source": "Google Maps (東薈城名店倉)",
-      "platform": "地圖",
-      "title": "東涌顧客1星評價：呢間東涌分店，擺喺門口嘅下午茶menu排版混亂，菜品配搭顯示不清，極度容易令人誤",
-      "summary": "東涌分店 Google Maps 1星評論（jdjajajsjska dhjaja，5 個月前）：呢間東涌分店，擺喺門口嘅下午茶menu排版混亂，菜品配搭顯示不清，極度容易令人誤會，擺明係專登想呃人 嗌兩個下午茶set② 睇menu以為一個下午茶set有沙律&主食+飲品，落單嗰阿姐都冇提我叫左兩個餐，然後埋單見到自己叫左兩個下午茶set，比左double價錢，我仲以為佢落錯單，結果佢勁串嘴答我話我叫左兩個set啊嘛照你咁樣意思你仲差我杯野飲啦？ 不過公道講，野食係好食嘅，不過唔會再幫襯囉，多多錢都唔係咁樣洗喺你地度仑",
-      "link": "https://www.google.com/maps/contrib/115892478954461315862/reviews",
-      "sentiment": "negative",
-      "sentiment_label": "負面",
-      "keywords": "Outback, Google Maps, 東涌, 東薈城名店倉, 1星"
-    },
-    {
       "date": "2026-10-31",
       "source": "Jetso Today（香港著數媒體）",
       "platform": "新聞媒體",
@@ -2715,6 +2605,17 @@
       "sentiment": "neutral",
       "sentiment_label": "中性",
       "keywords": "Outback, 澳美客, 會員優惠, Prestige, App, Inside Outback, 著數"
+    },
+    {
+      "date": "2026-08-07",
+      "source": "Google Maps (中環娛樂行)",
+      "platform": "地圖",
+      "title": "中環顧客5星評價：最近去中環娛樂行嘅Outback，發現佢哋下午茶時段去到六點，對於想提早食晚飯嘅",
+      "summary": "中環分店 Google Maps 5星評論（UNO Leung，2 個月前）：最近去中環娛樂行嘅Outback，發現佢哋下午茶時段去到六點，對於想提早食晚飯嘅朋友嚟講真係一流選擇。份量十足，絕對夠飽肚，而且餐廳有提供BB凳，帶埋小朋友都坐得安心又方便。  今次點咗幾款主菜，樣樣都有驚喜：  · 白汁大蝦意粉：大蝦鮮甜爽脆，白汁濃郁幼滑，每條意粉都沾滿醬汁，入口creamy得嚟唔膩口。 · 澳洲牛肉芝士漢堡配薯條：漢堡扒厚身多汁，牛味濃郁，配合溶化嘅芝士好夾；旁邊嘅薯條金黃香脆，新鮮熱辣辣，忍唔住一條接一條。 · 肉醬通粉：肉醬酸甜平衡，香草味突出，通粉彈牙有咬口，醬汁掛得均勻，食落好開胃。  整體嚟講，中環店環境舒適，服務周到，下午茶時段夠長，食物份量慷慨，加上有BB凳，無論係提早食晚餐或者家庭聚餐都好合適，絕對會再嚟幫襯！",
+      "link": "https://www.google.com/maps/contrib/102930480423216793609/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 中環, 中環娛樂行, 5星"
     }
   ],
   "media_records": [
@@ -5130,94 +5031,6 @@
       "keywords": "Outback, Google Maps, 元朗, 形點, 3星"
     },
     {
-      "date": "2026-06-29",
-      "source": "Google Maps (沙田新城市廣場三期)",
-      "platform": "地圖",
-      "title": "沙田顧客4星評價：豐富午餐  一行四人來到這餐廳午聚。這裏座位舒服，食物質數又有保證；再加上我們今",
-      "summary": "沙田分店 Google Maps 4星評論（Wah Wah，3 個月前）：豐富午餐  一行四人來到這餐廳午聚。這裏座位舒服，食物質數又有保證；再加上我們今天有會員生日優惠折扣，倍感滿足。  這裏的午餐已包括了湯、黑糖麵包、主食和飲品，非常豐富。今天的紅蘿蔔忌廉湯順滑美味，配黑糖麵包一流。  ～牛肉牛油果墨西哥脆餅沙律 （$158） 味道層次豐富，既有肉有蔬果，也有脆口的餅底，清新可口。  ～燒雞肉芝士夾餅 （$128） 半溶芝士非常惹味，入口軟轜。  ～燒肉醬味豬肋骨 （$148） 份量不少，骨肉分明，燒得入味可口。  ～芝士白汁燒蝦寛麵 （$158） 麵微微煙韌，蝦肉爽口，芝士白汁順滑惹味。  餐後來一杯熱飲是最好不過。",
-      "link": "https://www.google.com/maps/contrib/107521388394492080523/reviews",
-      "sentiment": "positive",
-      "sentiment_label": "正面",
-      "keywords": "Outback, Google Maps, 沙田, 新城市廣場三期, 4星"
-    },
-    {
-      "date": "2026-05-08",
-      "source": "Google Maps (旺角MOKO)",
-      "platform": "地圖",
-      "title": "旺角顧客3星評價：平日12點45分3大人帶1幼童來，$523食了3個餐。味道中上，當日服務很好，好",
-      "summary": "旺角分店 Google Maps 3星評論（ka ho lai，5 個月前）：平日12點45分3大人帶1幼童來，$523食了3個餐。味道中上，當日服務很好，好耐無係MOKO有餐廳做到優質水準。性價比合格，因為位置方便，加埋當日的服務好。預來慢慢坐和朋友傾計聚會，這裡會係好選擇。不過唔知晚市會否限時交枱 食物就正常，但上菜慢。 有位應該係經理，會適當主動招呼及詢問是否須要什麼，一般職員就爽手精神。 環境乾淨舒適，中上的商場餐廳的水準。",
-      "link": "https://www.google.com/maps/contrib/104366232887860561087/reviews",
-      "sentiment": "neutral",
-      "sentiment_label": "中性",
-      "keywords": "Outback, Google Maps, 旺角, MOKO新世紀廣場, 3星"
-    },
-    {
-      "date": "2026-05-06",
-      "source": "Google Maps (中環娛樂行)",
-      "platform": "地圖",
-      "title": "中環顧客4星評價：食物唔錯但價錢又點貴",
-      "summary": "中環分店 Google Maps 4星評論（Wilson Lam，5 個月前）：食物唔錯但價錢又點貴",
-      "link": "https://www.google.com/maps/contrib/103221660855463757252/reviews",
-      "sentiment": "positive",
-      "sentiment_label": "正面",
-      "keywords": "Outback, Google Maps, 中環, 娛樂行, 4星"
-    },
-    {
-      "date": "2026-06-19",
-      "source": "Google Maps (元朗形點)",
-      "platform": "地圖",
-      "title": "元朗顧客2星評價：非常普通之一餐 意粉一啲鹽味都冇 漢堡包質感似嘉頓面包包住啲餡 最好味係薯條",
-      "summary": "元朗分店 Google Maps 2星評論（Jess，4 個月前）：非常普通之一餐 意粉一啲鹽味都冇 漢堡包質感似嘉頓面包包住啲餡 最好味係薯條",
-      "link": "https://www.google.com/maps/contrib/113846367632477007115/reviews",
-      "sentiment": "negative",
-      "sentiment_label": "負面",
-      "keywords": "Outback, Google Maps, 元朗, 形點, 2星"
-    },
-    {
-      "date": "2026-08-08",
-      "source": "Google Maps (元朗形點)",
-      "platform": "地圖",
-      "title": "元朗顧客3星評價：服務幾好，話薯條唔熱即時炸返新嘅俾我👍🏻",
-      "summary": "元朗分店 Google Maps 3星評論（On Samsung，2 個月前）：服務幾好，話薯條唔熱即時炸返新嘅俾我👍🏻",
-      "link": "https://www.google.com/maps/contrib/110608067624245212012/reviews",
-      "sentiment": "neutral",
-      "sentiment_label": "中性",
-      "keywords": "Outback, Google Maps, 元朗, 形點, 3星"
-    },
-    {
-      "date": "2026-10-12",
-      "source": "Google Maps (元朗形點)",
-      "platform": "地圖",
-      "title": "元朗顧客5星評價：地點方便，餐點美味，員工服務態度良好，有禮貌，可再次來臨",
-      "summary": "元朗分店 Google Maps 5星評論（chan kasum，2 週前）：地點方便，餐點美味，員工服務態度良好，有禮貌，可再次來臨",
-      "link": "https://www.google.com/maps/contrib/104895320475232040275/reviews",
-      "sentiment": "positive",
-      "sentiment_label": "正面",
-      "keywords": "Outback, Google Maps, 元朗, 形點, 5星"
-    },
-    {
-      "date": "2026-08-17",
-      "source": "Google Maps (元朗形點)",
-      "platform": "地圖",
-      "title": "元朗顧客3星評價：Light meal時段幾抵食，又唔駛等位，食完去睇戲，nice",
-      "summary": "元朗分店 Google Maps 3星評論（Mrs Chan，2 個月前）：Light meal時段幾抵食，又唔駛等位，食完去睇戲，nice",
-      "link": "https://www.google.com/maps/contrib/113481308831447341327/reviews",
-      "sentiment": "neutral",
-      "sentiment_label": "中性",
-      "keywords": "Outback, Google Maps, 元朗, 形點, 3星"
-    },
-    {
-      "date": "2026-06-29",
-      "source": "Google Maps (沙田新城市廣場三期)",
-      "platform": "地圖",
-      "title": "沙田顧客4星評價：豐富午餐  一行四人來到這餐廳午聚。這裏座位舒服，食物質數又有保證；再加上我們今",
-      "summary": "沙田分店 Google Maps 4星評論（Wah Wah，4 個月前）：豐富午餐  一行四人來到這餐廳午聚。這裏座位舒服，食物質數又有保證；再加上我們今天有會員生日優惠折扣，倍感滿足。  這裏的午餐已包括了湯、黑糖麵包、主食和飲品，非常豐富。今天的紅蘿蔔忌廉湯順滑美味，配黑糖麵包一流。  ～牛肉牛油果墨西哥脆餅沙律 （$158） 味道層次豐富，既有肉有蔬果，也有脆口的餅底，清新可口。  ～燒雞肉芝士夾餅 （$128） 半溶芝士非常惹味，入口軟轜。  ～燒肉醬味豬肋骨 （$148） 份量不少，骨肉分明，燒得入味可口。  ～芝士白汁燒蝦寛麵 （$158） 麵微微煙韌，蝦肉爽口，芝士白汁順滑惹味。  餐後來一杯熱飲是最好不過。",
-      "link": "https://www.google.com/maps/contrib/107521388394492080523/reviews",
-      "sentiment": "positive",
-      "sentiment_label": "正面",
-      "keywords": "Outback, Google Maps, 沙田, 沙田新城市廣場三期, 4星"
-    },
-    {
       "date": "2026-09-13",
       "source": "Google Maps (東薈城名店倉)",
       "platform": "地圖",
@@ -5306,26 +5119,15 @@
       "keywords": "Outback, 食物品質, 品牌形象"
     },
     {
-      "date": "2026-10-02",
-      "source": "Google Maps (大埔超級城)",
+      "date": "2026-08-07",
+      "source": "Google Maps (中環娛樂行)",
       "platform": "地圖",
-      "title": "大埔顧客1星評價：4人共花超過2000, 牛有樣冇味好硬，豬脾扒勁硬， 二條高級腸又係雪藏味。得麵",
-      "summary": "大埔分店 Google Maps 1星評論（jamie leung，4 週前）：4人共花超過2000, 牛有樣冇味好硬，豬脾扒勁硬， 二條高級腸又係雪藏味。得麵包、意粉和薯條好食d, 芝士夾“三文治個印度款餅” 好彩芝士夠多。 叫主任攞麵包（應該是每人一條仔），請佢上第四條時，佢問你會唔會食完先叫。。。O左咀（ 其實只係得返兩舊仔）， 奶昔都勁甜  咁樣埋單2000， 真係等執笠",
-      "link": "https://www.google.com/maps/contrib/116480023901190051070/reviews",
-      "sentiment": "negative",
-      "sentiment_label": "負面",
-      "keywords": "Outback, Google Maps, 大埔, 大埔超級城, 1星"
-    },
-    {
-      "date": "2026-06-03",
-      "source": "Google Maps (東薈城名店倉)",
-      "platform": "地圖",
-      "title": "東涌顧客1星評價：呢間東涌分店，擺喺門口嘅下午茶menu排版混亂，菜品配搭顯示不清，極度容易令人誤",
-      "summary": "東涌分店 Google Maps 1星評論（jdjajajsjska dhjaja，5 個月前）：呢間東涌分店，擺喺門口嘅下午茶menu排版混亂，菜品配搭顯示不清，極度容易令人誤會，擺明係專登想呃人 嗌兩個下午茶set② 睇menu以為一個下午茶set有沙律&主食+飲品，落單嗰阿姐都冇提我叫左兩個餐，然後埋單見到自己叫左兩個下午茶set，比左double價錢，我仲以為佢落錯單，結果佢勁串嘴答我話我叫左兩個set啊嘛照你咁樣意思你仲差我杯野飲啦？ 不過公道講，野食係好食嘅，不過唔會再幫襯囉，多多錢都唔係咁樣洗喺你地度仑",
-      "link": "https://www.google.com/maps/contrib/115892478954461315862/reviews",
-      "sentiment": "negative",
-      "sentiment_label": "負面",
-      "keywords": "Outback, Google Maps, 東涌, 東薈城名店倉, 1星"
+      "title": "中環顧客5星評價：最近去中環娛樂行嘅Outback，發現佢哋下午茶時段去到六點，對於想提早食晚飯嘅",
+      "summary": "中環分店 Google Maps 5星評論（UNO Leung，2 個月前）：最近去中環娛樂行嘅Outback，發現佢哋下午茶時段去到六點，對於想提早食晚飯嘅朋友嚟講真係一流選擇。份量十足，絕對夠飽肚，而且餐廳有提供BB凳，帶埋小朋友都坐得安心又方便。  今次點咗幾款主菜，樣樣都有驚喜：  · 白汁大蝦意粉：大蝦鮮甜爽脆，白汁濃郁幼滑，每條意粉都沾滿醬汁，入口creamy得嚟唔膩口。 · 澳洲牛肉芝士漢堡配薯條：漢堡扒厚身多汁，牛味濃郁，配合溶化嘅芝士好夾；旁邊嘅薯條金黃香脆，新鮮熱辣辣，忍唔住一條接一條。 · 肉醬通粉：肉醬酸甜平衡，香草味突出，通粉彈牙有咬口，醬汁掛得均勻，食落好開胃。  整體嚟講，中環店環境舒適，服務周到，下午茶時段夠長，食物份量慷慨，加上有BB凳，無論係提早食晚餐或者家庭聚餐都好合適，絕對會再嚟幫襯！",
+      "link": "https://www.google.com/maps/contrib/102930480423216793609/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 中環, 中環娛樂行, 5星"
     }
   ],
   "store_ranking": [

@@ -99,6 +99,17 @@
       "link": "https://www.openrice.com/zh/hongkong/r-outback-steakhouse-central-australian-r862470",
       "sentiment": "positive",
       "tags": ""
+    },
+    {
+      "date": "2026-08-07",
+      "source": "Google Maps (中環娛樂行)",
+      "platform": "地圖",
+      "author": "UNO Leung",
+      "title": "中環顧客5星評價：最近去中環娛樂行嘅Outback，發現佢哋下午茶時段去到六點，對於想提早食晚飯嘅",
+      "summary": "中環分店 Google Maps 5星評論（UNO Leung，2 個月前）：最近去中環娛樂行嘅Outback，發現佢哋下午茶時段去到六點，對於想提早食晚飯嘅朋友嚟講真係一流選擇。份量十足，絕對夠飽肚，而且餐廳有提供BB凳，帶埋小朋友都坐得安心又方便。  今次點咗幾款主菜，樣樣都有驚喜：  · 白汁大蝦意粉：大蝦鮮甜爽脆，白汁濃郁幼滑，每條意粉都沾滿醬汁，入口creamy得嚟唔膩口。 · 澳洲牛肉芝士漢堡配薯條：漢堡扒厚身多汁，牛味濃郁，配合溶化嘅芝士好夾；旁邊嘅薯條金黃香脆，新鮮熱辣辣，忍唔住一條接一條。 · 肉醬通粉：肉醬酸甜平衡，香草味突出，通粉彈牙有咬口，醬汁掛得均勻，食落好開胃。  整體嚟講，中環店環境舒適，服務周到，下午茶時段夠長，食物份量慷慨，加上有BB凳，無論係提早食晚餐或者家庭聚餐都好合適，絕對會再嚟幫襯！",
+      "link": "https://www.google.com/maps/contrib/102930480423216793609/reviews",
+      "sentiment": "positive",
+      "tags": ""
     }
   ],
   "alerts": [
@@ -114,8 +125,8 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 8,
-    "new_records": 9,
+    "checked_sources": 9,
+    "new_records": 10,
     "limitations": []
   }
 }
