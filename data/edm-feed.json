@@ -1,10 +1,20 @@
 [
   {
+    "issue": "EDM_017",
+    "url": "https://firebean.net/edm/edm_EDM_017.html",
+    "title": "Strategic Nudges: Small Prompts, Measurable Behaviour",
+    "subtitle": "The best nudge is not a louder message - it is a better-designed choice at the moment of decision.",
+    "desc": "A nudge is not a louder message - it is a better-designed choice at the exact moment someone decides. That idea has quietly become infrastructure: the OECD now tracks behavioural science teams sitting",
+    "photo": "https://raw.githubusercontent.com/cs627/Firebean-Website/main/assets/edm/EDM_017/s2_nudge.jpg",
+    "tag": "Behavioural Design",
+    "type": "market-insight"
+  },
+  {
     "issue": "EDM_016",
     "url": "https://firebean.net/edm/edm_EDM_016.html",
-    "title": "Digital Twins: The City That Can Be Visited Twice",
-    "subtitle": "A US$21B market, 24% digital reach against 65% in person, and 47 million visits to one cave complex — the technology is ready, the audience is not yet.",
-    "desc": "Digital twins have moved from pilot project to procurement line item. MarketsandMarkets puts the global digital twin market at US$21.14 billion in 2025, forecast to reach US$149.81 billion by 2030 — a",
+    "title": "Digital Twins: The Invitation, Not the Destination",
+    "subtitle": "Digital twins can put a museum in everyone's pocket. The visit is still the point — no online experience has ever replaced standing in the room.",
+    "desc": "The raw material for digital engagement is no longer scarce. AI-generated imagery, film and 3D capture are mature enough that any museum can produce an unlimited stream of visual assets, and the tools",
     "photo": "https://raw.githubusercontent.com/cs627/Firebean-Website/main/assets/edm/EDM_016/s2_digitaltwin.jpg",
     "tag": "Digital Heritage",
     "type": "market-insight"
@@ -17,16 +27,6 @@
     "desc": "Four in ten government mega-events that received public funding were later found to have broken the terms of that funding. The Audit Commission reviewed the Mega Events Fund: 69% of applications were ",
     "photo": "https://raw.githubusercontent.com/cs627/Firebean-Website/main/assets/edm/EDM_015/s2_hero.jpg",
     "tag": "Event Efficacy",
-    "type": "market-insight"
-  },
-  {
-    "issue": "EDM_014",
-    "url": "https://firebean.net/edm/edm_EDM_014.html",
-    "title": "Interactive Mascot-Led Engagement: Humanizing the Department",
-    "subtitle": "Brand mascots boost recall to 88% and supercharge engagement — why should government departments be any different?",
-    "desc": "Campaigns using brand mascots or recurring characters achieve 88% brand recall, compared to significantly lower rates for logo-only or celebrity-led campaigns (System1, 2025). Characters score 105 on ",
-    "photo": "https://raw.githubusercontent.com/cs627/Firebean-Website/main/assets/edm/EDM_014/s2_mascot.jpg",
-    "tag": "Mascot-Led Engagement",
     "type": "market-insight"
   }
 ]
