@@ -107,13 +107,38 @@ body:not(.team-access) .internal-only{display:none!important}
 .btnrow .btn{flex:1 1 180px}
 
 /* ---------- mascot ---------- */
-.mascot-wrap{position:relative;width:min(52vw,200px);aspect-ratio:1;margin:0 auto 10px}
-.mascot-wrap:before{content:"";position:absolute;left:4%;right:4%;top:10%;bottom:2%;border-radius:50%;
-  background:var(--blob,#FFE39B);opacity:.9;filter:blur(1px)}
-.mascot-wrap:after{content:"";position:absolute;left:22%;right:22%;bottom:0;height:14px;border-radius:50%;
-  background:rgba(122,92,64,.18);filter:blur(6px)}
+.mascot-wrap{position:relative;width:min(58vw,212px);aspect-ratio:4/5;margin:0 auto 15px}
+.mascot-wrap:before{content:"";position:absolute;inset:-8%;border-radius:34px;
+  background:var(--blob,#FFE39B);opacity:.6;filter:blur(18px)}
+.mascot-wrap:after{content:"";position:absolute;left:14%;right:14%;bottom:-9px;height:16px;border-radius:50%;
+  background:rgba(122,92,64,.22);filter:blur(9px)}
 .mascot{position:relative;width:100%;height:100%;object-fit:contain;display:block;
   filter:drop-shadow(0 16px 20px rgba(122,92,64,.26))}
+/* 9 型角色卡：相片為白底 4:5 人像，故以圓角白框承載，後面留一圈型格色光暈 */
+.mascot-wrap>.mascot{object-fit:cover;border-radius:26px;background:#fff;
+  box-shadow:0 15px 30px rgba(122,92,64,.22),0 0 0 4px rgba(255,255,255,.92)}
+
+/* ---------- 動效 ---------- */
+@keyframes qInFwd{from{opacity:0;transform:translateX(30px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes qInBack{from{opacity:0;transform:translateX(-30px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes optUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes optPop{0%{transform:scale(1)}45%{transform:scale(1.028)}100%{transform:scale(1)}}
+@keyframes mkPulse{0%{transform:scale(.55)}55%{transform:scale(1.18)}100%{transform:scale(1)}}
+#qcard.anim-fwd{animation:qInFwd .42s cubic-bezier(.22,.9,.24,1) both}
+#qcard.anim-back{animation:qInBack .42s cubic-bezier(.22,.9,.24,1) both}
+#qOpts .opt{animation:optUp .36s cubic-bezier(.22,.9,.24,1) both}
+#qOpts.quiet .opt{animation:none}
+.opt.picked{animation:optPop .36s ease}
+.opt.picked .mk{animation:mkPulse .36s ease}
+.sfxbtn{position:fixed;right:14px;bottom:calc(96px + env(safe-area-inset-bottom));z-index:60;
+  width:44px;height:44px;border-radius:50%;background:#FFFDF8;border:1.5px solid var(--line);
+  box-shadow:0 8px 18px rgba(122,92,64,.24);font-size:19px;line-height:1;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;padding:0}
+.sfxbtn:active{transform:translateY(1px)}
+.sfxbtn[aria-pressed="false"]{opacity:.62}
+@media(min-width:900px){.sfxbtn{bottom:22px;right:22px}}
+@media(prefers-reduced-motion:reduce){
+  #qcard.anim-fwd,#qcard.anim-back,#qOpts .opt,.opt.picked,.opt.picked .mk{animation:none!important}}
 
 /* ---------- intro ---------- */
 .hero-intro{position:relative;overflow:hidden}
@@ -297,8 +322,11 @@ svg.chart{width:100%;height:auto;display:block;overflow:visible}
 .acard.ct-head{--blob:#A9CBEF}
 .acard.ct-heart{--blob:#FFC3A0}
 .acard.ct-gut{--blob:#A8D8BE}
-.acard .amasc{position:relative;width:104px;height:104px;margin:2px auto 8px}
-.acard .amasc img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 12px rgba(122,92,64,.24))}
+.acard .amasc{position:relative;width:108px;aspect-ratio:4/5;margin:4px auto 10px}
+.acard .amasc:before{content:"";position:absolute;inset:-9%;border-radius:24px;background:var(--blob,#FFE39B);
+  opacity:.6;filter:blur(13px)}
+.acard .amasc img{position:relative;width:100%;height:100%;object-fit:cover;border-radius:18px;display:block;
+  background:#fff;box-shadow:0 10px 20px rgba(122,92,64,.2),0 0 0 3px rgba(255,255,255,.92)}
 .acard .an{font-size:12.5px;font-weight:800;color:var(--muted);letter-spacing:.06em}
 .acard .at{font-size:18px;font-weight:800;margin:2px 0 3px}
 .acard .ae{font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:800}
@@ -438,6 +466,7 @@ footer.foot b{color:var(--ink2)}
   </aside>
 
   <main id="mainv">
+    <button id="sfxBtn" class="sfxbtn" type="button" aria-pressed="true" aria-label="音效開關">🔊</button>
     <div class="mobtop">
       <div class="mt-row">
         <span class="mt-t" id="mobTitle">都會生活鏡像測驗</span>
@@ -642,11 +671,57 @@ let result=null;     // computed result
 let started=0;       // ms
 
 /* ---------- nav ---------- */
+/* ---------- 音效（Web Audio 即時合成，毋須任何音檔） ---------- */
+const SFX=(function(){
+  let ctx=null, master=null, on=true;
+  try{ on = localStorage.getItem("ennea_sfx")!=="0"; }catch(e){}
+  function ac(){
+    if(!ctx){ const AC=window.AudioContext||window.webkitAudioContext; if(!AC) return null;
+      ctx=new AC(); master=ctx.createGain(); master.gain.value=.2; master.connect(ctx.destination); }
+    if(ctx.state==="suspended"){ try{ ctx.resume(); }catch(e){} }
+    return ctx;
+  }
+  function tone(f1,f2,dur,type,vol,delay){
+    const c=ac(); if(!c||!on) return;
+    const t0=c.currentTime+(delay||0);
+    const o=c.createOscillator(), g=c.createGain();
+    o.type=type||"sine"; o.frequency.setValueAtTime(f1,t0);
+    if(f2&&f2!==f1) o.frequency.exponentialRampToValueAtTime(f2,t0+dur);
+    g.gain.setValueAtTime(.0001,t0);
+    g.gain.exponentialRampToValueAtTime(vol||.8,t0+.014);
+    g.gain.exponentialRampToValueAtTime(.0001,t0+dur);
+    o.connect(g); g.connect(master); o.start(t0); o.stop(t0+dur+.03);
+    window.__sfxCount=(window.__sfxCount||0)+1;
+  }
+  return {
+    on:function(){ return on },
+    set:function(v){ on=!!v; try{ localStorage.setItem("ennea_sfx", on?"1":"0"); }catch(e){} if(on) tone(660,990,.13,"triangle",.7); },
+    tap:function(){ tone(560,700,.06,"triangle",.38) },
+    pick:function(){ tone(760,1180,.15,"sine",.72); tone(1180,1580,.13,"sine",.4,.08) },
+    next:function(){ tone(430,880,.2,"sine",.4) },
+    back:function(){ tone(700,400,.18,"sine",.4) },
+    open:function(){ tone(520,780,.15,"triangle",.45) },
+    unlock:function(){ [523,659,784,1047].forEach(function(f,i){ tone(f,f,.3,"sine",.58,i*.1) }) }
+  };
+})();
+function sfxUI(){
+  const b=$("#sfxBtn"); if(!b) return;
+  b.textContent = SFX.on()? "🔊":"🔇";
+  b.setAttribute("aria-pressed", SFX.on()? "true":"false");
+  b.setAttribute("aria-label", SFX.on()? "音效開關（現為開啟）":"音效開關（現為靜音）");
+}
+/* 全站撳掣音效；選項、上／下一題、音效掣本身另有專屬音效，唔重複出聲 */
+document.addEventListener("click", function(e){
+  const t=e.target.closest("button,[data-go],a"); if(!t) return;
+  if(t.id==="sfxBtn"||t.classList.contains("opt")||t.id==="btnNext"||t.id==="btnPrev") return;
+  SFX.tap();
+}, true);
+
 function setView(name){
   $$(".view").forEach(function(v){v.classList.remove("on")});
   const v=$("#v-"+name); if(v) v.classList.add("on");
   $$("#railnav button").forEach(function(b){b.classList.toggle("on", b.dataset.go===name)});
-  if(name==="quiz"){ renderQuestion(); $("#actionbar").classList.add("on"); }
+  if(name==="quiz"){ renderQuestion(1); $("#actionbar").classList.add("on"); }
   else { $("#actionbar").classList.remove("on"); }
   if(name==="result") showResult();
   if(name==="data") loadData();
@@ -657,6 +732,8 @@ function setView(name){
   $("#mobTitle").textContent = map[name]||"都會生活鏡像測驗";
 }
 window.__ennView = setView;
+$("#sfxBtn").addEventListener("click", function(){ SFX.set(!SFX.on()); sfxUI(); });
+sfxUI();
 document.addEventListener("click", function(e){
   const t=e.target.closest("[data-go]"); if(!t) return;
   if(t.tagName==="A") e.preventDefault();          /* 由 setView 統一處理，避免行兩次 */
@@ -678,7 +755,7 @@ function updateProgress(){
   const cap=$("#mobProgTxt");
   if(cap) cap.textContent = left>0 ? ("尚有 "+left+" 題，完成後即可解鎖您的都會鏡像") : "已解鎖您的都會鏡像 ✓";
 }
-function renderQuestion(){
+function renderQuestion(dir, quiet){
   const q=D.questions[idx], part=D.parts.filter(function(p){return p.qids.indexOf(q.id)>-1})[0];
   $("#qPart").textContent=part?part.name:"";
   const left=D.questions.length-idx;
@@ -690,18 +767,22 @@ function renderQuestion(){
       : "請選擇一個選項";
   const sel=answers[q.id]||[];
   const box=$("#qOpts"); box.innerHTML="";
-  box.className = "opts" + (q.options.length>3 ? " two":"");
+  box.className = "opts" + (q.options.length>3 ? " two":"") + (quiet? " quiet":"");
   q.options.forEach(function(o,i){
     const b=document.createElement("button");
     b.type="button"; b.className="opt"; b.dataset.k=o.k;
     b.setAttribute("aria-pressed", sel.indexOf(o.k)>-1 ? "true":"false");
     b.innerHTML='<span class="mk">'+(sel.indexOf(o.k)>-1? "✓":String.fromCharCode(65+i))+'</span><span class="lbl">'+o.label+'</span>';
+    if(!quiet) b.style.animationDelay=(i*52)+"ms";
     b.addEventListener("click", function(){ pick(q,o.k); });
     box.appendChild(b);
   });
   $("#btnPrev").disabled = idx===0;
   $("#btnNext").textContent = idx===D.questions.length-1 ? "查看我的分析報告 →" : "下一題";
   $("#btnNext").disabled = !(answers[q.id]&&answers[q.id].length);
+  const card=$("#qcard");
+  card.classList.remove("anim-fwd","anim-back");
+  if(dir && !quiet){ void card.offsetWidth; card.classList.add(dir<0? "anim-back":"anim-fwd"); }
   $("#qText").focus({preventScroll:true});
   updateProgress();
   dimOverflow(q);
@@ -721,18 +802,22 @@ function pick(q,k){
     }
     answers[q.id]=sel;
   }
-  renderQuestion();
+  SFX.pick();
+  renderQuestion(0,true);
+  const pb=$('#qOpts .opt[data-k="'+String(k).replace(/"/g,"")+'"]');
+  if(pb){ pb.classList.add("picked"); setTimeout(function(){ pb.classList.remove("picked") },430); }
   if(q.kind==="single"){
-    setTimeout(function(){ step(1); }, 240);
+    setTimeout(function(){ step(1); }, 330);
   }
 }
 /**/
 function step(d){
   const q=D.questions[idx];
   if(d>0 && !(answers[q.id]&&answers[q.id].length)) return;
-  if(d>0 && idx===D.questions.length-1){ compute(); setView("result"); return; }
+  if(d>0 && idx===D.questions.length-1){ compute(); SFX.unlock(); setView("result"); return; }
   idx=Math.max(0,Math.min(D.questions.length-1, idx+d));
-  renderQuestion();
+  if(d>0) SFX.next(); else SFX.back();
+  renderQuestion(d);
 }
 $("#btnNext").addEventListener("click", function(){ step(1) });
 $("#btnPrev").addEventListener("click", function(){ step(-1) });
@@ -931,6 +1016,7 @@ function openType(n){
   const t=D.types[n];
   $("#mTitle").textContent="第 "+n+" 型 ‧ "+t.n;
   $("#mBody").innerHTML=typeBlock(n);
+  SFX.open();
   $("#modal").classList.add("on");
   $("#modal").scrollTop=0;
 }
