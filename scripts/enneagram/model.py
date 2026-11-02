@@ -262,3 +262,168 @@ SHORT = {
 }
 for _q in Q:
     _q["short"] = SHORT.get(_q["id"], _q["text"][:14])
+
+
+# --- 第二批校準（2026-11-03，Dickson 核准）------------------------------------
+# (A) 人口統計／身份題唔可以單題鎖死型號：所有 ≥3 分嘅人口統計選項一律封頂 2 分。
+#     原因：審計發現「做邊行／住邊度／有無樓」單一選項就主導型號 → 公眾會覺得「唔準、被定型」。
+# (B) 「無意見／唔知／從未接觸」類選項由 4 分降到 1 分：呢類答案反映『未投入』，
+#     唔應該同「真．第 9 型（主動求和諧）」混淆（亂答基準率測試中，第 9 型曾被推高到 22%）。
+TUNING_A = {
+  # (A) 職業 (occ)
+  ("occ","legal"):{"1":-1}, ("occ","estate"):{"3":-1}, ("occ","pm"):{"8":-1}, ("occ","bank"):{"6":-1},
+  ("occ","public"):{"2":-1}, ("occ","gov"):{"1":-1}, ("occ","retired"):{"9":-1}, ("occ","student"):{"7":-1},
+  # (A) 居住及物業持有狀況 (holding)
+  ("holding","commercial"):{"8":-2}, ("holding","buyer"):{"3":-1},
+  ("holding","tenant_public"):{"9":-1}, ("holding","family"):{"2":-1},
+  # (A) 需否處理樓宇買賣 (handling)
+  ("handling","high"):{"1":-1,"8":-1}, ("handling","none"):{"9":-1},
+  # (A) 對新制的了解程度 (aware) — 同時屬 (B)
+  ("aware","clear"):{"5":-1,"6":-1}, ("aware","never"):{"9":-2},
+  # (B) 「未投入」類答案降到 1 分
+  ("channel","none"):{"9":-2}, ("booklet_habit","never"):{"9":-2},
+  ("concern","irrelevant"):{"9":-2}, ("risk","none"):{"9":-3}, ("seminar","no_impression"):{"9":-3},
+}
+for _q in Q:
+    for _o in _q["options"]:
+        _d = TUNING_A.get((_q["id"], _o["k"]))
+        if not _d:
+            continue
+        for _t, _dv in _d.items():
+            _o["w"][_t] = max(0, _o["w"].get(_t, 0) + _dv)
+
+
+# --- 第二批校準 (C)：令「亂答／敷衍作答」唔會一面倒去某一型 ----------------------
+# 原理：先用 analytic 期望值計出「完全隨機作答」時每型嘅期望總分（校準後 T7 33.9 / T8 27.7，差 6.2 分），
+#       再將高分型喺『較弱解讀』嘅格減 1、低分型喺『貼近該型核心』嘅格加 1，令九型期望值拉平（差 <1.5 分）。
+#       目標：亂答分佈每型 8–14%（理論平均 11.1%），避免「一個亂答嘅人被派成第 7 型」。
+TUNING_B = {
+  # (C1) 高分型（T7／T3／T1）喺弱解讀格減 1
+  ("booklet_habit","drop"):{"7":-1}, ("duration","over60"):{"7":-1},
+  ("element","host"):{"7":-1}, ("element","clip"):{"7":-1},
+  ("souvenir_type","office"):{"3":-1}, ("dramareact","skim"):{"3":-1},
+  ("shortform","never"):{"1":-1}, ("accept","no"):{"1":-1},
+  # (C2) 低分型（T8／T9／T2）喺貼近核心嘅格加 1
+  ("limitation","no_interact"):{"8":1},   # 想即場追問＝直接要求回應
+  ("limitation","fine"):{"9":1,"1":1},    # 現行做法可接受＝省力原則（同時回復 T1 一格）
+  ("style","comedy"):{"9":1},             # 輕鬆易入口、不想費神
+  ("accept","ok"):{"9":1},                # 順其自然接受
+  ("transit","minibus"):{"2":1},          # 街坊渠道＝人情味、照顧身邊人
+  ("seminar","detached"):{"2":1},         # 講者抽離＝最想要人情味
+}
+for _q in Q:
+    for _o in _q["options"]:
+        _d = TUNING_B.get((_q["id"], _o["k"]))
+        if not _d:
+            continue
+        for _t, _dv in _d.items():
+            _o["w"][_t] = max(0, _o["w"].get(_t, 0) + _dv)
+
+
+# --- 第二批校準 (C)：拉平亂答基準率 -------------------------------------------------
+# 用優化器（analytic 亂答期望值 + 各型邊際）搜索最小改動：九型期望值差由 3.99 分收窄到 0.12 分。
+# 目的：令「完全隨機作答」唔會一面倒去某一型（理論上每型約 11 分）。注意：呢批係分佈校準，
+#       個別格嘅心理學解讀較弱（例如 style/tension 嘅 T6、shortform/daily 嘅 T8），只為拉平基準率。
+TUNING_C = {
+  ("channel","paper"): {"1":-1},
+  ("shortform","never"): {"5":+1},
+  ("occ","bs"): {"1":-2},
+  ("style","comedy"): {"3":-1,"7":-3},
+  ("style","tension"): {"6":+1,"8":+1},
+  ("souvenir_type","mascot"): {"7":-1},
+  ("holding","buyer"): {"7":-1},
+  ("channel","transport"): {"3":-1},
+  ("handling","high"): {"2":-1},
+  ("shortform","monthly"): {"5":-1},
+  ("shortform","daily"): {"8":+1},
+  ("occ","public"): {"9":-1},
+  ("occ","bank"): {"6":-1},
+}
+for _q in Q:
+    for _o in _q["options"]:
+        _d = TUNING_C.get((_q["id"], _o["k"]))
+        if not _d:
+            continue
+        for _t, _dv in _d.items():
+            _o["w"][_t] = max(0, _o["w"].get(_t, 0) + _dv)
+
+
+# --- 第二批校準 (D)：針對性調整（亂答分佈 + 補薄型）---------------------------------
+# 上一輪（C）令九型期望值拉平，但勝出分佈仍有偏差：心區（2/3/4）偏多、第 8 型偏少。
+# 呢輪只做三件事：(i) 加闊第 8 型嘅分佈（多幾個貼近「直接、要掌控、唔想等」嘅答案格）、
+# (ii) 收窄第 4／2／1 型喺弱解讀格嘅分、(iii) 補第 6 型一格。
+TUNING_D = {
+  # (i) 第 8 型加闊
+  ("concern","buy"):{"8":1},          # 關注買賣實務＝要掌控交易
+  ("limitation","static"):{"8":1},    # 單向靜態＝想要即時回應
+  ("duration","under15"):{"8":1},     # 要短＝直接唔拖
+  ("dramareact","tensec"):{"8":1},    # 十秒就知＝快速判斷、直截了當
+  ("channel","web"):{"8":1},          # 自己上網查＝自主掌握
+  ("element","clip"):{"8":1},         # 短片＝快、唔坐定
+  ("booklet_habit","drop"):{"8":1},   # 隨手丟棄＝唔理既有規矩
+  # (ii) 收窄 T4／T2／T1 弱解讀格
+  ("element","anim"):{"4":-1}, ("seminar","dull"):{"4":-1},
+  ("souvenir_type","mascot"):{"4":-1}, ("dramareact","full"):{"4":-1},
+  ("transit","minibus"):{"2":-1}, ("seminar","detached"):{"2":-1},
+  ("souvenir_type","office"):{"1":1},  # 辦公用品＝愛整齊實用（補回第 1 型鑑別力）
+  # (iii) 補第 6 型（需要掌握細節）
+  ("limitation","dense"):{"6":1},
+}
+for _q in Q:
+    for _o in _q["options"]:
+        _d = TUNING_D.get((_q["id"], _o["k"]))
+        if not _d:
+            continue
+        for _t, _dv in _d.items():
+            _o["w"][_t] = max(0, _o["w"].get(_t, 0) + _dv)
+
+
+# --- 第二批校準 (E)：第 1 型 vs 第 5 型 分家 + 補第 6 型 ------------------------------
+# (C)(D) 之後亂答分佈已收窄到 9–13%，但「第 1 型」因為拎咗幾個『弱解讀』格而升到 16%；
+# 同時第 6 型被新加嘅第 8 型格搶走（模擬準確率跌到 91%）。呢輪：剪第 1 型弱格、補第 6 型強格。
+TUNING_E = {
+  ("duration","under15"):{"1":-1}, ("shortform","never"):{"1":-1},
+  ("souvenir_effect","none"):{"1":-1}, ("accept","neutral"):{"1":-1},
+  ("booklet_habit","keep"):{"1":-1}, ("holding","family"):{"1":-1},
+  ("risk","defect"):{"6":1}, ("concern","existing"):{"6":1},   # 第 6 型最核心：怕漏洞、怕被人呃
+}
+for _q in Q:
+    for _o in _q["options"]:
+        _d = TUNING_E.get((_q["id"], _o["k"]))
+        if not _d:
+            continue
+        for _t, _dv in _d.items():
+            _o["w"][_t] = max(0, _o["w"].get(_t, 0) + _dv)
+
+
+# --- 第二批校準 (F)：第 1 型／第 5 型 徹底分家 ----------------------------------------
+# 第 1 型同第 5 型同樣「重秩序、重理性」，模擬中第 1 型有 10% 被讀成第 5 型。
+# 做法：加強第 1 型獨有嘅「原則、規矩、要乾淨」訊號；同時減第 5 型喺『其實唔關分析事』嘅格。
+TUNING_F = {
+  ("risk","defect"):{"1":1}, ("element","traditional"):{"1":1}, ("style","docu"):{"1":1},
+  ("risk","cost"):{"5":-1}, ("duration","under15"):{"5":-1}, ("accept","neutral"):{"5":-1},
+  ("dramareact","reject"):{"5":-1},
+}
+for _q in Q:
+    for _o in _q["options"]:
+        _d = TUNING_F.get((_q["id"], _o["k"]))
+        if not _d:
+            continue
+        for _t, _dv in _d.items():
+            _o["w"][_t] = max(0, _o["w"].get(_t, 0) + _dv)
+
+
+# --- 第二批校準 (G)：修 F 嘅過度矯正 ------------------------------------------------
+# F 之後第 1 型準確率升到 97%，但第 5 型反過來被讀成第 1 型（92%），亂答分佈亦由 10.7% 升到 16.4%。
+# 呢輪把第 5 型嘅『算計／懷疑』訊號還原，同時剪第 1 型較弱嘅格（保留『原則、規矩』核心格）。
+TUNING_G = {
+  ("risk","cost"):{"5":1}, ("dramareact","reject"):{"5":1}, ("accept","neutral"):{"5":1},
+  ("souvenir_type","office"):{"1":-1}, ("accept","no"):{"1":-1}, ("limitation","fine"):{"1":-1},
+}
+for _q in Q:
+    for _o in _q["options"]:
+        _d = TUNING_G.get((_q["id"], _o["k"]))
+        if not _d:
+            continue
+        for _t, _dv in _d.items():
+            _o["w"][_t] = max(0, _o["w"].get(_t, 0) + _dv)
