@@ -58,15 +58,14 @@ main{display:block;padding-bottom:118px}
 .mobtop .mt-link{color:var(--ink2);font-size:12.5px;font-weight:700;border:1.5px solid var(--line);
   border-radius:999px;padding:5px 11px;background:#FFFDF8;cursor:pointer;font-family:inherit;box-shadow:0 2px 0 #EBDCC6}
 .mobtop .mt-link:active{transform:translateY(2px);box-shadow:none}
-.progcap{display:flex;align-items:center;gap:8px;margin-top:9px;background:linear-gradient(180deg,#FFEDBC,#FFE39B);
-  color:#7A5C2E;border-radius:999px;padding:7px 14px;font-weight:800;font-size:12.5px;
-  box-shadow:0 3px 0 #EFD189,0 10px 18px -12px rgba(200,154,78,.8)}
-.progcap .pc-ico{font-size:14px}
-.progcap b{color:#5C4318}
 .pbar{height:10px;background:#F6E9D6;border-radius:999px;margin-top:10px;overflow:hidden;
   box-shadow:inset 0 2px 4px rgba(122,92,64,.16)}
 .pbar i{display:block;height:100%;width:0;border-radius:999px;
   background:linear-gradient(90deg,#FFE39B,#A8D8BE 55%,#7FC5A2);transition:width .38s cubic-bezier(.3,1.3,.5,1)}
+/* 作答卡頂進度條：貼喺「第 X / 20 題 · 尚餘 Y 題」之上，仍留喺卡內 */
+.qtop-bar{margin:0 0 14px;height:15px;background:#EDDFC5;
+  box-shadow:inset 0 2px 5px rgba(122,92,64,.22),0 1px 0 rgba(255,255,255,.9)}
+#qcard .pbar.qtop-bar i{background:linear-gradient(90deg,#FFD98A,#F7B267 45%,#7FC5A2);box-shadow:0 1px 2px rgba(122,92,64,.25)}
 
 /* ---------- views ---------- */
 .view{display:none;padding:20px 0 10px}
@@ -130,13 +129,17 @@ body:not(.team-access) .internal-only{display:none!important}
 #qOpts.quiet .opt{animation:none}
 .opt.picked{animation:optPop .36s ease}
 .opt.picked .mk{animation:mkPulse .36s ease}
-.sfxbtn{position:fixed;right:14px;bottom:calc(96px + env(safe-area-inset-bottom));z-index:60;
-  width:44px;height:44px;border-radius:50%;background:#FFFDF8;border:1.5px solid var(--line);
-  box-shadow:0 8px 18px rgba(122,92,64,.24);font-size:19px;line-height:1;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;padding:0}
-.sfxbtn:active{transform:translateY(1px)}
-.sfxbtn[aria-pressed="false"]{opacity:.62}
-@media(min-width:900px){.sfxbtn{bottom:22px;right:22px}}
+/* 音效掣：手機＝頂欄小藥丸，桌面＝右下浮動圓掣 */
+.sfxbtn{display:none}
+.mt-row .sfxBtn{flex:0 0 auto;font-size:14px;line-height:1;padding:6px 10px}
+.sfxBtn[aria-pressed="false"]{opacity:.6}
+@media(min-width:900px){
+  .sfxbtn{display:flex;position:fixed;right:22px;bottom:22px;z-index:60;width:44px;height:44px;
+    border-radius:50%;background:#FFFDF8;border:1.5px solid var(--line);
+    box-shadow:0 8px 18px rgba(122,92,64,.24);font-size:19px;line-height:1;cursor:pointer;
+    align-items:center;justify-content:center;padding:0}
+  .sfxbtn:active{transform:translateY(1px)}
+}
 @media(prefers-reduced-motion:reduce){
   #qcard.anim-fwd,#qcard.anim-back,#qOpts .opt,.opt.picked,.opt.picked .mk{animation:none!important}}
 
@@ -466,15 +469,14 @@ footer.foot b{color:var(--ink2)}
   </aside>
 
   <main id="mainv">
-    <button id="sfxBtn" class="sfxbtn" type="button" aria-pressed="true" aria-label="音效開關">🔊</button>
+    <button id="sfxBtnD" class="sfxBtn sfxbtn" type="button" aria-pressed="true" aria-label="音效開關">🔊</button>
     <div class="mobtop">
       <div class="mt-row">
         <span class="mt-t" id="mobTitle">都會生活鏡像測驗</span>
         <button class="mt-link" data-go="intro">簡介</button>
         <button class="mt-link internal-only" data-go="atlas">圖鑑</button>
+        <button id="sfxBtn" class="sfxBtn mt-link" type="button" aria-pressed="true" aria-label="音效開關">🔊</button>
       </div>
-      <div class="progcap"><span class="pc-ico">✦</span><span id="mobProgTxt">尚有 20 題，完成後即可解鎖您的都會鏡像</span></div>
-      <div class="pbar"><i id="mobProgBar"></i></div>
     </div>
 
     <!-- ============ INTRO ============ -->
@@ -515,6 +517,7 @@ footer.foot b{color:var(--ink2)}
     <section class="view" id="v-quiz">
       <div class="wrap">
         <div class="card" id="qcard">
+          <div class="pbar qtop-bar"><i id="mobProgBar"></i></div>
           <div class="qhead">
             <span class="parttag" id="qPart">第一部分</span>
             <span class="qcount" id="qCount">第 1 / 20 題</span>
@@ -705,15 +708,16 @@ const SFX=(function(){
   };
 })();
 function sfxUI(){
-  const b=$("#sfxBtn"); if(!b) return;
-  b.textContent = SFX.on()? "🔊":"🔇";
-  b.setAttribute("aria-pressed", SFX.on()? "true":"false");
-  b.setAttribute("aria-label", SFX.on()? "音效開關（現為開啟）":"音效開關（現為靜音）");
+  document.querySelectorAll(".sfxBtn").forEach(function(b){
+    b.textContent = SFX.on()? "🔊":"🔇";
+    b.setAttribute("aria-pressed", SFX.on()? "true":"false");
+    b.setAttribute("aria-label", SFX.on()? "音效開關（現為開啟）":"音效開關（現為靜音）");
+  });
 }
 /* 全站撳掣音效；選項、上／下一題、音效掣本身另有專屬音效，唔重複出聲 */
 document.addEventListener("click", function(e){
   const t=e.target.closest("button,[data-go],a"); if(!t) return;
-  if(t.id==="sfxBtn"||t.classList.contains("opt")||t.id==="btnNext"||t.id==="btnPrev") return;
+  if(t.classList.contains("sfxBtn")||t.classList.contains("opt")||t.id==="btnNext"||t.id==="btnPrev") return;
   SFX.tap();
 }, true);
 
@@ -732,7 +736,9 @@ function setView(name){
   $("#mobTitle").textContent = map[name]||"都會生活鏡像測驗";
 }
 window.__ennView = setView;
-$("#sfxBtn").addEventListener("click", function(){ SFX.set(!SFX.on()); sfxUI(); });
+document.querySelectorAll(".sfxBtn").forEach(function(b){
+  b.addEventListener("click", function(){ SFX.set(!SFX.on()); sfxUI(); });
+});
 sfxUI();
 document.addEventListener("click", function(e){
   const t=e.target.closest("[data-go]"); if(!t) return;
@@ -752,8 +758,6 @@ function updateProgress(){
   $("#mobProgBar").style.width=pc+"%";
   $("#railProgBar").style.width=pc+"%";
   $("#railProgTxt").textContent=n+" / "+tot;
-  const cap=$("#mobProgTxt");
-  if(cap) cap.textContent = left>0 ? ("尚有 "+left+" 題，完成後即可解鎖您的都會鏡像") : "已解鎖您的都會鏡像 ✓";
 }
 function renderQuestion(dir, quiet){
   const q=D.questions[idx], part=D.parts.filter(function(p){return p.qids.indexOf(q.id)>-1})[0];
