@@ -1133,7 +1133,7 @@ function igShare(){
       const file=new File([blob],fname,{type:"image/png"});
       if(navigator.canShare&&navigator.share&&navigator.canShare({files:[file]})){
         navigator.share({files:[file],text:shareText(),title:"都會生活鏡像測驗"}).then(function(){
-          show("已開啟分享！揀 Instagram 貼上卡牌；記得用 Story 的「連結貼紙」加上 "+IG_URL,10000)
+          show("已為您開啟分享功能，請選擇 Instagram 並貼上卡牌；記得使用 Story 的「連結貼紙」加上 "+IG_URL,10000)
         })["catch"](function(){show("已取消分享，可以再撳一次。",3000)});
       }else{
         const a=document.createElement("a");
@@ -1174,7 +1174,7 @@ function showResult(){
   $("#rShare").addEventListener("click", function(){
     const note=$("#rNote");
     window.open("https://wa.me/?text="+encodeURIComponent(shareText()),"_blank","noopener");
-    note.textContent="已為您開啟 WhatsApp，揀聯絡人就可以直接分享（會帶埋問卷連結）。";
+    note.textContent="已為您開啟 WhatsApp，選擇聯絡人即可直接分享（會附上問卷連結）。";
     note.classList.add("on"); setTimeout(function(){note.classList.remove("on")},6000);
   });
   $("#rIg").addEventListener("click", igShare);
