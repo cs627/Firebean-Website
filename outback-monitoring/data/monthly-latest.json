@@ -1824,6 +1824,14 @@
       "summary": "中環分店 Google Maps 5星評論（UNO Leung，2 個月前）：最近去中環娛樂行嘅Outback，發現佢哋下午茶時段去到六點，對於想提早食晚飯嘅朋友嚟講真係一流選擇。份量十足，絕對夠飽肚，而且餐廳有提供BB凳，帶埋小朋友都坐得安心又方便。  今次點咗幾款主菜，樣樣都有驚喜：  · 白汁大蝦意粉：大蝦鮮甜爽脆，白汁濃郁幼滑，每條意粉都沾滿醬汁，入口creamy得嚟唔膩口。 · 澳洲牛肉芝士漢堡配薯條：漢堡扒厚身多汁，牛味濃郁，配合溶化嘅芝士好夾；旁邊嘅薯條金黃香脆，新鮮熱辣辣，忍唔住一條接一條。 · 肉醬通粉：肉醬酸甜平衡，香草味突出，通粉彈牙有咬口，醬汁掛得均勻，食落好開胃。  整體嚟講，中環店環境舒適，服務周到，下午茶時段夠長，食物份量慷慨，加上有BB凳，無論係提早食晚餐或者家庭聚餐都好合適，絕對會再嚟幫襯！",
       "link": "https://www.google.com/maps/contrib/102930480423216793609/reviews",
       "sentiment": "positive"
+    },
+    {
+      "date": "2026-11-03",
+      "source": "Jetso101（著數101）",
+      "title": "Outback Prestige 會員優惠獲著數101 收錄：11月30日前入會／升級／續會送前菜拼盤、HK$400 現金券及最多 4 張 75 折券",
+      "summary": "著數101（jetso101.com）自家優惠頁收錄 Outback 現行 Inside Outback 會員推廣：2026年10月20日至11月30日，加入、升級或續期 Prestige 會員（2年 HK$488）可於原有禮遇外額外獲三項獎賞——消費滿 HK$400（堂食或外賣）送前菜拼盤一份、4 張 HK$100 現金券，以及最多 4 張 75 折優惠券（每張最高減 HK$1,000、不設最低消費）；VIP 免費入會可獲香脆薯條混煙肉芝士券。頁面同時標示「尚餘 28 天（至 11 月 30 日止）」，並附官方來源連結（outback.com.hk/news-and-promotions/page/1）。屬第三方著數平台對官方會員推廣的收錄，非官方新公布（官方 article/241 已於 2026-10-20 記錄）。收錄意義：反映 Outback 會員折扣戰繼續被著數媒體持續放大，屬 11 月檔期的持續曝光。",
+      "link": "https://jetso101.com/zh-HK/deals/outback-prestige-membership-hk-488-for-2-years-join-upgrade-or-extend-1cf636a6",
+      "sentiment": "neutral"
     }
   ],
   "alerts": [],
@@ -1832,7 +1840,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 228,
+    "new_records": 229,
     "limitations": []
   }
 }

@@ -1,20 +1,16 @@
 {
   "meta": {
-    "last_updated": "2026-11-02T01:01:24+08:00",
-    "total_records": 228,
+    "last_updated": "2026-11-03 01:02",
+    "total_records": 229,
     "daily_avg": 2.8,
-    "date_range": "2025-06-09 → 2026-10-31",
-    "sources_checked": 28,
+    "date_range": "2025-06-09 → 2026-11-03",
+    "sources_checked": 29,
     "new_verified": 3,
-    "coverage_ratio": "28/46",
+    "coverage_ratio": "29/46",
     "negative_alerts": 35,
     "positive_pct": 55
   },
   "trend": [
-    {
-      "date": "2026-10-20",
-      "count": 1
-    },
     {
       "date": "2026-10-21",
       "count": 1
@@ -37,6 +33,10 @@
     },
     {
       "date": "2026-10-31",
+      "count": 1
+    },
+    {
+      "date": "2026-11-03",
       "count": 1
     }
   ],
@@ -104,7 +104,7 @@
   ],
   "sentiment": {
     "positive": 126,
-    "neutral": 62,
+    "neutral": 63,
     "negative": 35,
     "mixed": 5
   },
@@ -2616,6 +2616,17 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, Google Maps, 中環, 中環娛樂行, 5星"
+    },
+    {
+      "date": "2026-11-03",
+      "source": "Jetso101（著數101）",
+      "platform": "新聞媒體",
+      "title": "Outback Prestige 會員優惠獲著數101 收錄：11月30日前入會／升級／續會送前菜拼盤、HK$400 現金券及最多 4 張 75 折券",
+      "summary": "著數101（jetso101.com）自家優惠頁收錄 Outback 現行 Inside Outback 會員推廣：2026年10月20日至11月30日，加入、升級或續期 Prestige 會員（2年 HK$488）可於原有禮遇外額外獲三項獎賞——消費滿 HK$400（堂食或外賣）送前菜拼盤一份、4 張 HK$100 現金券，以及最多 4 張 75 折優惠券（每張最高減 HK$1,000、不設最低消費）；VIP 免費入會可獲香脆薯條混煙肉芝士券。頁面同時標示「尚餘 28 天（至 11 月 30 日止）」，並附官方來源連結（outback.com.hk/news-and-promotions/page/1）。屬第三方著數平台對官方會員推廣的收錄，非官方新公布（官方 article/241 已於 2026-10-20 記錄）。收錄意義：反映 Outback 會員折扣戰繼續被著數媒體持續放大，屬 11 月檔期的持續曝光。",
+      "link": "https://jetso101.com/zh-HK/deals/outback-prestige-membership-hk-488-for-2-years-join-upgrade-or-extend-1cf636a6",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, 澳美客, Outback Steakhouse HK, Prestige 會員, 優惠"
     }
   ],
   "media_records": [
@@ -3432,6 +3443,17 @@
       "sentiment": "neutral",
       "sentiment_label": "中性",
       "keywords": "Outback, 澳美客, 會員優惠, Prestige, App, Inside Outback, 著數"
+    },
+    {
+      "date": "2026-11-03",
+      "source": "Jetso101（著數101）",
+      "platform": "新聞媒體",
+      "title": "Outback Prestige 會員優惠獲著數101 收錄：11月30日前入會／升級／續會送前菜拼盤、HK$400 現金券及最多 4 張 75 折券",
+      "summary": "著數101（jetso101.com）自家優惠頁收錄 Outback 現行 Inside Outback 會員推廣：2026年10月20日至11月30日，加入、升級或續期 Prestige 會員（2年 HK$488）可於原有禮遇外額外獲三項獎賞——消費滿 HK$400（堂食或外賣）送前菜拼盤一份、4 張 HK$100 現金券，以及最多 4 張 75 折優惠券（每張最高減 HK$1,000、不設最低消費）；VIP 免費入會可獲香脆薯條混煙肉芝士券。頁面同時標示「尚餘 28 天（至 11 月 30 日止）」，並附官方來源連結（outback.com.hk/news-and-promotions/page/1）。屬第三方著數平台對官方會員推廣的收錄，非官方新公布（官方 article/241 已於 2026-10-20 記錄）。收錄意義：反映 Outback 會員折扣戰繼續被著數媒體持續放大，屬 11 月檔期的持續曝光。",
+      "link": "https://jetso101.com/zh-HK/deals/outback-prestige-membership-hk-488-for-2-years-join-upgrade-or-extend-1cf636a6",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, 澳美客, Outback Steakhouse HK, Prestige 會員, 優惠"
     }
   ],
   "social_records": [

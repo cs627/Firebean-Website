@@ -1,14 +1,6 @@
 {
-  "week": "2026-10-20 ~ 2026-10-31",
+  "week": "2026-10-21 ~ 2026-11-03",
   "items": [
-    {
-      "date": "2026-10-20",
-      "source": "Outback 官方網站",
-      "title": "【Inside Outback｜限時會員專屬禮遇】10月20日至11月30日會員獎賞（官方公布）",
-      "summary": "Outback Steakhouse 香港官網2026-10-20更新「Inside Outback｜限時會員專屬禮遇」。VIP基本會員（免費入會）活動期間首次登記，額外獲贈免費香脆薯條混煙肉芝士一份（堂食或外賣消費滿HK$400可用）；Prestige尊尚會員（HK$488/兩年）新加入、由VIP升級或延長會籍，於原有禮遇外再享三重獎賞：禮遇一免費人氣頭盤（烤豬肋骨雞槌芝士薯條拼盤，消費滿HK$400可用）、禮遇二額外HK$400現金券（4張HK$100）、禮遇三高達4張專享75折優惠券（每張最高減HK$1,000，不設最低消費）。屬官方會籍鎖客推廣，力度較過往迎新加大。（資料來源：Outback Steakhouse 香港官方網站）",
-      "link": "https://www.outback.com.hk/news-and-promotions/article/241?lang=tc",
-      "sentiment": "positive"
-    },
     {
       "date": "2026-10-21",
       "source": "OpenRice (銅鑼灣廣場一期)",
@@ -55,6 +47,14 @@
       "title": "Outback App 會員迎新獎賞獲著數媒體轉載：免費芝士薯條，升級尊尚會籍最多可領 20 張券（官方稱總值逾 HK$2,000）",
       "summary": "Jetso Today 於 2026-10-31 發文轉載 Outback 現行「INSIDE OUTBACK」會員迎新獎賞：即日起至 2026 年 11 月 30 日，加入 VIP 會籍可獲「香脆薯條混煙肉芝士」換領券；新加入或升級尊尚會籍（HK$488）除基本 8 張 HK$100 迎新券及 2 張 10 安士肉眼牛扒／燒加拿大帶骨黑毛豬扒換領券外，活動期內加碼送 HK$100 迎新券 x4、烤豬肋骨雞搥芝士薯條拼盤券 x1、75 折優惠券 x4，最多共 20 張券（官方稱總值超過 HK$2,000）。屬第三方媒體對官方會員推廣的轉載，非官方新公布（官方原文已於 2026-10-20 記錄）。",
       "link": "https://www.jetsotoday.com/outback-steakhouse-20261130/",
+      "sentiment": "neutral"
+    },
+    {
+      "date": "2026-11-03",
+      "source": "Jetso101（著數101）",
+      "title": "Outback Prestige 會員優惠獲著數101 收錄：11月30日前入會／升級／續會送前菜拼盤、HK$400 現金券及最多 4 張 75 折券",
+      "summary": "著數101（jetso101.com）自家優惠頁收錄 Outback 現行 Inside Outback 會員推廣：2026年10月20日至11月30日，加入、升級或續期 Prestige 會員（2年 HK$488）可於原有禮遇外額外獲三項獎賞——消費滿 HK$400（堂食或外賣）送前菜拼盤一份、4 張 HK$100 現金券，以及最多 4 張 75 折優惠券（每張最高減 HK$1,000、不設最低消費）；VIP 免費入會可獲香脆薯條混煙肉芝士券。頁面同時標示「尚餘 28 天（至 11 月 30 日止）」，並附官方來源連結（outback.com.hk/news-and-promotions/page/1）。屬第三方著數平台對官方會員推廣的收錄，非官方新公布（官方 article/241 已於 2026-10-20 記錄）。收錄意義：反映 Outback 會員折扣戰繼續被著數媒體持續放大，屬 11 月檔期的持續曝光。",
+      "link": "https://jetso101.com/zh-HK/deals/outback-prestige-membership-hk-488-for-2-years-join-upgrade-or-extend-1cf636a6",
       "sentiment": "neutral"
     }
   ],

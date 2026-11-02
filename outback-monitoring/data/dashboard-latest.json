@@ -1,12 +1,12 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-11-01T17:07:39.328498+00:00",
+  "generatedAt": "2026-11-02T17:02:32.568080+00:00",
   "run": {
-    "runDate": "2026-11-02",
+    "runDate": "2026-11-03",
     "dateRange": {
       "from": "2025-06-09",
-      "to": "2026-11-02"
+      "to": "2026-11-03"
     },
     "alerts": [
       {
@@ -27,8 +27,8 @@
     ]
   },
   "counts": {
-    "total": 228,
-    "media": 74,
+    "total": 229,
+    "media": 75,
     "social": 154,
     "maps": 44,
     "stores": 10
@@ -2541,6 +2541,17 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, Google Maps, 中環, 中環娛樂行, 5星"
+    },
+    {
+      "date": "2026-11-03",
+      "source": "Jetso101（著數101）",
+      "platform": "新聞媒體",
+      "title": "Outback Prestige 會員優惠獲著數101 收錄：11月30日前入會／升級／續會送前菜拼盤、HK$400 現金券及最多 4 張 75 折券",
+      "summary": "著數101（jetso101.com）自家優惠頁收錄 Outback 現行 Inside Outback 會員推廣：2026年10月20日至11月30日，加入、升級或續期 Prestige 會員（2年 HK$488）可於原有禮遇外額外獲三項獎賞——消費滿 HK$400（堂食或外賣）送前菜拼盤一份、4 張 HK$100 現金券，以及最多 4 張 75 折優惠券（每張最高減 HK$1,000、不設最低消費）；VIP 免費入會可獲香脆薯條混煙肉芝士券。頁面同時標示「尚餘 28 天（至 11 月 30 日止）」，並附官方來源連結（outback.com.hk/news-and-promotions/page/1）。屬第三方著數平台對官方會員推廣的收錄，非官方新公布（官方 article/241 已於 2026-10-20 記錄）。收錄意義：反映 Outback 會員折扣戰繼續被著數媒體持續放大，屬 11 月檔期的持續曝光。",
+      "link": "https://jetso101.com/zh-HK/deals/outback-prestige-membership-hk-488-for-2-years-join-upgrade-or-extend-1cf636a6",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, 澳美客, Outback Steakhouse HK, Prestige 會員, 優惠"
     }
   ],
   "stores": [
@@ -3481,6 +3492,30 @@
       "link": "https://www.discoverhongkong.com/tc/events/hong-kong-gourmet-month.html",
       "branchCount": "不適用（全行業）",
       "expansion": "11 月全行業推廣檔期"
+    },
+    {
+      "date": "2026-10-03",
+      "competitor": "The Steak House（香港麗晶酒店）",
+      "type": "活動",
+      "title": "麗晶酒店 The Steak House × 首爾 Guunmong 主廚 David Lee：11 月 5-6 日限定兩晚 1++ 級韓牛四手聯乘饗宴",
+      "summary": "香港麗晶酒店 The Steak House 宣布 2026 年 11 月 5 至 6 日（18:00-23:00）與首爾漢南洞人氣餐廳 Guunmong 主廚 David Lee（《黑白大廚》效應、「Meat Gangster」）及韓國韓牛協會合辦限定兩晚四手聯乘晚宴，以 1++ 級韓牛為主角，五道菜包括阿拉斯加帝王蟹沙律、韓式生拌 1++ 韓牛菲力配布里歐、辛奇馬賽魚湯，主菜為兩款韓牛（炭烤 1++ 韓牛肉眼扒／1++ 韓牛肋眼上蓋）。The Steak House 主廚為 Amine Errkhis，餐廳連續三年入選「全球 101 間最佳牛扒餐廳」。屬高端酒店扒房以名人主廚＋跨界聯乘搶佔 11 月話題檔期，與 Outback 的大眾化會員折扣走相反路線。",
+      "sentiment": "中性",
+      "source": "香港新聞網 hkcna.hk（引麗晶酒店官方公布）",
+      "link": "https://www.hkcna.hk/cn/content/s6ac0f962e4b0a8d1ae4187eb.html",
+      "branchCount": "1",
+      "expansion": "單店（酒店扒房，無擴張計劃）"
+    },
+    {
+      "date": "2026-11-03",
+      "competitor": "Santorini Steakhouse by Panos SSP（灣仔）",
+      "type": "新店/擴張",
+      "title": "灣仔皇后大道東新扒房 Santorini Steakhouse by Panos SSP：希臘主廚 Panos Kalamidas 主理，主打 28 日以上熟成牛扒",
+      "summary": "Esquire HK「扒房 2026」22 間推介（2026-09-15 發佈）指出，灣仔皇后大道東新開扒房 Santorini Steakhouse by Panos SSP，由希臘籍主廚 Panos Kalamidas 帶來逾 20 年經驗，主打 28 日以上熟成牛扒及海鮮，配希臘小食與蘸醬；招牌為乾式熟成澳洲 Mayura 全血巧克力和牛帶骨肉眼 1 公斤（HK$1,688）。⚠️ 開幕日期未能獨立核實（只從媒體推介清單確認存在及定位）；日期欄填本日＝收錄日。屬香港扒房市場新增的「熟成＋地中海菜系」細分對手，與 Outback 定位重疊度低，但反映中價熟成扒房供應繼續增加。",
+      "sentiment": "中性",
+      "source": "Esquire HK（2026-09-15 扒房推介）",
+      "link": "https://www.esquirehk.com/lifestyle/steak-house-best-choice",
+      "branchCount": "1",
+      "expansion": "新品牌單店（開幕日期未核實）"
     }
   ],
   "trend": [
@@ -3806,6 +3841,10 @@
     },
     {
       "date": "2026-10-31",
+      "count": 1
+    },
+    {
+      "date": "2026-11-03",
       "count": 1
     }
   ],
