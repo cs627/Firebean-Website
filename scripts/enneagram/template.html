@@ -444,8 +444,7 @@ footer.foot b{color:var(--ink2)}
   .rail .railprog{margin-top:auto;padding-top:22px}
   .rail .railprog .pl{display:flex;justify-content:space-between;gap:8px;font-size:14px;color:#7A5C2E;font-weight:800;margin-bottom:8px}
   .rail .railprog .pt{height:14px;border-radius:999px;background:#F6E9D6;overflow:hidden;box-shadow:inset 0 2px 4px rgba(122,92,64,.16)}
-  .rail .railprog .pt i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#FFE39B,#A8D8BE 55%,#7FC5A2);transition:width .38s}
-  .rail .railmasc{width:150px;margin:6px auto 4px}
+  .rail .railprog .pt i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#FFE39B,#A8D8BE 55%,#7FC5A2);transition:width .38s}
   .mobtop{display:none}
   main{padding:0 0 60px}
   .wrap{max-width:1080px;margin:0 auto;padding:0 40px}
@@ -514,7 +513,6 @@ footer.foot b{color:var(--ink2)}
       <button data-go="data" class="internal-only"><span class="ni">▤</span>調研數據</button>
       <button data-go="proposal" class="internal-only"><span class="ni">▣</span>匯報要點</button>
     </nav>
-    <img class="railmasc mascot" src="img/hero.webp" alt="" onerror="this.style.display='none'">
     <div class="railprog">
       <div class="pl"><span>作答進度</span><span id="railProgTxt">0 / 20</span></div>
       <div class="pt"><i id="railProgBar"></i></div>
