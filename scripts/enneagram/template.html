@@ -319,18 +319,27 @@ svg.chart{width:100%;height:auto;display:block;overflow:visible}
   border-radius:var(--r);padding:14px 16px;margin-top:16px;box-shadow:var(--sh)}
 .centerline .dot{width:14px;height:14px;border-radius:50%;flex:0 0 14px;box-shadow:0 2px 4px rgba(122,92,64,.3)}
 .bars{margin-top:8px;display:grid;gap:9px}
-.bar{display:grid;grid-template-columns:26px minmax(0,1fr);gap:10px;align-items:center;position:relative}
-.bar .tn{font-size:13px;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
-.bar .track{height:28px;background:#F7EDDD;border-radius:999px;overflow:hidden;position:relative;
-  box-shadow:inset 0 2px 4px rgba(122,92,64,.14)}
-.bar .fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#E9DCC9,#D9CBB6);transition:width .6s cubic-bezier(.3,1.2,.5,1)}
-.bar.me .fill{background:linear-gradient(90deg,#B9E4CC,#7FC5A2)}
-.bar .lab{position:absolute;left:12px;top:0;height:100%;display:flex;align-items:center;font-size:12.5px;
-  font-weight:800;color:#5C4630;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:calc(100% - 108px)}
-.bar .val{position:absolute;right:12px;top:0;height:100%;display:flex;align-items:center;font-size:12.5px;
-  font-weight:800;color:#5C4630;font-variant-numeric:tabular-nums}
-.bar .val .pc{display:inline-block;margin-left:6px;font-size:11.5px;font-weight:800;color:#8A6A44;
-  background:#F3E4CD;border-radius:999px;padding:1px 7px}
+.bar{display:grid;grid-template-columns:minmax(88px,124px) minmax(0,1fr) 46px;gap:9px;align-items:center}
+/* 左邊：型號＝獨立按鈕 */
+.bar .bname{display:flex;align-items:center;justify-content:center;min-height:42px;padding:6px 9px;
+  background:linear-gradient(180deg,#FFFDF8,#F5E7D5);border:1.5px solid var(--line2);border-radius:12px;
+  font-size:12.5px;font-weight:800;color:#5C4630;text-align:center;line-height:1.2;letter-spacing:.1px;
+  box-shadow:0 2px 0 rgba(122,92,64,.10),inset 0 1px 0 rgba(255,255,255,.9);white-space:nowrap}
+.bar.me .bname{background:linear-gradient(180deg,#EDF9F2,#CDEBDB);border-color:#8FCEAA;color:#2F6B4C;
+  box-shadow:0 2px 0 rgba(47,107,76,.18),inset 0 1px 0 rgba(255,255,255,.9)}
+/* 右邊：立體 % 長條（長度＝該型百分比） */
+.bar .btrack{height:30px;border-radius:999px;position:relative;overflow:hidden;background:#F4E9D8;
+  box-shadow:inset 0 2px 4px rgba(122,92,64,.16),inset 0 -1px 0 rgba(255,255,255,.75)}
+.bar .bfill{display:block;height:100%;border-radius:999px;min-width:7px;transform-origin:left center;
+  animation:barGrow .7s cubic-bezier(.3,1.2,.5,1) both;
+  background:linear-gradient(180deg,#F8D3A2,#E7A96A 52%,#C9843F);
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.6),inset 0 -5px 7px rgba(120,70,20,.22),0 2px 3px rgba(122,92,64,.2)}
+.bar.me .bfill{background:linear-gradient(180deg,#AEE6C7,#6FBE94 52%,#4E9A73);
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.6),inset 0 -5px 7px rgba(30,80,55,.22),0 2px 3px rgba(47,107,76,.22)}
+.bar .bval{font-size:15px;font-weight:800;color:#5C4630;text-align:right;font-variant-numeric:tabular-nums}
+.bar.me .bval{color:#2F6B4C}
+@keyframes barGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media(prefers-reduced-motion:reduce){.bar .bfill{animation:none}}
 .share-note{display:none;margin-top:10px;font-size:13.5px;color:#3E7A5E;font-weight:800}
 .share-note.on{display:block}
 
@@ -459,6 +468,10 @@ footer.foot b{color:var(--ink2)}
   .infostrip .info>.ic{margin:0 auto}
   .infostrip .info b{font-size:13.5px;margin-top:8px;line-height:1.25}
   .infostrip .info>span:not(.ic){font-size:11px;margin-top:4px;line-height:1.45}
+  .bar{grid-template-columns:minmax(74px,96px) minmax(0,1fr) 40px;gap:7px}
+  .bar .bname{min-height:38px;font-size:11.5px;padding:5px 7px;border-radius:11px}
+  .bar .btrack{height:26px}
+  .bar .bval{font-size:13.5px}
 }
 @media (min-width:1360px){
   .wrap{max-width:1180px}
@@ -981,17 +994,111 @@ function r2w(){
 }
 function barsHTML(){
   if(!result) return "";
-  const s=result.scores, mx=result.topScore;
+  const s=result.scores;
   const sum=Object.keys(s).reduce(function(a,k){return a+(s[k]||0)},0)||1;
-  let h='<h3 style="margin-top:4px">九型分數分佈</h3><div class="small muted" style="margin:-4px 0 10px">分數最高者為您的主型；同一能量中心內的鄰型，通常是您最易產生共鳴的處事方式。括號內百分比＝該型分數佔您九型總分（'+sum+' 分）的比例，加起來為 100%。</div><div class="bars">';
+  let h='<h3 style="margin-top:4px">九型分數分佈</h3><div class="small muted" style="margin:-4px 0 10px">分數最高者為您的主型；同一能量中心內的鄰型，通常是您最易產生共鳴的處事方式。長條長度＝該型佔您九型總分（'+sum+' 分）的百分比，九型加起來剛好 100%。</div><div class="bars">';
   for(let n=1;n<=9;n++){
-    const p=Math.round(s[n]/mx*100), pc=Math.round((s[n]||0)/sum*100);
+    const pc=Math.round((s[n]||0)/sum*100);
     h+='<div class="bar'+(n===result.type?" me":"")+'" title="第'+n+'型 '+D.types[n].n+'：'+s[n]+' 分（'+pc+'%）">'+
-      '<span class="tn">'+n+'</span><span class="track"><span class="fill" style="width:'+Math.max(6,p)+'%"></span>'+
-      '<span class="lab">'+D.types[n].n+'</span><span class="val">'+s[n]+'<span class="pc">'+pc+'%</span></span></span></div>';
+      '<span class="bname">'+D.types[n].n+'</span>'+
+      '<span class="btrack"><i class="bfill" style="width:'+pc+'%;animation-delay:'+((n-1)*55)+'ms"></i></span>'+
+      '<span class="bval">'+pc+'%</span></div>';
   }
   h+='</div>';
   return h;
+}
+/* ---------- 分享到 IG：即場生成 1080×1920 卡牌（附 QR + 連結） ---------- */
+const IG_URL="https://firebean.net/enneagram/";
+const IGC={head:"#A9CBEF",heart:"#FFC3A0",gut:"#A8D8BE"};
+function igFont(px,w){return (w||800)+" "+px+"px -apple-system,BlinkMacSystemFont,'PingFang HK','Noto Sans HK','Noto Sans TC','Microsoft JhengHei','Heiti TC',sans-serif"}
+function rrect(g,x,y,w,h,r){g.beginPath();g.moveTo(x+r,y);g.arcTo(x+w,y,x+w,y+h,r);g.arcTo(x+w,y+h,x,y+h,r);g.arcTo(x,y+h,x,y,r);g.arcTo(x,y,x+w,y,r);g.closePath()}
+function fitLines(g,text,maxW,font,maxLines){
+  g.font=font;let line="",out=[];
+  for(const ch of text.split("")){const tt=line+ch;
+    if(g.measureText(tt).width>maxW&&line){out.push(line);line=ch}else{line=tt}}
+  if(line)out.push(line);
+  if(maxLines&&out.length>maxLines){out=out.slice(0,maxLines);out[maxLines-1]=out[maxLines-1].slice(0,-1)+"…"}
+  return out
+}
+function imgLoad(src){return new Promise(function(ok,no){const i=new Image();i.onload=function(){ok(i)};i.onerror=no;i.src=src})}
+async function igCard(){
+  const n=result.type, t=D.types[n], c=D.centers[t.center];
+  if(document.fonts&&document.fonts.ready){try{await document.fonts.ready}catch(e){}}
+  const cv=document.createElement("canvas"); cv.width=1080; cv.height=1920;
+  const g=cv.getContext("2d");
+  const bg=g.createLinearGradient(0,0,0,1920);
+  bg.addColorStop(0,"#FFFCF6"); bg.addColorStop(.5,"#FDF4E6"); bg.addColorStop(1,"#F4E4CE");
+  g.fillStyle=bg; g.fillRect(0,0,1080,1920);
+  g.globalAlpha=.42; g.fillStyle="#FFE6B8"; g.beginPath(); g.arc(930,250,300,0,6.3); g.fill();
+  g.fillStyle="#DFF3E7"; g.beginPath(); g.arc(120,1610,330,0,6.3); g.fill(); g.globalAlpha=1;
+  /* 角色底板：淺色圓角卡，令圖內白字仍然可見 */
+  const px=140,py=270,pw=800,ph=880;
+  g.save(); g.shadowColor="rgba(122,92,64,.20)"; g.shadowBlur=46; g.shadowOffsetY=16;
+  rrect(g,px,py,pw,ph,76); g.fillStyle=IGC[t.center]||"#FFE39B"; g.fill(); g.restore();
+  try{const im=await imgLoad(MASCOT(n));
+    const r=Math.min((pw-70)/im.naturalWidth,(ph-50)/im.naturalHeight);
+    const w=im.naturalWidth*r, h=im.naturalHeight*r;
+    g.drawImage(im,px+(pw-w)/2,py+(ph-h)/2,w,h)}catch(e){}
+  /* 品牌字 */
+  g.textAlign="left"; g.font="40px Anton,Impact,sans-serif";
+  const w1=g.measureText("FIRE").width;
+  const sx=540-(w1+g.measureText("BEAN").width)/2;
+  g.fillStyle="#3A2A1E"; g.fillText("FIRE",sx,196);
+  g.fillStyle="#E4442E"; g.fillText("BEAN",sx+w1,196);
+  g.textAlign="center";
+  g.fillStyle="#8A6A44"; g.font=igFont(28,800); g.fillText("土 地 註 冊 處 × 九 型 人 格 決 策 風 格 探 索",540,158);
+  const bt="第 "+n+" 型 ・ "+c.n;
+  g.font=igFont(32,800);
+  const bw=g.measureText(bt).width+60;
+  rrect(g,540-bw/2,1190,bw,68,34); g.fillStyle="#FFFDF8"; g.fill();
+  g.strokeStyle="#E7D6BC"; g.lineWidth=3; g.stroke();
+  g.fillStyle="#7A5C40"; g.fillText(bt,540,1238);
+  g.fillStyle="#3A2A1E"; g.font=igFont(104,800); g.fillText(t.n,540,1352);
+  g.fillStyle="#8A6A44"; g.font=igFont(30,700); g.fillText(t.en,540,1404);
+  g.fillStyle="#5C4630";
+  const rl=fitLines(g,t.rep,880,igFont(40,700),2);
+  rl.forEach(function(l,i){g.fillText(l,540,1468+i*54)});
+  const ty=(rl.length>1?1586:1536);
+  g.font=igFont(38,800); const tw=g.measureText(t.tag).width+64;
+  rrect(g,540-tw/2,ty,tw,76,38); g.fillStyle="#FFF3DA"; g.fill();
+  g.strokeStyle="#EBD3A8"; g.lineWidth=3; g.stroke();
+  g.fillStyle="#7A5C40"; g.fillText(t.tag,540,ty+52);
+  try{const q=await imgLoad("img/qr.png"); g.drawImage(q,132,1700,206,206)}catch(e){}
+  g.textAlign="left";
+  g.fillStyle="#3A2A1E"; g.font=igFont(38,800); g.fillText("掃碼即玩 5 分鐘",376,1766);
+  g.fillStyle="#2F6B4C"; g.font=igFont(44,800); g.fillText("firebean.net/enneagram",376,1828);
+  g.fillStyle="#8A6A44"; g.font=igFont(28,700); g.fillText("全程匿名 · 即時取得專屬 3D 角色卡",376,1876);
+  g.textAlign="center";
+  return cv
+}
+function shareText(){
+  const t=D.types[result.type];
+  return "我在【都會生活鏡像測驗】測出：第"+result.type+"型 "+t.n+"（"+t.tag+"）\n專屬九型分析 + 3D 角色卡： "+IG_URL;
+}
+function igShare(){
+  const note=$("#rNote");
+  const show=function(msg,ms){note.innerHTML=msg; note.classList.add("on");
+    if(ms){setTimeout(function(){note.classList.remove("on")},ms)}};
+  show("正在為您生成九型卡牌…",0);
+  igCard().then(function(cv){
+    const fname="firebean-九型卡牌-第"+result.type+"型.png";
+    cv.toBlob(function(blob){
+      if(!blob){ show("卡牌生成失敗，可以再撳一次，或直接截圖分享。",8000); return; }
+      const file=new File([blob],fname,{type:"image/png"});
+      if(navigator.canShare&&navigator.share&&navigator.canShare({files:[file]})){
+        navigator.share({files:[file],text:shareText(),title:"都會生活鏡像測驗"}).then(function(){
+          show("已開啟分享！揀 Instagram 貼上卡牌；記得用 Story 的「連結貼紙」加上 "+IG_URL,10000)
+        })["catch"](function(){show("已取消分享，可以再撳一次。",3000)});
+      }else{
+        const a=document.createElement("a");
+        a.href=URL.createObjectURL(blob); a.download=fname;
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(function(){URL.revokeObjectURL(a.href)},4000);
+        if(navigator.clipboard){try{navigator.clipboard.writeText(shareText())}catch(e){}}
+        show("已下載九型卡牌（1080×1920）並複製文字。<br>開 Instagram → 限時動態 → 上載這張圖 → 用「連結貼紙」貼上 "+IG_URL,14000);
+      }
+    },"image/png",.95);
+  })["catch"](function(){show("卡牌生成失敗，可以再撳一次，或直接截圖分享。",8000)});
 }
 function showResult(){
   if(!result){ $("#resultEmpty").style.display=""; $("#resultBody").style.display="none"; return; }
@@ -1007,26 +1114,24 @@ function showResult(){
   body.innerHTML = typeBlock(result.type) + patternHTML() + evHTML() +
     '<div class="card" style="margin-top:16px">'+ barsHTML() +
       '<div class="btnrow" style="margin-top:16px">'+
-        '<button class="btn primary" id="rShare">分享我的結果</button>'+
-        '<button class="btn ghost" id="rCopy">複製結果文字</button>'+
+        '<button class="btn ghost" id="rShare">分享 WhatsApp</button>'+
+        '<button class="btn primary" id="rIg">分享到 IG</button>'+
         '<button class="btn ghost internal-only" data-go="atlas">閱覽九型圖鑑</button>'+
         '<button class="btn ghost" id="rAgain">重新測驗</button>'+
       '</div>'+
-      '<div class="share-note" id="rNote">已複製！可以直接貼去 WhatsApp／IG。</div>'+
+      '<div class="share-note" id="rNote">分享卡牌給朋友，等更多人一齊玩。</div>'+
     '</div>';
   $("#rAgain").addEventListener("click", function(){
     answers={}; idx=0; result=null; started=0;
     $("#resultBody").style.display="none"; setView("quiz");
   });
-  $("#rCopy").addEventListener("click", function(){
-    navigator.clipboard && navigator.clipboard.writeText(txt).then(function(){
-      const n=$("#rNote"); n.classList.add("on"); setTimeout(function(){n.classList.remove("on")},2600);
-    });
-  });
   $("#rShare").addEventListener("click", function(){
-    if(navigator.share){ navigator.share({title:"都會生活鏡像測驗", text:txt}).catch(function(){}); }
-    else { $("#rCopy").click(); }
+    const note=$("#rNote");
+    window.open("https://wa.me/?text="+encodeURIComponent(shareText()),"_blank","noopener");
+    note.textContent="已為您開啟 WhatsApp，揀聯絡人就可以直接分享（會帶埋問卷連結）。";
+    note.classList.add("on"); setTimeout(function(){note.classList.remove("on")},6000);
   });
+  $("#rIg").addEventListener("click", igShare);
 }
 
 /* ---------- atlas ---------- */
