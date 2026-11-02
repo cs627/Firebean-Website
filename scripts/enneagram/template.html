@@ -492,6 +492,46 @@ footer.foot b{color:var(--ink2)}
   .rail,.mobtop,.actionbar,.btnrow{display:none!important}
   .shell{display:block}.view{display:block!important}
 }
+/* ---------- 揭曉閃卡動畫（答完 20 題） ---------- */
+#flipWrap{position:fixed;inset:0;z-index:80;display:none;align-items:center;justify-content:center;padding:24px;
+  background:radial-gradient(circle at 50% 42%,rgba(30,40,56,.78),rgba(10,14,20,.94))}
+#flipWrap.on{display:flex}
+#flipWrap.out{opacity:0;transition:opacity .38s ease}
+.flipstage{position:relative;width:min(80vw,336px);perspective:1500px}
+.flipcard{position:relative;width:100%;aspect-ratio:5/7;transform-style:preserve-3d;
+  transform:rotateY(0deg) scale(.9);transition:transform 1.3s cubic-bezier(.18,.86,.22,1)}
+.flipcard.spin{transform:rotateY(540deg) scale(1)}
+.flipcard.landed{animation:flipPulse .6s ease-out}
+@keyframes flipPulse{0%{transform:rotateY(540deg) scale(1)}42%{transform:rotateY(540deg) scale(1.065)}100%{transform:rotateY(540deg) scale(1)}}
+.fface{position:absolute;inset:0;border-radius:22px;overflow:hidden;
+  -webkit-backface-visibility:hidden;backface-visibility:hidden;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  box-shadow:0 10px 26px rgba(16,24,36,.22)}
+.fback{background:linear-gradient(158deg,#2E3D52,#18212E);border:1px solid rgba(255,246,232,.16);color:#FFF6E8}
+.fback .fbrand{font-family:Anton,Impact,"Arial Black",sans-serif;font-size:26px;letter-spacing:.06em}
+.fback .fbrand b{color:#E8433C}
+.fback .fq{margin-top:12px;font-size:14px;letter-spacing:.2em;opacity:.82}
+.fback .fcards{position:relative;width:76px;height:98px;margin-top:16px}
+.fback .fcards i{position:absolute;inset:0;border-radius:10px;border:2px solid rgba(255,246,232,.78);background:rgba(255,246,232,.06)}
+.fback .fcards i:first-child{transform:rotate(-13deg) translate(-9px,3px);opacity:.5}
+.fback .fcards i:last-child{transform:rotate(7deg) translate(7px,-2px)}
+.fback .fcards b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:800;color:#FFF6E8;line-height:1}
+.fback .fdot{margin-top:20px;display:flex;gap:9px}
+.fback .fdot i{width:9px;height:9px;border-radius:50%;background:#FFF6E8;opacity:.3;animation:fdot 1s infinite ease-in-out}
+.fback .fdot i:nth-child(2){animation-delay:.16s}
+.fback .fdot i:nth-child(3){animation-delay:.32s}
+@keyframes fdot{0%,100%{opacity:.25;transform:translateY(0)}50%{opacity:1;transform:translateY(-4px)}}
+.ffront{transform:rotateY(180deg);padding:20px 18px;text-align:center;
+  background:linear-gradient(180deg,#FFFDF8,#FFF2E0);border:1px solid rgba(120,92,64,.2)}
+.ffront img{width:84%;max-height:58%;object-fit:contain;border-radius:0;background:transparent;
+  filter:drop-shadow(0 12px 18px rgba(122,92,64,.24))}
+.ffront .fnum{margin-top:6px;font-size:12.5px;letter-spacing:.18em;color:#8A6B4A}
+.ffront .fname{margin-top:3px;font-size:27px;font-weight:800;color:#2E2A26;line-height:1.2}
+.ffront .ftag{margin-top:9px;display:inline-block;padding:5px 12px;border-radius:999px;font-size:13px;
+  background:#EDF6EE;border:1px solid #B9DFC6;color:#2F6B4C}
+.fskip{position:absolute;left:0;right:0;bottom:-42px;text-align:center;font-size:12.5px;color:rgba(255,246,232,.72)}
+@media(max-width:520px){.flipstage{width:min(84vw,300px)}.ffront .fname{font-size:24px}.fskip{bottom:-36px}}
+@media(prefers-reduced-motion:reduce){.flipcard{transition:none}.flipcard.landed{animation:none}.fback .fdot i{animation:none}}
 </style>
 </head>
 <body>
@@ -710,6 +750,26 @@ footer.foot b{color:var(--ink2)}
   </div>
 </div>
 
+<div id="flipWrap" aria-hidden="true">
+  <div class="flipstage">
+    <div class="flipcard" id="flipCard">
+      <div class="fface fback">
+        <div class="fbrand">FIRE<b>BEAN</b></div>
+        <div class="fq">您的九型人格</div>
+        <div class="fcards" aria-hidden="true"><i></i><i></i><b>?</b></div>
+        <div class="fdot"><i></i><i></i><i></i></div>
+      </div>
+      <div class="fface ffront">
+        <img id="flipImg" src="" alt="">
+        <div class="fnum" id="flipNum"></div>
+        <div class="fname" id="flipName"></div>
+        <div class="ftag" id="flipTag"></div>
+      </div>
+    </div>
+    <div class="fskip">輕按畫面即可略過</div>
+  </div>
+</div>
+
 <script>
 const D = /*__DATA__*/;
 (function(){
@@ -755,9 +815,20 @@ const SFX=(function(){
     next:function(){ tone(430,880,.2,"sine",.4) },
     back:function(){ tone(700,400,.18,"sine",.4) },
     open:function(){ tone(520,780,.15,"triangle",.45) },
-    unlock:function(){ [523,659,784,1047].forEach(function(f,i){ tone(f,f,.3,"sine",.58,i*.1) }) }
+    unlock:function(){ [523,659,784,1047].forEach(function(f,i){ tone(f,f,.3,"sine",.58,i*.1) }) },
+    /* 揭曉閃卡：翻卡「唰」一聲 */
+    flip:function(){ tone(300,940,.5,"sawtooth",.2); tone(170,430,.42,"triangle",.15) },
+    /* 隆重登場：上行琶音 + 定音和弦 */
+    fanfare:function(){
+      [523.25,659.25,783.99,1046.5].forEach(function(f,i){ tone(f,f*1.002,.34,"triangle",.62,i*.115) });
+      setTimeout(function(){
+        [523.25,659.25,783.99,1046.5].forEach(function(f){ tone(f,f,.95,"sine",.36) });
+        tone(130.81,130.81,.95,"sine",.22);
+      },520);
+    }
   };
 })();
+window.SFX=SFX;   /* 方便測試與外部呼叫 */
 function sfxUI(){
   document.querySelectorAll(".sfxBtn").forEach(function(b){
     b.textContent = SFX.on()? "🔊":"🔇";
@@ -869,7 +940,7 @@ function pick(q,k){
 function step(d){
   const q=D.questions[idx];
   if(d>0 && !(answers[q.id]&&answers[q.id].length)) return;
-  if(d>0 && idx===D.questions.length-1){ compute(); SFX.unlock(); setView("result"); return; }
+  if(d>0 && idx===D.questions.length-1){ compute(); setView("result"); flipReveal(result.type); return; }
   idx=Math.max(0,Math.min(D.questions.length-1, idx+d));
   if(d>0) SFX.next(); else SFX.back();
   renderQuestion(d);
@@ -1144,6 +1215,41 @@ function igShare(){
     },"image/png",.95);
   })["catch"](function(){show("卡牌生成失敗，可以再撳一次，或直接截圖分享。",8000)});
 }
+/* ---------- 揭曉閃卡：答完 20 題 → 閃卡轉動 → 隆重登場 → 才顯示性格 ---------- */
+function flipReveal(n){
+  const wrap=$("#flipWrap"), card=$("#flipCard");
+  if(!wrap||!card){ try{ SFX.unlock(); }catch(e){} return; }
+  let reduce=false;
+  try{ reduce=!!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) }catch(e){}
+  if(reduce){ try{ SFX.unlock(); }catch(e){} return; }
+  const t=D.types[n];
+  const img=$("#flipImg");
+  if(img){ img.src=(typeof MASCOT==="function"? MASCOT(n) : "img/t"+n+".webp"); img.alt="第 "+n+" 型 3D 都會角色"; }
+  if($("#flipNum")) $("#flipNum").textContent="第 "+n+" 型";
+  if($("#flipName")) $("#flipName").textContent=t.n;
+  if($("#flipTag")) $("#flipTag").textContent=t.tag;
+  card.classList.remove("spin","landed");
+  wrap.classList.remove("out"); wrap.classList.add("on"); wrap.setAttribute("aria-hidden","false");
+  void card.offsetWidth;                        // 強制 reflow，令 0deg → 540deg 真正有過場
+  try{ SFX.flip(); }catch(e){}
+  card.classList.add("spin");
+  let done=false, a=0, b=0;
+  const finish=function(){
+    if(done) return; done=true; clearTimeout(a); clearTimeout(b);
+    wrap.classList.add("out");
+    setTimeout(function(){
+      wrap.classList.remove("on","out"); wrap.setAttribute("aria-hidden","true");
+      card.classList.remove("spin","landed");
+    },380);
+  };
+  a=setTimeout(function(){ card.classList.add("landed"); try{ SFX.fanfare(); }catch(e){} },1300);
+  b=setTimeout(finish,2280);
+  const skip=function(){ clearTimeout(a); clearTimeout(b); card.classList.add("spin","landed");
+    try{ SFX.fanfare(); }catch(e){} finish(); };
+  wrap.addEventListener("click", skip);
+  wrap.addEventListener("keydown", function(e){ if(e.key==="Enter"||e.key===" ") skip() });
+}
+window.__flipReveal = flipReveal;
 function showResult(){
   if(!result){ $("#resultEmpty").style.display=""; $("#resultBody").style.display="none"; return; }
   $("#resultEmpty").style.display="none";
