@@ -113,9 +113,9 @@ body:not(.team-access) .internal-only{display:none!important}
   background:rgba(122,92,64,.22);filter:blur(9px)}
 .mascot{position:relative;width:100%;height:100%;object-fit:contain;display:block;
   filter:drop-shadow(0 16px 20px rgba(122,92,64,.26))}
-/* 9 型角色卡：相片為白底 4:5 人像，故以圓角白框承載，後面留一圈型格色光暈 */
-.mascot-wrap>.mascot{object-fit:cover;border-radius:26px;background:#fff;
-  box-shadow:0 15px 30px rgba(122,92,64,.22),0 0 0 4px rgba(255,255,255,.92)}
+/* 9 型角色圖：透明底 PNG（原圖自帶白字，唔可以再加白卡／白框遮住），只留型格色光暈 */
+.mascot-wrap>.mascot{object-fit:contain;border-radius:0;background:transparent;
+  filter:drop-shadow(0 14px 20px rgba(122,92,64,.26))}
 
 /* ---------- 動效 ---------- */
 @keyframes qInFwd{from{opacity:0;transform:translateX(30px) scale(.985)}to{opacity:1;transform:none}}
@@ -210,7 +210,20 @@ body:not(.team-access) .internal-only{display:none!important}
 .rhero .chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:14px}
 .chip{font-size:12.5px;font-weight:800;background:#FFFDF8;border:1.5px solid var(--line);
   border-radius:999px;padding:6px 12px;box-shadow:0 3px 0 #F0E4D2}
-.rhero .cap3d{font-size:12.5px;color:var(--muted);font-weight:700;margin-top:10px}
+.rhero .cap3d{font-size:18.75px;color:var(--muted);font-weight:700;margin-top:14px}
+/* 結果卡角色：直接用 PNG、放大約 2 倍、可以行出淡藍色卡外；字體放大 1.5 倍 */
+.rhero{overflow:visible}
+.rhero:before{inset:auto 5% -14% auto;width:210px;height:210px}
+.rhero .mascot-wrap{width:min(84vw,306px);margin:-10px auto 12px}
+/* 平板：角色放到接近 2 倍，卡片夠闊所以唔會撞到頂欄 */
+@media(min-width:700px) and (max-width:899px){.rhero .mascot-wrap{width:420px;margin:0 auto 12px}}
+.rhero .mascot-wrap>.mascot{object-fit:contain}
+.rhero .badge{font-size:21px;padding:10px 22px;gap:11px}
+.rhero .tn{font-size:clamp(36px,9.6vw,54px);margin:14px 0 3px}
+.rhero .en{font-size:19.5px}
+.rhero .rep{font-size:24px;margin-top:16px;max-width:40ch}
+.rhero .chips{gap:11px;margin-top:20px}
+.rhero .chip{font-size:18.75px;padding:9px 17px}
 .rgrid{display:grid;gap:14px;margin-top:16px}
 .sec{background:var(--card);border:1.5px solid var(--line2);border-radius:var(--r);padding:17px 16px;box-shadow:var(--sh)}
 .sec h3{display:flex;align-items:center;gap:9px;margin-bottom:8px}
@@ -313,9 +326,11 @@ svg.chart{width:100%;height:auto;display:block;overflow:visible}
 .bar .fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#E9DCC9,#D9CBB6);transition:width .6s cubic-bezier(.3,1.2,.5,1)}
 .bar.me .fill{background:linear-gradient(90deg,#B9E4CC,#7FC5A2)}
 .bar .lab{position:absolute;left:12px;top:0;height:100%;display:flex;align-items:center;font-size:12.5px;
-  font-weight:800;color:#5C4630;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:calc(100% - 54px)}
+  font-weight:800;color:#5C4630;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:calc(100% - 108px)}
 .bar .val{position:absolute;right:12px;top:0;height:100%;display:flex;align-items:center;font-size:12.5px;
   font-weight:800;color:#5C4630;font-variant-numeric:tabular-nums}
+.bar .val .pc{display:inline-block;margin-left:6px;font-size:11.5px;font-weight:800;color:#8A6A44;
+  background:#F3E4CD;border-radius:999px;padding:1px 7px}
 .share-note{display:none;margin-top:10px;font-size:13.5px;color:#3E7A5E;font-weight:800}
 .share-note.on{display:block}
 
@@ -330,8 +345,8 @@ svg.chart{width:100%;height:auto;display:block;overflow:visible}
 .acard .amasc{position:relative;width:108px;aspect-ratio:4/5;margin:4px auto 10px}
 .acard .amasc:before{content:"";position:absolute;inset:-9%;border-radius:24px;background:var(--blob,#FFE39B);
   opacity:.6;filter:blur(13px)}
-.acard .amasc img{position:relative;width:100%;height:100%;object-fit:cover;border-radius:18px;display:block;
-  background:#fff;box-shadow:0 10px 20px rgba(122,92,64,.2),0 0 0 3px rgba(255,255,255,.92)}
+.acard .amasc img{position:relative;width:100%;height:100%;object-fit:contain;border-radius:0;display:block;
+  background:transparent;filter:drop-shadow(0 9px 14px rgba(122,92,64,.24))}
 .acard .an{font-size:12.5px;font-weight:800;color:var(--muted);letter-spacing:.06em}
 .acard .at{font-size:18px;font-weight:800;margin:2px 0 3px}
 .acard .ae{font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:800}
@@ -417,22 +432,21 @@ footer.foot b{color:var(--ink2)}
   .hero-intro .hero-mascot{width:230px;margin-top:-4px}
   .kv{grid-template-columns:1fr 1fr;gap:12px 26px}
   .modal{padding:40px}
-  .rhero{padding:30px 34px}
-  .rhero .mascot-wrap{width:230px}
-  .rhero{display:grid;grid-template-columns:230px minmax(0,1fr);gap:26px;align-items:center;text-align:left}
-  .rhero .mascot-wrap{margin:0}
+  .rhero{padding:34px 38px}
+  .rhero{display:grid;grid-template-columns:minmax(300px,420px) minmax(0,1fr);gap:30px;align-items:center;text-align:left}
+  .rhero .mascot-wrap{width:420px;margin:-62px 0 -54px;justify-self:center}
   .rhero .chips,.rhero .badge{justify-content:flex-start}
   .rhero .rep{margin-left:0}
   .proposalGrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   .proposalGrid .pblock{margin:0}
 }
 @media(max-width:560px){
-  .infostrip{grid-template-columns:1fr;gap:9px;margin:16px 0 4px}
-  .infostrip .info{display:grid;grid-template-columns:48px 1fr;gap:13px;text-align:left;
-    align-items:center;padding:12px 14px}
-  .infostrip .info>.ic{grid-row:span 2;margin:0;align-self:center;justify-self:center}
-  .infostrip .info b{margin-top:0}
-  .infostrip .info>span:not(.ic){margin-top:2px}
+  /* 手機：由三行改為三欄按鈕（icon 在上、文字在下） */
+  .infostrip{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:16px 0 4px}
+  .infostrip .info{display:block;text-align:center;padding:12px 7px 11px;border-radius:15px}
+  .infostrip .info>.ic{margin:0 auto}
+  .infostrip .info b{font-size:13.5px;margin-top:8px;line-height:1.25}
+  .infostrip .info>span:not(.ic){font-size:11px;margin-top:4px;line-height:1.45}
 }
 @media (min-width:1360px){
   .wrap{max-width:1180px}
@@ -475,7 +489,7 @@ footer.foot b{color:var(--ink2)}
     <div class="mobtop">
       <div class="mt-row">
         <span class="mt-t" id="mobTitle">都會生活鏡像測驗</span>
-        <button class="mt-link" data-go="intro">簡介</button>
+        <button class="mt-link" data-go="intro">主頁</button>
         <button class="mt-link internal-only" data-go="atlas">圖鑑</button>
         <button id="sfxBtn" class="sfxBtn mt-link" type="button" aria-pressed="true" aria-label="音效開關">🔊</button>
       </div>
@@ -942,7 +956,7 @@ function evHTML(){
   h+='<div class="small muted" style="margin:0 0 4px">您的 20 題之中，以下幾項最直接扣連您所屬的型（按關聯度排序）：</div>';
   rows.forEach(function(x){
     h+='<div class="evRow"><span class="evQ">'+x.q+'</span>'+
-       '<span class="evA">您選擇了「<b>'+x.label+'</b>」</span></div>';
+       '<span class="evA">您選擇了 <b>'+x.label+'</b></span></div>';
   });
   const w=r2w();
   h+='<div class="evNote">→ 這些選擇互相扣連，因此系統判定您的核心為「'+t.n+'」，'+(w||"而非單靠一題即作定論")+'。</div></div>';
@@ -956,12 +970,13 @@ function r2w(){
 function barsHTML(){
   if(!result) return "";
   const s=result.scores, mx=result.topScore;
-  let h='<h3 style="margin-top:4px">九型分數分佈</h3><div class="small muted" style="margin:-4px 0 10px">分數最高者為您的主型；同一能量中心內的鄰型，通常是您最易產生共鳴的處事方式。</div><div class="bars">';
+  const sum=Object.keys(s).reduce(function(a,k){return a+(s[k]||0)},0)||1;
+  let h='<h3 style="margin-top:4px">九型分數分佈</h3><div class="small muted" style="margin:-4px 0 10px">分數最高者為您的主型；同一能量中心內的鄰型，通常是您最易產生共鳴的處事方式。括號內百分比＝該型分數佔您九型總分（'+sum+' 分）的比例，加起來為 100%。</div><div class="bars">';
   for(let n=1;n<=9;n++){
-    const p=Math.round(s[n]/mx*100);
-    h+='<div class="bar'+(n===result.type?" me":"")+'" title="第'+n+'型 '+D.types[n].n+'：'+s[n]+' 分">'+
+    const p=Math.round(s[n]/mx*100), pc=Math.round((s[n]||0)/sum*100);
+    h+='<div class="bar'+(n===result.type?" me":"")+'" title="第'+n+'型 '+D.types[n].n+'：'+s[n]+' 分（'+pc+'%）">'+
       '<span class="tn">'+n+'</span><span class="track"><span class="fill" style="width:'+Math.max(6,p)+'%"></span>'+
-      '<span class="lab">'+D.types[n].n+'</span><span class="val">'+s[n]+'</span></span></div>';
+      '<span class="lab">'+D.types[n].n+'</span><span class="val">'+s[n]+'<span class="pc">'+pc+'%</span></span></span></div>';
   }
   h+='</div>';
   return h;
