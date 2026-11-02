@@ -314,6 +314,18 @@ svg.chart{width:100%;height:auto;display:block;overflow:visible}
 .evA{font-size:15.5px;color:var(--ink)}
 .evA b{color:#2F6B4F;background:#EFF8F2;border-left:3px solid #7FBF9C;border-radius:6px;
   padding:3px 8px;display:inline-block;margin-top:3px;font-weight:800}
+.evTh{padding:11px 0 3px;border-top:1px dashed var(--line2)}
+.evTh:first-of-type{border-top:0;padding-top:2px}
+.evTh>b{display:block;font-size:14.5px;color:#8A6A24;font-weight:800;letter-spacing:.2px;margin-bottom:5px}
+.evRead{font-size:15px;color:#33523F;background:#F4FAF6;border-left:3px solid #7FBF9C;border-radius:0 10px 10px 0;
+  padding:10px 13px;margin-top:7px;line-height:1.65}
+.evJudge{margin-top:12px;padding:12px 14px;background:linear-gradient(180deg,#FFFBEF,#FFF5E0);border:1.5px solid #F0E2C2;
+  border-radius:12px;font-size:15.5px;line-height:1.66;color:#4A3A22}
+.evJudge b{color:#8A6A24}
+.evArrow{margin-top:10px;padding:11px 14px;background:#F7F2FF;border:1.5px solid #E2D8F7;border-radius:12px;
+  font-size:14.5px;line-height:1.64;color:#4B3E6B}
+.evArrow b{color:#5B4691}
+.evCaveat{margin-top:10px;font-size:12.5px;color:var(--muted);line-height:1.6}
 .evNote{margin-top:10px;padding-top:10px;border-top:1.5px solid var(--line2);font-size:15px;color:#33523F}
 .centerline{display:flex;gap:12px;align-items:center;background:var(--card);border:1.5px solid var(--line2);
   border-radius:var(--r);padding:14px 16px;margin-top:16px;box-shadow:var(--sh)}
@@ -973,24 +985,58 @@ function patternHTML(){
   h+='</div>';
   return h;
 }
+const THEMES=[
+  {k:"risk",  t:"① 面對風險與不確定", qs:["risk","concern"]},
+  {k:"info",  t:"② 您如何接收政策資訊", qs:["channel","booklet_habit","limitation","seminar","element","style"]},
+  {k:"pace",  t:"③ 行動節奏與接受新方式", qs:["handling","transit","duration","shortform","dramareact","accept"]},
+  {k:"system",t:"④ 您與制度之間的距離", qs:["aware","holding","souvenir_effect","souvenir_type"]}
+];
+/* 每個層面列出最多 2 個您實際揀過、而該題本身有助判別的答案 */
+function evPicks(qids, n, k){
+  const rows=[];
+  qids.forEach(function(id){
+    const q=D.questions.filter(function(x){return x.id===id})[0]; if(!q) return;
+    (answers[id]||[]).forEach(function(key){
+      const o=(q.options||[]).filter(function(x){return x.k===key})[0]; if(!o) return;
+      const w=(o.w&&o.w[n])||0;
+      const spread=Math.max.apply(null,Object.keys(o.w||{a:0}).map(function(z){return o.w[z]||0}))
+                 - Math.min.apply(null,Object.keys(o.w||{a:0}).map(function(z){return o.w[z]||0}));
+      if(w<=0) return;
+      rows.push({w:w, sp:spread, q:(q.short||q.text), label:o.label});
+    });
+  });
+  /* 先按「對主型的訊號」排，再按「該題的鑑別力」排 */
+  rows.sort(function(a,b){ return (b.w+b.sp/10)-(a.w+a.sp/10) });
+  return rows.slice(0,k||2);
+}
 function evHTML(){
   if(!result) return "";
-  const rows=evidence(result.type,3), t=D.types[result.type];
-  if(!rows.length) return "";
-  let h='<div class="ev"><h3>◉ 您的答案如何組合出『第 '+result.type+' 型 '+t.n+'』</h3>';
-  h+='<div class="small muted" style="margin:0 0 4px">您的 20 題之中，以下幾項最直接扣連您所屬的型（按關聯度排序）：</div>';
-  rows.forEach(function(x){
-    h+='<div class="evRow"><span class="evQ">'+x.q+'</span>'+
-       '<span class="evA">您選擇了 <b>'+x.label+'</b></span></div>';
+  const r=result, t=D.types[r.type], sc=r.scores, s2=D.types[r.second];
+  let h='<div class="ev"><h3>◉ 系統如何從 20 題讀出「第 '+r.type+' 型 '+t.n+'」</h3>'+
+    '<div class="small muted" style="margin:0 0 8px">我們不靠單一題目定論：先把您 20 題的答案分成四個層面，每個層面都選取您實際答過的答案，再看哪一型的回應模式最一致 —— 即使題目本身與土地註冊有關，答案一樣反映您的處事取向。</div>';
+  THEMES.forEach(function(th){
+    const picks=evPicks(th.qs, r.type, 2);
+    h+='<div class="evTh"><b>'+th.t+'</b>';
+    picks.forEach(function(x){
+      h+='<div class="evRow"><span class="evQ">'+x.q+'</span><span class="evA">您選擇了 <b>'+x.label+'</b></span></div>';
+    });
+    if(!picks.length) h+='<div class="evRow"><span class="evQ">（本層面沒有已作答的題目）</span></div>';
+    const rd=(t.read&&t.read[th.k])||"";
+    if(rd) h+='<div class="evRead">'+rd+'</div>';
+    h+='</div>';
   });
-  const w=r2w();
-  h+='<div class="evNote">→ 這些選擇互相扣連，因此系統判定您的核心為「'+t.n+'」，'+(w||"而非單靠一題即作定論")+'。</div></div>';
+  h+='<div class="evJudge"><b>整合判斷</b>　四個層面同時指向同一種相處方式：<b>'+t.judge+'</b>。<br>'+
+     '因此系統判定您的核心為「第 '+r.type+' 型 '+t.n+'」（'+sc[r.type]+' 分，第二位第 '+r.second+' 型 '+s2.n+' '+sc[r.second]+' 分，相差 '+r.gap+' 分）—— '+strengthLabel(r.gap)+'。</div>';
+  if(t.core) h+='<div class="evJudge" style="margin-top:8px"><b>這一型的核心動力</b><br>渴望：'+t.core.desire+'<br>恐懼：'+t.core.fear+'</div>';
+  const w2=(r.wing||r.second), g=t.arrow?t.arrow.grow:null, st=t.arrow?t.arrow.stress:null;
+  let line;
+  if(w2===g) line='第 '+w2+' 型偏偏就是第 '+r.type+' 型<b>狀態良好、感到安全時</b>的發展方向（'+r.type+'→'+w2+'）：您一旦覺得放心，又想做出成績，就會自然切換成第 '+w2+' 型的節奏 —— '+D.types[w2].tag+'。';
+  else if(w2===st) line='觀察到的第二位是第 '+w2+' 型，正好是第 '+r.type+' 型<b>壓力大、繃緊時</b>會走去的方向（'+r.type+'→'+w2+'）：當事情失控或壓力堆積，您便會浮現第 '+w2+' 型的反應。';
+  else line='第二位的第 '+w2+' 型既不是第 '+r.type+' 型的鄰型，也不是發展或壓力方向，因此它屬於您平時不以為意、但在特定情境（例如工作上要交出成績、或面對家人）才會啟動的第二套模式。';
+  h+='<div class="evArrow"><b>'+(r.wing?("翼型 "+r.type+"w"+r.wing):("隱藏的一面：第 "+r.second+" 型 "+s2.n))+'</b><br>'+line+'</div>';
+  h+='<div class="evCaveat">此為方向性判讀，並非臨床心理診斷：九型看的是「您習慣怎樣應對」，而不是「您是哪一種人」。如果覺得不太像，可以留意自己壓力最大時的反應 —— 那個通常最接近真實的自己。</div>';
+  h+='</div>';
   return h;
-}
-function r2w(){
-  const r=result; if(!r) return "";
-  if(r.wing) return '同時帶有 '+r.type+'w'+r.wing+' 的行為傾向';
-  return '並隱藏著第 '+r.second+' 型 '+D.types[r.second].n+' 的一面';
 }
 function barsHTML(){
   if(!result) return "";
