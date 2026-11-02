@@ -1009,7 +1009,7 @@ function barsHTML(){
 }
 /* ---------- 分享到 IG：即場生成 1080×1920 卡牌（附 QR + 連結） ---------- */
 const IG_URL="https://firebean.net/enneagram/";
-const IGC={head:"#A9CBEF",heart:"#FFC3A0",gut:"#A8D8BE"};
+const IGC={head:"#9CC0EC",heart:"#F0AD84",gut:"#93CBA9"};
 function igFont(px,w){return (w||800)+" "+px+"px -apple-system,BlinkMacSystemFont,'PingFang HK','Noto Sans HK','Noto Sans TC','Microsoft JhengHei','Heiti TC',sans-serif"}
 function rrect(g,x,y,w,h,r){g.beginPath();g.moveTo(x+r,y);g.arcTo(x+w,y,x+w,y+h,r);g.arcTo(x+w,y+h,x,y+h,r);g.arcTo(x,y+h,x,y,r);g.arcTo(x,y,x+w,y,r);g.closePath()}
 function fitLines(g,text,maxW,font,maxLines){
@@ -1029,10 +1029,10 @@ async function igCard(){
   const bg=g.createLinearGradient(0,0,0,1920);
   bg.addColorStop(0,"#FFFCF6"); bg.addColorStop(.5,"#FDF4E6"); bg.addColorStop(1,"#F4E4CE");
   g.fillStyle=bg; g.fillRect(0,0,1080,1920);
-  g.globalAlpha=.42; g.fillStyle="#FFE6B8"; g.beginPath(); g.arc(930,250,300,0,6.3); g.fill();
-  g.fillStyle="#DFF3E7"; g.beginPath(); g.arc(120,1610,330,0,6.3); g.fill(); g.globalAlpha=1;
+  g.globalAlpha=.42; g.fillStyle="#FFE6B8"; g.beginPath(); g.arc(930,240,300,0,6.3); g.fill();
+  g.fillStyle="#DFF3E7"; g.beginPath(); g.arc(120,1560,330,0,6.3); g.fill(); g.globalAlpha=1;
   /* 角色底板：淺色圓角卡，令圖內白字仍然可見 */
-  const px=140,py=270,pw=800,ph=880;
+  const px=140,py=376,pw=800,ph=690;
   g.save(); g.shadowColor="rgba(122,92,64,.20)"; g.shadowBlur=46; g.shadowOffsetY=16;
   rrect(g,px,py,pw,ph,76); g.fillStyle=IGC[t.center]||"#FFE39B"; g.fill(); g.restore();
   try{const im=await imgLoad(MASCOT(n));
@@ -1040,34 +1040,34 @@ async function igCard(){
     const w=im.naturalWidth*r, h=im.naturalHeight*r;
     g.drawImage(im,px+(pw-w)/2,py+(ph-h)/2,w,h)}catch(e){}
   /* 品牌字 */
-  g.textAlign="left"; g.font="40px Anton,Impact,sans-serif";
+  g.textAlign="left"; g.font="46px Anton,Impact,sans-serif";
   const w1=g.measureText("FIRE").width;
   const sx=540-(w1+g.measureText("BEAN").width)/2;
-  g.fillStyle="#3A2A1E"; g.fillText("FIRE",sx,196);
-  g.fillStyle="#E4442E"; g.fillText("BEAN",sx+w1,196);
+  g.fillStyle="#3A2A1E"; g.fillText("FIRE",sx,276);
+  g.fillStyle="#E4442E"; g.fillText("BEAN",sx+w1,276);
   g.textAlign="center";
-  g.fillStyle="#8A6A44"; g.font=igFont(28,800); g.fillText("土 地 註 冊 處 × 九 型 人 格 決 策 風 格 探 索",540,158);
+  g.fillStyle="#8A6A44"; g.font=igFont(28,800); g.fillText("土 地 註 冊 處 × 九 型 人 格 決 策 風 格 探 索",540,340);
   const bt="第 "+n+" 型 ・ "+c.n;
   g.font=igFont(32,800);
   const bw=g.measureText(bt).width+60;
-  rrect(g,540-bw/2,1190,bw,68,34); g.fillStyle="#FFFDF8"; g.fill();
+  rrect(g,540-bw/2,1098,bw,68,34); g.fillStyle="#FFFDF8"; g.fill();
   g.strokeStyle="#E7D6BC"; g.lineWidth=3; g.stroke();
-  g.fillStyle="#7A5C40"; g.fillText(bt,540,1238);
-  g.fillStyle="#3A2A1E"; g.font=igFont(104,800); g.fillText(t.n,540,1352);
-  g.fillStyle="#8A6A44"; g.font=igFont(30,700); g.fillText(t.en,540,1404);
+  g.fillStyle="#7A5C40"; g.fillText(bt,540,1146);
+  g.fillStyle="#3A2A1E"; g.font=igFont(100,800); g.fillText(t.n,540,1258);
+  g.fillStyle="#8A6A44"; g.font=igFont(30,700); g.fillText(t.en,540,1308);
   g.fillStyle="#5C4630";
   const rl=fitLines(g,t.rep,880,igFont(40,700),2);
-  rl.forEach(function(l,i){g.fillText(l,540,1468+i*54)});
-  const ty=(rl.length>1?1586:1536);
+  rl.forEach(function(l,i){g.fillText(l,540,1372+i*54)});
+  const ty=(rl.length>1?1452:1398);
   g.font=igFont(38,800); const tw=g.measureText(t.tag).width+64;
   rrect(g,540-tw/2,ty,tw,76,38); g.fillStyle="#FFF3DA"; g.fill();
   g.strokeStyle="#EBD3A8"; g.lineWidth=3; g.stroke();
   g.fillStyle="#7A5C40"; g.fillText(t.tag,540,ty+52);
-  try{const q=await imgLoad("img/qr.png"); g.drawImage(q,132,1700,206,206)}catch(e){}
+  try{const q=await imgLoad("img/qr.png"); g.drawImage(q,140,1558,158,158)}catch(e){}
   g.textAlign="left";
-  g.fillStyle="#3A2A1E"; g.font=igFont(38,800); g.fillText("掃碼即玩 5 分鐘",376,1766);
-  g.fillStyle="#2F6B4C"; g.font=igFont(44,800); g.fillText("firebean.net/enneagram",376,1828);
-  g.fillStyle="#8A6A44"; g.font=igFont(28,700); g.fillText("全程匿名 · 即時取得專屬 3D 角色卡",376,1876);
+  g.fillStyle="#3A2A1E"; g.font=igFont(36,800); g.fillText("掃碼即玩 5 分鐘",336,1606);
+  g.fillStyle="#2F6B4C"; g.font=igFont(44,800); g.fillText("firebean.net/enneagram",336,1666);
+  g.fillStyle="#8A6A44"; g.font=igFont(28,700); g.fillText("全程匿名 · 即時取得專屬 3D 角色卡",336,1710);
   g.textAlign="center";
   return cv
 }
@@ -1094,7 +1094,7 @@ function igShare(){
         a.href=URL.createObjectURL(blob); a.download=fname;
         document.body.appendChild(a); a.click(); a.remove();
         setTimeout(function(){URL.revokeObjectURL(a.href)},4000);
-        if(navigator.clipboard){try{navigator.clipboard.writeText(shareText())}catch(e){}}
+        if(navigator.clipboard&&navigator.clipboard.writeText){try{navigator.clipboard.writeText(shareText()).catch(function(){})}catch(e){}}
         show("已下載九型卡牌（1080×1920）並複製文字。<br>開 Instagram → 限時動態 → 上載這張圖 → 用「連結貼紙」貼上 "+IG_URL,14000);
       }
     },"image/png",.95);
