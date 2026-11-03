@@ -25,7 +25,7 @@ const CFG = {
   SHEET_ID      : '1o88_EyWURlu9vJnkCU4gTFG5OnoOSjGmXq7jekERTD4',
   MANAGER_EMAIL : 'dickson@firebean.net',
   DOMAIN        : 'firebean.net',
-  BUILD         : 'build-2026-10-26d',
+  BUILD         : 'build-2026-10-26e',
   TZ            : 'Asia/Hong_Kong',
   CALENDAR_ID   : 'primary',
   // 年假一律以 0.5 日為單位
@@ -46,6 +46,10 @@ const CFG = {
   // （正數結餘先受限；負數／超用會一直帶落去，唔會過期消失）
   CARRY_FORWARD : true,
   CARRY_MONTHS  : 2,
+  // 系統正式起算日：呢日之前嘅年度一律唔計，亦唔會帶落嚟。
+  // 公司 2026 年 1 月正式啟用 → 2025 年度剩餘年假唔會結轉到 2026（餘數當零）。
+  // 由 2026 年度起，年度結餘照正常規矩帶落下一度（2027 年起適用 2 月底期限）。
+  SYSTEM_START  : '2026-01-01',
   // true = 測試模式：唔會真發 email、唔會真建日曆（副本測試用）
   // ⚠️ 正式上線前改成 false，否則同事唔會收到通知、日曆唔會有記錄
   DRY_RUN : false,
@@ -1094,11 +1098,18 @@ function _carryIn(email, today) {
     note(_date(r[1]));
   });
   if (!earliest) return { days: 0, raw: 0, expired: false, expiry: '', detail: [] };
+  // 系統起算年之後嘅年度已經係最新一年 → 完全冇結轉（2026 年全年都走呢條路）
+  if (winStart.getFullYear() <= Number(String(CFG.SYSTEM_START || '1970-01-01').slice(0, 4))) {
+    return { days: 0, raw: 0, expired: false, expiry: _carryExpiry(winStart), detail: [] };
+  }
 
   let carry = 0;
   const detail = [];
   const lastY = winStart.getFullYear() - 1;
-  for (let y = earliest.getFullYear(); y <= lastY; y++) {
+  const sysY  = Number(String(CFG.SYSTEM_START || '1970-01-01').slice(0, 4));
+  // 唔可以由系統起算年之前開始結轉（2025 年及之前嘅年度唔計）
+  const startY = Math.max(earliest.getFullYear(), sysY);
+  for (let y = startY; y <= lastY; y++) {
     const from = new Date(y, 0, 1);
     const to   = new Date(y + 1, 0, 1);
     const acc  = _accruedForYear(email, y);
