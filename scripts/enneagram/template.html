@@ -1458,10 +1458,10 @@ function analysisBuild(){
   const conf = T>=30? ["統計可靠","ok"] : (T>=10? ["初步趨勢",""] : ["初步觀察（樣本未夠，只作方向參考）","low"]);
   const days=Object.keys(s.daily||{}).length;
   const period=days? (Object.keys(s.daily)[0]+" 至 "+Object.keys(s.daily)[Object.keys(s.daily).length-1]) : "—";
-  const avgT=s.avg_elapsed_sec||0;
+  const avgT=s.median_elapsed_sec||s.avg_elapsed_sec||0;   // 用中位數，抗離群值
 
   sec("一、樣本與代表性", [
-    "累計樣本 "+T+" 份，收集期間 "+period+"（共 "+days+" 個活躍日）；平均作答時間約 "+(avgT? Math.round(avgT)+" 秒（約 "+(avgT/60).toFixed(1)+" 分鐘）":"未記錄")+"。",
+    "累計樣本 "+T+" 份，收集期間 "+period+"（共 "+days+" 個活躍日）；一般作答時間（中位數）約 "+(avgT? Math.round(avgT)+" 秒（約 "+(avgT/60).toFixed(1)+" 分鐘）":"未記錄")+"。",
     T<30? "樣本量仍然偏少，以下百分比僅反映已收集數據的方向，未足以代表全港；建議樣本達 30 份以上再作正式引用。"
         : "樣本量已達初步可引用水平，建議配合抽樣來源說明（渠道、時間）一併呈交。"
   ]);
@@ -1538,7 +1538,7 @@ function renderDash(s){
     topType = "第 "+ties.join(" / ")+" 型"+(ties.length>1?" 並列 ":" ")+fpct(DASH.types[t0],typeBase);
   }
   const kpi=[["收集日數",Object.keys(DASH.daily||{}).length+" 日"],
-             ["平均作答",(DASH.avg_elapsed_sec? Math.round(DASH.avg_elapsed_sec/60*10)/10+" 分鐘" : "—")],
+             ["作答時間中位數",(DASH.median_elapsed_sec||DASH.avg_elapsed_sec? Math.round((DASH.median_elapsed_sec||DASH.avg_elapsed_sec)/60*10)/10+" 分鐘" : "—")],
              ["最多人的一型（佔已判型者）",topType]];
   $("#dKpis").innerHTML=kpi.map(function(k){ return '<div class="kpi"><div class="n">'+k[1]+'</div><div class="l">'+k[0]+'</div></div>' }).join("");
   $("#dTrend").innerHTML=svgLine(DASH.cumulative||[]);
