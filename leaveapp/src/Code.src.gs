@@ -71,7 +71,9 @@ const T = {
   STAFF : 'Staff',
   REQ   : 'Requests',
   HOL   : 'HK_Holidays',
-  HIST  : 'Entitlement_History'
+  HIST  : 'Entitlement_History',
+  KEYS  : 'Session_Keys',   // Key | Email | Note | Added  （瀏覽器 ↔ 員工對應，由管理員加）
+  DIAG  : 'Diag'            // 讀唔到身份時自動記錄（技術資料，無同事資料）
 };
 
 // Requests 欄位（1-based），對應你現有 15 欄格式 —— 唔可以改次序
@@ -263,12 +265,25 @@ function doGet(e) {
       let rows = -1, shName = '';
       try { const r = _read(T.STAFF); rows = r.rows.length; shName = _ss().getName(); } catch (x) { err += 'sheet:' + x.message + ' '; }
       const match = rows > 0 && act ? _read(T.STAFF).rows.filter(r => String(r[0]).toLowerCase().trim() === act.toLowerCase().trim()).length : 0;
+      let diagWrite = '';
+      if (String(e.parameter.log) === '1') { diagWrite = _diagLog(act, tmpKey, 'selftest'); }
+      let whoVerified = '';
+      if (e.parameter.who) { try { whoVerified = _verifyWho(JSON.parse(e.parameter.who)); } catch (x) { whoVerified = 'parse-err'; } }
       const out = { build: CFG.BUILD, activeUser: act, effectiveUser: eff, tmpKey: tmpKey,
-                    staffRows: rows, sheetName: shName, matched: match, error: err };
+                    staffRows: rows, sheetName: shName, matched: match, diagWrite: diagWrite,
+                    whoVerified: whoVerified, error: err };
       return ContentService.createTextOutput(JSON.stringify(out)).setMimeType(ContentService.MimeType.JSON);
     }
   } catch (x) {}
-  const html = Utilities.newBlob(Utilities.base64Decode(HTML_B64)).getDataAsString('UTF-8');
+  let html = Utilities.newBlob(Utilities.base64Decode(HTML_B64)).getDataAsString('UTF-8');
+  // 頂層請求（cookie 一定帶到）讀到嘅身份 → 簽名後交畀前端，之後每個呼叫都帶返嚟，
+  // 咁就唔怕 iframe 內部（第三方 cookie 被 block 時）讀唔到身份。
+  try {
+    const srvWho = _activeEmail();
+    const inj = '<script>window.__SRVWHO=' + JSON.stringify(srvWho) + ';window.__WHO=' +
+                JSON.stringify(srvWho ? { e: srvWho, t: _sign(srvWho) } : null) + ';</script>';
+    if (html.indexOf('</head>') > 0) html = html.replace('</head>', inj + '</head>');
+  } catch (x) {}
   return HtmlService.createHtmlOutput(html)
     .setTitle('Firebean Leave App')
     .addMetaTag('viewport', 'width=device-width, initial-scale=1, viewport-fit=cover');
@@ -306,7 +321,7 @@ function diagnose() {
   out.push('');
   try { line('Email 剩餘配額', MailApp.getRemainingDailyQuota()); }
   catch (e) { line('Email 配額', '❌ ' + e.message); }
-  try { line('登入帳號', _activeEmail()); } catch (e) {}
+  try { line('登入帳號', _whoami()); } catch (e) {}
 
   out.push('');
   out.push('最近 5 個請求：');
@@ -332,15 +347,100 @@ function _appUrl() {
   try { return String(ScriptApp.getService().getUrl() || ''); } catch (e) { return ''; }
 }
 
-function getSession() {
+// ---- 簽名身份（doGet 頂層請求一定有身份；iframe 內部 google.script.run 有時攞唔到）----
+function _signKey() {
+  const ps = PropertiesService.getScriptProperties();
+  let k = ps.getProperty('WHO_SIGN_KEY');
+  if (!k) { k = Utilities.getUuid() + Utilities.getUuid(); ps.setProperty('WHO_SIGN_KEY', k); }
+  return k;
+}
+function _sign(email) {
+  const key = _signKey();
+  return Utilities.base64EncodeWebSafe(Utilities.computeHmacSha256Signature(
+    String(email).toLowerCase().trim() + '|' + _dayKey(), key));
+}
+function _dayKey() {
+  const d = new Date();
+  return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+}
+// who = { e: email, t: 簽名 }；只接受今日或昨日簽發嘅簽名
+function _verifyWho(who) {
+  try {
+    if (!who || !who.e || !who.t) return '';
+    const e = String(who.e).toLowerCase().trim();
+    if (!e || e.indexOf('@') < 0) return '';
+    if (String(_sign(e)) === String(who.t)) return e;
+    const y = new Date(Date.now() - 86400000);
+    const yk = y.getFullYear() + '-' + (y.getMonth() + 1) + '-' + y.getDate();
+    const yt = Utilities.base64EncodeWebSafe(Utilities.computeHmacSha256Signature(
+      e + '|' + yk, _signKey()));
+    if (String(yt) === String(who.t)) return e;
+  } catch (x) {}
+  return '';
+}
+
+// 匿名瀏覽器指紋（Session 讀唔到 email 時，用嚟認返同一個瀏覽器）
+function _tmpKey() {
+  try { return String(Session.getTemporaryActiveUserKey() || ''); } catch (e) { return ''; }
+}
+
+// Session_Keys 分頁：Key | Email | Note | Added → 由管理員加，一經對應即認得該瀏覽器
+function _keyEmail(key) {
+  if (!key) return '';
+  try {
+    const ss = _ss();
+    const sh = ss.getSheetByName(T.KEYS);
+    if (!sh) return '';
+    const v = sh.getDataRange().getValues();
+    const short = String(key).slice(0, 8);
+    for (let i = 1; i < v.length; i++) {
+      const cell = String(v[i][0]).trim();
+      // 可以填完整 key，或者畫面上顯示嘅 8 字支援代號
+      if (cell && (cell === key || cell === short)) return String(v[i][1]).trim().toLowerCase();
+    }
+  } catch (e) {}
+  return '';
+}
+
+// 讀唔到身份時留底（無同事資料），同一瀏覽器 5 分鐘內唔重覆寫
+function _diagLog(activeUser, key, err) {
+  try {
+    const ss = _ss();
+    let sh = ss.getSheetByName(T.DIAG);
+    if (!sh) {
+      sh = ss.insertSheet(T.DIAG);
+      sh.appendRow(['Time', 'ActiveUser', 'Key', 'EffectiveUser', 'UA', 'Error']);
+      sh.setFrozenRows(1);
+    }
+    const last = sh.getLastRow();
+    if (last > 1) {
+      const pv = sh.getRange(last, 1, 1, 3).getValues()[0];
+      const ago = (Date.now() - new Date(pv[0]).getTime()) / 1000;
+      if (String(pv[2]).trim() === key && ago >= 0 && ago < 300) return 'skip';
+    }
+    sh.appendRow([new Date(), activeUser || '', key || '', _effEmail(), '', err || '']);
+    return 'ok';
+  } catch (e) { return 'err: ' + e.message; }
+}
+function _effEmail() {
+  try { return String(Session.getEffectiveUser().getEmail() || ''); } catch (e) { return ''; }
+}
+
+function getSession(who) {
   const email = _activeEmail();
+  const key = _tmpKey();
+  const id = _whoami(who);
   const s = _read(T.STAFF);
-  const row = s.rows.filter(r => String(r[0]).toLowerCase().trim() === email.trim())[0];
-  if (!row) return { ok: false, reason: 'NOT_STAFF', email: email, appUrl: _appUrl() };
+  const row = s.rows.filter(r => String(r[0]).toLowerCase().trim() === id.toLowerCase().trim())[0];
+  if (!row) {
+    _diagLog(email, key, '');
+    return { ok: false, reason: 'NOT_STAFF', email: id, appUrl: _appUrl(), srvWho: email,
+             ref: key ? String(key).slice(0, 8) : '', viaKey: !!(!email && id) };
+  }
   const role = String(row[2] || 'Staff');
   return {
     ok: true,
-    email: email,
+    email: id,
     name: String(row[1] || ''),
     role: role,
     isManager: ['admin', 'manager'].indexOf(role.toLowerCase()) >= 0,
@@ -424,8 +524,8 @@ function _avatarUrl(cell, preferStill) {
 }
 
 /** 主畫面：自己嘅餘額 + 自己嘅申請紀錄 */
-function getDashboard() {
-  const sess = getSession();
+function getDashboard(who) {
+  const sess = getSession(who);
   if (!sess.ok) return { ok: false, reason: sess.reason, email: sess.email };
   const today = _today();
   const hol = _holidaySet();
@@ -442,8 +542,8 @@ function getDashboard() {
 }
 
 /** 管理層：所有待批 + 全部人餘額 */
-function getManagerView() {
-  const sess = getSession();
+function getManagerView(who) {
+  const sess = getSession(who);
   if (!sess.ok || !sess.isManager) return { ok: false, reason: 'FORBIDDEN' };
   const today = _today();
   const s = _read(T.STAFF);
@@ -467,8 +567,8 @@ function getManagerView() {
 }
 
 /** 管理層：個別同事嘅完整 dashboard（唯讀，只有 admin/manager 叫得） */
-function getMemberView(email) {
-  const sess = getSession();
+function getMemberView(email, who) {
+  const sess = getSession(who);
   if (!sess.ok || !sess.isManager) return { ok: false, reason: 'FORBIDDEN' };
   const want = String(email || '').trim().toLowerCase();
   const s = _read(T.STAFF);
@@ -542,12 +642,12 @@ function _findOverlap(email, start, end, dur, excludeId, onlyApproved) {
   return null;
 }
 
-function submitLeave(payload) {
+function submitLeave(payload, who) {
   _WARN.length = 0;
   const lock = LockService.getScriptLock();
   if (!lock.tryLock(30000)) return { ok: false, error: 'The system is busy. Please try again in a moment.' };
   try {
-    const sess = getSession();
+    const sess = getSession(who);
     if (!sess.ok) return { ok: false, error: 'You are not on the staff list.' };
 
     const type  = String(payload.leaveType || '');
@@ -639,12 +739,12 @@ function submitLeave(payload) {
  *  管理層批核
  * ============================================================ */
 
-function decideLeave(requestId, decision, comment) {
+function decideLeave(requestId, decision, comment, who) {
   _WARN.length = 0;
   const lock = LockService.getScriptLock();
   if (!lock.tryLock(30000)) return { ok: false, error: 'The system is busy. Please try again in a moment.' };
   try {
-    const sess = getSession();
+    const sess = getSession(who);
     if (!sess.ok || !sess.isManager) return { ok: false, error: 'You do not have approval rights.' };
     if (['Approved', 'Rejected'].indexOf(decision) < 0) return { ok: false, error: 'Invalid decision.' };
 
@@ -712,8 +812,8 @@ function decideLeave(requestId, decision, comment) {
 
 /** 手動同步（管理層畫面個「重新整理」掣用） */
 /** 管理層：標記／取消「醫生紙已收」。value='RECEIVED' → 記今日日期；value='' → 清空（未收） */
-function markCertificate(requestId, value) {
-  const sess = getSession();
+function markCertificate(requestId, value, who) {
+  const sess = getSession(who);
   if (!sess.ok || !sess.isManager) return { ok: false, error: 'No permission' };
   const lock = LockService.getScriptLock();
   if (!lock.tryLock(30000)) return { ok: false, error: 'The system is busy. Please try again in a moment.' };
@@ -735,8 +835,8 @@ function markCertificate(requestId, value) {
   }
 }
 
-function syncBalances() {
-  const sess = getSession();
+function syncBalances(who) {
+  const sess = getSession(who);
   if (!sess.ok || !sess.isManager) return { ok: false, error: 'No permission' };
   return { ok: true, updated: _syncStaffBalance() };
 }
@@ -1490,12 +1590,12 @@ function _send(o) {
  *   同事只可以取消自己 Pending 嘅；已批核嘅只有管理層可以取消。
  *   會刪除對應嘅日曆事件、發 email、重算結餘。
  */
-function cancelLeave(requestId, note) {
+function cancelLeave(requestId, note, who) {
   _WARN.length = 0;
   const lock = LockService.getScriptLock();
   if (!lock.tryLock(30000)) return { ok: false, error: 'The system is busy. Please try again in a moment.' };
   try {
-    const sess = getSession();
+    const sess = getSession(who);
     if (!sess.ok) return { ok: false, error: 'You are not on the staff list.' };
 
     const sh = _sheet(T.REQ);
@@ -1682,6 +1782,19 @@ function _activeEmail() {
   // 否則一旦識別失敗，所有訪客都會被當成 Dickson（嚴重安全漏洞）。
   try { return String(Session.getActiveUser().getEmail() || '').toLowerCase(); }
   catch (x) { return ''; }
+}
+
+/**
+ * 唯一身份入口：先信 Google 身份；如果 Google 交唔到 email（多帳戶瀏覽器常見），
+ * 就查 Session_Keys 分頁有冇呢個瀏覽器嘅對應（由管理員加入）。
+ * 兩者都無 → 回空字串（前端顯示「未能讀取帳號」）。
+ */
+function _whoami(who) {
+  const e = _activeEmail();
+  if (e) return e;                       // 1) Google 直接交到身份（最可信）
+  const v = _verifyWho(who);
+  if (v) return v;                       // 2) doGet 頂層請求簽發嘅身份（iframe 攞唔到身份時用）
+  return _keyEmail(_tmpKey());           // 3) 管理員加嘅瀏覽器對應
 }
 
 /**

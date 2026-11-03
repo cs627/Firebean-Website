@@ -594,17 +594,20 @@ function cnType(t){
 function cnStatus(s){ return s || 'Pending'; }
 
 /* ---------------- identity ---------------- */
+// doGet 注入嘅簽名身份：iframe 內部讀唔到 Google 身份時，仍然認得你係邊個
+var WHO = (function(){ try { return window.__WHO || null; } catch (e) { return null; } })();
+
 function boot(){
   google.script.run.withSuccessHandler(function(r){
-    if (!r || !r.ok){ showDenied(r && r.email, r && r.appUrl); return; }
+    if (!r || !r.ok){ showDenied(r && r.email, r && r.appUrl, r && r.ref); return; }
     S.sess = r;
     loadDashboard();
   }).withFailureHandler(function(e){
     showError(e && e.message ? e.message : 'Could not load');
-  }).getSession();
+  }).getSession(WHO);
 }
 
-function showDenied(email, appUrl){
+function showDenied(email, appUrl, ref){
   // 讀唔到身份（多數係瀏覽器同時登入多個 Google 帳戶）→ 引導揀返 @firebean.net 帳號再入
   // 注意：app 係跑喺 HtmlService sandbox iframe，location.href 唔係 /exec 網址，
   // 所以要用伺服器傳落嚟嘅 appUrl（無就用呢個常數頂住）。
@@ -624,7 +627,10 @@ function showDenied(email, appUrl){
             L('This usually happens when several Google accounts are signed in at once.') +
           '</div>' +
           '<a class="btn" href="' + chooser + '" style="max-width:340px;margin:18px auto 0;display:block;text-decoration:none;line-height:1.4">' + L('Sign in with your @firebean.net account') + '</a>' +
-          '<div style="margin-top:14px"><a href="#" style="color:#e21c24;font-size:13px;text-decoration:none" onclick="location.reload();return false">' + L('Try again') + '</a></div>'
+          '<div style="margin-top:14px"><a href="#" style="color:#e21c24;font-size:13px;text-decoration:none" onclick="location.reload();return false">' + L('Try again') + '</a>'
+                    + '<div style="margin-top:10px;font-family:ui-monospace,Menlo,monospace;font-size:11.5px;color:#9ca3af">Server: '
+                        + esc(String((window.__SRVWHO || '')) || '\u2014') + (ref ? ' \u00b7 Code: ' + esc(String(ref)) : '') + '</div>'
+                    + '</div>'
         : '<div style="color:#4b5563;font-size:13.5px;line-height:1.75">' +
             L('Signed in as') + ' <b>' + esc(email) + '</b><br>' +
             L('This app is for Firebean team members only.') + '<br>' + L('Ask Dickson to add you to the Staff tab.') +
@@ -647,12 +653,12 @@ function showError(msg){
 /* ---------------- dashboard ---------------- */
 function loadDashboard(){
   google.script.run.withSuccessHandler(function(d){
-    if (!d || !d.ok){ showDenied(d && d.email, d && d.appUrl); return; }
+    if (!d || !d.ok){ showDenied(d && d.email, d && d.appUrl, d && d.ref); return; }
     S.data = d;
     render();
   }).withFailureHandler(function(e){
     showError(e && e.message ? e.message : 'Could not load');
-  }).getDashboard();
+  }).getDashboard(WHO);
 }
 
 /* ── 共用元件：餘額卡（含公式）────────────────────────────── */
@@ -1723,7 +1729,7 @@ function doSubmit(){
   }).withFailureHandler(function(e){
     btn.disabled = false; btn.textContent = L('Submit Request');
     toast(e && e.message ? e.message : 'Could not submit', true);
-  }).submitLeave(payload);
+  }).submitLeave(payload, WHO);
 }
 
 function markCert(id, value){
@@ -1733,7 +1739,7 @@ function markCert(id, value){
     else toast((r && r.error) || 'Could not update', true);
   }).withFailureHandler(function(e){
     toast(e && e.message ? e.message : 'Could not update', true);
-  }).markCertificate(id, value);
+  }).markCertificate(id, value, WHO);
 }
 
 function loadManager(){
@@ -1741,7 +1747,7 @@ function loadManager(){
     if (!m || !m.ok) return;
     S.mgr = m;
     renderManager();
-  }).withFailureHandler(function(e){ console.error(e); }).getManagerView();
+  }).withFailureHandler(function(e){ console.error(e); }).getManagerView(WHO);
 }
 
 function renderManager(){
@@ -1803,7 +1809,7 @@ function openMember(email){
       if (el) el.innerHTML = '<div class="card"><div class="empty">' +
         esc(e && e.message ? e.message : 'Could not load') + '</div></div>';
     })
-    .getMemberView(email);
+    .getMemberView(email, WHO);
 }
 
 function renderMember(d){
@@ -1859,7 +1865,7 @@ function decide(id, decision){
     else { toast((r && r.error) || 'Could not process', true); }
   }).withFailureHandler(function(e){
     toast(e && e.message ? e.message : 'Could not process', true);
-  }).decideLeave(id, decision, comment);
+  }).decideLeave(id, decision, comment, WHO);
 }
 
 function cancelReq(id, status){
@@ -1880,7 +1886,7 @@ function cancelReq(id, status){
     }
   }).withFailureHandler(function(e){
     toast(e && e.message ? e.message : 'Could not cancel', true);
-  }).cancelLeave(id, note);
+  }).cancelLeave(id, note, WHO);
 }
 
 boot();
