@@ -22,7 +22,7 @@
  */
 
 const CFG = {
-  SHEET_ID      : '1o88_EyWURlu9vJnkCU4gTFG5OnoOSjGmXq7jekERTD4',
+  SHEET_ID      : '1Vte3KciEn9gpyrN37EMo4T9DuLsKUlykFOdt7uCy_9g',   // 真身（綁定容器）
   MANAGER_EMAIL : 'dickson@firebean.net',
   DOMAIN        : 'firebean.net',
   BUILD         : 'build-2026-10-19r',
@@ -500,13 +500,16 @@ function _effEmail() {
 function getSession(who) {
   const email = _activeEmail();
   const key = _tmpKey();
-  const id = _whoami(who);
+  const v = _verifyWho(who);
+  const id = _activeEmail() || v || _keyEmail(_tmpKey());
   const s = _read(T.STAFF);
   const row = s.rows.filter(r => String(r[0]).toLowerCase().trim() === id.toLowerCase().trim())[0];
   if (!row) {
     _diagLog(email, key, '');
     return { ok: false, reason: 'NOT_STAFF', email: id, appUrl: _appUrl(), srvWho: email,
-             ref: key ? String(key).slice(0, 8) : '', viaKey: !!(!email && id) };
+             ref: key ? String(key).slice(0, 8) : '', viaKey: !!(!email && id),
+             dbg: 'who=' + (who ? (typeof who) : 'none') + ' ver=' + (v || '-') +
+                  ' key=' + String(key || '').length + ' srv=' + CFG.BUILD };
   }
   const role = String(row[2] || 'Staff');
   return {

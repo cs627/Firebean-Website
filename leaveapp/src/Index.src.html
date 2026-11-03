@@ -599,6 +599,7 @@ var WHO = (function(){ try { return window.__WHO || null; } catch (e) { return n
 
 function boot(){
   google.script.run.withSuccessHandler(function(r){
+    try { window.__DBG = (r && r.dbg) ? String(r.dbg) : ''; } catch (e) {}
     if (!r || !r.ok){ showDenied(r && r.email, r && r.appUrl, r && r.ref); return; }
     S.sess = r;
     loadDashboard();
@@ -640,7 +641,8 @@ function showDenied(email, appUrl, ref){
           '<div style="margin-top:14px"><a href="#" style="color:#e21c24;font-size:13px;text-decoration:none" onclick="location.reload();return false">' + L('Try again') + '</a>'
                     + '<div style="margin-top:10px;font-family:ui-monospace,Menlo,monospace;font-size:11.5px;color:#9ca3af">Server: '
                         + esc(String((window.__SRVWHO || '')) || '\u2014') + (ref ? ' \u00b7 Code: ' + esc(String(ref)) : '')
-                        + ' \u00b7 ' + esc(String((window.__BUILD || ''))) + '</div>'
+                        + ' \u00b7 ' + esc(String((window.__BUILD || '')))
+                        + (window.__DBG ? '<br>' + esc(String(window.__DBG)) : '') + '</div>'
                     + '</div>'
         : '<div style="color:#4b5563;font-size:13.5px;line-height:1.75">' +
             L('Signed in as') + ' <b>' + esc(email) + '</b><br>' +
