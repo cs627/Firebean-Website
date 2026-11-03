@@ -53,8 +53,25 @@ main{display:block;padding-bottom:118px}
   padding:10px 14px 12px;backdrop-filter:saturate(150%) blur(10px);
   border-bottom:1px solid var(--line2);box-shadow:0 10px 24px -22px rgba(122,92,64,.7);
 }
-.mobtop .mt-row{display:flex;align-items:center;gap:8px}
-.mobtop .mt-t{font-size:15px;font-weight:800;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mobtop .mt-row{display:flex;align-items:center;gap:10px}
+.mobtop .mt-t{font-size:15px;font-weight:800;flex:1 1 auto;min-width:0;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mobtop .mt-right{flex:0 0 auto;display:flex;align-items:center;gap:8px}
+/* 頂欄左：累計提交數（浮雕藥丸，壓落去有回彈） */
+.railcnt{display:none}
+.mt-cnt{
+  flex:0 0 auto;display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:800;
+  color:#8A6A4A;letter-spacing:.02em;padding:6px 12px;border-radius:999px;cursor:default;
+  background:linear-gradient(180deg,#FFFDF9 0%,#F7EBD8 55%,#EFDFC4 100%);
+  border:1px solid #E3D0AF;
+  box-shadow:0 2px 0 #DCC7A4, 0 7px 13px -7px rgba(122,92,64,.6),
+             inset 0 1px 0 #FFFFFF, inset 0 -2px 3px rgba(178,148,108,.24);
+  text-shadow:0 1px 0 rgba(255,255,255,.9);
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+.mt-cnt b{font-size:15px;font-weight:900;color:#B4432F;font-variant-numeric:tabular-nums;
+  text-shadow:0 1px 0 rgba(255,255,255,.95), 0 -1px 0 rgba(120,40,20,.3)}
+.mt-cnt:active{transform:translateY(2px);
+  box-shadow:0 0 0 #DCC7A4, inset 0 2px 4px rgba(122,92,64,.3), inset 0 -1px 0 #FFF}
 .mobtop .mt-link{color:var(--ink2);font-size:12.5px;font-weight:700;border:1.5px solid var(--line);
   border-radius:999px;padding:5px 11px;background:#FFFDF8;cursor:pointer;font-family:inherit;box-shadow:0 2px 0 #EBDCC6}
 .mobtop .mt-link:active{transform:translateY(2px);box-shadow:none}
@@ -446,6 +463,8 @@ footer.foot b{color:var(--ink2)}
   .rail .railprog .pt{height:14px;border-radius:999px;background:#F6E9D6;overflow:hidden;box-shadow:inset 0 2px 4px rgba(122,92,64,.16)}
   .rail .railprog .pt i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#FFE39B,#A8D8BE 55%,#7FC5A2);transition:width .38s}
   .mobtop{display:none}
+  .railcnt{display:inline-flex;margin:9px 0 3px;padding:5px 11px;font-size:10.5px}
+  .railcnt b{font-size:13.5px}
   main{padding:0 0 60px}
   .wrap{max-width:1080px;margin:0 auto;padding:0 40px}
   .view{padding:34px 0 14px}
@@ -472,7 +491,7 @@ footer.foot b{color:var(--ink2)}
   .proposalGrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   .proposalGrid .pblock{margin:0}
 }
-@media(max-width:560px){
+@media(max-width:560px){.mobtop .mt-cnt{padding:5px 9px;gap:4px;font-size:10.5px;min-width:84px;justify-content:center}.mobtop .mt-cnt b{font-size:13.5px}.mobtop .mt-cnt .u{display:none}
   /* 手機：由三行改為三欄按鈕（icon 在上、文字在下） */
   .infostrip{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:16px 0 4px}
   .infostrip .info{display:block;text-align:center;padding:12px 7px 11px;border-radius:15px}
@@ -543,6 +562,7 @@ footer.foot b{color:var(--ink2)}
       <div>
         <div class="bl">FIRE<i>BEAN</i></div>
         <div class="bs">都會生活研究室</div>
+        <span class="mt-cnt railcnt" id="railCount" title="累計收到的匿名作答份數"><span>累計</span><b>—</b><span class="u">份</span></span>
       </div>
     </div>
     <nav id="railnav">
@@ -563,10 +583,13 @@ footer.foot b{color:var(--ink2)}
     <button id="sfxBtnD" class="sfxBtn sfxbtn" type="button" aria-pressed="true" aria-label="音效開關">🔊</button>
     <div class="mobtop">
       <div class="mt-row">
+        <span class="mt-cnt" id="mtCount" title="累計收到的匿名作答份數"><span>累計</span><b>—</b><span class="u">份</span></span>
         <span class="mt-t" id="mobTitle">都會生活鏡像測驗</span>
-        <button class="mt-link" data-go="intro">主頁</button>
-        <button class="mt-link internal-only" data-go="atlas">圖鑑</button>
-        <button id="sfxBtn" class="sfxBtn mt-link" type="button" aria-pressed="true" aria-label="音效開關">🔊</button>
+        <span class="mt-right">
+          <button class="mt-link" data-go="intro">主頁</button>
+          <button class="mt-link internal-only" data-go="atlas">圖鑑</button>
+          <button id="sfxBtn" class="sfxBtn mt-link" type="button" aria-pressed="true" aria-label="音效開關">🔊</button>
+        </span>
       </div>
     </div>
 
@@ -1548,6 +1571,20 @@ function statsUrl(){
   const e=D.meta.endpoint||"";
   return e? e.replace(/\/submit$/,"/stats") : "";
 }
+/* 頂欄累計提交數：公開只讀匯總總數（不含任何個人資料） */
+function loadCount(){
+  const els=[$("#mtCount"),$("#railCount")].filter(Boolean);
+  if(!els.length) return;
+  const set=function(n){
+    els.forEach(function(el){ el.querySelector("b").textContent = n? String(n) : "—";
+      el.title = n? ("累計已收到 "+n+" 份匿名作答") : "暫時未有作答紀錄"; });
+  };
+  if(!statsUrl()){ set(0); return }
+  fetch(statsUrl(), {method:"GET"})
+   .then(function(r){ return r.json() })
+   .then(function(j){ set(+(j&&j.total||0)); })
+   .catch(function(){ set(0); });
+}
 function loadData(){
   const st=$("#dStatus");
   if(!statsUrl()){
@@ -1621,6 +1658,7 @@ function submit(){
 
 /* ---------- boot ---------- */
 started=Date.now();
+loadCount();
 $("#startBtn").addEventListener("click", function(){ started=Date.now(); });
 try{
   const saved=localStorage.getItem("ennea_last_result");
