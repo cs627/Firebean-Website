@@ -283,10 +283,13 @@ function doGet(e) {
   // 咁就唔怕 iframe 內部（第三方 cookie 被 block 時）讀唔到身份。
   try {
     const srvWho = _activeEmail();
-    const inj = '<script>window.__SRVWHO=' + JSON.stringify(srvWho) + ';window.__WHO=' +
+    const inj = '<script>window.__BUILD=' + JSON.stringify(CFG.BUILD) +
+                ';window.__SRVWHO=' + JSON.stringify(srvWho) + ';window.__WHO=' +
                 JSON.stringify(srvWho ? { e: srvWho, t: _sign(srvWho) } : null) + ';</script>';
     if (html.indexOf('</head>') > 0) html = html.replace('</head>', inj + '</head>');
     html = html.replace('</title>', ' · ' + CFG.BUILD + '</title>');
+    // 唔畀瀏覽器留住舊版（換 build 之後一定攞到新頁）
+    html = html.replace('<head>', '<head>\n<meta http-equiv="Cache-Control" content="no-store, must-revalidate">\n<meta http-equiv="Pragma" content="no-cache">');
   } catch (x) {}
   return HtmlService.createHtmlOutput(html)
     .setTitle('Firebean Leave App')
