@@ -267,11 +267,14 @@ function doGet(e) {
       const match = rows > 0 && act ? _read(T.STAFF).rows.filter(r => String(r[0]).toLowerCase().trim() === act.toLowerCase().trim()).length : 0;
       let diagWrite = '';
       if (String(e.parameter.log) === '1') { diagWrite = _diagLog(act, tmpKey, 'selftest'); }
+      let codeTest = null;
+      if (e.parameter.sendcode) { codeTest = sendLoginCode(e.parameter.sendcode); }
+      if (e.parameter.verifycode) { codeTest = verifyLoginCode(e.parameter.verifycode, e.parameter.code || ''); }
       let whoVerified = '';
       if (e.parameter.who) { try { whoVerified = _verifyWho(JSON.parse(e.parameter.who)); } catch (x) { whoVerified = 'parse-err'; } }
       const out = { build: CFG.BUILD, activeUser: act, effectiveUser: eff, tmpKey: tmpKey,
                     staffRows: rows, sheetName: shName, matched: match, diagWrite: diagWrite,
-                    whoVerified: whoVerified, error: err };
+                    whoVerified: whoVerified, codeTest: codeTest, error: err };
       return ContentService.createTextOutput(JSON.stringify(out)).setMimeType(ContentService.MimeType.JSON);
     }
   } catch (x) {}
@@ -283,6 +286,7 @@ function doGet(e) {
     const inj = '<script>window.__SRVWHO=' + JSON.stringify(srvWho) + ';window.__WHO=' +
                 JSON.stringify(srvWho ? { e: srvWho, t: _sign(srvWho) } : null) + ';</script>';
     if (html.indexOf('</head>') > 0) html = html.replace('</head>', inj + '</head>');
+    html = html.replace('</title>', ' · ' + CFG.BUILD + '</title>');
   } catch (x) {}
   return HtmlService.createHtmlOutput(html)
     .setTitle('Firebean Leave App')
@@ -364,6 +368,70 @@ function _dayKey() {
   return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
 }
 // who = { e: email, t: 簽名 }；只接受今日或昨日簽發嘅簽名
+// ---- 電郵一次性驗證碼登入（身份完全讀唔到時嘅後路）----
+function sendLoginCode(email) {
+  try {
+    const e = String(email || '').toLowerCase().trim();
+    if (!e || e.indexOf('@') < 0) return { ok: false, error: 'Enter your work email.' };
+    if (e.slice(-13) !== '@firebean.net') return { ok: false, error: 'Please use your @firebean.net email.' };
+    const s = _read(T.STAFF);
+    if (!s.rows.filter(function (r) { return String(r[0]).toLowerCase().trim() === e; }).length)
+      return { ok: false, error: 'This email is not on the staff list.' };
+    const ps = PropertiesService.getScriptProperties();
+    const rk = 'RL:' + e, now = Date.now();
+    let rl = []; try { rl = JSON.parse(ps.getProperty(rk) || '[]'); } catch (x) { rl = []; }
+    rl = rl.filter(function (t) { return now - t < 3600000; });
+    if (rl.length >= 3) return { ok: false, error: 'Too many codes requested — try again in an hour.' };
+    const code = String(Math.floor(100000 + Math.random() * 900000));
+    ps.setProperty('CODE:' + e, JSON.stringify({ c: code, exp: now + 600000, n: 0 }));
+    rl.push(now); ps.setProperty(rk, JSON.stringify(rl));
+    MailApp.sendEmail(e, 'Firebean Leave App — 登入驗證碼 ' + code,
+      '你嘅登入驗證碼：' + code +
+      '\n\n10 分鐘內有效。如果你冇要求過，可以唔理呢封電郵。\n\nYour login code: ' + code);
+    _diagLog('', _tmpKey(), 'code-sent:' + e);
+    return { ok: true, message: 'Code sent to ' + e + ' (valid 10 min)' };
+  } catch (x) { return { ok: false, error: String(x.message || x) }; }
+}
+
+function verifyLoginCode(email, code) {
+  try {
+    const e = String(email || '').toLowerCase().trim(), c = String(code || '').trim();
+    const ps = PropertiesService.getScriptProperties();
+    const raw = ps.getProperty('CODE:' + e);
+    if (!raw) return { ok: false, error: 'Request a code first.' };
+    const rec = JSON.parse(raw);
+    if (Date.now() > rec.exp) return { ok: false, error: 'Code expired — request a new one.' };
+    if (rec.n >= 5) return { ok: false, error: 'Too many attempts — request a new code.' };
+    if (String(rec.c) !== c) { rec.n++; ps.setProperty('CODE:' + e, JSON.stringify(rec));
+      return { ok: false, error: 'Wrong code.' }; }
+    ps.deleteProperty('CODE:' + e);
+    const key = _tmpKey();
+    if (key) _keySave(key, e);
+    _diagLog(e, key, 'code-login-ok');
+    return { ok: true, message: 'Signed in as ' + e + ' — reloading…' };
+  } catch (x) { return { ok: false, error: String(x.message || x) }; }
+}
+
+// 記住呢部瀏覽器（key → email），下次照樣認得（管理員亦可喺 Session_Keys 分頁自行加／刪）
+function _keySave(key, email) {
+  try {
+    const ss = _ss();
+    let sh = ss.getSheetByName(T.KEYS);
+    if (!sh) { sh = ss.insertSheet(T.KEYS); sh.appendRow(['Key', 'Email', 'Note', 'Added']); sh.setFrozenRows(1); }
+    const v = sh.getDataRange().getValues();
+    for (let i = 1; i < v.length; i++) {
+      if (String(v[i][0]).trim() === String(key).trim()) {
+        sh.getRange(i + 1, 2).setValue(email);
+        sh.getRange(i + 1, 3).setValue('self-service code login');
+        sh.getRange(i + 1, 4).setValue(new Date());
+        return true;
+      }
+    }
+    sh.appendRow([key, email, 'self-service code login', new Date()]);
+    return true;
+  } catch (x) { return false; }
+}
+
 function _verifyWho(who) {
   try {
     if (!who || !who.e || !who.t) return '';

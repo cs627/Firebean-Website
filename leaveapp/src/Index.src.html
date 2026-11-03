@@ -627,6 +627,16 @@ function showDenied(email, appUrl, ref){
             L('This usually happens when several Google accounts are signed in at once.') +
           '</div>' +
           '<a class="btn" href="' + chooser + '" style="max-width:340px;margin:18px auto 0;display:block;text-decoration:none;line-height:1.4">' + L('Sign in with your @firebean.net account') + '</a>' +
+          '<div style="margin-top:22px;border-top:1px solid #e5e7eb;padding-top:16px;max-width:340px;margin-left:auto;margin-right:auto;text-align:left">' +
+            '<div style="font-size:12.5px;color:#6b7280;margin-bottom:8px">' + L('Or sign in with an email code') + '</div>' +
+            '<input id="lg-email" type="email" placeholder="you@firebean.net" style="width:100%;box-sizing:border-box;padding:10px 12px;border:1px solid #d1d5db;border-radius:10px;font-size:14px">' +
+            '<div style="display:flex;gap:8px;margin-top:8px">' +
+              '<button class="btn ghost" style="flex:0 0 auto;width:auto;margin:0;padding:10px 14px" onclick="lgSend()">' + L('Send code') + '</button>' +
+              '<input id="lg-code" inputmode="numeric" maxlength="6" placeholder="123456" style="flex:1;padding:10px 12px;border:1px solid #d1d5db;border-radius:10px;font-size:14px">' +
+            '</div>' +
+            '<button class="btn" style="width:100%;margin-top:8px" onclick="lgVerify()">' + L('Sign in with code') + '</button>' +
+            '<div id="lg-msg" style="font-size:12.5px;color:#6b7280;margin-top:8px;line-height:1.5"></div>' +
+          '</div>' +
           '<div style="margin-top:14px"><a href="#" style="color:#e21c24;font-size:13px;text-decoration:none" onclick="location.reload();return false">' + L('Try again') + '</a>'
                     + '<div style="margin-top:10px;font-family:ui-monospace,Menlo,monospace;font-size:11.5px;color:#9ca3af">Server: '
                         + esc(String((window.__SRVWHO || '')) || '\u2014') + (ref ? ' \u00b7 Code: ' + esc(String(ref)) : '') + '</div>'
@@ -637,6 +647,28 @@ function showDenied(email, appUrl, ref){
           '</div>') +
     '</div>';
   if (typeof i18nApply === 'function') i18nApply();
+}
+
+// ---- 驗證碼登入（身份讀唔到時用）----
+function lgMsg(txt, bad){
+  const m = document.getElementById('lg-msg');
+  if (m) { m.textContent = txt || ''; m.style.color = bad ? '#e21c24' : '#059669'; }
+}
+function lgSend(){
+  const el = document.getElementById('lg-email');
+  const em = el ? String(el.value || '') : '';
+  lgMsg(L('Sending…'));
+  google.script.run.withSuccessHandler(function(r){ lgMsg(r && r.ok ? String(r.message || '') : String((r && r.error) || '—'), !(r && r.ok)); })
+    .withFailureHandler(function(x){ lgMsg(String((x && x.message) || x), true); }).sendLoginCode(em);
+}
+function lgVerify(){
+  const el = document.getElementById('lg-email'), c = document.getElementById('lg-code');
+  const em = el ? String(el.value || '') : '', cd = c ? String(c.value || '') : '';
+  lgMsg(L('Checking…'));
+  google.script.run.withSuccessHandler(function(r){
+    if (r && r.ok) { lgMsg(L('Signed in — reloading…')); setTimeout(function(){ location.reload(); }, 800); }
+    else lgMsg(String((r && r.error) || '—'), true);
+  }).withFailureHandler(function(x){ lgMsg(String((x && x.message) || x), true); }).verifyLoginCode(em, cd);
 }
 
 function showError(msg){
