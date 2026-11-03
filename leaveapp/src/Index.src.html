@@ -1,0 +1,1887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<base target="_top">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Firebean — Leave</title>
+<link rel="icon" type="image/png" href="https://firebean.net/leaveapp/favicon.png">
+<link rel="apple-touch-icon" href="https://firebean.net/leaveapp/favicon.png">
+<meta name="theme-color" content="#ff3333">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Firebean brand tokens (taken from firebean.net) */
+    --bg-primary:#f4f4f4;
+    --bg-secondary:#ffffff;
+    --bg-card:#e5e7eb;
+    --text-primary:#0a0a0a;
+    --text-secondary:#4b5563;
+    --text-tertiary:#9ca3af;
+    --border-subtle:rgba(0,0,0,.05);
+    --nav-bg:rgba(244,244,244,.85);
+    --brand:#ff3333;
+    --ok:#12864a;
+    --warn:#b26205;
+    --r:16px;
+    --safe-b:env(safe-area-inset-bottom,0px);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    background:var(--bg-primary); color:var(--text-primary);
+    font-size:15px; line-height:1.55; font-weight:400;
+    padding-bottom:calc(78px + var(--safe-b));
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:540px;margin:0 auto;padding:0 18px}
+
+  header{
+    background:var(--bg-secondary);
+    border-bottom:1px solid var(--border-subtle);
+    padding:16px 0 26px;
+    padding-top:calc(16px + env(safe-area-inset-top,0px));
+  }
+  .hrow{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+  .mark{font-family:'Anton',sans-serif;font-size:19px;letter-spacing:.06em;line-height:1;text-transform:uppercase}
+  .mark i{color:var(--brand);font-style:normal}
+  .mark small{
+    display:block;font-family:'Oswald',sans-serif;font-weight:400;font-size:10px;
+    letter-spacing:.34em;color:var(--text-tertiary);margin-top:6px;
+  }
+  .who{text-align:right;font-size:12.5px;line-height:1.45}
+  .who b{display:block;font-weight:600;font-size:16px}
+  .who span{color:var(--text-tertiary);font-family:'Oswald',sans-serif;font-size:10px;
+    letter-spacing:.2em;text-transform:uppercase}
+  .whoin{display:flex;align-items:center;gap:10px}
+  .whoTxt{text-align:right}
+  .avw{position:relative;display:inline-block;border-radius:50%;overflow:hidden;
+    background:var(--text-primary);flex:0 0 auto;vertical-align:middle}
+  .avw img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;
+    border:0;display:block}
+  .avw i{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    color:#fff;font-style:normal;font-family:'Oswald',sans-serif;font-weight:500;
+    letter-spacing:.04em;text-transform:uppercase}
+
+  .hero{margin-top:24px}
+  .hero .label{
+    font-family:'Oswald',sans-serif;font-size:10.5px;font-weight:500;
+    letter-spacing:.3em;text-transform:uppercase;color:var(--text-tertiary);
+  }
+  .hero .big{
+    font-family:'Anton',sans-serif;font-size:68px;line-height:.92;letter-spacing:-.01em;
+    margin-top:6px;display:flex;align-items:baseline;gap:9px;
+  }
+  .hero .big em{
+    font-family:'Oswald',sans-serif;font-style:normal;font-weight:400;
+    font-size:14px;letter-spacing:.24em;text-transform:uppercase;color:var(--text-secondary);
+  }
+  .hero .big.neg{color:var(--brand)}
+
+  .chips{display:flex;gap:7px;margin-top:18px;flex-wrap:wrap}
+  .chip{
+    font-family:'Oswald',sans-serif;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+    border:1px solid var(--bg-card);border-radius:999px;padding:6px 11px;color:var(--text-secondary);
+    white-space:nowrap;
+  }
+  .chip b{color:var(--text-primary);font-weight:500;letter-spacing:.04em}
+
+  .card{
+    background:var(--bg-secondary);border-radius:var(--r);padding:18px;
+    margin-top:12px;border:1px solid var(--border-subtle);
+  }
+  .card h3{
+    margin:0 0 14px;font-family:'Oswald',sans-serif;font-size:11px;font-weight:500;
+    letter-spacing:.26em;text-transform:uppercase;color:var(--text-tertiary);
+  }
+  .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .kpi{background:var(--bg-primary);border-radius:11px;padding:12px 13px}
+  .kpi .k{
+    font-family:'Oswald',sans-serif;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--text-tertiary);line-height:1.4;
+  }
+  .kpi .v{font-family:'Anton',sans-serif;font-size:26px;line-height:1.1;margin-top:5px}
+  .kpi .v.neg{color:var(--brand)}
+  .kpi .v.pos{color:var(--ok)}
+  .kpi.hl{background:#fff4f4;border:1px solid rgba(255,51,51,.18)}
+  .kpi.hl .v{color:var(--brand)}
+
+  .legend{font-size:11.5px;color:var(--text-tertiary);line-height:1.75;margin-top:14px;
+    padding-top:14px;border-top:1px solid var(--border-subtle)}
+  .legend b{color:var(--text-secondary);font-weight:600}
+
+  /* ── 計算公式 ── */
+  .calc{margin-top:16px;padding-top:15px;border-top:1px solid var(--border-subtle)}
+  .calc .ch{
+    font-family:'Oswald',sans-serif;font-size:9.5px;font-weight:500;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--text-tertiary);margin-bottom:8px}
+  .calcRow{display:flex;align-items:baseline;gap:10px;padding:9px 0;
+    border-bottom:1px dashed var(--border-subtle);flex-wrap:wrap}
+  .calcRow:last-child{border-bottom:0;padding-bottom:0}
+  .calcRow .cl{flex:1 1 auto;min-width:0;font-size:12.5px;color:var(--text-secondary);font-weight:600}
+  .calcRow .cm{flex:1 1 100%;order:3;font-family:'Oswald',sans-serif;font-size:12.5px;
+    letter-spacing:.03em;color:var(--text-tertiary);text-align:right;line-height:1.5;
+    padding-top:1px}
+  .calcRow .cr{flex:0 0 auto;min-width:76px;text-align:right;
+    font-family:'Anton',sans-serif;font-size:17px;color:var(--text-primary);white-space:nowrap}
+  .calcRow .cr small{font-family:'Oswald',sans-serif;font-size:9.5px;font-weight:400;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--text-tertiary);margin-left:3px}
+  .kpi .v small{font-family:'Oswald',sans-serif;font-size:10px;font-weight:400;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--text-tertiary);margin-left:3px}
+
+  /* ── hero 副題 ── */
+  .heroNote{margin-top:13px;font-family:'Oswald',sans-serif;font-size:10.5px;
+    font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--text-tertiary)}
+
+  /* ── 同事列（可點入）── */
+  .pRow{cursor:pointer;border-radius:14px;padding:14px 12px;margin:0 -12px;
+    transition:background .15s;-webkit-tap-highlight-color:transparent}
+  .pRow:active{background:var(--bg-primary)}
+  .pRow .pname{font-weight:600;font-size:17px;line-height:1.15}
+  .pRow .prole{font-family:'Oswald',sans-serif;font-size:9.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--text-tertiary);margin-top:4px}
+  .pRow .pbal{font-family:'Anton',sans-serif;font-size:26px;line-height:1;letter-spacing:-.01em}
+  .pRow .pbal small{font-family:'Oswald',sans-serif;font-size:9.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--text-tertiary);margin-left:4px}
+  .pRow .chev{color:var(--text-tertiary);font-size:20px;line-height:1}
+
+  /* ── 同事詳細頁 ── */
+  .backRow{margin:0 0 16px}
+  .back{background:none;border:0;padding:0;cursor:pointer;
+    font-family:'Oswald',sans-serif;font-size:10.5px;font-weight:500;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--brand)}
+  .memHead{display:flex;align-items:center;gap:16px}
+  .memName{font-family:'Anton',sans-serif;font-size:27px;line-height:1;text-transform:uppercase}
+  .memRole{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:.13em;
+    text-transform:uppercase;color:var(--text-tertiary);margin-top:7px;word-break:break-all}
+
+  label{
+    display:block;font-family:'Oswald',sans-serif;font-size:9.5px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--text-tertiary);margin:16px 0 7px;font-weight:500;
+  }
+  label:first-child{margin-top:0}
+  input,select,textarea{
+    width:100%;border:1px solid var(--bg-card);border-radius:11px;padding:13px;
+    font-size:16px;font-family:'Inter',sans-serif;background:var(--bg-primary);
+    color:var(--text-primary);appearance:none;min-width:0;
+  }
+  select{
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8'><path d='M1 1l5 5 5-5' stroke='%234b5563' stroke-width='1.6' fill='none' stroke-linecap='round'/></svg>");
+    background-repeat:no-repeat;background-position:right 14px center;padding-right:38px;
+  }
+  textarea{resize:vertical;min-height:70px}
+  input:focus,select:focus,textarea:focus{
+    outline:none;border-color:var(--text-primary);background:var(--bg-secondary);
+  }
+  input:disabled{opacity:.5}
+  .row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+
+  .btn{
+    width:100%;border:0;border-radius:999px;padding:16px;font-family:'Oswald',sans-serif;
+    font-size:12px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;
+    background:var(--text-primary);color:#fff;margin-top:20px;cursor:pointer;
+    transition:opacity .15s, transform .1s;
+  }
+  .btn:active{transform:scale(.985);opacity:.88}
+  .btn:disabled{background:var(--text-tertiary);cursor:default;opacity:1}
+  .btn.ghost{background:transparent;color:var(--text-primary);border:1px solid var(--bg-card)}
+  .btn.sm{padding:12px;font-size:10.5px;letter-spacing:.16em;margin-top:0;border-radius:999px}
+  .btn.ok{background:var(--ok)}
+  .btn.bad{background:var(--brand)}
+
+  .item{border-top:1px solid var(--border-subtle);padding:14px 0}
+  .item:first-of-type{border-top:0;padding-top:0}
+  .item .top{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+  .item .t{font-weight:600;font-size:14.5px}
+  .item .d{font-size:12.5px;color:var(--text-secondary);margin-top:4px}
+  .item .d.mono{font-family:'Oswald',sans-serif;letter-spacing:.04em;font-size:12.5px}
+  .item .c{
+    font-size:12.5px;margin-top:8px;padding:9px 11px;background:var(--bg-primary);
+    border-radius:9px;color:var(--text-secondary);border-left:2px solid var(--bg-card);
+  }
+  .tag{
+    font-family:'Oswald',sans-serif;font-size:9.5px;font-weight:500;letter-spacing:.16em;
+    text-transform:uppercase;padding:4px 10px;border-radius:999px;white-space:nowrap;
+  }
+  .tag.Pending{background:#fff4e6;color:var(--warn)}
+  .tag.Approved{background:#e8f6ee;color:var(--ok)}
+  .tag.Rejected{background:#fff0f0;color:var(--brand)}
+  .empty{text-align:center;color:var(--text-tertiary);font-size:13px;padding:28px 0}
+
+  nav{
+    position:fixed;left:0;right:0;bottom:0;z-index:20;
+    background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+    border-top:1px solid var(--border-subtle);display:flex;
+    padding-bottom:var(--safe-b);
+  }
+  nav button{
+    flex:1;border:0;background:none;padding:10px 4px 9px;cursor:pointer;
+    font-family:'Oswald',sans-serif;font-size:9px;font-weight:500;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--text-tertiary);
+    display:flex;flex-direction:column;align-items:center;gap:5px;
+  }
+  nav{padding:6px 8px calc(6px + var(--safe-b))}
+  nav button{padding:7px 4px 6px;border-radius:14px;transition:background .15s,color .15s}
+  nav button.on{background:var(--brand);color:#fff}
+  nav .ic{font-size:17px;line-height:1}
+
+  .chip{display:inline-block;padding:3px 9px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.01em}
+  .chip.miss{background:rgba(255,51,51,.12);color:#d21f1f}
+  .chip.ok{background:rgba(18,134,74,.12);color:#12864a}
+
+  /* ── 表單提示���（例：病假要醫生紙）── */
+  .noteBox{
+    display:flex;gap:9px;align-items:flex-start;margin:10px 0 2px;
+    padding:11px 13px;border-radius:12px;font-size:12.5px;line-height:1.5;
+    background:rgba(255,51,51,.07);border:1px solid rgba(255,51,51,.28);
+    color:var(--text-secondary);
+  }
+  .noteBox .ic{flex:0 0 auto;margin-top:1px;color:var(--brand)}
+  .noteBox .ic,.noteBox .ic svg{width:16px;height:16px;display:block}
+
+  /* ── 浮動紅色「請假」掣（FAB）── */
+  .fab{
+    position:fixed;right:18px;bottom:calc(84px + var(--safe-b));z-index:25;
+    width:58px;height:58px;border-radius:50%;border:0;padding:0;cursor:pointer;
+    background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 10px 24px rgba(0,0,0,.26),0 2px 6px rgba(0,0,0,.18);
+    transition:transform .14s,box-shadow .14s;
+  }
+  .fab:hover{box-shadow:0 14px 30px rgba(0,0,0,.30)}
+  .fab:active{transform:scale(.93)}
+  .fab .ic,.fab .ic svg{width:26px;height:26px;display:block;stroke-width:1.7}
+  .fab[hidden]{display:none}
+
+  .view{display:none}
+  .view.on{display:block}
+
+  .center{padding:52px 26px;text-align:center}
+  /* 主視覺（Take LEAVE 霓虹）*/
+  .splash{
+    width:min(76vw,300px);height:auto;display:block;margin:0 auto 28px;
+    -webkit-user-select:none;user-select:none;-webkit-user-drag:none;
+    pointer-events:none;
+  }
+  .splash.sm{width:min(54vw,190px);margin-bottom:24px}
+  /* 頂部品牌標誌 */
+  .markRow{display:flex;align-items:center;gap:11px}
+  .brandLogo{
+    width:40px;height:40px;object-fit:contain;display:block;flex:0 0 auto;
+    -webkit-user-drag:none;
+  }
+  .spinner{
+    width:24px;height:24px;border:2px solid var(--bg-card);border-top-color:var(--brand);
+    border-radius:50%;margin:0 auto 16px;animation:sp .75s linear infinite;
+  }
+  @keyframes sp{to{transform:rotate(360deg)}}
+  .toast{
+    position:fixed;left:50%;transform:translateX(-50%);bottom:calc(96px + var(--safe-b));
+    background:var(--text-primary);color:#fff;padding:12px 20px;border-radius:999px;
+    font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.1em;
+    max-width:86%;text-align:center;opacity:0;transition:opacity .25s;z-index:50;
+    pointer-events:none;line-height:1.5;
+  }
+  .toast.show{opacity:1}
+  .toast.err{background:var(--brand)}
+  .divider{height:1px;background:var(--border-subtle);margin:16px 0}
+  .foot{
+    text-align:center;font-family:'Oswald',sans-serif;font-size:9px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--text-tertiary);padding:22px 0 6px;
+  }
+
+  /* ══════════════════════════════════════════════════════════════
+     響應式版面 · Tablet (≥760px) + Desktop (≥1120px)
+     手機 (<760px) 保持原設計，一格都無改
+     ══════════════════════════════════════════════════════════════ */
+/* 圖示 */
+  .ico{display:inline-block;vertical-align:middle}
+  .hico{width:15px;height:15px;margin-right:8px;vertical-align:-2px;opacity:.85}
+  .kico{width:12px;height:12px;margin-right:5px;vertical-align:-1.5px;opacity:.55}
+  nav .ic svg{width:18px;height:18px}
+  .btn .ico{width:14px;height:14px;margin-right:7px;vertical-align:-2px}
+
+  /* 手機底部只留 4 粒 tab，唔要 Firebean / build 字 */
+  .foot{display:none}
+
+  /* 語言切換掣 */
+  .langBtn{
+    margin-left:12px;padding:8px 14px;border-radius:999px;flex:0 0 auto;
+    border:1px solid var(--border-subtle);background:transparent;
+    color:var(--text-secondary);font:600 11px/1 'Oswald',sans-serif;
+    letter-spacing:.14em;cursor:pointer;transition:.15s;
+  }
+  .langBtn:hover{background:var(--bg-secondary);color:var(--text-primary)}
+  @media (min-width:760px){ .foot{display:block} }
+
+  /* ── 兩欄堆疊（手機：攤平，維持原本單欄次序）── */
+  #v-bal.view.on{display:flex;flex-direction:column}
+  .colstack{display:contents}
+  .colA>.card:nth-child(1){order:1}
+  .colB>.card:nth-child(1){order:2}
+  .colA>.card:nth-child(2){order:3}
+  .colB>.card:nth-child(2){order:4}
+  #v-bal.view.on>.card{order:9}
+  #v-bal.view.on>.foot{order:10}
+
+  @media (min-width:760px){
+    .fab{right:26px;bottom:26px;width:60px;height:60px}
+    body{padding-left:208px;padding-bottom:0}
+    .wrap{max-width:100%;padding:0 24px}
+    header{padding:22px 0 28px}
+    .hero{margin-top:20px}
+    .hero .big{font-size:86px}
+    .hero .big em{font-size:15px}
+
+    /* ── 第 1 欄：左側 tab 選單（iPad / 網頁） ── */
+    nav{
+      top:0;right:auto;bottom:0;width:208px;flex-direction:column;align-items:stretch;
+      gap:6px;padding:22px 12px;border-top:0;border-right:1px solid var(--border-subtle);
+      background:var(--bg-secondary);backdrop-filter:none;-webkit-backdrop-filter:none;
+    }
+    nav::before,nav::after{content:none;display:none}
+    nav button{
+      flex:0 0 auto;flex-direction:row;justify-content:flex-start;gap:11px;
+      padding:13px 14px;border-radius:11px;font-size:11px;letter-spacing:.12em;
+      text-align:left;transition:background .15s;
+    }
+    nav button:hover{background:var(--bg-primary)}
+    nav button.on{background:var(--brand);color:#fff}
+    nav button:hover.on{background:var(--brand)}
+    nav .ic{width:19px;text-align:center}
+
+    /* ── 第 2、3 欄：結餘 ｜ 拆解 + 記錄 ── */
+    #v-bal.view.on{display:block}
+    .colstack{display:flex;flex-direction:column}
+    .colstack>.card{margin-top:18px}
+    #v-bal>.card:nth-child(n+3){grid-column:1/-1}
+    #v-bal>.foot{grid-column:1/-1}
+
+    /* 表單／清單：居中，唔好拉爆螢幕 */
+    #v-apply>.card,#v-mine>.card,#v-member>.card{max-width:780px;margin-left:auto;margin-right:auto}
+    #v-mgr>.card{max-width:860px;margin-left:auto;margin-right:auto}
+  }
+
+  @media (min-width:1120px){
+    body{padding-left:252px}
+    .wrap{max-width:1200px;padding:0 36px}
+    header{padding:26px 0 34px}
+    .hero .big{font-size:104px}
+
+    nav{width:252px;padding:26px 14px}
+    nav::before{font-size:20px;padding:0 16px 3px}
+    nav::after{padding:0 16px 24px}
+    nav button{padding:14px 16px;gap:12px;font-size:11px;letter-spacing:.14em}
+    nav .ic{width:20px}
+
+    #v-bal.view.on{gap:0 22px}
+    .colstack>.card{margin-top:22px}
+
+    /* 夠寬先將 KPI 攤成 4 欄 */
+    .grid2{grid-template-columns:repeat(4,minmax(0,1fr));gap:11px}
+    .kpi{padding:14px 15px}
+    .kpi .v{font-size:30px}
+
+    #v-mgr.view.on{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 22px;align-items:start}
+    #v-mgr>.card:nth-child(1){grid-column:1/-1}
+    #v-mgr>.card{margin-top:22px}
+    #v-mgr>.foot{grid-column:1/-1}
+
+    .toast{left:calc(50% + 126px);bottom:36px;max-width:520px}
+    .center{padding:90px 26px}
+  }
+
+  /* Apply 表單包裝：手機外層唔帶任何樣式（版面同以前一模一樣） */
+  .fld>label:first-child{margin-top:16px}
+  .fGrid>label:first-child{margin-top:16px}
+  .fSide{display:block}
+
+  /* ── 頂部兩張卡：身份 ｜ 年假結餘（同 Leave Balance 卡同款）── */
+  .topCards{display:grid;grid-template-columns:1fr;gap:12px}
+  .idCard{padding:16px 18px}
+  .idCard .who{text-align:left;font-size:14px}
+  .idCard .whoTxt{text-align:left}
+  .idCard .whoin{justify-content:flex-start}
+  .heroCard .hero{margin-top:0}
+  /* 頂部雙卡：iPad 直向（<1000）先疊起，夠闊（iPad 橫向／桌面）才左右並排
+     —— 之前 700px 就並排，大數字 min-content 會撐爆卡片搞到 iPad 有橫向捲軸 */
+  @media (min-width:1000px){
+    .topCards{grid-template-columns:minmax(230px,300px) minmax(0,1fr);gap:14px;align-items:stretch}
+    .idCard{display:flex;align-items:center}
+    .idCard .whoin{justify-content:center}
+  }
+
+  /* ── 桌面／iPad：頭像放大到同大數字（11.5 Days）一樣高 ── */
+  @media (min-width:900px){
+    .who .avw{width:86px!important;height:86px!important;font-size:36px!important}
+  }
+  @media (min-width:1120px){
+    .who .avw{width:104px!important;height:104px!important;font-size:44px!important}
+  }
+
+  /* ── 大數字左邊嘅大圖示（年假）── */
+  .bigRow{display:flex;align-items:center;gap:16px}
+  .bigRow .big{margin-top:0}
+  .hero .bigIco{width:60px;height:60px;flex:0 0 auto;color:var(--brand);stroke-width:1.25}
+  @media (min-width:900px){ .hero .bigIco{width:78px;height:78px;stroke-width:1.18} }
+  @media (min-width:1120px){ .hero .bigIco{width:96px;height:96px;stroke-width:1.02} }
+
+  /* ── 姓名／職銜跟頭像比例放大 ── */
+  @media (min-width:900px){
+    .who b{font-size:18px}  .who span{font-size:11.5px}  .whoin{gap:12px}
+  }
+  @media (min-width:1120px){
+    .who b{font-size:22px}  .who span{font-size:14px}  .whoin{gap:16px}
+  }
+
+  /* ── 頂欄：品牌區（logo + FIREBEAN / Leave Application）放大一倍、水平垂直置中 ── */
+  @media (min-width:700px){
+    .hrow{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:18px}
+    .markRow{grid-column:2;justify-self:center;justify-content:center;gap:22px}
+    .brandLogo{width:80px;height:80px}
+    .mark{font-size:38px}
+    .mark small{font-size:20px;letter-spacing:.3em;margin-top:10px}
+    .langBtn{grid-column:3;justify-self:end;margin-left:0}
+  }
+
+  /* ── 手機（<700px）：品牌區同樣放大，但用 ×1.4 嘅中間版本，唔會爆版 ── */
+  @media (max-width:699px){
+    .brandLogo{width:56px;height:56px}
+    .mark{font-size:27px}
+    .mark small{font-size:14px;letter-spacing:.24em;margin-top:8px}
+    .markRow{gap:10px}
+  }
+
+  /* ══════════════════════════════════════════════════════════════
+     iPad / 桌面：真響應式版面（<1000px 一律唔變，手機版零改動）
+     ══════════════════════════════════════════════════════════════ */
+  @media (min-width:1000px){
+    body{font-size:15px}
+    .wrap{padding:0 32px}
+    .card{padding:22px 24px}
+
+    /* 唔再係「手機介面置中放大」：卡片用盡可用寬度 */
+    #v-apply>.card,#v-mine>.card,#v-member>.card,#v-mgr>.card{max-width:none;margin-left:0;margin-right:0}
+
+    /* Apply：左 = 表格，右 = 摘要＋提交（捲頁時黏住） */
+    .applyCard{display:grid;grid-template-columns:minmax(0,1fr) minmax(250px,320px);
+      gap:0 36px;align-items:start}
+    .applyCard>h3{grid-column:1/-1}
+    /* 頂卡：大數字靠右，唔好中間一大堆空位 */
+    .heroCard .hero{display:flex;align-items:center;gap:18px;text-align:left}
+    .heroCard .hero .bigRow{margin-left:auto}
+    .applyCard{align-items:stretch}
+    .fSide{display:flex;flex-direction:column}
+    .fSide .btn{margin-top:auto}
+    .fSide #f-preview{margin-top:0}
+
+    /* Records：卡片變 2–3 欄格 */
+    #v-mine>.card{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;align-items:start}
+    #v-mine>.card>.item{align-self:start}
+    #v-mine>.card>h3{grid-column:1/-1}
+    #v-mine>.card>.empty{grid-column:1/-1}
+    #v-mine>.card>.item{border:1px solid var(--border-subtle);border-radius:14px;
+      padding:15px 17px;margin:0;background:var(--bg-primary)}
+
+    /* Approvals：待批（左，大）｜團隊結餘（右，黏頂）｜最近紀錄（左下） */
+    #v-mgr.view.on{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:0 22px;align-items:stretch}
+    #v-mgr>.card:nth-child(1){grid-column:1;grid-row:1}
+    #v-mgr>.card:nth-child(2){grid-column:2;grid-row:1/span 2}
+    #v-mgr>.card:nth-child(3){grid-column:1}
+    #v-mgr>.foot{grid-column:1/-1}
+    #mgr-pending{display:grid;grid-template-columns:repeat(auto-fill,minmax(272px,1fr));gap:14px}
+    #mgr-pending>.item{border:1px solid var(--border-subtle);border-radius:14px;
+      padding:15px 17px;margin:0;background:var(--bg-primary)}
+    #mgr-pending>.empty{grid-column:1/-1}
+
+    /* My Leave：結餘欄闊少少 */
+    #v-bal.view.on{grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);gap:0 22px}
+
+    /* 管理員睇同事資料（Member）：桌面 2 欄，唔再一疊長卡 */
+    #v-member.view.on{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);
+      gap:0 22px;align-items:stretch}
+    #v-member>.card:nth-child(1){grid-column:1/-1;grid-row:1}
+    #v-member>.card:nth-child(2){grid-column:1;grid-row:2}
+    #v-member>.card:nth-child(3){grid-column:2;grid-row:2}
+    #v-member>.card:nth-child(5){grid-column:1;grid-row:3}
+    #v-member>.card:nth-child(4){grid-column:2;grid-row:3}
+    #v-member>.foot{grid-column:1/-1;grid-row:4}
+    #v-member>.card>.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
+  @media (min-width:1200px){
+    /* 夠闊才將表單欄位攤成 2 欄（唔再一條長龍） */
+    .fGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 26px;align-content:start}
+    .fld{min-width:0}
+    .fld-wide{grid-column:1/-1}
+    .fGrid>.fld:nth-child(-n+2)>label:first-child{margin-top:2px}
+    .fld .row2{margin-top:16px}
+    .fld .row2>div>label:first-child{margin-top:0}
+    .applyCard{grid-template-columns:minmax(0,1fr) minmax(280px,340px)}
+  }
+  @media (min-width:1400px){
+    .wrap{padding:0 40px}
+    #v-member>.card>.grid2{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .applyCard{grid-template-columns:minmax(0,1fr) 380px}
+    #mgr-pending{grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
+
+  }
+
+</style>
+</head>
+<body>
+
+<div id="root">
+  <div class="center">
+    <img class="splash" src="https://firebean.net/leaveapp/visual-neon.webp"
+         alt="Firebean Leave" onerror="this.style.display='none'">
+    <div class="spinner"></div>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+/* ---------------- utils ---------------- */
+var $ = function(id){ return document.getElementById(id); };
+/* 品牌素材（放喺 firebean.net/leaveapp/，由 GitHub Pages 提供）*/
+var ASSET = 'https://firebean.net/leaveapp/';
+var VISUAL = ASSET + 'visual-neon.webp';
+var LOGO   = ASSET + 'logo.webp';
+function splashHtml(cls){
+  return '<img class="splash' + (cls ? ' ' + cls : '') + '" src="' + VISUAL +
+    '" alt="" onerror="this.style.display=\'none\'">';
+}
+var S = { sess:null, data:null, mgr:null, tab:'v-bal' };
+
+function toast(msg, isErr){
+  var t = $('toast');
+  t.textContent = msg;
+  t.className = 'toast show' + (isErr ? ' err' : '');
+  clearTimeout(t._h);
+  t._h = setTimeout(function(){ t.className = 'toast'; }, 4200);
+}
+function esc(s){
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });
+}
+function avatarHtml(url, name, size){
+  var ini = String(name || '?').trim().charAt(0).toUpperCase() || '?';
+  var st = 'width:' + size + 'px;height:' + size + 'px;font-size:' + Math.round(size * 0.42) + 'px';
+  return '<span class="avw" style="' + st + '">' +
+    (url ? '<img src="' + esc(url) + '" alt="" onerror="this.remove()">' : '') +
+    '<i>' + esc(ini) + '</i></span>';
+}
+function num(n){
+  if (n === null || n === undefined || n === '') return '\u2013';
+  var v = Math.round(Number(n) * 100) / 100;
+  return (v % 1 === 0) ? String(v) : v.toFixed(2).replace(/0$/,'');
+}
+function fmtDate(d){
+  if (!d) return '\u2013';
+  var p = String(d).split('-');
+  if (p.length === 3){
+    var mo = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][(+p[1]) - 1];
+    return (+p[2]) + ' ' + mo;
+  }
+  return d;
+}
+function cnType(t){
+  return t === 'Compensation Leave' ? 'Comp Leave' : t;
+}
+function cnStatus(s){ return s || 'Pending'; }
+
+/* ---------------- identity ---------------- */
+function boot(){
+  google.script.run.withSuccessHandler(function(r){
+    if (!r || !r.ok){ showDenied(r && r.email); return; }
+    S.sess = r;
+    loadDashboard();
+  }).withFailureHandler(function(e){
+    showError(e && e.message ? e.message : 'Could not load');
+  }).getSession();
+}
+
+function showDenied(email){
+  // 讀唔到身份（多數係瀏覽器同時登入多個 Google 帳戶）→ 引導揀返 @firebean.net 帳號再入
+  const exec = String(location.href).split('?')[0];
+  const chooser = 'https://accounts.google.com/AccountChooser?hd=firebean.net&continue=' + encodeURIComponent(exec);
+  const blank = !email;
+  $('root').innerHTML =
+    '<div class="center">' +
+      splashHtml('sm') +
+      '<div style="font-family:\'Anton\',sans-serif;font-size:15px;letter-spacing:.2em;text-transform:uppercase;' +
+        'color:#ff3333;margin-bottom:14px">Access Restricted</div>' +
+      '<div style="font-weight:600;font-size:17px;margin-bottom:10px">' +
+        (blank ? L('Could not read your Google account') : L('Not on the staff list')) + '</div>' +
+      (blank
+        ? '<div style="color:#4b5563;font-size:13.5px;line-height:1.75">' +
+            L('Your browser did not pass your Google account to the app.') + '<br>' +
+            L('This usually happens when several Google accounts are signed in at once.') +
+          '</div>' +
+          '<a class="btn" href="' + chooser + '" style="max-width:340px;margin:18px auto 0;display:block;text-decoration:none;line-height:1.4">' + L('Sign in with your @firebean.net account') + '</a>' +
+          '<div style="margin-top:14px"><a href="#" style="color:#e21c24;font-size:13px;text-decoration:none" onclick="location.reload();return false">' + L('Try again') + '</a></div>'
+        : '<div style="color:#4b5563;font-size:13.5px;line-height:1.75">' +
+            L('Signed in as') + ' <b>' + esc(email) + '</b><br>' +
+            L('This app is for Firebean team members only.') + '<br>' + L('Ask Dickson to add you to the Staff tab.') +
+          '</div>') +
+    '</div>';
+  if (typeof i18nApply === 'function') i18nApply();
+}
+
+function showError(msg){
+  $('root').innerHTML =
+    '<div class="center">' +
+      splashHtml('sm') +
+      '<div style="font-family:\'Anton\',sans-serif;font-size:15px;letter-spacing:.2em;text-transform:uppercase;' +
+        'color:#ff3333;margin-bottom:14px">Something went wrong</div>' +
+      '<div style="color:#4b5563;font-size:13px">' + esc(msg) + '</div>' +
+      '<button class="btn ghost" style="margin-top:24px;max-width:220px" onclick="location.reload()">Try again</button>' +
+    '</div>';
+}
+
+/* ---------------- dashboard ---------------- */
+function loadDashboard(){
+  google.script.run.withSuccessHandler(function(d){
+    if (!d || !d.ok){ showDenied(d && d.email); return; }
+    S.data = d;
+    render();
+  }).withFailureHandler(function(e){
+    showError(e && e.message ? e.message : 'Could not load');
+  }).getDashboard();
+}
+
+/* ── 共用元件：餘額卡（含公式）────────────────────────────── */
+function calcRow(label, expr, result, unit){
+  return '<div class="calcRow"><span class="cl">' + esc(label) + '</span>' +
+    '<span class="cm">' + esc(expr) + '</span>' +
+    '<span class="cr">' + num(result) + (unit ? '<small>' + esc(unit) + '</small>' : '') + '</span></div>';
+}
+function fmtMonth(iso){
+  if (!iso) return '';
+  var d = new Date(String(iso).slice(0,10) + 'T00:00:00');
+  if (isNaN(d.getTime())) return String(iso);
+  var M = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return M[d.getMonth()] + ' ' + d.getFullYear();
+}
+function calcBlockHtml(b, segs){
+  // 累積算式：逐段列出（年度中調整 entitlement 時會有多過一段）
+  var expr;
+  var shown = (segs || []).filter(function(x){ return x.upfront || Number(x.ent) > 0; });
+  if (shown.length) {
+    expr = shown.map(function(x){
+      if (x.upfront) return num(x.ent) + ' days (full year)';
+      return '(' + num(x.ent) + ' days \u00d7 ' + x.months + ' months) \u00f7 12 months';
+    }).join('   +   ');
+  } else {
+    expr = '\u2013';
+  }
+  var used = num(b.used), pend = num(b.pending);
+  var carry = Number(b.carryIn || 0);
+  var raw = (b.accruedRaw === undefined || b.accruedRaw === null) ? b.accrued : b.accruedRaw;
+  var toLbl = fmtMonth(b.accruedTo);
+  var rows = calcRow('Accrued' + (toLbl ? ' (to ' + toLbl + ')' : ''), expr, raw, 'days');
+  // 有零碎日數先顯示對齊步驟，免得無謂多一行
+  if (Number(raw) !== Number(b.accrued)) {
+    rows += '<div class="calcRow"><span class="cl">Rounded up to next half day</span>' +
+      '<span class="cm">' + num(raw) + ' days \u2192</span>' +
+      '<span class="cr">' + num(b.accrued) + '<small>days</small></span></div>';
+  }
+  if (carry) {
+    var cd = (b.carryDetail || []).filter(function(x){ return Number(x.closing) < 0; });
+    var cy = cd.length ? cd[cd.length - 1].year : '';
+    var ctxt = cy ? 'Over-used in ' + cy + ' \u2014 carried forward' : 'Carried forward from last year';
+    rows += calcRow('Carry-over from last year', ctxt, carry, 'days');
+  }
+  return '<div class="calc">' +
+    '<div class="ch">How this is calculated</div>' +
+    rows +
+    calcRow('Annual leave left',
+      'Accrued ' + num(b.accrued) + ' days' +
+      (carry ? (carry < 0 ? ' \u2212 ' + num(Math.abs(carry)) : ' + ' + num(carry)) + ' days carry-over' : '') +
+      ' \u2212 Used ' + used + ' days \u2212 Pending ' + pend + ' days',
+      b.available, 'days') +
+  '</div>';
+}
+var _MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function isoLabel(iso){
+  var p = String(iso || '').split('-');
+  if (p.length !== 3) return String(iso || '');
+  return Number(p[2]) + ' ' + (_MON[Number(p[1]) - 1] || p[1]) + ' ' + p[0];
+}
+/* 帶入年假提示：正數有期限、負數係超用、過期即失效 */
+function carryHtml(b){
+  var raw = Number(b.carryRaw || 0);
+  if (!raw) return '';
+  var last = b.carryExpiry ? isoLabel(b.carryExpiry) : '';
+  if (raw < 0) {
+    return '<div class="d" style="margin-top:10px;color:#b42318">⚠️ ' + num(Math.abs(raw)) +
+      ' day(s) over-used last year, carried forward and already deducted from this year.</div>';
+  }
+  if (b.carryExpired) {
+    var cr = Number(b.carryCredit || 0);
+    var extra = cr
+      ? ' <b>' + num(cr) + ' day(s)</b> of them were taken before the deadline, so they are not charged against this year\u2019s accrual.'
+      : '';
+    return '<div class="d" style="margin-top:10px;color:#b45309">⚠️ ' + num(raw) +
+      ' day(s) were carried forward from last year, but the deadline passed on <b>' + last +
+      '</b> \u2014 they have expired and can no longer be used.' + extra + '</div>';
+  }
+  return '<div class="d" style="margin-top:10px;color:#12864a">↪️ <b>' + num(raw) +
+    ' day(s)</b> carried forward from last year — usable until <b>' + last +
+    '</b>, after which any unused days expire.</div>';
+}
+
+/* ══ 圖示（inline SVG，唔靠外部字型） ══ */
+var ICO = {
+  cal:    '<rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M8 3v4M16 3v4M3 10.5h18"/>',
+  calbig: '<rect x="3" y="4.8" width="18" height="15.7" rx="3"/>' +
+          '<path d="M8 2.9v3.3M16 2.9v3.3M3 9.5h18"/>' +
+          '<path d="M6.9 12.4h1.5M6.9 15.8h1.5M10.7 12.4h1.5M10.7 15.8h1.5"/>' +
+          '<rect x="14.3" y="14.4" width="3.5" height="2.6" rx="1" fill="currentColor" stroke="none"/>',
+  plus:   '<path d="M12 5v14M5 12h14"/>',
+  plane:  '<path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>',
+  list:   '<path d="M8.5 6h12M8.5 12h12M8.5 18h12"/><circle cx="4" cy="6" r="1.2"/><circle cx="4" cy="12" r="1.2"/><circle cx="4" cy="18" r="1.2"/>',
+  check:  '<path d="M20 6.5L9.2 17.3 4 12.1"/>',
+  x:      '<path d="M18 6L6 18M6 6l12 12"/>',
+  clock:  '<circle cx="12" cy="12" r="9"/><path d="M12 7.2V12l3.2 2"/>',
+  wallet: '<rect x="2.5" y="6" width="19" height="13" rx="2.8"/><path d="M2.5 10.5h19M16.2 14.8h2.2"/>',
+  trend:  '<path d="M3 17.5l6-6 4 4 7.2-7.2"/><path d="M14 8.3h6.2v6.2"/>',
+  send:   '<path d="M4.2 12L20 4l-6.2 16-3.1-6.1L4.2 12z"/>',
+  hour:   '<path d="M7 3.2h10M7 20.8h10M8.2 3.2v3.4a4 4 0 001.7 3.3L12 12l2.1-2.1a4 4 0 001.7-3.3V3.2M8.2 20.8v-3.4a4 4 0 011.7-3.3L12 12l2.1 2.1a4 4 0 011.7 3.3v3.4"/>',
+  info:   '<circle cx="12" cy="12" r="9"/><path d="M12 11.2v5.2M12 7.9h.01"/>',
+  users:  '<circle cx="9.2" cy="8.2" r="3.2"/><path d="M2.8 19.4a6.4 6.4 0 0112.8 0"/><path d="M16.4 5.4a3 3 0 010 5.6M18.2 19.4a6.2 6.2 0 00-2.3-4.7"/>',
+  user:   '<circle cx="12" cy="8.2" r="3.4"/><path d="M4.6 20a7.4 7.4 0 0114.8 0"/>',
+  chart:  '<path d="M4 20V11M10 20V4.5M16 20v-6.5M22 20H2"/>',
+  globe:  '<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 3.1 2.6 14.8 0 18-2.6-3.2-2.6-14.9 0-18z"/>'
+};
+function ic(n, cls){
+  return '<svg class="ico' + (cls ? ' ' + cls : '') + '" viewBox="0 0 24 24" fill="none" ' +
+    'stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" ' +
+    'aria-hidden="true">' + (ICO[n] || '') + '</svg>';
+}
+var H3ICON = {'Leave Balance':'wallet','Accrual Breakdown':'chart',
+  'Why is my balance this number?':'info','My History':'list','My Requests':'list',
+  'New Request':'plus','Pending Approval':'clock','Team Balances':'users','Recent Requests':'list'};
+var KICON = {'Annual Leave Left':'wallet','Used':'send','Pending':'hour'};
+var BICON = {'Submit Request':'send','Approve':'check','Reject':'x','Cancel':'x'};
+function iconsApply(){
+  var root = $('root'); if (!root) return;
+  [].forEach.call(root.querySelectorAll('.card > h3'), function(h){
+    if (h.querySelector('svg')) return;
+    var t = (h.textContent || '').trim();
+    if (H3ICON[t]) h.insertAdjacentHTML('afterbegin', ic(H3ICON[t], 'hico'));
+  });
+  [].forEach.call(root.querySelectorAll('.kpi > .k'), function(k){
+    if (k.querySelector('svg')) return;
+    var t = (k.textContent || '').trim();
+    var n = KICON[t] || (/^Accrued/.test(t) ? 'trend' : '');
+    if (n) k.insertAdjacentHTML('afterbegin', ic(n, 'kico'));
+  });
+  [].forEach.call(root.querySelectorAll('button.btn'), function(b){
+    if (b.querySelector('svg')) return;
+    var t = (b.textContent || '').trim();
+    if (BICON[t]) b.insertAdjacentHTML('afterbegin', ic(BICON[t]));
+  });
+}
+
+function balanceCardHtml(b, segs){
+  return '<div class="card">' +
+    '<h3>Leave Balance</h3>' +
+    '<div class="grid2">' +
+      '<div class="kpi hl"><div class="k">Annual Leave Left</div><div class="v">' + num(b.available) + '<small>days</small></div></div>' +
+      '<div class="kpi"><div class="k">Accrued' + (fmtMonth(b.accruedTo) ? ' to ' + fmtMonth(b.accruedTo) : '') + '</div><div class="v">' + num(b.accrued) + '<small>days</small></div></div>' +
+    '</div>' +
+    '<div class="divider"></div>' +
+    '<div class="grid2">' +
+      '<div class="kpi"><div class="k">Used</div><div class="v">' + num(b.used) + '<small>days</small></div></div>' +
+      '<div class="kpi"><div class="k">Pending</div><div class="v">' + num(b.pending) + '<small>days</small></div></div>' +
+    '</div>' +
+    carryHtml(b) +
+    (b.mergedDays > 0
+      ? '<div class="d" style="margin-top:10px;color:#b45309">\u26a0\ufe0f ' + num(b.mergedDays) +
+        ' overlapping approved day(s) merged \u2014 counted once only</div>'
+      : '') +
+    (Number(b.available) <= 0
+      ? '<div class="d" style="margin-top:10px;color:#b42318;font-weight:700">\u26a0\ufe0f Annual leave used up \u2014 ' +
+        num(Math.abs(Number(b.available))) + ' day(s) over. You can still apply for Sick Leave or Compensation Leave.</div>'
+      : '') +
+    '<div class="d" style="margin-top:12px;padding:10px 12px;background:#f6f7f9;border-radius:8px;line-height:1.7">' +
+      '<b>Contract entitlement</b> = ' + num(b.entitlement) + ' days \u2014 this is for a <b>full 12 months</b>.<br>' +
+      '<b>What you can book now</b> = <b style="color:' + (Number(b.available) > 0 ? '#12864a' : '#b42318') + '">' +
+        num(b.available) + ' days</b> \u2014 only months you have actually completed are credited.' +
+    '</div>' +
+    calcBlockHtml(b, segs) +
+    '<div class="legend">' +
+      '<b>Accrued</b> \u2014 complete months from 1 Jan, each at that leave year\u2019s entitlement \u00f7 12, rounded UP to the next half day.<br>' +
+      '<b>Annual Leave Left</b> \u2014 Accrued + Carry-over \u2212 Used \u2212 Pending. The only figure you need to book leave.<br>' +
+      '<b>Carry-over</b> \u2014 unused days move into the next year, but must be used by the end of February, otherwise they expire. Over-used days carry forward with no deadline.<br>' +
+      '<b>Contract entitlement</b> \u2014 ' + num(b.entitlement) + ' days for a full 12 months (leave year 1 Jul \u2013 30 Jun). This is the contract figure, <b>not</b> what you can book today.' +
+    '</div>' +
+  '</div>';
+}
+function accrualCardHtml(segs){
+  if (!segs || !segs.length) return '';
+  var h = '<div class="card"><h3>Accrual Breakdown</h3>';
+  segs.forEach(function(x){
+    h += '<div class="item"><div class="top">' +
+      '<div class="t">' + num(x.ent) + ' days entitlement</div>' +
+      '<div class="d mono">' + x.months + ' month' + (x.months === 1 ? '' : 's') +
+        ' \u00d7 ' + num(x.ent) + ' days \u00f7 12 = ' + num(x.days) + ' days</div>' +
+    '</div><div class="d">Effective ' + esc(x.from) + '</div></div>';
+  });
+  return h + '</div>';
+}
+function nextLysLabel(iso){
+  var d = new Date(iso + 'T00:00:00');
+  if (isNaN(d.getTime())) return '';
+  var y = d.getFullYear(), m = d.getMonth();
+  return '1 Jul ' + ((m <= 6) ? y : y + 1);
+}
+function whyCardHtml(b, segs){
+  var avail = Number(b.available), accrued = Number(b.accrued);
+  var used = Number(b.used), pend = Number(b.pending), carry = Number(b.carryIn || 0);
+  var n = 0;
+  var h = '<div class="card"><h3>Why is my balance this number?</h3>';
+
+  n++; h += '<div class="item"><div class="top"><div class="t">' + n + '. Your contract entitlement</div></div>' +
+    '<div class="d">' + num(b.entitlement) + ' days for a full 12 months. That is the contract figure \u2014 <b>not</b> what you can use today.</div></div>';
+
+  var on = (segs || []).filter(function(x){ return x.upfront || Number(x.ent) > 0; });
+  n++; h += '<div class="item"><div class="top"><div class="t">' + n + '. Leave is earned month by month</div></div>' +
+    '<div class="d">You earn 1/12 of the rate for each <b>complete</b> month you have worked. The current month, and any month before you joined, do not count yet.</div>';
+  on.forEach(function(x){
+    h += '<div class="d mono" style="margin-top:6px">from ' + esc(x.from) + ' \u00b7 rate set on ' +
+      (x.rateFrom ? esc(x.rateFrom) : '\u2013') + ' \u00b7 (' + num(x.ent) + ' \u00d7 ' + x.months +
+      ') \u00f7 12 = <b>' + num(x.days) + ' days</b></div>';
+  });
+  h += '<div class="d" style="margin-top:6px"><b>Earned so far = ' + num(accrued) + ' days</b>' +
+    (b.accruedTo ? ' \u2014 counting complete months up to ' + fmtMonth(b.accruedTo) : '') + '</div></div>';
+
+   var carryRaw = Number(b.carryRaw || 0);
+   if (carryRaw) {
+     n++; h += '<div class="item"><div class="top"><div class="t">' + n + '. Carried over from last year</div></div>';
+     if (carryRaw < 0) {
+       h += '<div class="d">You finished last year <b>' + num(Math.abs(carryRaw)) +
+         ' day(s) over</b>. That shortfall is carried forward and deducted from this year.</div>';
+     } else if (b.carryExpired) {
+       h += '<div class="d">Last year you had <b>' + num(carryRaw) + ' day(s)</b> left. Unused annual leave may be ' +
+         'carried into the new year but must be taken by <b>' + isoLabel(b.carryExpiry) + '</b>; that deadline has passed, ' +
+         'so these days have expired and are <b>not</b> counted below.' +
+         (b.carryCredit ? ' <b>' + num(b.carryCredit) + ' day(s)</b> of them were taken before the deadline \u2014 ' +
+            'those days are covered by the carry-over and are not charged to this year\u2019s accrual.' : '') +
+         '</div>';
+     } else {
+       h += '<div class="d">Last year you had <b>' + num(carryRaw) + ' day(s)</b> left, carried into this year. ' +
+         'They must be taken by <b>' + isoLabel(b.carryExpiry) + '</b> — after that they expire.</div>';
+     }
+     h += '</div>';
+   }
+
+  n++; h += '<div class="item"><div class="top"><div class="t">' + n + '. Annual leave you have taken</div></div>' +
+    '<div class="d">' + num(used) + ' days already approved' +
+    (pend ? ', plus ' + num(pend) + ' days waiting for approval' : ', and nothing waiting for approval') +
+    (b.carryCredit ? '. Of these, <b>' + num(b.carryCredit) + ' day(s)</b> were taken before ' +
+       isoLabel(b.carryExpiry) + ' and are charged against last year\u2019s carry-over, so only <b>' +
+       num(b.usedCharged != null ? b.usedCharged : Math.max(0, used - b.carryCredit)) +
+       ' day(s)</b> come off this year\u2019s accrual' : '') + '.</div></div>';
+
+  n++; h += '<div class="item"><div class="top"><div class="t">' + n + '. The answer</div></div>' +
+    '<div class="d mono">' + num(accrued) +
+    (carry ? (carry < 0 ? ' \u2212 ' : ' + ') + num(Math.abs(carry)) : '') +
+    ' \u2212 ' + num(b.usedCharged != null ? b.usedCharged : used) + (pend ? ' \u2212 ' + num(pend) : '') +
+    ' = <b>' + num(avail) + ' days</b></div>' +
+    (b.carryCredit ? '<div class="d">(Of the ' + num(used) + ' day(s) taken, ' + num(b.carryCredit) +
+      ' are covered by last year\u2019s carry-over, so only ' +
+      num(b.usedCharged != null ? b.usedCharged : Math.max(0, used - b.carryCredit)) +
+      ' day(s) come off this year\u2019s accrual.)</div>' : '');
+
+  if (avail < 0) {
+    h += '<div class="d" style="margin-top:10px;color:#b42318"><b>You are ' + num(Math.abs(avail)) + ' day(s) over.</b> ' +
+      'You booked ' + num(used) + ' days, but by ' + (b.accruedTo ? fmtMonth(b.accruedTo) : 'now') +
+      ' only ' + num(accrued) + ' days had been earned. ' + num(used) + ' \u2212 ' + num(accrued) + ' = ' +
+      num(Math.round((used - accrued) * 100) / 100) + ' days over.</div>';
+    h += '<div class="d" style="margin-top:6px">This is not wiped: a negative closing balance on 31 December carries into the next year with no deadline and comes off next year\u2019s leave. (Unused <b>positive</b> days behave differently \u2014 they carry forward but expire at the end of February.)</div>';
+    h += '<div class="d" style="margin-top:6px">You cannot book more annual leave until the balance is positive again \u2014 but you can still book <b>Sick Leave</b> and <b>Compensation Leave</b>.</div>';
+  }
+  h += '</div>';
+
+  var hist = (b.entHistory || []);
+  if (hist.length > 1) {
+    var last = hist[hist.length - 1];
+    h += '<div class="item"><div class="top"><div class="t">Why a rate change does not show up straight away</div></div>' +
+      '<div class="d">Your entitlement was last changed on <b>' + esc(last.eff) + '</b> to ' + num(last.ent) + ' days/year. ' +
+      'Entitlement changes only start counting from the beginning of a leave year (1 July), so this one first affects months from <b>' +
+      nextLysLabel(last.eff) + '</b> onwards.</div></div>';
+  }
+  return h + '</div>';
+}
+function historyCardHtml(reqs, title, limit){
+  var h = '<div class="card"><h3>' + esc(title) + '</h3>';
+  if (!reqs || !reqs.length) h += '<div class="empty">No requests yet</div>';
+  else (limit ? reqs.slice(0, limit) : reqs).forEach(function(r){ h += reqHtml(r, false); });
+  return h + '</div>';
+}
+
+function dryBannerHtml(s){
+  if (!s || !s.dryRun) return '';
+  return '<div style="background:#7f1d1d;color:#fff;padding:11px 16px;text-align:center;' +
+    'font:600 13px/1.55 system-ui,-apple-system,sans-serif;border-bottom:2px solid #ef4444">' +
+    '\u26a0\ufe0f \u6e2c\u8a66\u6a21\u5f0f DRY_RUN = true \u2014 \u4e0d\u6703\u767c email\u3001\u4e0d\u6703\u5beb\u65e5\u66c6' +
+    '<div style="font-weight:400;opacity:.82;font-size:11.5px;margin-top:3px">' +
+    esc(s.build || '?') + ' \u00b7 \u9023\u4f4f\uff1a' + esc(s.sheetName || '?') +
+    ' \u00b7 \u65e5\u66c6\uff1a' + esc(s.calName || '?') + '</div></div>';
+}
+
+/* ══════════════════════════════════════════════
+   語言切換 · ZH / EN（純前端，記住用戶選擇）
+   ══════════════════════════════════════════════ */
+var LANG = (function(){
+  try { var v = localStorage.getItem('fb_lang'); if (v === 'zh' || v === 'en') return v; } catch (e) {}
+  var l = String(navigator.language || 'en').toLowerCase();
+  return l.indexOf('zh') === 0 ? 'zh' : 'en';
+})();
+
+var ZH = {
+  "My Leave": "我的假期",
+  "Apply": "申請",
+  "Records": "紀錄",
+  "Approvals": "批核",
+  "Leave Balance": "假期結餘",
+  "Annual Leave Left": "剩餘年假",
+  "Sick Leave requires a medical certificate — please send it to Dickson by email or WhatsApp for further approval.": "病假須提交醫生證明書 —— 請以電郵或 WhatsApp 交予 Dickson，方可作進一步批核。",
+  "Medical certificate: received": "醫生紙：已收",
+  "Medical certificate: not received": "醫生紙：未收",
+  "Mark certificate as received": "標記醫生紙已收",
+  "Undo (not received)": "取消（未收返）",
+  "Marked as received": "已標記為已收",
+  "Marked as not received": "已標記為未收",
+  "Updating\u2026": "更新中…",
+  "Annual leave left": "剩餘年假",
+  "Annual leave left after booking:": "請假後剩餘年假：",
+  "Annual Leave": "年假",
+  "Days": "日",
+  "days": "日",
+  "Accrued": "已累積",
+  "Used": "已用",
+  "Pending": "待批",
+  "Pending Approval": "待批核",
+  "Approved": "已批准",
+  "Approve": "批准",
+  "Reject": "拒絕",
+  "Cancel": "取消",
+  "Contract entitlement": "合約年假額",
+  "Carry-over": "上年結轉",
+  "How this is calculated": "計算方式",
+  "Accrual Breakdown": "累積拆解",
+  "My History": "我的紀錄",
+  "My Requests": "我的申請",
+  "New Request": "新申請",
+  "Recent Requests": "最近申請",
+  "Submit Request": "提交申請",
+  "Start Date": "開始日期",
+  "End Date": "結束日期",
+  "Leave Type": "假期類型",
+  "Duration": "時長",
+  "Reason (optional)": "原因（可選）",
+  "Event Name": "活動名稱",
+  "OT Date (required)": "加班日期（必填）",
+  "Full Day": "全日",
+  "Morning Half Day · 09:00–13:00": "上午半日 · 09:00–13:00",
+  "Afternoon Half Day · 14:00–18:00": "下午半日 · 14:00–18:00",
+  "Sick Leave": "病假",
+  "Compensation Leave": "補假",
+  "Personal": "私人",
+  "Wedding": "婚假",
+  "Family trip": "家庭旅行",
+  "Manager": "主管",
+  "Team": "成員",
+  "Name": "姓名",
+  "Team Balances": "團隊結餘",
+  "Select a name to open the full dashboard": "點擊姓名可查看完整結餘",
+  "Loading…": "載入中…",
+  "What you can book now": "現時可申請日數",
+  "Why is my balance this number?": "為何是這個數字？",
+  "1. Your contract entitlement": "1. 合約年假額",
+  "2. Leave is earned month by month": "2. 假期按月累積",
+  "3. Annual leave you have taken": "3. 已放年假",
+  "4. The answer": "4. 答案",
+  "complete": "完整",
+  "not": "不",
+  "full 12 months": "完整 12 個月",
+  "what you can book today.": "現時可申請的日數。",
+  "what you can use today.": "現時可用的日數。",
+  "You earn 1/12 of the rate for each": "每完成一個月，可累積年度額度的 1/12",
+  "20 days for a full 12 months. That is the contract figure —": "做滿 12 個月有 20 日，這是合約數字 ——",
+  "= 20 days — this is for a": "= 20 日 —— 這是",
+  "— only months you have actually completed are credited.": "—— 只計算已完成的完整月份。",
+  "— already started, cannot be cancelled": "—— 已開始，不能取消",
+  "This request:": "本申請：",
+  "Sick / compensation leave taken this year:": "本年已放病假／補假：",
+  "(does not affect annual leave).": "（不影響年假）。",
+  "(weekends & public holidays excluded)": "（不計週末及公眾假期）",
+  "Leave": "假期",
+  "FIREBEAN": "FIREBEAN"
+};
+
+var ZH_RULES = [
+  [/^(\d+(?:\.\d+)?) days?$/, '$1 日'],
+  [/^Annual Leave · as of (.+)$/, '年假 · 截至 $1'],
+  [/^as of (.+)$/, '截至 $1'],
+  [/^Annual Leave Left as of (.+)$/, '剩餘年假 · 截至 $1'],
+  [/^Annual Leave · (.+)$/, '年假 · $1'],
+  [/^Accrued (\S+) days − Used (\S+) days − Pending (\S+) days$/, '已累積 $1 日 − 已用 $2 日 − 待批 $3 日'],
+  [/^Ent (\S+) · Accr (\S+) · Used (\S+) · Pend (\S+)$/, '額 $1 · 累 $2 · 用 $3 · 待 $4'],
+  [/^(.+?) → (.+?) · (\S+) d$/, '$1 → $2 · $3 日'],
+  [/^(.+?) · (\S+) d · half day$/, '$1 · $2 日 · 半日'],
+  [/^(.+?) · (\S+) d$/, '$1 · $2 日'],
+  [/^(\d+) months? × (\S+) days ÷ 12 = (\S+) days$/, '$1 個月 × $2 日 ÷ 12 = $3 日'],
+  [/^\((\d+) days × (\d+) months\) ÷ (\d+) months$/, '（$1 日 × $2 個月）÷ $3 個月'],
+  [/^from (.+?) · rate set on (.+?) · \((.+)\) ÷ (\S+) =$/, '由 $1 起 · 費率定於 $2 ·（$3）÷ $4 ='],
+  [/^(.+) days already approved, and nothing waiting for approval\.$/, '已批准 $1 日，沒有待批申請。'],
+  [/^Earned so far = (\S+) days$/, '至今已累積 = $1 日'],
+  [/^Accrued to (\w{3} \d{4})$/, '已累積（至 $1）'],
+  [/^Accrued \(to (\w{3} \d{4})\)$/, '已累積（至 $1）'],
+  [/^— counting complete months up to (\w{3} \d{4})$/, '—— 計算至 $1 的完整月份'],
+  [/^(.+) days entitlement$/, '$1 日額度']
+];
+
+var ZH_MON = {Jan:'1',Feb:'2',Mar:'3',Apr:'4',May:'5',Jun:'6',
+               Jul:'7',Aug:'8',Sep:'9',Oct:'10',Nov:'11',Dec:'12'};
+function zhDate(s){
+  return s.replace(/\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\b (\d{4})/g,
+                   function(_, m, y){ return y + ' \u5e74 ' + ZH_MON[m] + ' \u6708'; })
+          .replace(/\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\b (\d{1,2})\b/g,
+                   function(_, m, d){ return ZH_MON[m] + ' \u6708 ' + d + ' \u65e5'; });
+}
+function zhFor(t){
+  if (Object.prototype.hasOwnProperty.call(ZH, t)) return zhDate(ZH[t]);
+  for (var i = 0; i < ZH_RULES.length; i++) {
+    if (ZH_RULES[i][0].test(t)) return zhDate(t.replace(ZH_RULES[i][0], ZH_RULES[i][1]));
+  }
+  return zhDate(t);
+}
+
+function i18nApply(){
+  var root = $('root'); if (!root) return;
+  var zh = (LANG === 'zh');
+  var nodes = [], w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false), n;
+  while ((n = w.nextNode())) nodes.push(n);
+  for (var i = 0; i < nodes.length; i++) {
+    var nd = nodes[i];
+    if (nd.__en === undefined) nd.__en = nd.nodeValue;
+    var raw = nd.__en, t = raw.trim();
+    if (!t) continue;
+    nd.nodeValue = zh ? raw.replace(t, zhFor(t)) : raw;
+  }
+  var phs = root.querySelectorAll('[placeholder]');
+  for (var j = 0; j < phs.length; j++) {
+    var el = phs[j];
+    if (el.__enph === undefined) el.__enph = el.placeholder;
+    el.placeholder = zh ? zhFor(el.__enph) : el.__enph;
+  }
+  document.documentElement.lang = zh ? 'zh-Hant' : 'en';
+  var lb = $('langBtn');
+  if (lb) lb.textContent = zh ? 'EN' : '\u4e2d\u6587';
+}
+
+function toggleLang(){
+  LANG = (LANG === 'zh' ? 'en' : 'zh');
+  try { localStorage.setItem('fb_lang', LANG); } catch (e) {}
+  render();
+}
+
+
+/* ══ i18n 補丁 2（見 src/i18n2.js）═════════════════════════════════ */
+/* ══════════════════════════════════════════════════════════════════════
+   i18n 補丁 2 — build-2026-10-23a
+   修復：中文版仍有英文（長句被 <b>/<br> 拆散、legend、toast、對話框、
+        伺服器錯誤訊息、佔位符）
+   做法：先以「整段 innerHTML」層面替換（處理被標籤拆散嘅句子），
+        再逐個文字節點用字典／規則補漏。
+   ══════════════════════════════════════════════════════════════════════ */
+(function () {
+
+  /* ── 1. 字典補充 ─────────────────────────────────────────────────── */
+  var EXTRA = {
+    /* 角色 */
+    "Admin": "管理員", "ADMIN": "管理員", "Supervisor": "主管", "SUPERVISOR": "主管",
+    "Staff": "員工", "STAFF": "員工",
+    /* 卡片／小標／計數 */
+    "Carried forward from last year": "去年結轉",
+    "Carry-over from last year": "去年結轉",
+    "Rounded up to next half day": "向上取整至最近半日",
+    "days already approved": "日已批准",
+    "days carry-over": "日結轉",
+    "days waiting for approval": "日待批",
+    "Full History": "完整紀錄",
+    "Comp Leave": "補假",
+    "Nothing waiting": "暫無待批項目",
+    "No records": "暫無紀錄",
+    "No requests yet": "暫無申請",
+    "← Team": "← 團隊",
+    "✓ Added to team calendar": "✓ 已加入團隊日曆",
+    "read-only": "唯讀",
+    "days": "日",
+    /* 佔位符 */
+    "e.g. Family trip": "例：家庭旅行",
+    "e.g. CMAB District Election – Lei Yue Mun": "例：CMAB 地區選舉 – 鯉魚門",
+    /* toast / 對話框 */
+    "Please pick your dates": "請選擇日期",
+    "Processing…": "處理中…",
+    "Cancelling…": "取消中…",
+    "Cancelled": "已取消",
+    "— calendar entry removed": "—— 已移除日曆項目",
+    "Approve this request?": "批准此申請？",
+    "Reject this request?": "拒絕此申請？",
+    "Cancel this request?": "取消此申請？",
+    "Note (optional — saved to the record and emailed)": "備註（可選 —— 會存入紀錄並以電郵通知）",
+    "Reason for rejection (emailed to the staff member)": "拒絕原因（會電郵通知同事）",
+    "Reason for cancellation (optional — emailed to the staff member)": "取消原因（可選 —— 會電郵通知同事）",
+    "Cancel approved leave": "取消已批准假期",
+    /* 伺服器訊息 */
+    "The system is busy. Please try again in a moment.": "系統繁忙，請稍後再試。",
+    "You are not on the staff list.": "你唔喺員工名單上。",
+    "You do not have approval rights.": "你沒有審批權限。",
+    "Invalid leave type.": "假期類型無效。",
+    "Invalid duration option.": "時長選項無效。",
+    "Invalid decision.": "審批決定無效。",
+    "Please pick both a start and an end date.": "請選擇開始及結束日期。",
+    "The end date cannot be before the start date.": "結束日期不可早於開始日期。",
+    "A half day must start and end on the same date.": "半日假必須同一日開始及結束。",
+    "Compensation leave requires the OT date.": "補假必須填寫 OT 日期。",
+    "No working days in that range (all weekends or public holidays).": "該段期間沒有工作日（全部係週末或公眾假期）。",
+    "No permission": "沒有權限",
+    "Request not found (it may have been deleted).": "找不到此申請（可能已被刪除）。",
+    "This request has already been cancelled.": "此申請已經取消。",
+    "This request was already rejected.": "此申請已被拒絕。",
+    "Approved leave can only be cancelled by a manager. Please ask Dickson.": "已批准的假期只能由管理層取消，請聯絡 Dickson。",
+    "You can only cancel your own requests.": "你只可以取消自己的申請。",
+    "Could not load": "載入失敗",
+    "Could not submit": "提交失敗",
+    "Could not cancel": "取消失敗",
+    "Could not process": "處理失敗",
+    "Submission failed: ": "提交失敗：",
+    "Processing failed: ": "處理失敗：",
+    "Submitted — waiting for Dickson to approve.": "已提交 —— 等待 Dickson 審批。",
+    /* 頁首／登入被拒／錯誤畫面 */
+    "Leave Application": "請假申請",
+    "Request submitted": "申請已提交",
+    "Submitting…": "提交中…",
+    "Done": "完成",
+    "Access Restricted": "無法進入",
+    "Not on the staff list": "你唔喺員工名單上",
+  "Could not read your Google account": "未能讀取你嘅 Google 帳號",
+  "Your browser did not pass your Google account to the app.": "瀏覽器冇話畀應用程式知你用邊個 Google 帳號。",
+  "This usually happens when several Google accounts are signed in at once.": "多數係同一個瀏覽器同時登入咗多個 Google 帳戶。",
+  "Sign in with your @firebean.net account": "用 @firebean.net 帳號登入",
+  "Try again": "再試一次",
+    "This app is for Firebean team members only.": "此 App 只供 Firebean 團隊成員使用。",
+    "Ask Dickson to add you to the Staff tab.": "請 Dickson 將你加入 Staff 分頁。",
+    "Signed in as": "登入帳號：",
+    "Something went wrong": "發生錯誤",
+    "Try again": "再試一次",
+    "This request:": "本申請：",
+    "(weekends & public holidays excluded)": "（不計週末及公眾假期）",
+    "Annual leave left after booking:": "請假後剩餘年假：",
+    "— exceeds your balance": "—— 超出你的結餘",
+    /* 其他 */
+    "Why a rate change does not show up straight away": "為何年假額調整唔會即時反映",
+    "Contract entitlement": "合約年假額",
+    "What you can book now": "現可申請"
+  };
+  for (var k in EXTRA) { if (!(k in ZH)) ZH[k] = EXTRA[k]; }
+
+  /* ── 2. 文字節點規則補充（處理短碎片）──────────────────────────── */
+  var R2 = [
+    /* 「點解係呢個數」第 3 項 —— 結轉（三種情況） */
+    [/^You finished last year$/, '你去年度結餘為'],
+    [/^\. That shortfall is carried forward and deducted from this year\.$/, '。差額會順延並於本年度扣除。'],
+    [/^Last year you had$/, '去年你剩餘'],
+    [/^left\. Unused annual leave may be$/, '。未用的年假可'],
+    [/^carried into the new year but must be taken by$/, '帶落下一年，但必須於此日期前放完：'],
+    [/^; that deadline has passed,$/, '；該限期已過，'],
+    [/^so these days have expired and are$/, '所以這些日數已失效，'],
+    [/^counted below\.$/, '不計入下列數字。'],
+    [/^left, carried into this year\.$/, '，已結轉至本年度。'],
+    [/^They must be taken by$/, '必須於此日期前放完：'],
+    [/^— after that they expire\.$/, ' —— 之後便會失效。'],
+    /* 負結餘段落碎片 */
+    [/^You are$/, '你超用了'],
+    [/^You booked$/, '你已申請'],
+    [/^days, but by$/, '日，但截至'],
+    [/^only$/, '只累積了'],
+    [/^days had been earned\.$/, '日。'],
+    [/^days over\.$/, '日超用。'],
+    [/^and nothing waiting for approval$/, '，沒有待批申請'],
+    /* 數值碎片 */
+    [/^(\S+) day\(s\) over$/, '$1 日超用'],
+    [/^(\S+) day\(s\) over\.$/, '$1 日超用。'],
+    [/^(\S+) day\(s\)$/, '$1 日'],
+    [/^(\S+) days \(full year\)$/, '$1 日（全年）'],
+    [/^(\S+) month$/, '$1 個月'],
+    [/^days\/year\.$/, '日／年。'],
+    [/^Over-used in (\S+) — carried forward$/, '於 $1 年超用 —— 已結轉'],
+    [/^Effective (\S+)$/, '生效日期 $1'],
+    [/^Contract entitlement (\S+) days\/year \(full 12 months\) · available to book now: (\S+) days$/,
+      '合約年假額 $1 日／年（完整 12 個月）· 現可申請：$2 日'],
+    /* 年假額調整卡 */
+    [/^Your entitlement was last changed on$/, '你的年假額最後修改於'],
+    [/^to$/, '，改為'],
+    [/^onwards\.$/, '起生效。'],
+    /* 伺服器複合訊息 */
+    [/^This request has already been processed \(current status: (\S+)\)\.$/, '此申請已處理（現況：$1）。'],
+    [/^Cannot approve: another APPROVED request already covers (.+)$/, '無法批准：已有另一宗已批准申請覆蓋 $1'],
+    [/^Cannot cancel: this leave has already started or passed \((.+)\)\.$/, '無法取消：此假期已開始或已過去（$1）。'],
+    [/^You already have a (.+)$/, '你已經有一宗 $1'],
+    [/^build-(\d{4}-\d{2}-\d{2}[a-z]?)$/, '版本 $1'],
+    [/^Contract entitlement ([\d.]+) days\/year \(full 12 months\) · available to book now: ([\d.]+) days$/,
+      '合約年假額 $1 日／年（完整 12 個月）· 現可申請：$2 日'],
+    [/^Signed in as (.+)$/, '登入帳號：$1'],
+    [/^Cancel this APPROVED leave\?\n\nThe days will be returned to the balance and the calendar entry will be removed\.$/,
+      '取消已批准的假期？\n\n日數會退回結餘，團隊日曆項目亦會移除。']
+  ];
+  for (var i = 0; i < R2.length; i++) { ZH_RULES.push(R2[i]); }
+
+  /* ── 月份漢化：任何 "20 Oct" / "Oct 2026" / "Sep" 都變中文 ───────── */
+  var MON2 = {Jan:'1 月',Feb:'2 月',Mar:'3 月',Apr:'4 月',May:'5 月',Jun:'6 月',
+              Jul:'7 月',Aug:'8 月',Sep:'9 月',Oct:'10 月',Nov:'11 月',Dec:'12 月'};
+  var MONPAT = 'Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec';
+  /* 英文日期 → 中文（'28 Feb 2026' / '2026-02-28' → '2026 年 2 月 28 日'）。
+     唔可以留英文月份：段內 <b> 節點會被逐字翻譯，出現「28 2026 年 2 月」咁嘅亂碼。 */
+  var zhDate = function(str){
+    var s = String(str).trim();
+    var m = s.match(/^(\d{1,2})\s+([A-Za-z]{3})\s+(\d{4})$/);
+    if (m) return m[3] + ' 年 ' + String(MON2[m[2]] || m[2]).replace(/\s*月$/, '') + ' 月 ' + Number(m[1]) + ' 日';
+    var i = s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (i) return i[1] + ' 年 ' + Number(i[2]) + ' 月 ' + Number(i[3]) + ' 日';
+    return s;
+  };
+  function zhMon(t){
+    if (LANG !== 'zh' || !t) return t;
+    return t
+      .replace(new RegExp('(\\d{1,2}) (' + MONPAT + ')\\b', 'g'),
+               function(m, d, mo){ return MON2[mo] + ' ' + Number(d) + ' 日'; })
+      .replace(new RegExp('\\b(' + MONPAT + ') (\\d{4})\\b', 'g'),
+               function(m, mo, y){ return y + ' 年 ' + MON2[mo]; })
+      .replace(new RegExp('\\b(' + MONPAT + ')\\b', 'g'), function(m, mo){ return MON2[mo]; });
+  }
+
+  /* ── 3. HTML 層規則（句子被 <b>/<br> 拆散都處理得到）──────────── */
+  var H = [
+    /* 「點解」卡底部四行說明 */
+    [/<b>Accrued<\/b> — complete months from 1 Jan, each at that leave year.s entitlement ÷ 12, rounded UP to the next half day\.<br>/,
+      '<b>已累積</b> —— 由 1 月 1 日起的完整月份，每月以該假期年度的年假額 ÷ 12 計算，並向上取整至最近半日。<br>'],
+    [/<b>Annual Leave Left<\/b> — Accrued \+ Carry-over − Used − Pending\. The only figure you need to book leave\.<br>/,
+      '<b>剩餘年假</b> —— 已累積 ＋ 結轉 − 已用 − 待批。申請假期只需看這個數字。<br>'],
+    [/<b>Carry-over<\/b> — unused days move into the next year, but must be used by the end of February, otherwise they expire\. Over-used days carry forward with no deadline\.<br>/,
+      '<b>結轉</b> —— 未用的日數可帶落下一年，但必須於 2 月底前用完，否則失效。超用的日數會順延，沒有期限。<br>'],
+    [/<b>Contract entitlement<\/b> — ([\d.]+) days for a full 12 months \(leave year 1 Jul – 30 Jun\)\. This is the contract figure, <b>not<\/b> what you can book today\./,
+      '<b>合約年假額</b> —— 完整 12 個月為 $1 日（假期年度 7 月 1 日至 6 月 30 日）。此為合約數字，<b>不</b>等於現時可申請的日數。'],
+    /* 合約數字方框 */
+    [/<b>Contract entitlement<\/b> = ([\d.]+) days — this is for a <b>full 12 months<\/b>\./,
+      '<b>合約年假額</b> = $1 日 —— 以<b>完整 12 個月</b>計。'],
+    [/<b>What you can book now<\/b> = <b style="[^"]*">([\d.]+) days<\/b> — only months you have actually completed are credited\./,
+      '<b>現可申請</b> = <b style="[^"]*">$1 日</b> —— 只計算你真正完成的完整月份。'],
+    /* 點解卡：1 合約年假額 */
+    [/([\d.]+) days for a full 12 months\. That is the contract figure — <b>not<\/b> what you can use today\./,
+      '$1 日為完整 12 個月的額度。此為合約數字 —— <b>不</b>等於今日可用的日數。'],
+    /* 點解卡：2 累積 */
+    [/You earn 1\/12 of the rate for each <b>complete<\/b> month you have worked\. The current month, and any month before you joined, do not count yet\./,
+      '每完成一個<b>完整</b>月份，可累積年度額度的 1/12。當月及入職前的月份不計算。'],
+    [/from (\S+) · rate set on (\S+) · \(([\d.]+) × (\d+)\) ÷ 12 = <b>([\d.]+) days<\/b>/,
+      '由 $1 起 · 額度定於 $2 ·（$3 日 × $4 個月）÷ 12 個月 = <b>$5 日</b>'],
+    [/<b>Earned so far = ([\d.]+) days<\/b> — counting complete months up to ([A-Z][a-z]{2}) (\d{4})/,
+      function(m, d, mo, y){ return '<b>至今已累積 = ' + d + ' 日</b> —— 計算至 ' + y + ' 年 ' + MON2[mo] + ' 的完整月份'; }],
+    /* 點解卡：3 結轉 */
+    [/^Last year you had <b>([\d.]+) day\(s\)<\/b> left,[\s\S]*?taken by <b>([^<]+)<\/b>[\s\S]*?after that they expire\./,
+      function(m, n, d){ return '去年你剩餘 <b>' + n + ' 日</b>，已結轉至本年度。必須於 <b>' + zhDate(d) + '</b> 前放完 —— 之後便會失效。'; }],
+    [/^Last year you had <b>([\d.]+) day\(s\)<\/b> left\.[\s\S]*?taken by <b>([^<]+)<\/b>[\s\S]*?counted below\./,
+      function(m, n, d){ return '去年你剩餘 <b>' + n + ' 日</b>。未用的年假可帶落下一年，但必須於 <b>' + zhDate(d) + '</b> 前放完；該限期已過，所以這些日數已失效，<b>不</b>計入下列數字。'; }],
+    [/You finished last year <b>([\d.]+) day\(s\) over<\/b>\. That shortfall is carried forward and deducted from this year\./,
+      '你去年度超用 <b>$1 日</b>。差額會順延並於本年度扣除。'],
+    /* 點解卡：負結餘 */
+    [/You are <b>([\d.]+) day\(s\) over\.<\/b> You booked ([\d.]+) days, but by (\S+) only ([\d.]+) days had been earned\. ([\d.]+) − ([\d.]+) = ([\d.]+) days over\./,
+      '你超用了 <b>$1 日。</b> 你已申請 $2 日，但截至 $3 只累積了 $4 日。$5 − $4 = $6 日超用。'],
+    [/This is not wiped: a negative closing balance on 31 December carries into the next year with no deadline and comes off next year.s leave\. \(Unused <b>positive<\/b> days behave differently — they carry forward but expire at the end of February\.\)/,
+      '唔會一筆勾銷：12 月 31 日的負數結餘會順延至下一年、無限期，並從下一年年假扣除。（未用的<b>正數</b>日數唔同 —— 會結轉但於 2 月底失效。）'],
+    [/You cannot book more annual leave until the balance is positive again — but you can still book <b>Sick Leave<\/b> and <b>Compensation Leave<\/b>\./,
+      '結餘回復正數前唔可以再申請年假 —— 但你仍然可以申請<b>病假</b>及<b>補假</b>。'],
+    /* 年假額調整卡 */
+    [/Your entitlement was last changed on <b>(\S+)<\/b> to ([\d.]+) days\/year\. Entitlement changes only start counting from the beginning of a leave year \(1 July\), so this one first affects months from <b>(\S+)<\/b> onwards\./,
+      '你的年假額最後修改於 <b>$1</b>，改為 $2 日／年。年假額調整只由假期年度開始（7 月 1 日）起計算，所以今次調整最早由 <b>$3</b> 起生效。']
+    ,
+    /* 已取假句子（含 waiting for approval 版） */
+    [/^(\d+(?:\.\d+)?) days already approved, and nothing waiting for approval\./,
+      '$1 日已批准，未有等待批核嘅申請。'],
+    [/^(\d+(?:\.\d+)?) days already approved, plus (\d+(?:\.\d+)?) days waiting for approval\./,
+      '$1 日已批准，另有 $2 日等待批核。'],
+    /* 結轉提示（⚠️／↪️ 三個狀態） */
+    [/^⚠️ ([\d.]+) day\(s\) were carried forward from last year, but the deadline passed on <b>([^<]+)<\/b>[\s\S]*?can no longer be used\./,
+      function(m, n, d){ return '⚠️ 去年有 ' + n + ' 日結轉，但已於 <b>' + zhDate(d) + '</b> 到期 —— 已失效，不能再使用。'; }],
+    [/^⚠️ ([\d.]+) day\(s\) over-used last year, carried forward and already deducted from this year\./,
+      '⚠️ 去年超用 $1 日，已順延並於本年度扣除。'],
+    [/^↪️ <b>([\d.]+) day\(s\)<\/b> carried forward from last year — usable until <b>([^<]+)<\/b>[\s\S]*?unused days expire\./,
+      function(m, n, d){ return '↪️ 去年結轉 <b>' + n + ' 日</b>，可用至 <b>' + zhDate(d) + '</b>，之後未用的日數便會失效。'; }],
+    /* 結轉池扣抵（1–2 月用假先扣去年結轉） */
+    [/<b>([\d.]+) day\(s\)<\/b> of them were taken before the deadline, so they are not charged against this year.s accrual\./,
+      '<b>$1 日</b>已於期限前使用，因此不會扣減本年度的累積。'],
+    [/<b>([\d.]+) day\(s\)<\/b> of them were taken before the deadline — those days are covered by the carry-over and are not charged to this year.s accrual\./,
+      '<b>$1 日</b>已於期限前使用 —— 該些日數由去年結轉覆蓋，不會扣減本年度累積。'],
+    [/Of these, <b>([\d.]+) day\(s\)<\/b> were taken before ([\w. ]+?) and are charged against last year.s carry-over, so only <b>([\d.]+) day\(s\)<\/b> come off this year.s accrual\./,
+      function(m, a, d, b){ return '其中 <b>' + a + ' 日</b>於 <b>' + zhDate(d) + '</b> 前使用，由去年結轉扣抵，所以本年度累積只需扣 <b>' + b + ' 日</b>。'; }],
+    [/\(Of the ([\d.]+) day\(s\) taken, ([\d.]+) are covered by last year.s carry-over, so only ([\d.]+) day\(s\) come off this year.s accrual\.\)/,
+      '（已取的 $1 日之中，$2 日由去年結轉扣抵，所以本年度累積只需扣 $3 日。）'],
+    /* 角色標籤：ADMIN · email */
+    [/(^|>)(admin|staff|supervisor|manager)( · )/gi,
+      function(m, pre, r, mid){
+        var M={'admin':'管理員','staff':'員工','supervisor':'主管','manager':'主管'};
+        return pre + (M[r.toLowerCase()] || r) + mid;
+      }],
+    /* heroNote：Annual Leave · as of 2026-10-22 · read-only */
+    [/(Annual Leave|Sick Leave|Compensation Leave|Comp Leave) · as of (\d{4}-\d{2}-\d{2}) · read-only/g,
+      function(m, tp, d){
+        var M = {'Annual Leave':'年假','Sick Leave':'病假','Compensation Leave':'補假','Comp Leave':'補假'};
+        return (M[tp] || tp) + ' · 截至 ' + d + ' · 唯讀';
+      }]
+  ];
+
+  /* ── 4. 套用 ──────────────────────────��─────────────────────────── */
+  var SEL = '.d,.legend,.empty,.cl,.cm,.ch,.label,.t,.heroNote,.tip,.memRole,.prole,.pname';
+
+  function ownedText(node) {
+    var p = node.parentNode;
+    while (p && p.nodeType === 1) {
+      if (p.__enHtml !== undefined) return true;
+      p = p.parentNode;
+    }
+    return false;
+  }
+
+  function localText(el) {
+    var w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false), n, t, z;
+    while ((n = w.nextNode())) {
+      t = n.nodeValue; if (!t || !/[A-Za-z]/.test(t)) continue;
+      z = zhMon(zhFor(t.trim()));
+      if (z !== t.trim()) n.nodeValue = t.replace(t.trim(), z);
+    }
+  }
+
+  function i18nHtml() {
+    var root = document.getElementById('root'); if (!root) return;
+    var els = root.querySelectorAll(SEL), i, j, el, out;
+    for (i = 0; i < els.length; i++) {
+      el = els[i];
+      if (el.__enHtml === undefined) el.__enHtml = el.innerHTML;
+      if (LANG !== 'zh') { el.innerHTML = el.__enHtml; continue; }
+      out = el.__enHtml;
+      for (j = 0; j < H.length; j++) out = out.replace(H[j][0], H[j][1]);
+      el.innerHTML = out;
+      localText(el);                    /* 未覆蓋到嘅碎片，逐節點補 */
+    }
+  }
+
+  function i18nApply() {
+    document.documentElement.lang = (LANG === 'zh' ? 'zh-Hant-HK' : 'en');
+    i18nHtml();
+    var root = document.getElementById('root');
+    if (root) {
+      var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false), n, t, z;
+      while ((n = w.nextNode())) {
+        if (ownedText(n)) continue;                       /* 由 i18nHtml 負責 */
+        t = n.nodeValue; if (!t || !/[A-Za-z]/.test(t)) continue;
+        if (n.__en === undefined) n.__en = t;
+        if (LANG === 'zh') {
+          z = zhMon(zhFor(n.__en.trim()));
+          if (z !== n.__en.trim()) n.nodeValue = n.__en.replace(n.__en.trim(), z);
+        } else {
+          n.nodeValue = n.__en;
+        }
+      }
+      Array.prototype.forEach.call(root.querySelectorAll('[placeholder]'), function (e) {
+        if (e.__enPh === undefined) e.__enPh = e.placeholder;
+        e.placeholder = (LANG === 'zh') ? zhMon(zhFor(e.__enPh)) : e.__enPh;
+      });
+      Array.prototype.forEach.call(root.querySelectorAll('option'), function (e) {
+        if (e.__enTx === undefined) e.__enTx = e.textContent;
+        e.textContent = (LANG === 'zh') ? zhMon(zhFor(e.__enTx)) : e.__enTx;
+      });
+    }
+    var b = document.getElementById('langBtn');
+    if (b) b.textContent = (LANG === 'zh') ? 'EN' : '中文';
+  }
+  window.i18nApply = i18nApply;
+
+  /* 雙語即時字串（對話框、動態訊息用） */
+  window.L = function (s) { return (LANG === 'zh') ? zhFor(String(s)) : String(s); };
+
+  /* toast 自動翻譯 */
+  var _toast = window.toast;
+  if (typeof _toast === 'function') {
+    window.toast = function (msg, bad) { return _toast(L(msg), bad); };
+  }
+
+})();
+
+
+function render(){
+  var d = S.data, b = d.balance, s = d.session;
+  var avail = Number(b.available);
+  var neg = avail < 0;
+
+  var html = '';
+
+  html += dryBannerHtml(s);
+
+  html += '<header><div class="wrap">' +
+    '<div class="hrow">' +
+      '<div class="markRow">' +
+        '<img class="brandLogo" src="' + LOGO + '" alt="" onerror="this.style.display=\'none\'">' +
+        '<div class="mark">FIREBEAN<small>Leave Application</small></div>' +
+      '</div>' +
+       '<button id="langBtn" class="langBtn" onclick="toggleLang()">' +
+         (LANG === 'zh' ? 'EN' : '\u4e2d\u6587') + '</button>' +
+    '</div>' +
+  '</div></header>';
+
+  html += '<div class="wrap">';
+
+  /* ===== 頂部兩張卡：身份 + 年假結餘（同 Leave Balance 卡同款）===== */
+  html += '<div class="topCards">' +
+    '<div class="card idCard"><div class="who"><div class="whoin">' +
+      avatarHtml(s.avatar, s.name, 76) +
+      '<div class="whoTxt"><b>' + esc(s.name) + '</b><span>' +
+      (s.isManager ? 'Manager' : 'Team') + '</span></div></div></div></div>' +
+    '<div class="card heroCard"><div class="hero">' +
+      '<div class="label">Annual Leave Left as of ' + esc(s.today) + '</div>' +
+      '<div class="bigRow">' + ic('calbig','bigIco') +
+      '<div class="big' + (neg ? ' neg' : '') + '">' + num(avail) + '<em>Days</em></div></div>' +
+    '</div></div>' +
+  '</div>';
+
+  /* ===== My Leave ===== */
+  html += '<div id="v-bal" class="view on">';
+  /* 第 2 欄：結餘 + 點解係呢個數 ｜ 第 3 欄：拆解 + 記錄 */
+  html += '<div class="colstack colA">';
+  html += balanceCardHtml(b, d.accrualBreakdown);
+  html += whyCardHtml(b, d.accrualBreakdown);
+  html += '</div>';
+  html += '<div class="colstack colB">';
+  html += accrualCardHtml(d.accrualBreakdown);
+  html += historyCardHtml(d.requests, 'My History', 8);
+  html += '</div>';
+
+  if (Number(b.otherUsed) > 0) {
+    html += '<div class="card"><div class="d">Sick / compensation leave taken this year: <b>' +
+      num(b.otherUsed) + ' days</b> (does not affect annual leave).</div></div>';
+  }
+
+  html += '<div class="foot">' + esc(s.build || '') + '</div>';
+  html += '</div>';
+
+  /* ===== Apply ===== */
+  html += '<div id="v-apply" class="view">';
+  html += '<div class="card applyCard">' +
+    '<h3>New Request</h3>' +
+    '<div class="fGrid">' +
+    '<div class="fld"><label>Name</label>' +
+    '<input type="text" id="f-name" value="' + esc(s.name) + '" disabled></div>' +
+    '<div class="fld"><label>Leave Type</label>' +
+    '<select id="f-type" onchange="onTypeChange()">' +
+      '<option value="Annual Leave">Annual Leave</option>' +
+      '<option value="Sick Leave">Sick Leave</option>' +
+      '<option value="Compensation Leave">Compensation Leave</option>' +
+    '</select></div>' +
+    '<div class="fld fld-wide"><div id="sick-note" class="noteBox" style="display:none">' +
+      '<span class="ic">' + ic('info') + '</span>' +
+      '<span>Sick Leave requires a medical certificate \u2014 please send it to Dickson by email or WhatsApp for further approval.</span>' +
+    '</div></div>' +
+    '<div class="fld fld-wide"><div id="ot-box" style="display:none">' +
+      '<label>OT Date (required)</label>' +
+      '<input type="date" id="f-ot">' +
+      '<label>Event Name</label>' +
+      '<input type="text" id="f-event" placeholder="e.g. CMAB District Election \u2013 Lei Yue Mun">' +
+    '</div></div>' +
+    '<div class="fld"><label>Duration</label>' +
+    '<select id="f-dur" onchange="onDurChange()">' +
+      '<option value="Full Day">Full Day</option>' +
+      '<option value="Half Day 0900-1300">Morning Half Day \u00b7 09:00\u201313:00</option>' +
+      '<option value="Half Day 1400-1800">Afternoon Half Day \u00b7 14:00\u201318:00</option>' +
+    '</select></div>' +
+    '<div class="fld"><div class="row2">' +
+      '<div><label>Start Date</label><input type="date" id="f-start" onchange="onDateChange()"></div>' +
+      '<div><label>End Date</label><input type="date" id="f-end"></div>' +
+    '</div></div>' +
+    '<div class="fld fld-wide"><label>Reason (optional)</label>' +
+    '<textarea id="f-reason" placeholder="e.g. Family trip"></textarea></div>' +
+    '</div>' +
+    '<div class="fSide">' +
+      '<div id="f-preview" class="legend" style="margin-top:16px;border-top:0;padding-top:0"></div>' +
+      '<button class="btn" id="f-submit" onclick="doSubmit()">Submit Request</button>' +
+    '</div>' +
+  '</div></div>';
+
+  /* ===== My Records ===== */
+  html += '<div id="v-mine" class="view"><div class="card"><h3>My Requests</h3>';
+  if (!d.requests || !d.requests.length) {
+    html += '<div class="empty">No requests yet</div>';
+  } else {
+    d.requests.forEach(function(r){ html += reqHtml(r, false); });
+  }
+  html += '</div></div>';
+
+  /* ===== Approvals ===== */
+  if (s.isManager) {
+    html += '<div id="v-mgr" class="view"><div class="card"><h3>Pending Approval</h3>' +
+      '<div id="mgr-pending"><div class="empty"><div class="spinner"></div></div></div>' +
+      '</div>' +
+      '<div class="card"><h3>Team Balances</h3>' +
+        '<div class="d" style="font-size:12px;color:var(--text-tertiary);margin:-6px 0 12px">' +
+        'Select a name to open the full dashboard</div>' +
+        '<div id="mgr-people" class="empty">Loading\u2026</div></div>' +
+      '<div class="card"><h3>Recent Requests</h3><div id="mgr-recent" class="empty">Loading\u2026</div></div>' +
+      '<div class="foot">' + esc(s.build || '') + '</div>' +
+      '</div>';
+    /* 同事詳細頁（唯讀，由 Team Balances 點入） */
+    html += '<div id="v-member" class="view"></div>';
+  }
+
+  html += '<div style="height:10px"></div></div>';
+
+  /* 浮動紅色掣：一按即開請假表 */
+  html += '<button id="fab" class="fab" onclick="tab(\'v-apply\')" ' +
+    'aria-label="Apply leave" title="Apply leave"><span class="ic">' + ic('plane') + '</span></button>';
+
+  html += '<nav>';
+  var tabs = [
+    ['v-bal',  'cal',   'My Leave'],
+    ['v-apply','plus',  'Apply'],
+    ['v-mine', 'list',  'Records']
+  ];
+  if (s.isManager) tabs.push(['v-mgr','check','Approvals']);
+  tabs.forEach(function(t, i){
+    html += '<button id="t-' + t[0] + '" class="' + (i === 0 ? 'on' : '') +
+      '" onclick="tab(\'' + t[0] + '\')"><span class="ic">' + ic(t[1]) + '</span>' + t[2] + '</button>';
+  });
+  html += '</nav>';
+
+  $('root').innerHTML = html;
+  var today = S.sess.today || '';
+  if (today) { $('f-start').value = today; $('f-end').value = today; }
+  onTypeChange(); updatePreview();
+  if (S.tab && $('t-' + S.tab)) tab(S.tab, true);
+  iconsApply();
+  i18nApply();
+  if (S.mgr && $('mgr-pending')) renderManager();   /* 切語言後補回管理層列表 */
+}
+
+function reqHtml(r, showButtons){
+  var half = String(r.duration || '').indexOf('Half') >= 0;
+  var got = String(r.cert || '').trim();
+  var h = '<div class="item">' +
+    '<div class="top">' +
+      '<div class="t">' + cnType(r.type) + (showButtons && r.name ? ' \u00b7 ' + esc(r.name) : '') + '</div>' +
+      '<div class="tag ' + esc(r.status) + '">' + cnStatus(r.status) + '</div>' +
+    '</div>' +
+    '<div class="d mono">' + fmtDate(r.start) + (r.start !== r.end ? ' \u2192 ' + fmtDate(r.end) : '') +
+      ' \u00b7 ' + num(r.days) + ' d' + (half ? ' \u00b7 half day' : '') + '</div>';
+  if (r.reason) h += '<div class="d">' + esc(r.reason) + '</div>';
+  if (r.eventName) h += '<div class="d">' + esc(r.eventName) +
+    (r.otDate ? ' \u00b7 OT ' + fmtDate(r.otDate) : '') + '</div>';
+  if (r.type === 'Sick Leave') {
+    h += '<div class="d" style="margin-top:8px"><span class="chip ' + (got ? 'ok' : 'miss') + '">' +
+         (got ? L('Medical certificate: received') : L('Medical certificate: not received')) + '</span></div>';
+  }
+  if (r.comment) h += '<div class="c">' + esc(r.comment) + '</div>';
+  if (r.calId) h += '<div class="d" style="color:#12864a">\u2713 Added to team calendar</div>';
+
+  var isMgr = !!(S.sess && S.sess.isManager);
+  if (showButtons && r.status === 'Pending') {
+    h += '<div class="row2" style="margin-top:12px">' +
+      '<button class="btn sm ok" onclick="decide(\'' + esc(r.id) + '\',\'Approved\')">Approve</button>' +
+      '<button class="btn sm bad" onclick="decide(\'' + esc(r.id) + '\',\'Rejected\')">Reject</button>' +
+    '</div>';
+    if (isMgr && r.type === 'Sick Leave') {
+      h += '<div class="row2" style="margin-top:8px">' +
+        '<button class="btn sm' + (got ? '' : ' ok') + '" onclick="markCert(\'' + esc(r.id) + '\',\'' + (got ? '' : 'RECEIVED') + '\')">' +
+        (got ? L('Undo (not received)') : L('Mark certificate as received')) + '</button>' +
+      '</div>';
+    }
+  }
+  // 取消：待批 → 本人或管理層；已批核 → 只限管理層
+  // 且只有「尚未到期」嘅假才可以取消（過期 → 唔顯示按掉）
+  var todayIso = (S.sess && S.sess.today) || '';
+  var notStarted = !r.start || !todayIso || String(r.start) >= todayIso;
+  if (r.status === 'Approved' && !notStarted)
+    h += '<div class="d" style="color:#8b93a3">\u2014 already started, cannot be cancelled</div>';
+  if (notStarted && (r.status === 'Pending' || (isMgr && r.status === 'Approved'))) {
+    var lbl = (r.status === 'Approved') ? 'Cancel approved leave' : 'Cancel';
+    h += '<div class="row2" style="margin-top:8px">' +
+      '<button class="btn sm bad" onclick="cancelReq(\'' + esc(r.id) + '\',\'' + esc(r.status) + '\')">' + lbl + '</button>' +
+    '</div>';
+  }
+  return h + '</div>';
+}
+
+function tab(id, skipScroll){
+  S.tab = id;
+  ['v-bal','v-apply','v-mine','v-mgr','v-member'].forEach(function(v){
+    var el = $(v); if (el) el.className = 'view';
+    var b = $('t-' + v); if (b) b.className = '';
+  });
+  if (!$(id)) return;
+  $(id).className = 'view on';
+  // v-member 冇自己嘅 tab，保持 Approvals 亮住
+  var tabId = (id === 'v-member') ? 't-v-mgr' : ('t-' + id);
+  if ($(tabId)) $(tabId).className = 'on';
+  if (!skipScroll) window.scrollTo(0,0);
+  var fb = $('fab'); if (fb) fb.hidden = (id === 'v-apply');   /* 已經喺請假表就唔使再顯示 FAB */
+  if (id === 'v-mgr' && !S.mgr) loadManager();
+}
+
+function onTypeChange(){
+  var t = $('f-type').value;
+  $('ot-box').style.display = (t === 'Compensation Leave') ? 'block' : 'none';
+  var sn = $('sick-note'); if (sn) sn.style.display = (t === 'Sick Leave') ? 'flex' : 'none';
+}
+function onDurChange(){
+  if ($('f-dur').value.indexOf('Half') >= 0) {
+    $('f-end').value = $('f-start').value;
+    $('f-end').disabled = true;
+  } else {
+    $('f-end').disabled = false;
+  }
+  updatePreview();
+}
+function onDateChange(){
+  if ($('f-dur').value.indexOf('Half') >= 0) $('f-end').value = $('f-start').value;
+  if (!$('f-end').value || $('f-end').value < $('f-start').value) $('f-end').value = $('f-start').value;
+  updatePreview();
+}
+function updatePreview(){
+  var p = $('f-preview'); if (!p) return;
+  if (p.__enHtml !== undefined) { try { delete p.__enHtml; } catch (e) { p.__enHtml = undefined; } }
+  var s = $('f-start').value, e = $('f-end').value, d = $('f-dur').value;
+  if (!s || !e || e < s) { p.innerHTML = ''; return; }
+  var n = workdays(s, e);
+  if (d.indexOf('Half') >= 0) n = 0.5;
+  var type = $('f-type').value;
+  var txt = 'This request: <b>' + num(n) + ' day' + (n === 1 ? '' : 's') + '</b> (weekends &amp; public holidays excluded)';
+  if (type === 'Annual Leave' && S.data && S.data.balance) {
+    var left = Number(S.data.balance.available) - n;
+    txt += '<br>Annual leave left after booking: <b style="color:' +
+      (left < 0 ? '#ff3333' : '#12864a') + '">' + num(left) + ' days</b>';
+    if (left < 0) txt += ' \u2014 exceeds your balance';
+    txt += '<br><span style="color:#8b93a3">Contract entitlement ' + num(S.data.balance.entitlement) +
+      ' days/year (full 12 months) \u00b7 available to book now: ' + num(S.data.balance.available) + ' days</span>';
+  }
+  p.innerHTML = txt;
+  if (typeof i18nApply === 'function') i18nApply();
+}
+function workdays(s, e){
+  var hol = (S.data && S.data.holidays) ? S.data.holidays : [];
+  var d = new Date(s + 'T00:00:00'), end = new Date(e + 'T00:00:00'), n = 0;
+  while (d <= end) {
+    var dow = d.getDay();
+    var iso = d.getFullYear() + '-' + pad(d.getMonth()+1) + '-' + pad(d.getDate());
+    if (dow !== 0 && dow !== 6 && hol.indexOf(iso) < 0) n++;
+    d.setDate(d.getDate() + 1);
+  }
+  return n;
+}
+function pad(n){ return n < 10 ? '0' + n : '' + n; }
+
+function doSubmit(){
+  var btn = $('f-submit');
+  var payload = {
+    leaveType: $('f-type').value,
+    duration:  $('f-dur').value,
+    startDate: $('f-start').value,
+    endDate:   $('f-end').value,
+    reason:    $('f-reason').value,
+    otDate:    $('ot-box').style.display !== 'none' ? $('f-ot').value : '',
+    eventName: $('ot-box').style.display !== 'none' ? $('f-event').value : ''
+  };
+  if (!payload.startDate || !payload.endDate) { toast('Please pick your dates', true); return; }
+
+  btn.disabled = true; btn.textContent = L('Submitting\u2026');
+  google.script.run.withSuccessHandler(function(r){
+    btn.disabled = false; btn.textContent = L('Submit Request');
+    if (r && r.ok){
+      toast(r.message || 'Request submitted');
+      $('f-reason').value = '';
+      if ($('f-ot')) $('f-ot').value = '';
+      if ($('f-event')) $('f-event').value = '';
+      loadDashboard();
+    } else {
+      toast((r && r.error) || 'Could not submit', true);
+    }
+  }).withFailureHandler(function(e){
+    btn.disabled = false; btn.textContent = L('Submit Request');
+    toast(e && e.message ? e.message : 'Could not submit', true);
+  }).submitLeave(payload);
+}
+
+function markCert(id, value){
+  toast(L('Updating\u2026'));
+  google.script.run.withSuccessHandler(function(r){
+    if (r && r.ok){ toast(value ? L('Marked as received') : L('Marked as not received')); loadManager(); }
+    else toast((r && r.error) || 'Could not update', true);
+  }).withFailureHandler(function(e){
+    toast(e && e.message ? e.message : 'Could not update', true);
+  }).markCertificate(id, value);
+}
+
+function loadManager(){
+  google.script.run.withSuccessHandler(function(m){
+    if (!m || !m.ok) return;
+    S.mgr = m;
+    renderManager();
+  }).withFailureHandler(function(e){ console.error(e); }).getManagerView();
+}
+
+function renderManager(){
+  var m = S.mgr; if (!m) return;
+  var el;
+  ['mgr-pending','mgr-people','mgr-recent'].forEach(function(id){
+    var e = $(id); if (e) { try { delete e.__enHtml; } catch (x) { e.__enHtml = undefined; } }
+  });
+
+  el = $('mgr-pending');
+  if (el) {
+    el.innerHTML = m.pending.length
+      ? m.pending.map(function(r){ return reqHtml(r, true); }).join('')
+      : '<div class="empty">Nothing waiting</div>';
+  }
+  el = $('mgr-people');
+  if (el) {
+    el.innerHTML = m.people.map(function(p){
+      var b = p.balance;
+      var neg = Number(b.available) < 0;
+      return '<div class="item pRow" onclick="openMember(\'' + esc(p.email) + '\')">' +
+        '<div class="top" style="align-items:center">' +
+          '<div style="display:flex;align-items:center;gap:14px;min-width:0">' +
+            avatarHtml(p.avatar, p.name, 54) +
+            '<div style="min-width:0">' +
+              '<div class="pname">' + esc(p.name) + '</div>' +
+              '<div class="prole">' + esc(p.role) + '</div>' +
+            '</div>' +
+          '</div>' +
+          '<div style="display:flex;align-items:center;gap:10px;flex:0 0 auto">' +
+            '<div class="pbal" style="color:' + (neg ? '#ff3333' : '#0a0a0a') + '">' +
+              num(b.available) + '<small>days</small></div>' +
+            '<span class="chev">\u203a</span>' +
+          '</div>' +
+        '</div>' +
+        '<div class="d mono" style="margin-top:11px">Ent ' + num(b.entitlement) +
+        ' \u00b7 Accr ' + num(b.accrued) + ' \u00b7 Used ' + num(b.used) +
+        ' \u00b7 Pend ' + num(b.pending) + '</div></div>';
+    }).join('');
+  }
+  el = $('mgr-recent');
+  if (el) {
+    el.innerHTML = m.recent.length
+      ? m.recent.slice(0, 15).map(function(r){ return reqHtml(r, false); }).join('')
+      : '<div class="empty">No records</div>';
+  }
+  if (typeof iconsApply === 'function') iconsApply();
+  if (typeof i18nApply === 'function') i18nApply();
+}
+
+/* ── 管理層：打開個別同事嘅完整 dashboard（唯讀）──────────── */
+function openMember(email){
+  tab('v-member');
+  var el = $('v-member');
+  if (el) el.innerHTML = '<div class="card"><div class="empty"><div class="spinner"></div></div></div>';
+  google.script.run
+    .withSuccessHandler(renderMember)
+    .withFailureHandler(function(e){
+      if (el) el.innerHTML = '<div class="card"><div class="empty">' +
+        esc(e && e.message ? e.message : 'Could not load') + '</div></div>';
+    })
+    .getMemberView(email);
+}
+
+function renderMember(d){
+  var el = $('v-member'); if (!el) return;
+  if (!d || !d.ok){
+    el.innerHTML = '<div class="card"><div class="backRow">' +
+      '<button class="back" onclick="tab(\'v-mgr\')">\u2190 Team</button></div>' +
+      '<div class="empty">' + esc((d && d.reason) || 'Could not load') + '</div></div>';
+    return;
+  }
+  var s = d.session, b = d.balance;
+  var neg = Number(b.available) < 0;
+  var html = '';
+  html += '<div class="card">' +
+    '<div class="backRow"><button class="back" onclick="tab(\'v-mgr\')">\u2190 Team</button></div>' +
+    '<div class="memHead">' +
+      avatarHtml(s.avatar, s.name, 76) +
+      '<div style="min-width:0">' +
+        '<div class="memName">' + esc(s.name) + '</div>' +
+        '<div class="memRole">' + esc(s.role) + ' \u00b7 ' + esc(s.email) + '</div>' +
+      '</div>' +
+    '</div>' +
+    '<div class="hero">' +
+      '<div class="label">Annual Leave Left</div>' +
+      '<div class="big' + (neg ? ' neg' : '') + '">' + num(b.available) + '<em>Days</em></div>' +
+      '<div class="heroNote">Annual Leave \u00b7 as of ' + esc(s.today) + ' \u00b7 read-only</div>' +
+    '</div>' +
+  '</div>';
+  html += balanceCardHtml(b, d.accrualBreakdown);
+  html += accrualCardHtml(d.accrualBreakdown);
+  html += whyCardHtml(b, d.accrualBreakdown);
+  html += historyCardHtml(d.requests, 'Full History', 0);
+  html += '<div class="foot">' + esc(s.build || '') + '</div>';
+  el.innerHTML = html;
+  if (typeof iconsApply === 'function') iconsApply();
+  if (typeof i18nApply === 'function') i18nApply();
+  window.scrollTo(0, 0);
+}
+
+function decide(id, decision){
+  if (!window.confirm(L(decision === 'Approved' ? 'Approve this request?' : 'Reject this request?'))) return;
+  var comment = window.prompt(
+    decision === 'Approved'
+      ? L('Note (optional \u2014 saved to the record and emailed)')
+      : L('Reason for rejection (emailed to the staff member)'),
+    ''
+  );
+  if (comment === null) return;
+
+  toast('Processing\u2026');
+  google.script.run.withSuccessHandler(function(r){
+    if (r && r.ok){ toast(r.message || 'Done'); loadDashboard(); }
+    else { toast((r && r.error) || 'Could not process', true); }
+  }).withFailureHandler(function(e){
+    toast(e && e.message ? e.message : 'Could not process', true);
+  }).decideLeave(id, decision, comment);
+}
+
+function cancelReq(id, status){
+  var msg = L((status === 'Approved')
+    ? 'Cancel this APPROVED leave?\n\nThe days will be returned to the balance and the calendar entry will be removed.'
+    : 'Cancel this request?');
+  if (!window.confirm(msg)) return;
+  var note = window.prompt(L('Reason for cancellation (optional \u2014 emailed to the staff member)'), '');
+  if (note === null) return;
+
+  toast('Cancelling\u2026');
+  google.script.run.withSuccessHandler(function(r){
+    if (r && r.ok){
+      toast('Cancelled' + (r.calRemoved ? ' \u2014 calendar entry removed' : '') + (r.note || ''), false);
+      loadDashboard();
+    } else {
+      toast((r && r.error) || 'Could not cancel', true);
+    }
+  }).withFailureHandler(function(e){
+    toast(e && e.message ? e.message : 'Could not cancel', true);
+  }).cancelLeave(id, note);
+}
+
+boot();
+</script>
+</body>
+</html>
