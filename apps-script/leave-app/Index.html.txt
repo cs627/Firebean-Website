@@ -556,6 +556,86 @@ function splashHtml(cls){
 var S = { sess:null, data:null, mgr:null, tab:'v-bal' };
 
 /* ---------------- 出事自動回報（beacon 返 doGet → Diag 分頁） ---------------- */
+
+/* ============================================================
+   回程監看器（build-2026-11-03y）
+   背景：實測喺部分瀏覽器／部分情況下，google.script.run 嘅回程
+        會靜靜咁消失（伺服器已執行完，前端永遠收唔到）。
+        結果：畫面卡住，用戶以為按咗冇反應。
+   做法：包住 google.script.run，任何 server 呼叫 12 秒冇回音 →
+        上報 Diag + 自動重載一次（重載後由伺服器內嵌資料顯示「真實結果」，
+        所以就算回程死咗，用戶都一定睇得到結果）。
+   ============================================================ */
+(function () {
+  try {
+    var armed = null, pendingFn = '';
+    function disarm() { if (armed) { clearTimeout(armed); armed = null; } }
+    function reloadOnce() {
+      try {
+        var last = +(sessionStorage.getItem('lv_reload') || 0);
+        if (Date.now() - last > 20000) {
+          sessionStorage.setItem('lv_reload', String(Date.now()));
+          location.reload();
+        }
+      } catch (e) {}
+    }
+    function armWatch(fnName) {
+      disarm(); pendingFn = String(fnName);
+      armed = setTimeout(function () {
+        armed = null;
+        reportErr('nocb:' + pendingFn);
+        reloadOnce();
+      }, 12000);
+    }
+    function wrap(o) {
+      return new Proxy(o, {
+        get: function (t, k) {
+          var v = t[k];
+          if (typeof v !== 'function') return v;
+          return function () {
+            var a = arguments;
+            if (k === 'withSuccessHandler') {
+              var fn = a[0];
+              return wrap(v.call(t, function (r) { disarm(); return fn ? fn(r) : undefined; }));
+            }
+            if (k === 'withFailureHandler') {
+              var fe = a[0];
+              return wrap(v.call(t, function (e) { disarm(); return fe ? fe(e) : undefined; }));
+            }
+            armWatch(k);
+            return v.apply(t, a);
+          };
+        }
+      });
+    }
+    var tries = 0;
+    function tryInstall() {
+      tries++;
+      try {
+        var sc = window.google && window.google.script;
+        if (!sc || !sc.run) {
+          if (tries < 24) { setTimeout(tryInstall, 500); return; }
+          reportErr('watchdog: no google.script.run after 12s'); return;
+        }
+        var desc = Object.getOwnPropertyDescriptor(sc, 'run');
+        Object.defineProperty(sc, 'run', {
+          configurable: true,
+          get: function () {
+            var base = desc && desc.get ? desc.get.call(sc) : (desc ? desc.value : null);
+            return base ? wrap(base) : base;
+          }
+        });
+        if (tries > 1) reportErr('watchdog: on (tries=' + tries + ')');
+      } catch (e) {
+        try { reportErr('watchdog install EXC: ' + ((e && e.message) || e)); } catch (e2) {}
+      }
+    }
+    tryInstall();
+  } catch (e) {
+    try { reportErr('watchdog install EXC: ' + ((e && e.message) || e)); } catch (e2) {}
+  }
+})();
+
 function reportErr(m){
   try {
     var base = String(window.__EXEC || '');
