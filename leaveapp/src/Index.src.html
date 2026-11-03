@@ -627,7 +627,7 @@ function showDenied(email, appUrl, ref){
             L('Your browser did not pass your Google account to the app.') + '<br>' +
             L('This usually happens when several Google accounts are signed in at once.') +
           '</div>' +
-          '<a class="btn" href="' + chooser + '" style="max-width:340px;margin:18px auto 0;display:block;text-decoration:none;line-height:1.4">' + L('Sign in with your @firebean.net account') + '</a>' +
+          '<a class="btn" href="' + chooser + '" target="_top" rel="noopener" style="max-width:340px;margin:18px auto 0;display:block;text-decoration:none;line-height:1.4">' + L('Sign in with your @firebean.net account') + '</a>' +
           '<div style="margin-top:22px;border-top:1px solid #e5e7eb;padding-top:16px;max-width:340px;margin-left:auto;margin-right:auto;text-align:left">' +
             '<div style="font-size:12.5px;color:#6b7280;margin-bottom:8px">' + L('Or sign in with an email code') + '</div>' +
             '<input id="lg-email" type="email" placeholder="you@firebean.net" style="width:100%;box-sizing:border-box;padding:10px 12px;border:1px solid #d1d5db;border-radius:10px;font-size:14px">' +
@@ -638,7 +638,7 @@ function showDenied(email, appUrl, ref){
             '<button class="btn" style="width:100%;margin-top:8px" onclick="lgVerify()">' + L('Sign in with code') + '</button>' +
             '<div id="lg-msg" style="font-size:12.5px;color:#6b7280;margin-top:8px;line-height:1.5"></div>' +
           '</div>' +
-          '<div style="margin-top:14px"><a href="#" style="color:#e21c24;font-size:13px;text-decoration:none" onclick="location.reload();return false">' + L('Try again') + '</a>'
+          '<div style="margin-top:14px"><a href="' + esc(exec) + '" target="_top" style="color:#e21c24;font-size:13px;text-decoration:none">' + L('Try again') + '</a>'
                     + '<div style="margin-top:10px;font-family:ui-monospace,Menlo,monospace;font-size:11.5px;color:#9ca3af">Server: '
                         + esc(String((window.__SRVWHO || '')) || '\u2014') + (ref ? ' \u00b7 Code: ' + esc(String(ref)) : '')
                         + ' \u00b7 ' + esc(String((window.__BUILD || '')))

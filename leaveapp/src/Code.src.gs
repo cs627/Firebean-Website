@@ -487,7 +487,7 @@ function _diagLog(activeUser, key, err) {
     if (last > 1) {
       const pv = sh.getRange(last, 1, 1, 3).getValues()[0];
       const ago = (Date.now() - new Date(pv[0]).getTime()) / 1000;
-      if (String(pv[2]).trim() === key && ago >= 0 && ago < 300) return 'skip';
+      if (String(pv[2]).trim() === key && String(pv[5] || '').trim() === String(err || '').trim() && ago >= 0 && ago < 300) return 'skip';
     }
     sh.appendRow([new Date(), activeUser || '', key || '', _effEmail(), '', err || '']);
     return 'ok';
@@ -505,13 +505,15 @@ function getSession(who) {
   const s = _read(T.STAFF);
   const row = s.rows.filter(r => String(r[0]).toLowerCase().trim() === id.toLowerCase().trim())[0];
   if (!row) {
-    _diagLog(email, key, '');
+    _diagLog(email, key, 'denied who=' + (who ? (typeof who) : 'none') + ' ver=' + (v || '-') +
+             ' key=' + String(key || '').length + ' srv=' + CFG.BUILD);
     return { ok: false, reason: 'NOT_STAFF', email: id, appUrl: _appUrl(), srvWho: email,
              ref: key ? String(key).slice(0, 8) : '', viaKey: !!(!email && id),
              dbg: 'who=' + (who ? (typeof who) : 'none') + ' ver=' + (v || '-') +
                   ' key=' + String(key || '').length + ' srv=' + CFG.BUILD };
   }
   const role = String(row[2] || 'Staff');
+  if (!CFG.DRY_RUN) _diagLog(email, key, 'ok via=' + (email ? 'active' : (v ? 'signed' : 'key')));
   return {
     ok: true,
     email: id,
