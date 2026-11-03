@@ -1,12 +1,12 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-11-02T17:02:32.568080+00:00",
+  "generatedAt": "2026-11-03T17:06:46.167324+00:00",
   "run": {
-    "runDate": "2026-11-03",
+    "runDate": "2026-11-04",
     "dateRange": {
       "from": "2025-06-09",
-      "to": "2026-11-03"
+      "to": "2026-11-04"
     },
     "alerts": [
       {
@@ -27,8 +27,8 @@
     ]
   },
   "counts": {
-    "total": 229,
-    "media": 75,
+    "total": 230,
+    "media": 76,
     "social": 154,
     "maps": 44,
     "stores": 10
@@ -2552,6 +2552,17 @@
       "sentiment": "neutral",
       "sentiment_label": "中性",
       "keywords": "Outback, 澳美客, Outback Steakhouse HK, Prestige 會員, 優惠"
+    },
+    {
+      "date": "2026-11-02",
+      "source": "Outback 官方網站",
+      "platform": "新聞媒體",
+      "title": "官方公告：「感謝一路同行」尊尚會員專屬優惠 — 現有 Prestige 會員於 App 解鎖 3 張 75 折券（11/1–12/15 分三期使用）",
+      "summary": "Outback 香港官網最新消息新增文章 #243（繁中版，頁面標示「更新於: November 02, 2026」）：為答謝尊尚會員，所有現有 Prestige 會籍（新舊均可）可於 App 內解鎖 3 張 75 折券，分三期使用 — 第一期 11/01–11/15、第二期 11/16–11/30、第三期 12/01–12/15；即日起至 11 月 30 日新升級尊尚會籍（HK$488）額外加送 4 張 HK$100 迎新券及 1 張烤豬肋骨雞搥芝士薯條拼盤換領券。屬 10 月 20 日「Inside Outback」之後同月第二波會員推廣，針對既有會員的留存型優惠。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/243?lang=tc",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 澳美客, 尊尚會員, 感謝折, 75折券, 會員留存"
     }
   ],
   "stores": [
@@ -3516,6 +3527,42 @@
       "link": "https://www.esquirehk.com/lifestyle/steak-house-best-choice",
       "branchCount": "1",
       "expansion": "新品牌單店（開幕日期未核實）"
+    },
+    {
+      "date": "2026-11-01",
+      "competitor": "Flat Iron Steak",
+      "type": "推廣/優惠",
+      "title": "Flat Iron 登陸 OpenRice 訂座預付：「和牛尊尚全日套餐」69 折 HK$348（已連服務費，2 位起）",
+      "summary": "OpenRice 訂座預付優惠頁（51941）列明 Flat Iron「和牛尊尚全日套餐」69 折：每位 HK$348、已包含服務費，1 位用、2 位起，兌換期 2026-11-01 至 2026-12-15，供應時段 11:30–21:30。屬 Flat Iron 首次見於 OpenRice 訂座預付渠道的套餐折扣（同期官網主打大份量分享扒 5 折、平日主題輪換），顯示其同時用第三方預付平台搶平日午市及全日客源。（日期欄填優惠起始日 2026-11-01，已於 OpenRice 頁面核實。）",
+      "sentiment": "中性",
+      "source": "OpenRice 訂座預付（官方優惠頁）",
+      "link": "https://www.openrice.com/zh/hongkong/booking/menu/51941",
+      "branchCount": "7（香港）＋1（澳門）",
+      "expansion": "無新店；以 OpenRice 預付套餐擴大平日午市客源"
+    },
+    {
+      "date": "2026-11-04",
+      "competitor": "Dan Ryan's Chicago Grill",
+      "type": "推廣/優惠",
+      "title": "Dan Ryan's 參與香港浸會大學基金「Corporate Deals 2026」企業全年優惠：又一城店堂食 85 折（2026 全年）",
+      "summary": "香港浸會大學基金「YRO 2026」優惠文件（PDF，經渲染讀圖核實）列出 Dan Ryan's Chicago Grill 2026 年企業全年優惠：浸大基金會員於又一城分店（九龍塘又一城低層 228 號舖）堂食主餐牌、正價飲品及指定套餐可享 85 折（15% off），優惠期 2026 年 1 月 1 日至 12 月 31 日，不適用於公眾假期及 2026-02-13~20、05-09~10、06-20~21、12-21~31；每枱最多 12 人、不設分單、不可與其他折扣（含會員折扣）並用、另收原價加一。屬 B2B／大學基金互惠渠道的全年折扣，與 KKday 6 折套餐及官網 Causeway Bay New Store 推廣並行，反映其以多個第三方渠道填補非繁忙時段。（日期欄填本日＝收錄日；文件為 2026 全年優惠，非當日公告。）",
+      "sentiment": "中性",
+      "source": "香港浸會大學基金（YRO 2026 企業優惠文件 PDF）",
+      "link": "https://foundation.hkbu.edu.hk/sites/default/files/YRO%202026_Dan%20Ryan%27s_Amaroni%27s.pdf",
+      "branchCount": "4（銅鑼灣翡翠明珠廣場、又一城、太古城、海港城）",
+      "expansion": "無新店；以大學基金／企業渠道擴大客源"
+    },
+    {
+      "date": "2026-11-01",
+      "competitor": "業界：香港餐飲結業潮（2026年10月）",
+      "type": "結業/市場變化",
+      "title": "10 月全港至少 70 間店鋪結業（按月增約 75%）：清玉、大苑子全面撤港，蜜雪冰城旺角首店、和府撈麵香港首店同告結業",
+      "summary": "經濟日報（台灣）2026-11-01 14:23 報道，引述香港經濟日報旗下「地產站」及市場統計：10 月全港至少 70 間店鋪結業，較 9 月約 40 間增加約 75%。台灣手搖品牌「清玉」紅磡分店因總代理結束香港業務，10 月 25 日結業（在港約 11 年）；「大苑子」最後一間大圍圍方店 10 月 12 日結業；內地平價茶飲龍頭蜜雪冰城旺角銀行中心首店租約期滿結業（由本土品牌堂小二以月租 HK$19 萬接手）；連鎖麵食「和府撈麵」香港首店開業不足三年離場。主因為港人北上消費、高昂營運成本、資金壓力及年輕人消費模式改變。屬全行業（非單一競爭者）市場變化，列此以評估 Outback 所處的消費收縮環境與價格敏感度。",
+      "sentiment": "負面",
+      "source": "世界日報／經濟日報（引述香港經濟日報「地產站」統計）",
+      "link": "https://money.udn.com/money/story/6721/9850170",
+      "branchCount": "不適用（全行業）",
+      "expansion": "10 月結業店鋪數按月升約 75%，餐飲零售收縮加劇"
     }
   ],
   "trend": [
@@ -3841,6 +3888,10 @@
     },
     {
       "date": "2026-10-31",
+      "count": 1
+    },
+    {
+      "date": "2026-11-02",
       "count": 1
     },
     {

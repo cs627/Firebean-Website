@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-11-03 01:02",
-    "total_records": 229,
+    "last_updated": "2026-11-04 01:12",
+    "total_records": 230,
     "daily_avg": 2.8,
     "date_range": "2025-06-09 → 2026-11-03",
     "sources_checked": 29,
@@ -11,10 +11,6 @@
     "positive_pct": 55
   },
   "trend": [
-    {
-      "date": "2026-10-21",
-      "count": 1
-    },
     {
       "date": "2026-10-22",
       "count": 1
@@ -33,6 +29,10 @@
     },
     {
       "date": "2026-10-31",
+      "count": 1
+    },
+    {
+      "date": "2026-11-02",
       "count": 1
     },
     {
@@ -63,7 +63,7 @@
     },
     {
       "source": "Outback 官方網站",
-      "count": 13
+      "count": 14
     },
     {
       "source": "U Food",
@@ -103,7 +103,7 @@
     }
   ],
   "sentiment": {
-    "positive": 126,
+    "positive": 127,
     "neutral": 63,
     "negative": 35,
     "mixed": 5
@@ -2627,6 +2627,17 @@
       "sentiment": "neutral",
       "sentiment_label": "中性",
       "keywords": "Outback, 澳美客, Outback Steakhouse HK, Prestige 會員, 優惠"
+    },
+    {
+      "date": "2026-11-02",
+      "source": "Outback 官方網站",
+      "platform": "新聞媒體",
+      "title": "官方公告：「感謝一路同行」尊尚會員專屬優惠 — 現有 Prestige 會員於 App 解鎖 3 張 75 折券（11/1–12/15 分三期使用）",
+      "summary": "Outback 香港官網最新消息新增文章 #243（繁中版，頁面標示「更新於: November 02, 2026」）：為答謝尊尚會員，所有現有 Prestige 會籍（新舊均可）可於 App 內解鎖 3 張 75 折券，分三期使用 — 第一期 11/01–11/15、第二期 11/16–11/30、第三期 12/01–12/15；即日起至 11 月 30 日新升級尊尚會籍（HK$488）額外加送 4 張 HK$100 迎新券及 1 張烤豬肋骨雞搥芝士薯條拼盤換領券。屬 10 月 20 日「Inside Outback」之後同月第二波會員推廣，針對既有會員的留存型優惠。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/243?lang=tc",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 澳美客, 尊尚會員, 感謝折, 75折券, 會員留存"
     }
   ],
   "media_records": [
@@ -3454,6 +3465,17 @@
       "sentiment": "neutral",
       "sentiment_label": "中性",
       "keywords": "Outback, 澳美客, Outback Steakhouse HK, Prestige 會員, 優惠"
+    },
+    {
+      "date": "2026-11-02",
+      "source": "Outback 官方網站",
+      "platform": "新聞媒體",
+      "title": "官方公告：「感謝一路同行」尊尚會員專屬優惠 — 現有 Prestige 會員於 App 解鎖 3 張 75 折券（11/1–12/15 分三期使用）",
+      "summary": "Outback 香港官網最新消息新增文章 #243（繁中版，頁面標示「更新於: November 02, 2026」）：為答謝尊尚會員，所有現有 Prestige 會籍（新舊均可）可於 App 內解鎖 3 張 75 折券，分三期使用 — 第一期 11/01–11/15、第二期 11/16–11/30、第三期 12/01–12/15；即日起至 11 月 30 日新升級尊尚會籍（HK$488）額外加送 4 張 HK$100 迎新券及 1 張烤豬肋骨雞搥芝士薯條拼盤換領券。屬 10 月 20 日「Inside Outback」之後同月第二波會員推廣，針對既有會員的留存型優惠。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/243?lang=tc",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 澳美客, 尊尚會員, 感謝折, 75折券, 會員留存"
     }
   ],
   "social_records": [

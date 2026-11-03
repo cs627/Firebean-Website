@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-02",
+  "items": [
+    {
+      "date": "2026-11-02",
+      "source": "Outback 官方網站",
+      "platform": "新聞媒體",
+      "author": "Outback 官方網站",
+      "title": "官方公告：「感謝一路同行」尊尚會員專屬優惠 — 現有 Prestige 會員於 App 解鎖 3 張 75 折券（11/1–12/15 分三期使用）",
+      "summary": "Outback 香港官網最新消息新增文章 #243（繁中版，頁面標示「更新於: November 02, 2026」）：為答謝尊尚會員，所有現有 Prestige 會籍（新舊均可）可於 App 內解鎖 3 張 75 折券，分三期使用 — 第一期 11/01–11/15、第二期 11/16–11/30、第三期 12/01–12/15；即日起至 11 月 30 日新升級尊尚會籍（HK$488）額外加送 4 張 HK$100 迎新券及 1 張烤豬肋骨雞搥芝士薯條拼盤換領券。屬 10 月 20 日「Inside Outback」之後同月第二波會員推廣，針對既有會員的留存型優惠。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/243?lang=tc",
+      "sentiment": "positive",
+      "tags": ""
+    }
+  ],
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 1,
+    "new_records": 1,
+    "limitations": []
+  }
+}
