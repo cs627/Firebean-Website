@@ -596,7 +596,7 @@ function cnStatus(s){ return s || 'Pending'; }
 /* ---------------- identity ---------------- */
 function boot(){
   google.script.run.withSuccessHandler(function(r){
-    if (!r || !r.ok){ showDenied(r && r.email); return; }
+    if (!r || !r.ok){ showDenied(r && r.email, r && r.appUrl); return; }
     S.sess = r;
     loadDashboard();
   }).withFailureHandler(function(e){
@@ -604,9 +604,11 @@ function boot(){
   }).getSession();
 }
 
-function showDenied(email){
+function showDenied(email, appUrl){
   // 讀唔到身份（多數係瀏覽器同時登入多個 Google 帳戶）→ 引導揀返 @firebean.net 帳號再入
-  const exec = String(location.href).split('?')[0];
+  // 注意：app 係跑喺 HtmlService sandbox iframe，location.href 唔係 /exec 網址，
+  // 所以要用伺服器傳落嚟嘅 appUrl（無就用呢個常數頂住）。
+  const exec = String(appUrl || '').trim() || 'https://script.google.com/a/macros/firebean.net/s/AKfycbxFROGfguMNIqrkoQAQwSjQla0sj4qy5IxtQPzC4YH9ntk31jAQ8561z_m_cJ40eDGa7w/exec';
   const chooser = 'https://accounts.google.com/AccountChooser?hd=firebean.net&continue=' + encodeURIComponent(exec);
   const blank = !email;
   $('root').innerHTML =
@@ -645,7 +647,7 @@ function showError(msg){
 /* ---------------- dashboard ---------------- */
 function loadDashboard(){
   google.script.run.withSuccessHandler(function(d){
-    if (!d || !d.ok){ showDenied(d && d.email); return; }
+    if (!d || !d.ok){ showDenied(d && d.email, d && d.appUrl); return; }
     S.data = d;
     render();
   }).withFailureHandler(function(e){

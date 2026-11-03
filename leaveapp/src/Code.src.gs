@@ -326,11 +326,17 @@ function diagnose() {
   return out.join('\n');
 }
 
+// Web App 真正嘅 /exec 網址（喺 HtmlService sandbox iframe 內 location.href 唔可靠，
+// 所以畀前端做「重新揀 Google 帳號」連結時，必須由伺服器提供）
+function _appUrl() {
+  try { return String(ScriptApp.getService().getUrl() || ''); } catch (e) { return ''; }
+}
+
 function getSession() {
   const email = _activeEmail();
   const s = _read(T.STAFF);
-  const row = s.rows.filter(r => String(r[0]).toLowerCase() === email)[0];
-  if (!row) return { ok: false, reason: 'NOT_STAFF', email: email };
+  const row = s.rows.filter(r => String(r[0]).toLowerCase().trim() === email.trim())[0];
+  if (!row) return { ok: false, reason: 'NOT_STAFF', email: email, appUrl: _appUrl() };
   const role = String(row[2] || 'Staff');
   return {
     ok: true,
@@ -346,7 +352,8 @@ function getSession() {
     sheetName: (function () {
       try { return _ss().getName(); } catch (e) { return '讀不到 Sheet'; }
     })(),
-    calName: CFG.CALENDAR_NAME || 'primary'
+    calName: CFG.CALENDAR_NAME || 'primary',
+    appUrl: _appUrl()
   };
 }
 
