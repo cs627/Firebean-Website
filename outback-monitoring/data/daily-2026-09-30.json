@@ -1,0 +1,25 @@
+{
+  "date": "2026-09-30",
+  "items": [
+    {
+      "date": "2026-09-30",
+      "source": "Google Maps (沙田新城市廣場三期)",
+      "platform": "地圖",
+      "author": "Cho Cho",
+      "title": "沙田顧客5星評價：2026年9月 好味，最近有會員七折抵食",
+      "summary": "沙田分店 Google Maps 5星評論（Cho Cho，1 個月前）：2026年9月 好味，最近有會員七折抵食",
+      "link": "https://www.google.com/maps/contrib/107179936670915919311/reviews",
+      "sentiment": "positive",
+      "tags": ""
+    }
+  ],
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 1,
+    "new_records": 1,
+    "limitations": []
+  }
+}

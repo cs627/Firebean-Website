@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-14",
+  "items": [
+    {
+      "date": "2026-10-14",
+      "source": "Google Maps (荃灣廣場)",
+      "platform": "地圖",
+      "author": "Kathy YU",
+      "title": "荃灣顧客4星評價：又係好耐無食過的一間餐廳，再次光顧比之前差很遠，覺得廚師用心處理食物，不會像之前",
+      "summary": "荃灣分店 Google Maps 4星評論（Kathy YU，3 週前）：又係好耐無食過的一間餐廳，再次光顧比之前差很遠，覺得廚師用心處理食物，不會像之前求其煮熟就算，今次用餐感覺良好，服務員態度也有禮貌，再次光顧的機會很高。",
+      "link": "https://www.google.com/maps/contrib/108404171044968526989/reviews",
+      "sentiment": "positive",
+      "tags": ""
+    }
+  ],
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 1,
+    "new_records": 1,
+    "limitations": []
+  }
+}

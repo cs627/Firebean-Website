@@ -1,14 +1,14 @@
 {
   "meta": {
-    "last_updated": "2026-11-04 01:12",
-    "total_records": 230,
-    "daily_avg": 2.8,
+    "last_updated": "2026-11-05T01:01:20+08:00",
+    "total_records": 233,
+    "daily_avg": 2.7,
     "date_range": "2025-06-09 → 2026-11-03",
     "sources_checked": 29,
     "new_verified": 3,
     "coverage_ratio": "29/46",
     "negative_alerts": 35,
-    "positive_pct": 55
+    "positive_pct": 56
   },
   "trend": [
     {
@@ -42,12 +42,12 @@
   ],
   "source_breakdown": [
     {
-      "source": "Instagram",
-      "count": 45
+      "source": "Google Maps",
+      "count": 47
     },
     {
-      "source": "Google Maps",
-      "count": 44
+      "source": "Instagram",
+      "count": 45
     },
     {
       "source": "Threads",
@@ -103,7 +103,7 @@
     }
   ],
   "sentiment": {
-    "positive": 127,
+    "positive": 130,
     "neutral": 63,
     "negative": 35,
     "mixed": 5
@@ -2638,6 +2638,39 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, 澳美客, 尊尚會員, 感謝折, 75折券, 會員留存"
+    },
+    {
+      "date": "2026-10-14",
+      "source": "Google Maps (荃灣廣場)",
+      "platform": "地圖",
+      "title": "荃灣顧客4星評價：又係好耐無食過的一間餐廳，再次光顧比之前差很遠，覺得廚師用心處理食物，不會像之前",
+      "summary": "荃灣分店 Google Maps 4星評論（Kathy YU，3 週前）：又係好耐無食過的一間餐廳，再次光顧比之前差很遠，覺得廚師用心處理食物，不會像之前求其煮熟就算，今次用餐感覺良好，服務員態度也有禮貌，再次光顧的機會很高。",
+      "link": "https://www.google.com/maps/contrib/108404171044968526989/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 荃灣, 荃灣廣場, 4星"
+    },
+    {
+      "date": "2026-09-30",
+      "source": "Google Maps (沙田新城市廣場三期)",
+      "platform": "地圖",
+      "title": "沙田顧客5星評價：2026年9月 好味，最近有會員七折抵食",
+      "summary": "沙田分店 Google Maps 5星評論（Cho Cho，1 個月前）：2026年9月 好味，最近有會員七折抵食",
+      "link": "https://www.google.com/maps/contrib/107179936670915919311/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 沙田, 沙田新城市廣場三期, 5星"
+    },
+    {
+      "date": "2026-08-31",
+      "source": "Google Maps (旺角MOKO)",
+      "platform": "地圖",
+      "title": "旺角顧客5星評價：好適合聚會傾計 無限添食黑糖麵包好好食呀",
+      "summary": "旺角分店 Google Maps 5星評論（eatfatkeepfat，2 個月前）：好適合聚會傾計 無限添食黑糖麵包好好食呀",
+      "link": "https://www.google.com/maps/contrib/115809997199962211610/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 旺角, 旺角MOKO, 5星"
     }
   ],
   "media_records": [
@@ -5172,6 +5205,39 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, Google Maps, 中環, 中環娛樂行, 5星"
+    },
+    {
+      "date": "2026-10-14",
+      "source": "Google Maps (荃灣廣場)",
+      "platform": "地圖",
+      "title": "荃灣顧客4星評價：又係好耐無食過的一間餐廳，再次光顧比之前差很遠，覺得廚師用心處理食物，不會像之前",
+      "summary": "荃灣分店 Google Maps 4星評論（Kathy YU，3 週前）：又係好耐無食過的一間餐廳，再次光顧比之前差很遠，覺得廚師用心處理食物，不會像之前求其煮熟就算，今次用餐感覺良好，服務員態度也有禮貌，再次光顧的機會很高。",
+      "link": "https://www.google.com/maps/contrib/108404171044968526989/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 荃灣, 荃灣廣場, 4星"
+    },
+    {
+      "date": "2026-09-30",
+      "source": "Google Maps (沙田新城市廣場三期)",
+      "platform": "地圖",
+      "title": "沙田顧客5星評價：2026年9月 好味，最近有會員七折抵食",
+      "summary": "沙田分店 Google Maps 5星評論（Cho Cho，1 個月前）：2026年9月 好味，最近有會員七折抵食",
+      "link": "https://www.google.com/maps/contrib/107179936670915919311/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 沙田, 沙田新城市廣場三期, 5星"
+    },
+    {
+      "date": "2026-08-31",
+      "source": "Google Maps (旺角MOKO)",
+      "platform": "地圖",
+      "title": "旺角顧客5星評價：好適合聚會傾計 無限添食黑糖麵包好好食呀",
+      "summary": "旺角分店 Google Maps 5星評論（eatfatkeepfat，2 個月前）：好適合聚會傾計 無限添食黑糖麵包好好食呀",
+      "link": "https://www.google.com/maps/contrib/115809997199962211610/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 旺角, 旺角MOKO, 5星"
     }
   ],
   "store_ranking": [

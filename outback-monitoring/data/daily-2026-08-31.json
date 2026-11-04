@@ -1,0 +1,25 @@
+{
+  "date": "2026-08-31",
+  "items": [
+    {
+      "date": "2026-08-31",
+      "source": "Google Maps (旺角MOKO)",
+      "platform": "地圖",
+      "author": "eatfatkeepfat",
+      "title": "旺角顧客5星評價：好適合聚會傾計 無限添食黑糖麵包好好食呀",
+      "summary": "旺角分店 Google Maps 5星評論（eatfatkeepfat，2 個月前）：好適合聚會傾計 無限添食黑糖麵包好好食呀",
+      "link": "https://www.google.com/maps/contrib/115809997199962211610/reviews",
+      "sentiment": "positive",
+      "tags": ""
+    }
+  ],
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 1,
+    "new_records": 1,
+    "limitations": []
+  }
+}

@@ -1840,6 +1840,30 @@
       "summary": "Outback 香港官網最新消息新增文章 #243（繁中版，頁面標示「更新於: November 02, 2026」）：為答謝尊尚會員，所有現有 Prestige 會籍（新舊均可）可於 App 內解鎖 3 張 75 折券，分三期使用 — 第一期 11/01–11/15、第二期 11/16–11/30、第三期 12/01–12/15；即日起至 11 月 30 日新升級尊尚會籍（HK$488）額外加送 4 張 HK$100 迎新券及 1 張烤豬肋骨雞搥芝士薯條拼盤換領券。屬 10 月 20 日「Inside Outback」之後同月第二波會員推廣，針對既有會員的留存型優惠。",
       "link": "https://www.outback.com.hk/news-and-promotions/article/243?lang=tc",
       "sentiment": "positive"
+    },
+    {
+      "date": "2026-10-14",
+      "source": "Google Maps (荃灣廣場)",
+      "title": "荃灣顧客4星評價：又係好耐無食過的一間餐廳，再次光顧比之前差很遠，覺得廚師用心處理食物，不會像之前",
+      "summary": "荃灣分店 Google Maps 4星評論（Kathy YU，3 週前）：又係好耐無食過的一間餐廳，再次光顧比之前差很遠，覺得廚師用心處理食物，不會像之前求其煮熟就算，今次用餐感覺良好，服務員態度也有禮貌，再次光顧的機會很高。",
+      "link": "https://www.google.com/maps/contrib/108404171044968526989/reviews",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-09-30",
+      "source": "Google Maps (沙田新城市廣場三期)",
+      "title": "沙田顧客5星評價：2026年9月 好味，最近有會員七折抵食",
+      "summary": "沙田分店 Google Maps 5星評論（Cho Cho，1 個月前）：2026年9月 好味，最近有會員七折抵食",
+      "link": "https://www.google.com/maps/contrib/107179936670915919311/reviews",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-31",
+      "source": "Google Maps (旺角MOKO)",
+      "title": "旺角顧客5星評價：好適合聚會傾計 無限添食黑糖麵包好好食呀",
+      "summary": "旺角分店 Google Maps 5星評論（eatfatkeepfat，2 個月前）：好適合聚會傾計 無限添食黑糖麵包好好食呀",
+      "link": "https://www.google.com/maps/contrib/115809997199962211610/reviews",
+      "sentiment": "positive"
     }
   ],
   "alerts": [],
@@ -1848,7 +1872,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 230,
+    "new_records": 233,
     "limitations": []
   }
 }
