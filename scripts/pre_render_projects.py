@@ -418,21 +418,28 @@ print("llms.txt + llms-full.txt: roving exhibitions section updated")
 
 ROVING_CONTENT = os.path.join(BASEDIR, 'data', 'roving-content.json')
 
+# The roving practice started in 2016, but the 2016 roving projects have not been
+# submitted to the Master DB yet — so the projects.json-derived span would say 2017.
+# Dickson confirmed the 2016 work exists, so the start year is pinned here instead of
+# derived. Remove this override (and let it fall back to the data) once the 2016 roving
+# rows are in the Sheet.
+ROVING_FIRST_YEAR = 2016
+
 
 def sync_roving_content():
     """Derive the roving page's headline numbers from the published data.
 
     The hand-written copy had drifted from the data it sits next to on the same page
-    (36 projects / 8 bureaus / "since 2016" in roving-content.json vs 32 / 5 rendered
-    from projects.json; the earliest roving project in the Sheet is 2017). Only the
-    counts, the year span and the "since" year are rewritten — all other prose, and the
-    people-engaged figure (no per-project audience field exists), are left untouched.
+    (36 projects / 8 bureaus in roving-content.json vs 32 / 5 rendered from projects.json).
+    Only the counts, the year span and the "since" year are rewritten — all other prose,
+    and the people-engaged figure (no per-project audience field exists), are left untouched.
     """
     rov, bureaus = roving_stats()
     n, b = len(rov), len(bureaus)
     years = sorted({(p.get('sortDate') or '')[:4] for p in rov if p.get('sortDate')})
-    span = (int(years[-1]) - int(years[0]) + 1) if years else 0
-    first = years[0] if years else ''
+    last = int(years[-1]) if years else datetime.now(timezone.utc).year
+    first = str(ROVING_FIRST_YEAR or (years[0] if years else last))
+    span = last - int(first) + 1
     if not os.path.exists(ROVING_CONTENT):
         return
     d = json.load(open(ROVING_CONTENT, encoding='utf-8'))
