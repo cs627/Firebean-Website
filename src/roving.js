@@ -7,6 +7,10 @@
   "use strict";
   console.log("[roving] init");
 
+  // Roving practice started 2016; the 2016 roving projects are not in the DB yet, so the
+  // start year is pinned here rather than derived from projects.json (earliest row = 2017).
+  var ROVING_FIRST_YEAR = 2016;
+
   var STEPS = [
     {n:"1", icon:'<path stroke-linecap="round" stroke-linejoin="round" d="M12 20h9"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>'},
     {n:"2", icon:'<path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>'},
@@ -93,6 +97,8 @@
       var sd=roving[i].sortDate; if(sd&&sd.length>=4) yrs[sd.substring(0,4)]=1;
     }
     var burCnt=Object.keys(bureaus).length, yrList=Object.keys(yrs).sort();
+    var spanYr=new Date().getFullYear()-ROVING_FIRST_YEAR+1;
+    var firstYr=yrList.length?Math.min(parseInt(yrList[0]),ROVING_FIRST_YEAR):ROVING_FIRST_YEAR;
 
     var h="";
     h+='<header class="mb-12 text-center">';
@@ -100,7 +106,7 @@
     h+='<h2 class="font-display text-4xl md:text-7xl lg:text-8xl tracking-normal uppercase leading-[1.15] md:leading-[1.1] mb-6 md:mb-8 py-2 max-w-5xl mx-auto">';
         h+='<span id="rv-hero-n1" class="text-brand-red">'+cnt+'</span><span data-key="Roving.Hero.Slogan1" id="rv-slogan1"> PROJECTS.</span> ';
         h+='<span id="rv-hero-n2" class="text-brand-red">'+burCnt+'</span><span data-key="Roving.Hero.Slogan2" id="rv-slogan2"> GOVERNMENT BUREAUS.</span> ';
-        h+='<span id="rv-hero-n3" class="text-brand-red" data-key="Roving.Hero.Slogan3">1.5M+</span><span data-key="Roving.Hero.Slogan4" id="rv-slogan4"> PEOPLE ENGAGED.</span></h2>';
+        h+='<span id="rv-hero-n3" class="text-brand-red" data-key="Roving.Hero.Slogan3">'+spanYr+'</span><span data-key="Roving.Hero.Slogan4" id="rv-slogan4"> YEARS ROVING HONG KONG.</span></h2>';
     h+='<p class="font-playfair italic text-base md:text-xl font-medium text-brand-black max-w-2xl mx-auto" data-key="Roving.Hero.Subtitle2">Hong Kong\'s Most Experienced Roving Exhibition Agency</p></header>';
 
     // Methodology with scroll animations
@@ -118,7 +124,7 @@
             h+='<span class="text-brand-red" id="rv-count-disp">'+cnt+'</span> ';
             h+='<span data-key="Roving.Projects.SectionTitle">Roving Exhibitions</span> ';
             h+='<span class="text-gray-400">·</span> ';
-            h+='<span id="rv-year-disp" data-key="Roving.Projects.YearRange">'+yrList[0]+'\\u2014'+yrList[yrList.length-1]+'</span></h2>';
+            h+='<span id="rv-year-disp" data-key="Roving.Projects.YearRange">'+firstYr+'\\u2014'+yrList[yrList.length-1]+'</span></h2>';
         h+='<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">'+buildCards(roving)+'</div>';
 
     var el=document.getElementById("roving-main");
@@ -208,8 +214,8 @@
     if(!el) return;
     var cnt=el.textContent;
     restoreHeroNumbers(
-      parseInt(document.getElementById("rv-hero-n1")?.textContent) || 11,
-      parseInt(document.getElementById("rv-hero-n2")?.textContent) || 6
+      parseInt(document.getElementById("rv-hero-n1")?.textContent) || 32,
+      parseInt(document.getElementById("rv-hero-n2")?.textContent) || 5
     );
     toggleSloganBold();
   });

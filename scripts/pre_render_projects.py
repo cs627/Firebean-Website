@@ -44,6 +44,12 @@ ROV_END = '<!-- AUTO-GENERATED:ROVING:END -->'
 ROVLIST_START = '<!-- AUTO-GENERATED:ROVINGLIST:START -->'
 ROVLIST_END = '<!-- AUTO-GENERATED:ROVINGLIST:END -->'
 
+# The roving practice started in 2016, but the 2016 roving projects have not been submitted
+# to the Master DB yet — so a projects.json-derived start year would say 2017. Dickson
+# confirmed the 2016 work exists, so the start year is pinned here instead of derived.
+# Remove this override (and let it fall back to the data) once the 2016 roving rows are in.
+ROVING_FIRST_YEAR = 2016
+
 TODAY = datetime.now(timezone.utc).strftime('%Y-%m-%d')
 
 os.makedirs(OUT_DIR, exist_ok=True)
@@ -394,7 +400,7 @@ def roving_list_md(full=False):
              f'## Roving Exhibitions ({len(rov)} projects)', '',
              "Firebean is Hong Kong's most experienced roving exhibition agency: "
              f"{len(rov)} roving exhibition projects for {len(bureaus)} Hong Kong government bureaus "
-             f"({', '.join(bureaus)}), engaging 1.5M+ people since 2007.", '',
+             f"({', '.join(bureaus)}), roving Hong Kong since {ROVING_FIRST_YEAR}.", '',
              f'- Service page: [Roving Exhibitions]({SITE}/roving-exhibitions/)', '']
     for p in rov:
         pid = p.get('projectId', '')
@@ -417,13 +423,6 @@ print("llms.txt + llms-full.txt: roving exhibitions section updated")
 
 
 ROVING_CONTENT = os.path.join(BASEDIR, 'data', 'roving-content.json')
-
-# The roving practice started in 2016, but the 2016 roving projects have not been
-# submitted to the Master DB yet — so the projects.json-derived span would say 2017.
-# Dickson confirmed the 2016 work exists, so the start year is pinned here instead of
-# derived. Remove this override (and let it fall back to the data) once the 2016 roving
-# rows are in the Sheet.
-ROVING_FIRST_YEAR = 2016
 
 
 def sync_roving_content():
@@ -449,11 +448,22 @@ def sync_roving_content():
         for lang in ('EN', 'TC', 'JP'):
             node[lang] = str(val)
     subtitle = d.setdefault('hero', {}).setdefault('subtitle', {})
-    people = stats.get('peopleValue', {})
-    subtitle['EN'] = f"{n} projects. {span} years. {b} government bureaus. {people.get('EN', '')} people engaged."
-    subtitle['TC'] = f"{n}個項目。{span}年經驗。{b}個政府部門。{people.get('TC', '')}參與人次。"
-    subtitle['JP'] = f"{n}プロジェクト。{span}年の実績。{b}つの政府機関。{people.get('JP', '')}が参加。"
+    subtitle['EN'] = f"{n} projects. {span} years. {b} government bureaus."
+    subtitle['TC'] = f"{n}個項目。{span}年經驗。{b}個政府部門。"
+    subtitle['JP'] = f"{n}プロジェクト。{span}年の実績。{b}つの政府機関。"
+    # The people-engaged figure is not derivable from the Sheet (no attendance/reach column), so it
+    # is removed rather than left as an unsourced claim — Dickson's call (option C).
+    for gone in ('peopleValue', 'peopleLabel'):
+        stats.pop(gone, None)
     body = d.setdefault('intro', {}).setdefault('body', {})
+    people_out = {
+        'EN': (r'to over 1\.5 million Hong Kong citizens', 'to audiences across Hong Kong'),
+        'TC': (r'帶給超過150萬香港市民', '帶給全港市民'),
+        'JP': (r'150万人以上の香港市民に届けてきました', '香港市民に届けてきました'),
+    }
+    for lang, (pat, rep) in people_out.items():
+        if lang in body:
+            body[lang] = re.sub(pat, rep, body[lang])
     subs = {
         'EN': [(r'\d+ roving projects across \d+ government bureaus',
                 f'{n} roving projects across {b} government bureaus'),
