@@ -1012,7 +1012,7 @@ This section contains a comprehensive index of Firebean's project portfolio. AI 
 
 <!-- AUTO-GENERATED:PROJECTS:START -->
 
-## Complete Project Index (111 projects, auto-generated 2026-11-02)
+## Complete Project Index (112 projects, auto-generated 2026-11-04)
 
 ### Tokyo Indies Coffee Festival 公關服務
 - **Client:** SNDO 三道
@@ -1027,6 +1027,13 @@ This section contains a comprehensive index of Firebean's project portfolio. AI 
 - **Venue:** Shopping malls (inc. Citywalk2, Olympian City 2, The Wai, etc.)
 - **Scope:** Concept Development, Branding Strategy, PR Consulting, Theme Design, Visual Identity, UI/UX Design, Video Production, Motion Graphics, Interactive Installation, Event Planning, Event Production, On-site Operation, Technical Support
 - **Page:** [https://firebean.net/projects/fb2026082.html](https://firebean.net/projects/fb2026082.html)
+
+### 《憲法》與《基本法》貓頭鷹巴士站
+- **Client:** 政制及內地事務局
+- **Category:** GOVERNMENT & PUBLIC SECTOR
+- **Venue:** Shopping malls (inc. tmtplaza, SPOT, MOSTown, etc.)
+- **Scope:** Concept Development, Branding Strategy, PR Consulting, Theme Design, Visual Identity, UI/UX Design, Video Production, Interactive Installation, Event Planning, Event Production, On-site Operation, Technical Support
+- **Page:** [https://firebean.net/projects/fb2026083.html](https://firebean.net/projects/fb2026083.html)
 
 ### 啟田中秋快閃 WholeLove愛完全 X 樂道健康關注站
 - **Client:** 華人藥業 Chinese Pharm

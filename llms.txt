@@ -47,12 +47,13 @@ For a complete index of all Firebean projects, case studies, and detailed servic
 
 <!-- AUTO-GENERATED:PROJECTS:START -->
 
-## Complete Project Index (111 projects)
+## Complete Project Index (112 projects)
 
 Every project has a crawlable static page with full case study, scope and FAQ.
 
 - [Tokyo Indies Coffee Festival 公關服務](https://firebean.net/projects/fb2026081.html) — SNDO 三道 | LIFESTYLE & CONSUMER
 - [《憲法》與《基本法》機械訓練學院](https://firebean.net/projects/fb2026082.html) — 政制及內地事務局 | GOVERNMENT & PUBLIC SECTOR
+- [《憲法》與《基本法》貓頭鷹巴士站](https://firebean.net/projects/fb2026083.html) — 政制及內地事務局 | GOVERNMENT & PUBLIC SECTOR
 - [啟田中秋快閃 WholeLove愛完全 X 樂道健康關注站](https://firebean.net/projects/fb2026080.html) — 華人藥業 Chinese Pharm | F&B & HOSPITALITY
 - [The R&D Kitchen Table: Media Chat & Happy Hour](https://firebean.net/projects/fb2026079.html) — Outback Steakhouse | F&B & HOSPITALITY
 - [學與教博覽2026](https://firebean.net/projects/fb2026077.html) — 教育局 | GOVERNMENT & PUBLIC SECTOR
