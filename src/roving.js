@@ -18,13 +18,16 @@
     // Match by name: contains 巡迴 or roving
     var n=p.projectName||"";
     if(n.indexOf("\u5de1\u8ff4")>=0||n.toLowerCase().indexOf("roving")>=0) return true;
-    // Match by categories (exhibitions) + description mentions roving/巡迴
+    // Authoritative: project was filed under "ROVING EXHIBITIONS" (What we do) in the
+    // portal → Apps Script publishes the 'exhibitions' slug. Keeps this page in sync
+    // automatically when a new roving profile is uploaded. Body copy is deliberately
+    // NOT searched (it false-positives on pop-ups/trade fairs that mention 巡迴 once).
     var cats=p.categories||[];
     if(typeof cats==="string") cats=cats.split(",");
-    if(cats.indexOf("exhibitions")<0) return false;
-    // Check if description (webEN/webTC) mentions roving
-    var desc=(p.webEN||"")+" "+(p.webTC||"");
-    return desc.indexOf("\u5de1\u8ff4")>=0||desc.toLowerCase().indexOf("roving")>=0;
+    for(var ci=0;ci<cats.length;ci++){
+      if(String(cats[ci]).trim().toLowerCase()==="exhibitions") return true;
+    }
+    return false;
   }
 
   function buildCards(projects){

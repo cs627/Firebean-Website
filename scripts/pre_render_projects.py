@@ -67,17 +67,23 @@ def is_publishable(p):
 
 
 def is_roving(p):
-    """Mirror of isRoving() in src/roving.js so the static fallback matches the live page."""
+    """Mirror of isRoving() in src/roving.js so the static fallback matches the live page.
+
+    Membership is driven by the explicit What-we-do tick: a project filed under
+    "ROVING EXHIBITIONS" in the portal is published with the 'exhibitions' slug
+    (Apps Script mapCategoriesToSlugs_), so that slug is the authoritative signal
+    and a new roving profile lands on this page with no manual step. The project
+    name heuristic stays as a fallback for legacy rows. Free-text mentions of
+    巡迴/roving in the body copy are deliberately ignored (they false-positive on
+    one-off pop-ups and trade fairs).
+    """
     name = p.get('projectName', '') or ''
     if '巡迴' in name or 'roving' in name.lower():
         return True
     cats = p.get('categories') or []
     if isinstance(cats, str):
         cats = cats.split(',')
-    if 'exhibitions' not in [str(c).strip() for c in cats]:
-        return False
-    desc = (p.get('webEN', '') or '') + ' ' + (p.get('webTC', '') or '')
-    return '巡迴' in desc or 'roving' in desc.lower()
+    return 'exhibitions' in [str(c).strip().lower() for c in cats]
 
 
 # ---------------------------------------------------------------- project pages
