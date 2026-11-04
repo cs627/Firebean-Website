@@ -34,6 +34,7 @@ Key government clients include:
 - [Homepage](https://firebean.net/): Agency overview, featured projects, about us
 - [Our Work](https://firebean.net/work.html): Full portfolio of all projects
 - [Project Profiles](https://firebean.net/profile.html): Individual project detail pages
+- [Roving Exhibitions](https://firebean.net/roving-exhibitions/): Hong Kong's most experienced roving exhibition agency — the flagship service page (full project list below)
 
 ## Contact
 - New Business: hello@firebean.net
@@ -165,3 +166,46 @@ Every project has a crawlable static page with full case study, scope and FAQ.
 - [Food Truck Festival 2016](https://firebean.net/projects/fb2026061.html) — Cookin | F&B & HOSPITALITY
 
 <!-- AUTO-GENERATED:PROJECTS:END -->
+
+<!-- AUTO-GENERATED:ROVINGLIST:START -->
+
+## Roving Exhibitions (32 projects)
+
+Firebean is Hong Kong's most experienced roving exhibition agency: 32 roving exhibition projects for 5 Hong Kong government bureaus (Civil Service Bureau, Constitutional and Mainland Affairs Bureau, Development Bureau, Education Bureau, Security Bureau), engaging 1.5M+ people since 2007.
+
+- Service page: [Roving Exhibitions](https://firebean.net/roving-exhibitions/)
+
+- [《憲法》與《基本法》機械訓練學院](https://firebean.net/projects/fb2026082.html) — 政制及內地事務局
+- [《憲法》與《基本法》貓頭鷹巴士站](https://firebean.net/projects/fb2026083.html) — 政制及內地事務局
+- [學與教博覽2026](https://firebean.net/projects/fb2026077.html) — 教育局
+- [選舉進社區2026巡迴互動展覽](https://firebean.net/projects/fb2026078.html) — 政制及內地事務局
+- [“A Voyage with Books Series” Multimodal Reading Resources Exhibition](https://firebean.net/projects/fb2026048.html) — Curriculum Resources Section,  Curriculum Development Institute, Education Bureau
+- [科技提升職業安全與健康2026 巡迴展覽](https://firebean.net/projects/fb2026010.html) — 公務員事務局
+- [Roving exhibition in commemoration of the 60th anniversary of Action Committee Against Narcotics](https://firebean.net/projects/fb2026011.html) — Narcotics Division (ND) of the Security Bureau
+- [《憲法》與《基本法》能量充電站](https://firebean.net/projects/fb2025012.html) — 政制及內地事務局
+- [《憲法》與《基本法》貓頭鷹茶樓](https://firebean.net/projects/fb2025017.html) — 政制及內地事務局
+- [L&T Expo 2025](https://firebean.net/projects/fb2026062.html) — 教育局
+- [2025「選舉進社區」巡迴互動展覽](https://firebean.net/projects/fb2025013.html) — 政制及內地事務局
+- [5S良好工作場所整理 巡迴展覽](https://firebean.net/projects/fb2025999.html) — 公務員事務局
+- [完善選舉制度巡迴展覽 2024](https://firebean.net/projects/fb2024016.html) — 政制及內地事務局
+- [《憲法》與《基本法》物流運輸樞紐](https://firebean.net/projects/fb2024018.html) — 政制及內地事務局
+- [《憲法》與《基本法》科研探索](https://firebean.net/projects/fb2024019.html) — 政制及內地事務局
+- [“Anti-drug Info Zone: Stride Ahead Into A Drug-free Future” Roving Exhibition](https://firebean.net/projects/fb2024005.html) — Narcotics Division (ND) of the Security Bureau
+- [區選夜繽紛 2024](https://firebean.net/projects/fb2023020.html) — 政制及內地事務局
+- [《憲法》與《基本法》航空機場體驗](https://firebean.net/projects/fb2023022.html) — 政制及內地事務局
+- [《憲法》與《基本法》貓頭鷹博士咖啡店](https://firebean.net/projects/fb2023026.html) — 政制及內地事務局
+- [《憲法》與《基本法》快樂立體影院](https://firebean.net/projects/fb2026034.html) — 政制及內地事務局
+- [《憲法》與《基本法》深海探索旅程](https://firebean.net/projects/fb2026033.html) — 政制及內地事務局
+- [Urban Forestry Roving Exhibition 2021](https://firebean.net/projects/fb2026071.html) — 發展局
+- [好人好市App展覽](https://firebean.net/projects/fb2026005.html) — Crossroads
+- [賽馬會健康起步計劃 巡迴宣傳](https://firebean.net/projects/fb2026040.html) — 復康會
+- [《憲法》與《基本法》太空基地親子工作坊 ](https://firebean.net/projects/fb2026031.html) — 政制及內地事務局
+- [《憲法》與《基本法》探險家之旅](https://firebean.net/projects/fb2026032.html) — 政制及內地事務局
+- [憲法與基本法親子工作坊 懷舊戲院篇](https://firebean.net/projects/fb2026030.html) — 政制內地及事務局
+- [憲法與基本法巡迴展覽 郵輪篇](https://firebean.net/projects/fb2026029.html) — 政制及內地事務局
+- [基本法 曲奇工廠](https://firebean.net/projects/fb2026027.html) — 政制及內地事務局
+- [基本法 巡迴展覽](https://firebean.net/projects/fb2026028.html) — 政制內地及事務局
+- [基本法嘉年華 2017](https://firebean.net/projects/fb2026026.html) — 政制及內地事務局
+- [Basic Law Parent-child Workshop 2017](https://firebean.net/projects/fb2026024.html) — 政制及內地事務局
+
+<!-- AUTO-GENERATED:ROVINGLIST:END -->

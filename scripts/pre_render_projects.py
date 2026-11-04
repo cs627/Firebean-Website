@@ -41,6 +41,8 @@ START = '<!-- AUTO-GENERATED:PROJECTS:START -->'
 END = '<!-- AUTO-GENERATED:PROJECTS:END -->'
 ROV_START = '<!-- AUTO-GENERATED:ROVING:START -->'
 ROV_END = '<!-- AUTO-GENERATED:ROVING:END -->'
+ROVLIST_START = '<!-- AUTO-GENERATED:ROVINGLIST:START -->'
+ROVLIST_END = '<!-- AUTO-GENERATED:ROVINGLIST:END -->'
 
 TODAY = datetime.now(timezone.utc).strftime('%Y-%m-%d')
 
@@ -265,6 +267,10 @@ def build_sitemap():
         if u in seen:
             continue
         seen.add(u)
+        # /roving-exhibitions/ content is derived from projects.json, so its lastmod must
+        # move whenever this script runs (the other static URLs are authored and kept as-is).
+        if 'roving-exhibitions' in u:
+            b = re.sub(r'<lastmod>.*?</lastmod>', f'<lastmod>{TODAY}</lastmod>', b, flags=re.S)
         kept.append(b.rstrip())
 
     proj_blocks = []
@@ -329,13 +335,13 @@ def project_index_md(full=False):
     return '\n'.join(lines)
 
 
-def upsert_block(path, block):
+def upsert_block(path, block, start=START, end=END):
     if os.path.exists(path):
         txt = open(path, encoding='utf-8').read()
     else:
         txt = ''
-    if START in txt and END in txt:
-        txt = re.sub(re.escape(START) + r'.*?' + re.escape(END), lambda m: block, txt, flags=re.S)
+    if start in txt and end in txt:
+        txt = re.sub(re.escape(start) + r'.*?' + re.escape(end), lambda m: block, txt, flags=re.S)
     else:
         if txt and not txt.endswith('\n'):
             txt += '\n'
@@ -347,6 +353,67 @@ def upsert_block(path, block):
 upsert_block(LLMS_PATH, project_index_md(full=False))
 upsert_block(LLMS_FULL_PATH, project_index_md(full=True))
 print("llms.txt + llms-full.txt: project index updated")
+
+
+def bureau_of(client):
+    """Same bureau normalisation as bureauName() in src/roving.js — keep in sync."""
+    k = re.sub(r'\s+', ' ', (client or '')).strip()
+    if re.search(r'Curriculum|教育', k):
+        return 'Education Bureau'
+    if '政制' in k or re.search(r'Constitutional and Mainland', k):
+        return 'Constitutional and Mainland Affairs Bureau'
+    if re.search(r'Narcotics|Security Bureau', k):
+        return 'Security Bureau'
+    if '公務員' in k:
+        return 'Civil Service Bureau'
+    if '發展局' in k:
+        return 'Development Bureau'
+    return k
+
+
+def roving_stats():
+    rov = [p for p in projects if is_roving(p) and is_publishable(p)]
+    rov.sort(key=lambda p: (p.get('sortDate') or ''), reverse=True)
+    bureaus = set()
+    for p in rov:
+        c = (p.get('client') or '').strip()
+        cat = (p.get('category') or '').lower()
+        is_gov = ('government' in cat or 'public' in cat) and any(
+            t in c for t in ('局', '署', 'Department', 'Bureau'))
+        if is_gov:
+            b = bureau_of(c)
+            if b:
+                bureaus.add(b)
+    return rov, sorted(bureaus)
+
+
+def roving_list_md(full=False):
+    """GEO: a citable, data-driven roving-exhibition section for llms.txt / llms-full.txt."""
+    rov, bureaus = roving_stats()
+    lines = [ROVLIST_START, '',
+             f'## Roving Exhibitions ({len(rov)} projects)', '',
+             "Firebean is Hong Kong's most experienced roving exhibition agency: "
+             f"{len(rov)} roving exhibition projects for {len(bureaus)} Hong Kong government bureaus "
+             f"({', '.join(bureaus)}), engaging 1.5M+ people since 2007.", '',
+             f'- Service page: [Roving Exhibitions]({SITE}/roving-exhibitions/)', '']
+    for p in rov:
+        pid = p.get('projectId', '')
+        extra = f" — {p.get('client', '')}"
+        if full:
+            if p.get('venue'):
+                extra += f" @ {p['venue']}"
+            if p.get('sortDate'):
+                extra += f" ({p['sortDate'][:4]})"
+            if p.get('scope'):
+                extra += f" | Scope: {p['scope']}"
+        lines.append(f'- [{p.get("projectName", "")}]({PROJECT_PAGE % pid.lower()}){extra}')
+    lines += ['', ROVLIST_END]
+    return '\n'.join(lines)
+
+
+upsert_block(LLMS_PATH, roving_list_md(full=False), ROVLIST_START, ROVLIST_END)
+upsert_block(LLMS_FULL_PATH, roving_list_md(full=True), ROVLIST_START, ROVLIST_END)
+print("llms.txt + llms-full.txt: roving exhibitions section updated")
 
 
 # ---------------------------------------------------------------- roving static fallback

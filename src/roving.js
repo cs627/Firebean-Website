@@ -69,20 +69,27 @@
     roving.sort(function(a,b){return (b.sortDate||"").localeCompare(a.sortDate||"");});
     var cnt=roving.length; console.log("[roving]",cnt,"projects"); if(!cnt) return;
 
+    // Bureau normalisation: the Sheet stores the same bureau in several spellings
+    // (政制及內地事務局 / 政制內地及事務局 / Constitutional and Mainland Affairs Bureau,
+    // 教育局 / Curriculum Development Institute, Education Bureau, …). Without this the
+    // "N GOVERNMENT BUREAUS" stat double-counts one bureau as two or three.
+    function bureauName(c){
+      var k=(c||"").replace(/\s+/g," ").trim();
+      if(/Curriculum|教育/i.test(k)) return "Education Bureau";
+      if(k.indexOf("\u653f\u5236")>=0||/Constitutional and Mainland/i.test(k)) return "Constitutional and Mainland Affairs Bureau";
+      if(/Narcotics|Security Bureau/i.test(k)) return "Security Bureau";
+      if(k.indexOf("\u516c\u52d9\u54e1")>=0) return "Civil Service Bureau";
+      if(k.indexOf("\u767c\u5c55\u5c40")>=0) return "Development Bureau";
+      return k;
+    }
     var bureaus={},yrs={};
     for(var i=0;i<roving.length;i++){
       var c=(roving[i].client||"").trim();
       var cat=(roving[i].category||"").toLowerCase();
-      // Normalize: remove trailing spaces, unify same bureau variations
-      var bureauKey=c.replace(/\s+/g," ").replace(", Curriculum Development Institute, Education Bureau","");
-            // Merge sub-departments into parent bureau
-            if(bureauKey.indexOf("Curriculum Resources Section")>=0) bureauKey="Education Bureau";
-            if(bureauKey.indexOf("\u653f\u5236\u5185\u5730")>=0||bureauKey.indexOf("\u653f\u5236\u5167\u5730")>=0) bureauKey="Constitutional and Mainland Affairs Bureau";
-            if(bureauKey.indexOf("Narcotics Division")>=0) bureauKey="Security Bureau";
-            // Only count true government/public sector — skip NGOs
+      // Only count true government/public sector — skip NGOs
       var isGov=(cat.indexOf("government")>=0||cat.indexOf("public")>=0) &&
                  (c.indexOf("\u5c40")>=0||c.indexOf("\u7f72")>=0||c.indexOf("Department")>=0||c.indexOf("Bureau")>=0);
-      if(isGov) bureaus[bureauKey]=(bureaus[bureauKey]||0)+1;
+      if(isGov){ var bk=bureauName(c); bureaus[bk]=(bureaus[bk]||0)+1; }
       var sd=roving[i].sortDate; if(sd&&sd.length>=4) yrs[sd.substring(0,4)]=1;
     }
     var burCnt=Object.keys(bureaus).length, yrList=Object.keys(yrs).sort();
