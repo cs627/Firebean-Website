@@ -416,6 +416,60 @@ upsert_block(LLMS_FULL_PATH, roving_list_md(full=True), ROVLIST_START, ROVLIST_E
 print("llms.txt + llms-full.txt: roving exhibitions section updated")
 
 
+ROVING_CONTENT = os.path.join(BASEDIR, 'data', 'roving-content.json')
+
+
+def sync_roving_content():
+    """Derive the roving page's headline numbers from the published data.
+
+    The hand-written copy had drifted from the data it sits next to on the same page
+    (36 projects / 8 bureaus / "since 2016" in roving-content.json vs 32 / 5 rendered
+    from projects.json; the earliest roving project in the Sheet is 2017). Only the
+    counts, the year span and the "since" year are rewritten — all other prose, and the
+    people-engaged figure (no per-project audience field exists), are left untouched.
+    """
+    rov, bureaus = roving_stats()
+    n, b = len(rov), len(bureaus)
+    years = sorted({(p.get('sortDate') or '')[:4] for p in rov if p.get('sortDate')})
+    span = (int(years[-1]) - int(years[0]) + 1) if years else 0
+    first = years[0] if years else ''
+    if not os.path.exists(ROVING_CONTENT):
+        return
+    d = json.load(open(ROVING_CONTENT, encoding='utf-8'))
+    stats = d.setdefault('stats', {})
+    for key, val in (('projects', n), ('years', span), ('bureaus', b)):
+        node = stats.setdefault(key, {})
+        for lang in ('EN', 'TC', 'JP'):
+            node[lang] = str(val)
+    subtitle = d.setdefault('hero', {}).setdefault('subtitle', {})
+    people = stats.get('peopleValue', {})
+    subtitle['EN'] = f"{n} projects. {span} years. {b} government bureaus. {people.get('EN', '')} people engaged."
+    subtitle['TC'] = f"{n}個項目。{span}年經驗。{b}個政府部門。{people.get('TC', '')}參與人次。"
+    subtitle['JP'] = f"{n}プロジェクト。{span}年の実績。{b}つの政府機関。{people.get('JP', '')}が参加。"
+    body = d.setdefault('intro', {}).setdefault('body', {})
+    subs = {
+        'EN': [(r'\d+ roving projects across \d+ government bureaus',
+                f'{n} roving projects across {b} government bureaus'),
+               (r'Since 20\d\d', f'Since {first}')],
+        'TC': [(r'\d+個巡迴項目橫跨\d+個政府部門', f'{n}個巡迴項目橫跨{b}個政府部門'),
+               (r'自20\d\d年起', f'自{first}年起')],
+        'JP': [(r'\d+の巡回プロジェクト', f'{n}の巡回プロジェクト'),
+               (r'\d+つの政府機関', f'{b}つの政府機関'),
+               (r'20\d\d年以来', f'{first}年以来')],
+    }
+    for lang, pairs in subs.items():
+        if lang in body:
+            for pat, rep in pairs:
+                body[lang] = re.sub(pat, rep, body[lang])
+    with open(ROVING_CONTENT, 'w', encoding='utf-8') as f:
+        json.dump(d, f, ensure_ascii=False, indent=2)
+        f.write('\n')
+    print(f"roving-content.json: {n} projects / {span} years ({first}) / {b} bureaus")
+
+
+sync_roving_content()
+
+
 # ---------------------------------------------------------------- roving static fallback
 def inject_roving():
     if not os.path.exists(ROVING_PATH):
