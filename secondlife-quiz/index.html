@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>7 題測出你的退休型格｜灣區第二人生</title>
+<meta name="description" content="2 分鐘、7 條問題，找出你屬於邊一種退休旅人，即刻睇你專屬嘅生活成本、醫療配套同落地路線。所有數字可回溯來源。">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+:root{
+  --ink:#14171A; --paper:#FAF7F2; --paper-2:#F1EBE2; --paper-3:#E7DFD3;
+  --jade:#2F5D50; --jade-2:#24463C; --jade-soft:#8FC7B4; --jade-wash:#F4F8F5;
+  --brass:#A9814F; --brass-ink:#7A5A2E;
+  --fg:#1B1E22; --fg-2:#4A5257; --fg-3:#6B7278;
+  --line:rgba(27,30,34,.14); --line-2:rgba(27,30,34,.08); --line-inv:rgba(242,237,230,.18);
+  --fg-inv:#F2EDE6; --fg-inv-2:#C9C2B8;
+  --serif:"Songti TC","Noto Serif TC","Source Han Serif TC","SimSun",Georgia,serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Heiti TC",sans-serif;
+  --pad:clamp(18px,4vw,48px);
+  --maxw:1200px;
+  --radius:14px;
+}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--fg);font-family:var(--sans);
+  font-size:17px;line-height:1.8;letter-spacing:.01em}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.34;letter-spacing:.02em;margin:0 0 .5em}
+h1{font-size:clamp(1.9rem,4.4vw,3rem)}
+h2{font-size:clamp(1.35rem,2.6vw,1.85rem)}
+h3{font-size:clamp(1.06rem,1.5vw,1.22rem)}
+p{margin:0 0 1em}
+a{color:var(--jade);text-underline-offset:3px}
+b,strong{font-weight:600}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.kicker{display:inline-block;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--brass-ink);font-weight:600;margin:0 0 .8em}
+.num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+[hidden]{display:none !important}
+
+/* ---------- 頂欄 ---------- */
+.topbar{position:sticky;top:0;z-index:60;background:rgba(250,247,242,.92);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--line-2)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;
+  gap:12px;min-height:60px;flex-wrap:wrap}
+.brand{font-family:var(--serif);font-size:1.02rem;font-weight:600;color:var(--fg);
+  text-decoration:none;letter-spacing:.06em;display:flex;flex-direction:column;line-height:1.2}
+.brand small{font-family:var(--sans);font-size:.62rem;letter-spacing:.14em;
+  color:var(--fg-3);font-weight:400;text-transform:uppercase}
+.topbar .cross{font-size:.88rem;color:var(--fg-2);text-decoration:none;padding:10px 12px;
+  border-radius:999px;min-height:44px;display:inline-flex;align-items:center}
+.topbar .cross:hover{background:var(--paper-2);color:var(--fg)}
+
+/* ---------- 按鈕 ---------- */
+.btn{font-family:var(--sans);font-size:1rem;font-weight:600;letter-spacing:.02em;
+  border:1px solid transparent;border-radius:999px;padding:14px 26px;min-height:48px;
+  background:var(--jade);color:#fff;cursor:pointer;transition:background .15s,transform .1s,box-shadow .15s;
+  box-shadow:0 1px 2px rgba(20,23,26,.10)}
+.btn:hover{background:var(--jade-2)}
+.btn:active{transform:translateY(1px)}
+.btn:focus-visible,.opt:focus-visible,.chip:focus-visible,.topbar a:focus-visible{
+  outline:3px solid var(--brass);outline-offset:2px}
+.btn.ghost{background:transparent;color:var(--fg-2);border-color:var(--line)}
+.btn.ghost:hover{background:var(--paper-2);color:var(--fg)}
+.btn.sm{font-size:.9rem;padding:10px 18px;min-height:42px}
+.btn[disabled]{opacity:.45;cursor:not-allowed;box-shadow:none}
+
+/* ---------- 畫面 ---------- */
+.screen{padding:clamp(28px,5vw,64px) 0 clamp(48px,7vw,88px)}
+.intro{max-width:54rem}
+.intro .lead{font-size:clamp(1.05rem,1.7vw,1.28rem);color:var(--fg-2);line-height:1.85;max-width:40rem}
+.introfacts{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 32px;list-style:none;padding:0}
+.introfacts li{font-size:.9rem;color:var(--fg-2);background:var(--paper-2);
+  border:1px solid var(--line-2);border-radius:999px;padding:8px 16px}
+.typecards{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));
+  gap:14px;margin:36px 0 0;padding:0;list-style:none}
+.typecards li{background:#fff;border:1px solid var(--line-2);border-radius:var(--radius);
+  padding:18px 20px;box-shadow:0 1px 2px rgba(20,23,26,.04)}
+.typecards .tcode{display:inline-block;font-size:.72rem;letter-spacing:.18em;color:#fff;
+  background:var(--brass);border-radius:4px;padding:2px 8px;margin-bottom:10px;font-weight:600}
+.typecards h3{margin-bottom:.2em}
+.typecards .layer{font-size:.8rem;color:var(--brass-ink);letter-spacing:.04em;margin:0 0 .5em}
+.typecards p{font-size:.92rem;color:var(--fg-2);margin:0}
+
+/* ---------- 測驗 ---------- */
+.qwrap{max-width:56rem;margin:0 auto}
+.qhead{margin-bottom:clamp(22px,4vw,40px)}
+.qmeta{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+  font-size:.88rem;color:var(--fg-3);margin-bottom:10px;flex-wrap:wrap}
+.qmeta .step{color:var(--brass-ink);font-weight:600;letter-spacing:.08em}
+.pbar{height:8px;border-radius:999px;background:var(--paper-3);overflow:hidden}
+.pbar i{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--jade),var(--brass));
+  border-radius:999px;transition:width .3s ease}
+.qtext{font-size:clamp(1.35rem,3.1vw,2.05rem);margin-bottom:1em}
+h1:focus,.qtext:focus,h1:focus-visible,.qtext:focus-visible{outline:none}
+.opts{display:grid;gap:12px;margin:0 0 clamp(22px,4vw,36px)}
+.opt{position:relative;display:flex;align-items:flex-start;gap:14px;text-align:left;
+  width:100%;font-family:var(--sans);font-size:1.02rem;line-height:1.6;color:var(--fg);
+  background:#fff;border:1.5px solid var(--line);border-radius:var(--radius);
+  padding:16px 18px;min-height:56px;cursor:pointer;transition:border-color .15s,background .15s,box-shadow .15s}
+.opt:hover{border-color:var(--jade-soft)}
+.opt .key{flex:0 0 auto;width:28px;height:28px;border-radius:8px;background:var(--paper-2);
+  color:var(--fg-2);font-size:.86rem;font-weight:600;display:inline-flex;
+  align-items:center;justify-content:center;margin-top:1px}
+.opt .tx{flex:1 1 auto}
+.opt[aria-checked="true"]{border-color:var(--jade);background:var(--jade-wash);
+  box-shadow:0 0 0 3px rgba(47,93,80,.10)}
+.opt[aria-checked="true"] .key{background:var(--jade);color:#fff}
+.opt .tag{display:none;flex:0 0 auto;align-self:center;font-size:.72rem;letter-spacing:.12em;
+  color:var(--brass-ink);background:var(--paper-2);border:1px dashed var(--brass);
+  border-radius:999px;padding:2px 9px}
+body.dev .opt .tag{display:inline-block}
+.qnav{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.kbd-hint{font-size:.82rem;color:var(--fg-3)}
+@media (max-width:640px){.kbd-hint{display:none}}
+
+/* ---------- 結果頁 ---------- */
+.rgrid{display:grid;grid-template-columns:16.5rem 1fr;gap:clamp(24px,4vw,56px);align-items:start}
+.rail{position:sticky;top:84px;background:#fff;border:1px solid var(--line-2);
+  border-radius:var(--radius);padding:22px 20px;box-shadow:0 1px 2px rgba(20,23,26,.04)}
+.rail h3{margin-bottom:.35em}
+.railnote{font-size:.88rem;color:var(--fg-2);line-height:1.7}
+.switch{display:grid;gap:8px;margin:16px 0 18px}
+.chip{font-family:var(--sans);font-size:.92rem;text-align:left;color:var(--fg);
+  background:var(--paper);border:1px solid var(--line);border-radius:10px;
+  padding:11px 13px;min-height:46px;cursor:pointer;display:flex;gap:9px;align-items:center;
+  transition:border-color .15s,background .15s}
+.chip:hover{background:var(--paper-2)}
+.chip .tcode{flex:0 0 auto;font-size:.7rem;font-weight:600;letter-spacing:.1em;color:#fff;
+  background:var(--brass);border-radius:4px;padding:2px 7px}
+.chip[aria-current="true"]{border-color:var(--jade);background:var(--jade-wash);font-weight:600}
+.chip[aria-current="true"] .tcode{background:var(--jade)}
+.rmain{min-width:0}
+.rband{font-size:.86rem;letter-spacing:.1em;color:var(--brass-ink);font-weight:600;margin:0 0 .5em}
+.rseg{font-size:.92rem;color:var(--fg-2);margin:0 0 .9em}
+.rcore{font-family:var(--serif);font-size:clamp(1.1rem,2vw,1.4rem);color:var(--jade-2);
+  border-left:3px solid var(--jade);padding:2px 0 2px 14px;margin:0 0 1em}
+.rdef{font-size:clamp(1.02rem,1.6vw,1.16rem);color:var(--fg-2);line-height:1.85;max-width:42rem}
+.dnote{font-size:.86rem;color:var(--fg-3);background:var(--paper-2);border-left:3px solid var(--brass);
+  border-radius:0 8px 8px 0;padding:10px 14px;margin:18px 0 0;max-width:48rem}
+.blocks{display:grid;gap:16px;margin:clamp(24px,4vw,36px) 0 0}
+.block{background:#fff;border:1px solid var(--line-2);border-radius:var(--radius);
+  padding:clamp(18px,2.6vw,26px);box-shadow:0 1px 2px rgba(20,23,26,.04)}
+.block h3{display:flex;align-items:baseline;gap:10px;margin-bottom:.7em}
+.block h3 .n{font-family:var(--serif);font-size:.82rem;letter-spacing:.16em;color:var(--brass-ink);flex:0 0 auto}
+.block p:last-child{margin-bottom:0}
+.block ul{margin:0 0 .9em;padding-left:1.15em}
+.block li{margin-bottom:.5em;font-size:.97rem;color:var(--fg-2)}
+.block li b{color:var(--fg)}
+.src{font-size:.8rem;line-height:1.6;color:var(--fg-3);border-top:1px dotted var(--line);
+  margin-top:14px;padding-top:10px}
+.src b{color:var(--fg-2)}
+.bars{margin:14px 0 4px;display:grid;gap:10px}
+.bar{display:grid;grid-template-columns:minmax(5rem,10rem) 1fr minmax(4.8rem,auto);
+  gap:10px;align-items:center;font-size:.95rem}
+.bar .lab{color:var(--fg-2);line-height:1.35}
+.bar .track{background:var(--paper-3);border-radius:999px;height:12px;overflow:hidden}
+.bar .track i{display:block;height:100%;border-radius:999px;background:var(--jade);opacity:.85}
+.bar.hi .track i{background:var(--brass);opacity:.95}
+.bar .val{text-align:right;color:var(--fg);font-weight:600;white-space:nowrap}
+.tagline{font-size:.82rem;color:var(--fg-3);margin:8px 0 0}
+.tagline b{color:var(--fg-2)}
+.frame{border:1px dashed var(--line);border-radius:10px;background:var(--paper);
+  padding:14px 16px;font-size:.95rem;color:var(--fg-2);margin:12px 0}
+.frame b{color:var(--fg)}
+.badge{display:inline-block;font-size:.74rem;letter-spacing:.1em;vertical-align:middle;
+  background:#fff;border:1px dashed var(--brass);color:var(--brass-ink);
+  border-radius:999px;padding:1px 8px;margin-left:6px}
+.cta{margin-top:clamp(26px,4vw,40px);padding-top:clamp(22px,3vw,30px);border-top:1px solid var(--line-2)}
+.cta .btn.cta{font-size:1.06rem;padding:17px 34px}
+.leadbox{margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px 20px;max-width:44rem}
+.leadbox h4{margin-bottom:.5em;font-size:1rem}
+.leadbox ul{margin:0 0 .8em;padding-left:1.15em}
+.leadbox li{font-size:.94rem;color:var(--fg-2)}
+.leadbox .fine{font-size:.85rem;color:var(--fg-3);margin:0}
+svg.map{width:100%;height:auto;display:block;margin-top:8px}
+
+/* ---------- 響應式：桌面／iPad 雙欄，手機乾淨單欄 ---------- */
+@media (max-width:860px){
+  .rgrid{grid-template-columns:1fr;gap:22px}
+  .rail{position:static;padding:16px}
+  .railnote{display:none}
+  .switch{grid-template-columns:1fr 1fr;gap:8px;margin:10px 0 12px}
+  .chip{font-size:.86rem;padding:9px 10px;min-height:44px}
+  .rail h3{font-size:1rem;margin-bottom:.2em}
+  .rail .btn.sm{width:100%}
+}
+@media (max-width:520px){
+  body{font-size:16px}
+  .switch{grid-template-columns:1fr}
+  .bar{grid-template-columns:minmax(4rem,7.5rem) 1fr auto;font-size:.9rem;gap:8px}
+  .qnav{gap:8px}
+  .qnav .btn{flex:1 1 auto;padding:13px 16px}
+}
+@media print{.topbar,.qnav,.rail{display:none}}
+
+/* ---------- 頁尾 ---------- */
+footer{background:var(--ink);color:var(--fg-inv-2);padding:clamp(40px,6vw,70px) 0 30px;margin-top:40px}
+footer h4{color:var(--fg-inv);font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;
+  font-family:var(--sans);margin-bottom:.9em}
+footer a{color:var(--jade-soft);text-decoration:none}
+footer a:hover{text-decoration:underline}
+footer p{font-size:.92rem;line-height:1.75}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:28px}
+.disclaim{border-top:1px solid var(--line-inv);margin-top:34px;padding-top:20px}
+.disclaim p{font-size:.82rem;color:var(--fg-inv-2);margin-bottom:.6em}
+.legal{font-size:.86rem;color:#E4DCCF;background:rgba(242,237,230,.06);
+  border:1px solid var(--line-inv);border-radius:10px;padding:10px 14px;margin-top:14px}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../secondlife-v5/index.html">灣區第二人生<small>SECOND LIFE · 退休規劃入口</small></a>
+    <!-- 免責聲明連結位：指向既有風險披露頁，內容不在本檔寫死 -->
+    <a class="cross" href="../secondlife-v5/disclosure.html">風險披露與數字來源</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ 1. 入口 ============ -->
+<section id="s-intro" class="screen">
+  <div class="wrap intro">
+    <p class="kicker">2 分鐘・7 條問題</p>
+    <h1>你係邊一種「退休旅人」？</h1>
+    <p class="lead">同樣係大灣區退休，50 歲準備同 70 歲安排，要睇嘅數字完全唔同。
+      答完 7 條問題，即刻睇你專屬嘅生活成本、醫療配套同落地路線——每個數字都註明來源同期數。</p>
+    <ul class="introfacts">
+      <li>7 條問題</li><li>唔需要填任何個人資料</li><li>即時出結果</li><li>手機／平板／電腦都睇得</li>
+    </ul>
+    <button class="btn" id="btn-start">開始測驗 →</button>
+
+    <ul class="typecards" aria-label="四種退休型格">
+      <li><span class="tcode">A</span><h3>精算師</h3>
+        <p class="layer">L1・50–54 準退休規劃期<br>S1 剛離職／準備離職的專業人士</p>
+        <p>最想知：我夠唔夠錢撐 25 年？</p></li>
+      <li><span class="tcode">B</span><h3>先行者</h3>
+        <p class="layer">L2・55–59 退休前 5 年決定期<br>S2 雙職照顧者 ＋ S6 候鳥族</p>
+        <p>最想知：退休之後住邊、每月開支點計？</p></li>
+      <li><span class="tcode">C</span><h3>生活家</h3>
+        <p class="layer">L3・60–69 剛退休活躍期<br>S3 有物業的中產業主</p>
+        <p>最想知：醫療點跟、慢性病覆診點算？</p></li>
+      <li><span class="tcode">D</span><h3>安心族</h3>
+        <p class="layer">L4・70+ 需要照護期<br>S4 危機驅動家人 ＋ S5 單身／無子女</p>
+        <p>最想知：邊間院舍有位、幾時入得、要幾錢？</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 2. 測驗 ============ -->
+<section id="s-quiz" class="screen" hidden>
+  <div class="wrap qwrap">
+    <div class="qhead">
+      <div class="qmeta">
+        <span class="step" id="qstep">第 1 / 7 題</span>
+        <span id="qdone">已回答 0 / 7</span>
+      </div>
+      <div class="pbar" id="pbar" role="progressbar" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0">
+        <i id="pfill"></i>
+      </div>
+    </div>
+    <div class="qbody">
+      <h2 class="qtext" id="qtext" tabindex="-1"></h2>
+      <div class="opts" id="opts" role="radiogroup" aria-labelledby="qtext"></div>
+    </div>
+    <div class="qnav">
+      <button class="btn ghost" id="btn-prev">← 上一題</button>
+      <span class="kbd-hint">鍵盤：數字 1–4 揀答案・Enter 下一題・← 返回</span>
+      <button class="btn" id="btn-next">下一題 →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. 結果 ============ -->
+<section id="s-result" class="screen" hidden>
+  <div class="wrap rgrid">
+    <aside class="rail">
+      <h3>我唔係呢類？</h3>
+      <p class="railnote">直接切換其他型格，睇吓邊個版本嘅資料對你更有用。</p>
+      <div class="switch" id="switch" role="group" aria-label="切換退休型格"></div>
+      <button class="btn ghost sm" id="btn-restart">重新做一次測驗</button>
+    </aside>
+
+    <div class="rmain">
+      <p class="kicker">你的退休型格</p>
+      <h1 id="r-name" tabindex="-1"></h1>
+      <p class="rband" id="r-band"></p>
+      <p class="rseg" id="r-seg"></p>
+      <p class="rcore" id="r-core"></p>
+      <p class="rdef" id="r-def"></p>
+      <p class="dnote">本頁數字分兩類，<b>已註明來源同期數嘅為可公開核實資料</b>；
+        標明「示意」者為示範用途，並非實際報價。<br>
+        <b>資料只作參考，非投資／法律／醫療／稅務建議。</b></p>
+
+      <div class="blocks" id="r-blocks"></div>
+
+      <div class="cta">
+        <button class="btn cta" id="cta-btn"></button>
+        <div class="leadbox" id="leadbox" hidden></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <h4>灣區第二人生</h4>
+        <p>退休、置業、醫療與照顧的安排顧問。<br>由已定居大灣區的顧問親自接洽。</p>
+        <p><a class="btn sm" style="color:#fff;text-decoration:none"
+           href="https://wa.me/85296229372?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E5%96%87%E5%92%97%E5%BF%83%E7%90%86%E6%B8%AC%E9%A9%97%EF%BC%8C%E6%83%B3%E4%BA%86%E8%A7%A3%E7%81%A3%E5%8D%80%E7%AC%AC%E4%BA%8C%E4%BA%BA%E7%94%9F%E5%92%97%E9%A1%A7%E5%95%8F%E6%9C%8D%E5%8B%99%E3%80%82"
+           rel="noopener" target="_blank">用 WhatsApp 查詢</a></p>
+      </div>
+      <div>
+        <h4>本頁內容</h4>
+        <p>心理測驗屬內容趣味，唔構成任何專業意見。<br>
+           測驗結果只用嚟決定你睇邊一組資料。</p>
+      </div>
+      <div>
+        <h4>重要須知</h4>
+        <!-- 免責聲明連結位：內容載於披露頁，本檔不寫死 -->
+        <p><a href="../secondlife-v5/disclosure.html">風險披露與數字來源</a><br>
+           <a href="../privacy.html">私隱政策</a></p>
+      </div>
+    </div>
+    <div class="disclaim">
+      <p class="legal">資料只作參考，非投資／法律／醫療／稅務建議。</p>
+      <p>本頁為示範版本。所有標明來源之數字取自公開資料並註明期數，惟政策、金額與價格隨時變動，
+        實際情況以官方公布及合約為準；標明「示意」者為示範用途，並非實際報價。</p>
+      <p>© 宜居樂（珠海）企業服務有限公司 · 示範版本</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+
+/* ============================================================
+   1. 四個 archetype
+      名稱固定（A 精算師／B 先行者／C 生活家／D 安心族）；
+      層級與 segment 對應市場分析報告（t_936a22bd）；
+      所有未標「示意」的數字均為已核實公開資料。
+   ============================================================ */
+var ARCH = {
+  A:{ name:"精算師", tag:"A",
+      band:"L1・50–54 準退休規劃期",
+      seg:"對應客群：S1 剛離職／準備離職的專業人士（管理層、專業人士、公務員、教師；子女已成年；主動規劃型，會自己找報告睇、會問「來源呢？」）",
+      core:"你嘅核心問題：「我夠唔夠錢撐 25 年？」",
+      def:"你仲有穩定收入，最關心嘅唔係邊度好玩，而係筆錢夠唔夠用到 85 歲。你想睇實數、睇年期、睇稅務同資產安排。",
+      cta:"預約一對一財務體檢（30 分鐘）",
+      lead:["姓名","WhatsApp／聯絡電話","現時年齡組別","每月開支範圍","方便安排嘅時段"],
+      leadnote:"顧問會先按你提供嘅開支與資產做一次現金流模擬，再相約 30 分鐘視像或實體會面。",
+      blocks:[
+        { t:"退休金夠用年數計算機", body:
+          "<p>輸入每月開支同可動用資產，估算「筆錢可以用到幾歲」，再對比 25 年目標。</p>"
+          + "<div class='frame'>示意輸入：每月開支 <b>HK$20,000</b>、可動用資產 <b>HK$4,800,000</b>、"
+          + "扣通脹後實質回報 <b>1.5%</b><br>"
+          + "示意結果：可支撐約 <b>23.8 年</b>（60 歲起步約到 84 歲）<br>"
+          + "同一條件下要撐足 <b>25 年</b>，約需 <b>HK$500 萬</b>可動用資產<span class='badge'>示意計算</span></div>"
+          + "<ul>"
+          + "<li>2025 年臨時預期壽命：男 <b>83.3 歲</b>、女 <b>88.7 歲</b>——即 60 歲退休，平均仍有 23–28 年。</li>"
+          + "<li>強積金 <b>年滿 60 歲</b>，並終止所有受僱及自僱工作、作法定聲明後，可提早提取。</li>"
+          + "<li>45–54 歲有興趣赴大灣區居住／退休約 <b>60,700 人</b>；45–64 歲意向池約 <b>127,100 人</b>。</li>"
+          + "</ul>",
+          src:"<b>來源：</b>統計處《香港統計月刊》2026 年 3 月號（2025 年臨時預期壽命）；積金局（提早提取強積金）；"
+              + "統計處《主題性住戶統計調查第 71 號報告書》表 3.5a（2020 年調查推算）。計算機數字為示意。" },
+
+        { t:"城市生活成本對比", body:
+          "<p>同一件事，兩個口徑。以下係兩份報告嘅實際數字，<b>期數同定義唔同，唔可以混用</b>。</p>"
+          + bars([["居粵港人長者月均開支","HK$5,980",5980],
+                  ["香港退休人士月均支出","HK$14,700",14700],
+                  ["香港退休高消費群","HK$23,671",23671],
+                  ["香港退休人士月均開支（HKCSS 口徑）","HK$25,151",25151]])
+          + "<ul><li><b>HK$5,980 vs HK$25,151</b>（2024-09）：居粵港人長者 vs 香港退休人士。</li>"
+          + "<li><b>HK$14,700／HK$23,671</b>（2024-04-18）：香港退休人士每月平均支出／高消費群。</li>"
+          + "<li>59% 退休人士持有 HK$100 萬以上流動資產，平均持有固定資產總值 <b>HK$560 萬</b>，約八成持本地物業——"
+          + "即係話，痛點唔係「唔夠錢」，而係「唔知點配置、唔知用幾久」。</li>"
+          + "<li>退休後消費只等於退休前收入 <b>49.2%</b>（2024）。</li></ul>",
+          src:"<b>來源：</b>HKCSS 質性研究報告（2024-09）p.8；IFPHK《香港退休開支指數》新聞稿（2024-04-18）。" },
+
+        { t:"稅務／資產安排須知", body:
+          "<ul>"
+          + "<li><b>強積金：</b>年滿 60 歲可提早提取（須終止所有受僱及自僱工作並作法定聲明）；"
+          + "同時，強積金會計入長者生活津貼的資產審查，滾存超過上限即失去資格。</li>"
+          + "<li><b>廣東計劃：</b>申請前須連續居港最少 1 年（離港不超過 90 天）——已經賣樓、"
+          + "在粵建立生活的人，要先回港住一年。長者生活津貼每月 <b>HK$4,345</b>、"
+          + "高齡津貼每月 <b>HK$1,675</b>（2026-02-01 起）。</li>"
+          + "<li><b>醫療券：</b>不可與國家醫保同一次使用，亦不包括住院。</li>"
+          + "<li><b>提醒：</b>跨境資產、物業持有方式與繼承安排，宜先諮詢獨立專業意見，"
+          + "不同方案嘅後果可以差很遠。</li></ul>",
+          src:"<b>來源：</b>積金局（6 種提早提取理由）；社署（廣東計劃，金額自 2026-02-01 起）；立法會文件轉引。" }
+      ]},
+
+  B:{ name:"先行者", tag:"B",
+      band:"L2・55–59 退休前 5 年決定期",
+      seg:"對應客群：S2 雙職照顧者家庭（同時照顧年邁父母）＋ S6 候鳥族／彈性多城市生活者（關注證件、稅務、醫療銜接）",
+      core:"你嘅核心問題：「退休之後住邊、每月開支點計？」",
+      def:"你係行動派。最常問嘅係「可唔可以先試？」「有冇人幫我睇實？」——你想親身住一個月、行一次街市、入一次醫院，先決定呢度係咪你想要嘅下半場。",
+      cta:"報名實地考察團",
+      lead:["姓名","WhatsApp／聯絡電話","想參加嘅月份","同行人數","有興趣嘅城市（珠海／中山／惠州）"],
+      leadnote:"顧問會先同你電話確認行程同名額，再收費；唔會未傾過就加你入推銷名單。",
+      blocks:[
+        { t:"試住一個月方案", body:
+          "<p>用一個月時間，當自己係居民而唔係遊客。三個現行安排值得先搞清楚：</p>"
+          + "<ul>"
+          + "<li><b>政策嘅試住期：</b>廣東院舍照顧服務計劃由 <b>2023-10-01</b> 起設 <b>6 個月試住期</b>，"
+          + "期內決定離開，可按<b>原本申請日期</b>恢復中央輪候冊位置——即係「試過唔算數」。</li>"
+          + "<li><b>兩邊生活係常態：</b>即使已經遷居大灣區，仍有 <b>49.1%</b> 至少每季返港一次。</li>"
+          + "<li><b>你已經有北上習慣：</b>平均每兩個月一次、每次約 <b>人民幣 1,350 元</b>。</li>"
+          + "</ul>"
+          + "<div class='frame'>示意價（唔係報價）：珠海情侶路一帶服務式住宅 30 晚約 <b>HK$8,400</b>"
+          + "（含水電、寬頻）；同期酒店式公寓 30 晚約 <b>HK$14,600</b>；"
+          + "可加約 <b>HK$1,200</b> 陪診或社區導覽<span class='badge'>示意</span></div>",
+          src:"<b>來源：</b>社署（廣東院舍計劃 6 個月試住期，2023-10-01 起）；團結香港基金（2026-10，"
+              + "已遷居者 49.1% 至少每季返港）；HKCSS 質性研究報告（2024-09，北上消費頻率）。價錢為示意。" },
+
+        { t:"實地考察團時間表", body:
+          "<ul>"
+          + "<li><b>出發：</b>每月第二個星期六，2 日 1 夜。</li>"
+          + "<li><b>行程：</b>3 個社區 ＋ 1 間醫院 ＋ 1 個街市 ＋ 1 次口岸實測通關時間。</li>"
+          + "<li><b>團費：</b>HK$680／人（不含住宿升級與個人消費）。</li></ul>"
+          + "<p>唔會只帶你睇示範單位。行程會去街市同醫院，因為<b>價錢只係入場券，"
+          + "適應安排才係成交理由</b>——統計處 2020 年調查顯示，對移居大灣區不感興趣嘅人，"
+          + "<b>43.0%</b> 因為文化差異、<b>38.9%</b> 因為政治體制差異、<b>30.6%</b> 因為醫療／福利較差。</p>"
+          + "<p class='tagline'>行程、班期與團費<b>為示意</b>，實際上線以報名頁公布為準。</p>",
+          src:"<b>來源：</b>統計處《主題性住戶統計調查第 71 號報告書》（2020 年調查，不感興趣原因）。行程為示意。" },
+
+        { t:"置業／租務流程與限制", body:
+          "<p>呢一節請慢慢睇，因為同一個市場可以做兩種客人。</p>"
+          + "<ul>"
+          + "<li><b>投訴實況：</b>消委會 3 年錄得 <b>758 宗</b>大灣區置業／租樓投訴，單一最高涉 <b>¥233 萬</b>"
+          + "（發展商延遲交樓），個案包括「保稅區不能住人卻承諾回租」、「付裝修費三年未動工」。</li>"
+          + "<li><b>誰最容易中招：</b>警方 2025 年分析 1,056 名長者投資騙案受害人（覆蓋約 73%），"
+          + "七成以上 60–69 歲、剛退休或準備退休；2026 年首 5 個月 562 名長者報案，人均損失 <b>HK$101 萬</b>（升約 25%）。</li>"
+          + "<li><b>價格可以回頭：</b>橫琴有單位由每平方米約 <b>¥5.6 萬</b>跌至約 <b>¥3.9 萬</b>。</li>"
+          + "<li>流程（示意）：境外人士購房一般需提供境外人員購房證明等文件，由簽約到完成約 30–45 個工作日；"
+          + "個別城市另有社保或納稅紀錄要求。<span class='badge'>示意</span></li></ul>",
+          src:"<b>來源：</b>消委會（至 2025-02，758 宗投訴）；警務處 2025 年長者投資騙案分析；"
+              + "HKCSS 質性研究報告（2024-09，橫琴樓價）。流程日數為示意。" }
+      ]},
+
+  C:{ name:"生活家", tag:"C",
+      band:"L3・60–69 剛退休活躍期",
+      seg:"對應客群：S3 有物業的中產業主（平均固定資產 HK$560 萬、約八成持本地物業；對樓價敏感、最怕「唔想蝕」）",
+      core:"你嘅核心問題：「醫療點跟、慢性病覆診點算？」＋ 生活質素",
+      def:"錢大概夠用，你反而最怕悶。真正要解決嘅係兩件事：醫療點跟、慢性病複診點算，同「呢度有冇人同我打波、唱歌、學新嘢」。",
+      cta:"加入港人社群",
+      lead:["姓名","WhatsApp","現時居住地區","有興趣嘅活動類型（運動／藝術／義工／學習）"],
+      leadnote:"入群後可先睇活動月曆同港人聚落分佈；唔會有人不停私訊推銷。",
+      blocks:[
+        { t:"城市生活氛圍比較", body:
+          "<p>四項你最快感受到嘅生活指標（示意評分，滿分 100）。</p>"
+          + bars([["粵語普及度","珠海 85 ／ 中山 78 ／ 惠州 72",85],
+                  ["公園綠地密度","珠海 88 ／ 中山 74 ／ 惠州 90",88],
+                  ["港人聚落規模","珠海 82 ／ 中山 86 ／ 惠州 61",82],
+                  ["一小時口岸便利","珠海 92 ／ 中山 76 ／ 惠州 68",92]])
+          + "<p class='tagline'>示意評分：按公開資料模擬，非官方統計。</p>"
+          + "<h4 style='margin:1.2em 0 .4em;font-size:1rem'>醫療銜接（呢一層最關心嘅事）</h4>"
+          + "<ul>"
+          + "<li>醫療券在大灣區內地九市已有 <b>21 個服務點</b>。</li>"
+          + "<li>但實際用起上嚟：<b>48%</b> 受訪者使用大灣區專科時遇到困難，障礙係收費難估（61%）、"
+          + "文件／服務認可不足（56%）、返港覆診欠連貫（55%）。</li>"
+          + "<li>已定居廣東的 65 歲及以上香港長者約 <b>99,600 人</b>，十年間增約 <b>40.5%</b>。</li>"
+          + "</ul>"
+          + "<h4 style='margin:1.2em 0 .4em;font-size:1rem'>反面我哋照講</h4>"
+          + "<p>HKCSS 訪談個案包括：有長者獨居內地中風暈倒要靠大廈職員發現；亦有長者去世後，"
+          + "家人連佢部電話都解鎖唔到。呢啲係真實風險，唔係推銷話術。</p>",
+          src:"<b>來源：</b>立法會《數據透視》福利事務（2025-05，已定居廣東 65+ 人口，2024 年年中）；"
+              + "立法會七題（2026-03-25，醫療券 21 個服務點）；團結香港基金（2026-10，跨境專科就醫困難）；"
+              + "HKCSS 質性研究報告（2024-09，個案）。氛圍評分為示意。" },
+
+        { t:"興趣社群／再就業／學習資源", body:
+          "<p>退休唔等於停低。呢一代 60+ 係最肯學新嘢嘅一代：</p>"
+          + "<ul>"
+          + "<li>65 歲及以上勞動人口由 2011 年 <b>65,900 人</b>升至 2021 年 <b>211,500 人</b>，"
+          + "參與率由 7.0% 升至 14.6%——即係「再就業」唔係例外，係趨勢。</li>"
+          + "<li>社群與學習資源（示意）：長者大學單一課程 12 週約 HK$1,200；"
+          + "太極／書法／攝影班每期約 HK$300–600；兼職導師時薪約 HK$80–150。"
+          + "社區義工隊一般免費參加。<span class='badge'>示意</span></li>"
+          + "</ul>",
+          src:"<b>來源：</b>2021 年人口普查（65+ 勞動人口與參與率）。課程及收費為示意。" },
+
+        { t:"真實港人案例短片", body:
+          "<div class='frame'>3 段 2–3 分鐘短片（待實際上線）：<br>"
+          + "陳太 62 歲／中山・退休後重拾合唱團<br>"
+          + "李生 65 歲／珠海・由租到買嘅一年，同佢點避開一個爛尾盤<br>"
+          + "黃太 68 歲／惠州・帶住老伴嘅照護安排<span class='badge'>示意</span></div>"
+          + "<p>短片會連埋佢哋當時嘅實際開支同覆診安排一齊講，唔會只講好嘅一面。</p>",
+          src:"<b>來源：</b>片段內容、嘉賓與長度均為示意，實際上線版本待定。" }
+      ]},
+
+  D:{ name:"安心族", tag:"D",
+      band:"L4・70+ 需要照護期",
+      seg:"對應客群：S4 要即刻解決照護的家人（在職子女 45–60，查詢時間短、問題極具體）＋ S5 單身／無子女的退休人士（風險管理型）",
+      core:"你嘅核心問題：「邊間院舍有位、幾時入得、要幾錢？」",
+      def:"對你（或者你幫長輩）嚟講，醫療同照顧配套係唯一前提。冇呢一塊，其他都唔使傾。",
+      cta:"預約醫療配套諮詢",
+      lead:["聯絡人姓名","與長輩嘅關係","長輩年齡","聯絡電話／WhatsApp","想了解嘅項目（門診／住院／院舍／居家照護）"],
+      leadnote:"顧問會按長輩嘅病歷需要與預算，整理一份醫療與照護配套清單再傾；急症請先致電當地緊急服務。",
+      blocks:[
+        { t:"港式醫療機構地圖", body:
+          "<p>醫療券服務點同各口岸嘅距離，直接決定覆診可唔可行。</p>"
+          + "<svg class='map' viewBox='0 0 640 180' role='img' aria-label='醫療券服務點與口岸距離示意圖'>"
+          + "<line x1='40' y1='140' x2='600' y2='140' stroke='#E7DFD3' stroke-width='3' stroke-linecap='round'/>"
+          + "<line x1='168' y1='140' x2='168' y2='72' stroke='#8FC7B4' stroke-width='2'/>"
+          + "<line x1='320' y1='140' x2='320' y2='72' stroke='#8FC7B4' stroke-width='2'/>"
+          + "<line x1='472' y1='140' x2='472' y2='72' stroke='#8FC7B4' stroke-width='2'/>"
+          + "<circle cx='60' cy='140' r='8' fill='#2F5D50'/>"
+          + "<text x='58' y='168' font-size='15' fill='#4A5257' text-anchor='middle'>香港口岸</text>"
+          + "<circle cx='168' cy='64' r='10' fill='#A9814F'/><text x='168' y='44' font-size='16' fill='#1B1E22' text-anchor='middle'>珠海</text>"
+          + "<circle cx='320' cy='64' r='10' fill='#A9814F'/><text x='320' y='44' font-size='16' fill='#1B1E22' text-anchor='middle'>中山</text>"
+          + "<circle cx='472' cy='64' r='10' fill='#A9814F'/><text x='472' y='44' font-size='16' fill='#1B1E22' text-anchor='middle'>惠州</text>"
+          + "<text x='168' y='112' font-size='14' fill='#7A5A2E' text-anchor='middle'>約 15 分鐘</text>"
+          + "<text x='320' y='112' font-size='14' fill='#7A5A2E' text-anchor='middle'>約 45 分鐘</text>"
+          + "<text x='472' y='112' font-size='14' fill='#7A5A2E' text-anchor='middle'>約 80 分鐘</text>"
+          + "</svg>"
+          + "<ul><li>醫療券在大灣區內地九市已有 <b>21 個服務點</b>。</li>"
+          + "<li>已定居廣東的 65 歲及以上香港長者約 <b>99,600 人</b>（2024 年年中，十年增約 40.5%）。</li></ul>"
+          + "<p class='tagline'>地圖為<b>示意</b>；實際服務點名單以官方公布為準。</p>",
+          src:"<b>來源：</b>立法會七題（2026-03-25，21 個服務點）；立法會《數據透視》福利事務（2025-05，"
+              + "已定居廣東 65+ 人口，2024 年年中）。距離與地圖為示意。" },
+
+        { t:"醫保／醫療券覆蓋範圍", body:
+          "<ul>"
+          + "<li><b>醫療券使用人數有兩個期數，唔可以混用：</b><br>"
+          + "・截至 <b>2025-03 底</b>：逾 <b>26,900 名</b>長者曾使用，涉及 <b>250,341 宗</b>交易。<br>"
+          + "・截至 <b>2026-05 底</b>：逾 <b>40,600 名</b>長者、約 <b>101,000 宗</b>，申領總額約 <b>HK$1.328 億</b>。</li>"
+          + "<li><b>隱形限制：</b>醫療券不可與國家醫保同一次使用，亦不包括住院。</li>"
+          + "<li><b>廣東計劃：</b>長者生活津貼每月 <b>HK$4,345</b>、高齡津貼每月 <b>HK$1,675</b>"
+          + "（2026-02-01 起）；申請前須連續居港最少 1 年（離港不超過 90 天）。</li></ul>",
+          src:"<b>來源：</b>立法會 CB(3)801/2026(05)（2026-05 底口徑）；現有網站採用之 2025-03 底口徑；"
+              + "社署（廣東計劃，2026-02-01 起金額）。" },
+
+        { t:"24 小時緊急支援與照護配套", body:
+          "<p>「有位、入得、唔貴」三個問題，順住呢張次序問就唔會亂。</p>"
+          + "<ul>"
+          + "<li><b>要等幾久：</b>香港資助護理安老宿位平均輪候 <b>22 個月</b>；改善買位計劃（私營）平均約 6 個月；"
+          + "綜合平均約 <b>11 個月</b>（2026-03-31）。</li>"
+          + "<li><b>另一條隊：</b>廣東院舍照顧服務計劃——2026 年 2 月底有 <b>26 家</b>在粵認可院舍、"
+          + "為 <b>1,048 名</b>香港長者提供資助服務，<b>2026-07-01 起增至 29 家</b>；"
+          + "入住後食宿、護理、個人照顧及基本醫療由政府資助，<b>免資產審查</b>；"
+          + "並設 6 個月試住期（2023-10-01 起），期內離開可按原本申請日期恢復中央輪候冊位置。</li>"
+          + "<li><b>錢從邊度嚟：</b>綜援長者入住廣東院舍試驗計劃——每月 <b>HK$5,000</b>、<b>1,000 個名額</b>、"
+          + "為期 3 年（2025-10-01 推出）。但截至 2026-03 上旬，只有 <b>900 宗查詢、16 宗申請、批核 10 宗</b>"
+          + "——即係資金池只用了約 1%。</li>"
+          + "<li><b>費用對照：</b>香港私營安老院月費 <b>HK$7,000–25,000</b>；"
+          + "社署《指定安老院的院費概況》（2025-09）：惠州約 <b>¥3,000–4,000</b>，深圳約 ¥7,000–8,000。</li>"
+          + "<li><b>單身／無子女長者：</b>50+ 受訪者中 <b>52%</b> 關注持久授權書等法律安排——"
+          + "冇人喺身邊時，邊個保證你有人照顧，係要事先寫落文件嘅事。</li>"
+          + "<li>緊急支援（示意）：24 小時粵語支援熱線、居家照護每小時約 ¥60–90、"
+          + "院舍月費約 ¥4,500–9,000、粵港救護車轉運需事先安排。<span class='badge'>示意</span></li></ul>",
+          src:"<b>來源：</b>社署（2026-03-31，資助宿位輪候時間）；立法會七題（2026-03-25，認可院舍 26 家／1,048 人／"
+              + "2026-07-01 起 29 家；綜援試驗計劃 HK$5,000×1,000 名額及使用數字至 2026-03 上旬）；"
+              + "長者服務資訊網（2026，私營安老院月費）；社署《指定安老院的院費概況》（2025-09，大灣區院費）；"
+              + "團結香港基金（2026-10，52% 關注法律安排）。熱線與居家照護價格為示意。" }
+      ]}
+};
+
+/* CSS bar（不用任何外部圖表庫） */
+function bars(rows){
+  var max = 0; rows.forEach(function(r){ max = Math.max(max, r[2]); });
+  var h = "<div class='bars'>";
+  rows.forEach(function(r){
+    var w = Math.round(r[2] / max * 100);
+    h += "<div class='bar" + (r[2] >= max ? " hi" : "") + "'>"
+      + "<span class='lab'>" + r[0] + "</span>"
+      + "<span class='track'><i style='width:" + w + "%'></i></span>"
+      + "<span class='val num'>" + r[1] + "</span></div>";
+  });
+  return h + "</div>";
+}
+
+/* ============================================================
+   2. 題目：每個選項標明加權去邊個 archetype（+2 分）
+      網址加 ?dev=1 會顯示加權標籤，方便核對
+   ============================================================ */
+var QUESTIONS = [
+  { q:"你而家幾歲？", opts:[
+      {t:"50–54 歲", w:"A"},
+      {t:"55–59 歲", w:"B"},
+      {t:"60–69 歲", w:"C"},
+      {t:"70 歲或以上", w:"D"}]},
+
+  { q:"你退咗休未？", opts:[
+      {t:"仲喺度做嘢，純粹計劃中", w:"A"},
+      {t:"三兩年內就退", w:"B"},
+      {t:"啱啱退咗，仲喺適應", w:"C"},
+      {t:"退咗好多年喇", w:"D"}]},
+
+  { q:"打算同邊個一齊去？", opts:[
+      {t:"自己一個", w:"B"},
+      {t:"同另一半", w:"C"},
+      {t:"同仔女一齊去", w:"C"},
+      {t:"子女幫我查吓先", w:"D"}]},
+
+  { q:"而家最擔心邊樣？", opts:[
+      {t:"錢唔夠用到老", w:"A"},
+      {t:"醫療同睇病安排", w:"D"},
+      {t:"被人呃／買錯嘢", w:"A"},
+      {t:"悶，冇朋友", w:"C"}]},
+
+  { q:"香港而家住邊？", opts:[
+      {t:"自住（自己嘅樓）", w:"A"},
+      {t:"收租，另外有樓", w:"A"},
+      {t:"公屋或租住", w:"C"},
+      {t:"唔想講", w:"D"}]},
+
+  { q:"打算幾時落實？", opts:[
+      {t:"3 個月內", w:"B"},
+      {t:"1 年內", w:"B"},
+      {t:"3 年內", w:"A"},
+      {t:"仲睇緊，未有期", w:"C"}]},
+
+  { q:"而家最想即刻睇邊樣？", opts:[
+      {t:"生活成本嘅實際數字", w:"A"},
+      {t:"醫療同照顧配套", w:"D"},
+      {t:"試住／實地考察安排", w:"B"},
+      {t:"其他香港人嘅真實案例", w:"C"}]}
+];
+
+var DEV = /[?&]dev=1/.test(location.search);
+if (DEV) document.body.className += " dev";
+
+/* ============================================================
+   3. 狀態
+   ============================================================ */
+var cur = 0;
+var answers = [];
+var shown = null;
+var $ = function(id){ return document.getElementById(id); };
+var TITLES = { A:"精算師", B:"先行者", C:"生活家", D:"安心族" };
+
+function show(which){
+  ["s-intro","s-quiz","s-result"].forEach(function(id){ $(id).hidden = (id !== which); });
+  window.scrollTo(0,0);
+}
+
+/* ============================================================
+   4. 測驗流程
+   ============================================================ */
+function renderQuestion(){
+  var Q = QUESTIONS[cur];
+  $("qstep").textContent = "第 " + (cur + 1) + " / " + QUESTIONS.length + " 題";
+  var done = answers.filter(function(a){ return a !== undefined; }).length;
+  $("qdone").textContent = "已回答 " + done + " / " + QUESTIONS.length;
+  $("pfill").style.width = (cur / QUESTIONS.length * 100) + "%";
+  $("pbar").setAttribute("aria-valuenow", String(cur));
+  $("qtext").textContent = Q.q;
+
+  var box = $("opts");
+  box.textContent = "";
+  Q.opts.forEach(function(o, i){
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "opt";
+    b.setAttribute("role", "radio");
+    b.setAttribute("aria-checked", answers[cur] === i ? "true" : "false");
+    b.innerHTML = "<span class='key'>" + (i + 1) + "</span><span class='tx'>" + o.t + "</span>"
+                + "<span class='tag'>→ " + TITLES[o.w] + " +2</span>";
+    b.addEventListener("click", function(){ pick(i); });
+    box.appendChild(b);
+  });
+
+  $("btn-prev").disabled = (cur === 0);
+  $("btn-next").textContent = (cur === QUESTIONS.length - 1) ? "睇結果 →" : "下一題 →";
+  $("qtext").focus();
+}
+
+function pick(i){
+  answers[cur] = i;
+  var opts = $("opts").children;
+  for (var k = 0; k < opts.length; k++){
+    opts[k].setAttribute("aria-checked", k === i ? "true" : "false");
+  }
+  var done = answers.filter(function(a){ return a !== undefined; }).length;
+  $("qdone").textContent = "已回答 " + done + " / " + QUESTIONS.length;
+}
+
+function next(){
+  if (answers[cur] === undefined){ flashUnanswered(); return; }
+  if (cur < QUESTIONS.length - 1){ cur++; renderQuestion(); }
+  else { finish(); }
+}
+function prev(){ if (cur > 0){ cur--; renderQuestion(); } }
+
+function flashUnanswered(){
+  var box = $("opts");
+  box.style.transition = "none";
+  box.style.opacity = ".35";
+  setTimeout(function(){ box.style.transition = "opacity .3s"; box.style.opacity = "1"; }, 120);
+  $("qtext").focus();
+}
+
+/* ============================================================
+   5. 計分：每個選項 +2；同分以 Q1（年齡）為 tie-breaker
+   ============================================================ */
+function score(){
+  var s = {A:0, B:0, C:0, D:0};
+  answers.forEach(function(a, qi){
+    if (a === undefined) return;
+    s[QUESTIONS[qi].opts[a].w] += 2;
+  });
+  return s;
+}
+
+function decide(){
+  var s = score();
+  var best = Math.max(s.A, s.B, s.C, s.D);
+  var tied = ["A","B","C","D"].filter(function(k){ return s[k] === best; });
+  if (tied.length === 1) return tied[0];
+  var ageKey = (answers[0] === undefined) ? "A" : QUESTIONS[0].opts[answers[0]].w;
+  return (tied.indexOf(ageKey) !== -1) ? ageKey : tied[0];
+}
+
+/* ============================================================
+   6. 結果頁
+   ============================================================ */
+function blockHTML(b, i){
+  return "<article class='block'><h3><span class='n'>0" + (i + 1) + "</span><span>" + b.t + "</span></h3>"
+       + b.body
+       + (b.src ? "<p class='src'>" + b.src + "</p>" : "")
+       + "</article>";
+}
+
+function renderResult(key){
+  shown = key;
+  var a = ARCH[key];
+  $("r-name").textContent = a.name;
+  $("r-band").textContent = a.band;
+  $("r-seg").textContent = a.seg;
+  $("r-core").textContent = a.core;
+  $("r-def").textContent = a.def;
+
+  $("r-blocks").innerHTML = a.blocks.map(blockHTML).join("")
+    + (DEV ? "<p class='tagline'>[dev] 計分：" + JSON.stringify(score())
+           + "；判定：" + key + "（同分以 Q1 年齡為 tie-breaker）</p>" : "");
+
+  $("cta-btn").textContent = a.cta;
+  $("leadbox").hidden = true;
+  $("leadbox").innerHTML = "<h4>（示範）呢個掣上線後會收集：</h4><ul>"
+    + a.lead.map(function(x){ return "<li>" + x + "</li>"; }).join("")
+    + "</ul><p class='fine'>" + a.leadnote + "</p>"
+    + "<p class='fine'>示範版本唔會送出任何資料，按掣只係展示收集範圍。</p>";
+
+  var sw = $("switch");
+  sw.textContent = "";
+  ["A","B","C","D"].forEach(function(k){
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "chip";
+    b.setAttribute("aria-current", k === key ? "true" : "false");
+    b.innerHTML = "<span class='tcode'>" + ARCH[k].tag + "</span><span>" + ARCH[k].name
+                + (k === key ? "（現時顯示）" : "") + "</span>";
+    b.addEventListener("click", function(){
+      if (k !== key){ renderResult(k); }
+      $("r-name").focus();
+    });
+    sw.appendChild(b);
+  });
+}
+
+function finish(){
+  $("pfill").style.width = "100%";
+  var key = decide();
+  renderResult(key);
+  show("s-result");
+  $("r-name").focus();
+}
+
+/* ============================================================
+   7. 事件
+   ============================================================ */
+$("btn-start").addEventListener("click", function(){
+  cur = 0; answers = []; renderQuestion(); show("s-quiz");
+});
+$("btn-next").addEventListener("click", next);
+$("btn-prev").addEventListener("click", prev);
+$("btn-restart").addEventListener("click", function(){
+  cur = 0; answers = []; shown = null; renderQuestion(); show("s-quiz");
+});
+$("cta-btn").addEventListener("click", function(){
+  var lb = $("leadbox");
+  lb.hidden = !lb.hidden;
+  if (!lb.hidden) lb.scrollIntoView({block:"nearest", behavior:"smooth"});
+});
+
+document.addEventListener("keydown", function(e){
+  var tag = (e.target && e.target.tagName) || "";
+  if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+  if ($("s-quiz").hidden) return;
+  if (e.key >= "1" && e.key <= "9"){
+    var i = parseInt(e.key, 10) - 1;
+    if (i < QUESTIONS[cur].opts.length) pick(i);
+    return;
+  }
+  if (e.key === "Enter"){ e.preventDefault(); next(); return; }
+  if (e.key === "ArrowLeft" || e.key === "Backspace"){ e.preventDefault(); prev(); return; }
+  if (e.key === "ArrowRight"){ e.preventDefault(); next(); return; }
+  if (e.key === "p" || e.key === "P"){ prev(); return; }
+  if (e.key === "n" || e.key === "N"){ next(); }
+});
+
+show("s-intro");
+})();
+</script>
+</body>
+</html>
