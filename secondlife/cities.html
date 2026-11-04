@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>城市指南｜灣區第二人生（Staging 示範版）</title>
+<meta name="description" content="大灣區九個城市的生活成本、安老院月費、醫療資源及返港交通對比。">
+<meta name="theme-color" content="#123B33">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand:#123B33; --brand-2:#1B5A4E; --bg:#F6F1E7; --card:#FFFCF6;
+  --cta:#C2571C; --cta-hover:#A3460F; --data:#24384A;
+  --notice-bg:#FFF6E0; --notice-line:#C99A2E;
+  --ink:#1A1A1A; --ink-2:#4A4A4A; --line:#DED5C4;
+  --ok:#1E6B4F; --warn:#8A5A00; --radius:12px; --maxw:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  font-size:18px; line-height:1.75;
+  padding-bottom:calc(76px + env(safe-area-inset-bottom));
+}
+h1,h2{font-family:"Noto Serif TC","Songti TC",serif; line-height:1.35; margin:0 0 .5em}
+h1{font-size:clamp(28px,5.2vw,48px); font-weight:900; letter-spacing:.01em}
+h2{font-size:clamp(22px,3.4vw,32px); font-weight:700; margin-top:0}
+h3{font-size:20px; font-weight:700; margin:0 0 .4em}
+p{margin:0 0 1em}
+a{color:var(--brand-2)}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px}
+.num{font-variant-numeric:tabular-nums}
+
+/* 頂欄 */
+header.top{background:var(--brand); color:#fff; position:sticky; top:0; z-index:50; box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.top-in{max-width:var(--maxw); margin:0 auto; padding:12px 20px; display:flex; align-items:center; gap:16px; flex-wrap:wrap}
+.brand{font-family:"Noto Serif TC",serif; font-weight:900; font-size:21px; color:#fff; text-decoration:none; margin-right:auto}
+.brand small{display:block; font-family:"Noto Sans TC",sans-serif; font-weight:400; font-size:12px; opacity:.85; letter-spacing:.08em}
+nav.main{display:flex; gap:4px; flex-wrap:wrap}
+nav.main a{color:#EAF2EF; text-decoration:none; font-size:15px; padding:9px 11px; border-radius:8px; min-height:44px; display:flex; align-items:center}
+nav.main a:hover,nav.main a[aria-current]{background:rgba(255,255,255,.16); color:#fff}
+
+/* Hero */
+.hero{background:linear-gradient(165deg,var(--brand) 0%,var(--brand-2) 100%); color:#fff; padding:clamp(36px,7vw,80px) 0}
+.hero h1{color:#fff; max-width:20em}
+.hero .lead{font-size:clamp(18px,2.2vw,22px); color:#DCE9E5; max-width:34em}
+.hero .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:24px}
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  background:var(--cta); color:#fff !important; text-decoration:none; font-weight:700;
+  padding:14px 22px; border-radius:10px; min-height:48px; font-size:17px; border:2px solid var(--cta)}
+.btn:hover{background:var(--cta-hover); border-color:var(--cta-hover)}
+.btn.ghost{background:transparent; border-color:rgba(255,255,255,.65); color:#fff !important}
+.btn.ghost:hover{background:rgba(255,255,255,.16)}
+.btn.sm{font-size:16px; padding:11px 16px; min-height:44px}
+.btn.dark{background:var(--brand); border-color:var(--brand)}
+.btn.dark:hover{background:var(--brand-2); border-color:var(--brand-2)}
+
+/* 區塊 */
+section{padding:clamp(32px,5vw,64px) 0}
+section.alt{background:#FBF7EE}
+.kicker{display:inline-block; background:var(--notice-bg); color:var(--warn); border-left:4px solid var(--notice-line);
+  padding:5px 12px; border-radius:0 6px 6px 0; font-size:15px; font-weight:700; margin-bottom:12px}
+.grid{display:grid; gap:18px}
+.g2{grid-template-columns:1fr}
+.g3{grid-template-columns:1fr}
+@media (min-width:700px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+  padding:22px; box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.card h3{color:var(--brand)}
+.card .big{font-family:"Noto Serif TC",serif; font-size:clamp(26px,4vw,38px); font-weight:900; color:var(--brand); display:block; line-height:1.2}
+.card .big.o{color:var(--cta)}
+.card p{font-size:17px; color:var(--ink-2); margin-bottom:.6em}
+
+/* 表格 */
+.tscroll{overflow-x:auto}
+.dtable{width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; font-size:16px}
+.dtable th{background:var(--data); color:#fff; text-align:left; padding:12px 14px; font-weight:700; font-size:16px}
+.dtable td{padding:12px 14px; border-top:1px solid var(--line); vertical-align:top}
+.dtable tr:nth-child(even) td{background:#FBF7EE}
+.dtable .hi{color:var(--ok); font-weight:700}
+.dtable .lo{color:var(--warn); font-weight:700}
+@media (max-width:640px){
+  .tscroll{overflow-x:visible}
+  .dtable{font-size:16px; border:none; background:transparent}
+  .dtable thead{display:none}
+  .dtable tr{display:block; border:1px solid var(--line); border-radius:10px; margin-bottom:12px; background:var(--card); overflow:hidden}
+  .dtable td{display:block; border:none; border-bottom:1px dashed var(--line); padding:10px 14px}
+  .dtable td:last-child{border-bottom:none}
+  .dtable td::before{content:attr(data-label); display:block; font-weight:700; color:var(--ink-2); font-size:14px; margin-bottom:2px}
+  .dtable tr:nth-child(even) td{background:transparent}
+}
+.src{font-size:14px; color:var(--ink-2); margin-top:8px; line-height:1.6}
+
+/* 披露框 */
+.notice{background:var(--notice-bg); border-left:5px solid var(--notice-line); border-radius:0 10px 10px 0; padding:18px 20px; margin:20px 0}
+.notice h3{color:var(--warn); font-size:18px}
+.notice ul{margin:.4em 0 0; padding-left:1.2em}
+.notice li{margin-bottom:.45em; font-size:16px}
+
+ul.plain{padding-left:1.15em}
+ul.plain li{margin-bottom:.55em}
+.pill{display:inline-block; background:#E7F1ED; color:var(--brand); font-size:14px; font-weight:700; padding:3px 10px; border-radius:999px; margin:0 6px 6px 0}
+details.faq{border:1px solid var(--line); border-radius:10px; background:var(--card); padding:0; margin-bottom:12px}
+details.faq summary{cursor:pointer; padding:16px 20px; font-weight:700; min-height:44px; display:flex; align-items:center; font-size:18px}
+details.faq[open] summary{border-bottom:1px solid var(--line)}
+details.faq .body{padding:14px 20px}
+details.faq .body p{font-size:17px}
+
+/* sticky WhatsApp bar（手機） */
+.stickybar{position:fixed; left:0; right:0; bottom:0; z-index:60; background:var(--brand); border-top:3px solid var(--cta);
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom)); display:flex; gap:10px; align-items:center; justify-content:center}
+.stickybar .lbl{color:#DCE9E5; font-size:15px; font-weight:700; margin-right:auto}
+.stickybar .btn{flex:0 0 auto}
+@media (min-width:900px){.stickybar{display:none} body{padding-bottom:0}}
+
+footer.bot{background:#0E2C26; color:#C7D8D3; padding:40px 0 30px; font-size:16px}
+footer.bot h4{color:#fff; font-size:17px; margin:0 0 10px}
+footer.bot a{color:#9FD0C2}
+footer.bot .cols{display:grid; gap:26px; grid-template-columns:1fr}
+@media (min-width:700px){footer.bot .cols{grid-template-columns:2fr 1fr 1fr}}
+footer.bot .fine{border-top:1px solid #24463E; margin-top:24px; padding-top:16px; font-size:14px; color:#9FB5AF}
+.ph{background:repeating-linear-gradient(45deg,#EDE6D8,#EDE6D8 10px,#E3DACA 10px,#E3DACA 20px);
+  border:1px dashed #B7A98C; border-radius:10px; color:#6B5E45; display:flex; align-items:center; justify-content:center;
+  text-align:center; font-size:15px; padding:26px 16px; min-height:130px}
+.bar{background:#EDE6D8; border-radius:6px; height:14px; overflow:hidden; margin:10px 0 4px}
+.bar span{display:block; height:100%; background:var(--brand)}
+.bar.o span{background:var(--cta)}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="/secondlife/">灣區第二人生<small>SECOND LIFE · 宜居樂（珠海）企業服務</small></a>
+  <nav class="main">
+    <a href="/secondlife/">首頁</a>
+    <a href="trend.html">西移大趨勢</a>
+    <a href="cities.html" aria-current="page">城市指南</a>
+    <a href="care.html">安老院轉介</a>
+    <a href="property.html">置業</a>
+    <a href="car.html">出行</a>
+    <a href="checkup.html">內地體檢團</a>
+    <a href="about.html">關於我們</a>
+    <a href="faq.html">常見問題</a>
+    <a href="disclosure.html">風險披露</a>
+    <a href="contact.html">聯絡我們</a>
+  </nav>
+</div></header>
+
+<section class="hero" style="padding:clamp(30px,5vw,60px) 0"><div class="wrap">
+  <h1>城市指南：九個城市，九種生活</h1>
+  <p class="lead">冇一個城市係「最好」。只有適唔適合你。以下按返港便利度、成本、醫療資源排列。</p>
+</div></section>
+
+<section><div class="wrap">
+  <span class="kicker">成本對比</span>
+  <h2>三地生活成本一覽</h2>
+  <div class="tscroll"><table class="dtable"><thead><tr><th>項目</th><th>中山</th><th>珠海</th><th>惠州</th></tr></thead><tbody><tr><td data-label="項目">平均樓價（每平方米）</td><td data-label="中山">¥12,000 – 16,000</td><td data-label="珠海">¥20,000 – 35,000</td><td data-label="惠州">¥8,000 – 12,000</td></tr><tr><td data-label="項目">兩房單位月租（市場約數）</td><td data-label="中山">¥1,500 – 2,500</td><td data-label="珠海">¥2,500 – 4,500</td><td data-label="惠州">¥1,200 – 2,000</td></tr><tr><td data-label="項目">人均每餐餐飲</td><td data-label="中山">¥20 – 50</td><td data-label="珠海">¥30 – 80</td><td data-label="惠州">¥15 – 40</td></tr><tr><td data-label="項目">的士起錶</td><td data-label="中山">¥8</td><td data-label="珠海">¥10</td><td data-label="惠州">¥8</td></tr></tbody></table></div><p class="src">資料來源：市場約數（綜合整理），非官方統計。⚠️ 中山及珠海「兩房住宅」權威月租中位數未見官方公布，上述為市場約數，個別單位差異可以好大。　·　資料截至 2026-11-03。價格及政策會變動，以官方最新公布為準。</p>
+</div></section>
+
+<section class="alt"><div class="wrap">
+  <span class="kicker">逐個城市睇</span>
+  <h2>九個城市</h2>
+  <div class="grid g2" style="margin-top:20px">
+    <div class="card">
+        <h3>深圳</h3><p>最近香港，醫療資源最豐富，成本亦最高。適合需要頻密返港、或想貼近深圳口岸嘅人。</p>
+        <p><span class="pill">院舍月費：社署計劃指定院舍月費約 ¥7,000 – 8,000</span></p>
+        <p style="font-size:16px"><strong>醫療：</strong>醫療券可用服務點包括香港大學深圳醫院及多間三甲醫院。</p>
+        <a class="btn sm" href="https://wa.me/85296229372?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A4%A7%E7%81%A3%E5%8D%80%E5%AE%89%E8%80%81%E9%99%A2%E8%BD%89%E4%BB%8B%E6%9C%8D%E5%8B%99%20%5BSL-CARE%5D" rel="noopener">問 深圳 嘅安排</a>
+      </div><div class="card">
+        <h3>廣州</h3><p>省會，三甲醫院密度最高，生活配套最齊。距離香港較遠。</p>
+        <p><span class="pill">院舍月費：南沙區養老院、麓湖家長薈分院等指定院舍月費約 ¥5,500 起</span></p>
+        <p style="font-size:16px"><strong>醫療：</strong>醫療券可用點包括多間三甲醫院。</p>
+        <a class="btn sm" href="https://wa.me/85296229372?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A4%A7%E7%81%A3%E5%8D%80%E5%AE%89%E8%80%81%E9%99%A2%E8%BD%89%E4%BB%8B%E6%9C%8D%E5%8B%99%20%5BSL-CARE%5D" rel="noopener">問 廣州 嘅安排</a>
+      </div><div class="card">
+        <h3>佛山</h3><p>粵港澳大湾区西翼，生活成本中等，部分院舍有香港機構合作營運。</p>
+        <p><span class="pill">院舍月費：指定院舍月費約 ¥4,000 – 6,500 起</span></p>
+        <p style="font-size:16px"><strong>醫療：</strong>需自行查核。</p>
+        <a class="btn sm" href="https://wa.me/85296229372?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A4%A7%E7%81%A3%E5%8D%80%E5%AE%89%E8%80%81%E9%99%A2%E8%BD%89%E4%BB%8B%E6%9C%8D%E5%8B%99%20%5BSL-CARE%5D" rel="noopener">問 佛山 嘅安排</a>
+      </div><div class="card">
+        <h3>東莞</h3><p>製造業重鎮，樓價相對低，交通逐步改善。</p>
+        <p><span class="pill">院舍月費：指定院舍陸續增加，2026 年 7 月新增一間醫養服務機構。</span></p>
+        <p style="font-size:16px"><strong>醫療：</strong>需自行查核。</p>
+        <a class="btn sm" href="https://wa.me/85296229372?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A4%A7%E7%81%A3%E5%8D%80%E5%AE%89%E8%80%81%E9%99%A2%E8%BD%89%E4%BB%8B%E6%9C%8D%E5%8B%99%20%5BSL-CARE%5D" rel="noopener">問 東莞 嘅安排</a>
+      </div><div class="card">
+        <h3>中山</h3><p>港人退休熱點。環境清幽、節奏慢、粵語文化接近，深中通道通車後往返深圳約 30 分鐘。</p>
+        <p><span class="pill">院舍月費：指定院舍月費約 ¥5,000 – 6,000</span></p>
+        <p style="font-size:16px"><strong>醫療：</strong>醫療券可用點：中山陳星海中西醫結合醫院（2024-07-18 起）、中山市中醫院（2025-07-09 起）。</p>
+        <a class="btn sm" href="https://wa.me/85296229372?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A4%A7%E7%81%A3%E5%8D%80%E5%AE%89%E8%80%81%E9%99%A2%E8%BD%89%E4%BB%8B%E6%9C%8D%E5%8B%99%20%5BSL-CARE%5D" rel="noopener">問 中山 嘅安排</a>
+      </div><div class="card">
+        <h3>珠海</h3><p>海濱城市，港珠澳大橋起點，返港最方便（金巴 24 小時）。成本較中山高。</p>
+        <p><span class="pill">院舍月費：指定院舍月費約 ¥3,500 – 4,500</span></p>
+        <p style="font-size:16px"><strong>醫療：</strong>醫療券可用點：中山大學附屬第五醫院、珠海市人民醫院（均 2025-06-26 起）。</p>
+        <a class="btn sm" href="https://wa.me/85296229372?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A4%A7%E7%81%A3%E5%8D%80%E5%AE%89%E8%80%81%E9%99%A2%E8%BD%89%E4%BB%8B%E6%9C%8D%E5%8B%99%20%5BSL-CARE%5D" rel="noopener">問 珠海 嘅安排</a>
+      </div><div class="card">
+        <h3>江門</h3><p>僑鄉，生活成本低，生活節奏慢。</p>
+        <p><span class="pill">院舍月費：指定院舍月費約 ¥4,000 – 5,000</span></p>
+        <p style="font-size:16px"><strong>醫療：</strong>需自行查核。</p>
+        <a class="btn sm" href="https://wa.me/85296229372?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A4%A7%E7%81%A3%E5%8D%80%E5%AE%89%E8%80%81%E9%99%A2%E8%BD%89%E4%BB%8B%E6%9C%8D%E5%8B%99%20%5BSL-CARE%5D" rel="noopener">問 江門 嘅安排</a>
+      </div><div class="card">
+        <h3>惠州</h3><p>有山有海有湖，空間最大，成本最低。距離香港最遠。</p>
+        <p><span class="pill">院舍月費：指定院舍月費約 ¥3,000 – 4,000</span></p>
+        <p style="font-size:16px"><strong>醫療：</strong>需自行查核。適合唔需要頻密返港嘅人。</p>
+        <a class="btn sm" href="https://wa.me/85296229372?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A4%A7%E7%81%A3%E5%8D%80%E5%AE%89%E8%80%81%E9%99%A2%E8%BD%89%E4%BB%8B%E6%9C%8D%E5%8B%99%20%5BSL-CARE%5D" rel="noopener">問 惠州 嘅安排</a>
+      </div><div class="card">
+        <h3>肇慶</h3><p>最西，綠化好，成本低。距離香港最遠。</p>
+        <p><span class="pill">院舍月費：指定院舍月費約 ¥4,500 起</span></p>
+        <p style="font-size:16px"><strong>醫療：</strong>需自行查核。</p>
+        <a class="btn sm" href="https://wa.me/85296229372?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A4%A7%E7%81%A3%E5%8D%80%E5%AE%89%E8%80%81%E9%99%A2%E8%BD%89%E4%BB%8B%E6%9C%8D%E5%8B%99%20%5BSL-CARE%5D" rel="noopener">問 肇慶 嘅安排</a>
+      </div>
+  </div>
+  <p class="src">資料來源：社會福利署《指定安老院的院費概況》(2025-09)；社署《廣東院舍照顧服務計劃》院舍名單 (2026-07-01)；長者醫療券發展里程。　·　資料截至 2026-11-03。價格及政策會變動，以官方最新公布為準。</p>
+</div></section>
+
+<section><div class="wrap">
+  <span class="kicker">返港便利度</span>
+  <h2>由邊個口岸返香港</h2>
+  <div class="tscroll"><table class="dtable"><thead><tr><th>方式</th><th>連接</th><th>時間</th><th>費用</th></tr></thead><tbody><tr><td data-label="方式">港珠澳大橋金巴</td><td data-label="連接">珠海口岸人工島</td><td data-label="時間">口岸至口岸約 40 – 55 分鐘，24 小時營運</td><td data-label="費用">HK$65 日間／HK$70 夜間；65 歲或以上半價</td></tr><tr><td data-label="方式">深中通道</td><td data-label="連接">中山 ↔ 深圳</td><td data-label="時間">約 30 分鐘（通車後）</td><td data-label="費用">標準車次 ¥66</td></tr><tr><td data-label="方式">中山跨境大巴</td><td data-label="連接">中山 ↔ 香港</td><td data-label="時間">約 1 小時 45 分</td><td data-label="費用">實際票價請向營運商查詢</td></tr><tr><td data-label="方式">珠海九洲港 ↔ 香港</td><td data-label="連接">珠海 ↔ 上環／九龍</td><td data-label="時間">航程約 70 分鐘，每日約 7 班</td><td data-label="費用">單程約 HK$200、來回約 HK$340（按日期浮動）</td></tr><tr><td data-label="方式">跨境七人車（點對點）</td><td data-label="連接">香港 ↔ 珠海／中山</td><td data-label="時間">點對點直達</td><td data-label="費用">香港→珠海口岸約 HK$1,100 起；珠海市區約 HK$1,500 起；中山約 HK$1,900 起</td></tr></tbody></table></div><p class="src">資料來源：港珠澳大橋穿梭巴士官方網站；深中通道通車報道 (2024-06-28)；TurboJET 價目表；跨境車服務商公開報價。⚠️ 門到門時間會因上落點、過關、行李及天氣而異，建議預留緩衝。　·　資料截至 2026-11-03。價格及政策會變動，以官方最新公布為準。</p>
+</div></section>
+
+<section class="alt"><div class="wrap">
+  <span class="kicker">醫療資源</span>
+  <h2>醫療券可以用喺邊</h2>
+  <p>「長者醫療券大灣區試點計劃」已覆蓋大灣區全部九個內地城市，連同港大深圳醫院「一院兩點」，共 21 個服務點。合資格長者每年可用 HK$2,000 醫療券。</p>
+  <div class="notice">
+    <h3>醫療券嘅限制（要知）</h3>
+    <ul>
+      <li>每年 HK$2,000，<strong>不可累積</strong>，用唔完唔會留到下一年。</li>
+      <li><strong>不可與國家醫保同時支付同一項服務。</strong></li>
+      <li>不包括住院、須預先繳費嘅醫療服務及日間手術。</li>
+      <li>不可用於單純購買物品、藥物或儀器。</li>
+    </ul>
+  </div>
+  <p class="src">資料來源：政府新聞公報《長者醫療券大灣區試點計劃》全面覆蓋九市 (2025-08-18)；立法會 CB(3)639/2025(04)；醫療券發展里程。　·　資料截至 2026-11-03。價格及政策會變動，以官方最新公布為準。</p>
+  <div style="margin-top:20px"><a class="btn" href="https://wa.me/85296229372?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A4%A7%E7%81%A3%E5%8D%80%E5%AE%89%E8%80%81%E9%99%A2%E8%BD%89%E4%BB%8B%E6%9C%8D%E5%8B%99%20%5BSL-CARE%5D" rel="noopener">想知邊個城市最適合你？用 WhatsApp 問</a></div>
+</div></section>
+
+<footer class="bot"><div class="wrap">
+  <div class="cols">
+    <div>
+      <h4>灣區第二人生 · Second Life</h4>
+      <p>香港人北上大灣區（中山 · 珠海）退休、置業、安老院轉介及內地體檢團的實地顧問服務。</p>
+      <p>營運實體：<strong>宜居樂（珠海）企業服務有限公司</strong><br>
+      創辦人：Causson 朱嘉信</p>
+    </div>
+    <div>
+      <h4>服務</h4>
+      <p><a href="/secondlife/care.html">安老院轉介</a><br>
+      <a href="/secondlife/property.html">置業</a><br>
+      <a href="/secondlife/car.html">出行</a><br>
+      <a href="/secondlife/checkup.html">內地體檢團</a></p>
+    </div>
+    <div>
+      <h4>關於</h4>
+      <p><a href="/secondlife/about.html">關於我們</a><br>
+      <a href="/secondlife/faq.html">常見問題</a><br>
+      <a href="/secondlife/disclosure.html">風險披露與免責</a><br>
+      <a href="/secondlife/contact.html">聯絡我們</a></p>
+    </div>
+  </div>
+  <div class="fine">
+    <p><strong>本頁為 Staging 示範版（dummy）。</strong>未經法律審閱，未對外發佈，頁面內所有示範數據僅供內部討論之用，不可作為任何決定依據。</p>
+    <p>本網站提供的數字均標明來源及資料截止日期，資料截至 2026-11-03。政策及價格會變動，實際情況請向官方渠道及專業人士核實。本網站不提供醫療、法律或投資建議。</p>
+    <p>© 2026 宜居樂（珠海）企業服務有限公司 · 灣區第二人生</p>
+  </div>
+</div></footer>
+<div class="stickybar">
+  <span class="lbl">想了解多啲？</span>
+  <a class="btn sm" href="https://wa.me/85296229372?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A4%A7%E7%81%A3%E5%8D%80%E5%AE%89%E8%80%81%E9%99%A2%E8%BD%89%E4%BB%8B%E6%9C%8D%E5%8B%99%20%5BSL-CARE%5D" rel="noopener">WhatsApp 問一問</a>
+</div>
+
+</body>
+</html>

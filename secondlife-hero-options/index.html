@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Hero 3D 情緒視覺 — 三選一</title>
+<style>
+  :root{--ink:#14171A;--ivory:#F2EDE6;--brass:#D8AE79;--jade:#9BD0BE;--muted:#B0A79C}
+  *{box-sizing:border-box}
+  body{margin:0;background:#0E1013;color:var(--ivory);
+    font-family:"Noto Sans TC",system-ui,-apple-system,"PingFang HK",sans-serif;line-height:1.6}
+  header{padding:38px 26px 10px;max-width:1240px;margin:0 auto}
+  h1{font-size:1.6rem;margin:0 0 .35em;letter-spacing:.02em}
+  .sub{color:var(--muted);font-size:.95rem;margin:0 0 .2em}
+  .note{color:var(--muted);font-size:.85rem;margin:.9em 0 0;border-left:2px solid rgba(216,174,121,.45);padding-left:.8em}
+  main{max-width:1240px;margin:0 auto;padding:26px}
+  .opt{margin:0 0 46px}
+  .opt h2{font-size:1.15rem;margin:0 0 .2em;color:var(--brass);letter-spacing:.04em}
+  .opt .desc{color:var(--muted);font-size:.9rem;margin:0 0 14px}
+  .frame{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;
+    border:1px solid rgba(216,174,121,.25);box-shadow:0 18px 48px rgba(0,0,0,.5)}
+  .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    object-position:50% 46%;z-index:1;filter:saturate(.97) brightness(.94) contrast(1.03)}
+  .glow{position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:radial-gradient(120% 90% at 78% 16%,rgba(214,176,110,.20) 0%,rgba(214,176,110,.05) 42%,rgba(0,0,0,0) 70%),
+               radial-gradient(90% 70% at 12% 96%,rgba(47,93,80,.24) 0%,rgba(0,0,0,0) 62%)}
+  .scrim{position:absolute;inset:0;z-index:2;
+    background:radial-gradient(88% 74% at 26% 28%,rgba(16,19,22,.80) 0%,rgba(16,19,22,.52) 40%,rgba(16,19,22,.10) 68%,rgba(16,19,22,0) 84%),
+               linear-gradient(180deg,rgba(16,19,22,.34) 0%,rgba(16,19,22,.06) 20%,rgba(16,19,22,.54) 46%,rgba(16,19,22,.88) 72%,rgba(16,19,22,.96) 100%),
+               linear-gradient(90deg,rgba(16,19,22,.34) 0%,rgba(16,19,22,.14) 46%,rgba(16,19,22,0) 78%)}
+  .copy{position:relative;z-index:3;position:absolute;left:0;top:0;height:100%;
+    display:flex;flex-direction:column;justify-content:center;
+    padding:clamp(20px,4.5%,64px);max-width:62%}
+  .kicker{font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;color:var(--brass);
+    font-weight:600;margin-bottom:1em}
+  .slogan{font-family:"Noto Serif TC",Georgia,serif;font-weight:600;font-size:clamp(1.35rem,2.9vw,2.9rem);
+    line-height:1.22;letter-spacing:.03em;margin:0 0 .4em}
+  .slogan em{font-style:normal;color:var(--jade)}
+  .line{color:#D5CEC4;font-size:clamp(.8rem,1.1vw,1.05rem);margin:0 0 .5em}
+  .who{color:var(--muted);font-size:clamp(.72rem,.95vw,.88rem);margin:0}
+  .vs{display:grid;gap:18px;grid-template-columns:1fr}
+  @media(max-width:800px){
+    .scrim{background:
+      linear-gradient(180deg,rgba(16,19,22,.64) 0%,rgba(16,19,22,.56) 18%,rgba(16,19,22,.74) 42%,rgba(16,19,22,.86) 68%,rgba(16,19,22,.92) 100%),
+      linear-gradient(90deg,rgba(16,19,22,.66) 0%,rgba(16,19,22,.54) 58%,rgba(16,19,22,.42) 100%)}
+  }
+  /* 手機：16:9 框只有 ~219px 高，文字要壓縮並貼底（遮罩最厚處）才夠對比 */
+  @media(max-width:640px){
+    .frame{aspect-ratio:auto;height:auto;min-height:0}
+    .copy{position:static;max-width:100%;height:auto;justify-content:flex-end;
+      padding:112px 16px 16px;background:linear-gradient(180deg,rgba(16,19,22,0) 0%,rgba(16,19,22,.55) 42%,rgba(16,19,22,.86) 100%)}
+    .kicker{font-size:.62rem;letter-spacing:.18em;margin-bottom:.45em}
+    .slogan{font-size:1.05rem;line-height:1.18;margin-bottom:.3em}
+    .line{font-size:.75rem;line-height:1.45;margin-bottom:.3em}
+    .who{font-size:.66rem;line-height:1.4}
+    .frame img{position:absolute;inset:0;height:100%}
+  }
+  @media(min-width:900px){.vs{grid-template-columns:repeat(3,1fr)}}
+  .card{background:#161A1E;border:1px solid rgba(216,174,121,.18);border-radius:12px;padding:16px 18px}
+  .card b{color:var(--brass);display:block;margin-bottom:.3em}
+  .card ul{margin:.3em 0 0;padding-left:1.1em;color:var(--muted);font-size:.86rem}
+  footer{max-width:1240px;margin:0 auto;padding:0 26px 60px;color:var(--muted);font-size:.86rem}
+  code{background:#1B2026;padding:.15em .45em;border-radius:5px;color:#E4C48C}
+</style>
+</head>
+<body>
+<header>
+  <h1>Hero 3D 情緒視覺 —— 三選一</h1>
+  <p class="sub">三個候選均已通過視覺審核：零假文字、零水印、零結構崩壞。以下係**真實首屏比例**（16:9），背景圖 + 同一個深色遮罩 + 同一組文案。</p>
+  <p class="note">文字可讀性已實測：全部元素對比 ≥ 4.5:1（WCAG AA），最差 4.63。</p>
+</header>
+<main>
+  <section class="opt">
+    <h2>A — 換場微縮模型　（現時線上版本）</h2>
+    <p class="desc">左邊冷灰密集城市 → 右邊暖陽海岸小鎮，一條橋橫跨靜水連接兩邊。3D 微縮模型＋移軸景深。</p>
+    <div class="frame">
+      <img src="assets/hero_A.jpg" alt="3D 微縮模型風格的海灣景觀">
+      <div class="glow"></div><div class="scrim"></div>
+      <div class="copy">
+        <span class="kicker">大灣區．第二人生</span>
+        <h3 class="slogan">第二人生，<br>不是退場，是<em>換場</em>。</h3>
+        <p class="line">退休、置業、醫療 —— 一小時生活圈的完整安排。</p>
+        <p class="who">為考慮在珠海、中山生活的香港家庭而設。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="opt">
+    <h2>B — 長者背影望海</h2>
+    <p class="desc">兩位長者背影站在海濱步道，金色低角度陽光，遠山層疊。情緒最強。</p>
+    <div class="frame">
+      <img src="assets/hero_B.jpg" alt="黃昏時分兩位長者背影望向海灣">
+      <div class="glow"></div><div class="scrim"></div>
+      <div class="copy">
+        <span class="kicker">大灣區．第二人生</span>
+        <h3 class="slogan">第二人生，<br>不是退場，是<em>換場</em>。</h3>
+        <p class="line">退休、置業、醫療 —— 一小時生活圈的完整安排。</p>
+        <p class="who">為考慮在珠海、中山生活的香港家庭而設。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="opt">
+    <h2>C — 紙雕層次海景</h2>
+    <p class="desc">分層剪紙的海浪、遠山與村落，暖米色大留白。最安全、文字最易讀。</p>
+    <div class="frame">
+      <img src="assets/hero_C.jpg" alt="3D 紙雕層次風格的海岸風景">
+      <div class="glow"></div><div class="scrim"></div>
+      <div class="copy">
+        <span class="kicker">大灣區．第二人生</span>
+        <h3 class="slogan">第二人生，<br>不是退場，是<em>換場</em>。</h3>
+        <p class="line">退休、置業、醫療 —— 一小時生活圈的完整安排。</p>
+        <p class="who">為考慮在珠海、中山生活的香港家庭而設。</p>
+      </div>
+    </div>
+  </section>
+
+  <h2 style="color:var(--brass);font-size:1.15rem;margin:0 0 14px">快速對比</h2>
+  <div class="vs">
+    <div class="card"><b>A 換場微縮模型</b>
+      <ul><li>3D 立體感：最強</li><li>直接畫出 punchline「換場」</li><li>橋 = 過渡的象徵</li><li>無人物，最中性</li></ul></div>
+    <div class="card"><b>B 長者背影望海</b>
+      <ul><li>情緒：最強</li><li>直接對應受眾（長者）</li><li>帶少許孤獨感 → 需配文案中和</li><li>人物細小、背對鏡頭</li></ul></div>
+    <div class="card"><b>C 紙雕層次海景</b>
+      <ul><li>文字最易讀</li><li>留白最多</li><li>最 calm、最設計感</li><li>3D 感偏平面層次</li></ul></div>
+  </div>
+</main>
+<footer>
+  <p>回覆 <code>A</code> ／ <code>B</code> ／ <code>C</code> 即可切換正式 hero。全站仍為 staging（<code>noindex</code>），未經法律審閱前不會上線。</p>
+</footer>
+</body>
+</html>

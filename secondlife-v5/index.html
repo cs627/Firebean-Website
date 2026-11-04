@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>首頁｜灣區第二人生</title>
+<meta name="description" content="退休、置業、醫療與照顧的大灣區安排顧問。所有數字附公開來源。">
+<script>document.documentElement.className+=' js';</script>
+<style>
+*,*::before,*::after{box-sizing:border-box}
+:root{
+  --ink:#14171A; --ink-2:#1D2226;
+  --paper:#FAF7F2; --paper-2:#F1EBE2; --paper-3:#E7DFD3;
+  --jade:#2F5D50; --jade-2:#24463C;
+  --brass:#A9814F; --brass-ink:#7A5A2E;
+  --fg:#1B1E22; --fg-2:#4A5257; --fg-inv:#F2EDE6; --fg-inv-2:#C9C2B8;
+  --line:rgba(27,30,34,.14); --line-inv:rgba(242,237,230,.18);
+  --serif:"Songti TC","Noto Serif TC","Source Han Serif TC","SimSun",Georgia,serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Heiti TC",sans-serif;
+  --measure:38rem;
+  --rail:15rem;
+  --pad:clamp(20px,4vw,56px);
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--fg);
+  font-family:var(--sans);font-size:17px;line-height:1.85;
+  letter-spacing:.01em;text-rendering:optimizeLegibility}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--jade);text-underline-offset:3px}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.35;
+  letter-spacing:.02em;margin:0 0 .5em}
+h1{font-size:clamp(2rem,5.4vw,4.2rem);line-height:1.22}
+h2{font-size:clamp(1.5rem,3.2vw,2.5rem)}
+h3{font-size:clamp(1.15rem,2vw,1.5rem)}
+p{margin:0 0 1.05em}
+.lead{font-size:clamp(1.05rem,1.6vw,1.3rem);color:var(--fg-2);line-height:1.9;max-width:46rem}
+.kicker{display:inline-block;font-family:var(--sans);font-size:.76rem;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--brass-ink);
+  margin-bottom:1.1em;font-weight:600}
+.chap{font-family:Georgia,var(--serif);font-size:.86rem;letter-spacing:.3em;
+  color:var(--brass-ink);display:block;margin-bottom:.7em}
+.num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+
+/* ---------- 頂欄 ---------- */
+.topbar{position:sticky;top:0;z-index:60;background:rgba(250,247,242,.9);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;
+  gap:14px;min-height:62px;flex-wrap:wrap}
+.brand{font-family:var(--serif);font-size:1.08rem;font-weight:600;color:var(--fg);
+  text-decoration:none;letter-spacing:.06em;display:flex;flex-direction:column;line-height:1.25}
+.brand small{font-family:var(--sans);font-size:.62rem;letter-spacing:.15em;
+  color:var(--fg-2);font-weight:400;text-transform:uppercase}
+.topnav{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.topnav a{font-size:.93rem;color:var(--fg-2);text-decoration:none;
+  padding:9px 12px;border-radius:999px;min-height:44px;display:inline-flex;align-items:center}
+.topnav a:hover{background:var(--paper-2);color:var(--fg)}
+.topnav a[aria-current="page"]{color:var(--jade);font-weight:600}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;z-index:99;background:var(--ink);color:var(--fg-inv);
+  padding:10px 16px;border-radius:8px}
+
+/* ---------- 桌面側欄 + 內文 ---------- */
+.shell{display:block}
+@media(min-width:1080px){
+  .topbar .wrap{min-height:70px}
+  .topnav a{font-size:.95rem}
+}
+/* ---------- 章節 ---------- */
+.sec{position:relative;padding:clamp(46px,5.6vw,92px) 0;overflow:hidden}
+.sec.alt{background:var(--paper-2)}
+.sec.dark{background:var(--ink);color:var(--fg-inv)}
+.sec.dark h1,.sec.dark h2,.sec.dark h3{color:var(--fg-inv)}
+.sec.dark .lead,.sec.dark p{color:var(--fg-inv-2)}
+.sec.dark a{color:#8FC7B4}
+.sec.dark .kicker,.sec.dark .chap{color:#D3A876}
+.sec .wrap{position:relative;z-index:3}
+.layers{position:absolute;inset:0;z-index:1;pointer-events:none}
+.lyr{position:absolute;inset:-8% -4%;background-size:cover;background-position:center;
+  will-change:transform;opacity:.5}
+.lyr-a{filter:saturate(.85) contrast(1.02)}
+.lyr-b{inset:-4% -2%;opacity:.28}
+.scrim{position:absolute;inset:0;z-index:2;
+  background:linear-gradient(180deg,rgba(250,247,242,.94),rgba(250,247,242,.82))}
+.sec.dark .scrim{background:linear-gradient(180deg,rgba(20,23,26,.9),rgba(20,23,26,.86))}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;min-height:min(86vh,760px);display:flex;align-items:center;
+  background:radial-gradient(115% 85% at 84% 8%,#242B30 0%,#191D21 46%,var(--ink) 100%);
+  color:var(--fg-inv);overflow:hidden}
+.hero .wrap{padding-top:clamp(28px,3.6vw,56px);padding-bottom:clamp(26px,3.4vw,48px)}
+.hero h1{color:var(--fg-inv);max-width:15ch}
+.hero .lead{color:#CFC8BE}
+.hero .q{font-family:var(--serif);font-size:clamp(1.6rem,4.4vw,3.4rem);
+  line-height:1.4;max-width:22ch;color:var(--fg-inv);margin-bottom:.6em}
+/* 桌面：左側「磨砂玻璃」文字區——背景用同一個 3D 場景做 blur＋壓暗，
+   再以 mask 漸變收邊，所以完全冇硬垂直線；文字之後照樣保 WCAG AA。
+   窄版（≤800px）反過來：面板收起，改用全幅遮罩，見 build_v5.py 的 media query。 */
+.hero-panel{position:absolute;top:0;bottom:0;left:0;z-index:2;pointer-events:none;
+  width:calc(max(calc((100vw - 1180px)/2) - 64px, 40px) + 540px + 104px);
+  background:linear-gradient(90deg,rgba(24,16,11,.705) 0%,rgba(24,16,11,.69) 55%,rgba(24,16,11,.655) calc(100% - 130px),rgba(24,16,11,.555) calc(100% - 95px),rgba(24,16,11,.355) calc(100% - 62px),rgba(24,16,11,.155) calc(100% - 30px),rgba(24,16,11,0) 100%);
+  -webkit-backdrop-filter:blur(28px) saturate(.92) brightness(.70);
+  backdrop-filter:blur(28px) saturate(.92) brightness(.70);
+  -webkit-mask-image:linear-gradient(90deg,#000 0 78%,rgba(0,0,0,.94) 84%,rgba(0,0,0,.72) 89%,rgba(0,0,0,.42) 94%,rgba(0,0,0,.18) 97.5%,transparent 100%);
+  mask-image:linear-gradient(90deg,#000 0 78%,rgba(0,0,0,.94) 84%,rgba(0,0,0,.72) 89%,rgba(0,0,0,.42) 94%,rgba(0,0,0,.18) 97.5%,transparent 100%)}
+/* 玻璃質感：極細噪點，避免看上去只是「深色漸層」 */
+.hero-panel::after{content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:overlay;opacity:.30;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='140' height='140' filter='url(%23n)' opacity='0.5'/></svg>");
+  background-size:140px 140px}
+.hero-scrim{display:none;position:absolute;inset:0;z-index:2;
+  background:linear-gradient(180deg,rgba(16,19,22,.34) 0%,rgba(16,19,22,.14) 20%,rgba(16,19,22,.56) 44%,rgba(16,19,22,.88) 72%,rgba(16,19,22,.96) 100%)}
+.hero .wrap{position:relative;z-index:3;max-width:540px;
+  margin-left:max(calc((100vw - 1180px)/2 - 64px), 40px);margin-right:auto}
+
+/* ---------- 卡片 ---------- */
+.grid{display:grid;gap:clamp(16px,2vw,26px)}
+.g2{grid-template-columns:1fr}
+.g3{grid-template-columns:1fr}
+@media(min-width:800px){.g2{grid-template-columns:1fr 1fr}
+  .g3{grid-template-columns:repeat(3,1fr)}}
+/* 真桌面：善用空間，多欄並排 */
+@media(min-width:1080px){
+  .g2{grid-template-columns:1fr 1fr}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g3x{grid-template-columns:repeat(4,1fr)}
+  .split{display:grid;grid-template-columns:var(--rail) 1fr;gap:clamp(28px,4vw,64px);align-items:start}
+  .rail{position:sticky;top:88px}
+  .rail ol{list-style:none;margin:0;padding:0;border-left:1px solid var(--line)}
+  .rail li{margin:0}
+  .rail a{display:block;padding:9px 0 9px 18px;font-size:.9rem;color:var(--fg-2);
+    text-decoration:none;border-left:2px solid transparent;margin-left:-1px}
+  .rail a:hover,.rail a[aria-current="true"]{color:var(--jade);border-left-color:var(--jade)}
+}
+.card{background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:16px;
+  padding:clamp(20px,2.4vw,30px);box-shadow:0 1px 0 rgba(27,30,34,.03)}
+.sec.dark .card{background:rgba(250,247,242,.06);border-color:var(--line-inv)}
+.card h3{margin-bottom:.4em}
+.card p:last-child{margin-bottom:0}
+.big{display:block;font-family:var(--serif);font-size:clamp(1.7rem,3.4vw,2.6rem);
+  line-height:1.15;color:var(--jade);margin-bottom:.28em;letter-spacing:.01em}
+.sec.dark .big{color:#8FC7B4}
+/* 3D 傾斜已移除（簡化決定；保留 .tilt/.scene 選擇器避免舊標記失效） */
+.tilt,.scene{transform:none}
+
+/* ---------- 圖片 ---------- */
+figure{margin:clamp(22px,3vw,38px) 0}
+figure img{border-radius:14px;width:100%;background:var(--paper-3);aspect-ratio:16/9;object-fit:cover}
+figcaption{font-size:.83rem;color:var(--fg-2);margin-top:.85em;line-height:1.7}
+.banner{position:relative;overflow:hidden}
+.banner img{aspect-ratio:21/9;border-radius:0}
+
+/* ---------- 表格 ---------- */
+.dtable{width:100%;border-collapse:collapse;margin:1.2em 0;font-size:.95rem}
+.dtable th,.dtable td{border-bottom:1px solid var(--line);padding:11px 12px;text-align:left;
+  vertical-align:top}
+.dtable th{font-family:var(--serif);font-weight:600;background:rgba(47,93,80,.06)}
+.dtable td.numcell{font-variant-numeric:tabular-nums;white-space:nowrap}
+@media(max-width:720px){
+  .dtable thead{display:none}
+  .dtable tr{display:block;border:1px solid var(--line);border-radius:12px;
+    margin-bottom:12px;background:rgba(255,255,255,.6)}
+  .dtable td{display:flex;justify-content:space-between;gap:14px;border-bottom:1px dashed var(--line)}
+  .dtable td:last-child{border-bottom:0}
+  .dtable td::before{content:attr(data-label);font-weight:600;color:var(--fg-2);flex:0 0 42%}
+}
+
+/* ---------- 提示 / 來源 ---------- */
+.notice{background:rgba(169,129,79,.1);border-left:5px solid var(--brass);
+  border-radius:0 12px 12px 0;padding:clamp(18px,2.3vw,26px);margin:1.4em 0}
+.notice h3{margin-top:0}
+.notice ul{margin:0;padding-left:1.2em}
+.notice li{margin-bottom:.7em}
+.notice li:last-child{margin-bottom:0}
+.sec.dark .notice{background:rgba(211,168,118,.12);border-left-color:#D3A876}
+.src{font-size:.82rem;color:var(--fg-2);line-height:1.7;border-top:1px solid var(--line);
+  padding-top:.7em;margin-top:1.1em}
+.sec.dark .src{color:#A9A29A;border-top-color:var(--line-inv)}
+
+/* ---------- 按鈕 ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:48px;padding:13px 24px;border-radius:999px;background:var(--jade);
+  color:#FFF;text-decoration:none;font-weight:600;font-size:.97rem;border:1px solid var(--jade)}
+.btn:hover{background:var(--jade-2);border-color:var(--jade-2)}
+.btn.ghost{background:transparent;color:var(--fg);border-color:var(--line)}
+.btn.ghost:hover{background:var(--paper-2)}
+.sec.dark .btn.ghost{color:var(--fg-inv);border-color:var(--line-inv)}
+.sec.dark .btn.ghost:hover{background:rgba(250,247,242,.08)}
+.btn.sm{min-height:44px;padding:10px 18px;font-size:.9rem}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:1.6em}
+
+/* ---------- FAQ ---------- */
+details.faq{border-bottom:1px solid var(--line);padding:16px 0}
+details.faq summary{cursor:pointer;font-family:var(--serif);font-size:1.08rem;
+  font-weight:600;list-style:none;padding-right:28px;position:relative}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{content:"＋";position:absolute;right:4px;color:var(--brass-ink)}
+details.faq[open] summary::after{content:"－"}
+details.faq .body{padding-top:12px}
+
+/* ---------- 頁尾 ---------- */
+footer{background:var(--ink);color:var(--fg-inv-2);padding:clamp(44px,6vw,80px) 0 34px;
+  font-size:.9rem}
+footer a{color:#8FC7B4;text-decoration:none}
+footer h4{color:var(--fg-inv);font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;
+  margin-bottom:1em}
+.fgrid{display:grid;gap:clamp(20px,3vw,44px);grid-template-columns:1fr}
+@media(min-width:640px){.fgrid{grid-template-columns:repeat(3,1fr)}}
+footer .disclaim{border-top:1px solid var(--line-inv);margin-top:36px;padding-top:22px;
+  font-size:.82rem;line-height:1.8}
+.stagingbar{background:var(--ink);color:#D8AE79;font-size:.82rem;text-align:center;
+  padding:9px var(--pad);font-weight:600;letter-spacing:.03em;
+  border-bottom:1px solid rgba(216,174,121,.34)}
+.ph{background:var(--paper-3);border:1px dashed var(--line);border-radius:14px;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  padding:28px;color:var(--fg-2);font-size:.88rem;line-height:1.7}
+@media(prefers-reduced-motion:no-preference){
+  .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+  .js .reveal.on{opacity:1;transform:none}
+}
+
+.hero .wrap{text-shadow:0 1px 20px rgba(10,12,14,.62),0 1px 3px rgba(10,12,14,.5)}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  object-position:70% 47%;z-index:1;opacity:1;
+  filter:saturate(1.22) brightness(1.07) contrast(1.12)}
+/* 真磨砂層：同一張 3D 圖模糊 + 壓暗，以 mask 由左至右淡出，
+   令左側玻璃背後真正見到被霧化的暖景，交界不再像深色色塊。 */
+.hero-frost{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background-image:url("assets/hero_A.jpg");background-size:200% auto;background-position:88% 42%;
+  filter:blur(30px) saturate(1.18) brightness(.74) contrast(1.02);
+  -webkit-mask-image:linear-gradient(90deg,#000 0 32%,rgba(0,0,0,.95) 36%,rgba(0,0,0,.80) 41%,rgba(0,0,0,.55) 45%,rgba(0,0,0,.28) 48%,rgba(0,0,0,.10) 49.5%,transparent 50.5%);
+  mask-image:linear-gradient(90deg,#000 0 32%,rgba(0,0,0,.95) 36%,rgba(0,0,0,.80) 41%,rgba(0,0,0,.55) 45%,rgba(0,0,0,.28) 48%,rgba(0,0,0,.10) 49.5%,transparent 50.5%)}
+.hero-sheen{position:absolute;top:0;bottom:0;left:0;z-index:2;pointer-events:none;
+  width:calc(max(calc((100vw - 1180px)/2) - 64px, 40px) + 540px + 104px);
+  background-image:linear-gradient(180deg,rgba(255,192,130,.17) 0%,rgba(255,192,130,.05) 62%,rgba(255,192,130,0) 100%),
+                   radial-gradient(54% 22% at 10% 99%,rgba(255,172,112,.13) 0%,rgba(255,172,112,0) 72%);
+  background-repeat:no-repeat;background-size:100% 150px,100% 100%;
+  -webkit-mask-image:linear-gradient(90deg,#000 0 72%,rgba(0,0,0,.5) 88%,transparent 100%);
+  mask-image:linear-gradient(90deg,#000 0 72%,rgba(0,0,0,.5) 88%,transparent 100%)}
+.hero-glow{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(118% 88% at 80% 14%,rgba(255,182,112,.27) 0%,rgba(238,168,102,.09) 44%,rgba(0,0,0,0) 72%),
+             radial-gradient(88% 68% at 16% 94%,rgba(47,93,80,.20) 0%,rgba(0,0,0,0) 62%)}
+.hero-rule{position:absolute;left:0;right:0;bottom:0;height:1px;z-index:3;
+  background:linear-gradient(90deg,rgba(216,174,121,.55),rgba(216,174,121,0))}
+.kicker-lg{display:inline-block;font-family:var(--sans);font-size:.82rem;
+  letter-spacing:.26em;text-transform:uppercase;color:#D8AE79;font-weight:600;margin-bottom:1.3em}
+.hero .cap{position:relative;z-index:3;font-size:.8rem;color:#B7AFA4;margin:.85em 0 0;
+  max-width:40rem;line-height:1.7}
+.slogan{font-family:var(--serif);font-weight:600;color:var(--fg-inv);max-width:100%;
+  font-size:clamp(1.6rem,2.75vw,2.6rem);line-height:1.2;letter-spacing:.03em;margin:0 0 .34em}
+.slogan em{font-style:normal;color:#9BD0BE}
+.subline{font-size:clamp(1.0rem,1.6vw,1.3rem);color:#EDE9E3;line-height:1.85;
+  max-width:32rem;margin:0 0 .5em;font-family:var(--sans)}
+.who{font-size:.92rem;color:#E3DED7;line-height:1.7;max-width:40rem;margin:0 0 1.1em;text-wrap:pretty}
+.subline{text-wrap:pretty}
+.stats{display:grid;grid-template-columns:1fr;gap:12px;margin:.95em 0 0;max-width:46rem;
+  border-top:1px solid rgba(216,174,121,.28);padding-top:.8em}
+@media(min-width:640px){.stats{grid-template-columns:repeat(3,1fr);gap:14px}}
+.stats .s b{display:block;font-family:var(--serif);font-size:clamp(1.35rem,2.1vw,1.85rem);
+  color:#E4C48C;font-weight:600;line-height:1.15;letter-spacing:.01em;min-height:auto;
+  font-variant-numeric:tabular-nums}
+.stats .s b.sm{font-size:clamp(1.1rem,1.7vw,1.45rem);min-height:auto}
+.stats .s i{display:block;font-style:normal;font-size:.79rem;color:#D2CBC0;margin-top:.35em;line-height:1.6}
+.stats .s u{display:block;text-decoration:none;font-size:.72rem;color:#D0C9BD;margin-top:.45em;
+  line-height:1.55;border-left:2px solid rgba(216,174,121,.4);padding-left:.55em}
+.stats .src{grid-column:1/-1;font-size:.76rem;color:#D0C9BD;margin:.15em 0 0}
+.topnav a.cross{color:var(--jade);border:1px solid rgba(47,93,80,.42);border-radius:999px;
+  padding:.3em .9em;font-weight:600}
+.topnav a.cross:hover{background:rgba(47,93,80,.09);border-color:var(--jade)}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.trust{font-size:.86rem;color:#E0DAD2;margin:.9em 0 0;letter-spacing:.02em}
+.trust span{color:#D8AE79;padding:0 .45em}
+.btn.ghost{background:transparent;color:var(--fg-inv);border-color:rgba(242,237,230,.72);font-weight:600}
+.btn.ghost:hover{background:rgba(242,237,230,.14);border-color:var(--fg-inv)}
+.topnav a{position:relative}
+.topnav a[data-on="1"]{color:var(--jade);font-weight:600}
+.sec .topnav a[data-on="1"]{color:var(--jade)}
+/* 短視窗（常見 1366×768／1280×800 筆電）：壓縮首屏，確保 CTA、信任句、三個數字仍在首屏內 */
+@media (min-width:1080px) and (max-height:880px){
+  .hero .wrap{padding-top:26px;padding-bottom:30px}
+  .kicker-lg{margin-bottom:.7em;font-size:.74rem}
+  .slogan{font-size:clamp(1.7rem,3.4vw,2.5rem);margin-bottom:.28em}
+  .subline{font-size:1.0rem;line-height:1.6;margin-bottom:.35em}
+  .who{font-size:.86rem;line-height:1.55;margin-bottom:.7em}
+  .cta-row{margin-top:.2em}
+  .trust{margin-top:.65em;font-size:.79rem}
+  .stats{margin-top:.7em;padding-top:.65em;gap:16px}
+  .stats .s b{font-size:clamp(1.2rem,1.85vw,1.58rem);min-height:1.55em}
+  .stats .s b.sm{font-size:clamp(1.0rem,1.5vw,1.3rem);min-height:1.85em}
+  .stats .s i{font-size:.72rem;line-height:1.45;margin-top:.22em}
+  .stats .s u{font-size:.67rem;line-height:1.4;margin-top:.28em}
+  .stats .src{font-size:.71rem}
+  .hero .cap{margin-top:.55em;font-size:.73rem;line-height:1.5}
+}
+.step{display:flex;gap:18px;align-items:flex-start;margin-bottom:1.6em}
+.step b{flex:0 0 42px;height:42px;border-radius:50%;background:var(--jade);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.05rem}
+.sec.dark .step b{background:#8FC7B4;color:#14171A}
+.step div{flex:1}
+.step h3{margin-bottom:.25em}
+.tbl3{width:100%;border-collapse:collapse;font-size:.95rem}
+.tbl3 th,.tbl3 td{border-bottom:1px solid var(--line);padding:12px;text-align:left}
+.tbl3 th{font-family:var(--serif);background:rgba(47,93,80,.06)}
+.tbl3 td.numcell{font-variant-numeric:tabular-nums}
+.todo{color:var(--brass-ink);font-weight:600;font-size:.88rem}
+.band{position:relative;margin:clamp(22px,3vw,40px) 0;border-radius:16px;overflow:hidden;
+  min-height:clamp(200px,26vw,330px);display:flex;align-items:flex-end;background:var(--ink)}
+.band img{position:absolute;inset:0;width:100%;height:114%;top:-7%;object-fit:cover;z-index:1}
+.band .bs{position:absolute;inset:0;z-index:2;
+  background:linear-gradient(180deg,rgba(20,23,26,.06) 30%,rgba(20,23,26,.86))}
+.band .bc{position:relative;z-index:3;padding:clamp(20px,2.8vw,34px);color:#EDE7DF;
+  font-size:clamp(.92rem,1.3vw,1.06rem);line-height:1.8;max-width:44rem;text-shadow:0 1px 12px rgba(0,0,0,.5)}
+.band .bc b{display:block;font-family:var(--serif);font-size:clamp(1.05rem,1.8vw,1.35rem);
+  color:#fff;margin-bottom:.3em;font-weight:600}
+.band .bc small{display:block;font-size:.78rem;color:#B7B0A7;margin-top:.7em;text-shadow:none}
+@media(max-width:720px){
+  .tbl3 thead{display:none}
+  .tbl3 tr{display:block;border:1px solid var(--line);border-radius:12px;
+    margin-bottom:12px;background:rgba(255,255,255,.6)}
+  .tbl3 td{display:flex;justify-content:space-between;gap:14px;border-bottom:1px dashed var(--line)}
+  .tbl3 td:last-child{border-bottom:0}
+  .tbl3 td::before{content:attr(data-label);font-weight:600;color:var(--fg-2);flex:0 0 40%}
+}
+/* 手機／窄版：hero 變直度、圖片裁切後亮位正好落在文字後面 → 需要更厚的遮罩保對比。
+   桌面保留「上輕下重」讓 3D 圖透出；窄版以可讀性優先。 */
+@media (max-width:800px){
+  .hero-panel{display:none}
+  .hero-scrim{display:block;background:
+    linear-gradient(180deg,rgba(16,19,22,.64) 0%,rgba(16,19,22,.56) 18%,rgba(16,19,22,.74) 42%,rgba(16,19,22,.86) 68%,rgba(16,19,22,.92) 100%),
+    linear-gradient(90deg,rgba(16,19,22,.66) 0%,rgba(16,19,22,.54) 58%,rgba(16,19,22,.42) 100%)}
+  .hero .wrap{max-width:none;margin-left:auto;margin-right:auto}
+}
+/* 手機首屏必須「零跌出」：390×844 直度時，hero 內文需要壓縮約 45px。
+   收窄上下留白＋壓縮字級與間距，令 CTA、信任句、三個數字連出處全部留在 844px 內。 */
+@media (max-width:520px){
+  .hero .wrap{padding-top:16px;padding-bottom:2px}
+  .kicker-lg{margin-bottom:.4em;font-size:.68rem;letter-spacing:.18em}
+  .slogan{font-size:clamp(1.48rem,6.9vw,1.95rem);line-height:1.16;margin-bottom:.24em}
+  .subline{font-size:.9rem;line-height:1.48;margin-bottom:.32em}
+  .who{font-size:.82rem;line-height:1.44;margin-bottom:.44em}
+  .cta-row{gap:9px}
+  .cta-row .btn{font-size:.84rem;padding:.56em .98em}
+  .trust{margin-top:.4em;font-size:.73rem}
+  .stats{margin-top:.26em;padding-top:.34em;gap:3px}
+  .stats .s b{font-size:1.08rem;min-height:1.35em}
+  .stats .s b.sm{font-size:.94rem;min-height:1.6em}
+  .stats .s i{font-size:.66rem;line-height:1.35;margin-top:.15em}
+  .stats .s u{font-size:.62rem;line-height:1.32;margin-top:.2em}
+  .stats .src{font-size:.65rem;margin:.05em 0 0}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到主要內容</a>
+<div class="stagingbar">示範版本（STAGING）· 內容未對外 · 數字附來源 · 未經法律審閱</div>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html">灣區第二人生<small>SECOND LIFE · 宜居樂（珠海）企業服務有限公司</small></a>
+  <nav class="topnav" aria-label="主要導覽">
+    <a href="index.html#now">為何現在</a>
+    <a href="index.html#hours">一小時生活圈</a>
+    <a href="index.html#cost">生活對照</a>
+    <a href="index.html#care">醫療與照顧</a>
+    <a href="index.html#truth">不隱瞞的事</a>
+    <a class="cross" href="disclosure.html">風險披露</a>
+  </nav>
+</div></header>
+<main id="main"><noscript><p class="wrap" style="margin-top:14px"><strong>本網站的全部文字內容不需要 JavaScript 亦完整可見。</strong>滾動視差與滑鼠視差屬漸進增強；若您停用了 JavaScript，或已在系統開啟「減少動態效果」，頁面會以靜態完整顯示。</p></noscript><section class="hero">
+  <img class="hero-img" src="assets/hero_A.jpg" alt="3D 微縮模型風格的海灣景觀：左邊密集城市、右邊海岸小鎮，一條橋橫跨靜水連接兩地（AI 生成示意圖，非實景）" width="1600" height="900" fetchpriority="high" decoding="async">
+  <div class="hero-glow"></div>
+  <div class="hero-frost"></div>
+  <div class="hero-panel"></div>
+  <div class="hero-sheen"></div>
+  <div class="hero-scrim"></div>
+  <div class="hero-rule"></div>
+  <div class="wrap">
+    <span class="kicker-lg">大灣區．第二人生</span>
+    <h1 class="slogan">第二人生，<br>不是退場，是<em>換場</em>。</h1>
+    <p class="subline">退休、置業、醫療 —— 一小時生活圈的完整安排。</p>
+    <p class="who">為考慮在珠海、中山生活的香港家庭而設。先把數字攤開，您看完了，再決定。</p>
+    <div class="cta-row">
+      <a class="btn" href="https://wa.me/85296229372?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E7%B4%A2%E5%8F%96%E3%80%8A%E7%81%A3%E5%8D%80%E7%AC%AC%E4%BA%8C%E4%BA%BA%E7%94%9F%E8%A6%8F%E5%8A%83%E6%9B%B8%E3%80%8B%E3%80%82" rel="noopener" target="_blank">索取《灣區第二人生規劃書》</a>
+      <a class="btn ghost" href="#now">先看數字</a>
+    </div>
+    <p class="trust">所有數字附公開來源<span>·</span>先諮詢、後決定<span>·</span>不催促、不硬銷</p>
+    <div class="stats">
+      <div class="s"><b>22 個月</b><i>資助護理安老宿位，平均輪候時間</i><u>資料來源：社會福利署（2026-01）</u></div>
+      <div class="s"><b class="sm">HK$7,000–25,000+</b><i>私營安老院，每月收費範圍</i><u>資料來源：社署《指定安老院的院費概況》(2025-09)</u></div>
+      <div class="s"><b>近 10 萬人</b><i>香港長者已定居廣東，十年間增約四成</i><u>資料來源：立法會《數據透視》(2025-09)</u></div>
+      <p class="src">以上數字可於<a href="disclosure.html">風險與資料來源</a>頁逐項核對；收費區間屬行業統計，個別院舍差異可以很大。</p>
+    </div>
+    <p class="cap">所有查詢均由顧問本人接洽，回覆時間視實際情況而定。</p>
+  </div>
+</section>
+
+<section class="sec" id="now"><div class="wrap">
+  <span class="chap">01</span>
+  <span class="kicker">為何是現在</span>
+  <h2>香港退休面前，有三組數字</h2>
+  <div class="grid g3" style="margin-top:26px">
+    <div class="card reveal"><span class="big num">22 個月</span>
+      <p>輪候資助護理安老宿位的平均時間（津助及合約院舍）。截至 2026 年 1 月底，中央輪候冊上有 17,894 人。</p></div>
+    <div class="card reveal"><span class="big num">HK$7,000 – 25,000+</span>
+      <p>香港私營安老院的每月收費區間，視地區、房型與護理程度而定。合約院舍及自負盈虧院舍的非資助宿位，可達每月 HK$12,000 至 60,000。</p></div>
+    <div class="card reveal"><span class="big num">近 10 萬</span>
+      <p>截至 2024 年中，已定居廣東省的 65 歲或以上香港長者人數，十年間增加約 40.5%。</p></div>
+  </div>
+  <p class="src">資料來源：社會福利署《輪候資助長者住宿照顧服務的人數》(2026-01)；長者服務資訊網《香港老人院收費參考 2026》；立法會《數據透視》(2025-09)。收費區間屬行業統計，個別院舍差異可以很大。</p>
+</div></section>
+
+<section class="sec alt" id="hours">
+  <div class="wrap">
+  <span class="chap">02</span>
+  <span class="kicker">一小時生活圈</span>
+  <h2>距離，已經不是原來的距離</h2>
+  <p class="lead">子女探望、返港覆診、週末飲茶 —— 這些實際的顧慮，決定的不是「去不去」，而是「多遠」。</p>
+  <div class="grid g3" style="margin-top:26px">
+    <div class="card reveal"><span class="big num">40 – 55 分鐘</span>
+      <p>港珠澳大橋穿梭巴士（金巴）口岸至口岸的車程。金巴 24 小時營運，繁忙時段每 5 分鐘一班。</p></div>
+    <div class="card reveal"><span class="big num">約 30 分鐘</span>
+      <p>深中通道通車後，深圳至中山的車程（由原來約 2 小時縮短）。全長約 24 公里。</p></div>
+    <div class="card reveal"><span class="big num">約 1 小時 45 分</span>
+      <p>深中通道通車後，中山往返香港的跨境大巴車程（由原來約 2 小時 30 分縮短）。</p></div>
+  </div>
+  <div class="band"><img class="band-img" src="assets/bridge.jpg" alt="日出時分橫跨平靜海面的現代斜拉橋，金色薄霧" width="1600" height="900" loading="lazy" decoding="async" data-speed="5"><div class="bs"></div><div class="bc"><b>跨海之後，週末仍然可以回家飲茶。</b>橋不是為了搬得遠，是為了回來得容易。<small>本網站圖片為 AI 生成之示意圖，非實景，不代表任何實際物業或服務場所。</small></div></div>
+  <p class="src">資料來源：港珠澳大橋穿梭巴士（金巴）官方網站；深中通道通車報道（2024-06-28）。「香港市區至中山／珠海的門到門時間」暫無權威官方數字，故不列出。</p>
+</div></section>
+
+<section class="sec" id="cost"><div class="wrap">
+  <span class="chap">03</span>
+  <span class="kicker">一種預算，兩種生活</span>
+  <h2>同一個預算，可以買到什麼</h2>
+  <div class="scene">
+  <div class="card" style="margin-top:24px">
+  <table class="tbl3">
+    <thead><tr><th>項目</th><th>香港</th><th>中山</th><th>珠海</th></tr></thead>
+    <tbody>
+      <tr><td data-label="項目">資助安老院月費</td><td data-label="香港">HK$1,600 – 2,060<br><small>惟輪候極長</small></td><td data-label="中山">—</td><td data-label="珠海">—</td></tr>
+      <tr><td data-label="項目">私營／指定院舍月費</td><td data-label="香港">HK$7,000 – 25,000+</td><td data-label="中山">¥5,000 – 6,000<br><small>火炬區頤康</small></td><td data-label="珠海">¥3,500 – 4,500<br><small>和園頤養</small></td></tr>
+      <tr><td data-label="項目">商品住宅單價（每平方米）</td><td data-label="香港">—</td><td data-label="中山">2025 年約 ¥11,140<br><small>官方統計</small></td><td data-label="珠海">2025 年網簽均價約 ¥19,940</td></tr>
+      <tr><td data-label="項目">兩房單位月租中位數</td><td data-label="香港">—</td><td data-label="中山"><span class="todo">官方數字待補</span></td><td data-label="珠海"><span class="todo">官方數字待補</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+  </div>
+  <p style="margin-top:8px"><span class="todo">官方數字待補</span> — 中山及珠海的住宅月租中位數，目前只找到零散個案，並無官方或主流地產統計，因此留空而不以估算填補。</p>
+  <div class="band"><img class="band-img" src="assets/life.jpg" alt="晨光下寬敞的當代住宅客廳，落地窗望向水面" width="1600" height="900" loading="lazy" decoding="async" data-speed="4"><div class="bs"></div><div class="bc"><b>同一個預算，換來的是空間與光線。</b>面積與樓價的差距是事實；生活質素的差距，要親自看過才算數。<small>本網站圖片為 AI 生成之示意圖，非實景，不代表任何實際物業或服務場所。</small></div></div>
+  <p class="src">資料來源：社會福利署《指定安老院的院費概況》(2025-09)（多人房、未計前期一次性收費）；中山市國民經濟和社會發展統計公報（轉引南方日報，2026-06-12）；中原澳門及珠海橫琴《2025 年樓市回顧》(2026-01-06)。</p>
+</div></section>
+
+<section class="sec dark" id="care">
+  <div class="wrap">
+  <span class="chap">04</span>
+  <span class="kicker">醫療與照顧</span>
+  <h2>醫療怎樣過河，照顧怎樣安排</h2>
+  <div class="grid g2" style="margin-top:26px">
+    <div class="card reveal"><h3>政府「廣東院舍照顧服務計劃」</h3>
+      <p>2026 年 7 月起認可院舍增至 <strong>29 家</strong>。截至 2026 年 2 月底，共為 <strong>1,048 名</strong>香港長者提供資助院舍照顧服務。</p>
+      <p>入住後毋須支付食宿費、護理及個人照顧費、基本醫療費。</p></div>
+    <div class="card reveal"><h3>長者醫療券大灣區試點</h3>
+      <p>已覆蓋大灣區九個內地城市，共 <strong>21 個</strong>服務點。珠海可用：中山大學附屬第五醫院、珠海市人民醫院；中山可用：陳星海中西醫結合醫院、中山市中醫院。</p>
+      <p>截至 2025 年 3 月底，逾 26,900 名長者曾使用，涉及 250,341 宗交易。</p></div>
+  </div>
+  <div class="notice reveal">
+    <h3>使用前必須知道的限制</h3>
+    <ul>
+      <li>醫療券<strong>不可</strong>與國家醫保同時支付同一次服務；不包括住院、須預先繳費的服務及日間手術；不可用於單純購買物品、藥物或儀器。</li>
+      <li>跨境直通救護車試行計劃現時<strong>只涵蓋</strong>深圳（港大深圳醫院）及澳門（仁伯爵綜合醫院）指定派送醫院，且<strong>不涵蓋急症個案</strong>。</li>
+      <li>政府明確表示，香港公營及資助醫療服務以照顧香港本地市民為基礎。</li>
+    </ul>
+  </div>
+  <div class="band"><img class="band-img" src="assets/care.jpg" alt="明亮而安靜的空間，柔和日光透過薄窗簾，擺放綠植" width="1600" height="900" loading="lazy" decoding="async" data-speed="5"><div class="bs"></div><div class="bc"><b>醫療要過河，靠的是制度，不是運氣。</b>認可院舍、醫療券試點、跨境救護車 —— 三條通道各有明確邊界。<small>本網站圖片為 AI 生成之示意圖，非實景，不代表任何實際物業或服務場所。</small></div></div>
+  <p class="src">資料來源：社會福利署《廣東院舍照顧服務計劃》網頁；政府新聞公報（2026-06-16）；立法會七題（2026-03-25）；醫療券發展里程；立法會十八題（2025-07-09）。</p>
+</div></section>
+
+<section class="sec" id="truth"><div class="wrap">
+  <span class="chap">05</span>
+  <span class="kicker">我們不會隱瞞的事</span>
+  <h2>如果只看好處，這個決定不值得做</h2>
+  <div class="notice">
+    <ul>
+      <li><strong>樓價可以跌。</strong>橫琴住宅價格曾由每平方米約人民幣 5.6 萬元跌至約 3.9 萬元，累計跌幅約三成；有港人在中山購入約 400 多呎的公寓，估值由人民幣 70 萬元跌至 30 至 40 萬元。</li>
+      <li><strong>「免院費」不等於不需要自費。</strong>尿片、傷口敷料、緊急救護車及計劃外項目均須自付。</li>
+      <li><strong>醫療券不會累積。</strong>每年港幣 2,000 元，用不完不會轉入下一年。</li>
+      <li><strong>並非人人適合。</strong>若您需要頻繁返港覆診，或不習慣使用內地的電子支付與手機號碼，北上未必適合您。</li>
+      <li><strong>跨境匯款仍有局限。</strong>有評論指現時合作銀行選擇狹窄，宜先向銀行核實。</li>
+    </ul>
+  </div>
+  <div class="band"><img class="band-img" src="assets/truth.jpg" alt="陰天下的平靜水面與細微波紋，樸素而克制" width="1600" height="900" loading="lazy" decoding="async" data-speed="0"><div class="bs"></div><div class="bc"><b>先把不好的說清楚。</b>這一節刻意不加任何動效。<small>本網站圖片為 AI 生成之示意圖，非實景，不代表任何實際物業或服務場所。</small></div></div>
+  <p>完整的反面事實、資料來源與免責聲明，載於<a href="disclosure.html">風險披露與免責聲明</a>。</p>
+</div></section>
+
+<section class="sec alt" id="start"><div class="wrap">
+  <span class="chap">06</span>
+  <span class="kicker">您可以如何開始</span>
+  <h2>三步，不需要一次決定所有事</h2>
+  <div style="margin-top:30px;max-width:52rem">
+    <div class="step"><b>1</b><div><h3>了解</h3>
+      <p>索取《灣區第二人生規劃書》，先看數字與政策，不必留下任何個人資料以外的承諾。</p></div></div>
+    <div class="step"><b>2</b><div><h3>實地考察</h3>
+      <p>安排一次實地行程：看院舍、看社區、看醫院，用一天時間換取真實印象，而非聽人轉述。</p></div></div>
+    <div class="step"><b>3</b><div><h3>規劃</h3>
+      <p>把醫療、居住、資產三件事分開處理。哪一項先做、哪一項可以等，由您決定。</p></div></div>
+  </div>
+  <div class="band"><img class="band-img" src="assets/start.jpg" alt="日出時分的海濱步道，柔和蜿蜒向地平線" width="1600" height="900" loading="lazy" decoding="async" data-speed="4"><div class="bs"></div><div class="bc"><b>第一次北上，不需要任何承諾。</b>看院舍、看社區、看醫院 —— 用一天時間換取真實印象，而非聽人轉述。<small>本網站圖片為 AI 生成之示意圖，非實景，不代表任何實際物業或服務場所。</small></div></div>
+</div></section>
+
+<section class="sec" id="faq"><div class="wrap">
+  <span class="chap">07</span>
+  <span class="kicker">常見問題</span>
+  <h2>您可能想問</h2>
+  <details class="faq"><summary>「廣東院舍照顧服務計劃」需要資產審查嗎？</summary>
+    <div class="body"><p>不需要。申請人須接受「安老服務統一評估機制」評估，確定服務需要後，即可按評估結果申請。入住後院舍的食宿、護理、個人照顧及基本醫療費用由政府資助。</p>
+    <p class="src">資料來源：社會福利署《廣東院舍照顧服務計劃》網頁。</p></div></details>
+  <details class="faq"><summary>內地養老院是否便宜很多？</summary>
+    <div class="body"><p>視乎城市與級別。社署公布的指定院舍參考月費，由惠州約人民幣 3,000 至 4,000 元，到深圳約 7,000 至 8,000 元不等。相對香港私營安老院每月港幣 7,000 至 25,000 元以上，差距可由一半到數倍。</p>
+    <p class="src">資料來源：社署《指定安老院的院費概況》(2025-09)；長者服務資訊網 (2026)。</p></div></details>
+  <details class="faq"><summary>內地醫療是否可信？</summary>
+    <div class="body"><p>需要分開來看。內地三甲醫院的設備與專科能力並不弱，但香港醫生未必認受內地非三甲機構的影像診斷報告，臨床責任歸屬亦可能模糊。做法上，建議選擇港資背景或三甲機構、索取原始影像檔案，並保留香港的醫療方案。</p>
+    <p class="src">資料來源：跨境體檢及報告認受性討論（媒體綜合報道，2025–2026）；立法會跨境醫療合作文件 (2026-07)。</p></div></details>
+  <details class="faq"><summary>需要先買樓才可以北上養老嗎？</summary>
+    <div class="body"><p>不需要。入住政府資助的指定院舍與是否置業並無關係；置業是另一項獨立決定。我們建議把「居住」與「資產」分開考慮，兩者的風險完全不同。</p></div></details>
+  <details class="faq"><summary>為什麼網站用示意圖而不用實景照片？</summary>
+    <div class="body"><p>在取得客戶實拍照片之前，我們不願意用來源不明的圖片冒充實景。因此本網站所有圖片均為 AI 生成示意圖，並已逐張標明。取得實拍照片後會逐張替換。</p></div></details>
+
+  <div class="card" style="margin-top:36px;text-align:center">
+    <h3>先取一份規劃書，再決定下一步</h3>
+    <p>《灣區第二人生規劃書》整理本頁所有數字、政策條文與來源，方便您與家人一同討論。</p>
+    <p><a class="btn" href="https://wa.me/85296229372?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E7%B4%A2%E5%8F%96%E3%80%8A%E7%81%A3%E5%8D%80%E7%AC%AC%E4%BA%8C%E4%BA%BA%E7%94%9F%E8%A6%8F%E5%8A%83%E6%9B%B8%E3%80%8B%E3%80%82" rel="noopener" target="_blank">索取規劃書</a>
+       <a class="btn ghost" href="https://wa.me/85296229372?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A4%A7%E7%81%A3%E5%8D%80%E5%AE%89%E8%80%81%E9%99%A2%E8%BD%89%E4%BB%8B%E7%9A%84%E5%AE%89%E6%8E%92%E3%80%82" rel="noopener" target="_blank">問安老院轉介</a></p>
+    <p style="font-size:.82rem;color:var(--fg-2)">所有查詢均由顧問本人接洽，回覆時間視實際情況而定。</p>
+  </div>
+</div></section>
+</main><footer><div class="wrap">
+  <div class="fgrid">
+    <div>
+      <h4>灣區第二人生</h4>
+      <p>退休、置業、醫療與照顧的安排顧問。<br>由已定居大灣區的顧問親自接洽。</p>
+      <p><a class="btn sm" href="https://wa.me/85296229372?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E7%81%A3%E5%8D%80%E7%AC%AC%E4%BA%8C%E4%BA%BA%E7%94%9F%E7%9A%84%E9%A1%A7%E5%95%8F%E6%9C%8D%E5%8B%99%E3%80%82" rel="noopener" target="_blank">用 WhatsApp 查詢</a></p>
+      <p style="font-size:.82rem">所有查詢均由顧問本人接洽，回覆時間視實際情況而定。</p>
+    </div>
+    <div>
+      <h4>本頁內容</h4>
+      <p><a href="index.html#now">為何是現在</a><br>
+      <a href="index.html#hours">一小時生活圈</a><br>
+      <a href="index.html#cost">一種預算，兩種生活</a><br>
+      <a href="index.html#care">醫療與照顧</a></p>
+    </div>
+    <div>
+      <h4>重要須知</h4>
+      <p><a href="disclosure.html">風險披露與免責聲明</a><br>
+      <a href="index.html#truth">我們不會隱瞞的事</a><br>
+      <a href="index.html#faq">常見問題</a></p>
+    </div>
+  </div>
+  <div class="disclaim">
+    <p>本網站圖片為 AI 生成之示意圖，非實景，不代表任何實際物業或服務場所。</p>
+    <p>本網站為示範版本，並非投資、法律、醫療或稅務建議。所有數字取自公開資料並註明來源，惟政策與價格隨時變動，實際情況以官方公布及合約為準。</p>
+    <p>© 宜居樂（珠海）企業服務有限公司 · 示範網站（staging）</p>
+  </div>
+</div></footer>
+<script>
+(function(){
+  var RM = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+  function reduced(){ return !!(RM && RM.matches); }
+
+  /* --- 章節導覽：捲動時標示現行章節（無障礙輔助，非動效） --- */
+  var rail = document.querySelectorAll('.rail a[href^="#"]');
+  var secs = [].map.call(rail, function(a){ return document.querySelector(a.getAttribute('href')); });
+  if (rail.length && window.IntersectionObserver) {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (!e.isIntersecting) return;
+        var id = '#' + e.target.id;
+        rail.forEach(function(a){ a.setAttribute('aria-current', a.getAttribute('href') === id ? 'true' : 'false'); });
+      });
+    }, {rootMargin:'-45% 0px -50% 0px'});
+    secs.forEach(function(s){ if (s) io.observe(s); });
+  }
+
+  /* --- 章節導覽高亮：不依賴動效，減少動態時亦運作 --- */
+  (function(){
+    var secs = [].slice.call(document.querySelectorAll('main section[id]'));
+    var links = [].slice.call(document.querySelectorAll('.topnav a[href*="#"]'));
+    if (!secs.length || !links.length || !window.IntersectionObserver) return;
+    var map = {};
+    links.forEach(function(a){
+      var id = (a.getAttribute('href') || '').split('#')[1];
+      if (id) map[id] = a;
+    });
+    var sio = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        var a = map[e.target.id];
+        if (!a || !e.isIntersecting) return;
+        links.forEach(function(x){ x.removeAttribute('data-on'); });
+        a.setAttribute('data-on', '1');
+      });
+    }, {rootMargin:'-45% 0px -45% 0px'});
+    secs.forEach(function(s){ sio.observe(s); });
+  })();
+
+  /* 使用者要求減少動態：不註冊任何 scroll / mouse 監聽，內容照常完整可讀 */
+  if (reduced()) return;
+
+  /* --- 漸進揭示（.js 由 <head> 內聯 script 加入；無 JS 時內容本來就可見） --- */
+  var reveals = document.querySelectorAll('.reveal');
+  if (reveals.length && window.IntersectionObserver) {
+    var rio = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('on'); rio.unobserve(e.target); }
+      });
+    }, {rootMargin:'0px 0px -12% 0px'});
+    reveals.forEach(function(el){ rio.observe(el); });
+  } else {
+    /* 無 IntersectionObserver：直接全部顯示，唔可以留低隱形內容 */
+    reveals.forEach(function(el){ el.classList.add('on'); });
+  }
+  /* 單一安全機制：IntersectionObserver 對載入時已在視窗內嘅元素會即時回呼，
+     故無需再加計時器安全網（原 1.4 秒三重冗餘已移除）。 */
+
+  /* --- 帶狀圖視差（進入視口才啟動；全站唯一保留嘅動效） --- */
+  var stats = [];
+  if (window.IntersectionObserver) {
+    document.querySelectorAll('.sec').forEach(function(sec){
+      var lyrs = sec.querySelectorAll('.lyr, .band-img');
+      if (!lyrs.length) return;
+      var st = {sec:sec, lyrs:lyrs, active:false, top:0};
+      stats.push(st);
+      new IntersectionObserver(function(es){
+        es.forEach(function(e){ st.active = e.isIntersecting; });
+      }, {rootMargin:'15% 0px'}).observe(sec);
+    });
+  }
+
+  /* 鼠標視差與 3D 傾斜卡已移除：與「最簡單」目標相衝，對內容理解零貢獻。 */
+
+  /* --- 單一 rAF 迴圈 --- */
+  var ticking = false;
+  function frame(){
+    ticking = false;
+    var vh = window.innerHeight;
+    stats.forEach(function(st){
+      if (!st.active) return;
+      var r = st.sec.getBoundingClientRect();
+      var p = (r.top + r.height/2 - vh/2) / vh;   /* -1 .. 1 */
+      if (p > 1.2 || p < -1.2) return;
+      st.lyrs.forEach(function(l){
+        var speed = parseFloat(l.getAttribute('data-speed') || '6');
+        l.style.transform = 'translate3d(0,' + (-p*speed).toFixed(2) + '%,0)';
+      });
+    });
+  }
+  function request(){ if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+  window.addEventListener('scroll', request, {passive:true});
+  window.addEventListener('resize', request, {passive:true});
+  request();
+})();
+</script>
+</body>
+</html>

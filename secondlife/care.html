@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>安老院轉介｜灣區第二人生（Staging 示範版）</title>
+<meta name="description" content="香港安老院輪候現實、政府廣東院舍照顧服務計劃、內地院舍月費對照及必須知道的風險。">
+<meta name="theme-color" content="#123B33">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand:#123B33; --brand-2:#1B5A4E; --bg:#F6F1E7; --card:#FFFCF6;
+  --cta:#C2571C; --cta-hover:#A3460F; --data:#24384A;
+  --notice-bg:#FFF6E0; --notice-line:#C99A2E;
+  --ink:#1A1A1A; --ink-2:#4A4A4A; --line:#DED5C4;
+  --ok:#1E6B4F; --warn:#8A5A00; --radius:12px; --maxw:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  font-size:18px; line-height:1.75;
+  padding-bottom:calc(76px + env(safe-area-inset-bottom));
+}
+h1,h2{font-family:"Noto Serif TC","Songti TC",serif; line-height:1.35; margin:0 0 .5em}
+h1{font-size:clamp(28px,5.2vw,48px); font-weight:900; letter-spacing:.01em}
+h2{font-size:clamp(22px,3.4vw,32px); font-weight:700; margin-top:0}
+h3{font-size:20px; font-weight:700; margin:0 0 .4em}
+p{margin:0 0 1em}
+a{color:var(--brand-2)}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px}
+.num{font-variant-numeric:tabular-nums}
+
+/* 頂欄 */
+header.top{background:var(--brand); color:#fff; position:sticky; top:0; z-index:50; box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.top-in{max-width:var(--maxw); margin:0 auto; padding:12px 20px; display:flex; align-items:center; gap:16px; flex-wrap:wrap}
+.brand{font-family:"Noto Serif TC",serif; font-weight:900; font-size:21px; color:#fff; text-decoration:none; margin-right:auto}
+.brand small{display:block; font-family:"Noto Sans TC",sans-serif; font-weight:400; font-size:12px; opacity:.85; letter-spacing:.08em}
+nav.main{display:flex; gap:4px; flex-wrap:wrap}
+nav.main a{color:#EAF2EF; text-decoration:none; font-size:15px; padding:9px 11px; border-radius:8px; min-height:44px; display:flex; align-items:center}
+nav.main a:hover,nav.main a[aria-current]{background:rgba(255,255,255,.16); color:#fff}
+
+/* Hero */
+.hero{background:linear-gradient(165deg,var(--brand) 0%,var(--brand-2) 100%); color:#fff; padding:clamp(36px,7vw,80px) 0}
+.hero h1{color:#fff; max-width:20em}
+.hero .lead{font-size:clamp(18px,2.2vw,22px); color:#DCE9E5; max-width:34em}
+.hero .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:24px}
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  background:var(--cta); color:#fff !important; text-decoration:none; font-weight:700;
+  padding:14px 22px; border-radius:10px; min-height:48px; font-size:17px; border:2px solid var(--cta)}
+.btn:hover{background:var(--cta-hover); border-color:var(--cta-hover)}
+.btn.ghost{background:transparent; border-color:rgba(255,255,255,.65); color:#fff !important}
+.btn.ghost:hover{background:rgba(255,255,255,.16)}
+.btn.sm{font-size:16px; padding:11px 16px; min-height:44px}
+.btn.dark{background:var(--brand); border-color:var(--brand)}
+.btn.dark:hover{background:var(--brand-2); border-color:var(--brand-2)}
+
+/* 區塊 */
+section{padding:clamp(32px,5vw,64px) 0}
+section.alt{background:#FBF7EE}
+.kicker{display:inline-block; background:var(--notice-bg); color:var(--warn); border-left:4px solid var(--notice-line);
+  padding:5px 12px; border-radius:0 6px 6px 0; font-size:15px; font-weight:700; margin-bottom:12px}
+.grid{display:grid; gap:18px}
+.g2{grid-template-columns:1fr}
+.g3{grid-template-columns:1fr}
+@media (min-width:700px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+  padding:22px; box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.card h3{color:var(--brand)}
+.card .big{font-family:"Noto Serif TC",serif; font-size:clamp(26px,4vw,38px); font-weight:900; color:var(--brand); display:block; line-height:1.2}
+.card .big.o{color:var(--cta)}
+.card p{font-size:17px; color:var(--ink-2); margin-bottom:.6em}
+
+/* 表格 */
+.tscroll{overflow-x:auto}
+.dtable{width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; font-size:16px}
+.dtable th{background:var(--data); color:#fff; text-align:left; padding:12px 14px; font-weight:700; font-size:16px}
+.dtable td{padding:12px 14px; border-top:1px solid var(--line); vertical-align:top}
+.dtable tr:nth-child(even) td{background:#FBF7EE}
+.dtable .hi{color:var(--ok); font-weight:700}
+.dtable .lo{color:var(--warn); font-weight:700}
+@media (max-width:640px){
+  .tscroll{overflow-x:visible}
+  .dtable{font-size:16px; border:none; background:transparent}
+  .dtable thead{display:none}
+  .dtable tr{display:block; border:1px solid var(--line); border-radius:10px; margin-bottom:12px; background:var(--card); overflow:hidden}
+  .dtable td{display:block; border:none; border-bottom:1px dashed var(--line); padding:10px 14px}
+  .dtable td:last-child{border-bottom:none}
+  .dtable td::before{content:attr(data-label); display:block; font-weight:700; color:var(--ink-2); font-size:14px; margin-bottom:2px}
+  .dtable tr:nth-child(even) td{background:transparent}
+}
+.src{font-size:14px; color:var(--ink-2); margin-top:8px; line-height:1.6}
+
+/* 披露框 */
+.notice{background:var(--notice-bg); border-left:5px solid var(--notice-line); border-radius:0 10px 10px 0; padding:18px 20px; margin:20px 0}
+.notice h3{color:var(--warn); font-size:18px}
+.notice ul{margin:.4em 0 0; padding-left:1.2em}
+.notice li{margin-bottom:.45em; font-size:16px}
+
+ul.plain{padding-left:1.15em}
+ul.plain li{margin-bottom:.55em}
+.pill{display:inline-block; background:#E7F1ED; color:var(--brand); font-size:14px; font-weight:700; padding:3px 10px; border-radius:999px; margin:0 6px 6px 0}
+details.faq{border:1px solid var(--line); border-radius:10px; background:var(--card); padding:0; margin-bottom:12px}
+details.faq summary{cursor:pointer; padding:16px 20px; font-weight:700; min-height:44px; display:flex; align-items:center; font-size:18px}
+details.faq[open] summary{border-bottom:1px solid var(--line)}
+details.faq .body{padding:14px 20px}
+details.faq .body p{font-size:17px}
+
+/* sticky WhatsApp bar（手機） */
+.stickybar{position:fixed; left:0; right:0; bottom:0; z-index:60; background:var(--brand); border-top:3px solid var(--cta);
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom)); display:flex; gap:10px; align-items:center; justify-content:center}
+.stickybar .lbl{color:#DCE9E5; font-size:15px; font-weight:700; margin-right:auto}
+.stickybar .btn{flex:0 0 auto}
+@media (min-width:900px){.stickybar{display:none} body{padding-bottom:0}}
+
+footer.bot{background:#0E2C26; color:#C7D8D3; padding:40px 0 30px; font-size:16px}
+footer.bot h4{color:#fff; font-size:17px; margin:0 0 10px}
+footer.bot a{color:#9FD0C2}
+footer.bot .cols{display:grid; gap:26px; grid-template-columns:1fr}
+@media (min-width:700px){footer.bot .cols{grid-template-columns:2fr 1fr 1fr}}
+footer.bot .fine{border-top:1px solid #24463E; margin-top:24px; padding-top:16px; font-size:14px; color:#9FB5AF}
+.ph{background:repeating-linear-gradient(45deg,#EDE6D8,#EDE6D8 10px,#E3DACA 10px,#E3DACA 20px);
+  border:1px dashed #B7A98C; border-radius:10px; color:#6B5E45; display:flex; align-items:center; justify-content:center;
+  text-align:center; font-size:15px; padding:26px 16px; min-height:130px}
+.bar{background:#EDE6D8; border-radius:6px; height:14px; overflow:hidden; margin:10px 0 4px}
+.bar span{display:block; height:100%; background:var(--brand)}
+.bar.o span{background:var(--cta)}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="/secondlife/">灣區第二人生<small>SECOND LIFE · 宜居樂（珠海）企業服務</small></a>
+  <nav class="main">
+    <a href="/secondlife/">首頁</a>
+    <a href="trend.html">西移大趨勢</a>
+    <a href="cities.html">城市指南</a>
+    <a href="care.html" aria-current="page">安老院轉介</a>
+    <a href="property.html">置業</a>
+    <a href="car.html">出行</a>
+    <a href="checkup.html">內地體檢團</a>
+    <a href="about.html">關於我們</a>
+    <a href="faq.html">常見問題</a>
+    <a href="disclosure.html">風險披露</a>
+    <a href="contact.html">聯絡我們</a>
+  </nav>
+</div></header>
+
+<section class="hero" style="padding:clamp(30px,5vw,60px) 0"><div class="wrap">
+  <h1>安老院轉介：香港等 22 個月，你可以先上去睇一次</h1>
+  <p class="lead">呢一頁寫畀兩類人睇：為自己準備嘅準退休人士，同為父母奔波嘅子女。</p>
+  <div class="cta-row"><a class="btn" href="https://wa.me/85296229372?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A4%A7%E7%81%A3%E5%8D%80%E5%AE%89%E8%80%81%E9%99%A2%E8%BD%89%E4%BB%8B%E6%9C%8D%E5%8B%99%20%5BSL-CARE%5D" rel="noopener">用 WhatsApp 傾一傾</a></div>
+</div></section>
+
+<section><div class="wrap">
+  <span class="kicker">香港嘅現實</span>
+  <h2>輪候，同一個月費嘅距離</h2>
+  <div class="tscroll"><table class="dtable"><thead><tr><th>項目</th><th>數字</th><th>說明</th></tr></thead><tbody><tr><td data-label="項目">資助護理安老宿位輪候（津助及合約院舍）</td><td data-label="數字">22 個月</td><td data-label="說明">截至 2026 年 1 月底統計</td></tr><tr><td data-label="項目">改善買位計劃私營安老院</td><td data-label="數字">6 個月</td><td data-label="說明">兩者綜合平均 12 個月</td></tr><tr><td data-label="項目">資助護養院宿位</td><td data-label="數字">8 個月</td><td data-label="說明">護理需求較高者</td></tr><tr><td data-label="項目">中央輪候冊人數</td><td data-label="數字">17,894 人</td><td data-label="說明">截至 2026 年 1 月底（另有 37,830 宗「非活躍」個案）</td></tr><tr><td data-label="項目">香港私營安老院月費</td><td data-label="數字">HK$7,000 – 25,000+</td><td data-label="說明">視地區、房型、護理程度；合約及自負盈虧院舍可達 HK$12,000 – 60,000</td></tr><tr><td data-label="項目">長者院舍券面值（2026-04-01 起）</td><td data-label="數字">護理安老 $17,015／月；護養院 $21,982／月</td><td data-label="說明">「錢跟人走」，須通過入息及資產審查定共同付款級別</td></tr></tbody></table></div><p class="src">資料來源：社會福利署《輪候資助長者住宿照顧服務的人數》(2026-01)；社署《長者院舍照顧服務券計劃》；長者服務資訊網《香港老人院收費參考 2026》。　·　資料截至 2026-11-03。價格及政策會變動，以官方最新公布為準。</p>
+  <div style="margin-top:20px"><a class="btn" href="https://wa.me/85296229372?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A4%A7%E7%81%A3%E5%8D%80%E5%AE%89%E8%80%81%E9%99%A2%E8%BD%89%E4%BB%8B%E6%9C%8D%E5%8B%99%20%5BSL-CARE%5D" rel="noopener">想知你／家人排到咩位置？用 WhatsApp 問</a></div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+  <span class="kicker">政府現有計劃</span>
+  <h2>「廣東院舍照顧服務計劃」係咩</h2>
+  <p>呢個係社會福利署推行嘅資助院舍照顧服務，讓正在中央輪候冊輪候資助護理安老宿位或護養院宿位、而有意在內地養老嘅香港長者，選擇入住廣東省內嘅認可安老院。</p>
+  <div class="grid g3" style="margin-top:18px">
+    <div class="card"><span class="big num">29 間</span><p>認可院舍數目（2026 年 7 月 1 日起），分布深圳、廣州、佛山、東莞、中山、珠海、江門、肇慶、惠州。</p></div>
+    <div class="card"><span class="big num">免資產審查</span><p>毋須入息及資產審查，但須通過「安老服務統一評估機制」確定服務需要。</p></div>
+    <div class="card"><span class="big num">6 個月</span><p>試住期。期內離開，可按原本申請日期恢復中央輪候冊位置。</p></div>
+  </div>
+  <ul class="plain" style="margin-top:18px">
+    <li><strong>入住免院費：</strong>食宿、護理、個人照顧及基本醫療費用由政府資助。</li>
+    <li><strong>醫療補貼（2025-12-22 起，為期 2 年）：</strong>由社署委託中國太平人壽保險（香港）推行 —— 門診自付費用每年上限人民幣 10,000 元，住院每年上限人民幣 30,000 元。</li>
+    <li><strong>綜援長者赴粵養老試驗計劃（2025-10-01 起，為期 3 年）：</strong>每名合資格長者每月可獲 HK$5,000 資助，名額 1,000 個。</li>
+    <li><strong>「廣東計劃」現金援助：</strong>高齡津貼（70 歲或以上）每月 HK$1,675；長者生活津貼（65 歲或以上）每月 HK$4,345（須入息及資產審查，並在付款年度內於廣東居住不少於 60 天）。</li>
+  </ul>
+  <p class="src">資料來源：社會福利署《廣東院舍照顧服務計劃》網頁及《醫療補貼試行安排》服務簡介；政府新聞公報 (2026-06-16)；立法會七題 - 本港長者入住廣東院舍 (2026-03-25)；2025 施政報告。　·　資料截至 2026-11-03。價格及政策會變動，以官方最新公布為準。</p>
+  <div style="margin-top:20px"><a class="btn" href="https://wa.me/85296229372?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A4%A7%E7%81%A3%E5%8D%80%E5%AE%89%E8%80%81%E9%99%A2%E8%BD%89%E4%BB%8B%E6%9C%8D%E5%8B%99%20%5BSL-CARE%5D" rel="noopener">想知自己符唔符合資格？用 WhatsApp 問</a></div>
+</div></section>
+
+<section><div class="wrap">
+  <span class="kicker">月費對照</span>
+  <h2>指定院舍參考月費（人民幣）</h2>
+  <div class="tscroll"><table class="dtable"><thead><tr><th>院舍</th><th>城市</th><th>參考月費（多人房）</th></tr></thead><tbody><tr><td data-label="院舍">蔚耆（廣東）養老有限公司</td><td data-label="城市">惠州</td><td data-label="參考月費（多人房）">¥3,000 – 4,000</td></tr><tr><td data-label="院舍">珠海和園頤養中心 ⚠️</td><td data-label="城市">珠海</td><td data-label="參考月費（多人房）">¥3,500 – 4,500</td></tr><tr><td data-label="院舍">江門市新會區養老中心</td><td data-label="城市">江門</td><td data-label="參考月費（多人房）">¥4,000 – 5,000</td></tr><tr><td data-label="院舍">中山市頤康養老服務有限公司</td><td data-label="城市">中山</td><td data-label="參考月費（多人房）">¥5,000 – 6,000</td></tr><tr><td data-label="院舍">深業頤居養老運營（深圳）有限公司</td><td data-label="城市">深圳</td><td data-label="參考月費（多人房）">¥7,000 – 8,000</td></tr></tbody></table></div><p class="src">資料來源：社會福利署《指定安老院的院費概況》(2025-09)，以多人房計，不包括前期一次性收費。⚠️ 珠海和園頤養中心因宿位緊張，已於 2026 年 6 月 12 日起停止接受新的申請。　·　資料截至 2026-11-03。價格及政策會變動，以官方最新公布為準。</p>
+  <div style="margin-top:20px"><a class="btn" href="https://wa.me/85296229372?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A4%A7%E7%81%A3%E5%8D%80%E5%AE%89%E8%80%81%E9%99%A2%E8%BD%89%E4%BB%8B%E6%9C%8D%E5%8B%99%20%5BSL-CARE%5D" rel="noopener">想睇實際院舍環境？預約考察</a></div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+  <span class="kicker">醫療過河</span>
+  <h2>長者醫療券同跨境醫療安排</h2>
+  <ul class="plain">
+    <li><strong>長者醫療券大灣區試點計劃：</strong>已覆蓋大灣區全部九個內地城市，連同港大深圳醫院「一院兩點」共 21 個服務點。合資格長者每年可用 HK$2,000，<strong>不可累積</strong>。</li>
+    <li><strong>使用情況：</strong>截至 2026 年 5 月底，超過 40,600 名合資格長者曾在試點醫療機構使用醫療券，涉及約 101,000 宗交易，總額約 HK$1.03 億；使用者整體滿意度平均 9.15 分（滿分 10 分）。</li>
+    <li><strong>醫管局病人先導計劃（港大深圳醫院）：</strong>2023 年 5 月推出，延長至 2027 年 3 月 31 日。每名合資格病人每次診症共付人民幣 100 元，餘額由計劃資助、每年上限人民幣 2,000 元。截至 2026 年 2 月底累計超過 6,000 名病人參加，逾六成為 65 歲或以上長者。</li>
+  </ul>
+  <p class="src">資料來源：立法會 CB(3)801/2026(05) 跨境醫療合作文件 (2026-07)；政府新聞公報 (2026-03-31)。　·　資料截至 2026-11-03。價格及政策會變動，以官方最新公布為準。</p>
+</div></section>
+
+<section><div class="wrap">
+  <div class="notice"><h3>請注意：以下係你決策前必須知嘅事</h3><ul><li><strong>「免院費」唔代表唔需要自費。</strong>計劃資助食宿、護理、個人照顧及基本醫療，但尿片、傷口敷料等消耗品、緊急救護車費用，以及計劃以外嘅額外項目要自費。大部分院舍亦要求入住時預繳醫療押金。</li><li><strong>宿位會緊張。</strong>珠海和園頤養中心已於 2026 年 6 月 12 日起停止接受新申請；部分院舍社署亦以符號標示輪候時間不確定。</li><li><strong>實際採用率仍然好低。</strong>為綜援長者而設嘅粵閩養老計劃名額 1,000 個，截至 2026 年 3 月只批核 10 宗。政策存在，但由申請到成事嘅門檻唔低 —— 唔好當佢係一條自動通道。</li><li><strong>醫療券唔可以累積。</strong>每年 HK$2,000，用唔完唔會留到下一年，亦不可與國家醫保同時支付同一項服務，不包括住院。</li><li><strong>報告認受性。</strong>香港醫生未必認受內地非三甲機構嘅影像診斷報告，臨床責任歸屬亦可能模糊。建議選港資背景或三甲機構，並索取原始影像檔。</li><li><strong>跨境救護車有限制。</strong>現行跨境直通救護車試行計劃只涵蓋深圳（港大深圳醫院）與澳門（仁伯爵綜合醫院）指定派送醫院，且不涵蓋急症個案。</li><li><strong>香港公營醫療唔會因為你搬上去而改變。</strong>政府已明確表示，公營及資助醫療服務以照顧香港本地市民為基礎，有關措施並非為全面照顧選擇在內地定居的香港市民。</li><li><strong>自費前要問清楚。</strong>入住前必須向院舍索取完整收費清單，包括押金、消耗品、陪診、特別護理等項目。</li></ul></div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+  <h2>下一步：我哋可以做咩</h2>
+  <div class="grid g3">
+    <div class="card"><h3>01 先計數</h3><p>用你嘅預算，對照香港同內地嘅實際開支，睇下差距有幾大。</p></div>
+    <div class="card"><h3>02 去睇一次</h3><p>安排實地考察團 —— 睇樓、睇院舍、行下附近街市同商場，親身感受。</p></div>
+    <div class="card"><h3>03 先試住</h3><p>廣東院舍計劃本身有 6 個月試住期；亦可考慮短租試住 1 – 3 個月再決定。</p></div>
+  </div>
+  <div style="margin-top:24px"><div class="card" style="background:var(--brand); border-color:var(--brand)"><h3 style="color:#fff">預約實地考察團</h3><p style="color:#DCE9E5">我哋會按你嘅預算同需要，安排 2 個項目實地參觀，連同醫院及生活配套。</p><a class="btn" href="https://wa.me/85296229372?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A4%A7%E7%81%A3%E5%8D%80%E5%AE%89%E8%80%81%E9%99%A2%E8%BD%89%E4%BB%8B%E6%9C%8D%E5%8B%99%20%5BSL-CARE%5D" rel="noopener">用 WhatsApp 問一問</a></div></div>
+</div></section>
+
+<footer class="bot"><div class="wrap">
+  <div class="cols">
+    <div>
+      <h4>灣區第二人生 · Second Life</h4>
+      <p>香港人北上大灣區（中山 · 珠海）退休、置業、安老院轉介及內地體檢團的實地顧問服務。</p>
+      <p>營運實體：<strong>宜居樂（珠海）企業服務有限公司</strong><br>
+      創辦人：Causson 朱嘉信</p>
+    </div>
+    <div>
+      <h4>服務</h4>
+      <p><a href="/secondlife/care.html">安老院轉介</a><br>
+      <a href="/secondlife/property.html">置業</a><br>
+      <a href="/secondlife/car.html">出行</a><br>
+      <a href="/secondlife/checkup.html">內地體檢團</a></p>
+    </div>
+    <div>
+      <h4>關於</h4>
+      <p><a href="/secondlife/about.html">關於我們</a><br>
+      <a href="/secondlife/faq.html">常見問題</a><br>
+      <a href="/secondlife/disclosure.html">風險披露與免責</a><br>
+      <a href="/secondlife/contact.html">聯絡我們</a></p>
+    </div>
+  </div>
+  <div class="fine">
+    <p><strong>本頁為 Staging 示範版（dummy）。</strong>未經法律審閱，未對外發佈，頁面內所有示範數據僅供內部討論之用，不可作為任何決定依據。</p>
+    <p>本網站提供的數字均標明來源及資料截止日期，資料截至 2026-11-03。政策及價格會變動，實際情況請向官方渠道及專業人士核實。本網站不提供醫療、法律或投資建議。</p>
+    <p>© 2026 宜居樂（珠海）企業服務有限公司 · 灣區第二人生</p>
+  </div>
+</div></footer>
+<div class="stickybar">
+  <span class="lbl">想了解多啲？</span>
+  <a class="btn sm" href="https://wa.me/85296229372?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A4%A7%E7%81%A3%E5%8D%80%E5%AE%89%E8%80%81%E9%99%A2%E8%BD%89%E4%BB%8B%E6%9C%8D%E5%8B%99%20%5BSL-CARE%5D" rel="noopener">WhatsApp 問一問</a>
+</div>
+
+</body>
+</html>

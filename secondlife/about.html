@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>關於我們｜灣區第二人生（Staging 示範版）</title>
+<meta name="description" content="關於 Causson 朱嘉信及宜居樂（珠海）企業服務有限公司：背景、服務理念及利益關係披露。">
+<meta name="theme-color" content="#123B33">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand:#123B33; --brand-2:#1B5A4E; --bg:#F6F1E7; --card:#FFFCF6;
+  --cta:#C2571C; --cta-hover:#A3460F; --data:#24384A;
+  --notice-bg:#FFF6E0; --notice-line:#C99A2E;
+  --ink:#1A1A1A; --ink-2:#4A4A4A; --line:#DED5C4;
+  --ok:#1E6B4F; --warn:#8A5A00; --radius:12px; --maxw:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  font-size:18px; line-height:1.75;
+  padding-bottom:calc(76px + env(safe-area-inset-bottom));
+}
+h1,h2{font-family:"Noto Serif TC","Songti TC",serif; line-height:1.35; margin:0 0 .5em}
+h1{font-size:clamp(28px,5.2vw,48px); font-weight:900; letter-spacing:.01em}
+h2{font-size:clamp(22px,3.4vw,32px); font-weight:700; margin-top:0}
+h3{font-size:20px; font-weight:700; margin:0 0 .4em}
+p{margin:0 0 1em}
+a{color:var(--brand-2)}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px}
+.num{font-variant-numeric:tabular-nums}
+
+/* 頂欄 */
+header.top{background:var(--brand); color:#fff; position:sticky; top:0; z-index:50; box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.top-in{max-width:var(--maxw); margin:0 auto; padding:12px 20px; display:flex; align-items:center; gap:16px; flex-wrap:wrap}
+.brand{font-family:"Noto Serif TC",serif; font-weight:900; font-size:21px; color:#fff; text-decoration:none; margin-right:auto}
+.brand small{display:block; font-family:"Noto Sans TC",sans-serif; font-weight:400; font-size:12px; opacity:.85; letter-spacing:.08em}
+nav.main{display:flex; gap:4px; flex-wrap:wrap}
+nav.main a{color:#EAF2EF; text-decoration:none; font-size:15px; padding:9px 11px; border-radius:8px; min-height:44px; display:flex; align-items:center}
+nav.main a:hover,nav.main a[aria-current]{background:rgba(255,255,255,.16); color:#fff}
+
+/* Hero */
+.hero{background:linear-gradient(165deg,var(--brand) 0%,var(--brand-2) 100%); color:#fff; padding:clamp(36px,7vw,80px) 0}
+.hero h1{color:#fff; max-width:20em}
+.hero .lead{font-size:clamp(18px,2.2vw,22px); color:#DCE9E5; max-width:34em}
+.hero .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:24px}
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  background:var(--cta); color:#fff !important; text-decoration:none; font-weight:700;
+  padding:14px 22px; border-radius:10px; min-height:48px; font-size:17px; border:2px solid var(--cta)}
+.btn:hover{background:var(--cta-hover); border-color:var(--cta-hover)}
+.btn.ghost{background:transparent; border-color:rgba(255,255,255,.65); color:#fff !important}
+.btn.ghost:hover{background:rgba(255,255,255,.16)}
+.btn.sm{font-size:16px; padding:11px 16px; min-height:44px}
+.btn.dark{background:var(--brand); border-color:var(--brand)}
+.btn.dark:hover{background:var(--brand-2); border-color:var(--brand-2)}
+
+/* 區塊 */
+section{padding:clamp(32px,5vw,64px) 0}
+section.alt{background:#FBF7EE}
+.kicker{display:inline-block; background:var(--notice-bg); color:var(--warn); border-left:4px solid var(--notice-line);
+  padding:5px 12px; border-radius:0 6px 6px 0; font-size:15px; font-weight:700; margin-bottom:12px}
+.grid{display:grid; gap:18px}
+.g2{grid-template-columns:1fr}
+.g3{grid-template-columns:1fr}
+@media (min-width:700px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+  padding:22px; box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.card h3{color:var(--brand)}
+.card .big{font-family:"Noto Serif TC",serif; font-size:clamp(26px,4vw,38px); font-weight:900; color:var(--brand); display:block; line-height:1.2}
+.card .big.o{color:var(--cta)}
+.card p{font-size:17px; color:var(--ink-2); margin-bottom:.6em}
+
+/* 表格 */
+.tscroll{overflow-x:auto}
+.dtable{width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; font-size:16px}
+.dtable th{background:var(--data); color:#fff; text-align:left; padding:12px 14px; font-weight:700; font-size:16px}
+.dtable td{padding:12px 14px; border-top:1px solid var(--line); vertical-align:top}
+.dtable tr:nth-child(even) td{background:#FBF7EE}
+.dtable .hi{color:var(--ok); font-weight:700}
+.dtable .lo{color:var(--warn); font-weight:700}
+@media (max-width:640px){
+  .tscroll{overflow-x:visible}
+  .dtable{font-size:16px; border:none; background:transparent}
+  .dtable thead{display:none}
+  .dtable tr{display:block; border:1px solid var(--line); border-radius:10px; margin-bottom:12px; background:var(--card); overflow:hidden}
+  .dtable td{display:block; border:none; border-bottom:1px dashed var(--line); padding:10px 14px}
+  .dtable td:last-child{border-bottom:none}
+  .dtable td::before{content:attr(data-label); display:block; font-weight:700; color:var(--ink-2); font-size:14px; margin-bottom:2px}
+  .dtable tr:nth-child(even) td{background:transparent}
+}
+.src{font-size:14px; color:var(--ink-2); margin-top:8px; line-height:1.6}
+
+/* 披露框 */
+.notice{background:var(--notice-bg); border-left:5px solid var(--notice-line); border-radius:0 10px 10px 0; padding:18px 20px; margin:20px 0}
+.notice h3{color:var(--warn); font-size:18px}
+.notice ul{margin:.4em 0 0; padding-left:1.2em}
+.notice li{margin-bottom:.45em; font-size:16px}
+
+ul.plain{padding-left:1.15em}
+ul.plain li{margin-bottom:.55em}
+.pill{display:inline-block; background:#E7F1ED; color:var(--brand); font-size:14px; font-weight:700; padding:3px 10px; border-radius:999px; margin:0 6px 6px 0}
+details.faq{border:1px solid var(--line); border-radius:10px; background:var(--card); padding:0; margin-bottom:12px}
+details.faq summary{cursor:pointer; padding:16px 20px; font-weight:700; min-height:44px; display:flex; align-items:center; font-size:18px}
+details.faq[open] summary{border-bottom:1px solid var(--line)}
+details.faq .body{padding:14px 20px}
+details.faq .body p{font-size:17px}
+
+/* sticky WhatsApp bar（手機） */
+.stickybar{position:fixed; left:0; right:0; bottom:0; z-index:60; background:var(--brand); border-top:3px solid var(--cta);
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom)); display:flex; gap:10px; align-items:center; justify-content:center}
+.stickybar .lbl{color:#DCE9E5; font-size:15px; font-weight:700; margin-right:auto}
+.stickybar .btn{flex:0 0 auto}
+@media (min-width:900px){.stickybar{display:none} body{padding-bottom:0}}
+
+footer.bot{background:#0E2C26; color:#C7D8D3; padding:40px 0 30px; font-size:16px}
+footer.bot h4{color:#fff; font-size:17px; margin:0 0 10px}
+footer.bot a{color:#9FD0C2}
+footer.bot .cols{display:grid; gap:26px; grid-template-columns:1fr}
+@media (min-width:700px){footer.bot .cols{grid-template-columns:2fr 1fr 1fr}}
+footer.bot .fine{border-top:1px solid #24463E; margin-top:24px; padding-top:16px; font-size:14px; color:#9FB5AF}
+.ph{background:repeating-linear-gradient(45deg,#EDE6D8,#EDE6D8 10px,#E3DACA 10px,#E3DACA 20px);
+  border:1px dashed #B7A98C; border-radius:10px; color:#6B5E45; display:flex; align-items:center; justify-content:center;
+  text-align:center; font-size:15px; padding:26px 16px; min-height:130px}
+.bar{background:#EDE6D8; border-radius:6px; height:14px; overflow:hidden; margin:10px 0 4px}
+.bar span{display:block; height:100%; background:var(--brand)}
+.bar.o span{background:var(--cta)}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="/secondlife/">灣區第二人生<small>SECOND LIFE · 宜居樂（珠海）企業服務</small></a>
+  <nav class="main">
+    <a href="/secondlife/">首頁</a>
+    <a href="trend.html">西移大趨勢</a>
+    <a href="cities.html">城市指南</a>
+    <a href="care.html">安老院轉介</a>
+    <a href="property.html">置業</a>
+    <a href="car.html">出行</a>
+    <a href="checkup.html">內地體檢團</a>
+    <a href="about.html" aria-current="page">關於我們</a>
+    <a href="faq.html">常見問題</a>
+    <a href="disclosure.html">風險披露</a>
+    <a href="contact.html">聯絡我們</a>
+  </nav>
+</div></header>
+
+<section class="hero" style="padding:clamp(30px,5vw,60px) 0"><div class="wrap">
+  <h1>關於 Causson 朱嘉信｜宜居樂（珠海）企業服務</h1>
+  <p class="lead">一個真正搬咗上去住嘅香港人，做你嘅實地顧問。</p>
+</div></section>
+
+<section><div class="wrap">
+  <div class="grid g2">
+    <div class="ph" style="min-height:280px">Causson 朱嘉信先生實景相待客戶提供<br><small>（本頁為 staging 示範版，未使用任何示意圖或購買圖片）</small></div>
+    <div class="card">
+      <h3>超過 20 年香港財富管理經驗</h3>
+      <p>在香港金融保險及財富管理界深耕逾 20 年，深明香港中產階層對退休生活嘅期望與擔憂。</p>
+      <p>為此創辦「宜居樂（珠海）企業服務有限公司」，親身踏足並定居大灣區，成為客戶嘅「實地顧問」。</p>
+      <p><strong>資歷核實：</strong>有關牌照號碼及專業資格，待客戶提供後於本頁更新。</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+  <span class="kicker">點解要搬上去</span>
+  <h2>隔住個芒睇樓，係睇唔到嘢嘅</h2>
+  <p>做財富管理嘅時候，我見過太多人做退休決定嘅方式：睇圖片、聽經紀講、睇一個下午就落訂。</p>
+  <p>但退休唔係一單交易，係未來十幾二十年嘅生活。你想知嘅係：樓下間醫院幾遠、街市啲餸幾錢、朝早飲茶要唔要排隊、落雨嘅時候屋苑會唔會水浸。呢啲嘢，坐喺香港係查唔到嘅。</p>
+  <p>所以我搬咗上去。唔係做經紀，係做一個住喺當地、可以幫你落場睇嘅人。</p>
+</div></section>
+
+<section><div class="wrap">
+  <span class="kicker">服務理念</span>
+  <h2>把退休決定，當成一場資產配置</h2>
+  <div class="grid g3">
+    <div class="card"><h3>先算，後睇</h3><p>用你嘅實際預算同收入，對照當地生活開支，先知道呢件事可唔可行。</p></div>
+    <div class="card"><h3>先睇，後決定</h3><p>安排實地考察 —— 睇樓、睇院舍、睇醫院、睇街市，唔靠圖片。</p></div>
+    <div class="card"><h3>唔啱就講唔啱</h3><p>如果計完數發現唔划算，或者你根本唔適應，我哋會照講。</p></div>
+  </div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+  <span class="kicker">營運實體</span>
+  <h2>公司資料</h2>
+  <div class="card">
+    <p><strong>公司名稱：</strong>宜居樂（珠海）企業服務有限公司</p>
+    <p><strong>業務性質：</strong>大灣區退休及置業顧問、安老院轉介、內地體檢團安排</p>
+    <p><strong>聯絡：</strong>WhatsApp +852 9622 9372</p>
+    <p><strong>註冊資料：</strong>商業登記／註冊編號待客戶提供後於本頁更新。</p>
+  </div>
+  <div class="notice"><h3>請注意：以下係你決策前必須知嘅事</h3><ul><li><strong>利益關係披露：</strong>本公司可能就轉介服務（包括安老院、物業、車輛、體檢及其他服務）收取費用或佣金。具體收費及佣金安排待客戶提供並確認後於此頁及〈風險披露與免責聲明〉更新。</li><li><strong>服務性質：</strong>本網站及本公司提供嘅係顧問及轉介服務，<strong>不構成醫療建議、法律建議或投資建議</strong>。</li><li><strong>資歷聲明：</strong>「超過 20 年香港金融保險及財富管理經驗」為客戶提供之陳述，相關專業資格及牌照資料待客戶補充以供核實。</li></ul></div>
+</div></section>
+
+<section><div class="wrap">
+  <div style="margin-top:6px"><div class="card" style="background:var(--brand); border-color:var(--brand)"><h3 style="color:#fff">想同 Causson 傾一傾？</h3><p style="color:#DCE9E5">講你嘅情況就得：你係為自己定為父母準備、大概預算、有冇特別嘅醫療需要。</p><a class="btn" href="https://wa.me/85296229372?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A4%A7%E7%81%A3%E5%8D%80%E5%AE%89%E8%80%81%E9%99%A2%E8%BD%89%E4%BB%8B%E6%9C%8D%E5%8B%99%20%5BSL-CARE%5D" rel="noopener">用 WhatsApp 問一問</a></div></div>
+</div></section>
+
+<footer class="bot"><div class="wrap">
+  <div class="cols">
+    <div>
+      <h4>灣區第二人生 · Second Life</h4>
+      <p>香港人北上大灣區（中山 · 珠海）退休、置業、安老院轉介及內地體檢團的實地顧問服務。</p>
+      <p>營運實體：<strong>宜居樂（珠海）企業服務有限公司</strong><br>
+      創辦人：Causson 朱嘉信</p>
+    </div>
+    <div>
+      <h4>服務</h4>
+      <p><a href="/secondlife/care.html">安老院轉介</a><br>
+      <a href="/secondlife/property.html">置業</a><br>
+      <a href="/secondlife/car.html">出行</a><br>
+      <a href="/secondlife/checkup.html">內地體檢團</a></p>
+    </div>
+    <div>
+      <h4>關於</h4>
+      <p><a href="/secondlife/about.html">關於我們</a><br>
+      <a href="/secondlife/faq.html">常見問題</a><br>
+      <a href="/secondlife/disclosure.html">風險披露與免責</a><br>
+      <a href="/secondlife/contact.html">聯絡我們</a></p>
+    </div>
+  </div>
+  <div class="fine">
+    <p><strong>本頁為 Staging 示範版（dummy）。</strong>未經法律審閱，未對外發佈，頁面內所有示範數據僅供內部討論之用，不可作為任何決定依據。</p>
+    <p>本網站提供的數字均標明來源及資料截止日期，資料截至 2026-11-03。政策及價格會變動，實際情況請向官方渠道及專業人士核實。本網站不提供醫療、法律或投資建議。</p>
+    <p>© 2026 宜居樂（珠海）企業服務有限公司 · 灣區第二人生</p>
+  </div>
+</div></footer>
+<div class="stickybar">
+  <span class="lbl">想了解多啲？</span>
+  <a class="btn sm" href="https://wa.me/85296229372?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A4%A7%E7%81%A3%E5%8D%80%E5%AE%89%E8%80%81%E9%99%A2%E8%BD%89%E4%BB%8B%E6%9C%8D%E5%8B%99%20%5BSL-CARE%5D" rel="noopener">WhatsApp 問一問</a>
+</div>
+
+</body>
+</html>

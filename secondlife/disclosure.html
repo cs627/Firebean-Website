@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>風險披露與免責聲明｜灣區第二人生（Staging 示範版）</title>
+<meta name="description" content="灣區第二人生的風險披露、服務性質聲明、資料來源與時效、利益關係披露及個人資料處理。">
+<meta name="theme-color" content="#123B33">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand:#123B33; --brand-2:#1B5A4E; --bg:#F6F1E7; --card:#FFFCF6;
+  --cta:#C2571C; --cta-hover:#A3460F; --data:#24384A;
+  --notice-bg:#FFF6E0; --notice-line:#C99A2E;
+  --ink:#1A1A1A; --ink-2:#4A4A4A; --line:#DED5C4;
+  --ok:#1E6B4F; --warn:#8A5A00; --radius:12px; --maxw:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  font-size:18px; line-height:1.75;
+  padding-bottom:calc(76px + env(safe-area-inset-bottom));
+}
+h1,h2{font-family:"Noto Serif TC","Songti TC",serif; line-height:1.35; margin:0 0 .5em}
+h1{font-size:clamp(28px,5.2vw,48px); font-weight:900; letter-spacing:.01em}
+h2{font-size:clamp(22px,3.4vw,32px); font-weight:700; margin-top:0}
+h3{font-size:20px; font-weight:700; margin:0 0 .4em}
+p{margin:0 0 1em}
+a{color:var(--brand-2)}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px}
+.num{font-variant-numeric:tabular-nums}
+
+/* 頂欄 */
+header.top{background:var(--brand); color:#fff; position:sticky; top:0; z-index:50; box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.top-in{max-width:var(--maxw); margin:0 auto; padding:12px 20px; display:flex; align-items:center; gap:16px; flex-wrap:wrap}
+.brand{font-family:"Noto Serif TC",serif; font-weight:900; font-size:21px; color:#fff; text-decoration:none; margin-right:auto}
+.brand small{display:block; font-family:"Noto Sans TC",sans-serif; font-weight:400; font-size:12px; opacity:.85; letter-spacing:.08em}
+nav.main{display:flex; gap:4px; flex-wrap:wrap}
+nav.main a{color:#EAF2EF; text-decoration:none; font-size:15px; padding:9px 11px; border-radius:8px; min-height:44px; display:flex; align-items:center}
+nav.main a:hover,nav.main a[aria-current]{background:rgba(255,255,255,.16); color:#fff}
+
+/* Hero */
+.hero{background:linear-gradient(165deg,var(--brand) 0%,var(--brand-2) 100%); color:#fff; padding:clamp(36px,7vw,80px) 0}
+.hero h1{color:#fff; max-width:20em}
+.hero .lead{font-size:clamp(18px,2.2vw,22px); color:#DCE9E5; max-width:34em}
+.hero .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:24px}
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  background:var(--cta); color:#fff !important; text-decoration:none; font-weight:700;
+  padding:14px 22px; border-radius:10px; min-height:48px; font-size:17px; border:2px solid var(--cta)}
+.btn:hover{background:var(--cta-hover); border-color:var(--cta-hover)}
+.btn.ghost{background:transparent; border-color:rgba(255,255,255,.65); color:#fff !important}
+.btn.ghost:hover{background:rgba(255,255,255,.16)}
+.btn.sm{font-size:16px; padding:11px 16px; min-height:44px}
+.btn.dark{background:var(--brand); border-color:var(--brand)}
+.btn.dark:hover{background:var(--brand-2); border-color:var(--brand-2)}
+
+/* 區塊 */
+section{padding:clamp(32px,5vw,64px) 0}
+section.alt{background:#FBF7EE}
+.kicker{display:inline-block; background:var(--notice-bg); color:var(--warn); border-left:4px solid var(--notice-line);
+  padding:5px 12px; border-radius:0 6px 6px 0; font-size:15px; font-weight:700; margin-bottom:12px}
+.grid{display:grid; gap:18px}
+.g2{grid-template-columns:1fr}
+.g3{grid-template-columns:1fr}
+@media (min-width:700px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+  padding:22px; box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.card h3{color:var(--brand)}
+.card .big{font-family:"Noto Serif TC",serif; font-size:clamp(26px,4vw,38px); font-weight:900; color:var(--brand); display:block; line-height:1.2}
+.card .big.o{color:var(--cta)}
+.card p{font-size:17px; color:var(--ink-2); margin-bottom:.6em}
+
+/* 表格 */
+.tscroll{overflow-x:auto}
+.dtable{width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; font-size:16px}
+.dtable th{background:var(--data); color:#fff; text-align:left; padding:12px 14px; font-weight:700; font-size:16px}
+.dtable td{padding:12px 14px; border-top:1px solid var(--line); vertical-align:top}
+.dtable tr:nth-child(even) td{background:#FBF7EE}
+.dtable .hi{color:var(--ok); font-weight:700}
+.dtable .lo{color:var(--warn); font-weight:700}
+@media (max-width:640px){
+  .tscroll{overflow-x:visible}
+  .dtable{font-size:16px; border:none; background:transparent}
+  .dtable thead{display:none}
+  .dtable tr{display:block; border:1px solid var(--line); border-radius:10px; margin-bottom:12px; background:var(--card); overflow:hidden}
+  .dtable td{display:block; border:none; border-bottom:1px dashed var(--line); padding:10px 14px}
+  .dtable td:last-child{border-bottom:none}
+  .dtable td::before{content:attr(data-label); display:block; font-weight:700; color:var(--ink-2); font-size:14px; margin-bottom:2px}
+  .dtable tr:nth-child(even) td{background:transparent}
+}
+.src{font-size:14px; color:var(--ink-2); margin-top:8px; line-height:1.6}
+
+/* 披露框 */
+.notice{background:var(--notice-bg); border-left:5px solid var(--notice-line); border-radius:0 10px 10px 0; padding:18px 20px; margin:20px 0}
+.notice h3{color:var(--warn); font-size:18px}
+.notice ul{margin:.4em 0 0; padding-left:1.2em}
+.notice li{margin-bottom:.45em; font-size:16px}
+
+ul.plain{padding-left:1.15em}
+ul.plain li{margin-bottom:.55em}
+.pill{display:inline-block; background:#E7F1ED; color:var(--brand); font-size:14px; font-weight:700; padding:3px 10px; border-radius:999px; margin:0 6px 6px 0}
+details.faq{border:1px solid var(--line); border-radius:10px; background:var(--card); padding:0; margin-bottom:12px}
+details.faq summary{cursor:pointer; padding:16px 20px; font-weight:700; min-height:44px; display:flex; align-items:center; font-size:18px}
+details.faq[open] summary{border-bottom:1px solid var(--line)}
+details.faq .body{padding:14px 20px}
+details.faq .body p{font-size:17px}
+
+/* sticky WhatsApp bar（手機） */
+.stickybar{position:fixed; left:0; right:0; bottom:0; z-index:60; background:var(--brand); border-top:3px solid var(--cta);
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom)); display:flex; gap:10px; align-items:center; justify-content:center}
+.stickybar .lbl{color:#DCE9E5; font-size:15px; font-weight:700; margin-right:auto}
+.stickybar .btn{flex:0 0 auto}
+@media (min-width:900px){.stickybar{display:none} body{padding-bottom:0}}
+
+footer.bot{background:#0E2C26; color:#C7D8D3; padding:40px 0 30px; font-size:16px}
+footer.bot h4{color:#fff; font-size:17px; margin:0 0 10px}
+footer.bot a{color:#9FD0C2}
+footer.bot .cols{display:grid; gap:26px; grid-template-columns:1fr}
+@media (min-width:700px){footer.bot .cols{grid-template-columns:2fr 1fr 1fr}}
+footer.bot .fine{border-top:1px solid #24463E; margin-top:24px; padding-top:16px; font-size:14px; color:#9FB5AF}
+.ph{background:repeating-linear-gradient(45deg,#EDE6D8,#EDE6D8 10px,#E3DACA 10px,#E3DACA 20px);
+  border:1px dashed #B7A98C; border-radius:10px; color:#6B5E45; display:flex; align-items:center; justify-content:center;
+  text-align:center; font-size:15px; padding:26px 16px; min-height:130px}
+.bar{background:#EDE6D8; border-radius:6px; height:14px; overflow:hidden; margin:10px 0 4px}
+.bar span{display:block; height:100%; background:var(--brand)}
+.bar.o span{background:var(--cta)}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="/secondlife/">灣區第二人生<small>SECOND LIFE · 宜居樂（珠海）企業服務</small></a>
+  <nav class="main">
+    <a href="/secondlife/">首頁</a>
+    <a href="trend.html">西移大趨勢</a>
+    <a href="cities.html">城市指南</a>
+    <a href="care.html">安老院轉介</a>
+    <a href="property.html">置業</a>
+    <a href="car.html">出行</a>
+    <a href="checkup.html">內地體檢團</a>
+    <a href="about.html">關於我們</a>
+    <a href="faq.html">常見問題</a>
+    <a href="disclosure.html" aria-current="page">風險披露</a>
+    <a href="contact.html">聯絡我們</a>
+  </nav>
+</div></header>
+
+<section class="hero" style="padding:clamp(30px,5vw,60px) 0"><div class="wrap">
+  <h1>風險披露與免責聲明</h1>
+  <p class="lead">呢一頁係俾你（同你家人）喺做決定之前睇清楚嘅。</p>
+</div></section>
+
+<section><div class="wrap">
+  <div class="notice" style="border-left-color:#8A3B14">
+    <h3>⚠️ 本頁尚未經法律審閱</h3>
+    <ul>
+      <li>本頁為 <strong>staging 示範版（dummy）</strong>，內容為草擬稿，<strong>未經律師審閱</strong>。</li>
+      <li>正式對外發佈前，必須由熟悉香港及內地相關法規嘅法律專業人士審閱並定稿。</li>
+      <li>本頁內容不構成任何法律意見。</li>
+    </ul>
+  </div>
+
+  <h2>1. 服務性質聲明</h2>
+  <p>本網站由 <strong>宜居樂（珠海）企業服務有限公司</strong>（下稱「本公司」）營運。本公司提供嘅係大灣區退休及置業<strong>顧問及轉介服務</strong>。</p>
+  <p>本網站及本公司：</p>
+  <ul class="plain">
+    <li><strong>不提供醫療建議。</strong>任何體檢項目選擇、報告解讀、診斷及治療，須由註冊醫生決定。</li>
+    <li><strong>不提供法律建議。</strong>物業買賣、合約、產權、稅務及居留事宜，須由具備相關司法管轄區資格嘅律師處理。</li>
+    <li><strong>不提供投資建議。</strong>本網站唔會就任何物業或資產嘅升值潛力、回報或價格穩定性作出陳述或承諾。</li>
+    <li><strong>不提供受規管之財務策劃服務。</strong>如有需要，請諮詢持牌專業人士。</li>
+  </ul>
+
+  <h2>2. 資料來源與時效</h2>
+  <p>本網站所載數字及政策資料，均為公開可查證資料之整理，並標明來源及資料截止日期（本網站整體資料截至 2026-11-03）。</p>
+  <ul class="plain">
+    <li>價格、政策及服務安排<strong>會隨時間變動</strong>，本網站未必能即時反映最新情況。</li>
+    <li>部分數字（例如市場租金、餐飲消費）屬<strong>市場約數</strong>或<strong>自行換算</strong>，並非官方統計，已在相關位置標明。</li>
+    <li>所有資料僅供一般參考，<strong>不可作為任何決定嘅唯一依據</strong>。實際情況請向官方渠道、銀行、律師及醫療專業人士核實。</li>
+    <li>如發現本網站任何資料有誤或有更新，請透過 WhatsApp 通知我們，我哋會盡快更正。</li>
+  </ul>
+
+  <h2>3. 已知風險清單</h2>
+  <div class="tscroll"><table class="dtable"><thead><tr><th>範疇</th><th>風險</th></tr></thead><tbody><tr><td data-label="範疇">醫療</td><td data-label="風險">香港醫生未必認受內地非三甲機構嘅影像診斷報告；臨床責任歸屬可能模糊。跨境直通救護車試行計劃只涵蓋深圳（港大深圳醫院）及澳門（仁伯爵綜合醫院）指定派送醫院，且不涵蓋急症個案。香港公營醫療服務以照顧香港本地市民為基礎，並非為全面照顧在內地定居嘅香港市民而設。</td></tr><tr><td data-label="範疇">醫療券</td><td data-label="風險">長者醫療券每年 HK$2,000，不可累積，不可與國家醫保同時支付同一項服務，不包括住院及日間手術。</td></tr><tr><td data-label="範疇">院舍</td><td data-label="風險">部分院舍宿位緊張（例如珠海和園頤養中心已於 2026 年 6 月 12 日起停止接受新申請）。「免院費」不包括消耗品、緊急救護車及計劃外項目。</td></tr><tr><td data-label="範疇">物業</td><td data-label="風險">內地樓價可以大幅下跌。橫琴住宅價格曾由每平方米約 ¥5.6 萬跌至約 ¥3.9 萬；亦有港人買入中山 Loft 單位後估值跌約一半。二手市場流動性可能偏低。公寓／Loft／住宅嘅產權年期、稅費及轉讓限制各異。</td></tr><tr><td data-label="範疇">匯款</td><td data-label="風險">跨境匯款有手續費及銀行渠道限制；具體安排須向銀行核實。</td></tr><tr><td data-label="範疇">生活</td><td data-label="風險">日常辦事可能需使用內地手機號、微信、支付寶；語言及制度差異可能造成不適應。離開原有社交圈子嘅心理成本不容低估。</td></tr><tr><td data-label="範疇">政策</td><td data-label="風險">所有補貼、資助及購房政策均可能隨時調整或取消。金額（例如院舍券面值、廣東計劃津貼）會按年檢討。</td></tr></tbody></table></div><p class="src">資料來源：本網站各頁提及之風險，綜合自社會福利署、立法會文件、政府新聞公報及公開媒體報道（2025-2026）。　·　資料截至 2026-11-03。價格及政策會變動，以官方最新公布為準。</p>
+
+  <h2>4. 利益關係披露</h2>
+  <p>為維持服務運作，本公司可能就以下轉介服務收取費用或佣金：</p>
+  <ul class="plain">
+    <li>安老院或養老機構轉介</li>
+    <li>物業代理或發展商轉介</li>
+    <li>車輛相關服務轉介</li>
+    <li>體檢機構或醫療服務轉介</li>
+    <li>其他大灣區生活配套服務轉介</li>
+  </ul>
+  <p><strong>具體收費水平及佣金安排，待本公司提供並確認後，將於本頁詳細列明。</strong>在您清楚了解收費安排之前，我們不會要求您作出任何承諾或簽署任何文件。您亦有權選擇自行直接聯絡任何機構。</p>
+
+  <h2>5. 個人資料處理</h2>
+  <ul class="plain">
+    <li>本網站<strong>不設任何資料收集表格</strong>，不會透過網站收集您的個人資料。</li>
+    <li>當您透過 WhatsApp 聯絡我們時，您提供的資料將用於回覆查詢及提供服務。我們會按《個人資料（私隱）條例》處理有關資料。</li>
+    <li>本網站為 staging 示範版本，<strong>不應用於收集任何真實個人資料</strong>。</li>
+  </ul>
+
+  <h2>6. 免責</h2>
+  <p>在法律允許的最大範圍內，本公司及其人員不就因使用或依賴本網站資料而引致的任何直接或間接損失承擔責任。您應自行核實所有資料，並在作出任何重大決定前諮詢相關專業人士。</p>
+
+  <h2>7. 聯絡</h2>
+  <p>如對本聲明有任何疑問：</p>
+  <div class="card" style="background:var(--brand); border-color:var(--brand)"><h3 style="color:#fff">WhatsApp 聯絡我們</h3><p style="color:#DCE9E5">我們會盡快回覆你的查詢。</p><a class="btn" href="https://wa.me/85296229372?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A4%A7%E7%81%A3%E5%8D%80%E5%AE%89%E8%80%81%E9%99%A2%E8%BD%89%E4%BB%8B%E6%9C%8D%E5%8B%99%20%5BSL-CARE%5D" rel="noopener">用 WhatsApp 問一問</a></div>
+</div></section>
+
+<footer class="bot"><div class="wrap">
+  <div class="cols">
+    <div>
+      <h4>灣區第二人生 · Second Life</h4>
+      <p>香港人北上大灣區（中山 · 珠海）退休、置業、安老院轉介及內地體檢團的實地顧問服務。</p>
+      <p>營運實體：<strong>宜居樂（珠海）企業服務有限公司</strong><br>
+      創辦人：Causson 朱嘉信</p>
+    </div>
+    <div>
+      <h4>服務</h4>
+      <p><a href="/secondlife/care.html">安老院轉介</a><br>
+      <a href="/secondlife/property.html">置業</a><br>
+      <a href="/secondlife/car.html">出行</a><br>
+      <a href="/secondlife/checkup.html">內地體檢團</a></p>
+    </div>
+    <div>
+      <h4>關於</h4>
+      <p><a href="/secondlife/about.html">關於我們</a><br>
+      <a href="/secondlife/faq.html">常見問題</a><br>
+      <a href="/secondlife/disclosure.html">風險披露與免責</a><br>
+      <a href="/secondlife/contact.html">聯絡我們</a></p>
+    </div>
+  </div>
+  <div class="fine">
+    <p><strong>本頁為 Staging 示範版（dummy）。</strong>未經法律審閱，未對外發佈，頁面內所有示範數據僅供內部討論之用，不可作為任何決定依據。</p>
+    <p>本網站提供的數字均標明來源及資料截止日期，資料截至 2026-11-03。政策及價格會變動，實際情況請向官方渠道及專業人士核實。本網站不提供醫療、法律或投資建議。</p>
+    <p>© 2026 宜居樂（珠海）企業服務有限公司 · 灣區第二人生</p>
+  </div>
+</div></footer>
+<div class="stickybar">
+  <span class="lbl">想了解多啲？</span>
+  <a class="btn sm" href="https://wa.me/85296229372?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A4%A7%E7%81%A3%E5%8D%80%E5%AE%89%E8%80%81%E9%99%A2%E8%BD%89%E4%BB%8B%E6%9C%8D%E5%8B%99%20%5BSL-CARE%5D" rel="noopener">WhatsApp 問一問</a>
+</div>
+
+</body>
+</html>
