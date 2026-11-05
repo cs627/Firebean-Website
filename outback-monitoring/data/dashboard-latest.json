@@ -1,12 +1,12 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-11-04T17:03:28.851784+00:00",
+  "generatedAt": "2026-11-05T17:06:14.345777+00:00",
   "run": {
-    "runDate": "2026-11-05",
+    "runDate": "2026-11-06",
     "dateRange": {
       "from": "2025-06-09",
-      "to": "2026-11-05"
+      "to": "2026-11-06"
     },
     "alerts": [
       {
@@ -3596,6 +3596,42 @@
       "link": "https://money.udn.com/money/story/6721/9850170",
       "branchCount": "不適用（全行業）",
       "expansion": "10 月結業店鋪數按月升約 75%，餐飲零售收縮加劇"
+    },
+    {
+      "date": "2026-11-01",
+      "competitor": "The Grill Room",
+      "type": "推廣/優惠",
+      "title": "The Grill Room 尖沙咀店登陸 OpenRice 訂座優惠：午市行政套餐 7 折（11月1日至11月15日，週六日 12:00-14:30）",
+      "summary": "OpenRice 訂座優惠頁（優惠編號 o404483）列明 The Grill Room（尖沙咀堪富利士道 6-6A 號爵寓 2 樓）午市行政套餐 7 折，適用 2026 年 11 月 1 日至 11 月 15 日、週六及週日 12:00-14:30；須經 OpenRice 網上訂座時選用，用餐限 90 分鐘、加一以原價計算、不可與其他優惠同用。屬新的限期訂座折扣。",
+      "sentiment": "中性",
+      "source": "OpenRice 訂座優惠",
+      "link": "https://www.openrice.com/zh/hongkong/offer/executive-lunch-set-menu-30-off-the-grill-room-o404483?type=offer",
+      "branchCount": "3（旺角雅蘭中心、銅鑼灣廣場二期、尖沙咀爵寓）",
+      "expansion": "無新店；以 OpenRice 訂座折扣主攻尖沙咀店週末午市"
+    },
+    {
+      "date": "2026-08-27",
+      "competitor": "Skye Roofbar and Grill（柏寧酒店，銅鑼灣）",
+      "type": "新店/擴張",
+      "title": "銅鑼灣柏寧酒店 Skye 天台酒吧開設全新扒房 Skye Roofbar and Grill：本地農場蔬菜＋戰斧雪花和牛扒／T 骨韓牛扒",
+      "summary": "國泰航空「2026 年 9 月香港熱門餐廳及酒吧」文章（刊於 2026-08-27）報道：位於銅鑼灣告士打道 310 號柏寧酒店 27 樓的天台酒吧 Skye 已引入「農場直送餐桌」概念並開設全新扒房 Skye Roofbar and Grill，與本地農場合作、善用天台自家水耕花園供菜，招牌為戰斧雪花和牛扒及 T 骨韓牛扒；雞尾酒以香港主題命名（「堅道」、「摩羅街」）。屬本輪監測新識別的酒店級扒房對手，客群與 Outback 銅鑼灣店部分重疊。（註：屬補獲舊報道，來源日期 2026-08-27）",
+      "sentiment": "中性",
+      "source": "國泰航空靈感文章（Cathay Pacific）",
+      "link": "https://www.cathaypacific.com/cx/zh_HK/inspiration/hong-kong/best-new-hong-kong-restaurants-2026.html",
+      "branchCount": "1（銅鑼灣柏寧酒店 27 樓）",
+      "expansion": "新識別競爭者（2026 年內開業的酒店天台扒房）；屬補獲舊報道，未見本週新動作"
+    },
+    {
+      "date": "2026-11-06",
+      "competitor": "Flat Iron Steak",
+      "type": "新店/擴張",
+      "title": "Flat Iron 官網分店列表核對：香港 6 間（尖沙咀朗廷／IFC／銅鑼灣 Fashion Walk／灣仔／SoHo／上環）＋澳門 1 間，與 Sheet 既有「香港 7 間」記錄不符",
+      "summary": "以 headless 瀏覽器渲染 flatironhk.com（2026-11-06 抓取）讀取官網分店清單：香港共 6 間——尖沙咀朗廷酒店低層大堂、IFC 4 樓 4010 舖、銅鑼灣 Fashion Walk 1-2 號舖、灣仔 Johnston Court、中環 SoHo 荷李活道 30 號 Al Aqmar House、上環蘇杭街 69 號；另設澳門威尼斯人店（Flat Iron Steak and The Lasagna Factory Macau）。官網現時未見既有記錄中的太古坊／鰂魚涌糖廠街分店。同日官網主打「550g Jack's Creek M9 strip loin 二人分享 HK$788 另加」。分店數目與 Sheet 記錄（7 間香港＋1 澳門）出現落差，需人工核實是否有分店結業或官網未及更新。",
+      "sentiment": "中性",
+      "source": "官方網站（headless 瀏覽器渲染，2026-11-06 抓取）",
+      "link": "https://flatironhk.com/",
+      "branchCount": "香港 6 間＋澳門 1 間（官網列表）",
+      "expansion": "⚠️ 分店數與 Sheet 記錄不符（官網 6 間 vs 記錄 7 間）；官網未列出太古坊／鰂魚涌分店，待核實"
     }
   ],
   "trend": [
