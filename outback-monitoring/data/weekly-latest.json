@@ -1,14 +1,6 @@
 {
-  "week": "2026-10-22 ~ 2026-11-03",
+  "week": "2026-10-23 ~ 2026-11-05",
   "items": [
-    {
-      "date": "2026-10-22",
-      "source": "KONGGOK 港角（著數媒體）",
-      "title": "著數優惠｜Outback $488 尊尚會籍加送 $400 券、最多四張 75 折券（20/10－30/11）",
-      "summary": "香港著數媒體 KONGGOK 港角（作者林芷晴）於2026-10-22報道 Outback「INSIDE OUTBACK」限時會員獎賞：活動期2026年10月20日至11月30日。免費登記VIP基本會員首次登記送「香脆薯條混煙肉芝士」換領券（堂食或外賣滿HK$400可用，有效至2026-12-15）；以HK$488新加入／升級／延長兩年 Prestige 尊尚會籍，於原有禮遇外再加送三重獎賞：烤豬肋骨雞槌芝士薯條拼盤換領券（滿HK$400，有效至2027-01-31）、4張HK$100現金券（共HK$400）、最多4張75折券（每張最高減HK$1,000、不設最低消費，分四段時段使用：10/20-31、11/1-15、11/16-30、12/1-15）。報道同時提示兩類會籍換領食品不同、75折券能否全取視乎參加日期，屬媒體中立補充解讀。此為官方10月20日公布之會員推廣的獨立香港媒體來源記錄（該推廣已於本表官方網站記錄），反映香港著數媒體對會員制優惠的主動轉載與消費提示。（資料來源：KONGGOK 港角）",
-      "link": "https://konggokhk.com/outback_membership_prestige_offer_2026",
-      "sentiment": "positive"
-    },
     {
       "date": "2026-10-23",
       "source": "Instagram (官方 @outbacksteakhousehk)",
@@ -56,6 +48,14 @@
       "summary": "著數101（jetso101.com）自家優惠頁收錄 Outback 現行 Inside Outback 會員推廣：2026年10月20日至11月30日，加入、升級或續期 Prestige 會員（2年 HK$488）可於原有禮遇外額外獲三項獎賞——消費滿 HK$400（堂食或外賣）送前菜拼盤一份、4 張 HK$100 現金券，以及最多 4 張 75 折優惠券（每張最高減 HK$1,000、不設最低消費）；VIP 免費入會可獲香脆薯條混煙肉芝士券。頁面同時標示「尚餘 28 天（至 11 月 30 日止）」，並附官方來源連結（outback.com.hk/news-and-promotions/page/1）。屬第三方著數平台對官方會員推廣的收錄，非官方新公布（官方 article/241 已於 2026-10-20 記錄）。收錄意義：反映 Outback 會員折扣戰繼續被著數媒體持續放大，屬 11 月檔期的持續曝光。",
       "link": "https://jetso101.com/zh-HK/deals/outback-prestige-membership-hk-488-for-2-years-join-upgrade-or-extend-1cf636a6",
       "sentiment": "neutral"
+    },
+    {
+      "date": "2026-11-05",
+      "source": "Yahoo Finance HK",
+      "title": "國際｜Outback Steakhouse 美國特許經營商 Out West Restaurant Group 申請第 11 章破產保護，放售 61 間西岸分店",
+      "summary": "Fortune Insight 經 Yahoo 財經（香港）轉載，2026-11-05：美國 Outback Steakhouse 特許經營商 Out West Restaurant Group 已申請第 11 章破產保護，並放售在西部五州餘下的 61 間分店；母公司 Bloomin' Brands 提出以 2,630 萬美元初步收購相關資產，交易仍待法院批准，亦可能出現更高競價。報道指公司早前已關閉多間虧損分店，並受客流下滑、成本上升及債務增加困擾。屬美國業務事件——香港業務由 Bloom No.1 Limited 獨立營運，但母公司／特許經營體系財務動態會影響品牌整體觀感，屬需要留意的品牌風險訊號。",
+      "link": "https://hk.finance.yahoo.com/news/%E5%9C%8B%E9%9A%9B-outback%E7%89%B9%E8%A8%B1%E7%B6%93%E7%87%9F%E5%95%86%E7%94%B3%E7%A0%B4%E7%94%A2%E4%BF%9D%E8%AD%B7-%E6%94%BE%E5%94%AE61%E9%96%93%E8%A5%BF%E5%B2%B8%E5%88%86%E5%BA%97-200018110.html",
+      "sentiment": "negative"
     }
   ],
   "alerts": [],

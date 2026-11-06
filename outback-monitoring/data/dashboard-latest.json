@@ -1,12 +1,12 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-11-05T17:06:14.345777+00:00",
+  "generatedAt": "2026-11-06T17:11:45.854496+00:00",
   "run": {
-    "runDate": "2026-11-06",
+    "runDate": "2026-11-07",
     "dateRange": {
       "from": "2025-06-09",
-      "to": "2026-11-06"
+      "to": "2026-11-07"
     },
     "alerts": [
       {
@@ -27,8 +27,8 @@
     ]
   },
   "counts": {
-    "total": 233,
-    "media": 76,
+    "total": 234,
+    "media": 77,
     "social": 157,
     "maps": 47,
     "stores": 10
@@ -2596,6 +2596,17 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, Google Maps, 旺角, 旺角MOKO, 5星"
+    },
+    {
+      "date": "2026-11-05",
+      "source": "Yahoo Finance HK",
+      "platform": "新聞媒體",
+      "title": "國際｜Outback Steakhouse 美國特許經營商 Out West Restaurant Group 申請第 11 章破產保護，放售 61 間西岸分店",
+      "summary": "Fortune Insight 經 Yahoo 財經（香港）轉載，2026-11-05：美國 Outback Steakhouse 特許經營商 Out West Restaurant Group 已申請第 11 章破產保護，並放售在西部五州餘下的 61 間分店；母公司 Bloomin' Brands 提出以 2,630 萬美元初步收購相關資產，交易仍待法院批准，亦可能出現更高競價。報道指公司早前已關閉多間虧損分店，並受客流下滑、成本上升及債務增加困擾。屬美國業務事件——香港業務由 Bloom No.1 Limited 獨立營運，但母公司／特許經營體系財務動態會影響品牌整體觀感，屬需要留意的品牌風險訊號。",
+      "link": "https://hk.finance.yahoo.com/news/%E5%9C%8B%E9%9A%9B-outback%E7%89%B9%E8%A8%B1%E7%B6%93%E7%87%9F%E5%95%86%E7%94%B3%E7%A0%B4%E7%94%A2%E4%BF%9D%E8%AD%B7-%E6%94%BE%E5%94%AE61%E9%96%93%E8%A5%BF%E5%B2%B8%E5%88%86%E5%BA%97-200018110.html",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback Steakhouse, Out West Restaurant Group, 破產保護, Bloomin' Brands, 美國業務"
     }
   ],
   "stores": [
@@ -3632,6 +3643,30 @@
       "link": "https://flatironhk.com/",
       "branchCount": "香港 6 間＋澳門 1 間（官網列表）",
       "expansion": "⚠️ 分店數與 Sheet 記錄不符（官網 6 間 vs 記錄 7 間）；官網未列出太古坊／鰂魚涌分店，待核實"
+    },
+    {
+      "date": "2026-11-06",
+      "competitor": "花園餐廳（港式扒房）",
+      "type": "結業/市場變化",
+      "title": "港式扒房沒落？花園餐廳旺角銀行中心店「拉閘」　半年連執 5 店",
+      "summary": "香港01（2026-11-06）報道：開業逾 60 年的港式「豉油西餐」老牌花園餐廳，旺角彌敦道銀行中心 2 樓分店於 11 月 5 日晚市突然拉閘停業，門外無結業告示，商場水牌及大廈招牌未拆。連同今次，品牌半年內至少關閉 5 間分店（5 月底旺角山東街租約期滿、9 月觀塘康寧道停業並被業主入稟追討逾 200 萬元欠租、銅鑼灣金百利廣場貼「暫停營業」後被標示結業、堅尼地城石山街以「內部裝修」停業至今）。全盛期全港 12 間分店，現僅餘旺角西洋菜南街及北角英皇道 2 間；2023 年亦曾因拖欠 8 名員工約 35 萬元薪金被法庭裁定罪成罰款。對 Outback 的意義：港式中價鐵板扒房大規模退場，釋放旺角／銅鑼灣／觀塘核心地段的扒房需求，但同一租金與成本壓力亦適用於所有連鎖扒房，屬機會與風險並存。",
+      "sentiment": "負面",
+      "source": "HK01 (香港01)",
+      "link": "https://www.hk01.com/%E8%B2%A1%E7%B6%93%E5%BF%AB%E8%A8%8A/60407979/%E6%B8%AF%E5%BC%8F%E6%89%92%E6%88%BF%E6%B2%92%E8%90%BD-%E8%8A%B1%E5%9C%92%E9%A4%90%E5%BB%B3%E6%97%BA%E8%A7%92%E9%8A%80%E8%A1%8C%E4%B8%AD%E5%BF%83%E5%BA%97-%E6%8B%89%E9%96%98-%E5%8D%8A%E5%B9%B4%E9%80%A3%E5%9F%B75%E5%BA%97",
+      "branchCount": "2",
+      "expansion": "收縮（半年關 5 店，全港僅餘 2 間）"
+    },
+    {
+      "date": "2026-11-06",
+      "competitor": "花園餐廳（港式扒房）",
+      "type": "結業/市場變化",
+      "title": "結業潮｜花園餐廳再有分店無預警停業　旺角銀行中心店拉閘未開業　網民憂全線結業",
+      "summary": "UHK 港生活（2026-11-06 20:00 發佈，schema datePublished 已核實）跟進報道：旺角銀行中心店拉閘後未再開業，網民憂慮品牌全線結業；報道指該老牌扒房曾遭追租逾 200 萬元、半年連失多間分店，並引述網民狠批。⚠️ 分店數目與香港01 同日報道不一致：UHK 稱「全港僅剩 1 分店」，香港01 稱「僅餘 2 間（旺角西洋菜南街、北角英皇道）」，需人工核實。此條價值在於記錄網民情緒擴散（「網民憂全線結業」），屬二手情緒證據而非官方公布。",
+      "sentiment": "負面",
+      "source": "UHK 港生活",
+      "link": "https://hk.ulifestyle.com.hk/topic/detail/20109367/",
+      "branchCount": "1（UHK 報道；與香港01 的 2 間有出入，待核）",
+      "expansion": "收縮（網民憂全線結業）"
     }
   ],
   "trend": [
@@ -3977,6 +4012,10 @@
     },
     {
       "date": "2026-11-03",
+      "count": 1
+    },
+    {
+      "date": "2026-11-05",
       "count": 1
     }
   ],
