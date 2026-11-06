@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>灣區第二人生｜大灣區退休規劃</title>
+<meta name="description" content="三分鐘看清大灣區退休的政策、價錢、風險與時間。所有數字附公開來源。">
+<link rel="alternate" hreflang="zh-Hant-HK" href="./">
+<link rel="alternate" hreflang="en" href="./en/">
+<link rel="alternate" hreflang="x-default" href="./">
+<style>
+:root{
+  /* --red 只准裝飾（2.99:1）；文字、底線、focus outline 一律 --red-ink（4.68:1） */
+  --bg:#F1EAD8; --ink:#111111; --red:#FE3939; --red-ink:#CC1A22;
+  --muted:#5A5A5A; --rule:rgba(17,17,17,.18); --white:#FFFFFF;
+  --pad:20px; --gap:12px; --sec:60px;
+  --disp:"Helvetica Neue",Helvetica,Arial,"PingFang HK","Noto Sans CJK TC","Noto Sans TC","Microsoft JhengHei",Roboto,"Droid Sans",sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Roboto Mono","Noto Sans Mono","Droid Sans Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--ink);font-family:var(--disp);
+  font-size:1rem;line-height:1.6;font-weight:400;
+}
+h1,h2,h3{margin:0;font-weight:700}
+a{color:inherit}
+img{max-width:100%;height:auto;display:block}
+.wrap{max-width:1440px;margin:0 auto;padding:0 var(--pad)}
+.mono{font-family:var(--mono);font-size:.6875rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);line-height:1.4}
+.rule{border:0;border-top:1px solid var(--rule);margin:0}
+section{border-top:1px solid var(--rule);padding:var(--sec) 0}
+section:first-of-type{border-top:0}
+.band{background:var(--white)}
+.h1{font-size:clamp(2.4rem,8.6vw,7.2rem);line-height:1.06;letter-spacing:-.01em}
+.h2{font-size:clamp(1.6rem,3.6vw,2.8rem);line-height:1.15;letter-spacing:-.01em}
+.fig{font-size:clamp(2.4rem,5.2vw,5.6rem);line-height:1;font-weight:700;
+  color:var(--red-ink);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.body{max-width:34em;margin:1rem 0 0;color:var(--muted)}
+.sub{max-width:38em;margin:1.4rem 0 0;color:var(--muted);font-size:1.0625rem}
+.fact{max-width:30em;margin:.5rem 0 0;color:var(--muted)}
+.note{max-width:34em;margin:1.25rem 0 0;color:var(--muted);font-size:.9375rem}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ── 頂欄 ── */
+.site{display:flex;flex-wrap:wrap;gap:.75rem 1.25rem;align-items:center;
+  justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--rule)}
+.brand{font-weight:700;letter-spacing:-.01em;font-size:1.0625rem}
+.nav{display:flex;flex-wrap:wrap;gap:.75rem 1.25rem}
+.nav a{text-decoration:none;border-bottom:1px solid transparent}
+.nav a:hover,.nav a:focus{border-bottom-color:var(--red-ink)}
+.clock{display:flex;gap:.75rem;align-items:center}
+.lang{border-bottom:1px solid var(--rule);text-decoration:none}
+.lang:hover,.lang:focus{border-bottom-color:var(--red-ink)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--red-ink);outline-offset:3px}
+
+/* ── 首屏 ── */
+#hero{padding:76px 0 84px}
+.hero-links{display:flex;flex-wrap:wrap;gap:.75rem 2rem;margin-top:2.25rem;align-items:baseline}
+.cta{color:var(--red-ink);font-size:1.25rem;font-weight:700;text-decoration:none;
+  border-bottom:2px solid var(--red-ink);padding-bottom:2px}
+.quiet{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink)}
+.cta:hover,.quiet:hover{border-bottom-color:var(--red-ink)}
+
+/* ── 格網 ── */
+.grid{display:grid;gap:var(--gap);margin-top:1.75rem}
+.grid > *{min-width:0}
+p.fig{overflow-wrap:anywhere}
+.g3{grid-template-columns:1fr}
+.g2{grid-template-columns:1fr}
+.cell{border-top:1px solid var(--rule);padding-top:1rem}
+.cell .body,.cell .note{margin-top:.5rem}
+.num-note{margin:.75rem 0 0;color:var(--muted);max-width:26em}
+.cost .fig{font-size:clamp(1.7rem,4.2vw,2.8rem)}
+/* 兩種開支：上下堆疊獨立陳述，唔做並列比較 */
+.stack{border-top:1px solid rgba(17,17,17,.14);margin:1.75rem 0 1rem}
+.stack .row{padding:1.15rem 0;border-bottom:1px solid rgba(17,17,17,.14)}
+.stack .row .fig{margin:.35rem 0 .4rem}
+@media(min-width:768px){
+  .stack .row{display:grid;grid-template-columns:minmax(0,13rem) minmax(0,1fr) minmax(0,22rem);
+    gap:1.5rem;align-items:baseline}
+  .stack .row .fig{margin:0}
+}
+.steps .cell{border-top:1px solid var(--rule)}
+details{border-top:1px solid var(--rule);padding:14px 0}
+details summary{cursor:pointer;font-weight:700;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"＋";float:right;color:var(--muted);font-weight:400}
+details[open] summary::after{content:"－"}
+.ans{max-width:34em;margin:.5rem 0 0;color:var(--muted)}
+
+/* ── 頁尾 ── */
+footer{border-top:1px solid var(--rule);padding:80px 0 44px}
+.ftr-claim{font-size:clamp(1.8rem,5vw,3.6rem);line-height:1.08;letter-spacing:-.01em}
+.ftr-meta{display:grid;gap:var(--gap);margin-top:2.5rem}
+.ftr-meta a{text-decoration:none;border-bottom:1px solid var(--rule)}
+.ftr-meta a:hover,.ftr-meta a:focus{border-bottom-color:var(--red-ink)}
+
+@media (min-width:768px){
+  :root{--pad:40px;--gap:20px;--sec:96px}
+  .g2{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .ftr-meta{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr)}
+  #hero{padding:112px 0 112px}
+}
+@media (min-width:1024px){
+  :root{--pad:64px;--sec:112px}
+}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <div class="site">
+    <span class="brand">灣區第二人生™</span>
+    <nav class="nav" aria-label="sections"><a class="mono" href="#now">為何現在</a><a class="mono" href="#hours">小時生活圈</a><a class="mono" href="#care">醫療與照顧</a><a class="mono" href="#truth">不隱瞞的事</a></nav>
+    <span class="clock"><span class="mono">香港 · 珠海</span>
+      <a class="lang mono" href="./en/">EN</a>
+      <a class="mono" href="https://wa.me/85296229372?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E7%B4%A2%E5%8F%96%E3%80%8A%E7%81%A3%E5%8D%80%E7%AC%AC%E4%BA%8C%E4%BA%BA%E7%94%9F%E8%A6%8F%E5%8A%83%E6%9B%B8%E3%80%8B%E3%80%82">寫給我們</a></span>
+  </div>
+</header>
+
+<main>
+  <section id="hero" class="hero">
+    <div class="wrap">
+      <h1 class="h1">第二人生，不是退場，是換場。</h1>
+      <p class="sub">政策、價錢、風險與時間，一頁看完。每個數字附來源，未能核實的會標明。</p>
+      <div class="hero-links">
+        <a class="cta" href="https://wa.me/85296229372?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E7%B4%A2%E5%8F%96%E3%80%8A%E7%81%A3%E5%8D%80%E7%AC%AC%E4%BA%8C%E4%BA%BA%E7%94%9F%E8%A6%8F%E5%8A%83%E6%9B%B8%E3%80%8B%E3%80%82">索取《灣區第二人生規劃書》</a>
+        <a class="quiet" href="#truth">先看我們不會隱瞞的事</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="numbers">
+    <div class="wrap">
+      <h2 class="h2">香港退休面前，有三組數字</h2>
+      <div class="grid g3"><div class="cell"><p class="fig">127,100</p><p class="num-note">45–64 歲有意赴大灣區居住或退休的香港人。60,700（45–54）＋ 66,400（55–64）；2020 年調查推算</p></div>
+<div class="cell"><p class="fig">1.0%</p><p class="num-note">政府院舍試驗計劃的使用率。批核 10 宗 ÷ 1,000 個名額；截至 2026-03 上旬</p></div>
+<div class="cell"><p class="fig">HK$1.8 億</p><p class="num-note">該計劃三年資金池。1,000 名額 × HK$5,000／月 × 12 月 × 3 年</p></div></div>
+      <p class="body">供給已經到位，資訊與信任未到位。</p>
+    </div>
+  </section>
+
+  <section id="now">
+    <div class="wrap">
+      <h2 class="h2">為何現在</h2>
+      <div class="grid g2"><div class="cell"><p class="mono">60</p><p class="fact">歲可提早提取強積金（須終止所有受僱及自僱工作並作法定聲明）</p></div>
+<div class="cell"><p class="mono">62</p><p class="fact">香港人期望退休年齡</p></div>
+<div class="cell"><p class="mono">83.3 / 88.7</p><p class="fact">2025 年臨時預期壽命：男／女</p></div>
+<div class="cell"><p class="mono">10–15</p><p class="fact">50 歲距離「沒有主動收入」的年數</p></div></div>
+    </div>
+  </section>
+
+  <section id="hours">
+    <div class="wrap">
+      <h2 class="h2">一小時生活圈</h2>
+      <div class="grid g2">
+        <div><p class="body">距離縮短了，決定沒有變簡單。</p><p class="note">大灣區九市，21 個服務點。</p><p class="note">香港市區至中山／珠海的門到門時間暫無權威官方數字，故不列出。</p></div>
+        <div class="grid g2 hours-list"><div class="cell"><p class="mono">高鐵</p><p class="fact">高速鐵路</p></div>
+<div class="cell"><p class="mono">金巴</p><p class="fact">港珠澳大橋穿梭巴士</p></div>
+<div class="cell"><p class="mono">跨境巴士</p><p class="fact">過境客運</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cost" class="cost">
+    <div class="wrap">
+      <h2 class="h2">兩種開支，兩種量度</h2>
+      <div class="stack"><div class="row"><p class="mono">香港 ｜ 量度：每月</p><p class="fig">HK$14,700</p><p class="num-note">退休人士每月平均生活支出（高消費群 HK$23,671）</p></div>
+<div class="row"><p class="mono">北上 ｜ 量度：每次行程</p><p class="fig">¥1,350</p><p class="num-note">現時每兩個月一次行程、每次約人民幣 1,350</p></div></div>
+      <p class="note">這兩個數字量度不同的事，我們不把它們並排比較；跨境生活成本沒有一個可比的官方月度數字。</p>
+    </div>
+  </section>
+
+  <section id="care" class="band">
+    <div class="wrap">
+      <h2 class="h2">醫療怎樣過河，照顧怎樣安排</h2>
+      <div class="grid g3"><div class="cell"><p class="mono">廣東計劃</p><p class="fig">HK$4,345／月</p><p class="num-note">長者生活津貼（高齡津貼 HK$1,675）；2026-02-01 起；申請前須連續居港最少 1 年</p></div>
+<div class="cell"><p class="mono">廣東院舍照顧服務計劃</p><p class="fig">26 → 29 家</p><p class="num-note">2026 年 2 月底 26 家在粵認可院舍、1,048 名香港長者；2026-07-01 起增至 29 家；免資產審查</p></div>
+<div class="cell"><p class="mono">長者醫療券</p><p class="fig">21 個服務點</p><p class="num-note">大灣區內地九市試點</p></div></div>
+      <p class="body">29 家院舍中 6 間宿位緊張（3 間在深圳、1 間在珠海）；另有地區入住率偏低。本頁未取得分區入住率數字。</p>
+    </div>
+  </section>
+
+  <section id="truth">
+    <div class="wrap">
+      <h2 class="h2">如果只看好處，這個決定不值得做</h2>
+      <div class="grid g3"><div class="cell"><p class="mono">01</p><p class="fact">3 年 758 宗大灣區置業投訴，單一最高 ¥233 萬。</p></div>
+<div class="cell"><p class="mono">02</p><p class="fact">1,056 名長者投資騙案受害人，近六成損失 HK$10–100 萬，七成以上 60–69 歲。</p></div>
+<div class="cell"><p class="mono">03</p><p class="fact">我們把未能獨立核實的數字標示出來，例如 2025 年全港詐騙總損失約 HK$81 億（未能核實）。</p></div></div>
+    </div>
+  </section>
+
+  <section id="steps" class="steps">
+    <div class="wrap">
+      <h2 class="h2">三步，不需要一次決定所有事</h2>
+      <div class="grid g3"><div class="cell"><p class="mono">01 了解</p><p class="fact">先取規劃書，不需要留個人資料。</p></div>
+<div class="cell"><p class="mono">02 實地考察</p><p class="fact">親身去一次，比看一百張相片準確。</p></div>
+<div class="cell"><p class="mono">03 規劃</p><p class="fact">把時間、預算、醫療與照顧排成一條可執行的次序。</p></div></div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <h2 class="h2">您可能想問</h2>
+      <div class="faq-list"><details><summary>我未夠 65 歲，現在規劃是否太早？</summary><p class="ans">規劃窗口在 50–65 歲：60 歲可提取強積金，期望退休年齡約 62 歲。</p></details>
+<details><summary>住大灣區會否影響香港的福利？</summary><p class="ans">廣東計劃與廣東院舍計劃屬跨境安排，各有資格門檻（例：連續居港最少 1 年）。</p></details>
+<details><summary>醫療券在大灣區可以用嗎？</summary><p class="ans">可以，試點已覆蓋內地九市共 21 個服務點。</p></details>
+<details><summary>院舍要等多久？</summary><p class="ans">供應並非平均分布：29 家中 6 間宿位緊張，部分地區入住率極低。</p></details>
+<details><summary>你們會收佣金嗎？</summary><p class="ans">不代收院舍或物業款項；收費模式見風險披露頁。</p></details></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="ftr-claim">先取一份規劃書，再決定下一步。</p>
+    <p class="hero-links"><a class="cta" href="https://wa.me/85296229372?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E7%B4%A2%E5%8F%96%E3%80%8A%E7%81%A3%E5%8D%80%E7%AC%AC%E4%BA%8C%E4%BA%BA%E7%94%9F%E8%A6%8F%E5%8A%83%E6%9B%B8%E3%80%8B%E3%80%82">用 WhatsApp 查詢</a></p>
+    <div class="ftr-meta">
+      <div>
+        <p class="mono">宜居樂（珠海）企業服務有限公司</p>
+        <p class="note">+852 9622 9372（WhatsApp）</p>
+      </div>
+      <div><a class="mono" href="../secondlife-v5/disclosure.html">風險披露與免責聲明</a><a class="mono" href="https://firebean.net/secondlife-research/">資料來源與未能核實清單</a></div>
+      <div><p class="mono">© 2026 宜居樂（珠海）企業服務有限公司</p></div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

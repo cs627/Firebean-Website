@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Bay Area Second Life | Retirement planning in the Greater Bay Area</title>
+<meta name="description" content="Three minutes to see the policy, the price, the risk and the timing. Every figure carries a public source.">
+<link rel="alternate" hreflang="en" href="./">
+<link rel="alternate" hreflang="zh-Hant-HK" href="../">
+<link rel="alternate" hreflang="x-default" href="../">
+<style>
+:root{
+  /* --red 只准裝飾（2.99:1）；文字、底線、focus outline 一律 --red-ink（4.68:1） */
+  --bg:#F1EAD8; --ink:#111111; --red:#FE3939; --red-ink:#CC1A22;
+  --muted:#5A5A5A; --rule:rgba(17,17,17,.18); --white:#FFFFFF;
+  --pad:20px; --gap:12px; --sec:60px;
+  --disp:"Helvetica Neue",Helvetica,Arial,"PingFang HK","Noto Sans CJK TC","Noto Sans TC","Microsoft JhengHei",Roboto,"Droid Sans",sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Roboto Mono","Noto Sans Mono","Droid Sans Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--ink);font-family:var(--disp);
+  font-size:1rem;line-height:1.6;font-weight:400;
+}
+h1,h2,h3{margin:0;font-weight:700}
+a{color:inherit}
+img{max-width:100%;height:auto;display:block}
+.wrap{max-width:1440px;margin:0 auto;padding:0 var(--pad)}
+.mono{font-family:var(--mono);font-size:.6875rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);line-height:1.4}
+.rule{border:0;border-top:1px solid var(--rule);margin:0}
+section{border-top:1px solid var(--rule);padding:var(--sec) 0}
+section:first-of-type{border-top:0}
+.band{background:var(--white)}
+.h1{font-size:clamp(2.4rem,8.6vw,7.2rem);line-height:1.06;letter-spacing:-.01em}
+.h2{font-size:clamp(1.6rem,3.6vw,2.8rem);line-height:1.15;letter-spacing:-.01em}
+.fig{font-size:clamp(2.4rem,5.2vw,5.6rem);line-height:1;font-weight:700;
+  color:var(--red-ink);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.body{max-width:34em;margin:1rem 0 0;color:var(--muted)}
+.sub{max-width:38em;margin:1.4rem 0 0;color:var(--muted);font-size:1.0625rem}
+.fact{max-width:30em;margin:.5rem 0 0;color:var(--muted)}
+.note{max-width:34em;margin:1.25rem 0 0;color:var(--muted);font-size:.9375rem}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ── 頂欄 ── */
+.site{display:flex;flex-wrap:wrap;gap:.75rem 1.25rem;align-items:center;
+  justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--rule)}
+.brand{font-weight:700;letter-spacing:-.01em;font-size:1.0625rem}
+.nav{display:flex;flex-wrap:wrap;gap:.75rem 1.25rem}
+.nav a{text-decoration:none;border-bottom:1px solid transparent}
+.nav a:hover,.nav a:focus{border-bottom-color:var(--red-ink)}
+.clock{display:flex;gap:.75rem;align-items:center}
+.lang{border-bottom:1px solid var(--rule);text-decoration:none}
+.lang:hover,.lang:focus{border-bottom-color:var(--red-ink)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--red-ink);outline-offset:3px}
+
+/* ── 首屏 ── */
+#hero{padding:76px 0 84px}
+.hero-links{display:flex;flex-wrap:wrap;gap:.75rem 2rem;margin-top:2.25rem;align-items:baseline}
+.cta{color:var(--red-ink);font-size:1.25rem;font-weight:700;text-decoration:none;
+  border-bottom:2px solid var(--red-ink);padding-bottom:2px}
+.quiet{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink)}
+.cta:hover,.quiet:hover{border-bottom-color:var(--red-ink)}
+
+/* ── 格網 ── */
+.grid{display:grid;gap:var(--gap);margin-top:1.75rem}
+.grid > *{min-width:0}
+p.fig{overflow-wrap:anywhere}
+.g3{grid-template-columns:1fr}
+.g2{grid-template-columns:1fr}
+.cell{border-top:1px solid var(--rule);padding-top:1rem}
+.cell .body,.cell .note{margin-top:.5rem}
+.num-note{margin:.75rem 0 0;color:var(--muted);max-width:26em}
+.cost .fig{font-size:clamp(1.7rem,4.2vw,2.8rem)}
+/* 兩種開支：上下堆疊獨立陳述，唔做並列比較 */
+.stack{border-top:1px solid rgba(17,17,17,.14);margin:1.75rem 0 1rem}
+.stack .row{padding:1.15rem 0;border-bottom:1px solid rgba(17,17,17,.14)}
+.stack .row .fig{margin:.35rem 0 .4rem}
+@media(min-width:768px){
+  .stack .row{display:grid;grid-template-columns:minmax(0,13rem) minmax(0,1fr) minmax(0,22rem);
+    gap:1.5rem;align-items:baseline}
+  .stack .row .fig{margin:0}
+}
+.steps .cell{border-top:1px solid var(--rule)}
+details{border-top:1px solid var(--rule);padding:14px 0}
+details summary{cursor:pointer;font-weight:700;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"＋";float:right;color:var(--muted);font-weight:400}
+details[open] summary::after{content:"－"}
+.ans{max-width:34em;margin:.5rem 0 0;color:var(--muted)}
+
+/* ── 頁尾 ── */
+footer{border-top:1px solid var(--rule);padding:80px 0 44px}
+.ftr-claim{font-size:clamp(1.8rem,5vw,3.6rem);line-height:1.08;letter-spacing:-.01em}
+.ftr-meta{display:grid;gap:var(--gap);margin-top:2.5rem}
+.ftr-meta a{text-decoration:none;border-bottom:1px solid var(--rule)}
+.ftr-meta a:hover,.ftr-meta a:focus{border-bottom-color:var(--red-ink)}
+
+@media (min-width:768px){
+  :root{--pad:40px;--gap:20px;--sec:96px}
+  .g2{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .ftr-meta{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr)}
+  #hero{padding:112px 0 112px}
+}
+@media (min-width:1024px){
+  :root{--pad:64px;--sec:112px}
+}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <div class="site">
+    <span class="brand">Bay Area Second Life™</span>
+    <nav class="nav" aria-label="sections"><a class="mono" href="#now">Why now</a><a class="mono" href="#hours">One-hour radius</a><a class="mono" href="#care">Care</a><a class="mono" href="#truth">What we don't hide</a></nav>
+    <span class="clock"><span class="mono">Hong Kong · Zhuhai</span>
+      <a class="lang mono" href="../">中文</a>
+      <a class="mono" href="https://wa.me/85296229372?text=Hello%2C%20I%20would%20like%20to%20request%20the%20Bay%20Area%20Second%20Life%20plan.">Write to us</a></span>
+  </div>
+</header>
+
+<main>
+  <section id="hero" class="hero">
+    <div class="wrap">
+      <h1 class="h1">The second life is not an exit — it is a change of scene.</h1>
+      <p class="sub">The policy, the price, the risk and the timing — on one page. Every figure carries a source; anything unverified is labelled as such.</p>
+      <div class="hero-links">
+        <a class="cta" href="https://wa.me/85296229372?text=Hello%2C%20I%20would%20like%20to%20request%20the%20Bay%20Area%20Second%20Life%20plan.">Request the Bay Area Second Life plan</a>
+        <a class="quiet" href="#truth">See what we do not hide</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="numbers">
+    <div class="wrap">
+      <h2 class="h2">Three sets of numbers behind retirement in Hong Kong</h2>
+      <div class="grid g3"><div class="cell"><p class="fig">127,100</p><p class="num-note">Hong Kong residents aged 45–64 interested in living or retiring in the Greater Bay Area. 60,700 (45–54) + 66,400 (55–64); projected from the 2020 survey</p></div>
+<div class="cell"><p class="fig">1.0%</p><p class="num-note">Take-up of the government residential care pilot. 10 approvals out of 1,000 places, as at early March 2026</p></div>
+<div class="cell"><p class="fig">HK$180m</p><p class="num-note">The pilot's three-year funding pool. 1,000 places x HK$5,000 a month x 12 months x 3 years</p></div></div>
+      <p class="body">The supply is already there. The information and the trust are not.</p>
+    </div>
+  </section>
+
+  <section id="now">
+    <div class="wrap">
+      <h2 class="h2">Why now</h2>
+      <div class="grid g2"><div class="cell"><p class="mono">60</p><p class="fact">The age at which MPF savings can be withdrawn early (employment must end, with a statutory declaration)</p></div>
+<div class="cell"><p class="mono">62</p><p class="fact">The expected retirement age in Hong Kong</p></div>
+<div class="cell"><p class="mono">83.3 / 88.7</p><p class="fact">Provisional life expectancy, 2025: men / women</p></div>
+<div class="cell"><p class="mono">10–15</p><p class="fact">Years between age 50 and having no active income</p></div></div>
+    </div>
+  </section>
+
+  <section id="hours">
+    <div class="wrap">
+      <h2 class="h2">One-hour life radius</h2>
+      <div class="grid g2">
+        <div><p class="body">The distance shrank. The decision did not get simpler.</p><p class="note">21 service points across nine mainland GBA cities.</p><p class="note">There is no authoritative door-to-door figure for Hong Kong city centre to Zhongshan or Zhuhai, so we do not publish one.</p></div>
+        <div class="grid g2 hours-list"><div class="cell"><p class="mono">High-speed rail</p><p class="fact">Cross-border high-speed services</p></div>
+<div class="cell"><p class="mono">Golden Bus</p><p class="fact">HZMB shuttle bus</p></div>
+<div class="cell"><p class="mono">Cross-border coach</p><p class="fact">Coach services via land crossings</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cost" class="cost">
+    <div class="wrap">
+      <h2 class="h2">Two kinds of spending, two different measures</h2>
+      <div class="stack"><div class="row"><p class="mono">Hong Kong ｜ Measure: per month</p><p class="fig">HK$14,700</p><p class="num-note">Average monthly living costs of a retiree (HK$23,671 for higher spenders)</p></div>
+<div class="row"><p class="mono">Trips north ｜ Measure: per trip</p><p class="fig">¥1,350</p><p class="num-note">What one trip costs today, once every two months</p></div></div>
+      <p class="note">These two figures measure different things, so we do not put them side by side as a comparison. There is no comparable official monthly cost-of-living figure for living across the border.</p>
+    </div>
+  </section>
+
+  <section id="care" class="band">
+    <div class="wrap">
+      <h2 class="h2">How medical care and support cross the border</h2>
+      <div class="grid g3"><div class="cell"><p class="mono">Guangdong Scheme</p><p class="fig">HK$4,345 / month</p><p class="num-note">Old Age Living Allowance (Higher Old Age Allowance: HK$1,675); from 1 February 2026; applicants must have lived in Hong Kong for at least one year</p></div>
+<div class="cell"><p class="mono">Residential Care Services Scheme</p><p class="fig">26 → 29 homes</p><p class="num-note">26 recognised homes in Guangdong serving 1,048 Hong Kong elders as at end-February 2026; rising to 29 homes from 1 July 2026. No means test</p></div>
+<div class="cell"><p class="mono">Elderly Health Care Voucher</p><p class="fig">21 service points</p><p class="num-note">Pilot points across nine mainland GBA cities</p></div></div>
+      <p class="body">Six of the 29 homes are stretched (three in Shenzhen, one in Zhuhai); other districts have low occupancy. No district occupancy figures were obtained.</p>
+    </div>
+  </section>
+
+  <section id="truth">
+    <div class="wrap">
+      <h2 class="h2">If you only look at the upside, this decision is not worth making</h2>
+      <div class="grid g3"><div class="cell"><p class="mono">01</p><p class="fact">758 complaints about Greater Bay Area property purchases in three years; the largest single claim was ¥2.33 million.</p></div>
+<div class="cell"><p class="mono">02</p><p class="fact">1,056 elderly victims of investment fraud; nearly 60% lost between HK$100,000 and HK$1 million, and over 70% were aged 60–69.</p></div>
+<div class="cell"><p class="mono">03</p><p class="fact">We label what we cannot verify, for example about HK$8.1 billion in total fraud losses in 2025 (unverified).</p></div></div>
+    </div>
+  </section>
+
+  <section id="steps" class="steps">
+    <div class="wrap">
+      <h2 class="h2">Three steps. You do not have to decide everything at once.</h2>
+      <div class="grid g3"><div class="cell"><p class="mono">01 Understand</p><p class="fact">Request the planning document first. No personal details needed.</p></div>
+<div class="cell"><p class="mono">02 Visit</p><p class="fact">One visit tells you more than a hundred photographs.</p></div>
+<div class="cell"><p class="mono">03 Plan</p><p class="fact">Put timing, budget, medical care and support into one workable order.</p></div></div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <h2 class="h2">Questions you may have</h2>
+      <div class="faq-list"><details><summary>I am not 65 yet. Is it too early to plan?</summary><p class="ans">The planning window is 50–65: MPF can be withdrawn from 60, and the expected retirement age is about 62.</p></details>
+<details><summary>Will moving to the Greater Bay Area affect my Hong Kong benefits?</summary><p class="ans">The Guangdong Scheme and the residential care scheme are cross-border arrangements, each with its own eligibility rules, such as one year of residence in Hong Kong.</p></details>
+<details><summary>Can I use the Elderly Health Care Voucher there?</summary><p class="ans">Yes. The pilot covers 21 service points across nine mainland GBA cities.</p></details>
+<details><summary>How long is the wait for a care home place?</summary><p class="ans">Supply is not evenly distributed: six of the 29 homes are stretched, while occupancy in some districts is very low.</p></details>
+<details><summary>Do you take commission?</summary><p class="ans">We do not collect payments for care homes or property. See the risk disclosure page for how we charge.</p></details></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="ftr-claim">Request the plan first. Then decide the next step.</p>
+    <p class="hero-links"><a class="cta" href="https://wa.me/85296229372?text=Hello%2C%20I%20would%20like%20to%20request%20the%20Bay%20Area%20Second%20Life%20plan.">Message us on WhatsApp</a></p>
+    <div class="ftr-meta">
+      <div>
+        <p class="mono">Yijule (Zhuhai) Enterprise Services Co., Ltd.（宜居樂（珠海）企業服務有限公司）</p>
+        <p class="note">+852 9622 9372 (WhatsApp)</p>
+      </div>
+      <div><a class="mono" href="../../secondlife-v5/disclosure.html">Disclaimer and risk disclosure</a><a class="mono" href="https://firebean.net/secondlife-research/">Sources and unverified items</a></div>
+      <div><p class="mono">© 2026 Yijule (Zhuhai) Enterprise Services Co., Ltd.</p></div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
