@@ -144,6 +144,7 @@ header{display:flex;justify-content:space-between;align-items:center;padding:26p
       <option value="GREEN">GREEN</option>
       <option value="YELLOW">YELLOW</option>
       <option value="RED">RED</option>
+      <option value="BLACK">BLACK LIGHT</option>
     </select>
     <label>Sort</label>
     <select id="sortBy">
@@ -178,6 +179,7 @@ header{display:flex;justify-content:space-between;align-items:center;padding:26p
 <script src="data.js"></script>
 <script>
 const store=window.TL_DATA;const members=store.members||[];const chapter=store.chapter||{};
+const bandLabel=b=>b==='BLACK'?'BLACK LIGHT':b;
 const IK={'GREEN':'G','YELLOW':'Y','RED':'R'};
 document.getElementById('period').textContent=store.report_period||'';
 document.getElementById('chRank').textContent=chapter.rank||'—';
@@ -205,7 +207,7 @@ function render(){
   for(const m of list){
     const c=document.createElement('div');c.className='mcard';c.onclick=()=>openModal(m);
     const img=m.photo?`<img src="${m.photo}" loading="lazy" alt="${m.name}" onerror="this.parentNode.classList.add('no-ph','no-img');this.remove()">`:('');
-    c.innerHTML='<div class="thumb">'+(img||'<span class="no-photo">'+(m.name[0]||'?')+'</span>')+'<span class="band-tag b'+m.band+'">'+m.band+' '+m.total+'</span></div><div class="plate"><div>'+m.name+'</div><div class="sc">Rank '+m.rank+' · '+m.total+' pts</div></div></div><div class="name">'+m.name+'</div><div class="meta"><span class="rank-txt">Rank '+m.rank+'</span>'+(m.hk_rank?'<span class="hk-txt">HK '+m.hk_rank+'</span>':'<span class="score"><small>pts</small>'+(m.total||0)+'</span>')+'</div>';
+    c.innerHTML='<div class="thumb">'+(img||'<span class="no-photo">'+(m.name[0]||'?')+'</span>')+'<span class="band-tag b'+m.band+'">'+bandLabel(m.band)+' '+m.total+'</span></div><div class="plate"><div>'+m.name+'</div><div class="sc">Rank '+m.rank+' · '+m.total+' pts</div></div></div><div class="name">'+m.name+'</div><div class="meta"><span class="rank-txt">Rank '+m.rank+'</span>'+(m.hk_rank?'<span class="hk-txt">HK '+m.hk_rank+'</span>':'<span class="score"><small>pts</small>'+(m.total||0)+'</span>')+'</div>';
     g.appendChild(c);
   }
 }
@@ -217,7 +219,7 @@ function openModal(m){
   const port=document.getElementById('mPortrait');
   if(m.photo){port.src=m.photo;port.style.display='block';}else{port.style.display='none';}
   document.getElementById('mName').textContent=m.name;
-  document.getElementById('mSub').textContent=`Rank ${m.rank} · ${m.total} pts · ${m.band} ${m.hk_rank?'· HK '+m.hk_rank:''}`;
+  document.getElementById('mSub').textContent=`Rank ${m.rank} · ${m.total} pts · ${bandLabel(m.band)} ${m.hk_rank?'· HK '+m.hk_rank:''}`;
   const cats=document.getElementById('mCats');cats.innerHTML='';
   const gaps=m.gaps||[];const gm={};gaps.forEach(g=>gm[g.cat]=g);
   for(const c of CATLBL){
