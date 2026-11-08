@@ -28,14 +28,15 @@ header{display:flex;justify-content:space-between;align-items:center;padding:26p
 .nav .cta{font-family:var(--mono);font-size:.72rem;border-bottom:1.5px solid var(--fg);padding-bottom:2px}
 
 /* hero title - huge Becane collection style */
-.hero{margin-bottom:48px}
-.hero .eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.hero{position:relative;isolation:isolate;margin-bottom:48px;padding:clamp(52px,6vw,88px) 0;color:#fff}
+.hero::before{content:"";position:absolute;inset:0 auto 0 50%;transform:translateX(-50%);width:100vw;z-index:-1;background:linear-gradient(90deg,rgba(10,10,10,.86) 0%,rgba(10,10,10,.66) 48%,rgba(10,10,10,.42) 100%),url("photos/hero-tower.jpg") center/cover no-repeat}
+.hero .eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.82);margin-bottom:10px}
 .hero h1{font-size:clamp(3rem,7.5vw,6rem);font-weight:800;letter-spacing:-.03em;line-height:.98}
 .hero .row2{display:flex;gap:20px;align-items:baseline;flex-wrap:wrap;margin-top:8px}
-.hero .stat{font-family:var(--mono);font-size:.85rem;letter-spacing:.06em;color:var(--muted)}
-.hero .stat b{color:var(--fg);font-weight:700}
+.hero .stat{font-family:var(--mono);font-size:.85rem;letter-spacing:.06em;color:rgba(255,255,255,.82)}
+.hero .stat b{color:#fff;font-weight:700}
 .hero .stat.chrank{flex:1 0 100%;font-size:clamp(1.8rem,5.6vw,5.1rem);line-height:1.02;letter-spacing:-.02em;color:var(--muted);margin-bottom:10px}
-.hero .stat.chrank b{color:var(--fg);font-weight:800}
+.hero .stat.chrank b{color:#fff;font-weight:800}
 
 /* summary strip - invisible grid, no cards/borders */
 .summary{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-bottom:1px solid var(--line);margin-bottom:36px;padding-bottom:28px}
