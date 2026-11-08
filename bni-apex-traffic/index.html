@@ -34,6 +34,8 @@ header{display:flex;justify-content:space-between;align-items:center;padding:26p
 .hero .row2{display:flex;gap:20px;align-items:baseline;flex-wrap:wrap;margin-top:8px}
 .hero .stat{font-family:var(--mono);font-size:.85rem;letter-spacing:.06em;color:var(--muted)}
 .hero .stat b{color:var(--fg);font-weight:700}
+.hero .stat.chrank{flex:1 0 100%;font-size:clamp(1.8rem,5.6vw,5.1rem);line-height:1.02;letter-spacing:-.02em;color:var(--muted);margin-bottom:10px}
+.hero .stat.chrank b{color:var(--fg);font-weight:800}
 
 /* summary strip - invisible grid, no cards/borders */
 .summary{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-bottom:1px solid var(--line);margin-bottom:36px;padding-bottom:28px}
@@ -124,7 +126,7 @@ header{display:flex;justify-content:space-between;align-items:center;padding:26p
     <div class="eyebrow">Giant Business · 2026 Score</div>
     <h1>Members<br>Score.</h1>
     <div class="row2">
-      <span class="stat">Chapter HK <b>#<span id="chRank">—</span> of <span id="chTotal">—</span></b></span>
+      <span class="stat chrank">Chapter HK <b>#<span id="chRank">—</span> of <span id="chTotal">—</span></b></span>
       <span class="stat">Period <b id="period">—</b></span>
     </div>
   </section>
