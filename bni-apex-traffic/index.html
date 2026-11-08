@@ -61,10 +61,10 @@ header{display:flex;justify-content:space-between;align-items:center;padding:26p
 .mcard .thumb::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.28) 50%,transparent 60%);transform:translateX(-120%);transition:transform .6s;z-index:2;pointer-events:none}
 .mcard:hover .thumb::before{transform:translateX(120%)}
 .mcard .thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.55));pointer-events:none;opacity:0;transition:.3s}
-.mcard:hover .thumb::after{opacity:1}
+
 /* name banner reveals on hover (character name plate) */
 .mcard .plate{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 14px;color:#fff;font-weight:700;font-size:1rem;z-index:3;opacity:0;transform:translateY(12px);transition:.3s;font-family:var(--sans)}
-.mcard:hover .plate{opacity:1;transform:translateY(0)}
+.mcard .plate{display:none}
 .mcard .plate .sc{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;opacity:.85}
 .mcard .band-tag{position:absolute;top:12px;left:12px;font-family:var(--mono);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:#0A0A0A;padding:4px 10px;z-index:4}
 .mcard .band-tag.bGREEN{background:var(--g)}.mcard .band-tag.bYELLOW{background:var(--y)}.mcard .band-tag.bRED{background:var(--r)}.mcard .band-tag.bBLACK{background:#0A0A0A}
