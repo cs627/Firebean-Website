@@ -53,7 +53,9 @@ header{display:flex;justify-content:space-between;align-items:center;padding:26p
 .controls label{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 
 /* member grid - "game character select" feel: hover zoom, name reveal, sweep, select */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:48px 32px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:48px 32px;position:relative;z-index:1}
+body::after{content:"";position:fixed;right:0;bottom:0;width:clamp(240px,40vw,760px);height:78vh;z-index:0;pointer-events:none;opacity:.16;filter:grayscale(1) contrast(1.1);background:url("photos/corner-tower.jpg") right bottom / contain no-repeat;-webkit-mask-image:linear-gradient(215deg,#000 45%,transparent 92%);mask-image:linear-gradient(215deg,#000 45%,transparent 92%)}
+@media(max-width:700px){body::after{opacity:.12;width:70vw;height:52vh}}
 .mcard{cursor:pointer;position:relative;transition:transform .3s cubic-bezier(.2,.8,.2,1);border-radius:0}
 .mcard:hover{transform:translateY(-10px)}
 .mcard .thumb{position:relative;background:#ECECEC;aspect-ratio:3/4;overflow:hidden;transition:box-shadow .3s}
