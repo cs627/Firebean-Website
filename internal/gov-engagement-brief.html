@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>INTERNAL — Government Public Engagement 策略簡報 v1.2 | Firebean</title>
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="googlebot" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;500;700&family=Inter:wght@300;400;600;800&family=Noto+Sans+HK:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#0A0A0A; --gray:#F4F4F4; --red:#FF3333; --white:#fff;
+  --line:#E1E1E1; --muted:#6B6B6B; --ink:#141414;
+  --sans:'Inter','Noto Sans HK',system-ui,sans-serif;
+  --disp:'Oswald','Noto Sans HK',sans-serif;
+  --serif:'Playfair Display','Noto Sans HK',serif;
+  --logo:'Anton',sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fafafa;color:var(--ink);font-family:var(--sans);line-height:1.75;
+  -webkit-font-smoothing:antialiased;font-weight:400}
+a{color:inherit}
+.wrap{max-width:1400px;margin:0 auto;padding:0 24px}
+
+/* ══ GATE ══ */
+body.gated > .topbar, body.gated > .doc, body.gated > .docfoot{display:none}
+#gate{position:fixed;inset:0;z-index:999;background:var(--black);color:#fff;display:flex;
+  align-items:center;justify-content:center;padding:24px}
+body:not(.gated) #gate{display:none}
+.gbox{max-width:420px;width:100%;text-align:center}
+.gbox .gl{font-family:var(--logo);font-size:22px;letter-spacing:.14em;margin-bottom:34px}
+.gbox .gl b{color:var(--red);font-weight:400}
+.gbox .gt{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+.gbox h2{font-family:var(--disp);font-weight:500;font-size:25px;margin:0 0 10px;color:#fff}
+.gbox p{font-size:12.5px;color:#9a9a9a;margin:0 0 26px}
+.gbox input{width:100%;background:#161616;border:1px solid #333;color:#fff;font-family:var(--sans);
+  font-size:17px;letter-spacing:.34em;text-align:center;padding:15px;border-radius:3px;outline:none}
+.gbox input:focus{border-color:var(--red)}
+.gbox button{width:100%;margin-top:12px;background:var(--red);border:0;color:#fff;font-family:var(--sans);
+  font-size:11px;letter-spacing:.24em;text-transform:uppercase;padding:15px;border-radius:3px;cursor:pointer}
+.gerr{color:#ff8080;font-size:12px;min-height:20px;margin-top:12px}
+.gdot{display:flex;gap:8px;justify-content:center;margin-top:20px}
+.gdot i{width:7px;height:7px;border-radius:50%;background:#333;display:block}
+.gdot i.on{background:var(--red)}
+
+/* ══ top bar ══ */
+.topbar{position:sticky;top:0;z-index:60;background:rgba(250,250,250,.96);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:14px}
+.wordmark{font-family:var(--logo);font-size:19px;letter-spacing:.13em;text-decoration:none}
+.wordmark b{color:var(--red);font-weight:400}
+.tbtag{font-size:10px;letter-spacing:.2em;text-transform:uppercase;background:var(--red);color:#fff;
+  padding:5px 9px;border-radius:2px;font-weight:600}
+.tbright{display:flex;align-items:center;gap:12px}
+.pbtn{border:1px solid #ccc;background:#fff;font-family:var(--sans);font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;padding:8px 13px;border-radius:2px;cursor:pointer;color:#333}
+.pbtn:hover{border-color:var(--black);background:var(--black);color:#fff}
+
+/* ══ cover ══ */
+.cover{padding:64px 0 46px;border-bottom:1px solid var(--line);background:#fff}
+.cover .k{font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--red);font-weight:600;margin:0 0 18px}
+.cover h1{font-family:var(--disp);font-weight:700;font-size:clamp(28px,4vw,50px);line-height:1.06;margin:0 0 18px;max-width:26ch}
+.cover .meta{display:flex;flex-wrap:wrap;gap:10px 26px;font-size:12px;color:var(--muted);margin-top:22px}
+.cover .meta b{color:var(--ink);font-weight:600}
+.badge{display:inline-block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;
+  padding:2px 7px;border-radius:2px;vertical-align:middle;margin-left:6px}
+.gA{background:#0a7a3d;color:#fff}.gB{background:#1d6fb8;color:#fff}
+.gC{background:#b8860b;color:#fff}.gD{background:#8a8a8a;color:#fff}
+
+/* ══ shell ══ */
+.shell{display:grid;grid-template-columns:minmax(0,1fr)}
+@media(min-width:1080px){.shell{grid-template-columns:250px minmax(0,1fr);gap:56px;align-items:start}
+  .rail{position:sticky;top:80px;padding:52px 0 40px;display:block}
+  .main{padding:52px 0 80px}}
+.rail{display:none}
+.rail .rl{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#9a9a9a;margin:0 0 12px;padding-left:12px}
+.rail ol{list-style:none;margin:0;padding:0;font-size:12.5px}
+.rail a{display:block;padding:7px 12px;border-left:2px solid var(--line);text-decoration:none;color:var(--muted);transition:.15s}
+.rail a:hover,.rail a.on{border-left-color:var(--red);background:var(--gray);color:var(--black)}
+.rail .warn{margin-top:26px;padding:14px;background:#fff3f3;border-left:3px solid var(--red);font-size:11.5px;line-height:1.6;color:#7a2020}
+
+/* ══ typography ══ */
+.sec{padding:44px 0;border-top:1px solid var(--line)}
+.sec:first-child{border-top:0;padding-top:0}
+.snum{font-family:var(--disp);font-size:11px;letter-spacing:.3em;color:var(--red);font-weight:500;margin:0 0 10px}
+h2{font-family:var(--disp);font-weight:700;font-size:clamp(22px,2.6vw,34px);line-height:1.12;margin:0 0 6px}
+.h2s{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 22px}
+h3{font-family:var(--sans);font-weight:800;font-size:14.5px;margin:30px 0 10px;padding-top:4px}
+h3:first-of-type{margin-top:16px}
+p{margin:0 0 14px;max-width:80ch;font-size:14px}
+ul,ol{margin:0 0 16px;padding-left:20px;max-width:80ch;font-size:14px}
+li{margin:0 0 8px}
+li b{font-weight:700}
+.src{font-size:11.5px;color:var(--muted);margin:-6px 0 16px;padding-left:2px}
+.src:before{content:"↳ ";color:var(--red)}
+
+/* ══ blocks ══ */
+.exec{background:#fff;border:1px solid var(--line);border-left:4px solid var(--black);padding:22px 24px;counter-reset:e}
+.exec ol{padding-left:0;list-style:none;margin:0;max-width:100%}
+.exec li{counter-increment:e;position:relative;padding-left:30px;margin-bottom:14px;font-size:13.5px}
+.exec li:last-child{margin-bottom:0}
+.exec li:before{content:counter(e);position:absolute;left:0;top:1px;font-family:var(--disp);font-size:12px;
+  color:var(--red);font-weight:700;border:1px solid var(--red);width:19px;height:19px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;line-height:1}
+.quote{font-family:var(--disp);font-weight:500;font-size:clamp(18px,2vw,25px);line-height:1.36;
+  padding:20px 0 20px 22px;border-left:4px solid var(--red);margin:24px 0;max-width:66ch}
+.quote small{display:block;font-family:var(--sans);font-weight:400;font-size:12.5px;color:var(--muted);margin-top:8px;letter-spacing:0}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:13px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);background:var(--gray);font-weight:600}
+tr:last-child td{border-bottom:0}
+td b{font-weight:700}
+.tblsc{overflow-x:auto}
+.callout{background:var(--gray);border-left:4px solid var(--black);padding:16px 20px;margin:20px 0;font-size:13.5px;max-width:82ch}
+.callout.red{background:#fff3f3;border-left-color:var(--red)}
+.callout b{font-weight:800}
+.grid2{display:grid;grid-template-columns:1fr;gap:14px;margin:18px 0}
+@media(min-width:820px){.grid2{grid-template-columns:1fr 1fr}}
+.card{background:#fff;border:1px solid var(--line);padding:18px 20px}
+.card .ct{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:8px}
+.card b{display:block;font-size:14px;margin-bottom:6px;line-height:1.35}
+.card span{font-size:12.5px;color:var(--muted);line-height:1.6}
+.stats{display:grid;grid-template-columns:1fr;gap:12px;margin:20px 0}
+@media(min-width:760px){.stats{grid-template-columns:repeat(3,1fr)}}
+.st{background:#fff;border:1px solid var(--line);padding:18px}
+.st b{display:block;font-family:var(--disp);font-weight:700;font-size:32px;line-height:1;color:var(--red);margin-bottom:7px}
+.st .l{font-size:12.5px;font-weight:700;margin-bottom:6px}
+.st .s{font-size:11px;color:var(--muted);line-height:1.55}
+.action{background:#fff;border:1px solid var(--line);padding:20px 22px;margin:0 0 14px}
+.action .ah{display:flex;align-items:baseline;gap:12px;margin-bottom:8px}
+.action .an{font-family:var(--disp);font-weight:700;font-size:15px;color:var(--red);letter-spacing:.05em}
+.action .ad{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;background:var(--black);color:#fff;padding:3px 8px;border-radius:2px}
+.action b{font-size:14.5px;display:block;margin-bottom:8px}
+.action ul{margin-bottom:8px}
+.action .del{font-size:12px;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px;margin:0}
+.docfoot{padding:34px 0 60px;border-top:1px solid var(--line);font-size:11.5px;color:var(--muted);background:#fff}
+.docfoot .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.glockbtn{position:fixed;right:18px;bottom:18px;z-index:70;background:var(--black);color:#fff;border:0;
+  font-family:var(--sans);font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:10px 14px;
+  border-radius:2px;cursor:pointer;opacity:.75}
+.glockbtn:hover{opacity:1;background:var(--red)}
+
+@media print{
+  .topbar,.rail,.glockbtn,.pbtn{display:none!important}
+  body{background:#fff}
+  .shell{grid-template-columns:1fr}.main{padding:0}
+  .sec{padding:18px 0;break-inside:avoid}
+  .cover{padding:0 0 20px}
+  .grid2,.stats{grid-template-columns:repeat(3,1fr)}
+  body.gated #gate{display:none}
+  body.gated > .doc{display:block}
+}
+</style>
+</head>
+<body class="gated">
+
+<div id="gate">
+  <div class="gbox">
+    <div class="gl">FIRE<b>BEAN</b></div>
+    <div class="gt">Internal · 內部文件</div>
+    <h2>需要密碼</h2>
+    <p>策略簡報 v1.2 — 含內部風險評估與未驗證假設，不對外公開。</p>
+    <input id="gpw" type="password" autocomplete="off" placeholder="••••">
+    <div class="gdot"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <button id="gbtn">進入 / Enter</button>
+    <div class="gerr" id="gerr"></div>
+  </div>
+</div>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="wordmark" href="https://firebean.net/">FIRE<b>BEAN</b></a>
+    <div class="tbright">
+      <span class="tbtag">Internal</span>
+      <button class="pbtn" onclick="window.print()">列印 / PDF</button>
+    </div>
+  </div>
+</div>
+
+<div class="doc">
+
+<header class="cover">
+  <div class="wrap">
+    <p class="k">Strategy Brief · B2G Practice · v1.2 (final)</p>
+    <h1>Government Public Engagement<br>重要性 · 角度 · 優勢</h1>
+    <p style="font-size:14.5px;color:#333;max-width:72ch;margin:0">政府項目是 Firebean 已有可信往績、需求公開持續的增長垂直市場。本簡報界定我們對政府公共參與的觀點、可守的優勢邊界，以及未來 90 日把「可量度」由主張變成資產的次序。</p>
+    <div class="meta">
+      <span>撰寫：<b>Firebean 策略合成</b></span>
+      <span>日期：<b>2026-11-01</b></span>
+      <span>對齊：<b>EDM_017 S2 Strategic Nudges</b></span>
+      <span>證據分級：<b>A / B / C / D</b></span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+<div class="shell">
+
+  <aside class="rail">
+    <p class="rl">Contents</p>
+    <ol>
+      <li><a href="#s0">0 — 一頁摘要</a></li>
+      <li><a href="#s1">1 — 重要程度 Importance</a></li>
+      <li><a href="#s2">2 — 我們的角度 Angle</a></li>
+      <li><a href="#s3">3 — 我們的優勢 Advance</a></li>
+      <li><a href="#s4">4 — 證據 Proof</a></li>
+      <li><a href="#s5">5 — 風險評估 Risk</a></li>
+      <li><a href="#s6">6 — 下一步三行動</a></li>
+    </ol>
+    <div class="warn"><b>對客紀律：</b>未有自家 before/after 數據前，不可對外宣稱「行為設計護城河」。表述為「我們把行為邏輯寫入設計，並提供可驗收的量度框架」。</div>
+  </aside>
+
+  <main class="main">
+
+    <section class="sec" id="s0">
+      <p class="snum">00</p>
+      <h2>一頁摘要</h2>
+      <p class="h2s">Executive Summary</p>
+      <div class="exec">
+        <ol>
+          <li><b>重要程度</b>：政府項目是 Firebean <b>已有可信往績、需求公開持續的增長垂直市場（growth vertical）</b>；但「營收支柱」目前仍是<b>待驗證假設</b>，須以收入佔比、重複購買率、投標成功率佐證。政府自己已把巡迴展覽（roving exhibition）當作公共參與的首選格式，並用「人次」量度 —— 需求真實、公開、可查。</li>
+          <li><b>角度</b>：政府公共參與的成敗，不在宣傳聲量，而在<b>「決定時刻的選擇設計」（choice architecture at the moment of decision）</b>。數位宣傳把訊息送到人眼前；<b>實體現場觸點（一張告示、一份表格、一件拿在手上的紀念品）不是與數位宣傳競爭，而是「完成」那個行為（finishes the job）</b>。</li>
+          <li><b>優勢</b>：我們<b>已擁有</b>政府語言的準確度與現場完工能力；<b>可量度的行為設計則是正在用自有數據建立的主張，尚未構成護城河</b>。相對大型公關網絡（有策略、缺現場）與純活動承辦商（有製作、缺策略與量度），我們站立的位置最有利，但仍要用結果證明。</li>
+          <li><b>證據</b>：18 年、55 個政府及公共機構項目、屋宇署官方公關顧問；政府單一展覽設計及製作合約達 HK$7.96M–19.79M 級；行為科學數字真實而溫和（政府規模平均 1.4 個百分點）。</li>
+          <li><b>下一步</b>：先在一個在手項目定義<b>一個主要行為 + 基線</b>（30 日）；用結果建立<b>一個可公開引用的成效案例</b>（60 日）；最後才把方法產品化成標準提案頁及成效框架（90 日）。次序是<b>先量度、後宣傳、再產品化</b>。</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="sec" id="s1">
+      <p class="snum">01</p>
+      <h2>重要程度</h2>
+      <p class="h2s">Importance — 對 Firebean，以及對客戶自身的使命</p>
+
+      <h3>1.1 對客戶而言：政府的公共參與已由「告知」轉向「促成行為改變」</h3>
+      <ul>
+        <li><b>政府新聞處 (ISD)</b> 2026-27 年度預算 <b>HK$651,127,000</b>（總目 74）。官方文件寫明：宣傳活動開支主要由各決策局和部門承擔，訊息經電視、電台、數碼媒體、印刷品、戶外廣告及<b>公眾參與活動</b>傳達。</li>
+        <li><b>公眾參與是常設量</b>：新聞處協助的「公開活動」2024 年 571 項、2025 年 <b>680 項</b>（2026 年預算 570 項；官方註腳：2025 較高因加強宣傳立法會換屆選舉及十五運會／殘特奧會）。</li>
+        <li><b>選舉宣傳投放</b>：選舉事務處 (REO) 為 2025 年立法會換屆選舉預留 <b>HK$1,280 百萬</b>，其中<b>宣傳佔 HK$177 百萬</b>。兩場選舉合計 HK$1,513 百萬，需動員約 38,500 名政府人員。</li>
+        <li>兩場選舉整體開支較 2021-22 同類項<b>增加約 52%</b>，官方解釋增幅主要來自宣傳、IT 支援、票站租金及員工薪酬。</li>
+        <li><span style="font-size:12.5px;color:var(--muted)">宣傳費由約 HK$100 百萬升至 HK$177 百萬、<b>增約七成、創歷屆新高</b>之說，見於傳媒對同一文件的報道，屬 C 級；對客時宜以官方「整體 +52%」為主，七成增幅標明「<b>據傳媒報道</b>」。</span></li>
+      </ul>
+      <p class="src">budget.gov.hk 2026-27《總目 74 — 政府新聞處》chead074.pdf <span class="badge gA">A</span>；reo.gov.hk 審核 2025-26 開支預算答覆 CMAB052–056 <span class="badge gA">A</span></p>
+      <div class="callout"><b>結論：</b>政府在公共溝通上是<b>有預算、有綱領、有年度問責</b>的買家。這不是一次性活動市場，而是制度化的採購市場。</div>
+
+      <h3>1.2 對客戶而言：政府自己的首選工具，就是巡迴展覽</h3>
+      <ul>
+        <li><b>ISD「Immersive Hong Kong」巡迴展覽</b>：2023 年 7 月至 2025 年 10 月已在內地、東盟及中東 8 個城市舉行，<b>8 站累計逾 110 萬人次</b>；2026 年 4 月 30 日<b>武漢為第 9 站</b>。上海站 <b>187,000 人次</b>；新聞處處長指上海及青島<b>首兩站合計近 30 萬人次</b>。會場設多重互動投影、裸眼 3D、主題分區、拍照區及互動遊戲，免費入場並派發紀念品。</li>
+        <li><b>大灣區發展辦公室 (GBA Development Office, 政制及內地事務局)</b>：2026 年 1 月 12 日至 3 月 20 日於 <b>8 間大學 + 公民教育資源中心</b>共 9 個地點舉行大灣區巡迴展覽。</li>
+        <li><b>部門層面已把「展板 + 紀念品 + 遊戲」做成標準做法</b>：公民教育資源中心（CPCE）把展覽展板設<b>易拉架版本供學校和社區團體借用</b>，即實體展板是可流通資產；通訊事務管理局辦公室 (OFCA)「防電騙」流動宣傳車派發紀念品、覆蓋全港十八區；電影報刊辦校園流動宣傳站 20 場次、跨三個月。</li>
+        <li><b>公務員事務局 (CSB)</b>：官網設「5S 良好工作場所」及「科技提升職業安全與健康」巡迴展覽專頁。</li>
+      </ul>
+      <p class="src">info.gov.hk P2026042800505（武漢第 9 站）、P2025102400431（首兩站近 30 萬人次）、P2026011200349；cpce.gov.hk、ofca.gov.hk、P2025121200621p <span class="badge gA">A</span></p>
+      <p style="font-weight:600">政府把同一個訊息<b>逐站搬去不同場地、面對不同人群</b> —— 這正是 Firebean 的核心業務定義。</p>
+    </section>
+
+    <section class="sec" id="s1b" style="border-top:0;padding-top:0">
+      <h3 style="margin-top:0">1.3 對 Firebean 而言：增長垂直市場，但仍需以自有數據驗證</h3>
+      <p>2007 年成立，18 年經驗；<b>55 個政府及公共機構項目</b>；<b>屋宇署官方公關顧問 (Official PR Consultant for the Buildings Department)</b>；教育局學與教博覽 (Learning &amp; Teaching Expo)、屋宇署樓宇安全周、公務員事務局 5S 巡迴展覽等代表作。</p>
+      <div class="grid2">
+        <div class="card">
+          <div class="ct">為什麼重要 — 可公開佐證</div>
+          <b>三項結構性理由</b>
+          <span>1. <b>可引用的資歷</b> —— 投標書上最難被質疑的一欄。<br>2. <b>制度化採購、預算規模公開可查</b>。<br>3. <b>跨部門推薦的可複製性</b> —— 一個部門的成功案例，是下一個決策局的入場券。</span>
+        </div>
+        <div class="card" style="border-left:3px solid var(--red)">
+          <div class="ct">仍未證明 — 必須補齊</div>
+          <b>不可當作已成立的結論</b>
+          <span>① 過去三年政府項目<b>收入佔比及毛利</b>；② 政府客戶<b>重複購買率</b>；③ <b>投標成功率、平均合約額</b>；④ 由單一部門取得第二個部門項目的<b>轉化率</b>。<br><br>未有上述內部數字前，正確表述是「<b>已有可信往績、且需求持續的增長垂直市場</b>」，而非「營收支柱」。</span>
+        </div>
+      </div>
+
+      <h3>1.4 市場規模的量級證據（公開可查的採購金額）</h3>
+      <p>規劃署 (Planning Department) 展城館 (City Gallery) 公開的合約判授顯示，政府「展品設計、製作及保養」屬<b>百萬至千萬港元級</b>：</p>
+      <div class="tblsc">
+      <table>
+        <thead><tr><th>項目</th><th>承辦商</th><th style="white-space:nowrap">金額</th><th style="white-space:nowrap">判授日期</th></tr></thead>
+        <tbody>
+          <tr><td>展城館地下展品設計、製作及保養</td><td>Adbrownies Advertising Limited（朗思廣告）</td><td><b>HK$7,960,000</b></td><td>2026-07-30</td></tr>
+          <tr><td>展城館一樓展品設計、製作及保養</td><td>OVAL Design Limited</td><td><b>HK$14,355,000</b></td><td>2024-07-31</td></tr>
+          <tr><td>展城館二樓展品設計、製作及保養</td><td>OVAL Design Limited</td><td><b>HK$19,785,000</b></td><td>2023-06-16</td></tr>
+          <tr><td>展城館展覽服務合約</td><td>Union Way Exhibition Services Limited（聯匯展覽服務）</td><td>HK$9,729,980</td><td>—</td></tr>
+          <tr><td>展城館管理及支援服務 (PLNT4/2023)</td><td>China Overseas Property Services Limited</td><td>HK$26,494,960</td><td>2024-04-08</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="src">pland.gov.hk「已批准訂立的合約公告」；opentender.hk/tenders/2702 <span class="badge gA">A</span></p>
+      <p><b>政府現正繼續買同類服務</b>：ISD/IP/TENDER/01/26「為 2027 年於香港舉行的大型多媒體展覽提供設計及製作服務」（公告 2026-09-23）；香港電台 (RTHK)「為沉浸式擴增及虛擬實境展覽提供設計及製作服務」（2026-10-09 招標，2027-02 至 2027-11）。</p>
+      <div class="callout red"><b>這張表的戰略含意：</b>政府把「策劃」與「製作」大量外判給<b>展覽服務公司與廣告製作公司</b>，而不是公關策略公司。這是機會，也是我們的差異化空間。</div>
+    </section>
+
+    <section class="sec" id="s2">
+      <p class="snum">02</p>
+      <h2>我們的角度</h2>
+      <p class="h2s">Angle — 政府公共參與的觀點</p>
+      <div class="quote">政府公共參與的成敗，不在宣傳有多大聲，而在決定時刻的選擇設計有多好。
+        <small>This is the EDM_017 S2 theme, and our unified point of view for government clients. It redefines public engagement from a <b>communication problem</b> to a <b>behaviour problem</b>.</small>
+      </div>
+
+      <h3>2.2 支撐這個觀點的四個真實數字</h3>
+      <div class="stats">
+        <div class="st"><b>300+</b><div class="l">政府機關採用行為科學</div><div class="s">OECD 收錄 63 國逾 300 個 BI 機構，其中 200+ 位於 56 個國家的政府內部。行為設計已由學術概念變成政府基礎設施。<br>OECD (2023) <span class="badge gB">B</span></div></div>
+        <div class="st"><b>1.4pp</b><div class="l">政府規模平均效果</div><div class="s">126 個 RCT、約 2,300 萬人，平均 1.4 個百分點（相對 8.1% 增幅），約為學術論文效果的六分之一。<b>我們不誇大。</b><br>NBER WP 27594 (2020) <span class="badge gB">B</span></div></div>
+        <div class="st"><b>42,000</b><div class="l">額外疫苗接種</div><div class="s">UK BIT × NHS England 兩項全國 RCT（約 400 萬人）：最有效的短訊不是最緊急、也不是最詳盡，而是「你已排到隊頭」。<br>BIT (2025), Nature Human Behaviour <span class="badge gB">B</span></div></div>
+      </div>
+      <ul>
+        <li><b>第 4 個數字 —— 人對人接觸 vs 無面孔物料，差一個數量級</b>：上門 canvassing <b>+2.536 個百分點</b>（71 項研究），電話 +1.936，傳單與郵件僅 <b>+0.162 個百分點</b>（110 項研究）；但<b>帶社會規範框架的實體郵件</b>可達 +2.85 個百分點。</li>
+      </ul>
+      <p class="src">Political Science Research and Methods (2018)，複製 Green, McGrath &amp; Aronow (2013) Table 1 <span class="badge gB">B</span></p>
+      <div class="callout red"><b>「派了東西」不等於「有接觸」。</b>實體觸點要有效，必須被設計成人對人的接觸或帶清晰社會規範框架，而不是被當作一次印刷採購。</div>
+
+      <h3>2.3 因此：實體現場觸點不是與數位宣傳競爭，而是完成它</h3>
+      <p>數位宣傳的產出是「觸及」(reach)；政府真正要的產出是「行為」(behaviour)。兩者之間有一道最後一米的落差，而那道落差只能在現場補上：</p>
+      <ul>
+        <li>一張<b>站在場地的告示牌</b>，在決定動線的那一秒發揮作用；</li>
+        <li>一份<b>親手填寫的表格</b>，把意向變成紀錄；</li>
+        <li>一台<b>扭蛋機、一件紀念品</b>，把「參與」變成記憶與社交分享；</li>
+        <li>一個 <b>QR code 專頁</b>，把現場人流導回可追蹤的數位資產。</li>
+      </ul>
+      <div class="quote">We don't buy attention. We engineer the next action.
+        <small>我們做的是政府宣傳鏈條上「<b>行為完工 (finishing the behaviour)</b>」的那一層 —— 也是目前最少人站在、卻最能量度的一層。</small>
+      </div>
+    </section>
+
+    <section class="sec" id="s3">
+      <p class="snum">03</p>
+      <h2>我們的優勢</h2>
+      <p class="h2s">Advance — 相對大型公關網絡與純活動承辦商的防守邊界</p>
+      <div class="tblsc">
+      <table>
+        <thead><tr><th></th><th>大型 PR network</th><th>純活動承辦商</th><th>Firebean</th></tr></thead>
+        <tbody>
+          <tr><td><b>策略與訊息</b></td><td>強</td><td>弱</td><td><b>強</b></td></tr>
+          <tr><td><b>媒體關係與擴散</b></td><td>強</td><td>弱</td><td>中（自家媒體網絡 + 社媒內容）</td></tr>
+          <tr><td><b>現場製作與物流</b></td><td>弱（大量外判）</td><td>強</td><td><b>強（巡迴展覽為核心業務）</b></td></tr>
+          <tr><td><b>政府採購 / 招標熟悉度</b></td><td>中（視團隊）</td><td>中</td><td><b>強（屋宇署官方公關顧問，55 個公營項目）</b></td></tr>
+          <tr><td><b>行為設計與量度</b></td><td>少見</td><td>幾乎沒有</td><td><b>能力強（可寫入標書的 measurement framework）</b></td></tr>
+          <tr><td><b>交付責任範圍</b></td><td>通常止於 coverage</td><td>止於交付製作</td><td><b>由概念、公關、媒體、製作到現場，一張合約問責到底</b></td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="callout"><b>注意：</b>表中「行為設計與量度」指的是<b>能力 (capability)</b> —— 我們能提供可寫入標書的量度框架；<b>成效 (outcome)</b> 仍待自有數據證明。兩者不可混為一談。</div>
+
+      <h3>3.1 我們現在的資產 vs 仍要建立的主張</h3>
+      <div class="grid2">
+        <div class="card">
+          <div class="ct">已經證明 · 可直接對客</div>
+          <b>① 政府語言的準確度 (Government fluency)</b>
+          <span>由招標文件、評分準則、活動規範、審批流程到現場合規，我們做過 55 次。政府項目的難處不是創意，而是<b>準確</b>。政府亦設<b>通知名單 (supplier list)</b> 作制度化入口 —— 教育局的服務類別明確包括「設計及影片／錄影制作服務」。</span>
+        </div>
+        <div class="card">
+          <div class="ct">已經證明 · 可直接對客</div>
+          <b>② 現場完工能力 (On-site delivery density)</b>
+          <span>巡迴展覽是核心業務：場地限制、人流動線、跨場地重複搭建、物料物流、現場人手編排。<b>政府現時多數只買到「製作」；我們把製作前的策略與製作後的量度一併帶上桌。</b></span>
+        </div>
+        <div class="card">
+          <div class="ct">可用 · 須註明年份</div>
+          <b>③ 相對大型網絡的結構性空隙</b>
+          <span>2020 年 ISD「Relaunch Hong Kong」全球公關招標中，APCO、BCW、Ogilvy、OPRG（FleishmanHillard、Ketchum）、Ruder Finn 均放棄入標，最終只收到 7 份標書。可安全引述的是「國際網絡對香港政府生意的取態歷來不穩定，本土專才承接是常態」，<b>而非「今天仍然如此」</b>。<br><span class="badge gC">C</span> PRovoke Media 2020-05-15（2026 現況未查證）</span>
+        </div>
+        <div class="card" style="border-left:3px solid var(--red)">
+          <div class="ct" style="color:var(--red)">仍是主張 · 須自家數據證明</div>
+          <b>④ 可量度的行為設計</b>
+          <span>這是我們<b>正在建立</b>而非已經擁有的護城河。方法可以今日就寫進提案，但「Firebean 的現場設計能改變行為」必須由我們自己的項目數據證明。在取得第一個 before/after 結果之前，對客表述為「<b>我們把行為邏輯寫入設計，並提供可驗收的量度框架</b>」。</span>
+        </div>
+      </div>
+
+      <h3>量度框架：行為階梯 (behaviour ladder)</h3>
+      <div class="tblsc">
+      <table>
+        <thead><tr><th style="width:16%">層級</th><th style="width:40%">例子</th><th>是否可歸因於 Firebean</th></tr></thead>
+        <tbody>
+          <tr><td><b>曝光</b></td><td>入場人次、停留時間</td><td>是</td></tr>
+          <tr><td><b>理解</b></td><td>現場 1–2 題即場理解測試</td><td>是</td></tr>
+          <tr><td><b>意向</b></td><td>承諾簽署、登記、預約、資料索取</td><td>是</td></tr>
+          <tr><td><b>後續行為</b></td><td>7 或 30 日後完成申請 / 出席 / 接種等目標行動</td><td>需客戶提供數據；否則只可標示為 <b>observable proxy</b></td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="callout red"><b>紀律：</b>每個項目只鎖定<b>一個主要行為 (one primary behaviour)</b>，並設基線 (baseline)、對照場地或前後比較。<b>QR 掃描不可當作行為改變</b>，只能當作意向層的 proxy。</div>
+
+      <h3>3.2 一句話定位</h3>
+      <div class="quote">政府公共參與，由策略到現場、由現場到可量度的下一步行動，一家公司完成。
+        <small>Compliance-first creativity + on-site behaviour design —— 大型公關網絡做不完整、純製作公司做不到的組合；而<b>「可量度」那一段，是我們接下來 90 天要用自己的數據填滿的</b>。</small>
+      </div>
+    </section>
+
+    <section class="sec" id="s4">
+      <p class="snum">04</p>
+      <h2>證據</h2>
+      <p class="h2s">Proof — 三類證據分開陳述，永不互相代替</p>
+      <div class="callout"><b>紀律：</b>市場需求 ≠ 我們的競爭優勢；學術效果 ≠ 我們項目的成效；項目數量 ≠ 行為成果。</div>
+      <h3>4.1 市場端證據（政府自己的數字）<span class="badge gA">A</span></h3>
+      <ul>
+        <li>ISD 一年協助約 <b>680 場</b>公開活動（2025 實際）；2026-27 預算 <b>HK$651.1M</b>。</li>
+        <li>立法會換屆選舉宣傳撥款 <b>HK$177M</b>（較 2021-22 同類 +52%）。</li>
+        <li>巡迴展覽以百萬人次級被量度：「Immersive Hong Kong」8 站累計逾 110 萬人次、武漢為第 9 站；上海及青島首兩站合計近 30 萬人次。</li>
+        <li>政府單一展覽設計及製作合約公開紀錄達 <b>HK$7.96M–19.79M</b>；ISD 與 RTHK 2026 年仍在公開招標同類服務。</li>
+      </ul>
+      <h3>4.2 方法論證據（行為科學）<span class="badge gB">B</span></h3>
+      <ul>
+        <li>OECD：逾 300 個政府 BI 機構（63 國，200+ 在政府內部）。</li>
+        <li>DellaVigna &amp; Linos：126 RCT / 約 2,300 萬人 / 政府規模平均 1.4 個百分點（相對 8.1%）。</li>
+        <li>BIT × NHS England：「隊頭」短訊帶來約 42,000 劑額外接種。</li>
+        <li>現場接觸 vs 物料：canvassing +2.536pp，傳單／郵件 +0.162pp；帶社會規範框架的實體郵件 +2.85pp。</li>
+      </ul>
+      <h3>4.3 Firebean 自有、公開可查的往績<span class="badge gD">D</span> <span style="font-weight:400;font-size:12px;color:var(--muted)">（同源自述，供交叉核對）</span></h3>
+      <ul>
+        <li><b>案例頁</b> <a href="https://firebean.net/profile.html?id=FB2025999">firebean.net/profile.html?id=fb2025999</a>：FB2025999「5S 良好工作場所整理 巡迴展覽」（公務員事務局）—— 以生活百貨店美學重構展場，用互動遊戲、辦公室模型與扭蛋機把 5S 管理概念變成可玩可記的體驗，並以實用紀念品延續記憶。</li>
+        <li>同一案例庫可見的政府項目組合（<b>明顯集中於巡迴展覽與公眾參與</b>）：FB2026077 學與教博覽 2026 — 教育局；FB2026078 選舉進社區 2026 巡迴互動展覽 — 政制及內地事務局；FB2026010 科技提升職業安全與健康 2026 巡迴展覽 — 公務員事務局；FB2026012 Mediate First — Pledge Event 2025 — 律政司；FB2026031／FB2026032《憲法》與《基本法》太空基地親子工作坊／探險家之旅 — 政制及內地事務局；FB2026004 共築創業+2.0 發佈會 — 香港房屋委員會；FB2026005 好人好市 App 展覽 — Crossroads；FB2026009 鬱金香花海 Hong Kong Flower Show 2025 — 康文署；FB2026040 賽馬會健康起步計劃 巡迴宣傳 — 復康會；FB2026048 教育局課程發展處閱讀資源展覽。</li>
+        <li><b>客戶端第三方佐證</b>：公務員事務局官網設有「5S 良好工作場所」及「科技提升職業安全與健康」巡迴展覽專頁 —— 客戶自己在宣傳這些展覽，即我們交付的是客戶樂於具名的公共資產。</li>
+      </ul>
+    </section>
+
+    <section class="sec" id="s5">
+      <p class="snum">05</p>
+      <h2>風險評估</h2>
+      <p class="h2s">Risk — 內部用，不對客</p>
+      <div class="tblsc">
+      <table>
+        <thead><tr><th style="width:20%">風險</th><th style="width:46%">說明</th><th>對策</th></tr></thead>
+        <tbody>
+          <tr><td><b>採購機制風險</b></td><td>政府標書多為評分制／價低者得，行為設計若不在評分項目內，易被當成加價項削掉</td><td>不賣「額外服務」，改為包裝成「提升標書 KPI 達成率」的核心交付；把量度框架寫進建議書主體</td></tr>
+          <tr><td><b>承諾過度風險</b></td><td>1.4 個百分點是誠實數字；若對客承諾「大幅改變行為」會反噬可信度</td><td>對外統一「真實、可重複、溫和」口徑；以誠實數字作為專業差異化</td></tr>
+          <tr><td><b>推論跳躍風險</b></td><td>市場證據、科學證據、公司證據三者皆真，但不能互相代替</td><td>對外分開陳述三類證據，永不混用；所有成效說法必須標明來源層級</td></tr>
+          <tr><td><b>資料治理風險</b></td><td>收集參與者資料、做現場 A/B 測試，涉及私隱與資料治理，政府客戶對此極敏感</td><td>量度框架須含私隱及資料治理條款（收集範圍、用途、保存期、去識別化）；先取得客戶同意才設對照組</td></tr>
+          <tr><td><b>客戶集中風險</b></td><td>政府收入集中於少數決策局</td><td>以同一方法論橫向複製至其他決策局（教育局、政制及內地事務局、康文署等已在組合內）</td></tr>
+          <tr><td><b>競爭模仿風險</b></td><td>大型公關網絡亦可宣稱「策略＋體驗」</td><td>以現場執行密度、政府流程熟悉度與實際 KPI 數據建立無法速成的壁壘；累積自家 benchmark</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </section>
+
+    <section class="sec" id="s6">
+      <p class="snum">06</p>
+      <h2>下一步三個行動</h2>
+      <p class="h2s">Next 3 Actions — 先量度，後宣傳，最後才產品化</p>
+      <div class="callout red"><b>次序原則：</b>未有自家數據之前，不要對外宣稱「行為設計護城河」。</div>
+
+      <div class="action">
+        <div class="ah"><span class="an">01</span><span class="ad">30 日內</span></div>
+        <b>在一個在手政府項目上定義「一個主要行為 + 基線」</b>
+        <ul>
+          <li>選定一個在手／即將開展的項目（如教育局學與教博覽 2026、或任何在手巡迴展覽）。</li>
+          <li>定義<b>一個主要行為 (one primary behaviour)</b>、其在<b>行為階梯</b>上的層級、以及量度方法。</li>
+          <li>建立<b>基線 (baseline)</b>：如可設對照場地或前後比較則設；不能設就以相鄰時段或鄰站作參照。</li>
+          <li>同步加入<b>私隱及資料治理條款</b>，並取得客戶書面同意。</li>
+        </ul>
+        <p class="del"><b>交付物：</b>一頁「Behaviour Baseline Sheet」（目標行為、觸點、指標、基線、治理條款）。</p>
+      </div>
+
+      <div class="action">
+        <div class="ah"><span class="an">02</span><span class="ad">60 日內</span></div>
+        <b>用結果建立一個可公開引用的成效案例</b>
+        <ul>
+          <li>以行動 1 的數據，產出第一個 <b>before / after 成效對照</b>，清楚標示哪些屬直接歸因、哪些屬 observable proxy。</li>
+          <li>把該案例寫成可公開引用的 case study（客戶同意範圍內），放入標書附錄與官網案例頁。</li>
+        </ul>
+        <p class="del"><b>交付物：</b>一份成效案例（1–2 頁）+ 對應的標書附錄版本。</p>
+      </div>
+
+      <div class="action">
+        <div class="ah"><span class="an">03</span><span class="ad">90 日內</span></div>
+        <b>產品化成「政府公共參與成效框架」與標準提案頁</b>
+        <ul>
+          <li>不只是一本巡迴展覽手冊，而是一套 <b>Government Public Engagement Effectiveness Framework</b>，須包含：① 目標行為診斷；② 決定時刻地圖 (moments-of-decision map)；③ 訊息及觸點的可及性標準；④ 私隱及資料治理；⑤ 現場實驗 / A/B 測試方法；⑥ 失敗條件及停止準則 (stop criteria)；⑦ 成效報告樣本。</li>
+          <li>同步製作「On-site Behaviour Layer」提案標準頁（每個項目 3 個決定時刻、對應觸點、行為階梯指標），並以 EDM_017 的 OECD / BIT / NBER 三個數字作方法論背書。</li>
+        </ul>
+        <p class="del"><b>交付物：</b>framework（可對客展示）＋ 一頁提案標準頁 ＋ 標書標準附件。</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+</div>
+
+<div class="docfoot">
+  <div class="wrap">
+    <span>本簡報的所有外部數字均附公開來源與證據等級 (A/B/C/D)；Firebean 自身資歷（2007 年成立、55 個政府及公共機構項目、屋宇署官方公關顧問）取自公司對外公開資料。</span>
+    <span>v1.2 · 2026-11-01 · INTERNAL</span>
+  </div>
+</div>
+</div>
+
+<script id="gate-js">
+(function(){
+  var SALT="firebean-internal-brief",
+      HASH="3a46f1445b5bf9d2ac07a82cb8af35b5f0cbe5881200dfef43dcd66c92f00ed1",
+      KEY='fb_internal_gate_v1', TTL=30*24*60*60*1000;
+  var inp=document.getElementById('gpw'), err=document.getElementById('gerr'), btn=document.getElementById('gbtn');
+  var dots=document.querySelectorAll('#gate .gdot i');
+  function unlocked(){
+    document.body.classList.remove('gated');
+    var g=document.getElementById('gate'); if(g&&g.parentNode) g.parentNode.removeChild(g);
+    if(!document.getElementById('glockbtn')){
+      var b=document.createElement('button');
+      b.id='glockbtn'; b.className='glockbtn'; b.textContent='鎖定 / Lock';
+      b.onclick=function(){ try{localStorage.removeItem(KEY);}catch(e){} location.reload(); };
+      document.body.appendChild(b);
+    }
+  }
+  function paint(){ for(var i=0;i<dots.length;i++) dots[i].className = i < inp.value.length ? 'on' : ''; }
+  function sha256(s){
+    if(!(window.crypto&&crypto.subtle)) return Promise.reject(new Error('nosubtle'));
+    return crypto.subtle.digest('SHA-256', new TextEncoder().encode(s)).then(function(b){
+      return Array.prototype.map.call(new Uint8Array(b), function(x){return ('0'+x.toString(16)).slice(-2);}).join('');
+    });
+  }
+  function bad(){ err.textContent='密碼不正確，請再試。/ Wrong passcode.'; inp.value=''; paint(); try{inp.focus();}catch(e){} }
+  function attempt(){
+    var v=inp.value.trim(); if(!v) return;
+    sha256(SALT+':'+v).then(function(h){
+      if(h===HASH){ try{localStorage.setItem(KEY,String(Date.now()+TTL));}catch(e){} unlocked(); } else { bad(); }
+    }).catch(function(){ bad(); });
+  }
+  btn.addEventListener('click', attempt);
+  inp.addEventListener('input', function(){ paint(); if(inp.value.length>=4) attempt(); });
+  inp.addEventListener('keydown', function(e){ if(e.key==='Enter') attempt(); });
+  try{ if((+localStorage.getItem(KEY)||0) > Date.now()) { unlocked(); return; } }catch(e){}
+  setTimeout(function(){ try{inp.focus();}catch(e){} },120);
+})();
+
+/* ── rail scroll sync ── */
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.rail a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
+  function sync(){
+    var y=window.scrollY+130, idx=0;
+    secs.forEach(function(s,i){ if(s && s.offsetTop<=y) idx=i; });
+    links.forEach(function(a,i){ a.classList.toggle('on', i===idx); });
+  }
+  window.addEventListener('scroll',sync,{passive:true}); sync();
+})();
+</script>
+</body>
+</html>

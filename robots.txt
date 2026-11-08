@@ -3,6 +3,7 @@
 
 # Client dashboards are passcode-protected — keep them out of search indexes
 User-agent: *
+Disallow: /internal/
 Disallow: /outback-monitoring/
 
 # Allow all standard search engine crawlers

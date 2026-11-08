@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Government Public Engagement — Firebean | 政府公共參與：決定時刻的選擇設計</title>
+<meta name="description" content="Firebean 政府公共參與方法論：公共參與的成敗不在宣傳聲量，而在決定時刻的選擇設計。現場觸點不是與數位宣傳競爭，而是完成它。">
+<link rel="canonical" href="https://firebean.net/gov-engagement/">
+<meta property="og:title" content="Government Public Engagement — Firebean">
+<meta property="og:description" content="The best nudge is not a louder message — it is a better-designed choice at the moment of decision.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;500;700&family=Inter:wght@300;400;600;800&family=Noto+Sans+HK:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#0A0A0A; --gray:#F4F4F4; --red:#FF3333; --white:#fff;
+  --line:#E2E2E2; --muted:#6B6B6B; --ink:#111;
+  --sans:'Inter','Noto Sans HK',system-ui,sans-serif;
+  --disp:'Oswald','Noto Sans HK',sans-serif;
+  --logo:'Anton',sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--white);color:var(--ink);font-family:var(--sans);font-weight:400;
+  -webkit-font-smoothing:antialiased;line-height:1.72;}
+a{color:inherit}
+.wrap{max-width:1320px;margin:0 auto;padding:0 24px}
+
+/* ── top bar ── */
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.wordmark{font-family:var(--logo);font-size:20px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none}
+.wordmark b{color:var(--red);font-weight:400}
+.tb-right{display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.pbtn{border:1px solid var(--black);background:var(--black);color:#fff;font-family:var(--sans);font-size:10.5px;
+  letter-spacing:.16em;text-transform:uppercase;padding:9px 15px;border-radius:2px;cursor:pointer}
+.pbtn:hover{background:var(--red);border-color:var(--red)}
+
+/* ── hero ── */
+.hero{padding:82px 0 64px;border-bottom:1px solid var(--line)}
+.kicker{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--red);font-weight:600;margin:0 0 22px}
+.hero h1{font-family:var(--disp);font-weight:700;font-size:clamp(34px,5.4vw,74px);line-height:1.02;
+  letter-spacing:-.01em;margin:0 0 26px;text-transform:none}
+.hero h1 em{font-style:normal;color:var(--red)}
+.lede{font-size:clamp(16px,1.35vw,21px);max-width:60ch;color:#2c2c2c;margin:0 0 20px}
+.hero .en{font-size:13px;color:var(--muted);max-width:66ch;border-left:3px solid var(--red);padding-left:16px;margin-top:26px}
+
+/* ── layout: desktop side rail ── */
+.shell{display:grid;grid-template-columns:minmax(0,1fr);gap:0}
+@media(min-width:1080px){
+  .shell{grid-template-columns:246px minmax(0,1fr);gap:64px;align-items:start}
+  .rail{position:sticky;top:88px;padding:64px 0 0}
+  .main{padding:64px 0 0}
+}
+.rail{display:none}
+@media(min-width:1080px){.rail{display:block}}
+.rail ol{list-style:none;margin:0;padding:0;font-size:12.5px}
+.rail li{margin:0 0 3px}
+.rail a{display:block;padding:8px 12px;border-left:2px solid var(--line);text-decoration:none;color:var(--muted);
+  transition:.16s;letter-spacing:.01em}
+.rail a:hover,.rail a.on{border-left-color:var(--red);color:var(--black);background:var(--gray)}
+.rail .rlabel{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#9a9a9a;margin:0 0 14px;padding-left:12px}
+.rail .facts{margin-top:32px;padding:18px 14px;background:var(--gray);font-size:12px;line-height:1.6}
+.rail .facts div+div{margin-top:11px;padding-top:11px;border-top:1px solid #ddd}
+.rail .facts b{display:block;font-family:var(--disp);font-size:19px;line-height:1.1;color:var(--black)}
+
+/* ── sections ── */
+section{padding:52px 0;border-top:1px solid var(--line)}
+section:first-of-type{border-top:0;padding-top:0}
+.num{font-family:var(--disp);font-size:12px;letter-spacing:.3em;color:var(--red);font-weight:500;margin:0 0 12px}
+h2{font-family:var(--disp);font-weight:700;font-size:clamp(24px,2.9vw,40px);line-height:1.1;margin:0 0 8px}
+.h2en{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin:0 0 26px}
+h3{font-family:var(--sans);font-weight:800;font-size:15px;letter-spacing:.01em;margin:30px 0 8px}
+p{margin:0 0 16px;max-width:74ch}
+.quote{font-family:var(--disp);font-weight:500;font-size:clamp(19px,2.1vw,28px);line-height:1.34;
+  padding:26px 0 26px 24px;border-left:4px solid var(--red);margin:26px 0;max-width:64ch}
+
+/* ── stat grid ── */
+.stats{display:grid;grid-template-columns:1fr;gap:16px;margin:28px 0}
+@media(min-width:720px){.stats{grid-template-columns:repeat(3,1fr)}}
+.stat{border:1px solid var(--line);padding:22px 20px;background:var(--gray)}
+.stat b{display:block;font-family:var(--disp);font-weight:700;font-size:clamp(28px,3.4vw,44px);line-height:1;color:var(--red);margin-bottom:8px}
+.stat .st{font-size:13px;font-weight:700;margin-bottom:6px}
+.stat .sc{font-size:11.5px;color:var(--muted);line-height:1.55}
+
+/* ── 4 layers ── */
+.layers{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);margin:26px 0}
+@media(min-width:720px){.layers{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1080px){.layers{grid-template-columns:repeat(4,1fr)}}
+.layer{background:#fff;padding:20px 18px}
+.layer .n{font-family:var(--disp);font-size:11px;letter-spacing:.24em;color:var(--red);margin-bottom:10px}
+.layer b{display:block;font-size:13.5px;margin-bottom:6px}
+.layer span{font-size:11.5px;color:var(--muted);line-height:1.55}
+
+/* ── proof / creds ── */
+.creds{display:grid;grid-template-columns:1fr;gap:16px;margin:24px 0}
+@media(min-width:720px){.creds{grid-template-columns:repeat(3,1fr)}}
+.cred{border-top:3px solid var(--black);padding-top:14px}
+.cred b{display:block;font-family:var(--disp);font-weight:700;font-size:23px;line-height:1.1;margin-bottom:6px}
+.cred span{font-size:12px;color:var(--muted);line-height:1.6}
+
+/* ── ladder ── */
+table{width:100%;border-collapse:collapse;margin:22px 0;font-size:13.5px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600;background:var(--gray)}
+td b{font-weight:700}
+tr:last-child td{border-bottom:0}
+
+/* ── cta ── */
+.cta{background:var(--black);color:#fff;padding:56px 0;margin-top:0}
+.cta .wrap{display:grid;grid-template-columns:1fr;gap:26px}
+@media(min-width:900px){.cta .wrap{grid-template-columns:1.5fr 1fr;align-items:end}}
+.cta h2{color:#fff;margin-bottom:14px}
+.cta p{color:#bdbdbd;margin:0}
+.cta .who{font-size:13px;color:#bdbdbd;line-height:1.9}
+.cta .who a{color:#fff;text-decoration:none;border-bottom:1px solid var(--red)}
+footer{padding:30px 0;font-size:11px;color:var(--muted);letter-spacing:.04em}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media print{
+  .topbar,.rail,.pbtn,.cta{display:none!important}
+  body{line-height:1.5}
+  section{padding:20px 0;break-inside:avoid}
+  .hero{padding:0 0 24px}
+  .shell{grid-template-columns:1fr}
+  .main{padding:0}
+  .stats,.layers,.creds{grid-template-columns:repeat(3,1fr)}
+  .layers{grid-template-columns:repeat(4,1fr)}
+  a{text-decoration:none}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="wordmark" href="https://firebean.net/">FIRE<b>BEAN</b></a>
+    <div class="tb-right">
+      <span>B2G Practice</span>
+      <button class="pbtn" onclick="window.print()">列印 / PDF</button>
+    </div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">Government Public Engagement · 政府公共參與</p>
+    <h1>唔係大聲啲，<br>係<em>設計得好啲</em>。</h1>
+    <p class="lede">政府不缺訊息，缺的是「行為」。政策寫在文件，行為發生在現場 —— 中間那最後一米，是我們的工作範圍。</p>
+    <p class="en">The best nudge is not a louder message — it is a better-designed choice at the moment of decision.</p>
+  </div>
+</header>
+
+<div class="wrap">
+<div class="shell">
+
+  <aside class="rail">
+    <p class="rlabel">Contents</p>
+    <ol>
+      <li><a href="#problem">01 — 問題：訊息夠多，行為不夠</a></li>
+      <li><a href="#angle">02 — 角度：決定時刻的設計</a></li>
+      <li><a href="#evidence">03 — 三個真實數字</a></li>
+      <li><a href="#layer">04 — 現場行為層</a></li>
+      <li><a href="#why">05 — 為什麼是 Firebean</a></li>
+      <li><a href="#how">06 — 怎樣合作：行為階梯</a></li>
+    </ol>
+    <div class="facts">
+      <div><b>2007</b>成立，18 年</div>
+      <div><b>55</b>政府及公共機構項目</div>
+      <div><b>Official</b>屋宇署官方公關顧問</div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section id="problem">
+      <p class="num">01</p>
+      <h2>問題：訊息夠多，行為不夠</h2>
+      <p class="h2en">Reach is not behaviour</p>
+      <p>政府每年投放大量資源在宣傳：電視、電台、數碼媒體、印刷品、戶外廣告、公眾參與活動。訊息早已送到市民眼前 —— 但政策要的從來不是「看過」，而是「做過」：登記、預約、申請、接種、出席、遵守。</p>
+      <p>數位宣傳的產出是 <b>reach（觸及）</b>；政府真正要的產出是 <b>behaviour（行為）</b>。兩者之間有一道最後一米，它只存在於現場。</p>
+      <div class="quote">市民很少抗拒正確的選擇 —— 他們只是從未在「準備好決定的那一刻」遇見它。</div>
+      <p>這一米補不上，再多的曝光都只會停在「知道了」。而這一米，不能靠把訊息講得更大聲來補。</p>
+    </section>
+
+    <section id="angle">
+      <p class="num">02</p>
+      <h2>角度：決定時刻的選擇設計</h2>
+      <p class="h2en">Choice architecture at the moment of decision</p>
+      <p>我們把公共參與由<b>傳播問題</b>重新定義為<b>行為問題</b>。同一個目標，兩種做法：</p>
+      <table>
+        <thead><tr><th style="width:34%">大聲的做法</th><th>設計的做法</th></tr></thead>
+        <tbody>
+          <tr><td>加壓：更多提醒、更急的語氣、更多噪音</td><td>改變「決定」本身：把正確選擇變成最容易做的下一步</td></tr>
+          <tr><td>要求市民改變意願</td><td>不要求任何意志力</td></tr>
+          <tr><td>把訊息推得更遠、更廣</td><td>在猶豫的那一秒，把它放到手邊</td></tr>
+          <tr><td>與現場體驗爭奪注意力</td><td>完成現場體驗 —— 它才是行為發生的地方</td></tr>
+        </tbody>
+      </table>
+      <p>所以我們做的，是政府宣傳鏈條上「<b>行為完工（finishing the behaviour）</b>」的那一層：<b>不是與數位宣傳競爭，而是完成它。</b></p>
+      <div class="quote">We don't buy attention. We engineer the next action.</div>
+    </section>
+
+    <section id="evidence">
+      <p class="num">03</p>
+      <h2>三個真實數字</h2>
+      <p class="h2en">Real, repeatable, and modest — by design</p>
+      <div class="stats">
+        <div class="stat">
+          <b>300+</b>
+          <div class="st">政府機關採用行為科學</div>
+          <div class="sc">OECD 已收錄 63 個國家逾 300 個行為洞察單位，其中 200+ 設於政府內部。<br>OECD (2023)</div>
+        </div>
+        <div class="stat">
+          <b>1.4pp</b>
+          <div class="st">政府規模的平均行為效果</div>
+          <div class="sc">126 個隨機對照試驗、約 2,300 萬人，平均 1.4 個百分點（相對 8.1% 增幅）。<br>DellaVigna &amp; Linos, NBER WP 27594 (2020)</div>
+        </div>
+        <div class="stat">
+          <b>42,000</b>
+          <div class="st">一句改寫換來的額外接種</div>
+          <div class="sc">英國 BIT × NHS England 全國 RCT：最有效的短訊不是最緊急的一則，而是單純告知「你已排到隊頭」。<br>BIT (2025), Nature Human Behaviour</div>
+        </div>
+      </div>
+      <p style="font-size:12.5px;color:var(--muted)">我們刻意使用溫和而可重複的數字。行為改變通常以「個百分點」計，而不是以倍數計 —— 承認這一點，才能設計出真正可驗收的方案。</p>
+    </section>
+
+    <section id="layer">
+      <p class="num">04</p>
+      <h2>現場行為層</h2>
+      <p class="h2en">The on-site behaviour layer</p>
+      <p>在每一個項目，我們先鎖定<b>一個主要行為（one primary behaviour）</b>，再回推它在現場的四個決定時刻，逐一設計觸點：</p>
+      <div class="layers">
+        <div class="layer"><div class="n">I</div><b>動線與猶豫位</b><span>站在場地的一個告示牌，在人決定「行哪邊」的那一秒發揮作用。</span></div>
+        <div class="layer"><div class="n">II</div><b>手上的表格</b><span>一份親手填寫的文件，把意向變成紀錄，而不只是一次點頭。</span></div>
+        <div class="layer"><div class="n">III</div><b>可記憶的物件</b><span>紀念品、扭蛋機、打卡位：把「參與」變成記憶與社交分享。</span></div>
+        <div class="layer"><div class="n">IV</div><b>回到可追蹤的數位</b><span>QR 專頁把人流導回可量度的數位資產，接上後續行為。</span></div>
+      </div>
+      <p>現場觸點不是印刷採購，也不是加插的活動環節。它要麼被設計成人對人的接觸，要麼被賦予清晰的社會規範框架 —— 否則「派了東西」並不等於「有接觸」。</p>
+    </section>
+
+    <section id="why">
+      <p class="num">05</p>
+      <h2>為什麼是 Firebean</h2>
+      <p class="h2en">Government fluency × on-site delivery × measurement</p>
+      <div class="creds">
+        <div class="cred"><b>18 年</b><span>2007 年成立。由概念、公關、媒體、製作到現場，一張合約問責到底。</span></div>
+        <div class="cred"><b>55</b><span>政府及公共機構項目，包括教育局、屋宇署、公務員事務局、政制及內地事務局、康文署等。</span></div>
+        <div class="cred"><b>巡迴展覽</b><span>我們的核心業務。同一套內容逐站搬去不同場地，一次製作、多次滲透。</span></div>
+      </div>
+      <h3>政府項目的難處不是創意，是準確</h3>
+      <p>由招標文件、評分準則、活動規範、審批流程到現場合規 —— 我們做過 55 次。這不是靠靈感，是靠熟悉。大型公關網絡策略強、現場製作大量外判；純活動承辦商做得到製作，但少有把策略與量度一併帶上桌。我們站在兩者之間，而且由現場一直問責到成效。</p>
+      <p style="font-size:12.5px;color:var(--muted)">代表作：<a href="https://firebean.net/profile.html?id=FB2025999" style="text-decoration:underline">公務員事務局「5S 良好工作場所整理」巡迴展覽</a> · 教育局學與教博覽 · 屋宇署樓宇安全周。</p>
+    </section>
+
+    <section id="how">
+      <p class="num">06</p>
+      <h2>怎樣合作：行為階梯</h2>
+      <p class="h2en">One primary behaviour, measured on a four-step ladder</p>
+      <p>我們不用「感覺良好」驗收。每個項目只鎖定<b>一個主要行為</b>，並在同一把尺上報告四個層級：</p>
+      <table>
+        <thead><tr><th style="width:20%">層級</th><th style="width:42%">指標例子</th><th>說明</th></tr></thead>
+        <tbody>
+          <tr><td><b>曝光</b></td><td>入場人次、停留時間</td><td>我們可完整歸因</td></tr>
+          <tr><td><b>理解</b></td><td>現場 1–2 題即場理解測試</td><td>我們可完整歸因</td></tr>
+          <tr><td><b>意向</b></td><td>承諾簽署、登記、預約、資料索取</td><td>我們可完整歸因</td></tr>
+          <tr><td><b>後續行為</b></td><td>7 / 30 日後完成申請、出席、接種</td><td>需客戶提供數據；否則標示為 observable proxy</td></tr>
+        </tbody>
+      </table>
+      <p>QR 掃描我們只當作<b>意向層的替代指標</b>，不會當作行為改變。方案開始前先建立基線（可設對照場地則設），並同步訂明私隱與資料治理條款：收集範圍、用途、保存期、去識別化。</p>
+    </section>
+
+  </main>
+</div>
+</div>
+
+<section class="cta">
+  <div class="wrap">
+    <div>
+      <h2>下一個項目的「一個主要行為」是甚麼？</h2>
+      <p>如果你手上有一個即將開展的政府項目，我們可以先用一頁紙，把目標行為、對應觸點、基線與量度方法寫清楚 —— 再決定要不要做。</p>
+    </div>
+    <div class="who">
+      Firebean · Hong Kong<br>
+      <a href="mailto:hello@firebean.net">hello@firebean.net</a><br>
+      <a href="https://firebean.net/">firebean.net</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© Firebean — Government Public Engagement Practice</span>
+    <span>所有外部數字均附公開來源；最後更新 2026-11</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.rail a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
+  function sync(){
+    var y=window.scrollY+140, idx=0;
+    secs.forEach(function(s,i){ if(s && s.offsetTop<=y) idx=i; });
+    links.forEach(function(a,i){ a.classList.toggle('on', i===idx); });
+  }
+  window.addEventListener('scroll',sync,{passive:true}); sync();
+})();
+</script>
+</body>
+</html>
