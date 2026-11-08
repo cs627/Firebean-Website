@@ -67,7 +67,7 @@ header{display:flex;justify-content:space-between;align-items:center;padding:26p
 .mcard .plate{display:none}
 .mcard .plate .sc{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;opacity:.85}
 .mcard .band-tag{position:absolute;top:12px;left:12px;font-family:var(--mono);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:#0A0A0A;padding:4px 10px;z-index:4}
-.mcard .band-tag.bGREEN{background:var(--g)}.mcard .band-tag.bYELLOW{background:var(--y)}.mcard .band-tag.bRED{background:var(--r)}.mcard .band-tag.bBLACK{background:#0A0A0A}
+.mcard .band-tag.bGREEN{background:var(--g)}.mcard .band-tag.bYELLOW{background:var(--y)}.mcard .band-tag.bRED{background:var(--r)}.mcard .band-tag.bBLACK{background:#0A0A0A}.mcard .band-tag.bNEW{background:#fff;color:#0A0A0A;border:1px solid #0A0A0A}
 .mcard .no-photo{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:2.6rem;font-weight:800;color:#c9c9c9}
 .mcard .name{font-size:.95rem;font-weight:600;letter-spacing:.01em;line-height:1.3;margin-top:16px}
 .mcard .meta{display:flex;justify-content:space-between;align-items:center;margin-top:6px;font-family:var(--mono)}
@@ -145,6 +145,7 @@ header{display:flex;justify-content:space-between;align-items:center;padding:26p
       <option value="YELLOW">YELLOW</option>
       <option value="RED">RED</option>
       <option value="BLACK">BLACK LIGHT</option>
+      <option value="NEW">NEW MEMBER</option>
     </select>
     <label>Sort</label>
     <select id="sortBy">
@@ -179,12 +180,13 @@ header{display:flex;justify-content:space-between;align-items:center;padding:26p
 <script src="data.js"></script>
 <script>
 const store=window.TL_DATA;const members=store.members||[];const chapter=store.chapter||{};
-const bandLabel=b=>b==='BLACK'?'BLACK LIGHT':b;
+const bandLabel=b=>b==='BLACK'?'BLACK LIGHT':(b==='NEW'?'NEW MEMBER':b);
 const IK={'GREEN':'G','YELLOW':'Y','RED':'R'};
 document.getElementById('period').textContent=store.report_period||'';
 document.getElementById('chRank').textContent=chapter.rank||'—';
 document.getElementById('chTotal').textContent=chapter.member_count||'—';
-const avg=Math.round(members.reduce((s,m)=>s+(m.total||0),0)/Math.max(members.length,1));
+const scored=members.filter(m=>m.band!=='NEW');
+const avg=Math.round(scored.reduce((s,m)=>s+(m.total||0),0)/Math.max(scored.length,1));
 document.getElementById('cAvg').textContent=avg;
 document.getElementById('cG').textContent=members.filter(m=>m.band==='GREEN').length;
 document.getElementById('cY').textContent=members.filter(m=>m.band==='YELLOW').length;
@@ -203,11 +205,13 @@ function render(){
   if(sb==='name')list.sort((a,b)=>a.name.localeCompare(b.name));
   else if(sb==='need')list.sort((a,b)=>(a.total||0)-(b.total||0));
   else list.sort((a,b)=>(b.total||0)-(a.total||0));
+  list=list.filter(m=>m.band!=='NEW').concat(list.filter(m=>m.band==='NEW'));
   const g=document.getElementById('grid');g.innerHTML='';
   for(const m of list){
+    const isNew=m.band==='NEW';
     const c=document.createElement('div');c.className='mcard';c.onclick=()=>openModal(m);
     const img=m.photo?`<img src="${m.photo}" loading="lazy" alt="${m.name}" onerror="this.parentNode.classList.add('no-ph','no-img');this.remove()">`:('');
-    c.innerHTML='<div class="thumb">'+(img||'<span class="no-photo">'+(m.name[0]||'?')+'</span>')+'<span class="band-tag b'+m.band+'">'+bandLabel(m.band)+' '+m.total+'</span></div><div class="plate"><div>'+m.name+'</div><div class="sc">Rank '+m.rank+' · '+m.total+' pts</div></div></div><div class="name">'+m.name+'</div><div class="meta"><span class="rank-txt">Rank '+m.rank+'</span>'+(m.hk_rank?'<span class="hk-txt">HK '+m.hk_rank+'</span>':'<span class="score"><small>pts</small>'+(m.total||0)+'</span>')+'</div>';
+    c.innerHTML='<div class="thumb">'+(img||'<span class="no-photo">'+(m.name[0]||'?')+'</span>')+'<span class="band-tag b'+m.band+'">'+bandLabel(m.band)+(isNew?'':' '+m.total)+'</span></div><div class="plate"><div>'+m.name+'</div><div class="sc">'+(isNew?'New member':'Rank '+m.rank+' · '+m.total+' pts')+'</div></div></div><div class="name">'+m.name+'</div><div class="meta"><span class="rank-txt">'+(isNew?'New member':'Rank '+m.rank)+'</span>'+(isNew?'<span class="score"><small>pts</small>—</span>':(m.hk_rank?'<span class="hk-txt">HK '+m.hk_rank+'</span>':'<span class="score"><small>pts</small>'+(m.total||0)+'</span>'))+'</div>';
     g.appendChild(c);
   }
 }
@@ -219,7 +223,7 @@ function openModal(m){
   const port=document.getElementById('mPortrait');
   if(m.photo){port.src=m.photo;port.style.display='block';}else{port.style.display='none';}
   document.getElementById('mName').textContent=m.name;
-  document.getElementById('mSub').textContent=`Rank ${m.rank} · ${m.total} pts · ${bandLabel(m.band)} ${m.hk_rank?'· HK '+m.hk_rank:''}`;
+  document.getElementById('mSub').textContent = m.band==='NEW' ? 'New member · 未有分數' : `Rank ${m.rank} · ${m.total} pts · ${bandLabel(m.band)} ${m.hk_rank?'· HK '+m.hk_rank:''}`;
   const cats=document.getElementById('mCats');cats.innerHTML='';
   const gaps=m.gaps||[];const gm={};gaps.forEach(g=>gm[g.cat]=g);
   for(const c of CATLBL){
