@@ -1,12 +1,12 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-11-07T17:04:07.668781+00:00",
+  "generatedAt": "2026-11-08T17:05:30.054334+00:00",
   "run": {
-    "runDate": "2026-11-08",
+    "runDate": "2026-11-09",
     "dateRange": {
       "from": "2025-06-09",
-      "to": "2026-11-08"
+      "to": "2026-11-09"
     },
     "alerts": [
       {
@@ -3690,6 +3690,18 @@
       "link": "https://www.stheadline.com/food/3634256/%E8%8A%B1%E5%9C%92%E9%A4%90%E5%BB%B3%E5%8D%8A%E5%B9%B46%E5%BA%97%E7%B5%90%E6%A5%AD-%E4%B8%80%E4%BB%A3%E6%B8%AF%E5%BC%8F%E6%89%92%E6%88%BF-%E6%97%BA%E8%A7%92%E5%BA%97%E7%84%A1%E9%A0%90%E8%AD%A6%E8%90%BD%E9%96%B8-%E5%A4%AA%E5%AD%90%E5%BA%97%E4%B8%8B%E5%91%A8%E8%B5%B7%E5%81%9C%E6%A5%AD-%E5%BA%97%E5%93%A1%E5%98%86%E6%AF%AB%E7%84%A1%E6%BA%96%E5%82%99%E5%A5%BD%E7%AA%81%E7%84%B6%E9%80%9A%E7%9F%A5",
       "branchCount": "1（全港僅餘北角店；太子店 2026-11-10 結業）",
       "expansion": "收縮（半年關 6 店，由全盛期逾 10 間縮至 1 間）"
+    },
+    {
+      "date": "2026-11-09",
+      "competitor": "Flat Iron Steak",
+      "type": "新店/擴張",
+      "title": "Flat Iron 官網分店列表更新：香港現為 7 間（含鰂魚涌糖廠街店），修正 11-06「6 間」記錄",
+      "summary": "以 headless 瀏覽器渲染 flatironhk.com/flat-iron-steak（2026-11-09 抓取）核對官網 Our Locations：香港共 7 間——尖沙咀朗廷酒店低層大堂、IFC 4 樓 4010 舖、銅鑼灣 Fashion Walk 1-2 號舖、灣仔 Johnston Court 14-16 號、中環 SoHo 荷李活道 30 號、上環蘇杭街 69 號、以及鰂魚涌糖廠街 33 號 A 舖（營業時間 07:00-21:00 特長，電話 6270 3019）；另有澳門新濠影匯 1 樓 1079 舖。⚠️ 修正：2026-11-06 本表曾記錄「香港 6 間」，與 Sheet 既有「7 間」矛盾——今日重抓證實該次渲染漏掉了鰂魚涌糖廠街店，正確數目為香港 7 間，現已與 Sheet 一致。推廣內容與 11-06 相同、無新增：M9 Monday 550g Jack's Creek M9 西冷二人份 HK$788、T-Bone Tuesday 1kg 黑安格斯 T 骨半價、Mixed Grill Wednesday 全日半價、Tomahawk Thursday 1.2kg 黑安格斯斧頭扒 HK$849、全線 Happy Hour 12:00-19:30 啤酒及 House Wine 半價。對 Outback 的意義：對手已由「港島 4 店＋九龍 1 店」擴至港島東（鰂魚涌）上班族商圈，以 07:00 開門食早餐時段搶同一批太古坊／鰂魚涌白領，與 Outback 蕎灣／康怡一帶的午市客源正面重疊。",
+      "sentiment": "中性",
+      "source": "官方網站（headless 瀏覽器渲染，2026-11-09 抓取）",
+      "link": "https://flatironhk.com/flat-iron-steak",
+      "branchCount": "7（香港）＋1（澳門）",
+      "expansion": "持平（無新店；11-06 遺漏的鰂魚涌糖廠街店已補回，計數與 Sheet 一致）"
     }
   ],
   "trend": [
