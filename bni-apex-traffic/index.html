@@ -124,7 +124,7 @@ header{display:flex;justify-content:space-between;align-items:center;padding:26p
     <div class="eyebrow">Giant Business · 2026 Score</div>
     <h1>Members<br>Score.</h1>
     <div class="row2">
-      <span class="stat">Chapter HK <b>#<span id="chRank">—</span>/<span id="chTotal">—</span></b></span>
+      <span class="stat">Chapter HK <b>#<span id="chRank">—</span> of <span id="chTotal">—</span></b></span>
       <span class="stat">Period <b id="period">—</b></span>
     </div>
   </section>
@@ -184,7 +184,7 @@ const bandLabel=b=>b==='BLACK'?'BLACK LIGHT':(b==='NEW'?'NEW MEMBER':b);
 const IK={'GREEN':'G','YELLOW':'Y','RED':'R'};
 document.getElementById('period').textContent=store.report_period||'';
 document.getElementById('chRank').textContent=chapter.rank||'—';
-document.getElementById('chTotal').textContent=chapter.member_count||'—';
+document.getElementById('chTotal').textContent=chapter.total_chapters||chapter.member_count||'—';
 const scored=members.filter(m=>m.band!=='NEW');
 const avg=Math.round(scored.reduce((s,m)=>s+(m.total||0),0)/Math.max(scored.length,1));
 document.getElementById('cAvg').textContent=avg;
@@ -211,7 +211,7 @@ function render(){
     const isNew=m.band==='NEW';
     const c=document.createElement('div');c.className='mcard';c.onclick=()=>openModal(m);
     const img=m.photo?`<img src="${m.photo}" loading="lazy" alt="${m.name}" onerror="this.parentNode.classList.add('no-ph','no-img');this.remove()">`:('');
-    c.innerHTML='<div class="thumb">'+(img||'<span class="no-photo">'+(m.name[0]||'?')+'</span>')+'<span class="band-tag b'+m.band+'">'+bandLabel(m.band)+(isNew?'':' '+m.total)+'</span></div><div class="plate"><div>'+m.name+'</div><div class="sc">'+(isNew?'New member':'Rank '+m.rank+' · '+m.total+' pts')+'</div></div></div><div class="name">'+m.name+'</div><div class="meta"><span class="rank-txt">'+(isNew?'New member':'Rank '+m.rank)+'</span>'+(isNew?'<span class="score"><small>pts</small>—</span>':(m.hk_rank?'<span class="hk-txt">HK '+m.hk_rank+'</span>':'<span class="score"><small>pts</small>'+(m.total||0)+'</span>'))+'</div>';
+    c.innerHTML='<div class="thumb">'+(img||'<span class="no-photo">'+(m.name[0]||'?')+'</span>')+'<span class="band-tag b'+m.band+'">'+bandLabel(m.band)+(isNew?'':' '+m.total)+'</span></div><div class="plate"><div>'+m.name+'</div><div class="sc">'+(isNew?'New member':'Rank '+m.rank+' · '+m.total+' pts')+'</div></div></div><div class="name">'+m.name+'</div><div class="meta"><span class="rank-txt">'+(isNew?'New member':'Rank '+m.rank)+'</span>'+(isNew?'<span class="score"><small>pts</small>—</span>':'<span class="score"><small>pts</small>'+(m.total||0)+'</span>'+(m.hk_rank?'<span class="hk-txt">HK '+m.hk_rank+'</span>':''))+'</div>';
     g.appendChild(c);
   }
 }
