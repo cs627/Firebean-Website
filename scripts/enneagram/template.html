@@ -84,6 +84,29 @@ main{display:block;padding-bottom:118px}
   box-shadow:inset 0 2px 5px rgba(122,92,64,.22),0 1px 0 rgba(255,255,255,.9)}
 #qcard .pbar.qtop-bar i{background:linear-gradient(90deg,#FFD98A,#F7B267 45%,#7FC5A2);box-shadow:0 1px 2px rgba(122,92,64,.25)}
 
+/* ---------- 年齡層面：切換 + 並排對照 ---------- */
+.cohortbar{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 6px}
+.cbtn{font:inherit;font-size:13px;font-weight:800;color:#7A5C40;background:#FFFDF8;border:1.5px solid var(--line);
+  border-radius:999px;padding:8px 15px;cursor:pointer;box-shadow:0 2px 0 #EBDCC6;transition:transform .12s,box-shadow .12s;text-align:center}
+.cbtn:active{transform:translateY(2px);box-shadow:none}
+.cbtn.on{background:linear-gradient(180deg,#3E7C5C,#2F6B4F);color:#fff;border-color:#2F6B4F;box-shadow:0 3px 0 #24543D}
+.cbtn small{display:block;font-size:10.5px;font-weight:700;opacity:.85;margin-top:2px}
+.ctab{width:100%;border-collapse:collapse;margin-top:4px}
+.ctab th,.ctab td{padding:9px 7px;border-bottom:1px solid var(--line2);font-size:13px;text-align:right;white-space:nowrap}
+.ctab th:first-child,.ctab td:first-child{text-align:left;white-space:normal}
+.ctab thead th{font-size:11px;letter-spacing:.05em;color:var(--muted);font-weight:800;border-bottom:1.5px solid var(--line)}
+.ctab .dy{color:#B4432F;font-weight:800}.ctab .dn{color:#2F6B4F;font-weight:800}.ctab .dz{color:var(--muted)}
+.cohgrid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:4px}
+@media(min-width:820px){.cohgrid{grid-template-columns:1fr 1fr}}
+.cohcard{background:#FFFCF5;border:1px solid var(--line2);border-radius:16px;padding:13px 15px}
+.cohcard h4{margin:0 0 8px;font-size:13.5px;color:#2F6B4F}
+.cohline{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;padding:5px 0;border-bottom:1px dashed var(--line2)}
+.cohline:last-child{border-bottom:0}
+.cohline b{font-variant-numeric:tabular-nums}
+.cohins{margin:14px 0 0;padding-left:20px}
+.cohins li{margin:7px 0;font-size:13.5px;line-height:1.62}
+.cohins li b{color:#B4432F}
+@media(max-width:520px){.ctab th,.ctab td{padding:7px 4px;font-size:11.5px}.ctab thead th{font-size:9.5px}}
 /* ---------- views ---------- */
 .view{display:none;padding:20px 0 10px}
 .view.on{display:block;animation:pop .3s cubic-bezier(.3,1.2,.5,1)}
@@ -675,6 +698,12 @@ footer.foot b{color:var(--ink2)}
           <span class="eyebrow">調研數據 ｜ 匿名匯總</span>
           <h2>土地政策公眾調研 ｜ 即時數據看板</h2>
           <p class="muted small">僅顯示匯總數字，不含任何個人資料。每一份匿名作答，同時構成一份土地政策公眾調研樣本；圖表隨新回應即時更新。</p>
+          <div class="cohortbar" role="group" aria-label="按年齡層面篩選">
+            <button class="cbtn on" type="button" data-cohort="">全部受訪者<small id="cAll">—</small></button>
+            <button class="cbtn" type="button" data-cohort="youth">25 歲或以下<small id="cYouth">—</small></button>
+            <button class="cbtn" type="button" data-cohort="adult">26 歲或以上 · 潛在客戶<small id="cAdult">—</small></button>
+          </div>
+          <p class="muted small" id="dCohortNote" style="margin:0 0 8px"></p>
           <div class="statline">
             <div class="big" id="dTotal">—</div>
             <div class="cap">份已完成測驗<br><span id="dStatus" class="muted">連線中…</span></div>
@@ -703,6 +732,16 @@ footer.foot b{color:var(--ink2)}
             <h3>交叉分析：年齡 × 九型</h3>
             <p class="sub">每一格代表「該年齡層中屬於此型的百分比」，可看出哪個年齡層最集中於哪一型</p>
             <div id="dCross"></div>
+          </div>
+          <div class="chartbox">
+            <h3>兩個年齡層面並排：25 歲或以下 vs 26 歲或以上</h3>
+            <p class="sub">26 歲或以上＝潛在客戶群（真正要說服的一批）。下表按差距大小排列，Δ = 26+ 減去 25- 的百分點差。</p>
+            <div class="cohgrid">
+              <div class="cohcard" id="cohType"></div>
+              <div class="cohcard" id="cohCenter"></div>
+            </div>
+            <div id="cohTab" style="margin-top:16px"></div>
+            <ul class="cohins" id="cohIns"></ul>
           </div>
           <div class="analysis" id="dAnalysis"></div>
           <hr class="hr">
@@ -737,6 +776,13 @@ footer.foot b{color:var(--ink2)}
               <h3>受眾導航儀<br>（Precision Segmentation）</h3>
               <p>這套九型人格模型不單是問卷，更是整套公關方案的受眾導航儀——每一型都對應一條最有效的接觸路線。</p>
             </div>
+          </div>
+          <div class="hr"></div>
+          <div class="pblock" style="margin-bottom:0">
+            <div class="pn">02b 兩個年齡層面</div>
+            <h3>26 歲或以上：真正的潛在客戶</h3>
+            <p>把樣本按年齡切開，26 歲或以上的一批與 25 歲或以下明顯不同——他們更貼身擔心物業風險、更常看短片、更接受戲劇化演繹。這一批才是政策宣傳要說服的人。</p>
+            <div id="pCohort"></div>
           </div>
           <div class="hr"></div>
           <h3>每一型 → 一條傳播路線</h3>
@@ -1585,6 +1631,120 @@ function loadCount(){
    .then(function(j){ set(+(j&&j.total||0)); })
    .catch(function(){ set(0); });
 }
+/* ---------- 年齡層面：25 歲或以下 / 26 歲或以上（潛在客戶） ---------- */
+const COH_TN={1:"完美秩序者",2:"溫暖守護者",3:"高效實踐家",4:"美學共鳴者",5:"理性洞察家",6:"危機防衛官",7:"樂天開拓者",8:"勇敢領航者",9:"和平隨和者"};
+const COH_CN={heart:"心意中心",head:"思考中心",gut:"本能中心"};
+const COH_NAME={youth:"25 歲或以下", adult:"26 歲或以上（潛在客戶）"};
+/* 只挑選與決策相關的指標，不會羅列全部 108 個選項 */
+const COH_METRICS=[
+  ["物業詐騙、假業主冒名買賣","risk","fraud"],
+  ["物業被「逆權管有」爭奪","risk","adverse"],
+  ["歷史樓契殘缺導致業權爭議","risk","defect"],
+  ["想知現有物業會否受影響","concern","existing"],
+  ["關注香港整體法治與制度現代化","concern","rule_of_law"],
+  ["私人住宅自置業主","holding","owner_private"],
+  ["私人住宅市場租戶","holding","tenant_private"],
+  ["現時與家人同住、個人未持有物業","holding","family"],
+  ["從未接觸過任何土地宣傳","channel","none"],
+  ["紙本「缺乏互動與延伸功能」","limitation","no_interact"],
+  ["紙本「派發方式過於被動」","limitation","passive"],
+  ["講座「節奏冗長容易分心」","seminar","long"],
+  ["講座「形式沉悶單向」","seminar","dull"],
+  ["希望用生活化微短劇精華片段","element","clip"],
+  ["偏好港鐵網絡廣告","transit","mtr"],
+  ["高度支持用微短劇演繹條例","accept","high"],
+  ["從不觀看短視頻","shortform","never"],
+  ["自評「非常清楚」新制度","aware","clear"]
+];
+let COH=null, DASH_COHORT="";
+function cPct(s,qid,k){ const t=(s&&s.total)||0; return t? 100*(((s.answers||{})[qid]||{})[k]||0)/t : 0; }
+function cTopTypes(s,n){
+  const t=(s&&s.types)||{}; const base=Object.keys(t).reduce(function(x,k){return x+t[k]},0)||1;
+  return Object.keys(t).sort(function(p,q){return t[q]-t[p]}).slice(0,n).map(function(k){ return {n:+k, v:t[k], pc:100*t[k]/base}; });
+}
+function cGapRows(){
+  if(!COH) return [];
+  return COH_METRICS.map(function(m){
+    const py=cPct(COH.youth,m[1],m[2]), pa=cPct(COH.adult,m[1],m[2]);
+    return {label:m[0], py:py, pa:pa, d:pa-py};
+  }).sort(function(a,b){ return Math.abs(b.d)-Math.abs(a.d); });
+}
+function cTable(){
+  const rows=cGapRows();
+  if(!rows.length) return "";
+  const body=rows.map(function(r){
+    const cls=r.d>0?"dy":(r.d<0?"dn":"dz");
+    const sign=r.d>0?"+":"";
+    return "<tr><td>"+r.label+"</td><td>"+r.py.toFixed(1)+"%</td><td>"+r.pa.toFixed(1)+"%</td><td class=\""+cls+"\">"+sign+r.d.toFixed(1)+"</td></tr>";
+  }).join("");
+  return "<table class=\"ctab\"><thead><tr><th>指標（選項）</th><th>25 歲或以下</th><th>26 歲或以上</th><th>Δ 百分點</th></tr></thead><tbody>"+body+"</tbody></table>";
+}
+function renderCohorts(){
+  if(!COH) return;
+  const y=COH.youth, a=COH.adult;
+  const setTxt=function(id,v){ const el=$(id); if(el) el.textContent=v; };
+  setTxt("#cAll",((y.total||0)+(a.total||0))+" 份");
+  setTxt("#cYouth",(y.total||0)+" 份");
+  setTxt("#cAdult",(a.total||0)+" 份");
+
+  /* 九型 top 3 */
+  const yt=cTopTypes(y,3), at=cTopTypes(a,3);
+  const lineT=function(t){ return "<div class=\"cohline\"><span>第 "+t.n+" 型 "+COH_TN[t.n]+"</span><b>"+t.pc.toFixed(1)+"%</b></div>"; };
+  const elT=$("#cohType");
+  if(elT) elT.innerHTML="<h4>九型重心（各層面前三位）</h4>"+
+    "<div class=\"cohline\"><span>25 歲或以下（"+y.total+" 份）</span><b></b></div>"+
+    yt.map(lineT).join("")+
+    "<div style=\"height:10px\"></div>"+
+    "<div class=\"cohline\"><span>26 歲或以上（"+a.total+" 份）</span><b></b></div>"+
+    at.map(lineT).join("");
+
+  /* 三中心 */
+  const ctr=function(s){ const c=(s&&s.centers)||{}; const tot=Object.keys(c).reduce(function(x,k){return x+c[k]},0)||1;
+    return ["heart","head","gut"].map(function(k){ return {k:k, pc:100*(c[k]||0)/tot, n:c[k]||0}; }); };
+  const yc=ctr(y), ac=ctr(a);
+  const elC=$("#cohCenter");
+  if(elC) elC.innerHTML="<h4>三中心分佈</h4>"+yc.map(function(r,i){
+    return "<div class=\"cohline\"><span>"+COH_CN[r.k]+"</span><b>"+r.pc.toFixed(0)+"% vs "+ac[i].pc.toFixed(0)+"%</b></div>";
+  }).join("")+"<p class=\"muted small\" style=\"margin:8px 0 0\">左＝25 歲或以下；右＝26 歲或以上。</p>";
+
+  const t=cTable();
+  const elTab=$("#cohTab"); if(elTab) elTab.innerHTML=t;
+  const elP=$("#pCohort"); if(elP) elP.innerHTML=t;
+
+  /* 自動結論 */
+  const rows=cGapRows();
+  const top=rows.slice(0,3);
+  const yTop=yt[0], aTop=at[0];
+  const ins=[
+    "樣本："+COH_NAME.youth+" "+(y.total||0)+" 份、"+COH_NAME.adult+" "+(a.total||0)+" 份；以下百分比一律以各自層面的樣本數為基數。",
+    "性格重心：25 歲或以下最多第 "+yTop.n+" 型（"+yTop.pc.toFixed(1)+"%），26 歲或以上最多第 "+aTop.n+" 型（"+aTop.pc.toFixed(1)+"%）。",
+    "最大差距："+top.map(function(r){ return r.label+"（"+(r.d>0?"26+ 高 ":"26+ 低 ")+Math.abs(r.d).toFixed(1)+" 個百分點，"+r.pa.toFixed(1)+"% vs "+r.py.toFixed(1)+"%）"; }).join("；")+"。",
+    "代表什麼：26 歲或以上的受訪者貼身擔心物業風險（詐騙、逆權管有、現有樓契），但同時表示從未接觸過相關宣傳——即「有需要、卻未被接觸」。",
+    "下一步：主力素材應以 26 歲或以上的痛點開場（物業詐騙／業權安危），以生活化微短劇精華片段投放港鐵網絡，並將「新制度對現有物業有何影響」獨立成一段，直接回應他們最關心的問題。"
+  ];
+  const elI=$("#cohIns"); if(elI) elI.innerHTML=ins.map(function(x){ return "<li>"+x+"</li>"; }).join("");
+  refreshCohortButtons();
+}
+function refreshCohortButtons(){
+  document.querySelectorAll(".cbtn").forEach(function(b){ b.classList.toggle("on", (b.dataset.cohort||"")===DASH_COHORT); });
+  const n=$("#dCohortNote");
+  if(n) n.textContent = DASH_COHORT? ("現正顯示："+COH_NAME[DASH_COHORT]+" 的樣本；其餘圖表同步以這個層面重算。") : "現正顯示：全部受訪者；可用上面按鈕切換年齡層面。";
+}
+function loadCohorts(){
+  if(!statsUrl()) return;
+  const u=statsUrl();
+  Promise.all([fetch(u+"?cohort=youth&t="+Date.now()).then(function(r){return r.json()}),
+               fetch(u+"?cohort=adult&t="+Date.now()).then(function(r){return r.json()})])
+   .then(function(a){ COH={youth:a[0],adult:a[1]}; renderCohorts(); })
+   .catch(function(){ const t=$("#cohTab"); if(t) t.innerHTML="<p class=\"muted small\">後台暫時無法連接，未能分層。</p>"; });
+}
+document.querySelectorAll(".cbtn").forEach(function(b){
+  b.addEventListener("click", function(){
+    DASH_COHORT=b.dataset.cohort||"";
+    refreshCohortButtons();
+    loadData();
+  });
+});
 function loadData(){
   const st=$("#dStatus");
   if(!statsUrl()){
@@ -1593,7 +1753,8 @@ function loadData(){
     return;
   }
   st.textContent="連線中…";
-  fetch(statsUrl(), {method:"GET"})
+  const _u=statsUrl()+(DASH_COHORT? "?cohort="+DASH_COHORT+"&t=" : "?t=")+Date.now();
+  fetch(_u, {method:"GET"})
    .then(function(r){ return r.json() })
    .then(function(j){ st.textContent="即時更新 · 最後讀取 "+new Date().toLocaleTimeString("zh-HK",{hour:"2-digit",minute:"2-digit"}); renderDash(j) })
    .catch(function(){ st.textContent="後台暫時無法連接"; renderDash({total:0}) });
@@ -1679,6 +1840,7 @@ try{
   const q=(location.search||"");
   if(/(?:^|[?&])internal=1(?:&|$)/.test(q) || INTERNAL.indexOf(_initHash)>-1)
     document.body.classList.add("team-access");
+    setTimeout(function(){ loadCohorts(); }, 500);
 }catch(e){}
 setView("intro");
 try{ if(_initHash && document.querySelector("#v-"+_initHash)) setView(_initHash); }catch(e){}
