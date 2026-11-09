@@ -160,7 +160,8 @@ body::after{content:"";position:fixed;right:0;bottom:0;width:clamp(240px,40vw,76
     <label>Sort</label>
     <select id="sortBy">
       <option value="score">SCORE ↓</option>
-      <option value="need">NEED</option>
+      <option value="need">NEED ↑</option>
+      <option value="due">DUE DATE ↑</option>
       <option value="name">NAME</option>
     </select>
   </div>
@@ -216,6 +217,13 @@ function render(){
   let list=members.filter(m=>!q||m.name.toLowerCase().includes(q)).filter(m=>bf==='ALL'||m.band===bf);
   if(sb==='name')list.sort((a,b)=>a.name.localeCompare(b.name));
   else if(sb==='need')list.sort((a,b)=>(a.total||0)-(b.total||0));
+  else if(sb==='due')list.sort((a,b)=>{
+    const da=dueOf(a), db=dueOf(b);
+    if(!da&&!db) return (b.total||0)-(a.total||0);
+    if(!da) return 1;
+    if(!db) return -1;
+    return da.localeCompare(db);
+  });
   else list.sort((a,b)=>(b.total||0)-(a.total||0));
   list=list.filter(m=>m.band!=='NEW').concat(list.filter(m=>m.band==='NEW'));
   const g=document.getElementById('grid');g.innerHTML='';
