@@ -249,8 +249,10 @@ document.getElementById('sortBy').addEventListener('change',render);
 
 function dueOf(m){
   const D = window.TL_DUE || {};
-  const key = String(m.name||'').toLowerCase().replace(/[^a-z\s]/g,' ').split(/\s+/).filter(Boolean).slice(0,2).join(' ');
-  return D[key] || '';
+  const t = String(m.name||'').toLowerCase().replace(/[^a-z\s]/g,' ').split(/\s+/).filter(Boolean);
+  const keys = [t.join(' '), t.slice(0,2).join(' '), (t[0]||'')+' '+(t[t.length-1]||''), t[0]||''];
+  for (const k of keys) { if (k && D[k]) return D[k]; }
+  return '';
 }
 function dueDays(iso){
   if(!iso) return null;
