@@ -11,6 +11,17 @@
       "link": "https://www.outback.com.hk/news-and-promotions/article/243?lang=tc",
       "sentiment": "positive",
       "tags": ""
+    },
+    {
+      "date": "2026-11-02",
+      "source": "Threads",
+      "platform": "社交媒體",
+      "author": "the.food.fighter",
+      "title": "Threads 帖文：食客指 Outback 尖沙咀中心店「最出色始終係黑糖麵包」（422 次瀏覽）",
+      "summary": "Threads 用戶 the.food.fighter 於 2026-11-02 發帖：「間中食下 outback／Outback 最出色既始終都係佢嗰個黑糖麵包」，並附尖沙咀中心高層地下 UG23-28 號舖地址。全文只肯定招牌黑糖麥包，其餘菜式未提，語氣帶保留（😅），屬輕度混合評價。",
+      "link": "https://www.threads.com/@the.food.fighter/post/DfPmPR-mWyZ",
+      "sentiment": "mixed",
+      "tags": ""
     }
   ],
   "alerts": [],
@@ -18,8 +29,8 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 1,
-    "new_records": 1,
+    "checked_sources": 2,
+    "new_records": 2,
     "limitations": []
   }
 }

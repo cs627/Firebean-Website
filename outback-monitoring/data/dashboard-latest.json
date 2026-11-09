@@ -1,12 +1,12 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-11-08T17:05:30.054334+00:00",
+  "generatedAt": "2026-11-09T17:08:40.493766+00:00",
   "run": {
-    "runDate": "2026-11-09",
+    "runDate": "2026-11-10",
     "dateRange": {
       "from": "2025-06-09",
-      "to": "2026-11-09"
+      "to": "2026-11-10"
     },
     "alerts": [
       {
@@ -27,9 +27,9 @@
     ]
   },
   "counts": {
-    "total": 235,
+    "total": 238,
     "media": 77,
-    "social": 158,
+    "social": 161,
     "maps": 47,
     "stores": 10
   },
@@ -2618,6 +2618,39 @@
       "sentiment": "mixed",
       "sentiment_label": "混合",
       "keywords": "Outback, 澳美客, Threads, 會員升級, 扒房, 高觸達"
+    },
+    {
+      "date": "2026-10-11",
+      "source": "Threads",
+      "platform": "社交媒體",
+      "title": "Threads 食評「大失所望」：網民批 Outback 旺角店牛扒冇味、龍蝦尾與帶子似雪藏貨（450 次瀏覽、3 讚）",
+      "summary": "Threads 用戶 mgp.hkr 於 2026-10-11 發帖（標籤 #大叔食事 #食在旺角 #outbacksteakhouse）：指 USDA Prime 紐約牛扒 medium rare 做到但冇味；龍蝦尾雪到肉質柴皮；燒帶子白汁 risotto 的帶子「口感恐怖」；House 沙律芝士似超市長放貨；員工無笑容、隔住櫃遞餐具；環境熱似無開冷氣、出菜慢，「完全冇晒外國扒房餐廳嘅 feel」。屬作者個人用餐體驗，未經獨立核實。",
+      "link": "https://www.threads.com/@mgp.hkr/post/DeXEPdBiZWH",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback, Threads, 旺角, 食評, 牛扒, 服務"
+    },
+    {
+      "date": "2026-11-02",
+      "source": "Threads",
+      "platform": "社交媒體",
+      "title": "Threads 帖文：食客指 Outback 尖沙咀中心店「最出色始終係黑糖麵包」（422 次瀏覽）",
+      "summary": "Threads 用戶 the.food.fighter 於 2026-11-02 發帖：「間中食下 outback／Outback 最出色既始終都係佢嗰個黑糖麵包」，並附尖沙咀中心高層地下 UG23-28 號舖地址。全文只肯定招牌黑糖麥包，其餘菜式未提，語氣帶保留（😅），屬輕度混合評價。",
+      "link": "https://www.threads.com/@the.food.fighter/post/DfPmPR-mWyZ",
+      "sentiment": "mixed",
+      "sentiment_label": "混合",
+      "keywords": "Outback, Threads, 尖沙咀中心, 黑糖麵包, 食評"
+    },
+    {
+      "date": "2026-10-11",
+      "source": "Threads",
+      "platform": "社交媒體",
+      "title": "Threads 打卡帖：食客 2026-10-10 到訪 Outback 東涌東薈城店（631 次瀏覽）",
+      "summary": "Threads 用戶 baebae_0105 於 2026-10-11 發帖打卡，標註「10.10.2026｜Outback Steakhouse - 東涌｜東薈城名店倉｜東涌達東路20號東薈城名店倉3樓326B號舖」。內容為到店打卡，未評食物或服務，屬中性品牌曝光。",
+      "link": "https://www.threads.com/@baebae_0105/post/DeV003PifHk",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, Threads, 東涌, 東薈城, 打卡"
     }
   ],
   "stores": [
@@ -3702,6 +3735,18 @@
       "link": "https://flatironhk.com/flat-iron-steak",
       "branchCount": "7（香港）＋1（澳門）",
       "expansion": "持平（無新店；11-06 遺漏的鰂魚涌糖廠街店已補回，計數與 Sheet 一致）"
+    },
+    {
+      "date": "2026-10-21",
+      "competitor": "Wellington Grill and Bar（元朗威靈頓餐廳）",
+      "type": "推廣/優惠",
+      "title": "元朗威靈頓餐廳以巨型 Tomahawk 斧頭扒作招徠，Threads 官方帳號持續推節日聚餐套餐",
+      "summary": "Threads 官方帳號 @wellington_grill_and_bar 於 2026-10-21 發帖，以「巨型 Tomahawk 喺枱面」為主視覺，宣傳斧頭扒即點即烤、適合親友分享；另於萬聖節前後推節日套餐。餐廳位於元朗福康街 18 號地下（11:30–22:00，訂座 2882 8088），屬單店經營的地區性扒房，與 Outback 元朗形點店同區，值得納入同區競爭觀察。",
+      "sentiment": "中性",
+      "source": "Threads（官方帳號 @wellington_grill_and_bar）",
+      "link": "https://www.threads.com/@wellington_grill_and_bar",
+      "branchCount": "1",
+      "expansion": "單店經營（元朗福康街 18 號）"
     }
   ],
   "trend": [
@@ -3999,7 +4044,7 @@
     },
     {
       "date": "2026-10-11",
-      "count": 1
+      "count": 3
     },
     {
       "date": "2026-10-12",
@@ -4047,7 +4092,7 @@
     },
     {
       "date": "2026-11-02",
-      "count": 1
+      "count": 2
     },
     {
       "date": "2026-11-03",

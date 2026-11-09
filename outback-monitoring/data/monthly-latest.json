@@ -1880,6 +1880,30 @@
       "summary": "Threads 用戶 py_yip（帖文標籤「扒房」）2026-10-27 09:41 發帖，瀏覽 9.06 萬、回覆 162：「好耐無食outback，一入就瘋狂被sell upgrade membership，個manager都話咩公司比緊賽？🫪 488又有coupon又乜又物，不過得閒食下又可以用coupon係幾抵，又送塊扒又有好多100券，所以最後都落左搭。。。」解讀：屬高觸達（9 萬級）的會員推銷體驗帖——核心不滿是「一入座即被硬銷」的現場節奏，但用戶最終仍認為 HK$488 會籍連券「幾抵」而成交。即推銷話術有效轉化，但過程造成壓力感，屬服務體驗與話術節奏的可優化訊號（非食物／安全投訴）。",
       "link": "https://www.threads.com/@py_yip/post/DfAT5kCk_2V/",
       "sentiment": "mixed"
+    },
+    {
+      "date": "2026-10-11",
+      "source": "Threads",
+      "title": "Threads 食評「大失所望」：網民批 Outback 旺角店牛扒冇味、龍蝦尾與帶子似雪藏貨（450 次瀏覽、3 讚）",
+      "summary": "Threads 用戶 mgp.hkr 於 2026-10-11 發帖（標籤 #大叔食事 #食在旺角 #outbacksteakhouse）：指 USDA Prime 紐約牛扒 medium rare 做到但冇味；龍蝦尾雪到肉質柴皮；燒帶子白汁 risotto 的帶子「口感恐怖」；House 沙律芝士似超市長放貨；員工無笑容、隔住櫃遞餐具；環境熱似無開冷氣、出菜慢，「完全冇晒外國扒房餐廳嘅 feel」。屬作者個人用餐體驗，未經獨立核實。",
+      "link": "https://www.threads.com/@mgp.hkr/post/DeXEPdBiZWH",
+      "sentiment": "negative"
+    },
+    {
+      "date": "2026-11-02",
+      "source": "Threads",
+      "title": "Threads 帖文：食客指 Outback 尖沙咀中心店「最出色始終係黑糖麵包」（422 次瀏覽）",
+      "summary": "Threads 用戶 the.food.fighter 於 2026-11-02 發帖：「間中食下 outback／Outback 最出色既始終都係佢嗰個黑糖麵包」，並附尖沙咀中心高層地下 UG23-28 號舖地址。全文只肯定招牌黑糖麥包，其餘菜式未提，語氣帶保留（😅），屬輕度混合評價。",
+      "link": "https://www.threads.com/@the.food.fighter/post/DfPmPR-mWyZ",
+      "sentiment": "mixed"
+    },
+    {
+      "date": "2026-10-11",
+      "source": "Threads",
+      "title": "Threads 打卡帖：食客 2026-10-10 到訪 Outback 東涌東薈城店（631 次瀏覽）",
+      "summary": "Threads 用戶 baebae_0105 於 2026-10-11 發帖打卡，標註「10.10.2026｜Outback Steakhouse - 東涌｜東薈城名店倉｜東涌達東路20號東薈城名店倉3樓326B號舖」。內容為到店打卡，未評食物或服務，屬中性品牌曝光。",
+      "link": "https://www.threads.com/@baebae_0105/post/DeV003PifHk",
+      "sentiment": "neutral"
     }
   ],
   "alerts": [],
@@ -1888,7 +1912,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 235,
+    "new_records": 238,
     "limitations": []
   }
 }

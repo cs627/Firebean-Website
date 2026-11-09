@@ -1,13 +1,13 @@
 {
   "meta": {
-    "last_updated": "2026-11-08T01:20:00+08:00",
-    "total_records": 235,
+    "last_updated": "2026-11-10 01:08",
+    "total_records": 238,
     "daily_avg": 2.7,
     "date_range": "2025-06-09 → 2026-11-05",
     "sources_checked": 29,
-    "new_verified": 3,
+    "new_verified": 4,
     "coverage_ratio": "29/46",
-    "negative_alerts": 36,
+    "negative_alerts": 37,
     "positive_pct": 55
   },
   "trend": [
@@ -29,7 +29,7 @@
     },
     {
       "date": "2026-11-02",
-      "count": 1
+      "count": 2
     },
     {
       "date": "2026-11-03",
@@ -51,7 +51,7 @@
     },
     {
       "source": "Threads",
-      "count": 41
+      "count": 44
     },
     {
       "source": "OpenRice",
@@ -104,9 +104,9 @@
   ],
   "sentiment": {
     "positive": 130,
-    "neutral": 63,
-    "negative": 36,
-    "mixed": 6
+    "neutral": 64,
+    "negative": 37,
+    "mixed": 7
   },
   "all_records": [
     {
@@ -2693,6 +2693,39 @@
       "sentiment": "mixed",
       "sentiment_label": "混合",
       "keywords": "Outback, 澳美客, Threads, 會員升級, 扒房, 高觸達"
+    },
+    {
+      "date": "2026-10-11",
+      "source": "Threads",
+      "platform": "社交媒體",
+      "title": "Threads 食評「大失所望」：網民批 Outback 旺角店牛扒冇味、龍蝦尾與帶子似雪藏貨（450 次瀏覽、3 讚）",
+      "summary": "Threads 用戶 mgp.hkr 於 2026-10-11 發帖（標籤 #大叔食事 #食在旺角 #outbacksteakhouse）：指 USDA Prime 紐約牛扒 medium rare 做到但冇味；龍蝦尾雪到肉質柴皮；燒帶子白汁 risotto 的帶子「口感恐怖」；House 沙律芝士似超市長放貨；員工無笑容、隔住櫃遞餐具；環境熱似無開冷氣、出菜慢，「完全冇晒外國扒房餐廳嘅 feel」。屬作者個人用餐體驗，未經獨立核實。",
+      "link": "https://www.threads.com/@mgp.hkr/post/DeXEPdBiZWH",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback, Threads, 旺角, 食評, 牛扒, 服務"
+    },
+    {
+      "date": "2026-11-02",
+      "source": "Threads",
+      "platform": "社交媒體",
+      "title": "Threads 帖文：食客指 Outback 尖沙咀中心店「最出色始終係黑糖麵包」（422 次瀏覽）",
+      "summary": "Threads 用戶 the.food.fighter 於 2026-11-02 發帖：「間中食下 outback／Outback 最出色既始終都係佢嗰個黑糖麵包」，並附尖沙咀中心高層地下 UG23-28 號舖地址。全文只肯定招牌黑糖麥包，其餘菜式未提，語氣帶保留（😅），屬輕度混合評價。",
+      "link": "https://www.threads.com/@the.food.fighter/post/DfPmPR-mWyZ",
+      "sentiment": "mixed",
+      "sentiment_label": "混合",
+      "keywords": "Outback, Threads, 尖沙咀中心, 黑糖麵包, 食評"
+    },
+    {
+      "date": "2026-10-11",
+      "source": "Threads",
+      "platform": "社交媒體",
+      "title": "Threads 打卡帖：食客 2026-10-10 到訪 Outback 東涌東薈城店（631 次瀏覽）",
+      "summary": "Threads 用戶 baebae_0105 於 2026-10-11 發帖打卡，標註「10.10.2026｜Outback Steakhouse - 東涌｜東薈城名店倉｜東涌達東路20號東薈城名店倉3樓326B號舖」。內容為到店打卡，未評食物或服務，屬中性品牌曝光。",
+      "link": "https://www.threads.com/@baebae_0105/post/DeV003PifHk",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, Threads, 東涌, 東薈城, 打卡"
     }
   ],
   "media_records": [
@@ -5282,6 +5315,39 @@
       "sentiment": "mixed",
       "sentiment_label": "混合",
       "keywords": "Outback, 澳美客, Threads, 會員升級, 扒房, 高觸達"
+    },
+    {
+      "date": "2026-10-11",
+      "source": "Threads",
+      "platform": "社交媒體",
+      "title": "Threads 食評「大失所望」：網民批 Outback 旺角店牛扒冇味、龍蝦尾與帶子似雪藏貨（450 次瀏覽、3 讚）",
+      "summary": "Threads 用戶 mgp.hkr 於 2026-10-11 發帖（標籤 #大叔食事 #食在旺角 #outbacksteakhouse）：指 USDA Prime 紐約牛扒 medium rare 做到但冇味；龍蝦尾雪到肉質柴皮；燒帶子白汁 risotto 的帶子「口感恐怖」；House 沙律芝士似超市長放貨；員工無笑容、隔住櫃遞餐具；環境熱似無開冷氣、出菜慢，「完全冇晒外國扒房餐廳嘅 feel」。屬作者個人用餐體驗，未經獨立核實。",
+      "link": "https://www.threads.com/@mgp.hkr/post/DeXEPdBiZWH",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback, Threads, 旺角, 食評, 牛扒, 服務"
+    },
+    {
+      "date": "2026-11-02",
+      "source": "Threads",
+      "platform": "社交媒體",
+      "title": "Threads 帖文：食客指 Outback 尖沙咀中心店「最出色始終係黑糖麵包」（422 次瀏覽）",
+      "summary": "Threads 用戶 the.food.fighter 於 2026-11-02 發帖：「間中食下 outback／Outback 最出色既始終都係佢嗰個黑糖麵包」，並附尖沙咀中心高層地下 UG23-28 號舖地址。全文只肯定招牌黑糖麥包，其餘菜式未提，語氣帶保留（😅），屬輕度混合評價。",
+      "link": "https://www.threads.com/@the.food.fighter/post/DfPmPR-mWyZ",
+      "sentiment": "mixed",
+      "sentiment_label": "混合",
+      "keywords": "Outback, Threads, 尖沙咀中心, 黑糖麵包, 食評"
+    },
+    {
+      "date": "2026-10-11",
+      "source": "Threads",
+      "platform": "社交媒體",
+      "title": "Threads 打卡帖：食客 2026-10-10 到訪 Outback 東涌東薈城店（631 次瀏覽）",
+      "summary": "Threads 用戶 baebae_0105 於 2026-10-11 發帖打卡，標註「10.10.2026｜Outback Steakhouse - 東涌｜東薈城名店倉｜東涌達東路20號東薈城名店倉3樓326B號舖」。內容為到店打卡，未評食物或服務，屬中性品牌曝光。",
+      "link": "https://www.threads.com/@baebae_0105/post/DeV003PifHk",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, Threads, 東涌, 東薈城, 打卡"
     }
   ],
   "store_ranking": [
