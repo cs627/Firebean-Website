@@ -79,6 +79,8 @@ body::after{content:"";position:fixed;right:0;bottom:0;width:clamp(240px,40vw,76
 .mcard .meta{display:flex;justify-content:space-between;align-items:center;margin-top:6px;font-family:var(--mono)}
 .mcard .score{font-size:1.4rem;font-weight:700}
 .mcard .score small{font-size:.64rem;color:var(--muted);font-weight:400;margin-right:5px;letter-spacing:.06em}
+.mcard .due-mini{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:5px}
+.mcard .due-mini.soon{color:var(--r);font-weight:700}
 .mcard .rank-txt{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .mcard .hk-txt{font-size:.66rem;letter-spacing:.06em;color:#a16207;font-weight:600}
 
@@ -187,6 +189,7 @@ body::after{content:"";position:fixed;right:0;bottom:0;width:clamp(240px,40vw,76
 </div>
 
 <script src="data.js"></script>
+<script src="due.js"></script>
 <script>
 const store=window.TL_DATA;const members=store.members||[];const chapter=store.chapter||{};
 const bandLabel=b=>b==='BLACK'?'BLACK LIGHT':(b==='NEW'?'NEW MEMBER':b);
@@ -221,6 +224,14 @@ function render(){
     const c=document.createElement('div');c.className='mcard';c.onclick=()=>openModal(m);
     const img=m.photo?`<img src="${m.photo}" loading="lazy" alt="${m.name}" onerror="this.parentNode.classList.add('no-ph','no-img');this.remove()">`:('');
     c.innerHTML='<div class="thumb">'+(img||'<span class="no-photo">'+(m.name[0]||'?')+'</span>')+'<span class="band-tag b'+m.band+'">'+bandLabel(m.band)+(isNew?'':' '+m.total)+'</span></div><div class="plate"><div>'+m.name+'</div><div class="sc">'+(isNew?'New member':'Rank '+m.rank+' · '+m.total+' pts')+'</div></div></div><div class="name">'+m.name+'</div><div class="meta"><span class="rank-txt">'+(isNew?'New member':'Rank '+m.rank)+'</span>'+(isNew?'<span class="score"><small>pts</small>—</span>':'<span class="score"><small>pts</small>'+(m.total||0)+'</span>'+(m.hk_rank?'<span class="hk-txt">HK '+m.hk_rank+'</span>':''))+'</div>';
+    const _d = dueOf(m);
+    if (_d) {
+      const dd = document.createElement('div');
+      const _n = dueDays(_d);
+      dd.className = 'due-mini' + ((_n !== null && _n <= 60) ? ' soon' : '');
+      dd.textContent = 'Due ' + _d + ((_n !== null && _n <= 60) ? ' · ' + _n + 'd' : '');
+      c.appendChild(dd);
+    }
     g.appendChild(c);
   }
 }
@@ -228,7 +239,27 @@ document.getElementById('search').addEventListener('input',render);
 document.getElementById('bandFilter').addEventListener('change',render);
 document.getElementById('sortBy').addEventListener('change',render);
 
+function dueOf(m){
+  const D = window.TL_DUE || {};
+  const key = String(m.name||'').toLowerCase().replace(/[^a-z\s]/g,' ').split(/\s+/).filter(Boolean).slice(0,2).join(' ');
+  return D[key] || '';
+}
+function dueDays(iso){
+  if(!iso) return null;
+  const t=new Date(); t.setHours(0,0,0,0);
+  const d=new Date(iso+'T00:00:00');
+  if(isNaN(d)) return null;
+  return Math.round((d-t)/86400000);
+}
+function dueLine(m){
+  const iso=dueOf(m); if(!iso) return '';
+  const n=dueDays(iso);
+  const label = n===null ? iso : (n<0 ? '已過期 '+Math.abs(n)+' 日' : '續會 '+iso+' · '+n+' 日');
+  return '續會 ' + iso + (n!==null&&n<=60 ? ' <b class="due">（'+n+' 日後）</b>' : '');
+}
 function joinLine(m){
+  const dl = dueLine(m);
+  if (dl) return dl;
   if(!m.joined) return '';
   const d = new Date(m.joined); if(isNaN(d)) return '';
   const today = new Date(); today.setHours(0,0,0,0);
