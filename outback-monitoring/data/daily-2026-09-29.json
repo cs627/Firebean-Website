@@ -11,6 +11,17 @@
       "link": "https://www.openrice.com/zh/hongkong/review/%E5%8F%AA%E8%83%BD%E6%88%90%E8%BF%BD%E6%86%B6-e6609510",
       "sentiment": "mixed",
       "tags": ""
+    },
+    {
+      "date": "2026-09-29",
+      "source": "Google Maps (荃灣廣場)",
+      "platform": "地圖",
+      "author": "Mic T",
+      "title": "荃灣顧客5星評價：食物水準保持良好。 要一讚嘅係啲職員，我去嗰晚其實好full，門口亦有人等位，但",
+      "summary": "荃灣分店 Google Maps 5星評論（Mic T，1 個月前）：食物水準保持良好。 要一讚嘅係啲職員，我去嗰晚其實好full，門口亦有人等位，但所有有職員都好helpful，仲要全部都聽得明同講純正廣東話，淨係呢樣都要讚啲管理層。 講返職員，幾忙幾多人問同催都好，門口負責安排座位個女職員依然好有條理同禮貌，好好！ 入座後遇到嘅幾位男職員都有禮貌，有效率，有耐性，記性好，又細心，好醒目，而且係識得decent地serve客同對答嗰種，真心要大讚！直頭想直接俾貼士佢哋！純粹同屋企人去食，全自費，有喺門口等位等咗30分鐘，但成個體驗好pleasant! 好值得多啲幫襯！  PS：難得遇到隔離檯一檯7人有老有幼，有禮貌，唔會開loud speaker, 傾偈正常聲量，啲細嘅對職員都有禮，成餐飯食得好愉快！",
+      "link": "https://www.google.com/maps/contrib/115286147188282448588/reviews",
+      "sentiment": "positive",
+      "tags": ""
     }
   ],
   "alerts": [],
@@ -18,8 +29,8 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 1,
-    "new_records": 1,
+    "checked_sources": 2,
+    "new_records": 2,
     "limitations": []
   }
 }

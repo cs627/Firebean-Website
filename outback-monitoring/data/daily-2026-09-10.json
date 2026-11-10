@@ -11,6 +11,17 @@
       "link": "https://www.outback.com.hk/news-and-promotions/article/238?lang=tc",
       "sentiment": "neutral",
       "tags": ""
+    },
+    {
+      "date": "2026-09-10",
+      "source": "Google Maps (旺角MOKO)",
+      "platform": "地圖",
+      "author": "Tony Hsu",
+      "title": "旺角顧客5星評價：吃過美國、台灣、香港各大OUTBACK餐廳中，今天這家的餐點品質最好，我點12 ",
+      "summary": "旺角分店 Google Maps 5星評論（Tony Hsu，2 個月前）：吃過美國、台灣、香港各大OUTBACK餐廳中，今天這家的餐點品質最好，我點12 oz ，5分熟， 肉質不錯，最重要的主廚掌握的熟度剛剛好，非常推薦。",
+      "link": "https://www.google.com/maps/contrib/109075093043161395550/reviews",
+      "sentiment": "positive",
+      "tags": ""
     }
   ],
   "alerts": [],
@@ -18,8 +29,8 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 1,
-    "new_records": 1,
+    "checked_sources": 2,
+    "new_records": 2,
     "limitations": []
   }
 }

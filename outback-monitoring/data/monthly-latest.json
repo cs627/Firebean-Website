@@ -1904,6 +1904,38 @@
       "summary": "Threads 用戶 baebae_0105 於 2026-10-11 發帖打卡，標註「10.10.2026｜Outback Steakhouse - 東涌｜東薈城名店倉｜東涌達東路20號東薈城名店倉3樓326B號舖」。內容為到店打卡，未評食物或服務，屬中性品牌曝光。",
       "link": "https://www.threads.com/@baebae_0105/post/DeV003PifHk",
       "sentiment": "neutral"
+    },
+    {
+      "date": "2026-09-29",
+      "source": "Google Maps (荃灣廣場)",
+      "title": "荃灣顧客5星評價：食物水準保持良好。 要一讚嘅係啲職員，我去嗰晚其實好full，門口亦有人等位，但",
+      "summary": "荃灣分店 Google Maps 5星評論（Mic T，1 個月前）：食物水準保持良好。 要一讚嘅係啲職員，我去嗰晚其實好full，門口亦有人等位，但所有有職員都好helpful，仲要全部都聽得明同講純正廣東話，淨係呢樣都要讚啲管理層。 講返職員，幾忙幾多人問同催都好，門口負責安排座位個女職員依然好有條理同禮貌，好好！ 入座後遇到嘅幾位男職員都有禮貌，有效率，有耐性，記性好，又細心，好醒目，而且係識得decent地serve客同對答嗰種，真心要大讚！直頭想直接俾貼士佢哋！純粹同屋企人去食，全自費，有喺門口等位等咗30分鐘，但成個體驗好pleasant! 好值得多啲幫襯！  PS：難得遇到隔離檯一檯7人有老有幼，有禮貌，唔會開loud speaker, 傾偈正常聲量，啲細嘅對職員都有禮，成餐飯食得好愉快！",
+      "link": "https://www.google.com/maps/contrib/115286147188282448588/reviews",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-09-10",
+      "source": "Google Maps (旺角MOKO)",
+      "title": "旺角顧客5星評價：吃過美國、台灣、香港各大OUTBACK餐廳中，今天這家的餐點品質最好，我點12 ",
+      "summary": "旺角分店 Google Maps 5星評論（Tony Hsu，2 個月前）：吃過美國、台灣、香港各大OUTBACK餐廳中，今天這家的餐點品質最好，我點12 oz ，5分熟， 肉質不錯，最重要的主廚掌握的熟度剛剛好，非常推薦。",
+      "link": "https://www.google.com/maps/contrib/109075093043161395550/reviews",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-07-16",
+      "source": "Google Maps (東薈城名店倉)",
+      "title": "東涌顧客4星評價：去機場前食嘅晚餐😆所有嘢都好標準 沙律比想像中豐富，菜夠新鮮，炙燒吞拿魚好香！ ",
+      "summary": "東涌分店 Google Maps 4星評論（Wing Yiu Yeung，3 個月前）：去機場前食嘅晚餐😆所有嘢都好標準 沙律比想像中豐富，菜夠新鮮，炙燒吞拿魚好香！ Burger 都好足料，個漢堡扒好juicy ～ 義大利粉係闊麵，好掛汁，蝦都爽口～ 黑糖麵包encore咗☺️ 座位闊落，屋企人飲住啤酒睇足球， 舒服咁食餐飯，等夠鐘就去機場🛫",
+      "link": "https://www.google.com/maps/contrib/116368553010986134194/reviews",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-11-09",
+      "source": "Threads",
+      "title": "Threads 商場消息：屯門市廣場前 Outback 舖位將由金龍鐵板餐廳及新品牌「豚吉」接手（2026-12-01 起租）",
+      "summary": "Threads 帳號 @hkmalls（帖文時間 10:27 PM · Nov 9, 2026，420 次瀏覽）引述屯門市廣場消息：位於屯門市廣場前 Outback 舖位的「爆旋陀螺自由對戰站」將營運至本月（11 月）月底後關閉；新租戶為嚐·高美旗下「金龍鐵板餐廳」及新品牌「豚吉」（帖文特別註明並非另一相似名字的「Tonkichi とん吉」），租約由 12 月 1 日起生效，餐廳預計明年第一季（2027 Q1）開幕，租期五年。對 Outback 的意義：屯門市廣場一期屬 2024 年 8 月 4 日結業的 9 間分店之一，舊舖位空置約兩年後由本地餐飲集團以日式鐵板／新品牌接手，顯示屯門區中價鐵板類需求仍在，但 Outback 在屯門已無門店。",
+      "link": "https://www.threads.com/@hkmalls/post/DfjQx38D9T5",
+      "sentiment": "neutral"
     }
   ],
   "alerts": [],
@@ -1912,7 +1944,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 238,
+    "new_records": 242,
     "limitations": []
   }
 }
