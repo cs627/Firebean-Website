@@ -25,7 +25,7 @@ const CFG = {
   SHEET_ID      : '1Vte3KciEn9gpyrN37EMo4T9DuLsKUlykFOdt7uCy_9g',   // 真身（綁定容器）
   MANAGER_EMAIL : 'dickson@firebean.net',
   DOMAIN        : 'firebean.net',
-  BUILD         : 'build-2026-11-04a',
+  BUILD         : 'build-2026-11-04d',
   TZ            : 'Asia/Hong_Kong',
   CALENDAR_ID   : 'primary',
   // 年假一律以 0.5 日為單位
@@ -445,30 +445,51 @@ const HTML_B64 = [
   'ZXNzSGFuZGxlcihmdW5jdGlvbihyKXsKICAgIGJ0bi5kaXNhYmxlZCA9IGZhbHNlOyBidG4udGV4dENvbnRlbnQgPSBMKCdTdWJtaXQgUmVxdWVzdCcpOwogICAgaWYgKHIgJiYgci5vayl7CiAgICAgIHRvYXN0KHIubWVzc2FnZSB8fCAnUmVxdWVzdCBzdWJtaXR0ZWQnKTsKICAgICAgJCgnZi1yZWFzb24nKS52YWx1ZSA9ICcnOwogICAgICBpZiAoJCgnZi1vdCcpKSAkKCdmLW90JykudmFsdWUgPSAnJzsKICAgICAgaWYgKCQoJ2YtZXZlbnQnKSkgJCgnZi1ldmVudCcpLnZhbHVlID0gJyc7CiAgICAgIGxvYWREYXNoYm9hcmQo',
   'KTsKICAgIH0gZWxzZSB7CiAgICAgIHRvYXN0KChyICYmIHIuZXJyb3IpIHx8ICdDb3VsZCBub3Qgc3VibWl0JywgdHJ1ZSk7CiAgICB9CiAgfSkud2l0aEZhaWx1cmVIYW5kbGVyKGZ1bmN0aW9uKGUpewogICAgYnRuLmRpc2FibGVkID0gZmFsc2U7IGJ0bi50ZXh0Q29udGVudCA9IEwoJ1N1Ym1pdCBSZXF1ZXN0Jyk7CiAgICB0b2FzdChlICYmIGUubWVzc2FnZSA/IGUubWVzc2FnZSA6ICdDb3VsZCBub3Qgc3VibWl0JywgdHJ1ZSk7CiAgfSkuc3VibWl0TGVhdmUocGF5bG9hZCwgV0hPKTsKfQoKZnVuY3Rpb24gbWFya0NlcnQo',
   'aWQsIHZhbHVlKXsKICB0b2FzdChMKCdVcGRhdGluZ1x1MjAyNicpKTsKICBnb29nbGUuc2NyaXB0LnJ1bi53aXRoU3VjY2Vzc0hhbmRsZXIoZnVuY3Rpb24ocil7CiAgICBpZiAociAmJiByLm9rKXsgdG9hc3QodmFsdWUgPyBMKCdNYXJrZWQgYXMgcmVjZWl2ZWQnKSA6IEwoJ01hcmtlZCBhcyBub3QgcmVjZWl2ZWQnKSk7IGxvYWRNYW5hZ2VyKCk7IH0KICAgIGVsc2UgdG9hc3QoKHIgJiYgci5lcnJvcikgfHwgJ0NvdWxkIG5vdCB1cGRhdGUnLCB0cnVlKTsKICB9KS53aXRoRmFpbHVyZUhhbmRsZXIoZnVuY3Rpb24oZSl7CiAg',
-  'ICB0b2FzdChlICYmIGUubWVzc2FnZSA/IGUubWVzc2FnZSA6ICdDb3VsZCBub3QgdXBkYXRlJywgdHJ1ZSk7CiAgfSkubWFya0NlcnRpZmljYXRlKGlkLCB2YWx1ZSwgV0hPKTsKfQoKZnVuY3Rpb24gbG9hZE1hbmFnZXIoKXsKICBnb29nbGUuc2NyaXB0LnJ1bi53aXRoU3VjY2Vzc0hhbmRsZXIoZnVuY3Rpb24obSl7CiAgICBpZiAoIW0gfHwgIW0ub2spIHJldHVybjsKICAgIFMubWdyID0gbTsKICAgIHJlbmRlck1hbmFnZXIoKTsKICB9KS53aXRoRmFpbHVyZUhhbmRsZXIoZnVuY3Rpb24oZSl7IGNvbnNvbGUuZXJyb3IoZSk7',
-  'IH0pLmdldE1hbmFnZXJWaWV3KFdITyk7Cn0KCmZ1bmN0aW9uIHJlbmRlck1hbmFnZXIoKXsKICB2YXIgbSA9IFMubWdyOyBpZiAoIW0pIHJldHVybjsKICB2YXIgZWw7CiAgWydtZ3ItcGVuZGluZycsJ21nci1wZW9wbGUnLCdtZ3ItcmVjZW50J10uZm9yRWFjaChmdW5jdGlvbihpZCl7CiAgICB2YXIgZSA9ICQoaWQpOyBpZiAoZSkgeyB0cnkgeyBkZWxldGUgZS5fX2VuSHRtbDsgfSBjYXRjaCAoeCkgeyBlLl9fZW5IdG1sID0gdW5kZWZpbmVkOyB9IH0KICB9KTsKCiAgZWwgPSAkKCdtZ3ItcGVuZGluZycpOwogIGlmIChlbCkg',
-  'ewogICAgZWwuaW5uZXJIVE1MID0gbS5wZW5kaW5nLmxlbmd0aAogICAgICA/IG0ucGVuZGluZy5tYXAoZnVuY3Rpb24ocil7IHJldHVybiByZXFIdG1sKHIsIHRydWUpOyB9KS5qb2luKCcnKQogICAgICA6ICc8ZGl2IGNsYXNzPSJlbXB0eSI+Tm90aGluZyB3YWl0aW5nPC9kaXY+JzsKICB9CiAgZWwgPSAkKCdtZ3ItcGVvcGxlJyk7CiAgaWYgKGVsKSB7CiAgICBlbC5pbm5lckhUTUwgPSBtLnBlb3BsZS5tYXAoZnVuY3Rpb24ocCl7CiAgICAgIHZhciBiID0gcC5iYWxhbmNlOwogICAgICB2YXIgbmVnID0gTnVtYmVyKGIuYXZh',
-  'aWxhYmxlKSA8IDA7CiAgICAgIHJldHVybiAnPGRpdiBjbGFzcz0iaXRlbSBwUm93IiBvbmNsaWNrPSJvcGVuTWVtYmVyKFwnJyArIGVzYyhwLmVtYWlsKSArICdcJykiPicgKwogICAgICAgICc8ZGl2IGNsYXNzPSJ0b3AiIHN0eWxlPSJhbGlnbi1pdGVtczpjZW50ZXIiPicgKwogICAgICAgICAgJzxkaXYgc3R5bGU9ImRpc3BsYXk6ZmxleDthbGlnbi1pdGVtczpjZW50ZXI7Z2FwOjE0cHg7bWluLXdpZHRoOjAiPicgKwogICAgICAgICAgICBhdmF0YXJIdG1sKHAuYXZhdGFyLCBwLm5hbWUsIDU0KSArCiAgICAgICAgICAgICc8',
-  'ZGl2IHN0eWxlPSJtaW4td2lkdGg6MCI+JyArCiAgICAgICAgICAgICAgJzxkaXYgY2xhc3M9InBuYW1lIj4nICsgZXNjKHAubmFtZSkgKyAnPC9kaXY+JyArCiAgICAgICAgICAgICAgJzxkaXYgY2xhc3M9InByb2xlIj4nICsgZXNjKHAucm9sZSkgKyAnPC9kaXY+JyArCiAgICAgICAgICAgICc8L2Rpdj4nICsKICAgICAgICAgICc8L2Rpdj4nICsKICAgICAgICAgICc8ZGl2IHN0eWxlPSJkaXNwbGF5OmZsZXg7YWxpZ24taXRlbXM6Y2VudGVyO2dhcDoxMHB4O2ZsZXg6MCAwIGF1dG8iPicgKwogICAgICAgICAgICAnPGRpdiBj',
-  'bGFzcz0icGJhbCIgc3R5bGU9ImNvbG9yOicgKyAobmVnID8gJyNmZjMzMzMnIDogJyMwYTBhMGEnKSArICciPicgKwogICAgICAgICAgICAgIG51bShiLmF2YWlsYWJsZSkgKyAnPHNtYWxsPmRheXM8L3NtYWxsPjwvZGl2PicgKwogICAgICAgICAgICAnPHNwYW4gY2xhc3M9ImNoZXYiPlx1MjAzYTwvc3Bhbj4nICsKICAgICAgICAgICc8L2Rpdj4nICsKICAgICAgICAnPC9kaXY+JyArCiAgICAgICAgJzxkaXYgY2xhc3M9ImQgbW9ubyIgc3R5bGU9Im1hcmdpbi10b3A6MTFweCI+RW50ICcgKyBudW0oYi5lbnRpdGxlbWVudCkg',
-  'KwogICAgICAgICcgXHUwMGI3IEFjY3IgJyArIG51bShiLmFjY3J1ZWQpICsgJyBcdTAwYjcgVXNlZCAnICsgbnVtKGIudXNlZCkgKwogICAgICAgICcgXHUwMGI3IFBlbmQgJyArIG51bShiLnBlbmRpbmcpICsgJzwvZGl2PjwvZGl2Pic7CiAgICB9KS5qb2luKCcnKTsKICB9CiAgZWwgPSAkKCdtZ3ItcmVjZW50Jyk7CiAgaWYgKGVsKSB7CiAgICBlbC5pbm5lckhUTUwgPSBtLnJlY2VudC5sZW5ndGgKICAgICAgPyBtLnJlY2VudC5zbGljZSgwLCAxNSkubWFwKGZ1bmN0aW9uKHIpeyByZXR1cm4gcmVxSHRtbChyLCBmYWxzZSk7',
-  'IH0pLmpvaW4oJycpCiAgICAgIDogJzxkaXYgY2xhc3M9ImVtcHR5Ij5ObyByZWNvcmRzPC9kaXY+JzsKICB9CiAgaWYgKHR5cGVvZiBpY29uc0FwcGx5ID09PSAnZnVuY3Rpb24nKSBpY29uc0FwcGx5KCk7CiAgaWYgKHR5cGVvZiBpMThuQXBwbHkgPT09ICdmdW5jdGlvbicpIGkxOG5BcHBseSgpOwp9CgovKiDilIDilIAg566h55CG5bGk77ya5omT6ZaL5YCL5Yil5ZCM5LqL5ZiF5a6M5pW0IGRhc2hib2FyZO+8iOWUr+iugO+8ieKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgCAqLwpmdW5jdGlvbiBvcGVuTWVt',
-  'YmVyKGVtYWlsKXsKICB0YWIoJ3YtbWVtYmVyJyk7CiAgdmFyIGVsID0gJCgndi1tZW1iZXInKTsKICBpZiAoZWwpIGVsLmlubmVySFRNTCA9ICc8ZGl2IGNsYXNzPSJjYXJkIj48ZGl2IGNsYXNzPSJlbXB0eSI+PGRpdiBjbGFzcz0ic3Bpbm5lciI+PC9kaXY+PC9kaXY+PC9kaXY+JzsKICBnb29nbGUuc2NyaXB0LnJ1bgogICAgLndpdGhTdWNjZXNzSGFuZGxlcihyZW5kZXJNZW1iZXIpCiAgICAud2l0aEZhaWx1cmVIYW5kbGVyKGZ1bmN0aW9uKGUpewogICAgICBpZiAoZWwpIGVsLmlubmVySFRNTCA9ICc8ZGl2IGNsYXNzPSJj',
-  'YXJkIj48ZGl2IGNsYXNzPSJlbXB0eSI+JyArCiAgICAgICAgZXNjKGUgJiYgZS5tZXNzYWdlID8gZS5tZXNzYWdlIDogJ0NvdWxkIG5vdCBsb2FkJykgKyAnPC9kaXY+PC9kaXY+JzsKICAgIH0pCiAgICAuZ2V0TWVtYmVyVmlldyhlbWFpbCwgV0hPKTsKfQoKZnVuY3Rpb24gcmVuZGVyTWVtYmVyKGQpewogIHZhciBlbCA9ICQoJ3YtbWVtYmVyJyk7IGlmICghZWwpIHJldHVybjsKICBpZiAoIWQgfHwgIWQub2spewogICAgZWwuaW5uZXJIVE1MID0gJzxkaXYgY2xhc3M9ImNhcmQiPjxkaXYgY2xhc3M9ImJhY2tSb3ciPicgKwog',
-  'ICAgICAnPGJ1dHRvbiBjbGFzcz0iYmFjayIgb25jbGljaz0idGFiKFwndi1tZ3JcJykiPlx1MjE5MCBUZWFtPC9idXR0b24+PC9kaXY+JyArCiAgICAgICc8ZGl2IGNsYXNzPSJlbXB0eSI+JyArIGVzYygoZCAmJiBkLnJlYXNvbikgfHwgJ0NvdWxkIG5vdCBsb2FkJykgKyAnPC9kaXY+PC9kaXY+JzsKICAgIHJldHVybjsKICB9CiAgdmFyIHMgPSBkLnNlc3Npb24sIGIgPSBkLmJhbGFuY2U7CiAgdmFyIG5lZyA9IE51bWJlcihiLmF2YWlsYWJsZSkgPCAwOwogIHZhciBodG1sID0gJyc7CiAgaHRtbCArPSAnPGRpdiBjbGFzcz0i',
-  'Y2FyZCI+JyArCiAgICAnPGRpdiBjbGFzcz0iYmFja1JvdyI+PGJ1dHRvbiBjbGFzcz0iYmFjayIgb25jbGljaz0idGFiKFwndi1tZ3JcJykiPlx1MjE5MCBUZWFtPC9idXR0b24+PC9kaXY+JyArCiAgICAnPGRpdiBjbGFzcz0ibWVtSGVhZCI+JyArCiAgICAgIGF2YXRhckh0bWwocy5hdmF0YXIsIHMubmFtZSwgNzYpICsKICAgICAgJzxkaXYgc3R5bGU9Im1pbi13aWR0aDowIj4nICsKICAgICAgICAnPGRpdiBjbGFzcz0ibWVtTmFtZSI+JyArIGVzYyhzLm5hbWUpICsgJzwvZGl2PicgKwogICAgICAgICc8ZGl2IGNsYXNzPSJt',
-  'ZW1Sb2xlIj4nICsgZXNjKHMucm9sZSkgKyAnIFx1MDBiNyAnICsgZXNjKHMuZW1haWwpICsgJzwvZGl2PicgKwogICAgICAnPC9kaXY+JyArCiAgICAnPC9kaXY+JyArCiAgICAnPGRpdiBjbGFzcz0iaGVybyI+JyArCiAgICAgICc8ZGl2IGNsYXNzPSJsYWJlbCI+QW5udWFsIExlYXZlIExlZnQ8L2Rpdj4nICsKICAgICAgJzxkaXYgY2xhc3M9ImJpZycgKyAobmVnID8gJyBuZWcnIDogJycpICsgJyI+JyArIG51bShiLmF2YWlsYWJsZSkgKyAnPGVtPkRheXM8L2VtPjwvZGl2PicgKwogICAgICAnPGRpdiBjbGFzcz0iaGVyb05v',
-  'dGUiPkFubnVhbCBMZWF2ZSBcdTAwYjcgYXMgb2YgJyArIGVzYyhzLnRvZGF5KSArICcgXHUwMGI3IHJlYWQtb25seTwvZGl2PicgKwogICAgJzwvZGl2PicgKwogICc8L2Rpdj4nOwogIGh0bWwgKz0gYmFsYW5jZUNhcmRIdG1sKGIsIGQuYWNjcnVhbEJyZWFrZG93bik7CiAgaHRtbCArPSBhY2NydWFsQ2FyZEh0bWwoZC5hY2NydWFsQnJlYWtkb3duKTsKICBodG1sICs9IHdoeUNhcmRIdG1sKGIsIGQuYWNjcnVhbEJyZWFrZG93bik7CiAgaHRtbCArPSBoaXN0b3J5Q2FyZEh0bWwoZC5yZXF1ZXN0cywgJ0Z1bGwgSGlzdG9yeScs',
-  'IDApOwogIGh0bWwgKz0gJzxkaXYgY2xhc3M9ImZvb3QiPicgKyBlc2Mocy5idWlsZCB8fCAnJykgKyAnPC9kaXY+JzsKICBlbC5pbm5lckhUTUwgPSBodG1sOwogIGlmICh0eXBlb2YgaWNvbnNBcHBseSA9PT0gJ2Z1bmN0aW9uJykgaWNvbnNBcHBseSgpOwogIGlmICh0eXBlb2YgaTE4bkFwcGx5ID09PSAnZnVuY3Rpb24nKSBpMThuQXBwbHkoKTsKICB3aW5kb3cuc2Nyb2xsVG8oMCwgMCk7Cn0KCmZ1bmN0aW9uIGRlY2lkZShpZCwgZGVjaXNpb24pewogIGlmICghd2luZG93LmNvbmZpcm0oTChkZWNpc2lvbiA9PT0gJ0FwcHJv',
-  'dmVkJyA/ICdBcHByb3ZlIHRoaXMgcmVxdWVzdD8nIDogJ1JlamVjdCB0aGlzIHJlcXVlc3Q/JykpKSByZXR1cm47CiAgdmFyIGNvbW1lbnQgPSB3aW5kb3cucHJvbXB0KAogICAgZGVjaXNpb24gPT09ICdBcHByb3ZlZCcKICAgICAgPyBMKCdOb3RlIChvcHRpb25hbCBcdTIwMTQgc2F2ZWQgdG8gdGhlIHJlY29yZCBhbmQgZW1haWxlZCknKQogICAgICA6IEwoJ1JlYXNvbiBmb3IgcmVqZWN0aW9uIChlbWFpbGVkIHRvIHRoZSBzdGFmZiBtZW1iZXIpJyksCiAgICAnJwogICk7CiAgaWYgKGNvbW1lbnQgPT09IG51bGwpIHJldHVy',
-  'bjsKCiAgdG9hc3QoJ1Byb2Nlc3NpbmdcdTIwMjYnKTsKICBnb29nbGUuc2NyaXB0LnJ1bi53aXRoU3VjY2Vzc0hhbmRsZXIoZnVuY3Rpb24ocil7CiAgICBpZiAociAmJiByLm9rKXsgdG9hc3Qoci5tZXNzYWdlIHx8ICdEb25lJyk7IGxvYWREYXNoYm9hcmQoKTsgfQogICAgZWxzZSB7IHRvYXN0KChyICYmIHIuZXJyb3IpIHx8ICdDb3VsZCBub3QgcHJvY2VzcycsIHRydWUpOyB9CiAgfSkud2l0aEZhaWx1cmVIYW5kbGVyKGZ1bmN0aW9uKGUpewogICAgdG9hc3QoZSAmJiBlLm1lc3NhZ2UgPyBlLm1lc3NhZ2UgOiAnQ291bGQg',
-  'bm90IHByb2Nlc3MnLCB0cnVlKTsKICB9KS5kZWNpZGVMZWF2ZShpZCwgZGVjaXNpb24sIGNvbW1lbnQsIFdITyk7Cn0KCmZ1bmN0aW9uIGNhbmNlbFJlcShpZCwgc3RhdHVzKXsKICB2YXIgbXNnID0gTCgoc3RhdHVzID09PSAnQXBwcm92ZWQnKQogICAgPyAnQ2FuY2VsIHRoaXMgQVBQUk9WRUQgbGVhdmU/XG5cblRoZSBkYXlzIHdpbGwgYmUgcmV0dXJuZWQgdG8gdGhlIGJhbGFuY2UgYW5kIHRoZSBjYWxlbmRhciBlbnRyeSB3aWxsIGJlIHJlbW92ZWQuJwogICAgOiAnQ2FuY2VsIHRoaXMgcmVxdWVzdD8nKTsKICBpZiAoIXdp',
-  'bmRvdy5jb25maXJtKG1zZykpIHJldHVybjsKICB2YXIgbm90ZSA9IHdpbmRvdy5wcm9tcHQoTCgnUmVhc29uIGZvciBjYW5jZWxsYXRpb24gKG9wdGlvbmFsIFx1MjAxNCBlbWFpbGVkIHRvIHRoZSBzdGFmZiBtZW1iZXIpJyksICcnKTsKICBpZiAobm90ZSA9PT0gbnVsbCkgcmV0dXJuOwoKICB0b2FzdCgnQ2FuY2VsbGluZ1x1MjAyNicpOwogIGdvb2dsZS5zY3JpcHQucnVuLndpdGhTdWNjZXNzSGFuZGxlcihmdW5jdGlvbihyKXsKICAgIGlmIChyICYmIHIub2spewogICAgICB0b2FzdCgnQ2FuY2VsbGVkJyArIChyLmNhbFJl',
-  'bW92ZWQgPyAnIFx1MjAxNCBjYWxlbmRhciBlbnRyeSByZW1vdmVkJyA6ICcnKSArIChyLm5vdGUgfHwgJycpLCBmYWxzZSk7CiAgICAgIGxvYWREYXNoYm9hcmQoKTsKICAgIH0gZWxzZSB7CiAgICAgIHRvYXN0KChyICYmIHIuZXJyb3IpIHx8ICdDb3VsZCBub3QgY2FuY2VsJywgdHJ1ZSk7CiAgICB9CiAgfSkud2l0aEZhaWx1cmVIYW5kbGVyKGZ1bmN0aW9uKGUpewogICAgdG9hc3QoZSAmJiBlLm1lc3NhZ2UgPyBlLm1lc3NhZ2UgOiAnQ291bGQgbm90IGNhbmNlbCcsIHRydWUpOwogIH0pLmNhbmNlbExlYXZlKGlkLCBub3Rl',
-  'LCBXSE8pOwp9Cgpib290KCk7Cjwvc2NyaXB0Pgo8L2JvZHk+CjwvaHRtbD4K'
+  'ICB0b2FzdChlICYmIGUubWVzc2FnZSA/IGUubWVzc2FnZSA6ICdDb3VsZCBub3QgdXBkYXRlJywgdHJ1ZSk7CiAgfSkubWFya0NlcnRpZmljYXRlKGlkLCB2YWx1ZSwgV0hPKTsKfQoKZnVuY3Rpb24gbG9hZE1hbmFnZXIoKXsKICAvLyDnrKzkuIDmrKHplovjgIzlvoXmibnjgI3liIbpoIHvvJrnlKjpoIHpnaLlhafltYzlmIXos4fmlpnvvIjpm7blvoDov5TvvIzljbPmmYLpoa/npLrvvIkKICBpZiAoIVMubWdyICYmIHdpbmRvdy5fX01HUiAmJiB3aW5kb3cuX19NR1Iub2spIHsKICAgIFMubWdyID0gd2luZG93Ll9fTUdSOyBy',
+  'ZW5kZXJNYW5hZ2VyKCk7IHdpbmRvdy5fX01HUiA9IG51bGw7IHJldHVybjsKICB9CiAgZ29vZ2xlLnNjcmlwdC5ydW4ud2l0aFN1Y2Nlc3NIYW5kbGVyKGZ1bmN0aW9uKG0pewogICAgaWYgKCFtIHx8ICFtLm9rKSByZXR1cm47CiAgICBTLm1nciA9IG07CiAgICByZW5kZXJNYW5hZ2VyKCk7CiAgfSkud2l0aEZhaWx1cmVIYW5kbGVyKGZ1bmN0aW9uKGUpeyBjb25zb2xlLmVycm9yKGUpOyB9KS5nZXRNYW5hZ2VyVmlldyhXSE8pOwp9CgpmdW5jdGlvbiByZW5kZXJNYW5hZ2VyKCl7CiAgdmFyIG0gPSBTLm1ncjsgaWYgKCFtKSBy',
+  'ZXR1cm47CiAgdmFyIGVsOwogIFsnbWdyLXBlbmRpbmcnLCdtZ3ItcGVvcGxlJywnbWdyLXJlY2VudCddLmZvckVhY2goZnVuY3Rpb24oaWQpewogICAgdmFyIGUgPSAkKGlkKTsgaWYgKGUpIHsgdHJ5IHsgZGVsZXRlIGUuX19lbkh0bWw7IH0gY2F0Y2ggKHgpIHsgZS5fX2VuSHRtbCA9IHVuZGVmaW5lZDsgfSB9CiAgfSk7CgogIGVsID0gJCgnbWdyLXBlbmRpbmcnKTsKICBpZiAoZWwpIHsKICAgIGVsLmlubmVySFRNTCA9IG0ucGVuZGluZy5sZW5ndGgKICAgICAgPyBtLnBlbmRpbmcubWFwKGZ1bmN0aW9uKHIpeyByZXR1cm4g',
+  'cmVxSHRtbChyLCB0cnVlKTsgfSkuam9pbignJykKICAgICAgOiAnPGRpdiBjbGFzcz0iZW1wdHkiPk5vdGhpbmcgd2FpdGluZzwvZGl2Pic7CiAgfQogIGVsID0gJCgnbWdyLXBlb3BsZScpOwogIGlmIChlbCkgewogICAgZWwuaW5uZXJIVE1MID0gbS5wZW9wbGUubWFwKGZ1bmN0aW9uKHApewogICAgICB2YXIgYiA9IHAuYmFsYW5jZTsKICAgICAgdmFyIG5lZyA9IE51bWJlcihiLmF2YWlsYWJsZSkgPCAwOwogICAgICByZXR1cm4gJzxkaXYgY2xhc3M9Iml0ZW0gcFJvdyIgb25jbGljaz0ib3Blbk1lbWJlcihcJycgKyBlc2Mo',
+  'cC5lbWFpbCkgKyAnXCcpIj4nICsKICAgICAgICAnPGRpdiBjbGFzcz0idG9wIiBzdHlsZT0iYWxpZ24taXRlbXM6Y2VudGVyIj4nICsKICAgICAgICAgICc8ZGl2IHN0eWxlPSJkaXNwbGF5OmZsZXg7YWxpZ24taXRlbXM6Y2VudGVyO2dhcDoxNHB4O21pbi13aWR0aDowIj4nICsKICAgICAgICAgICAgYXZhdGFySHRtbChwLmF2YXRhciwgcC5uYW1lLCA1NCkgKwogICAgICAgICAgICAnPGRpdiBzdHlsZT0ibWluLXdpZHRoOjAiPicgKwogICAgICAgICAgICAgICc8ZGl2IGNsYXNzPSJwbmFtZSI+JyArIGVzYyhwLm5hbWUpICsg',
+  'JzwvZGl2PicgKwogICAgICAgICAgICAgICc8ZGl2IGNsYXNzPSJwcm9sZSI+JyArIGVzYyhwLnJvbGUpICsgJzwvZGl2PicgKwogICAgICAgICAgICAnPC9kaXY+JyArCiAgICAgICAgICAnPC9kaXY+JyArCiAgICAgICAgICAnPGRpdiBzdHlsZT0iZGlzcGxheTpmbGV4O2FsaWduLWl0ZW1zOmNlbnRlcjtnYXA6MTBweDtmbGV4OjAgMCBhdXRvIj4nICsKICAgICAgICAgICAgJzxkaXYgY2xhc3M9InBiYWwiIHN0eWxlPSJjb2xvcjonICsgKG5lZyA/ICcjZmYzMzMzJyA6ICcjMGEwYTBhJykgKyAnIj4nICsKICAgICAgICAgICAg',
+  'ICBudW0oYi5hdmFpbGFibGUpICsgJzxzbWFsbD5kYXlzPC9zbWFsbD48L2Rpdj4nICsKICAgICAgICAgICAgJzxzcGFuIGNsYXNzPSJjaGV2Ij5cdTIwM2E8L3NwYW4+JyArCiAgICAgICAgICAnPC9kaXY+JyArCiAgICAgICAgJzwvZGl2PicgKwogICAgICAgICc8ZGl2IGNsYXNzPSJkIG1vbm8iIHN0eWxlPSJtYXJnaW4tdG9wOjExcHgiPkVudCAnICsgbnVtKGIuZW50aXRsZW1lbnQpICsKICAgICAgICAnIFx1MDBiNyBBY2NyICcgKyBudW0oYi5hY2NydWVkKSArICcgXHUwMGI3IFVzZWQgJyArIG51bShiLnVzZWQpICsKICAg',
+  'ICAgICAnIFx1MDBiNyBQZW5kICcgKyBudW0oYi5wZW5kaW5nKSArICc8L2Rpdj48L2Rpdj4nOwogICAgfSkuam9pbignJyk7CiAgfQogIGVsID0gJCgnbWdyLXJlY2VudCcpOwogIGlmIChlbCkgewogICAgZWwuaW5uZXJIVE1MID0gbS5yZWNlbnQubGVuZ3RoCiAgICAgID8gbS5yZWNlbnQuc2xpY2UoMCwgMTUpLm1hcChmdW5jdGlvbihyKXsgcmV0dXJuIHJlcUh0bWwociwgZmFsc2UpOyB9KS5qb2luKCcnKQogICAgICA6ICc8ZGl2IGNsYXNzPSJlbXB0eSI+Tm8gcmVjb3JkczwvZGl2Pic7CiAgfQogIGlmICh0eXBlb2YgaWNv',
+  'bnNBcHBseSA9PT0gJ2Z1bmN0aW9uJykgaWNvbnNBcHBseSgpOwogIGlmICh0eXBlb2YgaTE4bkFwcGx5ID09PSAnZnVuY3Rpb24nKSBpMThuQXBwbHkoKTsKfQoKLyog4pSA4pSAIOeuoeeQhuWxpO+8muaJk+mWi+WAi+WIpeWQjOS6i+WYheWujOaVtCBkYXNoYm9hcmTvvIjllK/oroDvvInilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAgKi8KZnVuY3Rpb24gb3Blbk1lbWJlcihlbWFpbCl7CiAgdGFiKCd2LW1lbWJlcicpOwogIHZhciBlbCA9ICQoJ3YtbWVtYmVyJyk7CiAgaWYgKGVsKSBlbC5pbm5lckhUTUwg',
+  'PSAnPGRpdiBjbGFzcz0iY2FyZCI+PGRpdiBjbGFzcz0iZW1wdHkiPjxkaXYgY2xhc3M9InNwaW5uZXIiPjwvZGl2PjwvZGl2PjwvZGl2Pic7CiAgZ29vZ2xlLnNjcmlwdC5ydW4KICAgIC53aXRoU3VjY2Vzc0hhbmRsZXIocmVuZGVyTWVtYmVyKQogICAgLndpdGhGYWlsdXJlSGFuZGxlcihmdW5jdGlvbihlKXsKICAgICAgaWYgKGVsKSBlbC5pbm5lckhUTUwgPSAnPGRpdiBjbGFzcz0iY2FyZCI+PGRpdiBjbGFzcz0iZW1wdHkiPicgKwogICAgICAgIGVzYyhlICYmIGUubWVzc2FnZSA/IGUubWVzc2FnZSA6ICdDb3VsZCBub3Qg',
+  'bG9hZCcpICsgJzwvZGl2PjwvZGl2Pic7CiAgICB9KQogICAgLmdldE1lbWJlclZpZXcoZW1haWwsIFdITyk7Cn0KCmZ1bmN0aW9uIHJlbmRlck1lbWJlcihkKXsKICB2YXIgZWwgPSAkKCd2LW1lbWJlcicpOyBpZiAoIWVsKSByZXR1cm47CiAgaWYgKCFkIHx8ICFkLm9rKXsKICAgIGVsLmlubmVySFRNTCA9ICc8ZGl2IGNsYXNzPSJjYXJkIj48ZGl2IGNsYXNzPSJiYWNrUm93Ij4nICsKICAgICAgJzxidXR0b24gY2xhc3M9ImJhY2siIG9uY2xpY2s9InRhYihcJ3YtbWdyXCcpIj5cdTIxOTAgVGVhbTwvYnV0dG9uPjwvZGl2Picg',
+  'KwogICAgICAnPGRpdiBjbGFzcz0iZW1wdHkiPicgKyBlc2MoKGQgJiYgZC5yZWFzb24pIHx8ICdDb3VsZCBub3QgbG9hZCcpICsgJzwvZGl2PjwvZGl2Pic7CiAgICByZXR1cm47CiAgfQogIHZhciBzID0gZC5zZXNzaW9uLCBiID0gZC5iYWxhbmNlOwogIHZhciBuZWcgPSBOdW1iZXIoYi5hdmFpbGFibGUpIDwgMDsKICB2YXIgaHRtbCA9ICcnOwogIGh0bWwgKz0gJzxkaXYgY2xhc3M9ImNhcmQiPicgKwogICAgJzxkaXYgY2xhc3M9ImJhY2tSb3ciPjxidXR0b24gY2xhc3M9ImJhY2siIG9uY2xpY2s9InRhYihcJ3YtbWdyXCcp',
+  'Ij5cdTIxOTAgVGVhbTwvYnV0dG9uPjwvZGl2PicgKwogICAgJzxkaXYgY2xhc3M9Im1lbUhlYWQiPicgKwogICAgICBhdmF0YXJIdG1sKHMuYXZhdGFyLCBzLm5hbWUsIDc2KSArCiAgICAgICc8ZGl2IHN0eWxlPSJtaW4td2lkdGg6MCI+JyArCiAgICAgICAgJzxkaXYgY2xhc3M9Im1lbU5hbWUiPicgKyBlc2Mocy5uYW1lKSArICc8L2Rpdj4nICsKICAgICAgICAnPGRpdiBjbGFzcz0ibWVtUm9sZSI+JyArIGVzYyhzLnJvbGUpICsgJyBcdTAwYjcgJyArIGVzYyhzLmVtYWlsKSArICc8L2Rpdj4nICsKICAgICAgJzwvZGl2Picg',
+  'KwogICAgJzwvZGl2PicgKwogICAgJzxkaXYgY2xhc3M9Imhlcm8iPicgKwogICAgICAnPGRpdiBjbGFzcz0ibGFiZWwiPkFubnVhbCBMZWF2ZSBMZWZ0PC9kaXY+JyArCiAgICAgICc8ZGl2IGNsYXNzPSJiaWcnICsgKG5lZyA/ICcgbmVnJyA6ICcnKSArICciPicgKyBudW0oYi5hdmFpbGFibGUpICsgJzxlbT5EYXlzPC9lbT48L2Rpdj4nICsKICAgICAgJzxkaXYgY2xhc3M9Imhlcm9Ob3RlIj5Bbm51YWwgTGVhdmUgXHUwMGI3IGFzIG9mICcgKyBlc2Mocy50b2RheSkgKyAnIFx1MDBiNyByZWFkLW9ubHk8L2Rpdj4nICsKICAg',
+  'ICc8L2Rpdj4nICsKICAnPC9kaXY+JzsKICBodG1sICs9IGJhbGFuY2VDYXJkSHRtbChiLCBkLmFjY3J1YWxCcmVha2Rvd24pOwogIGh0bWwgKz0gYWNjcnVhbENhcmRIdG1sKGQuYWNjcnVhbEJyZWFrZG93bik7CiAgaHRtbCArPSB3aHlDYXJkSHRtbChiLCBkLmFjY3J1YWxCcmVha2Rvd24pOwogIGh0bWwgKz0gaGlzdG9yeUNhcmRIdG1sKGQucmVxdWVzdHMsICdGdWxsIEhpc3RvcnknLCAwKTsKICBodG1sICs9ICc8ZGl2IGNsYXNzPSJmb290Ij4nICsgZXNjKHMuYnVpbGQgfHwgJycpICsgJzwvZGl2Pic7CiAgZWwuaW5uZXJI',
+  'VE1MID0gaHRtbDsKICBpZiAodHlwZW9mIGljb25zQXBwbHkgPT09ICdmdW5jdGlvbicpIGljb25zQXBwbHkoKTsKICBpZiAodHlwZW9mIGkxOG5BcHBseSA9PT0gJ2Z1bmN0aW9uJykgaTE4bkFwcGx5KCk7CiAgd2luZG93LnNjcm9sbFRvKDAsIDApOwp9CgpmdW5jdGlvbiBkZWNpZGUoaWQsIGRlY2lzaW9uKXsKICBpZiAoIXdpbmRvdy5jb25maXJtKEwoZGVjaXNpb24gPT09ICdBcHByb3ZlZCcgPyAnQXBwcm92ZSB0aGlzIHJlcXVlc3Q/JyA6ICdSZWplY3QgdGhpcyByZXF1ZXN0PycpKSkgcmV0dXJuOwogIHZhciBjb21tZW50',
+  'ID0gd2luZG93LnByb21wdCgKICAgIGRlY2lzaW9uID09PSAnQXBwcm92ZWQnCiAgICAgID8gTCgnTm90ZSAob3B0aW9uYWwgXHUyMDE0IHNhdmVkIHRvIHRoZSByZWNvcmQgYW5kIGVtYWlsZWQpJykKICAgICAgOiBMKCdSZWFzb24gZm9yIHJlamVjdGlvbiAoZW1haWxlZCB0byB0aGUgc3RhZmYgbWVtYmVyKScpLAogICAgJycKICApOwogIGlmIChjb21tZW50ID09PSBudWxsKSByZXR1cm47CgogIHRvYXN0KCdQcm9jZXNzaW5nXHUyMDI2Jyk7CiAgZ29vZ2xlLnNjcmlwdC5ydW4ud2l0aFN1Y2Nlc3NIYW5kbGVyKGZ1bmN0aW9u',
+  'KHIpewogICAgaWYgKHIgJiYgci5vayl7IHRvYXN0KHIubWVzc2FnZSB8fCAnRG9uZScpOyBsb2FkRGFzaGJvYXJkKCk7IH0KICAgIGVsc2UgeyB0b2FzdCgociAmJiByLmVycm9yKSB8fCAnQ291bGQgbm90IHByb2Nlc3MnLCB0cnVlKTsgfQogIH0pLndpdGhGYWlsdXJlSGFuZGxlcihmdW5jdGlvbihlKXsKICAgIHRvYXN0KGUgJiYgZS5tZXNzYWdlID8gZS5tZXNzYWdlIDogJ0NvdWxkIG5vdCBwcm9jZXNzJywgdHJ1ZSk7CiAgfSkuZGVjaWRlTGVhdmUoaWQsIGRlY2lzaW9uLCBjb21tZW50LCBXSE8pOwp9CgpmdW5jdGlvbiBj',
+  'YW5jZWxSZXEoaWQsIHN0YXR1cyl7CiAgdmFyIG1zZyA9IEwoKHN0YXR1cyA9PT0gJ0FwcHJvdmVkJykKICAgID8gJ0NhbmNlbCB0aGlzIEFQUFJPVkVEIGxlYXZlP1xuXG5UaGUgZGF5cyB3aWxsIGJlIHJldHVybmVkIHRvIHRoZSBiYWxhbmNlIGFuZCB0aGUgY2FsZW5kYXIgZW50cnkgd2lsbCBiZSByZW1vdmVkLicKICAgIDogJ0NhbmNlbCB0aGlzIHJlcXVlc3Q/Jyk7CiAgaWYgKCF3aW5kb3cuY29uZmlybShtc2cpKSByZXR1cm47CiAgdmFyIG5vdGUgPSB3aW5kb3cucHJvbXB0KEwoJ1JlYXNvbiBmb3IgY2FuY2VsbGF0aW9u',
+  'IChvcHRpb25hbCBcdTIwMTQgZW1haWxlZCB0byB0aGUgc3RhZmYgbWVtYmVyKScpLCAnJyk7CiAgaWYgKG5vdGUgPT09IG51bGwpIHJldHVybjsKCiAgdG9hc3QoJ0NhbmNlbGxpbmdcdTIwMjYnKTsKICBnb29nbGUuc2NyaXB0LnJ1bi53aXRoU3VjY2Vzc0hhbmRsZXIoZnVuY3Rpb24ocil7CiAgICBpZiAociAmJiByLm9rKXsKICAgICAgdG9hc3QoJ0NhbmNlbGxlZCcgKyAoci5jYWxSZW1vdmVkID8gJyBcdTIwMTQgY2FsZW5kYXIgZW50cnkgcmVtb3ZlZCcgOiAnJykgKyAoci5ub3RlIHx8ICcnKSwgZmFsc2UpOwogICAgICBs',
+  'b2FkRGFzaGJvYXJkKCk7CiAgICB9IGVsc2UgewogICAgICB0b2FzdCgociAmJiByLmVycm9yKSB8fCAnQ291bGQgbm90IGNhbmNlbCcsIHRydWUpOwogICAgfQogIH0pLndpdGhGYWlsdXJlSGFuZGxlcihmdW5jdGlvbihlKXsKICAgIHRvYXN0KGUgJiYgZS5tZXNzYWdlID8gZS5tZXNzYWdlIDogJ0NvdWxkIG5vdCBjYW5jZWwnLCB0cnVlKTsKICB9KS5jYW5jZWxMZWF2ZShpZCwgbm90ZSwgV0hPKTsKfQoKYm9vdCgpOwo8L3NjcmlwdD4KPC9ib2R5Pgo8L2h0bWw+Cg=='
 ].join('');
 
 function doGet(e) {
+  // ?mgr=1 → 量度「待批／團隊」畫面耗時；加 &nocache=1 就係改之前嘅行為（每次都直接讀 Sheet）
+  try {
+    const q = (e && e.parameter) || {};
+    if (String(q.mgr) === '1') {
+      if (String(q.bust) === '1') _readBust();
+      const t0 = Date.now();
+      const who = _activeEmail();
+      const r = _impl_getManagerView(who);
+      return ContentService.createTextOutput(JSON.stringify({
+        ok: !!(r && r.ok), ms: Date.now() - t0, fetch: _readCount(), calls: _readCalls(), who: who,
+        pending: r && r.pending ? r.pending.length : -1,
+        recent: r && r.recent ? r.recent.length : -1,
+        people: r && r.people ? r.people.length : -1,
+        nocache: String(q.nocache) === '1'
+      })).setMimeType(ContentService.MimeType.JSON);
+    }
+  } catch (zq) {
+    return ContentService.createTextOutput(JSON.stringify({ ok: false, err: String(zq && zq.message) }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+
   // ?lg=send|verify&email=&code=  → 頂層導覽式登入。
   // 點解要咁做：google.script.run 嘅「回程」實測會靜靜死掉，而驗證碼登入本身都靠佢回報結果，
   // → 連後路都一齊死。改用普通 GET 導覽（<form target="_top">）就完全唔需要回程：
@@ -556,12 +577,23 @@ function doGet(e) {
       try { _diagLog(_activeEmail(), _tmpKey(), 'boot EXC ' + (x && x.message)); } catch (y) {}
       bootJson = JSON.stringify({ ok: false, reason: 'ERR', dbg: 'boot EXC ' + (x && x.message) });
     }
+    // 管理層：連「待批／團隊」資料一齊內嵌，開分頁時零往返（原本每次要等一次 google.script.run）
+    let mgrJson = 'null';
+    try {
+      const bo = JSON.parse(bootJson);
+      if (bo && bo.ok && bo.session && bo.session.isManager) {
+        const mv = _impl_getManagerView(srvWho ? { e: srvWho, t: _sign(srvWho) } : null);
+        mgrJson = JSON.stringify(mv).replace(/</g, '\\u003c')
+          .replace(/\u2028/g, '\\u2028').replace(/\u2029/g, '\\u2029');
+      }
+    } catch (xm) { try { _diagLog(_activeEmail(), _tmpKey(), 'mgr EXC ' + (xm && xm.message)); } catch (ym) {} }
     const inj = '<script>window.__BUILD=' + JSON.stringify(CFG.BUILD) +
                 ';window.__EXEC=' + JSON.stringify(_appUrl()) +
                 ';window.__SRVWHO=' + JSON.stringify(srvWho) + ';window.__WHO=' +
                 JSON.stringify(srvWho ? { e: srvWho, t: _sign(srvWho) } : null) +
                 ';window.__BOOT=' + bootJson +
-                ';window.__NOTE=' + JSON.stringify(String((e && e.parameter && e.parameter.note) || '')) + ';</script>';
+                ';window.__NOTE=' + JSON.stringify(String((e && e.parameter && e.parameter.note) || '')) +
+                ';window.__MGR=' + mgrJson + ';</script>';
     if (html.indexOf('</head>') > 0) html = html.replace('</head>', inj + '</head>');
     html = html.replace('</title>', ' · ' + CFG.BUILD + '</title>');
     // 唔畀瀏覽器留住舊版（換 build 之後一定攞到新頁）
@@ -1028,6 +1060,7 @@ function _findOverlap(email, start, end, dur, excludeId, onlyApproved) {
 }
 
 function submitLeave(payload, who) {
+  _readBust();   // 寫入前清快取：確保之後讀到最新
   _WARN.length = 0;
   const lock = LockService.getScriptLock();
   if (!lock.tryLock(30000)) return { ok: false, error: 'The system is busy. Please try again in a moment.' };
@@ -1125,6 +1158,7 @@ function submitLeave(payload, who) {
  * ============================================================ */
 
 function decideLeave(requestId, decision, comment, who) {
+  _readBust();   // 寫入前清快取：確保之後讀到最新
   _WARN.length = 0;
   const lock = LockService.getScriptLock();
   if (!lock.tryLock(30000)) return { ok: false, error: 'The system is busy. Please try again in a moment.' };
@@ -1198,6 +1232,7 @@ function decideLeave(requestId, decision, comment, who) {
 /** 手動同步（管理層畫面個「重新整理」掣用） */
 /** 管理層：標記／取消「醫生紙已收」。value='RECEIVED' → 記今日日期；value='' → 清空（未收） */
 function markCertificate(requestId, value, who) {
+  _readBust();   // 寫入前清快取：確保之後讀到最新
   const sess = getSession(who);
   if (!sess.ok || !sess.isManager) return { ok: false, error: 'No permission' };
   const lock = LockService.getScriptLock();
@@ -1726,6 +1761,7 @@ function _calendar() {
  * 重複安全：已有 event ID 嘅行會跳過；日曆上同日已有同事同類型活動也會跳過。
  */
 function backfillCalendar() {
+  _readBust();   // 寫入前清快取：確保之後讀到最新
   const DRY = true;   // ⬅️ 先 true 預覽；確認後改 false 才真正寫入
 
   const sh = _sheet(T.REQ);
@@ -1819,6 +1855,7 @@ function backfillCalendar() {
  *    所以一個 2026-06-01 嘅行，要到 2026-07-01 喺會開始影響計數；填中間日期會被跳過。
  */
 function syncEntitlementHistory() {
+  _readBust();   // 寫入前清快取：確保之後讀到最新
   const DRY = true;                              // ⬅️ 先 true 預覽
   const EFFECTIVE_DATE = _iso(_today());         // ← 改成例如 '2026-07-01' 如果想指定生效日
 
@@ -1976,6 +2013,7 @@ function _send(o) {
  *   會刪除對應嘅日曆事件、發 email、重算結餘。
  */
 function cancelLeave(requestId, note, who) {
+  _readBust();   // 寫入前清快取：確保之後讀到最新
   _WARN.length = 0;
   const lock = LockService.getScriptLock();
   if (!lock.tryLock(30000)) return { ok: false, error: 'The system is busy. Please try again in a moment.' };
@@ -2144,6 +2182,7 @@ function _emailCancel(d) {
 }
 
 function _syncStaffBalance() {
+  _readBust();   // 寫入前清快取：確保之後讀到最新
   const sh = _sheet(T.STAFF);
   const v = sh.getDataRange().getValues();
   const today = _today();
@@ -2188,12 +2227,15 @@ function _whoami(who) {
  *    就用嗰張。所以「測試副本」同「正式版」可以共用同一份 code，唔需要改 ID。
  * 2. 如果係獨立 script，就 fallback 去 CFG.SHEET_ID。
  */
+let _SS_MEMO = null;
 function _ss() {
+  if (_SS_MEMO) return _SS_MEMO;                      // 同一次執行只開一次（開檔本身係一次 API call）
   try {
     const bound = SpreadsheetApp.getActiveSpreadsheet();
-    if (bound) return bound;
+    if (bound) { _SS_MEMO = bound; return bound; }
   } catch (e) {}
-  return SpreadsheetApp.openById(CFG.SHEET_ID);
+  _SS_MEMO = SpreadsheetApp.openById(CFG.SHEET_ID);
+  return _SS_MEMO;
 }
 function _sheet(name) {
   const sh = _ss().getSheetByName(name);
@@ -2201,13 +2243,68 @@ function _sheet(name) {
   return sh;
 }
 
-function _read(name) {
+/* ============================================================================
+   讀取提速（build-2026-11-04d）
+   問題：每一個 view 都各自 _read(REQ) 一次；管理層畫面要為每個人計一次餘額，
+        結果同一次載入要讀同一個分頁十幾次 —— 每次 getDataRange().getValues()
+        都係一次 Sheets API call（~300-800ms）→ 畫面要等幾秒。
+   做法：(1) 同一次執行內記憶（READ_MEMO）—— 重複讀同一個分頁只會真正讀一次。
+         (2) 跨請求快取（CacheService，45 秒）—— 下一個人開頁面幾乎零讀取。
+   重點：Google Sheet 仍然係唯一記錄（single source of truth）；任何寫入都會
+        先 _readBust() 清快取，所以「自己改完即刻見到」保證唔會失效。
+   ============================================================================ */
+const _READ_MEMO = {};
+let _READ_FETCH = 0, _READ_CALLS = 0;
+function _readCount() { return _READ_FETCH; }
+function _readCalls() { return _READ_CALLS; }
+
+function _readBust(name) {
+  try {
+    Object.keys(_READ_MEMO).forEach(k => { if (!name || k === name) delete _READ_MEMO[k]; });
+  } catch (e) {}
+  try {
+    const c = CacheService.getScriptCache();
+    // ⚠️ 一定要清「跨請求」嗰層：寫入路徑（例如批核要搵行號）如果讀到舊快取，
+    //    就會改錯行。冇指定 name = 清晒所有分頁嘅快取。
+    if (name) c.remove('RD:' + name);
+    else {
+      const keys = Object.keys(T).map(function (k) { return 'RD:' + T[k]; });
+      try { c.removeAll(keys); } catch (e2) { keys.forEach(function (k) { try { c.remove(k); } catch (e3) {} }); }
+    }
+  } catch (e) {}
+}
+
+function _read(name, fresh) {
+  _READ_CALLS++;
+  if (!fresh && _READ_MEMO[name]) return _READ_MEMO[name];
+  const cache = (function () { try { return CacheService.getScriptCache(); } catch (e) { return null; } })();
+  const ck = 'RD:' + name;
+  let hit = null;
+  if (!fresh && cache) {
+    try { const raw = cache.get(ck); if (raw) hit = JSON.parse(raw); } catch (e) { hit = null; }
+  }
   const sh = _sheet(name);
-  const v = sh.getDataRange().getValues();
-  if (!v.length) return { sheet: sh, header: [], rows: [] };
-  const header = v[0];
-  const rows = v.slice(1).filter(r => r.some(c => String(c).trim() !== ''));
-  return { sheet: sh, header: header, rows: rows };
+  let header, rows;
+  if (hit && hit.v === 1) {
+    header = hit.h; rows = hit.r;                 // 快取命中：零 Sheets 讀取
+  } else {
+    const v = sh.getDataRange().getValues();      // 只有呢一行真正打 Sheets
+    _READ_FETCH++;
+    if (!v.length) { header = []; rows = []; }
+    else {
+      header = v[0];
+      rows = v.slice(1).filter(r => r.some(c => String(c).trim() !== ''));
+      try {
+        if (cache) {
+          const blob = JSON.stringify({ v: 1, h: header, r: rows });
+          if (blob.length < 95000) cache.put(ck, blob, 45);   // CacheService 單鍵上限 100KB
+        }
+      } catch (e) {}
+    }
+  }
+  const out = { sheet: sh, header: header, rows: rows };
+  _READ_MEMO[name] = out;
+  return out;
 }
 
 function _num(v) { const n = parseFloat(v); return isNaN(n) ? 0 : n; }
@@ -2282,6 +2379,7 @@ function _reqObj(r) {
 
 /** 重算全部 Requests 嘅 Numeric Duration（修正舊紀錄） */
 function repairAllDurations() {
+  _readBust();   // 寫入前清快取：確保之後讀到最新
   const sh = _sheet(T.REQ);
   const v = sh.getDataRange().getValues();
   const hol = _holidaySet();

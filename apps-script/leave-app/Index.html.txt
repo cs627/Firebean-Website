@@ -1958,6 +1958,10 @@ function markCert(id, value){
 }
 
 function loadManager(){
+  // 第一次開「待批」分頁：用頁面內嵌嘅資料（零往返，即時顯示）
+  if (!S.mgr && window.__MGR && window.__MGR.ok) {
+    S.mgr = window.__MGR; renderManager(); window.__MGR = null; return;
+  }
   google.script.run.withSuccessHandler(function(m){
     if (!m || !m.ok) return;
     S.mgr = m;
