@@ -1950,7 +1950,11 @@ function doSubmit(){
 function markCert(id, value){
   toast(L('Updating\u2026'));
   google.script.run.withSuccessHandler(function(r){
-    if (r && r.ok){ toast(value ? L('Marked as received') : L('Marked as not received')); loadManager(); }
+    if (r && r.ok){
+      toast(value ? L('Marked as received') : L('Marked as not received'));
+      mgrCert(id, value ? (r.certificate || 'Y') : '');
+      loadManager();
+    }
     else toast((r && r.error) || 'Could not update', true);
   }).withFailureHandler(function(e){
     toast(e && e.message ? e.message : 'Could not update', true);
@@ -2068,6 +2072,31 @@ function renderMember(d){
   window.scrollTo(0, 0);
 }
 
+/* 即時更新（唔使 reload）：先喺前端改狀態 → 再喺背景用伺服器最新資料校正 */
+function mgrTick(id, newStatus){
+  try {
+    if (!S.mgr) return;
+    var i, f = null;
+    for (i = 0; i < S.mgr.pending.length; i++) {
+      if (String(S.mgr.pending[i].id) === String(id)) { f = S.mgr.pending[i]; S.mgr.pending.splice(i, 1); break; }
+    }
+    if (f && newStatus) {
+      f.status = newStatus;
+      if (S.mgr.recent) { S.mgr.recent.unshift(f); if (S.mgr.recent.length > 40) S.mgr.recent.pop(); }
+    }
+    renderManager();
+  } catch (e) {}
+}
+function mgrCert(id, txt){
+  try {
+    if (!S.mgr) return;
+    [S.mgr.pending, S.mgr.recent].forEach(function(list){
+      (list || []).forEach(function(r){ if (String(r.id) === String(id)) r.cert = txt; });
+    });
+    renderManager();
+  } catch (e) {}
+}
+
 function decide(id, decision){
   if (!window.confirm(L(decision === 'Approved' ? 'Approve this request?' : 'Reject this request?'))) return;
   var comment = window.prompt(
@@ -2080,7 +2109,12 @@ function decide(id, decision){
 
   toast('Processing\u2026');
   google.script.run.withSuccessHandler(function(r){
-    if (r && r.ok){ toast(r.message || 'Done'); loadDashboard(); }
+    if (r && r.ok){
+      toast(r.message || 'Done');
+      mgrTick(id, decision);        // 即刻由「待批」移除，唔使等伺服器
+      loadManager();                // 背景校正（伺服器已清快取，一定係最新）
+      loadDashboard();
+    }
     else { toast((r && r.error) || 'Could not process', true); }
   }).withFailureHandler(function(e){
     toast(e && e.message ? e.message : 'Could not process', true);
@@ -2099,6 +2133,8 @@ function cancelReq(id, status){
   google.script.run.withSuccessHandler(function(r){
     if (r && r.ok){
       toast('Cancelled' + (r.calRemoved ? ' \u2014 calendar entry removed' : '') + (r.note || ''), false);
+      mgrTick(id, 'Cancelled');
+      loadManager();
       loadDashboard();
     } else {
       toast((r && r.error) || 'Could not cancel', true);
