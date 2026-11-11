@@ -25,7 +25,7 @@ const CFG = {
   SHEET_ID      : '1Vte3KciEn9gpyrN37EMo4T9DuLsKUlykFOdt7uCy_9g',   // 真身（綁定容器）
   MANAGER_EMAIL : 'dickson@firebean.net',
   DOMAIN        : 'firebean.net',
-  BUILD         : 'build-2026-11-04f',
+  BUILD         : 'build-2026-11-04g',
   TZ            : 'Asia/Hong_Kong',
   CALENDAR_ID   : 'primary',
   // 年假一律以 0.5 日為單位
@@ -2021,7 +2021,10 @@ function _warnText() { return _WARN.length ? ' \u26a0\ufe0f ' + _WARN.join(' \u0
 /** 電郵用連結：所有通知信都會帶一條「一撳即入」嘅 App 連結。
  *  tab = 'mgr' → 直接跳去「待批」分頁；其他 → 主頁。 */
 function _mailLinks(tab) {
-  const url = 'https://firebean.net/leaveapp/' + (tab === 'mgr' ? '?tab=mgr' : '');
+  // ⚠️ 實測：firebean.net/leaveapp/ 係一個靜態轉頁，?tab= 會被佢食咗（開到 app 但唔會跳去待批）。
+  // 所以直接用 deployment 本身嘅 /exec 網址，保證參數傳得到。
+  const base = _appUrl() || 'https://firebean.net/leaveapp';
+  const url = base + (tab === 'mgr' ? '?tab=mgr' : '');
   const label = (tab === 'mgr') ? '開啟待批清單' : '開啟請假 App';
   return {
     url: url,
@@ -2298,7 +2301,7 @@ function _sheet(name) {
 }
 
 /* ============================================================================
-   讀取提速（build-2026-11-04f）
+   讀取提速（build-2026-11-04g）
    問題：每一個 view 都各自 _read(REQ) 一次；管理層畫面要為每個人計一次餘額，
         結果同一次載入要讀同一個分頁十幾次 —— 每次 getDataRange().getValues()
         都係一次 Sheets API call（~300-800ms）→ 畫面要等幾秒。
