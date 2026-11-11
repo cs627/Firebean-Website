@@ -1,12 +1,12 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-11-10T17:06:33.952809+00:00",
+  "generatedAt": "2026-11-11T17:03:59.517889+00:00",
   "run": {
-    "runDate": "2026-11-11",
+    "runDate": "2026-11-12",
     "dateRange": {
       "from": "2025-06-09",
-      "to": "2026-11-11"
+      "to": "2026-11-12"
     },
     "alerts": [
       {
@@ -27,10 +27,10 @@
     ]
   },
   "counts": {
-    "total": 242,
+    "total": 245,
     "media": 77,
-    "social": 165,
-    "maps": 50,
+    "social": 168,
+    "maps": 53,
     "stores": 10
   },
   "mentions": [
@@ -2695,6 +2695,39 @@
       "sentiment": "neutral",
       "sentiment_label": "中性",
       "keywords": "Outback, 屯門市廣場, 澳美客"
+    },
+    {
+      "date": "2026-07-05",
+      "source": "Google Maps (銅鑼灣廣場一期)",
+      "platform": "地圖",
+      "title": "銅鑼灣顧客5星評價：同朋友傾計嚟呢度一流冇人會吹你埋單，嘢食又ok服務又好。過嚟一定係叫ribs，下",
+      "summary": "銅鑼灣分店 Google Maps 5星評論（Chui Yi Cheung，4 個月前）：同朋友傾計嚟呢度一流冇人會吹你埋單，嘢食又ok服務又好。過嚟一定係叫ribs，下次可以嗌海鮮套餐佢個魚煎得好好食",
+      "link": "https://www.google.com/maps/contrib/113992228084530541659/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 銅鑼灣, 銅鑼灣廣場一期, 5星"
+    },
+    {
+      "date": "2026-09-03",
+      "source": "Google Maps (將軍澳中心)",
+      "platform": "地圖",
+      "title": "將軍澳顧客5星評價：平時吾評論但琴晚同老婆一家人慶祝生日，覺得好多位都加分。首先，訂左枱7點一去到門",
+      "summary": "將軍澳分店 Google Maps 5星評論（ERIC CHAN (Eric Chan)，2 個月前）：平時吾評論但琴晚同老婆一家人慶祝生日，覺得好多位都加分。首先，訂左枱7點一去到門口冇人，等左一陣，有位侍應見到我手上有蛋糕 二話不說幫我拎著收起，自動波觀察入微，仲話不收切餅費👍🏻。等左一陣點餐因為侍應吾夠，吾緊要，冇漏餐已好好因為個個都好忙冇黑面。叫左炸洋蔥，佢話個洋蔥份量吾夠，所以上左兩個，更加方便左我地7人枱share👍🏻其他食物質素都吾錯吾多講，食完叫佢上蛋糕，佢吾係拎我個蛋糕連盒出黎咁求其，佢幫我拆開左個盒，點埋蠟燭上，仲有！因為蛋糕其實冇位插蠟燭，佢竟然切左粒士多啤梨比我插蠟燭😆真係好週到🤩上左自帶蛋糕再上埋自家蛋糕(lava cake)🍰 埋單時侍應會幫我睇app既coupon邊張最抵，吾該曬當晚既侍應/經理比左個好好既體驗比我老婆做生日🙏",
+      "link": "https://www.google.com/maps/contrib/106378092094681927302/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 將軍澳, 將軍澳中心, 5星"
+    },
+    {
+      "date": "2026-10-28",
+      "source": "Google Maps (沙田新城市廣場三期)",
+      "platform": "地圖",
+      "title": "沙田顧客4星評價：個包好食😋 不過可以嘅唔好搵嘉頓會好啲 嘉頓出晒名麵包🥖落防腐唔識發霉",
+      "summary": "沙田分店 Google Maps 4星評論（E T，1 週前）：個包好食😋 不過可以嘅唔好搵嘉頓會好啲 嘉頓出晒名麵包🥖落防腐唔識發霉",
+      "link": "https://www.google.com/maps/contrib/117842654334485665866/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 沙田, 沙田新城市廣場三期, 4星"
     }
   ],
   "stores": [
@@ -3791,6 +3824,30 @@
       "link": "https://www.threads.com/@wellington_grill_and_bar",
       "branchCount": "1",
       "expansion": "單店經營（元朗福康街 18 號）"
+    },
+    {
+      "date": "2026-11-12",
+      "competitor": "Flat Iron Steak",
+      "type": "新店/擴張",
+      "title": "Flat Iron Steak 官網新增「Flat Iron Festival Walk（九龍塘）」分店，營業時間及電話待公布",
+      "summary": "以 headless 瀏覽器渲染 flatironhk.com/flat-iron-steak（2026-11-12 01:0x HKT 抓取）核實：分店列表已加入 Flat Iron Festival Walk (Kowloon Tong)，地址 Shop No. L1-33, Level 1, Festival Walk, 80 Tat Chee Avenue，Opening Hours 及 Phone 均標示 TBA，屬即將開幕的第 8 間香港分店。現有 7 間營運中：尖沙咀朗廷、IFC、銅鑼灣 Fashion Walk、灣仔、SoHo、上環、鰂魚涌。",
+      "sentiment": "中性",
+      "source": "官方網站（headless 瀏覽器渲染，2026-11-12 抓取）",
+      "link": "https://flatironhk.com/flat-iron-steak",
+      "branchCount": "8（7 間營運中 + 1 間即將開幕；另澳門 1 間）",
+      "expansion": "即將開幕（又一城 L1-33，開業日期待定）"
+    },
+    {
+      "date": "2026-11-12",
+      "competitor": "La Vache!",
+      "type": "新菜/菜單",
+      "title": "La Vache! 招牌牛扒套餐價格調整至每位 HK$428（原 HK$418）",
+      "summary": "以 headless 瀏覽器渲染 lavache.com.hk/menu（2026-11-12 核實）：「Today」套餐列明 $428 per guest（10oz USDA Prime entrecôte＋任食牛脂薯條＋合桃沙律），較舊價 HK$418 上調 HK$10。官方 IG 帖（p/DX6YjRxlJxK）以「Good steak has standards」解釋價格調整，惟 IG 有 login wall、發佈日期不可核實，故以官網現行價為據（官網為常設頁，日期以今日抓取日記錄）。",
+      "sentiment": "中性",
+      "source": "官方網站（headless 瀏覽器渲染，2026-11-12 抓取）",
+      "link": "https://www.lavache.com.hk/menu",
+      "branchCount": "5",
+      "expansion": "維持不變（中環交易廣場、山頂凌霄閣、蘇豪等）"
     }
   ],
   "trend": [
@@ -3856,6 +3913,10 @@
     },
     {
       "date": "2026-07-01",
+      "count": 1
+    },
+    {
+      "date": "2026-07-05",
       "count": 1
     },
     {
@@ -4000,7 +4061,7 @@
     },
     {
       "date": "2026-09-03",
-      "count": 1
+      "count": 2
     },
     {
       "date": "2026-09-04",
@@ -4128,6 +4189,10 @@
     },
     {
       "date": "2026-10-27",
+      "count": 1
+    },
+    {
+      "date": "2026-10-28",
       "count": 1
     },
     {

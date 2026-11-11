@@ -1,0 +1,25 @@
+{
+  "date": "2026-07-05",
+  "items": [
+    {
+      "date": "2026-07-05",
+      "source": "Google Maps (銅鑼灣廣場一期)",
+      "platform": "地圖",
+      "author": "Chui Yi Cheung",
+      "title": "銅鑼灣顧客5星評價：同朋友傾計嚟呢度一流冇人會吹你埋單，嘢食又ok服務又好。過嚟一定係叫ribs，下",
+      "summary": "銅鑼灣分店 Google Maps 5星評論（Chui Yi Cheung，4 個月前）：同朋友傾計嚟呢度一流冇人會吹你埋單，嘢食又ok服務又好。過嚟一定係叫ribs，下次可以嗌海鮮套餐佢個魚煎得好好食",
+      "link": "https://www.google.com/maps/contrib/113992228084530541659/reviews",
+      "sentiment": "positive",
+      "tags": ""
+    }
+  ],
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 1,
+    "new_records": 1,
+    "limitations": []
+  }
+}

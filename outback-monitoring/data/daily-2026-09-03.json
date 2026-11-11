@@ -11,6 +11,17 @@
       "link": "https://www.outback.com.hk/news-and-promotions/article/237?lang=en",
       "sentiment": "neutral",
       "tags": ""
+    },
+    {
+      "date": "2026-09-03",
+      "source": "Google Maps (將軍澳中心)",
+      "platform": "地圖",
+      "author": "ERIC CHAN (Eric Chan)",
+      "title": "將軍澳顧客5星評價：平時吾評論但琴晚同老婆一家人慶祝生日，覺得好多位都加分。首先，訂左枱7點一去到門",
+      "summary": "將軍澳分店 Google Maps 5星評論（ERIC CHAN (Eric Chan)，2 個月前）：平時吾評論但琴晚同老婆一家人慶祝生日，覺得好多位都加分。首先，訂左枱7點一去到門口冇人，等左一陣，有位侍應見到我手上有蛋糕 二話不說幫我拎著收起，自動波觀察入微，仲話不收切餅費👍🏻。等左一陣點餐因為侍應吾夠，吾緊要，冇漏餐已好好因為個個都好忙冇黑面。叫左炸洋蔥，佢話個洋蔥份量吾夠，所以上左兩個，更加方便左我地7人枱share👍🏻其他食物質素都吾錯吾多講，食完叫佢上蛋糕，佢吾係拎我個蛋糕連盒出黎咁求其，佢幫我拆開左個盒，點埋蠟燭上，仲有！因為蛋糕其實冇位插蠟燭，佢竟然切左粒士多啤梨比我插蠟燭😆真係好週到🤩上左自帶蛋糕再上埋自家蛋糕(lava cake)🍰 埋單時侍應會幫我睇app既coupon邊張最抵，吾該曬當晚既侍應/經理比左個好好既體驗比我老婆做生日🙏",
+      "link": "https://www.google.com/maps/contrib/106378092094681927302/reviews",
+      "sentiment": "positive",
+      "tags": ""
     }
   ],
   "alerts": [],
@@ -18,8 +29,8 @@
   "recommendations": [],
   "coverage": {
     "target_sources": 46,
-    "checked_sources": 1,
-    "new_records": 1,
+    "checked_sources": 2,
+    "new_records": 2,
     "limitations": []
   }
 }

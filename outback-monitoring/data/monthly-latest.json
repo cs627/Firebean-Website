@@ -1936,6 +1936,30 @@
       "summary": "Threads 帳號 @hkmalls（帖文時間 10:27 PM · Nov 9, 2026，420 次瀏覽）引述屯門市廣場消息：位於屯門市廣場前 Outback 舖位的「爆旋陀螺自由對戰站」將營運至本月（11 月）月底後關閉；新租戶為嚐·高美旗下「金龍鐵板餐廳」及新品牌「豚吉」（帖文特別註明並非另一相似名字的「Tonkichi とん吉」），租約由 12 月 1 日起生效，餐廳預計明年第一季（2027 Q1）開幕，租期五年。對 Outback 的意義：屯門市廣場一期屬 2024 年 8 月 4 日結業的 9 間分店之一，舊舖位空置約兩年後由本地餐飲集團以日式鐵板／新品牌接手，顯示屯門區中價鐵板類需求仍在，但 Outback 在屯門已無門店。",
       "link": "https://www.threads.com/@hkmalls/post/DfjQx38D9T5",
       "sentiment": "neutral"
+    },
+    {
+      "date": "2026-07-05",
+      "source": "Google Maps (銅鑼灣廣場一期)",
+      "title": "銅鑼灣顧客5星評價：同朋友傾計嚟呢度一流冇人會吹你埋單，嘢食又ok服務又好。過嚟一定係叫ribs，下",
+      "summary": "銅鑼灣分店 Google Maps 5星評論（Chui Yi Cheung，4 個月前）：同朋友傾計嚟呢度一流冇人會吹你埋單，嘢食又ok服務又好。過嚟一定係叫ribs，下次可以嗌海鮮套餐佢個魚煎得好好食",
+      "link": "https://www.google.com/maps/contrib/113992228084530541659/reviews",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-09-03",
+      "source": "Google Maps (將軍澳中心)",
+      "title": "將軍澳顧客5星評價：平時吾評論但琴晚同老婆一家人慶祝生日，覺得好多位都加分。首先，訂左枱7點一去到門",
+      "summary": "將軍澳分店 Google Maps 5星評論（ERIC CHAN (Eric Chan)，2 個月前）：平時吾評論但琴晚同老婆一家人慶祝生日，覺得好多位都加分。首先，訂左枱7點一去到門口冇人，等左一陣，有位侍應見到我手上有蛋糕 二話不說幫我拎著收起，自動波觀察入微，仲話不收切餅費👍🏻。等左一陣點餐因為侍應吾夠，吾緊要，冇漏餐已好好因為個個都好忙冇黑面。叫左炸洋蔥，佢話個洋蔥份量吾夠，所以上左兩個，更加方便左我地7人枱share👍🏻其他食物質素都吾錯吾多講，食完叫佢上蛋糕，佢吾係拎我個蛋糕連盒出黎咁求其，佢幫我拆開左個盒，點埋蠟燭上，仲有！因為蛋糕其實冇位插蠟燭，佢竟然切左粒士多啤梨比我插蠟燭😆真係好週到🤩上左自帶蛋糕再上埋自家蛋糕(lava cake)🍰 埋單時侍應會幫我睇app既coupon邊張最抵，吾該曬當晚既侍應/經理比左個好好既體驗比我老婆做生日🙏",
+      "link": "https://www.google.com/maps/contrib/106378092094681927302/reviews",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-10-28",
+      "source": "Google Maps (沙田新城市廣場三期)",
+      "title": "沙田顧客4星評價：個包好食😋 不過可以嘅唔好搵嘉頓會好啲 嘉頓出晒名麵包🥖落防腐唔識發霉",
+      "summary": "沙田分店 Google Maps 4星評論（E T，1 週前）：個包好食😋 不過可以嘅唔好搵嘉頓會好啲 嘉頓出晒名麵包🥖落防腐唔識發霉",
+      "link": "https://www.google.com/maps/contrib/117842654334485665866/reviews",
+      "sentiment": "positive"
     }
   ],
   "alerts": [],
@@ -1944,7 +1968,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 242,
+    "new_records": 245,
     "limitations": []
   }
 }

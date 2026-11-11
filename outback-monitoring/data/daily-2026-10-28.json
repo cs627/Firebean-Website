@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-28",
+  "items": [
+    {
+      "date": "2026-10-28",
+      "source": "Google Maps (沙田新城市廣場三期)",
+      "platform": "地圖",
+      "author": "E T",
+      "title": "沙田顧客4星評價：個包好食😋 不過可以嘅唔好搵嘉頓會好啲 嘉頓出晒名麵包🥖落防腐唔識發霉",
+      "summary": "沙田分店 Google Maps 4星評論（E T，1 週前）：個包好食😋 不過可以嘅唔好搵嘉頓會好啲 嘉頓出晒名麵包🥖落防腐唔識發霉",
+      "link": "https://www.google.com/maps/contrib/117842654334485665866/reviews",
+      "sentiment": "positive",
+      "tags": ""
+    }
+  ],
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 1,
+    "new_records": 1,
+    "limitations": []
+  }
+}
