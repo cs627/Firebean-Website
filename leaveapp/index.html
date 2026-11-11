@@ -100,11 +100,15 @@
 <script>
   var TARGET = "https://script.google.com/a/macros/firebean.net/s/AKfycbxFROGfguMNIqrkoQAQwSjQla0sj4qy5IxtQPzC4YH9ntk31jAQ8561z_m_cJ40eDGa7w/exec";
 
-  document.getElementById("go").href = TARGET;
+  // 保留查詢參數：例如 /leaveapp/?tab=mgr → 直接開「待批」分頁；?note= 亦可帶過去
+  var Q = (location.search || '') + (location.hash || '');
+  var FULL = TARGET + Q;
+
+  document.getElementById("go").href = FULL;
 
   // 少少延遲，等品牌畫面閃一閃，唔好白屏跳走
   setTimeout(function () {
-    location.replace(TARGET);
+    location.replace(FULL);
   }, 1400);
 </script>
 </body>
