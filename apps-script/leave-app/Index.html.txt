@@ -2031,6 +2031,15 @@ function renderManager(){
 
 /* ── 管理層：打開個別同事嘅完整 dashboard（唯讀）──────────── */
 function openMember(email){
+  // 先用頁面內嵌嘅同事詳情（零往返、即時）；冇先至 call 伺服器
+  var em = String(email || '').toLowerCase().trim();
+  try {
+    if (window.__MGRVIEWS && window.__MGRVIEWS[em]) {
+      tab('v-member');
+      renderMember(window.__MGRVIEWS[em]);
+      return;
+    }
+  } catch (e) {}
   tab('v-member');
   var el = $('v-member');
   if (el) el.innerHTML = '<div class="card"><div class="empty"><div class="spinner"></div></div></div>';
@@ -2093,6 +2102,7 @@ function mgrTick(id, newStatus){
       if (S.mgr.recent) { S.mgr.recent.unshift(f); if (S.mgr.recent.length > 40) S.mgr.recent.pop(); }
     }
     renderManager();
+    window.__MGRVIEWS = null;   // 資料已變 → 下次開詳情重新攞
   } catch (e) {}
 }
 function mgrCert(id, txt){
