@@ -766,7 +766,15 @@ function showNote(s){
     if (r) { if (r.firstChild) r.insertBefore(d, r.firstChild); else r.appendChild(d); }
   } catch (e) {}
 }
-function afterPaint(){ if (window.__NOTE) showNote(window.__NOTE); }
+function afterPaint(){
+  if (window.__NOTE) showNote(window.__NOTE);
+  // 由電郵連結入嚟（?tab=mgr）→ 直接開「待批」分頁
+  try {
+    if (window.__TAB === 'mgr' && S.sess && S.sess.isManager && window.__RENDERED) {
+      window.__TAB = ''; tab('v-mgr', true);
+    }
+  } catch (e) {}
+}
 
 function showDenied(email, appUrl, ref){
   // 讀唔到身份（多數係瀏覽器同時登入多個 Google 帳戶）→ 引導揀返 @firebean.net 帳號再入
