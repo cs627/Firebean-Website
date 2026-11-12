@@ -1960,6 +1960,22 @@
       "summary": "沙田分店 Google Maps 4星評論（E T，1 週前）：個包好食😋 不過可以嘅唔好搵嘉頓會好啲 嘉頓出晒名麵包🥖落防腐唔識發霉",
       "link": "https://www.google.com/maps/contrib/117842654334485665866/reviews",
       "sentiment": "positive"
+    },
+    {
+      "date": "2026-08-13",
+      "source": "Google Maps (東薈城名店倉)",
+      "title": "東涌顧客5星評價：我們一家今天如常到東薈城Outback用膳。 我們十分喜歡這間餐廳，這裏的食物不",
+      "summary": "東涌分店 Google Maps 5星評論（aoi sakamoto，3 個月前）：我們一家今天如常到東薈城Outback用膳。 我們十分喜歡這間餐廳，這裏的食物不但美味，餐廳員工也殷勤有禮，笑容可掬。  特別感謝Bonnie （古經理）的熱情招待。 她除了跟我們介紹餐廳不同的食物外， 還跟我分享一些小朋友飲食上的心得， 好讓我的小朋友熱愛及享受食物。 Thanks Bonnie again！  期待下次再到這裡用餐。",
+      "link": "https://www.google.com/maps/contrib/115044900003195521493/reviews",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-11-12",
+      "source": "Outback 官方網站",
+      "title": "【INSIDE OUTBACK】四款全新期間限定菜式登場（11月11日起全港分店供應）",
+      "summary": "官方公布四款期間限定新菜：燒法國鴨胸悉尼沙律 HK$178、新奧爾良風味鮮蝦雞肉意粉 HK$188、烤美國牛肋條 HK$208、香煎爆谷挪威三文魚 HK$288；全港分店全日供應，星期一至五下午5時前或週末及公眾假期下午4時30分前點選可享是日餐湯、黑糖麥包及指定飲品。由研發副總裁暨行政總廚 Chef Efrem Cutler 團隊構思，延續 INSIDE OUTBACK 品牌企劃。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/244?lang=tc",
+      "sentiment": "positive"
     }
   ],
   "alerts": [],
@@ -1968,7 +1984,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 245,
+    "new_records": 247,
     "limitations": []
   }
 }

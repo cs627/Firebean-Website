@@ -110,6 +110,17 @@
       "link": "https://www.instagram.com/reel/DcAnwLcEqD4",
       "sentiment": "positive",
       "tags": ""
+    },
+    {
+      "date": "2026-08-13",
+      "source": "Google Maps (東薈城名店倉)",
+      "platform": "地圖",
+      "author": "aoi sakamoto",
+      "title": "東涌顧客5星評價：我們一家今天如常到東薈城Outback用膳。 我們十分喜歡這間餐廳，這裏的食物不",
+      "summary": "東涌分店 Google Maps 5星評論（aoi sakamoto，3 個月前）：我們一家今天如常到東薈城Outback用膳。 我們十分喜歡這間餐廳，這裏的食物不但美味，餐廳員工也殷勤有禮，笑容可掬。  特別感謝Bonnie （古經理）的熱情招待。 她除了跟我們介紹餐廳不同的食物外， 還跟我分享一些小朋友飲食上的心得， 好讓我的小朋友熱愛及享受食物。 Thanks Bonnie again！  期待下次再到這裡用餐。",
+      "link": "https://www.google.com/maps/contrib/115044900003195521493/reviews",
+      "sentiment": "positive",
+      "tags": ""
     }
   ],
   "alerts": [
@@ -140,7 +151,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 6,
-    "new_records": 10,
+    "new_records": 11,
     "limitations": []
   }
 }

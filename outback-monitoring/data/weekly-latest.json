@@ -1,14 +1,6 @@
 {
-  "week": "2026-10-28 ~ 2026-11-09",
+  "week": "2026-10-29 ~ 2026-11-12",
   "items": [
-    {
-      "date": "2026-10-28",
-      "source": "Google Maps (沙田新城市廣場三期)",
-      "title": "沙田顧客4星評價：個包好食😋 不過可以嘅唔好搵嘉頓會好啲 嘉頓出晒名麵包🥖落防腐唔識發霉",
-      "summary": "沙田分店 Google Maps 4星評論（E T，1 週前）：個包好食😋 不過可以嘅唔好搵嘉頓會好啲 嘉頓出晒名麵包🥖落防腐唔識發霉",
-      "link": "https://www.google.com/maps/contrib/117842654334485665866/reviews",
-      "sentiment": "positive"
-    },
     {
       "date": "2026-10-29",
       "source": "Outback 官方網站",
@@ -64,6 +56,14 @@
       "summary": "Threads 帳號 @hkmalls（帖文時間 10:27 PM · Nov 9, 2026，420 次瀏覽）引述屯門市廣場消息：位於屯門市廣場前 Outback 舖位的「爆旋陀螺自由對戰站」將營運至本月（11 月）月底後關閉；新租戶為嚐·高美旗下「金龍鐵板餐廳」及新品牌「豚吉」（帖文特別註明並非另一相似名字的「Tonkichi とん吉」），租約由 12 月 1 日起生效，餐廳預計明年第一季（2027 Q1）開幕，租期五年。對 Outback 的意義：屯門市廣場一期屬 2024 年 8 月 4 日結業的 9 間分店之一，舊舖位空置約兩年後由本地餐飲集團以日式鐵板／新品牌接手，顯示屯門區中價鐵板類需求仍在，但 Outback 在屯門已無門店。",
       "link": "https://www.threads.com/@hkmalls/post/DfjQx38D9T5",
       "sentiment": "neutral"
+    },
+    {
+      "date": "2026-11-12",
+      "source": "Outback 官方網站",
+      "title": "【INSIDE OUTBACK】四款全新期間限定菜式登場（11月11日起全港分店供應）",
+      "summary": "官方公布四款期間限定新菜：燒法國鴨胸悉尼沙律 HK$178、新奧爾良風味鮮蝦雞肉意粉 HK$188、烤美國牛肋條 HK$208、香煎爆谷挪威三文魚 HK$288；全港分店全日供應，星期一至五下午5時前或週末及公眾假期下午4時30分前點選可享是日餐湯、黑糖麥包及指定飲品。由研發副總裁暨行政總廚 Chef Efrem Cutler 團隊構思，延續 INSIDE OUTBACK 品牌企劃。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/244?lang=tc",
+      "sentiment": "positive"
     }
   ],
   "alerts": [],

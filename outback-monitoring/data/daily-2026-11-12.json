@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-12",
+  "items": [
+    {
+      "date": "2026-11-12",
+      "source": "Outback 官方網站",
+      "platform": "新聞媒體",
+      "author": "Outback 官方網站",
+      "title": "【INSIDE OUTBACK】四款全新期間限定菜式登場（11月11日起全港分店供應）",
+      "summary": "官方公布四款期間限定新菜：燒法國鴨胸悉尼沙律 HK$178、新奧爾良風味鮮蝦雞肉意粉 HK$188、烤美國牛肋條 HK$208、香煎爆谷挪威三文魚 HK$288；全港分店全日供應，星期一至五下午5時前或週末及公眾假期下午4時30分前點選可享是日餐湯、黑糖麥包及指定飲品。由研發副總裁暨行政總廚 Chef Efrem Cutler 團隊構思，延續 INSIDE OUTBACK 品牌企劃。",
+      "link": "https://www.outback.com.hk/news-and-promotions/article/244?lang=tc",
+      "sentiment": "positive",
+      "tags": ""
+    }
+  ],
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 1,
+    "new_records": 1,
+    "limitations": []
+  }
+}
