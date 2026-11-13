@@ -1204,6 +1204,32 @@ var ZH = {
   "Reject": "拒絕",
   "Cancel": "取消",
   "Contract entitlement": "合約年假額",
+  "How the balance is calculated": "結餘係點計",
+  "your contract gives": "合約每年",
+  "days a year, accrued month by month": "日，按月累積",
+  "day per month": "日／月",
+  "So far accrued": "至今已累積",
+  ", used": "，已用",
+  ", pending": "，待批",
+  " \u2014 that leaves": " —— 即係可以扣",
+  "day(s) you can book.": "日。",
+  "You can still submit this request; Dickson will decide.": "你仍然可以提交，由 Dickson 決定批唔批。",
+  "Accrued month by month": "按月累積",
+  "days this year": "日（本年）",
+  "per month": "／月",
+  "available to book now": "而家可以扣",
+  "day(s)": "日",
+  "Annual leave is accrued month by month": "年假係按月累積嘅",
+  "Contract": "合約",
+  "days/year": "日／年",
+  "Accrued so far": "至今累積",
+  "Available to book now": "而家可以扣",
+  "This request": "今次申請",
+  "balance would become": "結餘會變成",
+  "You can still submit it \u2014 Dickson will review and decide.": "你仍然可以提交 —— Dickson 會審批決定。",
+  "Submit anyway?": "仍然提交？",
+  "This request:": "今次申請：",
+  "weekends &amp; public holidays excluded": "（週末及公眾假期唔計）",
   "Carry-over": "上年結轉",
   "How this is calculated": "計算方式",
   "Accrual Breakdown": "累積拆解",
@@ -1904,9 +1930,23 @@ function updatePreview(){
     var left = Number(S.data.balance.available) - n;
     txt += '<br>Annual leave left after booking: <b style="color:' +
       (left < 0 ? '#ff3333' : '#12864a') + '">' + num(left) + ' days</b>';
-    if (left < 0) txt += ' \u2014 exceeds your balance';
-    txt += '<br><span style="color:#8b93a3">Contract entitlement ' + num(S.data.balance.entitlement) +
-      ' days/year (full 12 months) \u00b7 available to book now: ' + num(S.data.balance.available) + ' days</span>';
+    var bl = S.data.balance;
+    var monthly = bl.entitlement ? (Math.round((bl.entitlement / 12) * 100) / 100) : 0;
+    if (left < 0) {
+      txt += ' <b>\u2014 over your accrued balance by ' + num(Math.abs(left)) + ' day(s)</b>' +
+        '<br><span style="color:#b45309">' + L('How the balance is calculated') + ': ' +
+        L('your contract gives') + ' ' + num(bl.entitlement) + ' ' + L('days a year, accrued month by month') +
+        ' (' + num(monthly) + ' ' + L('day per month') + '). ' +
+        L('So far accrued') + ' <b>' + num(bl.accrued) + '</b>' + L(', used') + ' ' + num(bl.used) +
+        (bl.pending ? (L(', pending') + ' ' + num(bl.pending)) : '') +
+        L(' \u2014 that leaves') + ' <b>' + num(bl.available) + '</b> ' + L('day(s) you can book.') +
+        ' ' + L('You can still submit this request; Dickson will decide.') + '</span>';
+    } else {
+      txt += '<br><span style="color:#8b93a3">' + L('Accrued month by month') + ': ' + num(bl.accrued) +
+        ' / ' + num(bl.entitlement) + ' ' + L('days this year') + (monthly ? ' (' + num(monthly) + ' ' + L('per month') + ')' : '') +
+        ' \u00b7 ' + L('used') + ' ' + num(bl.used) + (bl.pending ? (' \u00b7 ' + L('pending') + ' ' + num(bl.pending)) : '') +
+        ' \u00b7 ' + L('available to book now') + ': ' + num(bl.available) + ' ' + L('day(s)') + '</span>';
+    }
   }
   p.innerHTML = txt;
   if (typeof i18nApply === 'function') i18nApply();
@@ -1936,6 +1976,27 @@ function doSubmit(){
     eventName: $('ot-box').style.display !== 'none' ? $('f-event').value : ''
   };
   if (!payload.startDate || !payload.endDate) { toast('Please pick your dates', true); return; }
+
+  // 年假超出已累積日數：唔阻止，但一定要佢睇清楚個計法先撳落去
+  if (payload.leaveType === 'Annual Leave' && S.data && S.data.balance) {
+    var nReq = workdays(payload.startDate, payload.endDate);
+    if (payload.duration.indexOf('Half') >= 0) nReq = 0.5;
+    var bal = S.data.balance;
+    if (nReq > Number(bal.available) + 0.001) {
+      var mo = bal.entitlement ? (Math.round((bal.entitlement / 12) * 100) / 100) : 0;
+      var msg = L('Annual leave is accrued month by month') + '.\n\n' +
+        L('Contract') + ': ' + num(bal.entitlement) + ' ' + L('days/year') + ' \u2192 ' + num(mo) + ' ' + L('day per month') + '\n' +
+        L('Accrued so far') + ': ' + num(bal.accrued) + ' ' + L('days') + '\n' +
+        L('Used') + ': ' + num(bal.used) + ' ' + L('days') +
+        (bal.pending ? ('\n' + L('Pending') + ': ' + num(bal.pending) + ' ' + L('days')) : '') + '\n' +
+        L('Available to book now') + ': ' + num(bal.available) + ' ' + L('days') + '\n\n' +
+        L('This request') + ': ' + num(nReq) + ' ' + L('days') + ' \u2192 ' +
+        L('balance would become') + ' ' + num(Number(bal.available) - nReq) + ' ' + L('days') + '.\n\n' +
+        L('You can still submit it \u2014 Dickson will review and decide.') + '\n\n' +
+        L('Submit anyway?');
+      if (!window.confirm(msg)) { return; }
+    }
+  }
 
   btn.disabled = true; btn.textContent = L('Submitting\u2026');
   google.script.run.withSuccessHandler(function(r){
