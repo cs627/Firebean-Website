@@ -1,8 +1,8 @@
 {
   "meta": {
-    "last_updated": "2026-11-13T01:01:36+08:00",
-    "total_records": 247,
-    "daily_avg": 2.7,
+    "last_updated": "2026-11-14T01:01:12+08:00",
+    "total_records": 249,
+    "daily_avg": 2.6,
     "date_range": "2025-06-09 → 2026-11-12",
     "sources_checked": 29,
     "new_verified": 3,
@@ -11,10 +11,6 @@
     "positive_pct": 56
   },
   "trend": [
-    {
-      "date": "2026-10-29",
-      "count": 1
-    },
     {
       "date": "2026-10-31",
       "count": 1
@@ -32,6 +28,10 @@
       "count": 1
     },
     {
+      "date": "2026-11-08",
+      "count": 1
+    },
+    {
       "date": "2026-11-09",
       "count": 1
     },
@@ -43,7 +43,7 @@
   "source_breakdown": [
     {
       "source": "Google Maps",
-      "count": 54
+      "count": 56
     },
     {
       "source": "Threads",
@@ -103,8 +103,8 @@
     }
   ],
   "sentiment": {
-    "positive": 138,
-    "neutral": 65,
+    "positive": 139,
+    "neutral": 66,
     "negative": 37,
     "mixed": 7
   },
@@ -2825,6 +2825,28 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, 期間限定, 新菜單, INSIDE OUTBACK"
+    },
+    {
+      "date": "2026-10-30",
+      "source": "Google Maps (將軍澳中心)",
+      "platform": "地圖",
+      "title": "將軍澳顧客5星評價：員工很好很專業 好彩有佢哋幫我執返個藥盒👍🏼 自己留低咗都唔知 嘢食水準好穩定，",
+      "summary": "將軍澳分店 Google Maps 5星評論（Sawyer William，2 週前）：員工很好很專業 好彩有佢哋幫我執返個藥盒👍🏼 自己留低咗都唔知 嘢食水準好穩定，特別係伴碟嘅薯蓉，平時佢鍾意食薯蓉嘅我都食晒😬",
+      "link": "https://www.google.com/maps/contrib/108574860576582843769/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 將軍澳, 將軍澳中心, 5星"
+    },
+    {
+      "date": "2026-11-08",
+      "source": "Google Maps (東薈城名店倉)",
+      "platform": "地圖",
+      "title": "東涌顧客3星評價：今次叫左一個餐 2個湯 一個沙拉 一個包 一個芝士寛面 牛柳7成熟龍虾尾 最滿意",
+      "summary": "東涌分店 Google Maps 3星評論（Tony Bogard，本星期）：今次叫左一個餐 2個湯 一個沙拉 一個包 一個芝士寛面 牛柳7成熟龍虾尾 最滿意的是寛面 之後是湯 沙拉 牛柳上桌不到7成熟 只有4成  所以再要求處理 這點其實不應該再這種店出現 其他都在水平中",
+      "link": "https://www.google.com/maps/contrib/107973715502223923059/reviews",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, Google Maps, 東涌, 東薈城名店倉, 3星"
     }
   ],
   "media_records": [
@@ -5546,6 +5568,28 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, Google Maps, 東涌, 東薈城名店倉, 5星"
+    },
+    {
+      "date": "2026-10-30",
+      "source": "Google Maps (將軍澳中心)",
+      "platform": "地圖",
+      "title": "將軍澳顧客5星評價：員工很好很專業 好彩有佢哋幫我執返個藥盒👍🏼 自己留低咗都唔知 嘢食水準好穩定，",
+      "summary": "將軍澳分店 Google Maps 5星評論（Sawyer William，2 週前）：員工很好很專業 好彩有佢哋幫我執返個藥盒👍🏼 自己留低咗都唔知 嘢食水準好穩定，特別係伴碟嘅薯蓉，平時佢鍾意食薯蓉嘅我都食晒😬",
+      "link": "https://www.google.com/maps/contrib/108574860576582843769/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 將軍澳, 將軍澳中心, 5星"
+    },
+    {
+      "date": "2026-11-08",
+      "source": "Google Maps (東薈城名店倉)",
+      "platform": "地圖",
+      "title": "東涌顧客3星評價：今次叫左一個餐 2個湯 一個沙拉 一個包 一個芝士寛面 牛柳7成熟龍虾尾 最滿意",
+      "summary": "東涌分店 Google Maps 3星評論（Tony Bogard，本星期）：今次叫左一個餐 2個湯 一個沙拉 一個包 一個芝士寛面 牛柳7成熟龍虾尾 最滿意的是寛面 之後是湯 沙拉 牛柳上桌不到7成熟 只有4成  所以再要求處理 這點其實不應該再這種店出現 其他都在水平中",
+      "link": "https://www.google.com/maps/contrib/107973715502223923059/reviews",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, Google Maps, 東涌, 東薈城名店倉, 3星"
     }
   ],
   "store_ranking": [

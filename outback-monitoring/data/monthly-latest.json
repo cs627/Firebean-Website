@@ -1976,6 +1976,22 @@
       "summary": "官方公布四款期間限定新菜：燒法國鴨胸悉尼沙律 HK$178、新奧爾良風味鮮蝦雞肉意粉 HK$188、烤美國牛肋條 HK$208、香煎爆谷挪威三文魚 HK$288；全港分店全日供應，星期一至五下午5時前或週末及公眾假期下午4時30分前點選可享是日餐湯、黑糖麥包及指定飲品。由研發副總裁暨行政總廚 Chef Efrem Cutler 團隊構思，延續 INSIDE OUTBACK 品牌企劃。",
       "link": "https://www.outback.com.hk/news-and-promotions/article/244?lang=tc",
       "sentiment": "positive"
+    },
+    {
+      "date": "2026-10-30",
+      "source": "Google Maps (將軍澳中心)",
+      "title": "將軍澳顧客5星評價：員工很好很專業 好彩有佢哋幫我執返個藥盒👍🏼 自己留低咗都唔知 嘢食水準好穩定，",
+      "summary": "將軍澳分店 Google Maps 5星評論（Sawyer William，2 週前）：員工很好很專業 好彩有佢哋幫我執返個藥盒👍🏼 自己留低咗都唔知 嘢食水準好穩定，特別係伴碟嘅薯蓉，平時佢鍾意食薯蓉嘅我都食晒😬",
+      "link": "https://www.google.com/maps/contrib/108574860576582843769/reviews",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2026-11-08",
+      "source": "Google Maps (東薈城名店倉)",
+      "title": "東涌顧客3星評價：今次叫左一個餐 2個湯 一個沙拉 一個包 一個芝士寛面 牛柳7成熟龍虾尾 最滿意",
+      "summary": "東涌分店 Google Maps 3星評論（Tony Bogard，本星期）：今次叫左一個餐 2個湯 一個沙拉 一個包 一個芝士寛面 牛柳7成熟龍虾尾 最滿意的是寛面 之後是湯 沙拉 牛柳上桌不到7成熟 只有4成  所以再要求處理 這點其實不應該再這種店出現 其他都在水平中",
+      "link": "https://www.google.com/maps/contrib/107973715502223923059/reviews",
+      "sentiment": "neutral"
     }
   ],
   "alerts": [],
@@ -1984,7 +2000,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 247,
+    "new_records": 249,
     "limitations": []
   }
 }

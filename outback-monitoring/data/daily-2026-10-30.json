@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-30",
+  "items": [
+    {
+      "date": "2026-10-30",
+      "source": "Google Maps (將軍澳中心)",
+      "platform": "地圖",
+      "author": "Sawyer William",
+      "title": "將軍澳顧客5星評價：員工很好很專業 好彩有佢哋幫我執返個藥盒👍🏼 自己留低咗都唔知 嘢食水準好穩定，",
+      "summary": "將軍澳分店 Google Maps 5星評論（Sawyer William，2 週前）：員工很好很專業 好彩有佢哋幫我執返個藥盒👍🏼 自己留低咗都唔知 嘢食水準好穩定，特別係伴碟嘅薯蓉，平時佢鍾意食薯蓉嘅我都食晒😬",
+      "link": "https://www.google.com/maps/contrib/108574860576582843769/reviews",
+      "sentiment": "positive",
+      "tags": ""
+    }
+  ],
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 1,
+    "new_records": 1,
+    "limitations": []
+  }
+}
