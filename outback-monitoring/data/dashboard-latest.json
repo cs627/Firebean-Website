@@ -1,12 +1,12 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-11-13T17:04:20.729587+00:00",
+  "generatedAt": "2026-11-14T17:05:12.955849+00:00",
   "run": {
-    "runDate": "2026-11-14",
+    "runDate": "2026-11-15",
     "dateRange": {
       "from": "2025-06-09",
-      "to": "2026-11-14"
+      "to": "2026-11-15"
     },
     "alerts": [
       {
@@ -3892,6 +3892,30 @@
       "link": "https://www.lavache.com.hk/menu",
       "branchCount": "5",
       "expansion": "維持不變（中環交易廣場、山頂凌霄閣、蘇豪等）"
+    },
+    {
+      "date": "2026-11-10",
+      "competitor": "花園餐廳（港式扒房）",
+      "type": "結業/市場變化",
+      "title": "花園餐廳太子店 11 月 10 日如期結業　全港僅餘北角英皇道一店　職員：自置舖位、料不全線結業",
+      "summary": "香港01（2026-11-10 發佈，已開原文核實）：記者 11-10 上午 11 時到北角英皇道分店，店舖照常開門營業、有職員打點；受訪男職員（不願具名、入職 18 年）指公司擁有該舖業權，「呢間舖自己舖……其他舖會加租，呢度唔會加租」，故相信不會全線結業。報道確認太子西洋菜南街店於當日（11-10）結業、旺角銀行中心店 11-05 晚市起拉閘（無張貼結業告示），半年內至少 6 間分店結業；全盛期全港 12 間、旺角曾出現「一區五店」，現僅餘北角 1 間。對 Outback 的意義：港式中價鐵板扒房在旺角／太子全線退場，該區家庭客與懷舊客需求外溢至其他扒房；同時點出「自置舖位」是香港老牌扒房唯一抗租手段，與 Outback 全線商場租約模式形成對照（租金敏感度更高）。",
+      "sentiment": "負面",
+      "source": "香港01",
+      "link": "https://www.hk01.com/%E7%A4%BE%E6%9C%83%E6%96%B0%E8%81%9E/60409014/%E8%8A%B1%E5%9C%92%E9%A4%90%E5%BB%B3%E6%97%BA%E8%A7%92%E5%BA%97%E7%B5%90%E6%A5%AD%E5%83%85%E9%A4%98%E5%8C%97%E8%A7%92%E5%BA%97-%E8%81%B7%E5%93%A1%E8%A7%A3%E9%87%8B%E4%B8%80%E5%8E%9F%E5%9B%A0-%E6%96%99%E4%B8%8D%E6%9C%83%E5%85%A8%E7%B7%9A%E7%B5%90%E6%A5%AD",
+      "branchCount": "1",
+      "expansion": "全港僅餘北角英皇道 1 間（自置舖位、不受加租影響）；半年內 6 店結業，品牌由全盛 12 間縮至 1 間"
+    },
+    {
+      "date": "2026-11-15",
+      "competitor": "Ruby Tuesday",
+      "type": "推廣/優惠",
+      "title": "Ruby Tuesday 官網 11 月仍掛「Asahi 買二送一」　原記錄標示優惠期至 2026-10-31，顯示已延續／未落架",
+      "summary": "以 headless 瀏覽器渲染 rubytuesday.com.hk/promotions（2026-11-15 01:0x HKT 抓取）核實：促銷索引頁現時仍列「Asahi Buy 2 Get 1 FREE」，與本表 2026-09-05 記錄「Asahi 買二送一（至 2026/10/31）」不符 —— 頁面今次未印結束日期，屬常設活動，故以今日抓取日記錄（非新聞公告日）。同頁同時仍列 Nov Chef Recommendation、Drink of the Month、Seasonal Special: Surf & Turf DUO、NEW Breakfast Menu、Brunch UPGRADED、Pawsome Announcement、Limited-Time Welcome Offer、New Rewards Launched、Ruby’s Packages、EXCLUSIVE RT Premier Extension Offer，上述已於 09-05 至 11-01 逐項記錄，今日無新增項目。對 Outback 的意義：對手用「啤酒買二送一」拉長晚市停留與酒水搭單，正面對打 Outback 週一至五 15:00–18:30 飲品組合低至 59 折的 Happy Hour 陣地。",
+      "sentiment": "中性",
+      "source": "官方網站（headless 瀏覽器渲染，2026-11-15 抓取）",
+      "link": "https://www.rubytuesday.com.hk/promotions/",
+      "branchCount": "9",
+      "expansion": "維持 9 間分店；以酒精促銷延長 Happy Hour 停留時間，非擴張"
     }
   ],
   "trend": [
