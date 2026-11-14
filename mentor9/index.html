@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>APEX Mentor 8 Course — staging</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0A0A0A; --paper:#F7F4EF; --acc:#C8102E; --line:#E4DED4;
+  --sans:"Archivo","PingFang HK","Noto Sans TC",system-ui,sans-serif;
+  --mono:"Space Grotesk",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+
+/* ---------- top bar ---------- */
+.nav{position:sticky;top:0;z-index:40;background:rgba(247,244,239,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;gap:18px;padding:14px 24px;max-width:1240px;margin:0 auto}
+.nav b{font-size:15px;letter-spacing:.02em;font-weight:800}
+.nav .dot{width:8px;height:8px;border-radius:50%;background:var(--acc)}
+.nav .grow{flex:1}
+.nav a{font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:#6b6f76;text-decoration:none}
+.nav a:hover{color:var(--ink)}
+.nav .cta{background:var(--ink);color:#fff;padding:9px 16px;border-radius:99px;font-weight:700}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:min(74vh,640px);display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.68) 0%,rgba(0,0,0,.42) 48%,rgba(0,0,0,.16) 100%)}
+.hero .inner{position:relative;z-index:2;padding:56px 24px 44px;max-width:1240px;margin:0 auto;width:100%}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;opacity:.86}
+.hero h1{font-size:clamp(44px,8.4vw,116px);line-height:.92;letter-spacing:-.035em;font-weight:900;margin:14px 0 0;text-transform:uppercase}
+.hero h1 em{font-style:normal;color:#FF6B7A}
+.hero .sub{max-width:640px;margin-top:18px;font-size:clamp(14px,1.3vw,17px);line-height:1.6;opacity:.92}
+.stats{display:flex;gap:40px;flex-wrap:wrap;margin-top:34px}
+.stat b{display:block;font-size:clamp(28px,3.4vw,44px);font-weight:900;letter-spacing:-.03em;line-height:1}
+.stat span{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;opacity:.8}
+
+/* ---------- section ---------- */
+section{padding:clamp(48px,6vw,88px) 0}
+.sechead{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+.sechead h2{font-size:clamp(26px,3.6vw,44px);letter-spacing:-.03em;font-weight:900;margin:0;text-transform:lowercase}
+.sechead .k{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#8a8378}
+.sechead .grow{flex:1}
+.sechead p{margin:0;color:#6b6f76;font-size:14px;max-width:520px}
+
+/* ---------- memo cards ---------- */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.memo{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px 18px 16px;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.memo::before{content:"";position:absolute;inset:0 0 auto;height:6px;background:var(--ink)}
+.memo:hover{transform:translateY(-6px);box-shadow:0 24px 48px rgba(0,0,0,.10)}
+.memo-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.memo .no{font-family:var(--mono);font-size:30px;font-weight:700;color:var(--ink);letter-spacing:-.03em}
+.memo .tag{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--ink);padding:4px 9px;border-radius:4px}
+.memo h3{font-size:19px;line-height:1.32;letter-spacing:-.01em;margin:0 0 8px;font-weight:800}
+.memo .promise{margin:0 0 12px;font-size:12.5px;line-height:1.6;color:#5d6268}
+.memo .pts{margin:0 0 14px;padding-left:16px;font-size:12.5px;line-height:1.65;color:#3b4046}
+.memo-foot{border-top:1px dashed #d9d2c6;padding-top:10px;display:grid;gap:7px}
+.memo-foot b{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#8a8378;display:block;margin-bottom:2px}
+.memo-foot span{font-size:12px;color:#252a2f;line-height:1.5}
+
+/* ---------- member demo ---------- */
+.demo{display:grid;grid-template-columns:340px 1fr;gap:26px;align-items:start}
+.mcard{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.mcard .ph{display:flex;gap:14px;padding:18px;align-items:center;background:linear-gradient(180deg,#fff,#faf8f4)}
+.mcard .ph img{width:78px;height:98px;object-fit:cover;border-radius:10px;background:#eee}
+.mcard .who b{font-size:18px;font-weight:900;display:block;letter-spacing:-.01em}
+.mcard .who span{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#8a8378}
+.mcard .score{margin-left:auto;text-align:right}
+.mcard .score b{font-size:40px;font-weight:900;color:#15803d;line-height:1;letter-spacing:-.03em}
+.mcard .score small{display:block;font-family:var(--mono);font-size:10px;color:#8a8378}
+.cats{padding:6px 18px 18px;display:grid;gap:7px}
+.cat{display:flex;justify-content:space-between;font-size:12.5px;border-bottom:1px dotted #ece7de;padding-bottom:6px}
+.cat b{font-variant-numeric:tabular-nums}
+.note{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}
+.note h3{margin:0 0 10px;font-size:20px;font-weight:900;letter-spacing:-.02em}
+.note p{margin:0 0 14px;color:#5d6268;font-size:13.5px;line-height:1.7}
+.pill{display:inline-flex;gap:8px;align-items:center;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;background:#0A0A0A;color:#fff;padding:9px 15px;border-radius:99px;text-decoration:none}
+
+/* ---------- footer ---------- */
+footer{background:#0A0A0A;color:#fff;padding:52px 0 40px;margin-top:40px}
+footer .wrap{display:flex;gap:24px;flex-wrap:wrap;align-items:flex-end}
+footer b{font-size:clamp(24px,3vw,36px);font-weight:900;letter-spacing:-.03em;display:block;line-height:1.05}
+footer a{color:#FF6B7A;text-decoration:none;font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase}
+footer .grow{flex:1}
+footer small{display:block;color:#8a8a8a;font-size:11.5px;margin-top:10px;font-family:var(--mono);letter-spacing:.08em}
+
+@media (max-width:980px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .demo{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .grid{grid-template-columns:1fr}
+  .hero{min-height:64vh}
+  .stats{gap:24px}
+  .nav a:not(.cta){display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div class="nav-in">
+    <span class="dot"></span><b>APEX MENTOR 8 COURSE</b>
+    <span class="grow"></span>
+    <a href="#course">課程</a>
+    <a href="#member">會員卡</a>
+    <a class="cta" href="https://firebean.net/mentor8/">LIVE APP →</a>
+  </div>
+</div>
+
+<header class="hero">
+  <img class="bg" src="https://firebean.net/bni-apex-traffic/photos/hero-kv.jpg" alt="Hong Kong skyline">
+  <div class="inner">
+    <div class="eyebrow">Giant Business · 2026 Score · Staging v1</div>
+    <h1>APEX<br>Mentor <em>8</em><br>Course</h1>
+    <p class="sub">八堂輔導，一日一堂。每堂一個 tag、一張 memo 卡、三個勾選、一次口頭測驗。
+      呢個係 staging 版，用嚟試新 UI，唔會影響現有系統。</p>
+    <div class="stats">
+      <div class="stat"><b>47</b><span>會員</span></div>
+      <div class="stat"><b>8</b><span>堂課程</span></div>
+      <div class="stat"><b>20</b><span>每堂題庫</span></div>
+      <div class="stat"><b>5 / 3</b><span>抽題 / 合格</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="course">
+  <div class="wrap">
+    <div class="sechead">
+      <span class="k">01 — 課程</span>
+      <h2>八堂，一堂一色</h2>
+      <span class="grow"></span>
+      <p>每張 memo 卡＝一堂。顏色唔同，方便導師同會員一眼分到進度。</p>
+    </div>
+    <div class="grid">
+    <article class="memo" style="--ink:#C8102E;--paper:#FFF5F5">
+      <div class="memo-top">
+        <span class="no">01</span>
+        <span class="tag">目標</span>
+      </div>
+      <h3>你嚟 BNI 想攞咩？</h3>
+      <p class="promise">由「我係新會員」變成「我有目標同分數」</p>
+      <ul class="pts"><li>分會目標（全會）同你個人目標（你自己想攞幾多生意）係兩件事，兩張紙分開寫。</li><li>紅綠燈 70 分係導航，唔係評分：邊項 0 分就知今個月補邊樣。</li><li>五大活動＝出席、121、引薦、嘉賓、培訓。所有生意都係由呢五樣嚟，其他都係配件。</li></ul>
+      <div class="memo-foot">
+        <div><b>今堂要交</b><span>Passport p.11「我的生意目標」填完 + 紅綠燈截圖</span></div>
+        <div><b>KPI</b><span>121 × 1　嘉賓 × 1</span></div>
+      </div>
+    </article>
+    <article class="memo" style="--ink:#1F6FEB;--paper:#F2F7FF">
+      <div class="memo-top">
+        <span class="no">02</span>
+        <span class="tag">30 秒</span>
+      </div>
+      <h3>30 秒：令 40 個人識得幫你搵客</h3>
+      <p class="promise">唔係介紹自己，係教會友點幫你</p>
+      <ul class="pts"><li>五段結構：我是誰 → LCD（最細嘅服務單位）→ 證明 → Ask → 記憶點。</li><li>每週只換一個 LCD，其餘唔動；12 週後你就有 12 個版本。</li><li>Ask 一定要具體：一個職位＋一個情境，唔係「想識老闆」。</li></ul>
+      <div class="memo-foot">
+        <div><b>今堂要交</b><span>30 秒書面稿（一頁）+ 40 人名單填到第 10 個</span></div>
+        <div><b>KPI</b><span>121 × 2　嘉賓 × 2</span></div>
+      </div>
+    </article>
+    <article class="memo" style="--ink:#0E7C5A;--paper:#F1FBF6">
+      <div class="memo-top">
+        <span class="no">03</span>
+        <span class="tag">121</span>
+      </div>
+      <h3>121 Dance Card：50 分鐘點用</h3>
+      <p class="promise">50 分鐘後要攞到對方三個客</p>
+      <ul class="pts"><li>10 分鐘講規矩 → 20 分鐘你講 GAINS → 20 分鐘佢講 GAINS，最後一齊寫低三個可以引薦嘅客。</li><li>三次定律：第 1 次認識、第 2 次理解、第 3 次才有資格引薦。想快？做多幾個第 1 次。</li><li>基本規矩：準時、唔改期、唔夾約、準時收工 —— 呢啲就係信任嘅來源。</li></ul>
+      <div class="memo-foot">
+        <div><b>今堂要交</b><span>2 個已約實嘅 121 日期 + GAINS 表首版</span></div>
+        <div><b>KPI</b><span>121 × 2</span></div>
+      </div>
+    </article>
+    <article class="memo" style="--ink:#B45309;--paper:#FFF9F0">
+      <div class="memo-top">
+        <span class="no">04</span>
+        <span class="tag">引薦</span>
+      </div>
+      <h3>咩叫合格引薦（同點解你嘅唔合格）</h3>
+      <p class="promise">由「介紹咗」變「對方等我電話」</p>
+      <ul class="pts"><li>三度門：對方真係有需要 → 你先同對方講過我 → 對方正等我電話。三度門齊 = 合格。</li><li>計法：Inside（會友自己光顧，成交或滿 $500 才算）；Outside（確認雙方接觸已算）；以每單／每人計。</li><li>議程 14「我有什麼貢獻」：每週主動講一個你幫得切嘅客，唔係等人問。</li></ul>
+      <div class="memo-foot">
+        <div><b>今堂要交</b><span>3 個具體「我要嘅引薦」描述 + 本週親手畀 2 個出去</span></div>
+        <div><b>KPI</b><span>引薦 give × 2　receive × 1</span></div>
+      </div>
+    </article>
+    <article class="memo" style="--ink:#7C3AED;--paper:#F8F4FF">
+      <div class="memo-top">
+        <span class="no">05</span>
+        <span class="tag">太陽圖</span>
+      </div>
+      <h3>太陽圖 + 協力團隊：你嘅引薦生產線</h3>
+      <p class="promise">5 個人就夠，唔需要 40 個</p>
+      <ul class="pts"><li>太陽圖：你放中間，外圈寫晒你客戶會用到嘅行業。填唔滿，就係你未想清楚邊個幫到你。</li><li>外圈空位 = 你應該帶嘅嘉賓（分會缺呢個行業，你帶入嚟就係貢獻）。</li><li>Power Team：同一批客、唔同專業，3 人為核心；核心成員優先約 121。</li></ul>
+      <div class="memo-foot">
+        <div><b>今堂要交</b><span>太陽圖填完（外圈 8 個）+ 揀實 3 個核心成員</span></div>
+        <div><b>KPI</b><span>121 × 2（其中 1 個係 Power Team）</span></div>
+      </div>
+    </article>
+    <article class="memo" style="--ink:#0F766E;--paper:#F0FBFA">
+      <div class="memo-top">
+        <span class="no">06</span>
+        <span class="tag">演講</span>
+      </div>
+      <h3>5／8 分鐘演講 + 邀約嘉賓（GRIP）</h3>
+      <p class="promise">由「記得你個名」變「記得你賣咩」</p>
+      <ul class="pts"><li>演講只講 1–2 個題目講深，配一個真實案例；派 Ideal Referral Sheet，唔好讀 brochure。</li><li>Door Prize 唔係抽獎，係一個「佢會記得你」嘅物件。</li><li>GRIP：Growth（想唔想多啲生意）→ Referrals → Introduction → Place（幾點到、幾點完、唔阻你返工）。</li></ul>
+      <div class="memo-foot">
+        <div><b>今堂要交</b><span>演講一頁大綱 + 3 個已打電話確認嘅嘉賓</span></div>
+        <div><b>KPI</b><span>嘉賓 × 2　CEU × 1</span></div>
+      </div>
+    </article>
+    <article class="memo" style="--ink:#BE185D;--paper:#FFF4F9">
+      <div class="memo-top">
+        <span class="no">07</span>
+        <span class="tag">綠燈</span>
+      </div>
+      <h3>綠燈 70 分：邊項最低只補嗰一項</h3>
+      <p class="promise">唔好七項一齊追</p>
+      <ul class="pts"><li>七項分值：出席 15、準時 10、引薦 20、成交額 15、121 10、培訓 10、嘉賓 20（滿分 100）。</li><li>優先補「一做就有」嘅：出席／準時／培訓／嘉賓；引薦同成交要時間累積。</li><li>替代人：預先教好 2 個人（客戶／朋友／同事），唔好開會前一小時才搵。</li></ul>
+      <div class="memo-foot">
+        <div><b>今堂要交</b><span>紅綠燈報表 + 一個「最低分項」30 日行動</span></div>
+        <div><b>KPI</b><span>綠燈 70 分　出席 100%</span></div>
+      </div>
+    </article>
+    <article class="memo" style="--ink:#374151;--paper:#F5F6F8">
+      <div class="memo-top">
+        <span class="no">08</span>
+        <span class="tag">角色</span>
+      </div>
+      <h3>90 日回顧 + 你喺分會嘅角色</h3>
+      <p class="promise">由受助者變成 contributor</p>
+      <ul class="pts"><li>3 個月回顧表：給／收引薦數、121 人數、嘉賓變會員數、五項自評。</li><li>揀一個崗位：支援團隊 → 來賓接待／活動 → LT → Mentor → Master Connector。</li><li>Master Connector：帶 6 個新會員＝金章會員（紅條名牌＋免費 CEU）。</li></ul>
+      <div class="memo-foot">
+        <div><b>今堂要交</b><span>3 個月回顧表 + 一個崗位承諾 + 下 90 日三個數字</span></div>
+        <div><b>KPI</b><span>累計 121 × 8　引薦 × 12　嘉賓 × 4　CEU × 2</span></div>
+      </div>
+    </article></div>
+  </div>
+</section>
+
+<section id="member" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sechead">
+      <span class="k">02 — 會員卡</span>
+      <h2>一眼睇到分數</h2>
+      <span class="grow"></span>
+      <p>紅綠燈報告直接嵌入會員卡：相、燈號、總分、七項分數。</p>
+    </div>
+    <div class="demo">
+      <div class="mcard">
+        <div class="ph">
+          <img src="https://lh3.googleusercontent.com/d/1kmCSk1XrQFKKiH3NFuM5fdD_VcnnlPl7=w400" alt="">
+          <div class="who"><b>Kenter Leung</b><span>Rank #1 · HK 201 · GREEN</span></div>
+          <div class="score"><b>90</b><small>/100</small></div>
+        </div>
+        <div class="cats"><div class='cat'><span>出席</span><b>15/15</b></div><div class='cat'><span>準時</span><b>10/10</b></div><div class='cat'><span>引薦</span><b>20/20</b></div><div class='cat'><span>嘉賓</span><b>10/20</b></div><div class='cat'><span>1-2-1</span><b>10/10</b></div><div class='cat'><span>培訓</span><b>10/10</b></div><div class='cat'><span>生意提供</span><b>15/15</b></div></div>
+      </div>
+      <div class="note">
+        <h3>同一個系統，兩種介面</h3>
+        <p>呢頁只係 <b>staging</b>，用嚟試排版、色系同資訊密度，唔會改動 mentor8 現有功能（勾選、Mary 測驗、太陽圖都照舊）。</p>
+        <p>你揀定邊個方向，我就將同一套 style 搬入正式 app。</p>
+        <a class="pill" href="https://firebean.net/mentor8/">回到正式系統 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <b>APEX MENTOR<br>8 COURSE</b>
+      <small>STAGING · 只供分會內部使用</small>
+    </div>
+    <span class="grow"></span>
+    <div style="text-align:right">
+      <a href="https://firebean.net/mentor8/">LIVE APP →</a>
+      <small>firebean.net/mentor9</small>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
