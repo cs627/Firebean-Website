@@ -51,13 +51,13 @@ section{padding:clamp(48px,6vw,88px) 0}
 
 /* ---------- memo cards ---------- */
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.memo{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px 18px 16px;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
-.memo::before{content:"";position:absolute;inset:0 0 auto;height:6px;background:var(--ink)}
+.memo{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 18px 16px;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.memo::before{content:"";position:absolute;inset:0 0 auto;height:10px;background:var(--ink)}
 .memo:hover{transform:translateY(-6px);box-shadow:0 24px 48px rgba(0,0,0,.10)}
 .memo-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-.memo .no{font-family:var(--mono);font-size:30px;font-weight:700;color:var(--ink);letter-spacing:-.03em}
-.memo .tag{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--ink);padding:4px 9px;border-radius:4px}
-.memo h3{font-size:19px;line-height:1.32;letter-spacing:-.01em;margin:0 0 8px;font-weight:800}
+.memo .no{font-family:var(--mono);font-size:30px;font-weight:700;color:#181818;letter-spacing:-.04em}
+.memo .tag{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#181818;background:#fff;border:1px solid #181818;padding:4px 9px;border-radius:4px}
+.memo h3{font-size:19px;line-height:1.28;letter-spacing:-.03em;margin:0 0 8px;font-weight:700}
 .memo .promise{margin:0 0 12px;font-size:12.5px;line-height:1.6;color:#5d6268}
 .memo .pts{margin:0 0 14px;padding-left:16px;font-size:12.5px;line-height:1.65;color:#3b4046}
 .memo-foot{border-top:1px dashed #d9d2c6;padding-top:10px;display:grid;gap:7px}
@@ -139,7 +139,7 @@ footer small{display:block;color:#8a8a8a;font-size:11.5px;margin-top:10px;font-f
       <p>每張 memo 卡＝一堂。顏色唔同，方便導師同會員一眼分到進度。</p>
     </div>
     <div class="grid">
-    <article class="memo" style="--ink:#C8102E;--paper:#FFF5F5">
+    <article class="memo" style="--ink:#C8102E;--paper:#FFFFFF">
       <div class="memo-top">
         <span class="no">01</span>
         <span class="tag">目標</span>
@@ -152,7 +152,7 @@ footer small{display:block;color:#8a8a8a;font-size:11.5px;margin-top:10px;font-f
         <div><b>KPI</b><span>121 × 1　嘉賓 × 1</span></div>
       </div>
     </article>
-    <article class="memo" style="--ink:#1F6FEB;--paper:#F2F7FF">
+    <article class="memo" style="--ink:#FDE127;--paper:#FFFFFF">
       <div class="memo-top">
         <span class="no">02</span>
         <span class="tag">30 秒</span>
@@ -165,7 +165,7 @@ footer small{display:block;color:#8a8a8a;font-size:11.5px;margin-top:10px;font-f
         <div><b>KPI</b><span>121 × 2　嘉賓 × 2</span></div>
       </div>
     </article>
-    <article class="memo" style="--ink:#0E7C5A;--paper:#F1FBF6">
+    <article class="memo" style="--ink:#FF7A00;--paper:#FFFFFF">
       <div class="memo-top">
         <span class="no">03</span>
         <span class="tag">121</span>
@@ -178,7 +178,7 @@ footer small{display:block;color:#8a8a8a;font-size:11.5px;margin-top:10px;font-f
         <div><b>KPI</b><span>121 × 2</span></div>
       </div>
     </article>
-    <article class="memo" style="--ink:#B45309;--paper:#FFF9F0">
+    <article class="memo" style="--ink:#FF6DB2;--paper:#FFFFFF">
       <div class="memo-top">
         <span class="no">04</span>
         <span class="tag">引薦</span>
@@ -191,7 +191,7 @@ footer small{display:block;color:#8a8a8a;font-size:11.5px;margin-top:10px;font-f
         <div><b>KPI</b><span>引薦 give × 2　receive × 1</span></div>
       </div>
     </article>
-    <article class="memo" style="--ink:#7C3AED;--paper:#F8F4FF">
+    <article class="memo" style="--ink:#92D700;--paper:#FFFFFF">
       <div class="memo-top">
         <span class="no">05</span>
         <span class="tag">太陽圖</span>
@@ -204,7 +204,7 @@ footer small{display:block;color:#8a8a8a;font-size:11.5px;margin-top:10px;font-f
         <div><b>KPI</b><span>121 × 2（其中 1 個係 Power Team）</span></div>
       </div>
     </article>
-    <article class="memo" style="--ink:#0F766E;--paper:#F0FBFA">
+    <article class="memo" style="--ink:#4842E3;--paper:#FFFFFF">
       <div class="memo-top">
         <span class="no">06</span>
         <span class="tag">演講</span>
@@ -217,7 +217,7 @@ footer small{display:block;color:#8a8a8a;font-size:11.5px;margin-top:10px;font-f
         <div><b>KPI</b><span>嘉賓 × 2　CEU × 1</span></div>
       </div>
     </article>
-    <article class="memo" style="--ink:#BE185D;--paper:#FFF4F9">
+    <article class="memo" style="--ink:#00C2B8;--paper:#FFFFFF">
       <div class="memo-top">
         <span class="no">07</span>
         <span class="tag">綠燈</span>
@@ -230,7 +230,7 @@ footer small{display:block;color:#8a8a8a;font-size:11.5px;margin-top:10px;font-f
         <div><b>KPI</b><span>綠燈 70 分　出席 100%</span></div>
       </div>
     </article>
-    <article class="memo" style="--ink:#374151;--paper:#F5F6F8">
+    <article class="memo" style="--ink:#181818;--paper:#FFFFFF">
       <div class="memo-top">
         <span class="no">08</span>
         <span class="tag">角色</span>
