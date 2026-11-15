@@ -1,5 +1,15 @@
 [
   {
+    "issue": "EDM_019",
+    "url": "https://firebean.net/edm/edm_EDM_019.html",
+    "title": "Play as Policy: Why Gamified Civic Education Works",
+    "subtitle": "A statute is an abstraction, and abstractions do not survive a shopping mall. That is the design problem facing every civic education campaign: the content is fixed, serious and often dry, and the audience is a family with a pram and ninety seconds to spare. The instinct is to explain harder — bigger panels, more text, clearer diagrams. The evidence points somewhere else. When people are given something to operate — a flight stick, a maze, a claw, a role — they learn more, and they keep more of it, than when they are simply told. What follows is not an argument for making public messages trivial. It is an argument for making them operable — and not merely entertaining: across 77 studies, games beat ordinary instruction on what people retain, without making them any more motivated. The fun is not the mechanism. The doing is.",
+    "desc": "A meta-analysis of 145 studies on simulation-based and role-play training found a large overall learning effect of 0.85 standard deviations — among the strongest results in the literature on how peopl",
+    "photo": "https://raw.githubusercontent.com/cs627/Firebean-Website/main/assets/edm/EDM_019/s2_play.jpg",
+    "tag": "Gamified Learning",
+    "type": "market-insight"
+  },
+  {
     "issue": "EDM_018",
     "url": "https://firebean.net/edm/edm_EDM_018.html",
     "title": "Not Louder, Better Designed: Where a Message Becomes a Feeling",
@@ -17,16 +27,6 @@
     "desc": "Governments stopped treating this as a communication trick a while ago. The OECD now tracks behavioural science teams sitting inside public bodies worldwide, because simply telling people what to do s",
     "photo": "https://raw.githubusercontent.com/cs627/Firebean-Website/main/assets/edm/EDM_017/s2_nudge.jpg",
     "tag": "Behavioural Design",
-    "type": "market-insight"
-  },
-  {
-    "issue": "EDM_016",
-    "url": "https://firebean.net/edm/edm_EDM_016.html",
-    "title": "Digital Twins: The Invitation, Not the Destination",
-    "subtitle": "Digital twins can put a museum in everyone's pocket. The visit is still the point — no online experience has ever replaced standing in the room.",
-    "desc": "The raw material for digital engagement is no longer scarce. AI-generated imagery, film and 3D capture are mature enough that any museum can produce an unlimited stream of visual assets, and the tools",
-    "photo": "https://raw.githubusercontent.com/cs627/Firebean-Website/main/assets/edm/EDM_016/s2_digitaltwin.jpg",
-    "tag": "Digital Heritage",
     "type": "market-insight"
   }
 ]
