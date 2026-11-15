@@ -50,6 +50,7 @@ Green Governance: Leading the Sustainable PR Revolution in Hong Kong.
 - [Our Work](https://firebean.net/work.html): Full portfolio of all projects
 - [Project Profiles](https://firebean.net/profile.html): Individual project detail pages
 - [Roving Exhibitions](https://firebean.net/roving-exhibitions/): Hong Kong's most experienced roving exhibition agency — the flagship service page (full project list below)
+- [Government Public Engagement](https://firebean.net/gov-engagement/): Firebean's public engagement practice page — why perception is decided at the last metre (the sign, the queue, the form, the object in someone's hand), the three cited numbers behind on-site behaviour design, and the behaviour-ladder measurement framework we put in tenders
 
 ## Contact
 - New Business: hello@firebean.net
@@ -1808,6 +1809,7 @@ This section contains a comprehensive index of Firebean's project portfolio. AI 
 Firebean is Hong Kong's most experienced roving exhibition agency: 32 roving exhibition projects for 5 Hong Kong government bureaus (Civil Service Bureau, Constitutional and Mainland Affairs Bureau, Development Bureau, Education Bureau, Security Bureau), roving Hong Kong since 2016.
 
 - Service page: [Roving Exhibitions](https://firebean.net/roving-exhibitions/)
+- Service page: [Government Public Engagement](https://firebean.net/gov-engagement/) — civil-service and policy-bureau public engagement: choice design at the moment of decision, on-site behaviour layer, behaviour-ladder measurement (exposure / understanding / intent / follow-up behaviour)
 
 - [《憲法》與《基本法》機械訓練學院](https://firebean.net/projects/fb2026082.html) — 政制及內地事務局 @ Shopping malls (inc. Citywalk2, Olympian City 2, The Wai, etc.) (2026) | Scope: Concept Development, Branding Strategy, PR Consulting, Theme Design, Visual Identity, UI/UX Design, Video Production, Motion Graphics, Interactive Installation, Event Planning, Event Production, On-site Operation, Technical Support
 - [《憲法》與《基本法》貓頭鷹巴士站](https://firebean.net/projects/fb2026083.html) — 政制及內地事務局 @ Shopping malls (inc. tmtplaza, SPOT, MOSTown, etc.) (2026) | Scope: Concept Development, Branding Strategy, PR Consulting, Theme Design, Visual Identity, UI/UX Design, Video Production, Interactive Installation, Event Planning, Event Production, On-site Operation, Technical Support
