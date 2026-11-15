@@ -8,7 +8,9 @@
   'use strict';
 
   var BASE = (document.querySelector('base[href]') ? document.querySelector('base[href]').getAttribute('href') : '/');
-  var FEED_URL = BASE + 'data/edm-feed.json';
+  // Cache-buster: data/edm-feed.json is served with a long edge cache, so a browser can
+  // keep showing last week's cards after the feed is regenerated. Always request fresh.
+  var FEED_URL = BASE + 'data/edm-feed.json?v=' + Date.now();
 
   function truncateToWords(text, maxWords) {
     if (!text) return '';
