@@ -44,6 +44,13 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://firebean.net/enneagram/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
                                                                                             <!-- EDM newsletter issues — auto-generated from Google Sheets -->
   <!-- Last updated: 2026-10-18 -->
   <url>
