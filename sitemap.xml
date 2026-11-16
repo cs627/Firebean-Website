@@ -2,12 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
+
+
   <url>
     <loc>https://firebean.net/</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/work.html</loc>
@@ -16,6 +20,8 @@
     <priority>0.9</priority>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/gov-engagement/</loc>
     <lastmod>2026-11-15</lastmod>
@@ -23,19 +29,16 @@
     <priority>0.9</priority>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/roving-exhibitions/</loc>
-    <lastmod>2026-08-29</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <url>
-    <loc>https://firebean.net/projects/</loc>
-    <lastmod>2026-08-29</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
+
 
     <url>
     <loc>https://firebean.net/insights/</loc>
@@ -44,6 +47,8 @@
     <priority>0.8</priority>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/enneagram/</loc>
     <lastmod>2026-11-15</lastmod>
@@ -51,14 +56,15 @@
     <priority>0.8</priority>
   </url>
 
-                                                                                            <!-- EDM newsletter issues — auto-generated from Google Sheets -->
-  <!-- Last updated: 2026-10-18 -->
+
   <url>
     <loc>https://firebean.net/edm/</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+
+
 
   <url> <!-- Beyond Information: How HK's Best Campaigns Turn Policy into Experience -->
     <loc>https://firebean.net/edm/edm_EDM_001.html</loc>
@@ -67,12 +73,16 @@
     <priority>0.7</priority>
   </url>
 
+
+
   <url> <!-- Turning Policy into Participation: The Elections 2026 Strategy -->
     <loc>https://firebean.net/edm/edm_EDM_002.html</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+
 
   <url> <!-- Green Governance: Leading the Sustainable PR Revolution in HK -->
     <loc>https://firebean.net/edm/edm_EDM_003.html</loc>
@@ -81,12 +91,16 @@
     <priority>0.7</priority>
   </url>
 
+
+
   <url> <!-- The Human Touch: Authentic Public Engagement in the Digital Age 🤝 -->
     <loc>https://firebean.net/edm/edm_EDM_004.html</loc>
     <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+
 
   <url> <!-- Gamified Governance: Enhancing Policy Adoption through Interactive Engagement -->
     <loc>https://firebean.net/edm/edm_EDM_005.html</loc>
@@ -95,12 +109,16 @@
     <priority>0.7</priority>
   </url>
 
+
+
   <url> <!-- Fortifying Public Trust: Imperative Data Privacy & Security in HK Government Eng -->
     <loc>https://firebean.net/edm/edm_EDM_006.html</loc>
     <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+
 
   <url> <!-- Inclusive Hong Kong: Elevating Public Spaces Through Universal Design and Experi -->
     <loc>https://firebean.net/edm/edm_EDM_007.html</loc>
@@ -109,12 +127,16 @@
     <priority>0.7</priority>
   </url>
 
+
+
   <url> <!-- Heritage Meets Innovation: Lessons from ICH Month 2026 for Immersive Public Enga -->
     <loc>https://firebean.net/edm/edm_EDM_008.html</loc>
     <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+
 
   <url> <!-- Beyond Impressions: Advanced Impact Measurement for Hong Kong Government Campaig -->
     <loc>https://firebean.net/edm/edm_EDM_009.html</loc>
@@ -123,12 +145,16 @@
     <priority>0.7</priority>
   </url>
 
+
+
   <url> <!-- Community-Led Events: When the Public Co-Creates, Everyone Shows Up -->
     <loc>https://firebean.net/edm/edm_EDM_010.html</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+
 
   <url> <!-- Immersive Learning: Revolutionizing Public Engagement with AR/VR in Hong Kong Ed -->
     <loc>https://firebean.net/edm/edm_EDM_011.html</loc>
@@ -137,12 +163,16 @@
     <priority>0.7</priority>
   </url>
 
+
+
   <url> <!-- Amplifying Local Voices: Micro-Influencers Reshaping Hong Kong's Civic Conversat -->
     <loc>https://firebean.net/edm/edm_EDM_012.html</loc>
     <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+
 
   <url> <!-- Cyber Gap: Digital Event Platforms Are Government's Softest Target -->
     <loc>https://firebean.net/edm/edm_EDM_013.html</loc>
@@ -151,12 +181,16 @@
     <priority>0.7</priority>
   </url>
 
+
+
   <url> <!-- Mascot Magic: How Visual Identity Transforms Government Public Engagement -->
     <loc>https://firebean.net/edm/edm_EDM_014.html</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+
 <url>
     <loc>https://firebean.net/404.html</loc>
     <lastmod>2026-08-29</lastmod>
@@ -164,754 +198,7 @@
     <priority>0.3</priority>
   </url>
 
-  <url>
-    <loc>https://firebean.net/projects/fb2026077.html</loc>
-    <lastmod>2026-05-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
 
-  <url>
-    <loc>https://firebean.net/projects/fb2026078.html</loc>
-    <lastmod>2026-04-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026048.html</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026067.html</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026010.html</loc>
-    <lastmod>2026-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026074.html</loc>
-    <lastmod>2025-11-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026011.html</loc>
-    <lastmod>2025-11-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026065.html</loc>
-    <lastmod>2025-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2025012.html</loc>
-    <lastmod>2025-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2025017.html</loc>
-    <lastmod>2025-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026057.html</loc>
-    <lastmod>2025-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026047.html</loc>
-    <lastmod>2025-08-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026058.html</loc>
-    <lastmod>2025-07-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026062.html</loc>
-    <lastmod>2025-06-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2025013.html</loc>
-    <lastmod>2025-05-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026012.html</loc>
-    <lastmod>2025-04-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026059.html</loc>
-    <lastmod>2025-04-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026004.html</loc>
-    <lastmod>2025-03-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2025771.html</loc>
-    <lastmod>2025-02-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026009.html</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2025999.html</loc>
-    <lastmod>2024-12-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026063.html</loc>
-    <lastmod>2024-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026066.html</loc>
-    <lastmod>2024-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2024002.html</loc>
-    <lastmod>2024-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026007.html</loc>
-    <lastmod>2024-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2024016.html</loc>
-    <lastmod>2024-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2024018.html</loc>
-    <lastmod>2024-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2024019.html</loc>
-    <lastmod>2024-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026075.html</loc>
-    <lastmod>2024-06-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2024005.html</loc>
-    <lastmod>2024-05-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026002.html</loc>
-    <lastmod>2024-05-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026050.html</loc>
-    <lastmod>2024-04-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026019.html</loc>
-    <lastmod>2024-04-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2024001.html</loc>
-    <lastmod>2024-03-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026037.html</loc>
-    <lastmod>2024-03-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026070.html</loc>
-    <lastmod>2024-03-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026008.html</loc>
-    <lastmod>2024-02-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026064.html</loc>
-    <lastmod>2023-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2023020.html</loc>
-    <lastmod>2023-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026073.html</loc>
-    <lastmod>2023-05-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2023022.html</loc>
-    <lastmod>2023-04-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2023026.html</loc>
-    <lastmod>2023-04-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026022.html</loc>
-    <lastmod>2023-02-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2023998.html</loc>
-    <lastmod>2022-12-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026072.html</loc>
-    <lastmod>2022-12-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026036.html</loc>
-    <lastmod>2022-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026042.html</loc>
-    <lastmod>2022-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026053.html</loc>
-    <lastmod>2022-10-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026049.html</loc>
-    <lastmod>2022-08-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026035.html</loc>
-    <lastmod>2022-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026056.html</loc>
-    <lastmod>2022-06-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026055.html</loc>
-    <lastmod>2022-04-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026043.html</loc>
-    <lastmod>2022-03-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026069.html</loc>
-    <lastmod>2022-02-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2021999.html</loc>
-    <lastmod>2021-12-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026034.html</loc>
-    <lastmod>2021-12-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026033.html</loc>
-    <lastmod>2021-11-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026046.html</loc>
-    <lastmod>2021-11-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026054.html</loc>
-    <lastmod>2021-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026038.html</loc>
-    <lastmod>2021-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026060.html</loc>
-    <lastmod>2021-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026039.html</loc>
-    <lastmod>2021-08-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026023.html</loc>
-    <lastmod>2021-06-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2021040.html</loc>
-    <lastmod>2021-05-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026071.html</loc>
-    <lastmod>2021-05-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026051.html</loc>
-    <lastmod>2021-04-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026052.html</loc>
-    <lastmod>2021-04-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026006.html</loc>
-    <lastmod>2021-03-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026005.html</loc>
-    <lastmod>2020-12-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026040.html</loc>
-    <lastmod>2020-12-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026031.html</loc>
-    <lastmod>2020-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026032.html</loc>
-    <lastmod>2020-04-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026020.html</loc>
-    <lastmod>2020-01-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026021.html</loc>
-    <lastmod>2019-11-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026014.html</loc>
-    <lastmod>2019-07-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026016.html</loc>
-    <lastmod>2019-06-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2019035.html</loc>
-    <lastmod>2019-05-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026041.html</loc>
-    <lastmod>2019-05-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026068.html</loc>
-    <lastmod>2019-05-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026045.html</loc>
-    <lastmod>2019-03-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026030.html</loc>
-    <lastmod>2019-03-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026029.html</loc>
-    <lastmod>2019-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026044.html</loc>
-    <lastmod>2018-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026017.html</loc>
-    <lastmod>2018-06-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2018408.html</loc>
-    <lastmod>2018-05-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026027.html</loc>
-    <lastmod>2018-04-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026028.html</loc>
-    <lastmod>2018-04-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026025.html</loc>
-    <lastmod>2018-03-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026001.html</loc>
-    <lastmod>2018-02-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026018.html</loc>
-    <lastmod>2018-01-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026013.html</loc>
-    <lastmod>2017-12-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2017006.html</loc>
-    <lastmod>2017-11-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2017999.html</loc>
-    <lastmod>2017-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2017027.html</loc>
-    <lastmod>2017-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026015.html</loc>
-    <lastmod>2017-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026026.html</loc>
-    <lastmod>2017-06-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2017008.html</loc>
-    <lastmod>2017-04-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2017015.html</loc>
-    <lastmod>2017-04-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026024.html</loc>
-    <lastmod>2017-04-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026076.html</loc>
-    <lastmod>2017-04-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026003.html</loc>
-    <lastmod>2017-03-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2017014.html</loc>
-    <lastmod>2017-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2017012.html</loc>
-    <lastmod>2016-12-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2016004.html</loc>
-    <lastmod>2016-11-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2016024.html</loc>
-    <lastmod>2016-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2016027.html</loc>
-    <lastmod>2016-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://firebean.net/projects/fb2026061.html</loc>
-    <lastmod>2016-04-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026077</loc>
@@ -923,6 +210,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026077"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026078</loc>
     <lastmod>2026-04-30</lastmod>
@@ -932,6 +221,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026078"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026078"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026048</loc>
@@ -943,6 +234,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026048"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026067</loc>
     <lastmod>2026-03-31</lastmod>
@@ -952,6 +245,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026067"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026067"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026010</loc>
@@ -963,6 +258,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026010"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026074</loc>
     <lastmod>2025-11-30</lastmod>
@@ -972,6 +269,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026074"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026074"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026011</loc>
@@ -983,6 +282,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026011"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026065</loc>
     <lastmod>2025-10-31</lastmod>
@@ -992,6 +293,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026065"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026065"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2025012</loc>
@@ -1003,6 +306,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2025012"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2025017</loc>
     <lastmod>2025-08-31</lastmod>
@@ -1012,6 +317,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2025017"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2025017"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026057</loc>
@@ -1023,6 +330,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026057"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026047</loc>
     <lastmod>2025-08-02</lastmod>
@@ -1032,6 +341,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026047"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026047"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026058</loc>
@@ -1043,6 +354,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026058"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026062</loc>
     <lastmod>2025-06-30</lastmod>
@@ -1052,6 +365,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026062"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026062"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2025013</loc>
@@ -1063,6 +378,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2025013"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026012</loc>
     <lastmod>2025-04-30</lastmod>
@@ -1072,6 +389,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026012"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026012"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026059</loc>
@@ -1083,6 +402,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026059"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026004</loc>
     <lastmod>2025-03-31</lastmod>
@@ -1092,6 +413,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026004"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026004"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2025771</loc>
@@ -1103,6 +426,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2025771"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026009</loc>
     <lastmod>2025-01-31</lastmod>
@@ -1112,6 +437,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026009"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026009"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2025999</loc>
@@ -1123,6 +450,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2025999"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026063</loc>
     <lastmod>2024-10-31</lastmod>
@@ -1132,6 +461,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026063"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026063"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026066</loc>
@@ -1143,6 +474,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026066"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2024002</loc>
     <lastmod>2024-09-30</lastmod>
@@ -1152,6 +485,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2024002"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2024002"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026007</loc>
@@ -1163,6 +498,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026007"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2024016</loc>
     <lastmod>2024-08-31</lastmod>
@@ -1172,6 +509,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2024016"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2024016"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2024018</loc>
@@ -1183,6 +522,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2024018"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2024019</loc>
     <lastmod>2024-08-31</lastmod>
@@ -1192,6 +533,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2024019"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2024019"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026075</loc>
@@ -1203,6 +546,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026075"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2024005</loc>
     <lastmod>2024-05-31</lastmod>
@@ -1212,6 +557,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2024005"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2024005"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026002</loc>
@@ -1223,6 +570,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026002"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026050</loc>
     <lastmod>2024-04-30</lastmod>
@@ -1232,6 +581,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026050"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026050"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026019</loc>
@@ -1243,6 +594,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026019"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2024001</loc>
     <lastmod>2024-03-31</lastmod>
@@ -1252,6 +605,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2024001"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2024001"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026037</loc>
@@ -1263,6 +618,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026037"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026070</loc>
     <lastmod>2024-03-31</lastmod>
@@ -1272,6 +629,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026070"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026070"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026008</loc>
@@ -1283,6 +642,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026008"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026064</loc>
     <lastmod>2023-10-31</lastmod>
@@ -1292,6 +653,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026064"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026064"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2023020</loc>
@@ -1303,6 +666,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2023020"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026073</loc>
     <lastmod>2023-05-31</lastmod>
@@ -1312,6 +677,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026073"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026073"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2023022</loc>
@@ -1323,6 +690,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2023022"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2023026</loc>
     <lastmod>2023-04-30</lastmod>
@@ -1332,6 +701,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2023026"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2023026"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026022</loc>
@@ -1343,6 +714,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026022"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2023998</loc>
     <lastmod>2022-12-31</lastmod>
@@ -1352,6 +725,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2023998"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2023998"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026072</loc>
@@ -1363,6 +738,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026072"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026036</loc>
     <lastmod>2022-10-31</lastmod>
@@ -1372,6 +749,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026036"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026036"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026042</loc>
@@ -1383,6 +762,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026042"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026053</loc>
     <lastmod>2022-10-16</lastmod>
@@ -1392,6 +773,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026053"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026053"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026049</loc>
@@ -1403,6 +786,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026049"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026035</loc>
     <lastmod>2022-07-29</lastmod>
@@ -1412,6 +797,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026035"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026035"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026056</loc>
@@ -1423,6 +810,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026056"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026055</loc>
     <lastmod>2022-04-30</lastmod>
@@ -1432,6 +821,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026055"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026055"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026043</loc>
@@ -1443,6 +834,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026043"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026069</loc>
     <lastmod>2022-02-28</lastmod>
@@ -1452,6 +845,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026069"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026069"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2021999</loc>
@@ -1463,6 +858,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2021999"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026034</loc>
     <lastmod>2021-12-02</lastmod>
@@ -1472,6 +869,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026034"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026034"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026033</loc>
@@ -1483,6 +882,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026033"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026046</loc>
     <lastmod>2021-11-30</lastmod>
@@ -1492,6 +893,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026046"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026046"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026054</loc>
@@ -1503,6 +906,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026054"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026038</loc>
     <lastmod>2021-08-31</lastmod>
@@ -1512,6 +917,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026038"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026038"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026060</loc>
@@ -1523,6 +930,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026060"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026039</loc>
     <lastmod>2021-08-14</lastmod>
@@ -1532,6 +941,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026039"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026039"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026023</loc>
@@ -1543,6 +954,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026023"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2021040</loc>
     <lastmod>2021-05-31</lastmod>
@@ -1552,6 +965,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2021040"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2021040"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026071</loc>
@@ -1563,6 +978,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026071"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026051</loc>
     <lastmod>2021-04-30</lastmod>
@@ -1572,6 +989,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026051"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026051"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026052</loc>
@@ -1583,6 +1002,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026052"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026006</loc>
     <lastmod>2021-03-31</lastmod>
@@ -1592,6 +1013,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026006"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026006"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026005</loc>
@@ -1603,6 +1026,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026005"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026040</loc>
     <lastmod>2020-12-31</lastmod>
@@ -1612,6 +1037,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026040"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026040"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026031</loc>
@@ -1623,6 +1050,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026031"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026032</loc>
     <lastmod>2020-04-30</lastmod>
@@ -1632,6 +1061,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026032"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026032"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026020</loc>
@@ -1643,6 +1074,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026020"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026021</loc>
     <lastmod>2019-11-17</lastmod>
@@ -1652,6 +1085,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026021"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026021"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026014</loc>
@@ -1663,6 +1098,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026014"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026016</loc>
     <lastmod>2019-06-30</lastmod>
@@ -1672,6 +1109,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026016"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026016"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2019035</loc>
@@ -1683,6 +1122,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2019035"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026041</loc>
     <lastmod>2019-05-31</lastmod>
@@ -1692,6 +1133,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026041"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026041"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026068</loc>
@@ -1703,6 +1146,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026068"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026045</loc>
     <lastmod>2019-03-31</lastmod>
@@ -1712,6 +1157,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026045"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026045"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026030</loc>
@@ -1723,6 +1170,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026030"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026029</loc>
     <lastmod>2019-01-31</lastmod>
@@ -1732,6 +1181,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026029"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026029"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026044</loc>
@@ -1743,6 +1194,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026044"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026017</loc>
     <lastmod>2018-06-30</lastmod>
@@ -1752,6 +1205,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026017"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026017"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2018408</loc>
@@ -1763,6 +1218,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2018408"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026027</loc>
     <lastmod>2018-04-30</lastmod>
@@ -1772,6 +1229,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026027"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026027"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026028</loc>
@@ -1783,6 +1242,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026028"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026025</loc>
     <lastmod>2018-03-31</lastmod>
@@ -1792,6 +1253,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026025"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026025"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026001</loc>
@@ -1803,6 +1266,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026001"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026018</loc>
     <lastmod>2018-01-24</lastmod>
@@ -1812,6 +1277,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026018"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026018"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026013</loc>
@@ -1823,6 +1290,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026013"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2017006</loc>
     <lastmod>2017-11-30</lastmod>
@@ -1832,6 +1301,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2017006"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2017006"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2017999</loc>
@@ -1843,6 +1314,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2017999"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2017027</loc>
     <lastmod>2017-08-31</lastmod>
@@ -1852,6 +1325,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2017027"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2017027"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026015</loc>
@@ -1863,6 +1338,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026015"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026026</loc>
     <lastmod>2017-06-06</lastmod>
@@ -1872,6 +1349,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026026"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026026"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2017008</loc>
@@ -1883,6 +1362,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2017008"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2017015</loc>
     <lastmod>2017-04-30</lastmod>
@@ -1892,6 +1373,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2017015"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2017015"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026024</loc>
@@ -1903,6 +1386,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026024"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026076</loc>
     <lastmod>2017-04-30</lastmod>
@@ -1912,6 +1397,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026076"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026076"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026003</loc>
@@ -1923,6 +1410,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026003"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2017014</loc>
     <lastmod>2017-01-31</lastmod>
@@ -1932,6 +1421,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2017014"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2017014"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2017012</loc>
@@ -1943,6 +1434,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2017012"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2016004</loc>
     <lastmod>2016-11-30</lastmod>
@@ -1952,6 +1445,8 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2016004"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2016004"/>
   </url>
+
+
 
   <url>
     <loc>https://firebean.net/profile.html?id=FB2016024</loc>
@@ -1963,6 +1458,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2016024"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2016027</loc>
     <lastmod>2016-10-31</lastmod>
@@ -1973,6 +1470,8 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2016027"/>
   </url>
 
+
+
   <url>
     <loc>https://firebean.net/profile.html?id=FB2026061</loc>
     <lastmod>2016-04-30</lastmod>
@@ -1981,6 +1480,679 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://firebean.net/profile.html?id=FB2026061"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://firebean.net/profile.html?id=FB2026061"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://firebean.net/profile.html?id=FB2026061"/>
+  </url>
+
+  <url>
+    <loc>https://firebean.net/projects/fb2026081.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026082.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026083.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026080.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026079.html</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026077.html</loc>
+    <lastmod>2026-05-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026078.html</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026048.html</loc>
+    <lastmod>2026-03-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026067.html</loc>
+    <lastmod>2026-03-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026010.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026074.html</loc>
+    <lastmod>2025-11-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026011.html</loc>
+    <lastmod>2025-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026065.html</loc>
+    <lastmod>2025-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2025012.html</loc>
+    <lastmod>2025-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2025017.html</loc>
+    <lastmod>2025-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026057.html</loc>
+    <lastmod>2025-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026047.html</loc>
+    <lastmod>2025-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026058.html</loc>
+    <lastmod>2025-07-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026062.html</loc>
+    <lastmod>2025-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2025013.html</loc>
+    <lastmod>2025-05-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026012.html</loc>
+    <lastmod>2025-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026059.html</loc>
+    <lastmod>2025-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026004.html</loc>
+    <lastmod>2025-03-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2025771.html</loc>
+    <lastmod>2025-02-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026009.html</loc>
+    <lastmod>2025-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2025999.html</loc>
+    <lastmod>2024-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026063.html</loc>
+    <lastmod>2024-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026066.html</loc>
+    <lastmod>2024-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2024002.html</loc>
+    <lastmod>2024-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026007.html</loc>
+    <lastmod>2024-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2024016.html</loc>
+    <lastmod>2024-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2024018.html</loc>
+    <lastmod>2024-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2024019.html</loc>
+    <lastmod>2024-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026075.html</loc>
+    <lastmod>2024-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2024005.html</loc>
+    <lastmod>2024-05-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026002.html</loc>
+    <lastmod>2024-05-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026050.html</loc>
+    <lastmod>2024-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026019.html</loc>
+    <lastmod>2024-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2024001.html</loc>
+    <lastmod>2024-03-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026037.html</loc>
+    <lastmod>2024-03-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026070.html</loc>
+    <lastmod>2024-03-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026008.html</loc>
+    <lastmod>2024-02-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026064.html</loc>
+    <lastmod>2023-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2023020.html</loc>
+    <lastmod>2023-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026073.html</loc>
+    <lastmod>2023-05-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2023022.html</loc>
+    <lastmod>2023-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2023026.html</loc>
+    <lastmod>2023-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026022.html</loc>
+    <lastmod>2023-02-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2023998.html</loc>
+    <lastmod>2022-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026072.html</loc>
+    <lastmod>2022-12-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026036.html</loc>
+    <lastmod>2022-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026042.html</loc>
+    <lastmod>2022-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026053.html</loc>
+    <lastmod>2022-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026049.html</loc>
+    <lastmod>2022-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026035.html</loc>
+    <lastmod>2022-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026056.html</loc>
+    <lastmod>2022-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026055.html</loc>
+    <lastmod>2022-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026043.html</loc>
+    <lastmod>2022-03-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026069.html</loc>
+    <lastmod>2022-02-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2021999.html</loc>
+    <lastmod>2021-12-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026034.html</loc>
+    <lastmod>2021-12-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026033.html</loc>
+    <lastmod>2021-11-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026046.html</loc>
+    <lastmod>2021-11-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026054.html</loc>
+    <lastmod>2021-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026038.html</loc>
+    <lastmod>2021-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026060.html</loc>
+    <lastmod>2021-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026039.html</loc>
+    <lastmod>2021-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026023.html</loc>
+    <lastmod>2021-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2021040.html</loc>
+    <lastmod>2021-05-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026071.html</loc>
+    <lastmod>2021-05-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026051.html</loc>
+    <lastmod>2021-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026052.html</loc>
+    <lastmod>2021-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026006.html</loc>
+    <lastmod>2021-03-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026005.html</loc>
+    <lastmod>2020-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026040.html</loc>
+    <lastmod>2020-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026031.html</loc>
+    <lastmod>2020-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026032.html</loc>
+    <lastmod>2020-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026020.html</loc>
+    <lastmod>2020-01-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026021.html</loc>
+    <lastmod>2019-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026014.html</loc>
+    <lastmod>2019-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026016.html</loc>
+    <lastmod>2019-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2019035.html</loc>
+    <lastmod>2019-05-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026041.html</loc>
+    <lastmod>2019-05-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026068.html</loc>
+    <lastmod>2019-05-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026045.html</loc>
+    <lastmod>2019-03-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026030.html</loc>
+    <lastmod>2019-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026029.html</loc>
+    <lastmod>2019-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026044.html</loc>
+    <lastmod>2018-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026017.html</loc>
+    <lastmod>2018-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2018408.html</loc>
+    <lastmod>2018-05-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026027.html</loc>
+    <lastmod>2018-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026028.html</loc>
+    <lastmod>2018-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026025.html</loc>
+    <lastmod>2018-03-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026001.html</loc>
+    <lastmod>2018-02-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026018.html</loc>
+    <lastmod>2018-01-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026013.html</loc>
+    <lastmod>2017-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2017006.html</loc>
+    <lastmod>2017-11-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2017999.html</loc>
+    <lastmod>2017-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2017027.html</loc>
+    <lastmod>2017-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026015.html</loc>
+    <lastmod>2017-07-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026026.html</loc>
+    <lastmod>2017-06-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2017008.html</loc>
+    <lastmod>2017-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2017015.html</loc>
+    <lastmod>2017-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026024.html</loc>
+    <lastmod>2017-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026076.html</loc>
+    <lastmod>2017-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026003.html</loc>
+    <lastmod>2017-03-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2017014.html</loc>
+    <lastmod>2017-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2017012.html</loc>
+    <lastmod>2016-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2016004.html</loc>
+    <lastmod>2016-11-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2016024.html</loc>
+    <lastmod>2016-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2016027.html</loc>
+    <lastmod>2016-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://firebean.net/projects/fb2026061.html</loc>
+    <lastmod>2016-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
 </urlset>
