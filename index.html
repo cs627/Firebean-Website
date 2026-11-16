@@ -1700,21 +1700,43 @@
           ctx.drawImage(img, sx, sy, sw, sh);
           ctx.restore();
         }
-        for (var i = 1; i <= FRAME_COUNT; i++) {
-          (function (idx) {
-            var img = new Image();
-            img.src = 'data/images/about-frames/frame_' + padNum(idx) + '.webp';
-            img.onload = function () {
-              loadedCount++;
-              if (loadedCount === FRAME_COUNT) {
-                animationReady = true;
-                resizeCanvas();
-                drawFrame(0);
-              }
-            };
-            frames[idx - 1] = img;
-          })(i);
+        // 96 frames at 1920x1440 used to be fetched the moment the page loaded — 10.5 MB of a
+        // 13.8 MB homepage, before the user had scrolled anywhere. Start the sequence only when
+        // the About section is ~1200px away, by which time the first screen is already painted.
+        var framesStarted = false;
+        function loadAboutFrames() {
+          if (framesStarted) return;
+          framesStarted = true;
+          for (var i = 1; i <= FRAME_COUNT; i++) {
+            (function (idx) {
+              var img = new Image();
+              img.decoding = 'async';
+              img.src = 'data/images/about-frames/frame_' + padNum(idx) + '.webp';
+              img.onload = function () {
+                loadedCount++;
+                if (loadedCount === FRAME_COUNT) {
+                  animationReady = true;
+                  resizeCanvas();
+                  drawFrame(0);
+                }
+              };
+              frames[idx - 1] = img;
+            })(i);
+          }
         }
+        (function () {
+          var aboutEl = document.getElementById('about');
+          if (window.IntersectionObserver && aboutEl) {
+            var io = new IntersectionObserver(function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) { loadAboutFrames(); io.disconnect(); }
+              });
+            }, { rootMargin: '1200px 0px' });
+            io.observe(aboutEl);
+          } else {
+            loadAboutFrames();
+          }
+        })();
         gsap.to({ frame: 0 }, {
           frame: FRAME_COUNT - 1,
           ease: 'none',
