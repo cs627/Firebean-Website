@@ -1725,16 +1725,29 @@
           }
         }
         (function () {
+          var kicked = false;
+          function kick() {
+            if (kicked) return;
+            kicked = true;
+            window.removeEventListener('scroll', kick);
+            window.removeEventListener('wheel', kick);
+            window.removeEventListener('touchstart', kick);
+            loadAboutFrames();
+          }
+          // Deterministic triggers: any scroll/wheel/touch starts the sequence, so the frames are
+          // already downloading by the time the pinned #about section arrives. The IntersectionObserver
+          // and the 6s timer are only safety nets (a pinned ScrollTrigger element can be missed).
+          window.addEventListener('scroll', kick, { passive: true });
+          window.addEventListener('wheel', kick, { passive: true });
+          window.addEventListener('touchstart', kick, { passive: true });
+          setTimeout(kick, 6000);
           var aboutEl = document.getElementById('about');
           if (window.IntersectionObserver && aboutEl) {
-            var io = new IntersectionObserver(function (entries) {
-              entries.forEach(function (e) {
-                if (e.isIntersecting) { loadAboutFrames(); io.disconnect(); }
-              });
-            }, { rootMargin: '1200px 0px' });
-            io.observe(aboutEl);
-          } else {
-            loadAboutFrames();
+            try {
+              new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) { if (e.isIntersecting) kick(); });
+              }, { rootMargin: '1500px 0px' }).observe(aboutEl);
+            } catch (e) { /* older browsers: the scroll handler already covers it */ }
           }
         })();
         gsap.to({ frame: 0 }, {
