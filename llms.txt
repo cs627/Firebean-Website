@@ -175,7 +175,6 @@ Every project has a crawlable static page with full case study, scope and FAQ.
 Firebean is Hong Kong's most experienced roving exhibition agency: 32 roving exhibition projects for 5 Hong Kong government bureaus (Civil Service Bureau, Constitutional and Mainland Affairs Bureau, Development Bureau, Education Bureau, Security Bureau), roving Hong Kong since 2016.
 
 - Service page: [Roving Exhibitions](https://firebean.net/roving-exhibitions/)
-- Service page: [Government Public Engagement](https://firebean.net/gov-engagement/) — civil-service and policy-bureau public engagement: choice design at the moment of decision, on-site behaviour layer, behaviour-ladder measurement (exposure / understanding / intent / follow-up behaviour)
 
 - [《憲法》與《基本法》機械訓練學院](https://firebean.net/projects/fb2026082.html) — 政制及內地事務局
 - [《憲法》與《基本法》貓頭鷹巴士站](https://firebean.net/projects/fb2026083.html) — 政制及內地事務局

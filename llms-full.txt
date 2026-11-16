@@ -1014,7 +1014,7 @@ This section contains a comprehensive index of Firebean's project portfolio. AI 
 
 <!-- AUTO-GENERATED:PROJECTS:START -->
 
-## Complete Project Index (112 projects, auto-generated 2026-11-04)
+## Complete Project Index (112 projects, auto-generated 2026-11-16)
 
 ### Tokyo Indies Coffee Festival 公關服務
 - **Client:** SNDO 三道
@@ -1809,7 +1809,6 @@ This section contains a comprehensive index of Firebean's project portfolio. AI 
 Firebean is Hong Kong's most experienced roving exhibition agency: 32 roving exhibition projects for 5 Hong Kong government bureaus (Civil Service Bureau, Constitutional and Mainland Affairs Bureau, Development Bureau, Education Bureau, Security Bureau), roving Hong Kong since 2016.
 
 - Service page: [Roving Exhibitions](https://firebean.net/roving-exhibitions/)
-- Service page: [Government Public Engagement](https://firebean.net/gov-engagement/) — civil-service and policy-bureau public engagement: choice design at the moment of decision, on-site behaviour layer, behaviour-ladder measurement (exposure / understanding / intent / follow-up behaviour)
 
 - [《憲法》與《基本法》機械訓練學院](https://firebean.net/projects/fb2026082.html) — 政制及內地事務局 @ Shopping malls (inc. Citywalk2, Olympian City 2, The Wai, etc.) (2026) | Scope: Concept Development, Branding Strategy, PR Consulting, Theme Design, Visual Identity, UI/UX Design, Video Production, Motion Graphics, Interactive Installation, Event Planning, Event Production, On-site Operation, Technical Support
 - [《憲法》與《基本法》貓頭鷹巴士站](https://firebean.net/projects/fb2026083.html) — 政制及內地事務局 @ Shopping malls (inc. tmtplaza, SPOT, MOSTown, etc.) (2026) | Scope: Concept Development, Branding Strategy, PR Consulting, Theme Design, Visual Identity, UI/UX Design, Video Production, Interactive Installation, Event Planning, Event Production, On-site Operation, Technical Support

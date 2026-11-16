@@ -96,16 +96,26 @@ def is_roving(p):
 
 # ---------------------------------------------------------------- project pages
 index_lines = []
+hub_items = []
 index_lines.append('<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">')
-index_lines.append('<title>Firebean Project Index — AI Search Reference</title>')
+index_lines.append('<meta name="viewport" content="width=device-width,initial-scale=1.0">')
+index_lines.append('<title>All Projects — Firebean Agency Hong Kong | PR, Event Production & Roving Exhibitions</title>')
+index_lines.append('<meta name="description" content="Every Firebean project since 2007 — government public engagement, roving exhibitions, lifestyle and F&B PR, mall activations and event production in Hong Kong. Filter by category.">')
 index_lines.append('<meta name="robots" content="index,follow">')
-index_lines.append('<link rel="canonical" href="https://firebean.net/work.html">')
+index_lines.append('<link rel="canonical" href="https://firebean.net/projects/">')
 index_lines.append('</head><body>')
-index_lines.append('<h1>Firebean Agency — Complete Project Index</h1>')
-index_lines.append(f'<p>{len(projects)} projects since 2007. Hong Kong Lifestyle PR & Event Production agency.</p>')
-index_lines.append('<ul>')
 
 generated = 0
+
+# Same-category index for the "Related projects" block — this is what turns 107 sitemap-only
+# orphan pages into a crawlable link graph.
+_by_cat = {}
+for _p in projects:
+    if not is_publishable(_p):
+        continue
+    _c = ((_p.get('category', '') or 'N/A').split(',')[0].strip()) or 'N/A'
+    _by_cat.setdefault(_c, []).append(_p)
+
 for proj in projects:
     pid = proj.get('projectId', '')
     name = proj.get('projectName', '')
@@ -116,6 +126,14 @@ for proj in projects:
     sort_date = proj.get('sortDate', '')
     web_en = proj.get('webEN', '') or ''
     web_tc = proj.get('webTC', '') or ''
+    web_jp = proj.get('webJP', '') or ''
+    gallery = proj.get('galleryPhotos') or []
+    if isinstance(gallery, str):
+        try:
+            gallery = json.loads(gallery)
+        except Exception:
+            gallery = [s.strip() for s in gallery.split(',') if s.strip()]
+    gallery = [g for g in gallery if isinstance(g, str) and g.strip()]
 
     lines = []
     lines.append('<!DOCTYPE html>')
@@ -172,6 +190,18 @@ for proj in projects:
         creative_work['locationCreated'] = {'@type': 'Place', 'name': venue}
     lines.append(f'<script type="application/ld+json">{json.dumps(creative_work, ensure_ascii=False)}</script>')
 
+    breadcrumb = {
+        '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+        'itemListElement': [
+            {'@type': 'ListItem', 'position': 1, 'name': 'Firebean Home', 'item': SITE + '/'},
+            {'@type': 'ListItem', 'position': 2, 'name': 'Work', 'item': SITE + '/work.html'},
+            {'@type': 'ListItem', 'position': 3, 'name': 'All Projects', 'item': SITE + '/projects/'},
+            {'@type': 'ListItem', 'position': 4, 'name': name,
+             'item': f'{PROJECT_CANONICAL}{pid.lower()}.html'},
+        ],
+    }
+    lines.append(f'<script type="application/ld+json">{json.dumps(breadcrumb, ensure_ascii=False)}</script>')
+
     faq_en = proj.get('faqEN', '')
     faqs = None
     if faq_en:
@@ -194,7 +224,16 @@ for proj in projects:
 
     lines.append('</head>')
     lines.append('<body>')
+    # Crawlable link graph: without an internal link path the 107 static project pages are
+    # sitemap-only orphans and Google reports them as "URL is unknown" / "Discovered - not indexed".
+    lines.append(f'<nav aria-label="Breadcrumb"><p><a href="{SITE}/">Firebean Home</a> &rsaquo; '
+                 f'<a href="{SITE}/work.html">Work</a> &rsaquo; '
+                 f'<a href="{SITE}/projects/">All Projects</a> &rsaquo; {esc(name)}</p></nav>')
     lines.append('<article>')
+    if hero:
+        lines.append(f'<figure><img src="{esc(hero)}" alt="{esc(name)} — {esc(client)}" '
+                     'loading="eager" decoding="async" style="max-width:100%;height:auto;aspect-ratio:3/2">'
+                     '</figure>')
     lines.append(f'<h1>{esc(name)}</h1>')
     lines.append(f'<p><strong>Client:</strong> {esc(client)}</p>')
     lines.append(f'<p><strong>Project ID:</strong> {esc(pid)}</p>')
@@ -212,6 +251,18 @@ for proj in projects:
         lines.append('<section><h2>繁體中文</h2>')
         lines.append(web_tc)
         lines.append('</section>')
+    if web_jp:
+        lines.append('<section><h2>日本語</h2>')
+        lines.append(web_jp)
+        lines.append('</section>')
+
+    if gallery:
+        lines.append('<section><h2>Gallery</h2>')
+        for i, g in enumerate(gallery[:6], 1):
+            gsrc = g if g.startswith('http') else SITE + '/' + g.lstrip('/')
+            lines.append(f'<img src="{esc(gsrc)}" alt="{esc(name)} — photo {i}" loading="lazy" '
+                         'decoding="async" style="max-width:100%;height:auto;aspect-ratio:3/2">')
+        lines.append('</section>')
 
     if faqs and isinstance(faqs, list):
         faq_html = '<section><h2>FAQ</h2>'
@@ -224,7 +275,18 @@ for proj in projects:
         if any_faq:
             lines.append(faq_html)
 
+    related = [r for r in _by_cat.get(category, []) if r.get('projectId') != pid][:4]
+    if related:
+        lines.append('<section><h2>More ' + esc(category) + ' projects</h2><ul>')
+        for r in related:
+            rname = r.get('projectName', '')
+            lines.append(f'<li><a href="{PROJECT_PAGE % (r.get("projectId") or "").lower()}">'
+                         f'{esc(rname)}</a> — {esc(r.get("client", ""))}</li>')
+        lines.append('</ul></section>')
+
     lines.append(f'<p><a href="{CANONICAL_BASE}{pid}">View full profile with images on firebean.net</a></p>')
+    lines.append(f'<p><a href="{SITE}/projects/">All projects</a> · <a href="{SITE}/work.html">Work</a> · '
+                 f'<a href="{SITE}/">Firebean Home</a></p>')
     lines.append('</article>')
     lines.append('</body>')
     lines.append('</html>')
@@ -233,16 +295,57 @@ for proj in projects:
         f.write('\n'.join(lines))
     generated += 1
 
-    index_lines.append(
-        f'<li><a href="projects/{pid.lower()}.html">{esc(pid)}: {esc(name)}</a> — {esc(client)} | {esc(category)}</li>')
+    hub_items.append({'cat': category, 'pid': pid, 'name': name, 'client': client,
+                      'hero': hero, 'date': sort_date, 'tc': (proj.get('projectNameTC') or ''),
+                      'pub': is_publishable(proj)})
 
-index_lines.append('</ul>')
-stats = {}
-for proj in projects:
-    cat = (proj.get('category', '') or 'N/A').split(',')[0].strip()
-    stats[cat] = stats.get(cat, 0) + 1
-for cat, count in sorted(stats.items(), key=lambda x: -x[1]):
-    index_lines.append(f'<p>{esc(cat)}: {count}</p>')
+pub_items = [h for h in hub_items if h['pub']]
+cats = {}
+for h in pub_items:
+    cats.setdefault(h['cat'], []).append(h)
+index_lines.append('<header><h1>All Firebean Projects</h1>')
+index_lines.append(f'<p>{len(pub_items)} published projects since 2007 — government public engagement, roving '
+                   'exhibitions, lifestyle &amp; F&amp;B PR, mall activations and event production in Hong Kong.</p>')
+index_lines.append('<p><a href="https://firebean.net/">Firebean Home</a> · <a href="https://firebean.net/work.html">Work</a> · '
+                   '<a href="https://firebean.net/roving-exhibitions/">Roving Exhibitions</a></p>')
+index_lines.append('<nav aria-label="Categories"><ul>')
+for cat in sorted(cats, key=lambda c: -len(cats[c])):
+    index_lines.append(f'<li><a href="#{re.sub(r"[^a-z0-9]+", "-", cat.lower()).strip("-")}">{esc(cat)} ({len(cats[cat])})</a></li>')
+index_lines.append('</ul></nav></header>')
+for cat in sorted(cats, key=lambda c: -len(cats[c])):
+    anchor = re.sub(r'[^a-z0-9]+', '-', cat.lower()).strip('-')
+    index_lines.append(f'<section id="{anchor}"><h2>{esc(cat)} — {len(cats[cat])} projects</h2><ul>')
+    for h in cats[cat]:
+        img = ''
+        if h['hero']:
+            src = h['hero'] if h['hero'].startswith('http') else '/' + h['hero'].lstrip('/')
+            img = (f'<img src="{esc(src)}" alt="{esc(h["name"])}" loading="lazy" decoding="async" '
+                   'width="320" height="213" style="width:120px;height:80px;object-fit:cover;vertical-align:middle;margin-right:10px">')
+        index_lines.append(f'<li>{img}<a href="/projects/{h["pid"].lower()}.html">'
+                           f'{esc(h["name"])}</a> — {esc(h["client"])} <small>({esc(h["date"][:4])})</small></li>')
+    index_lines.append('</ul></section>')
+item_list = {
+    '@context': 'https://schema.org', '@type': 'CollectionPage',
+    'name': 'All Firebean Projects', 'url': 'https://firebean.net/projects/',
+    'isPartOf': {'@type': 'WebSite', 'url': 'https://firebean.net/', 'name': 'Firebean Agency Hong Kong'},
+    'mainEntity': {
+        '@type': 'ItemList', 'numberOfItems': len(pub_items),
+        'itemListElement': [
+            {'@type': 'ListItem', 'position': i, 'name': h['name'],
+             'url': f'https://firebean.net/projects/{h["pid"].lower()}.html'}
+            for i, h in enumerate(pub_items, 1)],
+    },
+}
+index_lines.append(f'<script type="application/ld+json">{json.dumps(item_list, ensure_ascii=False)}</script>')
+breadcrumb = {
+    '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+    'itemListElement': [
+        {'@type': 'ListItem', 'position': 1, 'name': 'Firebean Home', 'item': 'https://firebean.net/'},
+        {'@type': 'ListItem', 'position': 2, 'name': 'Work', 'item': 'https://firebean.net/work.html'},
+        {'@type': 'ListItem', 'position': 3, 'name': 'All Projects', 'item': 'https://firebean.net/projects/'},
+    ],
+}
+index_lines.append(f'<script type="application/ld+json">{json.dumps(breadcrumb, ensure_ascii=False)}</script>')
 index_lines.append('</body></html>')
 
 with open(os.path.join(OUT_DIR, 'index.html'), 'w', encoding='utf-8') as f:
@@ -541,4 +644,75 @@ def inject_roving():
 
 n_rov = inject_roving()
 print(f"roving-exhibitions/index.html: {n_rov} roving projects pre-rendered into #roving-main")
+
+
+# ---------------------------------------------------------------- internal link graph
+LINKS_START = '<!-- AUTO-GENERATED:PROJECTLINKS:START -->'
+LINKS_END = '<!-- AUTO-GENERATED:PROJECTLINKS:END -->'
+
+
+def upsert_links(path, block, anchor='</body>'):
+    """Insert/replace a marker-delimited block. Idempotent: a re-run never duplicates."""
+    if not os.path.exists(path):
+        return False
+    txt = open(path, encoding='utf-8').read()
+    if LINKS_START in txt and LINKS_END in txt:
+        txt = re.sub(re.escape(LINKS_START) + r'.*?' + re.escape(LINKS_END), lambda m: block, txt, flags=re.S)
+    elif anchor in txt:
+        txt = txt.replace(anchor, block + '\n' + anchor, 1)
+    else:
+        return False
+    with open(path, 'w', encoding='utf-8') as f:
+        f.write(txt)
+    return True
+
+
+def sync_link_graph():
+    """Give the 107 static project pages a crawlable path.
+
+    Measured in Search Console (2026-11): the homepage was indexed but every
+    /projects/<pid>.html reported "URL is unknown to Google" / "Discovered - currently not
+    indexed", because index.html contained zero static links to them (the cards are built by
+    JS and point at profile.html?id=…, which Google canonicalises away to those very pages).
+    A sitemap entry alone does not get an orphan URL crawled.
+    """
+    pub = [p for p in projects if is_publishable(p) and p.get('projectId')]
+    home_block = (LINKS_START
+                  + '<nav aria-label="Site sections" style="text-align:center;font-size:13px;color:#666;padding:28px 16px">'
+                  + '<a href="/work.html">Work</a> · <a href="/projects/">All projects</a> · '
+                  + '<a href="/roving-exhibitions/">Roving exhibitions</a> · '
+                  + '<a href="/gov-engagement/">Government engagement</a>'
+                  + '</nav>' + LINKS_END)
+    ok_home = upsert_links(os.path.join(BASEDIR, 'index.html'), home_block)
+    rows = ''.join(
+        f'<li><a href="/projects/{(p.get("projectId") or "").lower()}.html">{esc(p.get("projectName", ""))}</a>'
+        f' — {esc(p.get("client", ""))}</li>' for p in sorted(pub, key=lambda x: (x.get('sortDate') or ''), reverse=True))
+    work_block = (LINKS_START + f'<section aria-label="All projects"><details><summary>All {len(pub)} projects</summary><ul>'
+                  + rows + '</ul></details></section>' + LINKS_END)
+    ok_work = upsert_links(os.path.join(BASEDIR, 'work.html'), work_block)
+    print(f"link graph: index.html={'ok' if ok_home else 'skip'} work.html={'ok' if ok_work else 'skip'} ({len(pub)} project links)")
+    return len(pub)
+
+
+sync_link_graph()
+
+# The hub page is the crawl target, so it must be in the sitemap with a fresh lastmod.
+def ensure_hub_in_sitemap():
+    if not os.path.exists(SITEMAP_PATH):
+        return
+    txt = open(SITEMAP_PATH, encoding='utf-8').read()
+    if 'https://firebean.net/projects/</loc>' in txt:
+        txt = re.sub(r'(<loc>https://firebean\.net/projects/</loc>\s*<lastmod>)[^<]*(</lastmod>)',
+                     lambda m: m.group(1) + TODAY + m.group(2), txt)
+    else:
+        entry = ('  <url>\n    <loc>https://firebean.net/projects/</loc>\n'
+                 f'    <lastmod>{TODAY}</lastmod>\n    <changefreq>weekly</changefreq>\n'
+                 '    <priority>0.7</priority>\n  </url>\n')
+        txt = txt.replace('</urlset>', entry + '</urlset>', 1)
+    with open(SITEMAP_PATH, 'w', encoding='utf-8') as f:
+        f.write(txt)
+    print('sitemap: /projects/ hub present with today lastmod')
+
+
+ensure_hub_in_sitemap()
 print("Done.")
