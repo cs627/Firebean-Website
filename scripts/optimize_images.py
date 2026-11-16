@@ -26,11 +26,24 @@ MAX_SIDE = 1920
 VARIANT_WIDTH = 800
 DRY = '--dry-run' in sys.argv
 
+# `--only a.webp b.webp` restricts the pass to specific files — the CI workflow uses this so a
+# CMS sync only re-encodes the photos it just uploaded instead of re-compressing the whole archive
+# on every push (repeated re-encoding of an already-optimised file would slowly lose quality).
+only = None
+if '--only' in sys.argv:
+    i = sys.argv.index('--only')
+    only = {os.path.abspath(p) for p in sys.argv[i + 1:] if p.strip()}
+    if not only:
+        print('--only given with no files; nothing to do')
+        sys.exit(0)
+
 saved_total = 0
 reencoded = 0
 variants = 0
 
 for path in sorted(glob.glob(os.path.join(IMG_DIR, '*.webp'))):
+    if only is not None and os.path.abspath(path) not in only:
+        continue
     size = os.path.getsize(path)
     if size > THRESHOLD:
         try:
@@ -62,6 +75,8 @@ proj_list = proj_raw['projects'] if isinstance(proj_raw, dict) and 'projects' in
     else (list(proj_raw.values())[0] if isinstance(proj_raw, dict) else proj_raw)
 heroes = {(p.get('heroPhoto') or '').strip() for p in proj_list if p.get('heroPhoto')}
 hero_paths = [os.path.join(BASEDIR, h) for h in heroes if h.startswith('data/images/')]
+if only is not None:
+    hero_paths = [p for p in hero_paths if os.path.abspath(p) in only]
 
 for path in sorted(hero_paths):
     if not os.path.exists(path):

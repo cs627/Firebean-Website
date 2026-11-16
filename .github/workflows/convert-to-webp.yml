@@ -41,6 +41,23 @@ jobs:
             fi
           done
 
+      - name: Compress oversized WebP + build 800px hero variants
+        run: |
+          python3 -m pip install --quiet --disable-pip-version-check pillow
+          BEFORE="${{ github.event.before }}"
+          SHA="${{ github.sha }}"
+          if echo "$BEFORE" | grep -qE '^0+$'; then
+            CHANGED=$(git ls-files 'data/images/*.webp')
+          else
+            CHANGED=$(git diff --name-only --diff-filter=d "$BEFORE" "$SHA" -- 'data/images/*.webp' || true)
+          fi
+          if [ -z "$CHANGED" ]; then
+            echo "No changed images in this push — nothing to compress."
+            exit 0
+          fi
+          echo "Files to check:"; echo "$CHANGED" | head -20
+          python3 scripts/optimize_images.py --only $CHANGED
+
       - name: Commit converted WebP files
         run: |
           git config user.name "github-actions[bot]"
@@ -49,7 +66,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "No images needed conversion."
           else
-            git commit -m "auto: convert images to real WebP [skip ci]"
+            git commit -m "auto: convert + compress WebP images [skip ci]"
             git push
-            echo "Converted images committed and pushed."
+            echo "Converted/compressed images committed and pushed."
           fi
