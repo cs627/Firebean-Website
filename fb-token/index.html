@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Firebean Facebook 出帖修復 — 執行程序</title>
+<style>
+  :root{
+    --red:#E63946; --ink:#0E1116; --ink2:#151A21; --card:#1B222B;
+    --line:#2A333F; --txt:#E8EDF3; --dim:#8A97A8; --ok:#35C46A; --warn:#F5A623;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--ink); color:var(--txt);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang HK","Noto Sans HK",sans-serif;
+    padding:0 20px 80px;
+  }
+  .wrap{max-width:900px;margin:0 auto}
+  .wordmark{
+    font:800 34px/1 Anton,Impact,-apple-system,sans-serif; letter-spacing:2px;
+    padding:36px 0 6px; color:#fff;
+  }
+  .wordmark span{color:var(--red)}
+  .sub{color:var(--dim);font-size:14px;letter-spacing:.5px;margin-bottom:30px}
+
+  .alert{
+    background:linear-gradient(135deg,#2A1518,#1C1418); border:1px solid #5A2530;
+    border-radius:14px; padding:20px 22px; margin-bottom:26px;
+  }
+  .alert h2{font-size:16px;color:#FF7B85;margin-bottom:8px;letter-spacing:.3px}
+  .alert p{font-size:14.5px;color:#D9C3C6}
+
+  .why{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:22px 0 30px}
+  .why .box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .why .box b{display:block;font-size:13px;color:var(--dim);letter-spacing:.6px;margin-bottom:4px}
+  .why .box .v{font-size:15px;font-weight:600}
+  .bad{color:#FF7B85} .good{color:var(--ok)}
+
+  h2.sec{
+    font-size:19px;margin:38px 0 16px;padding-bottom:10px;
+    border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px;
+  }
+  h2.sec .n{
+    background:var(--red);color:#fff;width:26px;height:26px;border-radius:7px;
+    display:grid;place-items:center;font-size:14px;flex:none;
+  }
+
+  .step{
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 18px;margin-bottom:10px;display:flex;gap:14px;align-items:flex-start;
+  }
+  .step .num{
+    flex:none;width:26px;height:26px;border-radius:50%;
+    border:1.5px solid var(--red);color:var(--red);
+    display:grid;place-items:center;font-size:13px;font-weight:700;margin-top:2px;
+  }
+  .step .body{flex:1;font-size:15px}
+  .step .body b{color:#fff}
+  code{
+    background:#0B0F14;border:1px solid var(--line);border-radius:6px;
+    padding:2px 7px;font:13.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;
+    color:#9EE6B8;word-break:break-all;
+  }
+  a{color:#6FB4FF;text-decoration:none;border-bottom:1px solid rgba(111,180,255,.3)}
+  a:hover{color:#9CCBFF}
+
+  .copybox{position:relative;margin:16px 0}
+  .copybox pre{
+    background:#0B0F14;border:1px solid var(--line);border-radius:12px;
+    padding:18px 18px 54px;white-space:pre-wrap;word-break:break-word;
+    font:13.5px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;color:#CBD6E2;
+    max-height:520px;overflow:auto;
+  }
+  .btn-copy{
+    position:absolute;right:14px;bottom:14px;
+    background:var(--red);color:#fff;border:0;border-radius:9px;
+    padding:10px 20px;font:600 14px/1 inherit;cursor:pointer;letter-spacing:.4px;
+    transition:.18s;box-shadow:0 4px 16px rgba(230,57,70,.32);
+  }
+  .btn-copy:hover{background:#F04A58;transform:translateY(-1px)}
+  .btn-copy.done{background:var(--ok);box-shadow:0 4px 16px rgba(53,196,106,.3)}
+
+  .cta{
+    display:inline-block;background:var(--red);color:#fff;border-radius:11px;
+    padding:14px 26px;font-weight:600;font-size:15px;border-bottom:0;
+    box-shadow:0 6px 22px rgba(230,57,70,.3);transition:.18s;margin:8px 0 4px;
+  }
+  .cta:hover{background:#F04A58;transform:translateY(-1px);color:#fff}
+  .cta.alt{background:#233040;box-shadow:none;color:#9CCBFF}
+  .cta.alt:hover{background:#2C3D50}
+
+  .note{
+    background:#12181F;border-left:3px solid var(--warn);border-radius:0 10px 10px 0;
+    padding:14px 18px;margin:16px 0;font-size:14px;color:#CFD8E3;
+  }
+  .note b{color:var(--warn)}
+  .two{display:flex;gap:12px;flex-wrap:wrap}
+  @media(max-width:680px){
+    .why{grid-template-columns:1fr}
+    body{padding:0 14px 60px}
+  }
+  footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);
+         color:var(--dim);font-size:13px;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="wordmark">FIRE<span>BEAN</span></div>
+  <div class="sub">FACEBOOK 自動出帖 — 修復執行程序 · 2026-11-16</div>
+
+  <div class="alert">
+    <h2>⚠️ 問題總結</h2>
+    <p>Facebook 專頁自 <b>9 月 11 日</b> 之後就再冇公開帖文。原因：我哋一直用嘅 Meta App
+    <b>「Apex BNI HK」處於「In development」模式</b>，經 API 發出嘅帖文只有 app 管理員睇得到，公眾完全見唔到。
+    <br><br>帖文其實有「出」，但係<strong>隱形</strong>。10/27、10/30、11/03、11/06、11/10、11/13 六篇全部受影響。</p>
+  </div>
+
+  <div class="why">
+    <div class="box"><b>而家用緊（有問題）</b>
+      <div class="v bad">Apex BNI HK · In development</div>
+      <div style="font-size:13px;color:var(--dim);margin-top:4px">App ID 1725550452911073</div>
+    </div>
+    <div class="box"><b>改用呢個（已 Live）</b>
+      <div class="v good">HermesfBpost · Live ✅</div>
+      <div style="font-size:13px;color:var(--dim);margin-top:4px">App ID 1096613296209830 · Firebean Limited</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <b>唔需要</b>做商業驗證、唔需要改任何 app 模式。因為 <code>HermesfBpost</code> 已經係 Live，
+    我哋只需要由佢產生一個 Firebean 專頁嘅 <b>永久 Page Token</b> 就可以。
+  </div>
+
+  <h2 class="sec"><span class="n">1</span> 最直接 — 開 Comet 跑呢段</h2>
+  <p style="font-size:14.5px;color:var(--dim);margin-bottom:6px">
+    撳下面個 Copy 掣，然後喺 <b>Comet</b>（Perplexity 嘅瀏覽器 agent）貼上並執行。
+    佢會喺你已登入嘅瀏覽器自動完成全部步驟。
+  </p>
+
+  <div class="copybox">
+    <pre id="p1">你正在操作我（Dickson）已登入嘅瀏覽器。請全程自動完成以下步驟，遇到彈出視窗要按「繼續 / 允許 / Continue / Allow」就直接按，唔需要問我。
+
+【目標】
+用已經係 Live 狀態嘅 Meta App「HermesfBpost」（App ID 1096613296209830），產生一個 Firebean Facebook 專頁（Page ID 117038204973135）嘅 Page Access Token，並貼去指定 Google Sheet。
+
+【步驟】
+1. 開 https://developers.facebook.com/tools/explorer/
+2. 右上角「Meta App」下拉選單 → 揀「HermesfBpost」（App ID 1096613296209830）
+3. 撳「Permissions」下拉 → 加入以下權限（逐個揀）：
+   pages_show_list
+   pages_manage_posts
+   pages_read_engagement
+   business_management
+4. 撳「Generate Access Token」掣 → 彈出授權視窗 → 全部撳「繼續 / 允許」
+5. 喺中間查詢輸入框，清空原有內容，輸入：
+   me/accounts?fields=id,name,access_token
+6. 撳右邊藍色「Submit」掣
+7. 下方會出 JSON。喺 data 陣列入面搵 name 等於 "Firebean"、id 等於 "117038204973135" 嗰個 object，複製佢 access_token 嘅完整字串（好長，EAA 開頭）
+8. 開 https://developers.facebook.com/tools/debug/accesstoken/ ，貼入去，撳「Debug」，睇「Expires」一欄：
+   - 如果顯示 Never → 好，繼續第 9 步
+   - 如果顯示一個日期 → 唔好繼續，直接跳去同我報告
+9. 開 https://docs.google.com/spreadsheets/d/1EmZB3WecmKIL7TTHGeJzohLTDKhUMPxBSrGv8mwRE28/edit
+   揀「Token」工作表，將個 access_token 貼落 A2 一格（純文字，唔要引號、唔要空格）
+10. 完成後回報我：「已完成，Expires 顯示 Never」（或顯示嘅日期）
+
+【重要】
+- 唔好改動任何 app 設定、唔好撳 Publish、唔好做商業驗證
+- 只需要產生 token 同貼落 Sheet
+- 如果任何一步失敗，講明係邊一步同畫面顯示咩錯誤</pre>
+    <button class="btn-copy" data-target="p1">Copy 貼去 Comet</button>
+  </div>
+
+  <h2 class="sec"><span class="n">2</span>想 Perplexity 幫你覆核？貼呢段</h2>
+  <p style="font-size:14.5px;color:var(--dim);margin-bottom:6px">
+    如果你唔放心，可以先叫 Perplexity 檢查步驟有冇問題，或者 Comet 執行失敗時用嚟排錯。
+  </p>
+
+  <div class="copybox">
+    <pre id="p2">我係香港一間公關公司（Firebean）嘅負責人，唔識寫程式。我用 Meta Graph API 自動排程 Facebook 專頁帖文。
+
+【現況】
+- Facebook 專頁：Firebean，Page ID 117038204973135，username @firebean
+- 一直用嘅 Meta App「Apex BNI HK」（App ID 1725550452911073）狀態係「In development」
+- 結果：由 2026-09-11 之後，經 Graph API 發出嘅帖文全部只有 app 管理員睇得到，公眾開 permalink 見到「This content isn't available at the moment」
+- 已確認：Zapier 嘅 app（Live）出嘅舊帖正常公開；Business Suite 人手出嘅帖正常公開
+
+【我想做】
+改用另一個已經係「Live」狀態嘅 app「HermesfBpost」（App ID 1096613296209830，屬於 Firebean Limited 商業組合），產生一個 Firebean 專頁嘅 Page Access Token，用嚟繼續經 Graph API 排程出帖。
+
+【請你幫我確認以下幾點，並指出任何錯誤或遺漏】
+1. 用 Graph API Explorer 揀 HermesfBpost app，加 pages_show_list / pages_manage_posts / pages_read_engagement / business_management 權限，再呼叫 me/accounts?fields=id,name,access_token 攞 Firebean 專頁嘅 access_token —— 呢個做法喺 2026 年嘅 Graph API 版本（v21 或更新）係唔係仍然正確？
+2. 由此攞到嘅 Page Access Token 係唔係「唔會過期」（Never expires）？如果唔係，正確嘅延長做法係咩（需要 App Secret 做 fb_exchange_token 交換？）
+3. Live app 但權限只有 Standard Access（未經 App Review）嘅情況下，發佈去自己管理嘅專頁，帖文係唔係一定公開可見？會唔會有其他原因令帖文仍然隱形？
+4. 有冇其他更穩妥嘅方法（例如 Business Manager 嘅 System User token）可以產生永不過期、而且帖文公開可見嘅 token？
+5. 之前用 dev app 發出嘅 6 篇隱形帖文，改用新 app 之後會唔會自動變返公開？如果唔會，正確處理方式係咩？
+
+請用香港繁體中文回答，直接講結論同步驟，唔需要背景理論。</pre>
+    <button class="btn-copy" data-target="p2">Copy 貼去 Perplexity</button>
+  </div>
+
+  <h2 class="sec"><span class="n">3</span>唔用 AI，自己人手做（備用）</h2>
+
+  <div class="step"><div class="num">1</div><div class="body">
+    開 <a href="https://developers.facebook.com/tools/explorer/" target="_blank" rel="noopener">Graph API Explorer</a>
+  </div></div>
+  <div class="step"><div class="num">2</div><div class="body">
+    右上角 <b>Meta App</b> 下拉 → 揀 <b>HermesfBpost</b>
+  </div></div>
+  <div class="step"><div class="num">3</div><div class="body">
+    <b>Permissions</b> 加入：<code>pages_show_list</code> <code>pages_manage_posts</code> <code>pages_read_engagement</code> <code>business_management</code>
+  </div></div>
+  <div class="step"><div class="num">4</div><div class="body">
+    撳 <b>Generate Access Token</b> → 彈窗全部撳「繼續 / 允許」
+  </div></div>
+  <div class="step"><div class="num">5</div><div class="body">
+    查詢框輸入 <code>me/accounts?fields=id,name,access_token</code> → 撳 <b>Submit</b>
+  </div></div>
+  <div class="step"><div class="num">6</div><div class="body">
+    喺結果搵 <b>name = Firebean</b>（id <code>117038204973135</code>），複製佢個 <code>access_token</code>
+  </div></div>
+  <div class="step"><div class="num">7</div><div class="body">
+    去 <a href="https://developers.facebook.com/tools/debug/accesstoken/" target="_blank" rel="noopener">Access Token Debugger</a> 貼入去，確認 <b>Expires = Never</b>
+  </div></div>
+  <div class="step"><div class="num">8</div><div class="body">
+    貼落 <a href="https://docs.google.com/spreadsheets/d/1EmZB3WecmKIL7TTHGeJzohLTDKhUMPxBSrGv8mwRE28/edit" target="_blank" rel="noopener">Firebean Meta Token Drop</a> 嘅 <b>Token</b> 工作表 <b>A2</b> 一格
+  </div></div>
+
+  <h2 class="sec"><span class="n">4</span>交收點（貼 token 落呢度）</h2>
+  <div class="two">
+    <a class="cta" href="https://docs.google.com/spreadsheets/d/1EmZB3WecmKIL7TTHGeJzohLTDKhUMPxBSrGv8mwRE28/edit" target="_blank" rel="noopener">開啟 Token 交收 Sheet →</a>
+    <a class="cta alt" href="https://developers.facebook.com/tools/explorer/" target="_blank" rel="noopener">開啟 Graph API Explorer →</a>
+  </div>
+  <div class="note" style="margin-top:18px">
+    <b>點解用 Sheet 交收？</b> 直接貼 token 落 Discord 會永久留在對話記錄。用 Sheet 我讀完之後會即刻清空該格，
+    之後亦可以隨時在 Facebook 設定撤銷該 token。
+  </div>
+
+  <h2 class="sec"><span class="n">5</span>之後我會做咩</h2>
+  <div class="step"><div class="num">✓</div><div class="body">
+    讀取 Sheet 嘅 token → 寫入伺服器 → 即刻用新 app 發一篇測試排程帖
+  </div></div>
+  <div class="step"><div class="num">✓</div><div class="body">
+    <b>由公開側（未登入）驗證</b>帖文真係見得到 —— 唔會再靠 API 自報
+  </div></div>
+  <div class="step"><div class="num">✓</div><div class="body">
+    將 10/27–11/13 六篇漏咗嘅內容重新排入隊列（公眾從未見過，值得重出）
+  </div></div>
+  <div class="step"><div class="num">✓</div><div class="body">
+    加入「每次出帖後由公開側自動驗證」嘅監察，以後再有隱形帖會即時通知你
+  </div></div>
+
+  <footer>
+    Firebean Limited · Hermes Apollo · 2026-11-16<br>
+    本頁只供內部使用，唔會收錄喺搜尋引擎
+  </footer>
+</div>
+
+<script>
+  document.querySelectorAll('.btn-copy').forEach(btn=>{
+    btn.addEventListener('click', async ()=>{
+      const el = document.getElementById(btn.dataset.target);
+      const text = el.innerText;
+      try{
+        await navigator.clipboard.writeText(text);
+      }catch(e){
+        const ta=document.createElement('textarea');
+        ta.value=text; ta.style.position='fixed'; ta.style.opacity='0';
+        document.body.appendChild(ta); ta.select();
+        document.execCommand('copy'); document.body.removeChild(ta);
+      }
+      const old = btn.textContent;
+      btn.textContent = '✅ 已複製';
+      btn.classList.add('done');
+      setTimeout(()=>{ btn.textContent = old; btn.classList.remove('done'); }, 2200);
+    });
+  });
+</script>
+</body>
+</html>
