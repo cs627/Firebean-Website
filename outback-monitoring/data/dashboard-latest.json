@@ -1,12 +1,12 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-11-15T17:04:05.031312+00:00",
+  "generatedAt": "2026-11-16T17:05:44.232758+00:00",
   "run": {
-    "runDate": "2026-11-16",
+    "runDate": "2026-11-17",
     "dateRange": {
       "from": "2025-06-09",
-      "to": "2026-11-16"
+      "to": "2026-11-17"
     },
     "alerts": [
       {
