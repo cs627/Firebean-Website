@@ -2761,7 +2761,7 @@
       var sliderHTML = '';
       sliderProjects.forEach(function(p, idx) {
         sliderHTML += '<a href="profile.html?id=' + encodeURIComponent(p.id || p.projectId || '') + '" class="relative w-full h-full block cursor-pointer' + (idx === 0 ? ' slide-active' : '') + '">' +
-          '<img src="' + p.heroPhoto + '" class="absolute inset-0 w-full h-full object-cover" alt="' + (p.projectName || p.project || '') + '" referrerpolicy="no-referrer">' +
+          '<img src="' + p.heroPhoto + '" class="absolute inset-0 w-full h-full object-cover" alt="' + (p.projectName || p.project || '') + '"' + (idx === 0 ? ' fetchpriority="high" decoding="async"' : ' loading="lazy" decoding="async"') + ' referrerpolicy="no-referrer">' +
           '<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/30"></div>' +
         '</a>';
       });
@@ -2929,7 +2929,7 @@
         var descSize = isLarge ? 'text-sm md:text-base' : 'text-xs md:text-sm';
         gridHTML += '<a href="profile.html?id=' + (p.id || p.projectId || '') + '" class="project-profile ' + layout.cols + ' ' + layout.mt + ' group block">' +
           '<div class="' + layout.aspect + ' w-full overflow-hidden relative bg-gray-200">' +
-            '<img src="' + p.heroPhoto + '" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="' + (p.projectName || p.project || '') + '" referrerpolicy="no-referrer">' +
+            '<img src="' + p.heroPhoto + '"' + (function(h){ return /\.webp$/i.test(h) ? ' srcset="' + h.replace(/\.webp$/i, '-800.webp') + ' 800w, ' + h + ' 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 440px"' : ''; })(p.heroPhoto) + ' loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="' + (p.projectName || p.project || '') + '" referrerpolicy="no-referrer">' +
             '<div class="absolute inset-0 bg-brand-black/0 group-hover:bg-brand-black/20 transition-all duration-500"></div>' +
           '</div>' +
           '<div class="mt-4">' +
