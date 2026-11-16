@@ -677,13 +677,20 @@ def sync_link_graph():
     A sitemap entry alone does not get an orphan URL crawled.
     """
     pub = [p for p in projects if is_publishable(p) and p.get('projectId')]
+    newest = sorted(pub, key=lambda x: (x.get('sortDate') or ''), reverse=True)[:12]
+    latest_line = ' · '.join(
+        f'<a href="/projects/{(p.get("projectId") or "").lower()}.html">{esc((p.get("projectName") or "")[:40])}</a>'
+        for p in newest)
     home_block = (LINKS_START
                   + '<nav aria-label="Site sections" style="text-align:center;font-size:13px;color:#666;padding:28px 16px">'
                   + '<a href="/work.html">Work</a> · <a href="/projects/">All projects</a> · '
                   + '<a href="/roving-exhibitions/">Roving exhibitions</a> · '
                   + '<a href="/pr-agency/">PR agency</a> · <a href="/event-production/">Event production</a> · '
                   + '<a href="/gov-engagement/">Government engagement</a>'
-                  + '</nav>' + LINKS_END)
+                  + '</nav>'
+                  + '<p aria-label="Latest projects" style="text-align:center;font-size:12px;color:#8a8a8a;'
+                    'max-width:900px;margin:0 auto;padding:0 16px 28px;line-height:1.8">Latest projects: '
+                  + latest_line + '</p>' + LINKS_END)
     ok_home = upsert_links(os.path.join(BASEDIR, 'index.html'), home_block)
     rows = ''.join(
         f'<li><a href="/projects/{(p.get("projectId") or "").lower()}.html">{esc(p.get("projectName", ""))}</a>'
