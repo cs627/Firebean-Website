@@ -210,3 +210,10 @@ Firebean is Hong Kong's most experienced roving exhibition agency: 32 roving exh
 - [Basic Law Parent-child Workshop 2017](https://firebean.net/projects/fb2026024.html) — 政制及內地事務局
 
 <!-- AUTO-GENERATED:ROVINGLIST:END -->
+
+<!-- AUTO-GENERATED:SERVICEPAGES:START -->
+## Service pages
+
+- [PR Agency Hong Kong](https://firebean.net/pr-agency/) — government, lifestyle & F&B public relations, media relations, public engagement, trilingual (EN/繁中/日本語) communications.
+- [Event Production Hong Kong](https://firebean.net/event-production/) — mall activations, roadshows, pop-ups, launches, ceremonies and multi-venue roving exhibitions.
+<!-- AUTO-GENERATED:SERVICEPAGES:END -->

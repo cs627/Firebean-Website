@@ -681,6 +681,7 @@ def sync_link_graph():
                   + '<nav aria-label="Site sections" style="text-align:center;font-size:13px;color:#666;padding:28px 16px">'
                   + '<a href="/work.html">Work</a> · <a href="/projects/">All projects</a> · '
                   + '<a href="/roving-exhibitions/">Roving exhibitions</a> · '
+                  + '<a href="/pr-agency/">PR agency</a> · <a href="/event-production/">Event production</a> · '
                   + '<a href="/gov-engagement/">Government engagement</a>'
                   + '</nav>' + LINKS_END)
     ok_home = upsert_links(os.path.join(BASEDIR, 'index.html'), home_block)

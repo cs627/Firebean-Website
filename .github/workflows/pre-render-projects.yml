@@ -27,7 +27,7 @@ jobs:
         run: |
           git config user.name "firebean-bot"
           git config user.email "bot@firebean.net"
-          git add projects/ sitemap.xml llms.txt llms-full.txt roving-exhibitions/
+          git add projects/ sitemap.xml llms.txt llms-full.txt roving-exhibitions/ index.html work.html
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
