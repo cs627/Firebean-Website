@@ -1,13 +1,13 @@
 {
   "meta": {
-    "last_updated": "2026-11-14T01:01:12+08:00",
-    "total_records": 249,
+    "last_updated": "2026-11-18T01:01:31+08:00",
+    "total_records": 250,
     "daily_avg": 2.6,
     "date_range": "2025-06-09 → 2026-11-12",
     "sources_checked": 29,
-    "new_verified": 3,
+    "new_verified": 4,
     "coverage_ratio": "29/46",
-    "negative_alerts": 37,
+    "negative_alerts": 38,
     "positive_pct": 56
   },
   "trend": [
@@ -37,13 +37,13 @@
     },
     {
       "date": "2026-11-12",
-      "count": 1
+      "count": 2
     }
   ],
   "source_breakdown": [
     {
       "source": "Google Maps",
-      "count": 56
+      "count": 57
     },
     {
       "source": "Threads",
@@ -105,7 +105,7 @@
   "sentiment": {
     "positive": 139,
     "neutral": 66,
-    "negative": 37,
+    "negative": 38,
     "mixed": 7
   },
   "all_records": [
@@ -2847,6 +2847,17 @@
       "sentiment": "neutral",
       "sentiment_label": "中性",
       "keywords": "Outback, Google Maps, 東涌, 東薈城名店倉, 3星"
+    },
+    {
+      "date": "2026-11-12",
+      "source": "Google Maps (將軍澳中心)",
+      "platform": "地圖",
+      "title": "將軍澳顧客1星評價：完全不能理解有人話好食 （除咗個黑糖包） 全部似急凍嘢 蟹腳唔新鮮又鹹 個芝士焗",
+      "summary": "將軍澳分店 Google Maps 1星評論（L Jo，本星期）：完全不能理解有人話好食 （除咗個黑糖包） 全部似急凍嘢 蟹腳唔新鮮又鹹 個芝士焗西蘭花都似冰鮮菜陣味 冇咬口冇菜味 個沙律更加唔得 根本包裝菜加包裝沙律醬 極度冇誠意 好似返咗90年代啲街坊西餐食堂 啲扒叫過得去 冇印象咩味 成枱最好食係個炸薯條 好食過M記小小 相信急凍薯條都好難炸得難食 但3個人食埋單要過千 懷疑成間鋪冇嘢新鮮整… 服務幾好 但咁嘅價位啲嘢食咁嘅質素 真係搞唔掂",
+      "link": "https://www.google.com/maps/contrib/101111628229072123607/reviews",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback, Google Maps, 將軍澳, 將軍澳中心, 1星"
     }
   ],
   "media_records": [
@@ -5590,6 +5601,17 @@
       "sentiment": "neutral",
       "sentiment_label": "中性",
       "keywords": "Outback, Google Maps, 東涌, 東薈城名店倉, 3星"
+    },
+    {
+      "date": "2026-11-12",
+      "source": "Google Maps (將軍澳中心)",
+      "platform": "地圖",
+      "title": "將軍澳顧客1星評價：完全不能理解有人話好食 （除咗個黑糖包） 全部似急凍嘢 蟹腳唔新鮮又鹹 個芝士焗",
+      "summary": "將軍澳分店 Google Maps 1星評論（L Jo，本星期）：完全不能理解有人話好食 （除咗個黑糖包） 全部似急凍嘢 蟹腳唔新鮮又鹹 個芝士焗西蘭花都似冰鮮菜陣味 冇咬口冇菜味 個沙律更加唔得 根本包裝菜加包裝沙律醬 極度冇誠意 好似返咗90年代啲街坊西餐食堂 啲扒叫過得去 冇印象咩味 成枱最好食係個炸薯條 好食過M記小小 相信急凍薯條都好難炸得難食 但3個人食埋單要過千 懷疑成間鋪冇嘢新鮮整… 服務幾好 但咁嘅價位啲嘢食咁嘅質素 真係搞唔掂",
+      "link": "https://www.google.com/maps/contrib/101111628229072123607/reviews",
+      "sentiment": "negative",
+      "sentiment_label": "負面",
+      "keywords": "Outback, Google Maps, 將軍澳, 將軍澳中心, 1星"
     }
   ],
   "store_ranking": [
