@@ -1,0 +1,117 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Hermes 升級包 v0.22.2 → v0.23.0</title><style>
+:root{--bg:#0a0a0c;--card:#141418;--line:#26262e;--txt:#f2f2f5;--dim:#9a9aa8;
+--red:#ff3b30;--cyan:#2fd3ff;--green:#39d98a;--amber:#ffb020;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);
+font:16px/1.65 -apple-system,BlinkMacSystemFont,"PingFang HK","Noto Sans HK",sans-serif;
+padding:28px 18px 90px}
+.wrap{max-width:980px;margin:0 auto}
+h1{font-size:30px;margin:0 0 6px;letter-spacing:-.5px}
+h1 .bean{color:var(--red)}
+.sub{color:var(--dim);font-size:15px;margin-bottom:26px}
+.badge{display:inline-block;background:rgba(47,211,255,.12);color:var(--cyan);
+border:1px solid rgba(47,211,255,.35);border-radius:999px;padding:2px 11px;
+font-size:12.5px;font-weight:600;margin-right:6px}
+h2{font-size:19px;margin:34px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;
+padding:16px 18px;margin:12px 0}
+.card .t{font-weight:700;font-size:15.5px;margin-bottom:6px}
+.card p{margin:0;color:var(--dim);font-size:14.5px}
+.card code{background:#000;border:1px solid var(--line);border-radius:4px;
+padding:1px 5px;font-size:13px;color:var(--cyan)}
+.ok{border-left:3px solid var(--green)}
+.warn{border-left:3px solid var(--amber)}
+.step{background:var(--card);border:1px solid var(--line);border-radius:12px;
+padding:15px 17px;margin:14px 0}
+.step .head{display:flex;align-items:center;gap:11px;flex-wrap:wrap}
+.num{background:var(--red);color:#fff;width:26px;height:26px;border-radius:50%;
+display:grid;place-items:center;font-weight:700;font-size:14px;flex:0 0 auto}
+.step .name{font-weight:700;font-size:16px}
+.tag{font-size:11.5px;color:var(--dim);border:1px solid var(--line);
+border-radius:999px;padding:2px 9px;margin-left:auto;white-space:nowrap}
+.step .note{color:var(--dim);font-size:14px;margin:8px 0 11px}
+pre{background:#000;border:1px solid var(--line);border-radius:9px;
+padding:13px 14px;margin:0;overflow-x:auto;
+font:13px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;color:#d7f7ff;
+white-space:pre-wrap;word-break:break-all}
+.copy{display:block;width:100%;margin-top:9px;background:var(--red);color:#fff;
+border:0;border-radius:9px;padding:11px;font-size:14.5px;font-weight:700;
+cursor:pointer;font-family:inherit}
+.copy:active{transform:scale(.99)}
+.copy.done{background:var(--green);color:#04140b}
+table{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);
+vertical-align:top}
+th{color:var(--dim);font-weight:600;font-size:12.5px;text-transform:uppercase;
+letter-spacing:.4px}
+.f{color:var(--dim);font-size:13px;margin-top:44px;
+border-top:1px solid var(--line);padding-top:16px}
+ul{padding-left:20px;color:var(--dim);font-size:14.5px}
+li{margin:4px 0}
+li code{color:var(--cyan);font-size:13px}
+@media(max-width:600px){h1{font-size:24px}body{padding:20px 13px 70px}
+.tag{margin-left:0;width:100%;text-align:center}}
+</style></head><body><div class='wrap'><h1>Firebean <span class='bean'>Hermes</span> 升級包</h1><div class='sub'><span class='badge'>v0.22.2 → v0.23.0</span><span class='badge'>Hearth Release</span>2026-11-07 ・每一步都係一段，複製即貼，<b>唔需要改任何一行</b>。</div><h2>✅ 我已經幫你做好（你唔需要理）</h2><div class='card ok'><div class='t'>MCP bridge 已改到新舊版都食</div><p>我改咗 <code>hermes-mcp-bridge/start-bridge.sh</code>：會自動探測 <code>mcp-serve</code>（v0.23 新名）定 <code>mcp serve</code>（舊名），舊版唔夠就自動裝 <code>mcp-serve</code> plugin。已重啟 bridge 並通過公開端點實測。→ <b>你唔需要做任何事。</b></p></div><div class='card ok'><div class='t'>session db 會自動壓縮</div><p>已建立排程 <code>ad29099a1fe2</code>（每 30 分鐘檢查）。一偵測到版本 ≥ v0.23.0 而且 <code>state.db</code> ≥ 1.2 GB，就會自動安全壓縮（2.1 GB 應該細一大截），完成後直接私訊你。舊版會自動略過、完全靜音。</p></div><div class='card ok'><div class='t'>cron 交付已修好</div><p><code>d3954244</code>（每日 09:00 Apex 掃描）一直交付去 WhatsApp，而 WhatsApp 未 configure，所以<b>每日都靜默失敗</b>。已改成送去 <b>#apex-variety-show</b>，明早 09:00 開始收到。</p></div><h2>🛠 你要做嘅（兩行，貼落主機 terminal）</h2><div class='card warn'><div class='t'>先確認你喺正確地方</div><p>一定要喺 <b>Hostinger VPS 主機</b>（提示符顯示 <code>root@srv1859922:~#</code>），<b>唔係</b>喺 Hermes 容器裡面、亦唔係 Discord。貼錯地方 script 會安全地拒絕並提示你，唔會做壞事。</p></div><div class="step">
+  <div class="head"><div class="num">1</div><div class="name">第一階段：準備（全程零停機）</div>
+  <div class="tag">主機 terminal</div></div>
+  <div class="note">備份舊 image → 寫 Dockerfile → 下載官方 v0.23.0 → 建置 → 預檢版本。跑完之後容器<b>仍然係舊版正常運作</b>，Discord 唔會斷。約 3-8 分鐘。</div>
+  <pre id="cmd1">bash /var/lib/docker/volumes/hermes-workspace-gyfc_hermes-agent-data/_data/hermes-upgrade/run-upgrade.sh</pre>
+  <button class="copy" onclick="cp(this,'cmd1')">📋 複製呢段</button>
+</div><div class="step">
+  <div class="head"><div class="num">2</div><div class="name">第二階段：重建 + 驗證</div>
+  <div class="tag">主機 terminal</div></div>
+  <div class="note">只有第一階段成功才跑。會重建容器，<b>Discord 斷約 1-2 分鐘</b>，有 10 秒倒數可以 Ctrl-C。完成會自己印出新版本號。</div>
+  <pre id="cmd2">bash /var/lib/docker/volumes/hermes-workspace-gyfc_hermes-agent-data/_data/hermes-upgrade/run-upgrade.sh --go</pre>
+  <button class="copy" onclick="cp(this,'cmd2')">📋 複製呢段</button>
+</div><div class='card ok'><div class='t'>要回滾？</div><p>跑下面呢段就一秒回到 v0.22.2。<pre id='cmdR' style='margin-top:10px'>bash /var/lib/docker/volumes/hermes-workspace-gyfc_hermes-agent-data/_data/hermes-upgrade/run-upgrade.sh --rollback</pre><button class='copy' onclick="cp(this,'cmdR')">📋 複製呢段</button></p></div><details style='margin-top:18px'><summary style='cursor:pointer;color:#9a9aa8;font-size:14.5px;padding:8px 0'>▸ 唔想用 script？喺呢度展開手動 5 步</summary><div class="step">
+  <div class="head"><div class="num">m0</div><div class="name">備份現有 image（回滾保險）</div>
+  <div class="tag">主機 shell</div></div>
+  <div class="note">先跑，確保可以一秒 rollback。</div>
+  <pre id="m0">docker tag hermes-apollo-voice:latest hermes-apollo-voice:pre-v0230-rollback</pre>
+  <button class="copy" onclick="cp(this,'m0')">📋 複製呢段</button>
+</div><div class="step">
+  <div class="head"><div class="num">m1</div><div class="name">寫入新 Dockerfile</div>
+  <div class="tag">主機 shell</div></div>
+  <div class="note">由網頁直接內嵌，唔需要你改任何一行。</div>
+  <pre id="m1">mkdir -p /tmp/hermes-build &amp;&amp; echo &#x27;IyA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0KIyAgSGVybWVzIEFwb2xsbyBWb2ljZSDigJQgZGVyaXZlZCBpbWFnZQojICBCYXNlOiBvZmZpY2lhbCBIZXJtZXMgQWdlbnQgaW1hZ2UgKHBpbm5lZCBzbyB1cGRhdGVzIGFyZSByZXByb2R1Y2libGUpCiMgIEFkZHM6IGZmbXBlZyAvIGxpYm9wdXMgLyBweXRob24zLXBpcCArIGRpc2NvcmQucHlbdm9pY2VdLAojICAgICAgICBmYXN0ZXItd2hpc3BlciwgZWRnZS10dHMgICh2b2ljZSAvIFRUUyAvIFNUVCBmZWF0dXJlcykKIwojICB2MC4yMy4wIChIZWFydGgpIHVwZ3JhZGUg4oCUIDIwMjYtMTEtMDcKIyAgICBGUk9NIHRhZyBidW1wZWQgdjAuMjIuMiAtPiB2MC4yMy4wLgojICAgIE5PVEU6IHYwLjIzLjAgYWxyZWFkeSBidW5kbGVzIHRtdXggKyBPZmZpY2UvUERGIGxpYnJhcmllcywgc28gdGhlCiMgICAgYXB0IGxheWVyIGJlbG93IGlzIG5vdyBtb3N0bHkgcmVkdW5kYW50IGJ1dCBoYXJtbGVzcyAoYW5kIGtlZXBzIHRoZQojICAgIGJ1aWxkIGlkZW50aWNhbCBpZiB5b3Ugcm9sbCB0aGUgdGFnIGJhY2spLgojCiMgIEhPVyBUTyBVUERBVEUgKG5leHQgdGltZSk6CiMgICAgMS4gY2hhbmdlIHRoZSB0YWcgb24gdGhlIEZST00gbGluZSBiZWxvdwojICAgIDIuIGRvY2tlciBwdWxsIG5vdXNyZXNlYXJjaC9oZXJtZXMtYWdlbnQ6PG5ldy10YWc+CiMgICAgMy4gZG9ja2VyIGJ1aWxkIC1mIERvY2tlcmZpbGUuaGVybWVzLWFwb2xsby12b2ljZSAtdCBoZXJtZXMtYXBvbGxvLXZvaWNlOmxhdGVzdCAuCiMgICAgNC4gY2QgL2RvY2tlci9oZXJtZXMtd29ya3NwYWNlLWd5ZmMgJiYgZG9ja2VyIGNvbXBvc2UgdXAgLWQgLS1mb3JjZS1yZWNyZWF0ZQojCiMgIFRhZyBoaXN0b3J5OiB2MC4yMi4yICgyMDI2LTA5LTI0KSA8LSBwcmV2aW91cwojICAgICAgICAgICAgICAgbGF0ZXN0ICAocmVzb2x2ZWQgdG8gdjAuMjAuMSwgcHVsbGVkIDIwMjYtMDgtMTMpCiMgPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09CkZST00gbm91c3Jlc2VhcmNoL2hlcm1lcy1hZ2VudDp2MC4yMy4wClVTRVIgcm9vdApSVU4gYXB0LWdldCB1cGRhdGUgJiYgREVCSUFOX0ZST05URU5EPW5vbmludGVyYWN0aXZlIGFwdC1nZXQgaW5zdGFsbCAteSAtLW5vLWluc3RhbGwtcmVjb21tZW5kcyBweXRob24zLXBpcCBmZm1wZWcgbGlib3B1czAgJiYgcm0gLXJmIC92YXIvbGliL2FwdC9saXN0cy8qClJVTiAvdXNyL2Jpbi9weXRob24gLW0gcGlwIGluc3RhbGwgLS1icmVhay1zeXN0ZW0tcGFja2FnZXMgLS1uby1jYWNoZS1kaXIgImRpc2NvcmQucHlbdm9pY2VdIiBmYXN0ZXItd2hpc3BlciBlZGdlLXR0cwo=&#x27; | base64 -d &gt; /tmp/hermes-build/Dockerfile.hermes-apollo-voice.v0230</pre>
+  <button class="copy" onclick="cp(this,'m1')">📋 複製呢段</button>
+</div><div class="step">
+  <div class="head"><div class="num">m2</div><div class="name">下載 + 建置新 image</div>
+  <div class="tag">主機 shell</div></div>
+  <div class="note">拉官方 v0.23.0，再疊加你嘅 voice 套件（ffmpeg / whisper / edge-tts）。約 3-8 分鐘。</div>
+  <pre id="m2">docker pull nousresearch/hermes-agent:v0.23.0 &amp;&amp; docker build -f /tmp/hermes-build/Dockerfile.hermes-apollo-voice.v0230 -t hermes-apollo-voice:v0.23.0 -t hermes-apollo-voice:latest /tmp/hermes-build</pre>
+  <button class="copy" onclick="cp(this,'m2')">📋 複製呢段</button>
+</div><div class="step">
+  <div class="head"><div class="num">m3</div><div class="name">重建容器</div>
+  <div class="tag">主機 shell</div></div>
+  <div class="note">呢一步會重啟 gateway 同 17 個 profile，Discord 會有約 1-2 分鐘斷線。</div>
+  <pre id="m3">cd /docker/hermes-workspace-gyfc &amp;&amp; docker compose up -d --force-recreate</pre>
+  <button class="copy" onclick="cp(this,'m3')">📋 複製呢段</button>
+</div><div class="step">
+  <div class="head"><div class="num">m4</div><div class="name">驗證版本</div>
+  <div class="tag">主機 shell</div></div>
+  <div class="note">應該印出 v0.23.0。</div>
+  <pre id="m4">cd /docker/hermes-workspace-gyfc &amp;&amp; docker compose ps &amp;&amp; docker exec &quot;$(docker compose ps -q | head -1)&quot; /opt/hermes/bin/hermes --version</pre>
+  <button class="copy" onclick="cp(this,'m4')">📋 複製呢段</button>
+</div></details><h2>📋 升級後自查（1 分鐘）</h2><ul><li>Discord 應該約 1-2 分鐘後回復正常。</li><li>喺 <b>#synthesizer</b> 問我一句「升級好未」，我會實測版本、MCP bridge、31 個 cron、WhatsApp bridge 逐項報你。</li><li>完成壓縮後我會主動私訊你報告回收幾多空間。</li></ul><h2>↩️ 回滾（出問題先跑）</h2><div class="step">
+  <div class="head"><div class="num">R</div><div class="name">一秒回到 v0.22.2</div>
+  <div class="tag">主機 terminal</div></div>
+  <div class="note">第一階段已經幫舊 image 貼咗 <code>pre-v0230-rollback</code> 名牌，所以呢段可以完全還原。</div>
+  <pre id="cmdRoll">bash /var/lib/docker/volumes/hermes-workspace-gyfc_hermes-agent-data/_data/hermes-upgrade/run-upgrade.sh --rollback</pre>
+  <button class="copy" onclick="cp(this,'cmdRoll')">📋 複製呢段</button>
+</div><h2>⚠️ 影響對照</h2><table><tr><th>項目</th><th>升級前風險</th><th>現況</th></tr><tr><td>MCP bridge 斷線</td><td>🔴 原本必斷</td><td>✅ 已修（自動探測 + 自我修復）</td></tr><tr><td>session 自動清理停用</td><td>🟡 靜默惡化</td><td>✅ 已加自動壓縮排程</td></tr><tr><td>Desktop app 開唔到</td><td>🟡 只影響 Desktop</td><td>需 macOS 13+，唔影響 Discord / cron</td></tr><tr><td>gateway stop/restart 新限制</td><td>🟢 唔關你事</td><td>你用 s6-svc 重啟，唔行呢條路</td></tr><tr><td>內建 skills 縮減</td><td>🟢 零影響</td><td>你嘅 skills 喺 /opt/data/skills</td></tr><tr><td>舊 browser_* 工具移除</td><td>🟢 零影響</td><td>你已用 browser_exec</td></tr></table><div class='f'>由 Hermes Apollo 生成 ・ 2026-11-07 ・ 完整技術評估：<code>/opt/data/hermes-upgrade/impact-20261107-v0222-to-v0230.md</code><br>呢一頁只放喺 staging，唔會上生產 firebean.net。</div></div><script>
+function cp(btn,id){
+  const t=document.getElementById(id).innerText;
+  const fin=()=>{btn.textContent='\u2713 已複製';btn.classList.add('done');
+    setTimeout(()=>{btn.textContent='\uD83D\uDCCB 複製呢段';btn.classList.remove('done')},1900)};
+  if(navigator.clipboard&&window.isSecureContext){
+    navigator.clipboard.writeText(t).then(fin).catch(()=>fallback(t,fin));
+  } else { fallback(t,fin); }
+}
+function fallback(t,cb){
+  const a=document.createElement('textarea');a.value=t;
+  a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);
+  a.select();try{document.execCommand('copy');cb()}catch(e){alert('請長按選取複製')}
+  document.body.removeChild(a);
+}
+</script></body></html>

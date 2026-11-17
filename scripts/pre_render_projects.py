@@ -37,6 +37,73 @@ SITE = 'https://firebean.net'
 PROJECT_CANONICAL = SITE + '/projects/'
 PROJECT_PAGE = SITE + '/projects/%s.html'
 
+# Self-contained brand styling for the pre-rendered project pages.
+# Fonts come from Google Fonts with system fallbacks; everything else is inline so
+# a CDN outage or a blocked stylesheet can never leave these pages unstyled.
+STYLE_BLOCK = '''<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0a0a0a;--panel:#121212;--ink:#f4f4f4;--red:#ff3333;--muted:#9a9a9a;--line:#232323}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--black);color:var(--ink);font:400 16px/1.75 Inter,system-ui,-apple-system,"Helvetica Neue",Arial,"Noto Sans TC","PingFang HK",sans-serif;letter-spacing:.01em;-webkit-font-smoothing:antialiased}
+a{color:var(--red);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.sitebar{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.88);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.sitebar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+.brand{font-family:Anton,Impact,sans-serif;font-size:21px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);line-height:1}
+.brand b{color:var(--red);font-weight:400}
+.sitebar nav{display:flex;gap:22px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:500}
+.sitebar nav a{color:var(--muted)}
+.sitebar nav a:hover{color:var(--ink);text-decoration:none}
+@media(max-width:640px){.sitebar nav a:not(:last-child){display:none}}
+.crumb{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:26px 0 0}
+.crumb a{color:var(--muted)}
+.crumb a:hover{color:var(--red)}
+.hero{margin:24px 0 0;border-radius:14px;overflow:hidden;background:var(--panel);border:1px solid var(--line)}
+.hero img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+.eyebrow{margin:36px 0 12px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--red);font-weight:500}
+h1{font-family:Oswald,Anton,Impact,sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(30px,5vw,58px);line-height:1.02;letter-spacing:-.01em;margin:0 0 20px}
+h2{font-family:Oswald,Impact,sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(17px,2.2vw,23px);letter-spacing:.05em;margin:0 0 14px}
+h3{font-size:15.5px;margin:24px 0 6px;color:var(--ink);font-weight:600}
+.grid{display:grid;gap:40px;grid-template-columns:minmax(0,1fr);margin:6px 0 0}
+@media(min-width:900px){.grid{grid-template-columns:270px minmax(0,1fr);align-items:start;gap:56px}}
+.meta{position:sticky;top:88px;border:1px solid var(--line);border-radius:12px;padding:22px;background:var(--panel)}
+.meta dl{margin:0}
+.meta dt{color:var(--muted);letter-spacing:.16em;text-transform:uppercase;font-size:10px;margin:16px 0 3px}
+.meta dt:first-child{margin-top:0}
+.meta dd{margin:0;font-size:14px;line-height:1.5}
+.prose{font-size:16.5px}
+.prose p{margin:0 0 16px;color:#dedede}
+.prose ul,.prose ol{margin:0 0 16px;padding-left:22px;color:#dedede}
+.prose li{margin:0 0 8px}
+.wp-block-image,.wp-caption{margin:22px 0}
+.wp-block-image img,.prose img{border-radius:10px;height:auto}
+section{margin:0 0 36px}
+.gallery{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.gallery img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:10px;border:1px solid var(--line)}
+.faq{border-top:1px solid var(--line);padding-top:26px}
+.faq h3{color:var(--red);font-size:14.5px;letter-spacing:.02em;margin:20px 0 4px}
+.faq p{color:#c9c9c9;margin:0}
+.cta-row{margin:34px 0 0}
+.cta{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:999px;background:var(--red);color:#0a0a0a;font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:12.5px;border:none}
+.cta:hover{text-decoration:none;opacity:.88}
+.cta.ghost{background:transparent;color:var(--ink);border:1px solid var(--line);margin-left:10px}
+@media(max-width:520px){.cta.ghost{margin:12px 0 0}}
+.related{border-top:1px solid var(--line);padding-top:26px}
+.related ul{list-style:none;padding:0;margin:0;display:grid;gap:0}
+.related li{border-bottom:1px solid var(--line);padding:12px 0;font-size:14px;color:var(--muted)}
+.related li a{color:var(--ink)}
+.related li a:hover{color:var(--red)}
+footer{border-top:1px solid var(--line);margin-top:60px;padding:34px 0 64px;font-size:12.5px;color:var(--muted);letter-spacing:.02em}
+footer a{color:var(--muted)}
+footer a:hover{color:var(--red)}
+footer p{margin:0 0 8px}
+</style>'''
+
 START = '<!-- AUTO-GENERATED:PROJECTS:START -->'
 END = '<!-- AUTO-GENERATED:PROJECTS:END -->'
 ROV_START = '<!-- AUTO-GENERATED:ROVING:START -->'
@@ -222,26 +289,47 @@ for proj in projects:
         except Exception:
             pass
 
+    # Styles are INLINED on purpose. These pages are the share targets for
+    # Dickson's LinkedIn posts, and they originally shipped with no CSS at all —
+    # a reader clicking the link landed on unstyled browser-default text, which
+    # he reported as "the design elements are missing". A CDN stylesheet can also
+    # fail or be blocked; an inline block cannot.
+    lines.append(STYLE_BLOCK)
     lines.append('</head>')
     lines.append('<body>')
     # Crawlable link graph: without an internal link path the 107 static project pages are
     # sitemap-only orphans and Google reports them as "URL is unknown" / "Discovered - not indexed".
-    lines.append(f'<nav aria-label="Breadcrumb"><p><a href="{SITE}/">Firebean Home</a> &rsaquo; '
+    lines.append('<header class="sitebar"><div class="wrap">')
+    lines.append(f'<a class="brand" href="{SITE}/">FIRE<b>BEAN</b></a>')
+    lines.append('<nav>'
+                 f'<a href="{SITE}/work.html">Work</a>'
+                 f'<a href="{SITE}/projects/">All Projects</a>'
+                 f'<a href="{SITE}/roving-exhibitions/">Roving Exhibitions</a>'
+                 f'<a href="{SITE}/#contact">Contact</a>'
+                 '</nav>')
+    lines.append('</div></header>')
+    lines.append('<main class="wrap">')
+    lines.append(f'<nav class="crumb" aria-label="Breadcrumb">'
+                 f'<a href="{SITE}/">Firebean Home</a> &rsaquo; '
                  f'<a href="{SITE}/work.html">Work</a> &rsaquo; '
-                 f'<a href="{SITE}/projects/">All Projects</a> &rsaquo; {esc(name)}</p></nav>')
-    lines.append('<article>')
+                 f'<a href="{SITE}/projects/">All Projects</a> &rsaquo; {esc(name)}</nav>')
     if hero:
-        lines.append(f'<figure><img src="{esc(hero)}" alt="{esc(name)} — {esc(client)}" '
-                     'loading="eager" decoding="async" style="max-width:100%;height:auto;aspect-ratio:3/2">'
+        lines.append(f'<figure class="hero"><img src="{esc(hero)}" '
+                     f'alt="{esc(name)} — {esc(client)}" loading="eager" decoding="async">'
                      '</figure>')
+    lines.append(f'<p class="eyebrow">{esc(category)}</p>')
     lines.append(f'<h1>{esc(name)}</h1>')
-    lines.append(f'<p><strong>Client:</strong> {esc(client)}</p>')
-    lines.append(f'<p><strong>Project ID:</strong> {esc(pid)}</p>')
-    lines.append(f'<p><strong>Category:</strong> {esc(category)}</p>')
-    lines.append(f'<p><strong>Date:</strong> {esc(sort_date)}</p>')
+    lines.append('<div class="grid">')
+    lines.append('<aside class="meta"><dl>')
+    lines.append(f'<dt>Client</dt><dd>{esc(client)}</dd>')
+    lines.append(f'<dt>Project ID</dt><dd>{esc(pid)}</dd>')
+    lines.append(f'<dt>Category</dt><dd>{esc(category)}</dd>')
+    lines.append(f'<dt>Date</dt><dd>{esc(sort_date)}</dd>')
     if venue:
-        lines.append(f'<p><strong>Venue:</strong> {esc(venue)}</p>')
-    lines.append(f'<p><strong>Scope:</strong> {esc(scope)}</p>')
+        lines.append(f'<dt>Venue</dt><dd>{esc(venue)}</dd>')
+    lines.append(f'<dt>Scope</dt><dd>{esc(scope)}</dd>')
+    lines.append('</dl></aside>')
+    lines.append('<article class="prose">')
 
     if web_en:
         lines.append('<section><h2>English</h2>')
@@ -257,15 +345,15 @@ for proj in projects:
         lines.append('</section>')
 
     if gallery:
-        lines.append('<section><h2>Gallery</h2>')
+        lines.append('<section><h2>Gallery</h2><div class="gallery">')
         for i, g in enumerate(gallery[:6], 1):
             gsrc = g if g.startswith('http') else SITE + '/' + g.lstrip('/')
             lines.append(f'<img src="{esc(gsrc)}" alt="{esc(name)} — photo {i}" loading="lazy" '
-                         'decoding="async" style="max-width:100%;height:auto;aspect-ratio:3/2">')
-        lines.append('</section>')
+                         'decoding="async">')
+        lines.append('</div></section>')
 
     if faqs and isinstance(faqs, list):
-        faq_html = '<section><h2>FAQ</h2>'
+        faq_html = '<section class="faq"><h2>FAQ</h2>'
         any_faq = False
         for faq in faqs:
             if faq.get('q') and faq.get('a'):
@@ -275,19 +363,31 @@ for proj in projects:
         if any_faq:
             lines.append(faq_html)
 
+    lines.append('<div class="cta-row">')
+    lines.append(f'<a class="cta" href="{CANONICAL_BASE}{pid}">View interactive profile</a>')
+    lines.append(f'<a class="cta ghost" href="{SITE}/projects/">All projects</a>')
+    lines.append('</div>')
+    lines.append('</article>')
+    lines.append('</div>')  # /grid
+
     related = [r for r in _by_cat.get(category, []) if r.get('projectId') != pid][:4]
     if related:
-        lines.append('<section><h2>More ' + esc(category) + ' projects</h2><ul>')
+        lines.append('<section class="related"><h2>More ' + esc(category) + ' projects</h2><ul>')
         for r in related:
             rname = r.get('projectName', '')
             lines.append(f'<li><a href="{PROJECT_PAGE % (r.get("projectId") or "").lower()}">'
                          f'{esc(rname)}</a> — {esc(r.get("client", ""))}</li>')
         lines.append('</ul></section>')
+    lines.append('</main>')
 
-    lines.append(f'<p><a href="{CANONICAL_BASE}{pid}">View full profile with images on firebean.net</a></p>')
-    lines.append(f'<p><a href="{SITE}/projects/">All projects</a> · <a href="{SITE}/work.html">Work</a> · '
-                 f'<a href="{SITE}/">Firebean Home</a></p>')
-    lines.append('</article>')
+    lines.append('<footer><div class="wrap">')
+    lines.append('<p><strong style="color:#f4f4f4;letter-spacing:.14em;font-family:Oswald,sans-serif">'
+                 'FIREBEAN</strong> — PR, branding and event production in Hong Kong since 2007.</p>')
+    lines.append(f'<p><a href="{SITE}/">Home</a> · <a href="{SITE}/work.html">Work</a> · '
+                 f'<a href="{SITE}/projects/">All Projects</a> · '
+                 f'<a href="{SITE}/roving-exhibitions/">Roving Exhibitions</a></p>')
+    lines.append(f'<p><a href="{CANONICAL_BASE}{pid}">View this project on firebean.net</a></p>')
+    lines.append('</div></footer>')
     lines.append('</body>')
     lines.append('</html>')
 

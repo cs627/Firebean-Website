@@ -409,7 +409,7 @@ The `data/projects.json` file contains all project data in this format:
       "webJP": "<h2>チャレンジ</h2><p>限られた予算で高い影響...</p><h2>ソリューション</h2><p>創造的なアプローチ...</p>",
       "faqEN": "Q: What was the scope?\nA: Full event production and social media campaign\nQ: How many people attended?\nA: Over 500 participants",
       "faqTC": "Q: 範圍是什麼?\nA: 完整活動製作和社交媒體活動\nQ: 有多少人參加?\nA: 超過500人",
-      "faqJP": "Q: スコープは?\nA: 完全なイベント制作とソーシャルメディアキャンペーン\nQ: 参加者数は?\nA: 500人以上",
+      "faqJP": "Q: スコープは?\nA: 完全なイベント制作とソーシャルメディアキャンペーン\nQ: 參加者數は?\nA: 500人以上",
       "youtube": "https://youtube.com/watch?v=...",
       "sortDate": "2026-03-14",
       "heroPhoto": "data/images/FB2026001-hero.webp",

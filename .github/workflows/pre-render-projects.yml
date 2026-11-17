@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'data/projects.json'
+      - 'profile.html'
   workflow_dispatch:
 
 jobs:
@@ -21,17 +22,20 @@ jobs:
           python-version: '3.11'
 
       - name: Run pre-render
-        run: python3 scripts/pre_render_projects.py
+        run: |
+          python3 scripts/pre_render_projects.py
+          python3 scripts/pre_render_profiles.py
 
       - name: Commit generated pages
         run: |
           git config user.name "firebean-bot"
           git config user.email "bot@firebean.net"
-          git add projects/ sitemap.xml llms.txt llms-full.txt roving-exhibitions/ index.html work.html
+          git add projects/ profile/ sitemap.xml llms.txt llms-full.txt roving-exhibitions/ index.html work.html
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
             count=$(ls projects/fb*.html 2>/dev/null | wc -l)
-            git commit -m "Auto-generate ${count} static project pages + sitemap + llms index (GEO)"
+            profiles=$(ls profile/fb*.html 2>/dev/null | wc -l)
+            git commit -m "Auto-generate ${count} static project pages + ${profiles} shareable profile pages + sitemap + llms index (GEO)"
             git push
           fi
