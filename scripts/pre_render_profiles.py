@@ -105,9 +105,15 @@ def build_page(tpl, proj):
     for rel in ('src/', 'data/'):
         page = page.replace(f'src="{rel}', f'src="/{rel}')
     page = page.replace('href="projects/', 'href="/projects/')
+    # Navigational links too: from /profile/ a bare "index.html" resolves to
+    # /profile/index.html and 404s, taking the site menu with it.
+    page = page.replace('href="index.html', 'href="/index.html')
+    # hreflang alternates must point at THIS page, not the generic profile.
+    page = re.sub(r'(<link\s+rel="alternate"\s+hreflang="[^"]+"\s+href=")[^"]*(")',
+                  lambda m: m.group(1) + url + m.group(2), page)
 
     # Guard: nothing may still point at a path that breaks from /profile/.
-    for bad in ('src="src/', 'src="data/', 'href="projects/'):
+    for bad in ('src="src/', 'src="data/', 'href="projects/', 'href="index.html'):
         if bad in page:
             raise RuntimeError(f'unrewritten relative path survived: {bad}')
 

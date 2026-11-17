@@ -12,10 +12,25 @@
 
   var JSON_URL = BASE_PATH + 'data/projects.json';
 
+  // Profile pages come in two shapes:
+  //   /profile.html?id=<id>        — the canonical interactive page
+  //   /profile/<id>.html           — pre-generated share copies with static og:*
+  //                                  tags (scripts/pre_render_profiles.py)
+  // Anything that used to test for "/profile.html" must accept both, or the
+  // share copies silently lose their JSON-LD schema.
+  function isProfilePage() {
+    return /\/profile(?:\.html|\/[^\/]+\.html)$/i.test(window.location.pathname);
+  }
+
+  function projectIdFromPath() {
+    var m = window.location.pathname.match(/\/profile\/([^\/]+)\.html$/i);
+    return m ? decodeURIComponent(m[1]) : null;
+  }
+
   // ── GEO: Inject JSON-LD schema for profile pages ──────────────────────
   function injectProfileSchema(project) {
     // Only run on profile pages with a valid project
-    if (!window.location.pathname.match(/\/profile\.html$/i)) return;
+    if (!isProfilePage()) return;
     if (!project || !project.projectId) return;
 
     // Build CreativeWork schema
@@ -166,9 +181,9 @@
         };
 
         // ── GEO: Inject schema for profile pages ──
-        if (window.location.pathname.match(/\/profile\.html$/i)) {
+        if (isProfilePage()) {
           var urlParams = new URLSearchParams(window.location.search);
-          var profileId = urlParams.get('id');
+          var profileId = urlParams.get('id') || projectIdFromPath();
           if (profileId) {
             var project = projects.find(function(p) {
               return p.projectId === profileId || p.id === profileId;
