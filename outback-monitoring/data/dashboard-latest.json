@@ -1,12 +1,12 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-11-17T17:03:19.370943+00:00",
+  "generatedAt": "2026-11-18T17:05:03.139538+00:00",
   "run": {
-    "runDate": "2026-11-18",
+    "runDate": "2026-11-19",
     "dateRange": {
       "from": "2025-06-09",
-      "to": "2026-11-18"
+      "to": "2026-11-19"
     },
     "alerts": [
       {
@@ -3927,6 +3927,30 @@
       "link": "https://www.rubytuesday.com.hk/promotions/",
       "branchCount": "9",
       "expansion": "維持 9 間分店；以酒精促銷延長 Happy Hour 停留時間，非擴張"
+    },
+    {
+      "date": "2026-11-19",
+      "competitor": "La Vache!",
+      "type": "推廣/優惠",
+      "title": "La Vache! 蘇豪店聯乘「AFTER 9」平台：星期一至四晚上 9 時後送 House Red 紅酒一杯（2026-11-01 至 11-30）",
+      "summary": "AFTER 9 官方優惠頁（2026-11-19 開原文核實，頁面條款原文）：「Complimentary Glass of La Vache! House Red Wine」——蘇豪店（48 Peel St）星期一至四晚上 9 時後堂食，每位送 La Vache! House Red 一杯；電子券有效期 2026-11-01 至 2026-11-30（含首尾兩日），須於落單前出示有效電子券頁、由店員輸入 4 位店舖碼核銷；加一以原價計算、不可與其他優惠同用。對 Outback 的意義：La Vache! 用「9 時後送酒」把營業尾段（21:00-23:00）变成第二個晚市時段，直接爭奪 Outback 銅鑼灣／中環一帶的夜宵鋸扒客；Outback 現行 Happy Hour 集中 15:00-18:30，21:00 後無對應誘因，屬時段空窗。",
+      "sentiment": "中性",
+      "source": "After 9（AFTER 9 官方餐飲優惠平台）",
+      "link": "https://www.after9hk.com/en/r/la-vache-soho/0-spend-and-get",
+      "branchCount": "5",
+      "expansion": "維持不變（與 2026-11-12 記錄的 5 間一致：中環交易廣場、蘇豪卑利街、山頂凌霄閣等；未見新增或結業）"
+    },
+    {
+      "date": "2026-11-19",
+      "competitor": "The Grill Room",
+      "type": "推廣/優惠",
+      "title": "The Grill Room KKday 90 分鐘和牛任食套餐續期至 2026-11-30：旺角／銅鑼灣免服務費，平日午市 HK$268/位",
+      "summary": "Jetso Hub HK 優惠頁（2026-11-19 開原文核實；頁面標示「最後更新：2 天前」，即約 2026-11-17）顯示 KKday 產品 535699 的 The Grill Room 90 分鐘和牛任食套餐「可享用日期：即日起至 2026-11-30」——旺角店免服務費（平日午市 HK$268/位；星期六日及公眾假期午市及晚市 HK$298/位）、銅鑼灣店免服務費（午市 HK$536/2 位、晚市 HK$596/2 位，即人均同為 $268/$298）；套餐含餐前小點，90 分鐘內無限追加安格斯烤牛肉、安格斯牛臀蓋、廚師精選和牛、是日意粉或飯、薯條及餐湯。與本表 2026-10-20 記錄（當時「憑券可用期至 2026-10-31」、其後 KKday 快閃結束）相比，屬優惠續期／新一輪開賣；今次列明只限旺角及銅鑼灣兩店，尖沙咀爵寓不在優惠名單。對 Outback 的意義：旺角雅蘭中心店與 Outback MOKO（彌敦道 193 號新世紀廣場）同區，$268 任食和牛＋免服務費持續壓住 Outback 旺角晚市的性價比定位。",
+      "sentiment": "中性",
+      "source": "Jetso Hub HK（轉載 KKday 優惠）",
+      "link": "https://jetsohubhk.com/the-grill-room%E5%92%8C%E7%89%9B%E4%BB%BB%E9%A3%9F%E5%84%AA%E6%83%A0",
+      "branchCount": "3（旺角雅蘭中心、銅鑼灣廣場二期、尖沙咀爵寓）",
+      "expansion": "維持不變（3 間；今次 KKday 優惠只覆蓋旺角及銅鑼灣兩店）"
     }
   ],
   "trend": [
