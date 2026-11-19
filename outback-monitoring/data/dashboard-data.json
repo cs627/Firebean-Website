@@ -1,20 +1,16 @@
 {
   "meta": {
-    "last_updated": "2026-11-18T01:01:31+08:00",
-    "total_records": 250,
+    "last_updated": "2026-11-20 01:0x",
+    "total_records": 251,
     "daily_avg": 2.6,
-    "date_range": "2025-06-09 → 2026-11-12",
+    "date_range": "2025-06-09 → 2026-11-17",
     "sources_checked": 29,
     "new_verified": 4,
     "coverage_ratio": "29/46",
     "negative_alerts": 38,
-    "positive_pct": 56
+    "positive_pct": 55
   },
   "trend": [
-    {
-      "date": "2026-10-31",
-      "count": 1
-    },
     {
       "date": "2026-11-02",
       "count": 2
@@ -38,6 +34,10 @@
     {
       "date": "2026-11-12",
       "count": 2
+    },
+    {
+      "date": "2026-11-17",
+      "count": 1
     }
   ],
   "source_breakdown": [
@@ -67,7 +67,7 @@
     },
     {
       "source": "U Food",
-      "count": 8
+      "count": 9
     },
     {
       "source": "LinkedIn",
@@ -104,7 +104,7 @@
   ],
   "sentiment": {
     "positive": 139,
-    "neutral": 66,
+    "neutral": 67,
     "negative": 38,
     "mixed": 7
   },
@@ -2858,6 +2858,17 @@
       "sentiment": "negative",
       "sentiment_label": "負面",
       "keywords": "Outback, Google Maps, 將軍澳, 將軍澳中心, 1星"
+    },
+    {
+      "date": "2026-11-17",
+      "source": "U Food",
+      "platform": "新聞媒體",
+      "title": "11月生日優惠2026｜U Food 35 個飲食推介收錄 Outback 生日獎賞（$88 現金券＋到會套餐 8 折）",
+      "summary": "【本日補獲：文章 2026-11-17 發佈】U Food「11月生日優惠2026｜35個飲食推介」第【27】項為 Outback（標題「Outback生日獎賞」）：會員凡消費滿 HK$400 可享 $88 現金優惠券，壽星另享外賣到會套餐 8 折優惠券（適用 8 位用或 16 位用自選到會套餐），優惠日期「即日起至另行通知」，地址列「Outback各分店」。此為品牌每月固定生日獎賞的 11 月版本，經第三方飲食媒體再度收錄，與本表 8 月（08-11／08-23）及 9 月（09-02）同系列記錄連續，條款與金額未見變動。對品牌的意義：生日獎賞已成為 U Food 每月自動收錄的固定欄目，屬零成本持續曝光；但條款與 8 月完全相同、11 月未見加碼，而在同一份 35 項比較列表中，同行多以「四人同行一人免費」「免費生日蛋糕」等即時可見的著數搶生日客，Outback 以「滿 HK$400 換 $88 券」的門檻相對高，吸引力取決於客人是否已有到訪計劃。",
+      "link": "https://ufood.com.hk/restaurant/news/detail/20046882/%E7%94%9F%E6%97%A5%E5%84%AA%E6%83%A0-%E7%94%9F%E6%97%A5%E9%A4%90%E5%BB%B3%E6%8E%A8%E4%BB%8B-%E7%94%9F%E6%97%A5%E5%85%8D%E8%B2%BB%E9%85%92%E5%BA%97%E8%87%AA%E5%8A%A9%E9%A4%90-%E7%94%9C%E5%93%81%E6%8B%BC%E7%9B%A4-%E7%94%9F%E6%97%A5%E8%9B%8B%E7%B3%95-%E7%8F%BE%E9%87%91%E5%88%B8-%E5%85%8D%E8%B2%BB%E9%87%A3%E8%9D%A6",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, 澳美客, 生日優惠"
     }
   ],
   "media_records": [
@@ -3718,6 +3729,17 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, 期間限定, 新菜單, INSIDE OUTBACK"
+    },
+    {
+      "date": "2026-11-17",
+      "source": "U Food",
+      "platform": "新聞媒體",
+      "title": "11月生日優惠2026｜U Food 35 個飲食推介收錄 Outback 生日獎賞（$88 現金券＋到會套餐 8 折）",
+      "summary": "【本日補獲：文章 2026-11-17 發佈】U Food「11月生日優惠2026｜35個飲食推介」第【27】項為 Outback（標題「Outback生日獎賞」）：會員凡消費滿 HK$400 可享 $88 現金優惠券，壽星另享外賣到會套餐 8 折優惠券（適用 8 位用或 16 位用自選到會套餐），優惠日期「即日起至另行通知」，地址列「Outback各分店」。此為品牌每月固定生日獎賞的 11 月版本，經第三方飲食媒體再度收錄，與本表 8 月（08-11／08-23）及 9 月（09-02）同系列記錄連續，條款與金額未見變動。對品牌的意義：生日獎賞已成為 U Food 每月自動收錄的固定欄目，屬零成本持續曝光；但條款與 8 月完全相同、11 月未見加碼，而在同一份 35 項比較列表中，同行多以「四人同行一人免費」「免費生日蛋糕」等即時可見的著數搶生日客，Outback 以「滿 HK$400 換 $88 券」的門檻相對高，吸引力取決於客人是否已有到訪計劃。",
+      "link": "https://ufood.com.hk/restaurant/news/detail/20046882/%E7%94%9F%E6%97%A5%E5%84%AA%E6%83%A0-%E7%94%9F%E6%97%A5%E9%A4%90%E5%BB%B3%E6%8E%A8%E4%BB%8B-%E7%94%9F%E6%97%A5%E5%85%8D%E8%B2%BB%E9%85%92%E5%BA%97%E8%87%AA%E5%8A%A9%E9%A4%90-%E7%94%9C%E5%93%81%E6%8B%BC%E7%9B%A4-%E7%94%9F%E6%97%A5%E8%9B%8B%E7%B3%95-%E7%8F%BE%E9%87%91%E5%88%B8-%E5%85%8D%E8%B2%BB%E9%87%A3%E8%9D%A6",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, 澳美客, 生日優惠"
     }
   ],
   "social_records": [
