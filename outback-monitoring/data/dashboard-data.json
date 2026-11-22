@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-11-20 01:05",
-    "total_records": 251,
+    "last_updated": "2026-11-23T01:01:12+08:00",
+    "total_records": 252,
     "daily_avg": 2.6,
     "date_range": "2025-06-09 → 2026-11-17",
     "sources_checked": 29,
@@ -11,10 +11,6 @@
     "positive_pct": 55
   },
   "trend": [
-    {
-      "date": "2026-11-02",
-      "count": 2
-    },
     {
       "date": "2026-11-03",
       "count": 1
@@ -36,6 +32,10 @@
       "count": 2
     },
     {
+      "date": "2026-11-15",
+      "count": 1
+    },
+    {
       "date": "2026-11-17",
       "count": 1
     }
@@ -43,7 +43,7 @@
   "source_breakdown": [
     {
       "source": "Google Maps",
-      "count": 57
+      "count": 58
     },
     {
       "source": "Threads",
@@ -104,7 +104,7 @@
   ],
   "sentiment": {
     "positive": 139,
-    "neutral": 67,
+    "neutral": 68,
     "negative": 38,
     "mixed": 7
   },
@@ -2869,6 +2869,17 @@
       "sentiment": "neutral",
       "sentiment_label": "中性",
       "keywords": "Outback, 澳美客, 生日優惠"
+    },
+    {
+      "date": "2026-11-15",
+      "source": "Google Maps (沙田新城市廣場三期)",
+      "platform": "地圖",
+      "title": "沙田顧客3星評價：黑糖麵包加分。炸洋葱都好食。其他正常啦。可以一試。",
+      "summary": "沙田分店 Google Maps 3星評論（3Y coolsummer，本星期）：黑糖麵包加分。炸洋葱都好食。其他正常啦。可以一試。",
+      "link": "https://www.google.com/maps/contrib/117664584619476611877/reviews",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, Google Maps, 沙田, 沙田新城市廣場三期, 3星"
     }
   ],
   "media_records": [
@@ -5634,6 +5645,17 @@
       "sentiment": "negative",
       "sentiment_label": "負面",
       "keywords": "Outback, Google Maps, 將軍澳, 將軍澳中心, 1星"
+    },
+    {
+      "date": "2026-11-15",
+      "source": "Google Maps (沙田新城市廣場三期)",
+      "platform": "地圖",
+      "title": "沙田顧客3星評價：黑糖麵包加分。炸洋葱都好食。其他正常啦。可以一試。",
+      "summary": "沙田分店 Google Maps 3星評論（3Y coolsummer，本星期）：黑糖麵包加分。炸洋葱都好食。其他正常啦。可以一試。",
+      "link": "https://www.google.com/maps/contrib/117664584619476611877/reviews",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, Google Maps, 沙田, 沙田新城市廣場三期, 3星"
     }
   ],
   "store_ranking": [

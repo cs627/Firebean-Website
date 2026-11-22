@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-15",
+  "items": [
+    {
+      "date": "2026-11-15",
+      "source": "Google Maps (沙田新城市廣場三期)",
+      "platform": "地圖",
+      "author": "3Y coolsummer",
+      "title": "沙田顧客3星評價：黑糖麵包加分。炸洋葱都好食。其他正常啦。可以一試。",
+      "summary": "沙田分店 Google Maps 3星評論（3Y coolsummer，本星期）：黑糖麵包加分。炸洋葱都好食。其他正常啦。可以一試。",
+      "link": "https://www.google.com/maps/contrib/117664584619476611877/reviews",
+      "sentiment": "neutral",
+      "tags": ""
+    }
+  ],
+  "alerts": [],
+  "trends": "",
+  "recommendations": [],
+  "coverage": {
+    "target_sources": 46,
+    "checked_sources": 1,
+    "new_records": 1,
+    "limitations": []
+  }
+}

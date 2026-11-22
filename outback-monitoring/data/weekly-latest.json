@@ -1,22 +1,6 @@
 {
-  "week": "2026-11-02 ~ 2026-11-17",
+  "week": "2026-11-03 ~ 2026-11-17",
   "items": [
-    {
-      "date": "2026-11-02",
-      "source": "Outback 官方網站",
-      "title": "官方公告：「感謝一路同行」尊尚會員專屬優惠 — 現有 Prestige 會員於 App 解鎖 3 張 75 折券（11/1–12/15 分三期使用）",
-      "summary": "Outback 香港官網最新消息新增文章 #243（繁中版，頁面標示「更新於: November 02, 2026」）：為答謝尊尚會員，所有現有 Prestige 會籍（新舊均可）可於 App 內解鎖 3 張 75 折券，分三期使用 — 第一期 11/01–11/15、第二期 11/16–11/30、第三期 12/01–12/15；即日起至 11 月 30 日新升級尊尚會籍（HK$488）額外加送 4 張 HK$100 迎新券及 1 張烤豬肋骨雞搥芝士薯條拼盤換領券。屬 10 月 20 日「Inside Outback」之後同月第二波會員推廣，針對既有會員的留存型優惠。",
-      "link": "https://www.outback.com.hk/news-and-promotions/article/243?lang=tc",
-      "sentiment": "positive"
-    },
-    {
-      "date": "2026-11-02",
-      "source": "Threads",
-      "title": "Threads 帖文：食客指 Outback 尖沙咀中心店「最出色始終係黑糖麵包」（422 次瀏覽）",
-      "summary": "Threads 用戶 the.food.fighter 於 2026-11-02 發帖：「間中食下 outback／Outback 最出色既始終都係佢嗰個黑糖麵包」，並附尖沙咀中心高層地下 UG23-28 號舖地址。全文只肯定招牌黑糖麥包，其餘菜式未提，語氣帶保留（😅），屬輕度混合評價。",
-      "link": "https://www.threads.com/@the.food.fighter/post/DfPmPR-mWyZ",
-      "sentiment": "mixed"
-    },
     {
       "date": "2026-11-03",
       "source": "Jetso101（著數101）",
@@ -66,6 +50,14 @@
       "sentiment": "negative"
     },
     {
+      "date": "2026-11-15",
+      "source": "Google Maps (沙田新城市廣場三期)",
+      "title": "沙田顧客3星評價：黑糖麵包加分。炸洋葱都好食。其他正常啦。可以一試。",
+      "summary": "沙田分店 Google Maps 3星評論（3Y coolsummer，本星期）：黑糖麵包加分。炸洋葱都好食。其他正常啦。可以一試。",
+      "link": "https://www.google.com/maps/contrib/117664584619476611877/reviews",
+      "sentiment": "neutral"
+    },
+    {
       "date": "2026-11-17",
       "source": "U Food",
       "title": "11月生日優惠2026｜U Food 35 個飲食推介收錄 Outback 生日獎賞（$88 現金券＋到會套餐 8 折）",
@@ -80,7 +72,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 9,
+    "new_records": 8,
     "limitations": []
   }
 }
