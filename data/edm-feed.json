@@ -1,5 +1,15 @@
 [
   {
+    "issue": "EDM_020",
+    "url": "https://firebean.net/edm/edm_EDM_020.html",
+    "title": "Better, Not Perfect: Why a Public Message Needs a Prototype, Not a Poster",
+    "subtitle": "A policy paper can be perfect and still fail in a lobby. The wording is argued over in committee, signed off, translated, printed — and then the first visitor walks in, stops four metres from the panel, reads nothing, and leaves. None of that is a copywriting problem. It is the height of the sign, the direction of the queue, the first question on the form, the object nobody wants to pick up. Design has known this for a century: version one is not a draft to be hidden, it is the instrument that tells you what the real thing is. deTour's theme this year is 'BETTER, NOT PERFECT: Prototypes for Tomorrow' — the prototype is honest in a way no finished deck can be. Public communication is close to the last discipline still sending finished work to its first rehearsal. What follows is not an argument for lowering the standard. It is an argument for testing in the room before you print.",
+    "desc": "Faulkner replayed the famous five-user claim as an experiment: 100 separate rounds of five users, drawn from a pool of 60, on one benchmark task. A single round of five found 85% of the problem areas ",
+    "photo": "https://raw.githubusercontent.com/cs627/Firebean-Website/main/assets/edm/EDM_020/s2_prototype.jpg",
+    "tag": "Design Iteration",
+    "type": "market-insight"
+  },
+  {
     "issue": "EDM_019",
     "url": "https://firebean.net/edm/edm_EDM_019.html",
     "title": "Play as Policy: Why Gamified Civic Education Works",
@@ -17,16 +27,6 @@
     "desc": "The most basic measure of engagement is time. Tracking visitors at a science centre, Sandifer found the average time spent per exhibit ran close to three times the 30-second average recorded at museum",
     "photo": "https://raw.githubusercontent.com/cs627/Firebean-Website/main/assets/edm/EDM_018/s2_market.jpg",
     "tag": "Experiential Design",
-    "type": "market-insight"
-  },
-  {
-    "issue": "EDM_017",
-    "url": "https://firebean.net/edm/edm_EDM_017.html",
-    "title": "Strategic Nudges: Small Prompts, Measurable Behaviour",
-    "subtitle": "The best nudge is not a louder message — it is a better-designed choice at the moment of decision. That one line separates two entirely different ways of changing behaviour. The loud way keeps adding pressure: more reminders, more urgency, more noise, all of it trying to change what people want. The designed way changes the decision itself — the form placed in their hand, the default already ticked, the sign standing exactly where they hesitate, the object given at the second it is needed. Nothing is demanded of anyone's willpower, and nothing has to be taken away from the experience. The right choice simply becomes easier to make than to avoid. Which is why the numbers on this page are not a story about persuasion. They are a story about design.",
-    "desc": "Governments stopped treating this as a communication trick a while ago. The OECD now tracks behavioural science teams sitting inside public bodies worldwide, because simply telling people what to do s",
-    "photo": "https://raw.githubusercontent.com/cs627/Firebean-Website/main/assets/edm/EDM_017/s2_nudge.jpg",
-    "tag": "Behavioural Design",
     "type": "market-insight"
   }
 ]
