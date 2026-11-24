@@ -1204,6 +1204,8 @@ var ZH = {
   "Reject": "拒絕",
   "Cancel": "取消",
   "Contract entitlement": "合約年假額",
+  "This compensation leave date was already applied for": "呢個補假日期之前已經申請過",
+  "A compensation leave day cannot be claimed twice \u2014 please pick another date.": "同一日唔可以申請兩次補假 —— 請改另一個日期。",
   "The event date must be earlier than the compensation leave date": "活動日一定要早過補假日期",
   "you cannot apply in advance for an event that has not happened yet": "未發生嘅活動唔可以預先申請補假",
   "This OT date has already been claimed for this same event": "呢個活動日已經用同一個活動申請過補假",
@@ -1960,6 +1962,21 @@ function updatePreview(){
   }
   if (type === 'Compensation Leave') {
     var otv = $('f-ot') ? $('f-ot').value : '';
+    // 補假日期重複：即時顯示，唔使等提交
+    if (s && e && S.data && S.data.requests) {
+      var rr = compClash(s, e, d);
+      if (rr) {
+        txt += '<br><span style="color:#ff3333"><b>' +
+          L('This compensation leave date was already applied for') + '</b>: ' +
+          esc(rr.start) + (rr.start !== rr.end ? (' \u2192 ' + esc(rr.end)) : '') +
+          ' \u00b7 ' + esc(L(rr.status)) + ' \u00b7 ref ' + esc(rr.id) +
+          (rr.eventName ? (' \u00b7 ' + esc(rr.eventName)) : '') + '<br>' +
+          L('A compensation leave day cannot be claimed twice \u2014 please pick another date.') + '</span>';
+        p.innerHTML = txt;
+        if (typeof i18nApply === 'function') i18nApply();
+        return;
+      }
+    }
     // 鐵律：活動日一定要早過補假第一日
     if (otv && s && !(otv < s)) {
       txt += '<br><span style="color:#ff3333"><b>' +
@@ -1992,6 +2009,26 @@ function updatePreview(){
   p.innerHTML = txt;
   if (typeof i18nApply === 'function') i18nApply();
 }
+/* 補假撞期檢查（前端，用頁面已內嵌嘅自己嘅申請紀錄） */
+function compClash(s, e, dur){
+  try {
+    var reqs = (S.data && S.data.requests) || [];
+    var a = new Date(s + 'T00:00:00').getTime();
+    var b = new Date(e + 'T00:00:00').getTime() + 86400000;
+    for (var i = 0; i < reqs.length; i++) {
+      var r = reqs[i];
+      if (r.type !== 'Compensation Leave') continue;
+      if (r.status !== 'Pending' && r.status !== 'Approved') continue;
+      var rs = new Date(String(r.start) + 'T00:00:00').getTime();
+      var re = new Date(String(r.end) + 'T00:00:00').getTime() + 86400000;
+      if (a < re && rs < b) {
+        return { id: r.id, status: r.status, start: r.start, end: r.end, eventName: r.eventName || '', otDate: r.otDate || '' };
+      }
+    }
+  } catch (x) {}
+  return null;
+}
+
 function workdays(s, e){
   var hol = (S.data && S.data.holidays) ? S.data.holidays : [];
   var d = new Date(s + 'T00:00:00'), end = new Date(e + 'T00:00:00'), n = 0;
@@ -2017,6 +2054,17 @@ function doSubmit(){
     eventName: $('ot-box').style.display !== 'none' ? $('f-event').value : ''
   };
   if (!payload.startDate || !payload.endDate) { toast('Please pick your dates', true); return; }
+
+  // 補假：同一個補假日期唔可以重複
+  if (payload.leaveType === 'Compensation Leave') {
+    var cc = compClash(payload.startDate, payload.endDate, payload.duration);
+    if (cc) {
+      toast(L('This compensation leave date was already applied for') + ': ' +
+            cc.start + (cc.start !== cc.end ? (' \u2192 ' + cc.end) : '') +
+            ' \u00b7 ' + L(cc.status) + ' \u00b7 ' + cc.id, true);
+      return;
+    }
+  }
 
   // 補假鐵律：活動日必須早過補假第一日
   if (payload.leaveType === 'Compensation Leave' && payload.otDate &&
