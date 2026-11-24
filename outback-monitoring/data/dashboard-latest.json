@@ -1,12 +1,12 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-11-23T17:04:38.809631+00:00",
+  "generatedAt": "2026-11-24T17:05:05.602446+00:00",
   "run": {
-    "runDate": "2026-11-24",
+    "runDate": "2026-11-25",
     "dateRange": {
       "from": "2025-06-09",
-      "to": "2026-11-24"
+      "to": "2026-11-25"
     },
     "alerts": [
       {
@@ -4009,6 +4009,18 @@
       "link": "https://www.wenweipo.com/a/202611/20/AP6affdb40e4b028ec0194d4f0.html",
       "branchCount": "5（太古城星輝臺、屯門市廣場、旺角朗豪坊等；OpenRice 現顯示全線 4 間，朗豪坊為第 5 間）",
       "expansion": "新增 1 間：旺角朗豪坊 2026-11-23 開業（第 5 間分店）"
+    },
+    {
+      "date": "2026-11-23",
+      "competitor": "180° Modern Fire Grill（中環雲咸街）",
+      "type": "推廣/優惠",
+      "title": "180° Modern Fire Grill 推出聖誕每位 HK$958／除夕每位 HK$888 套餐　以炭火直燒澳洲 O'Connor 西冷對打傳統扒房節慶菜單",
+      "summary": "已開原文核實（Yahoo 新聞 2026-11-23 轉載 men's reads〈聖誕及除夕餐飲精選｜Babette、Chouchou 與 180° Modern Fire Grill 菜單焦點〉，頁面內文標示 2026年11月23日）：中環雲咸街 43-55 號余悅禮行地下（G/F）的 180° Modern Fire Grill（HORA Hospitality Group 旗下，2026 年 9 月開業、單店）推出節慶套餐 —— 聖誕晚餐每位 HK$958：分享前菜（酸種麵包配 Cajun 焦香牛油、黑松露薯球、藍鰭吞拿魚配布拉塔芝士忌廉）、主菜香烤龍蝦尾配珍珠意粉、壓軸為威士忌醃製澳洲 O'Connor 西冷牛扒配黑松露汁及薯蓉，甜品白味噌焦香巴斯克芝士蛋糕；除夕每位 HK$888：松露牛肉他他、馬友魚刺身、法式朱古力蛋糕。同一篇報道同時刊出 Babette（中環南豐 Place，12/24-25 晚宴每位 HK$888）及 Chouchou（灣仔 J Residence，節日早午餐每位 HK$588、12/24-25 首輪 HK$1,088／次輪 HK$1,388）的節慶安排。官網 180hkg.com 現時仍只列「Opened on Wyndham st. SEPTEMBER 2026」及常設菜單，未上載節慶套餐頁；即節慶定價目前只由媒體／PR 稿披露。對 Outback 的意義：180° 以「1 人西冷主菜 + HK$888-958 全包套餐」切入節慶檔期，價位帶與 Outback 中環娛樂行店（人均 $201-400）之上的升級選擇重疊；而 Outback 官方網站截至今日（11-25）仍未公布任何聖誕／除夕套餐（最新公告停留在 11-12 新菜式），節慶菜單話語權暫時落後全港扒房對手。",
+      "sentiment": "中性",
+      "source": "Yahoo 新聞（轉載 men's reads）",
+      "link": "https://hk.news.yahoo.com/%E8%81%96%E8%AA%95%E5%8F%8A%E9%99%A4%E5%A4%95%E9%A4%90%E9%A3%B2%E7%B2%BE%E9%81%B8-babette-chouchou-%E8%88%87-180-060449649.html",
+      "branchCount": "1（中環雲咸街單店）",
+      "expansion": "2026-09 開業，單店經營；所屬 HORA Hospitality Group 另有 Babette（中環德輔道中南豐 Place）及 Chouchou（灣仔莊士敦道 J Residence）兩品牌，節慶套餐三店同步推"
     }
   ],
   "trend": [
