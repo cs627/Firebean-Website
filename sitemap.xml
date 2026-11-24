@@ -4,12 +4,16 @@
 
 
 
+
+
   <url>
     <loc>https://firebean.net/</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+
 
 
 
@@ -22,6 +26,8 @@
 
 
 
+
+
   <url>
     <loc>https://firebean.net/gov-engagement/</loc>
     <lastmod>2026-11-15</lastmod>
@@ -31,12 +37,16 @@
 
 
 
+
+
   <url>
     <loc>https://firebean.net/roving-exhibitions/</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+
+
 
 
 
@@ -49,6 +59,8 @@
 
 
 
+
+
   <url>
     <loc>https://firebean.net/enneagram/</loc>
     <lastmod>2026-11-15</lastmod>
@@ -57,12 +69,16 @@
   </url>
 
 
+
+
   <url>
     <loc>https://firebean.net/edm/</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+
+
 
 
 
@@ -75,12 +91,16 @@
 
 
 
+
+
   <url> <!-- Turning Policy into Participation: The Elections 2026 Strategy -->
     <loc>https://firebean.net/edm/edm_EDM_002.html</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+
 
 
 
@@ -93,12 +113,16 @@
 
 
 
+
+
   <url> <!-- The Human Touch: Authentic Public Engagement in the Digital Age 🤝 -->
     <loc>https://firebean.net/edm/edm_EDM_004.html</loc>
     <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+
 
 
 
@@ -111,12 +135,16 @@
 
 
 
+
+
   <url> <!-- Fortifying Public Trust: Imperative Data Privacy & Security in HK Government Eng -->
     <loc>https://firebean.net/edm/edm_EDM_006.html</loc>
     <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+
 
 
 
@@ -129,12 +157,16 @@
 
 
 
+
+
   <url> <!-- Heritage Meets Innovation: Lessons from ICH Month 2026 for Immersive Public Enga -->
     <loc>https://firebean.net/edm/edm_EDM_008.html</loc>
     <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+
 
 
 
@@ -147,12 +179,16 @@
 
 
 
+
+
   <url> <!-- Community-Led Events: When the Public Co-Creates, Everyone Shows Up -->
     <loc>https://firebean.net/edm/edm_EDM_010.html</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+
 
 
 
@@ -165,6 +201,8 @@
 
 
 
+
+
   <url> <!-- Amplifying Local Voices: Micro-Influencers Reshaping Hong Kong's Civic Conversat -->
     <loc>https://firebean.net/edm/edm_EDM_012.html</loc>
     <lastmod>2026-09-29</lastmod>
@@ -174,12 +212,16 @@
 
 
 
+
+
   <url> <!-- Cyber Gap: Digital Event Platforms Are Government's Softest Target -->
     <loc>https://firebean.net/edm/edm_EDM_013.html</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+
 
 
 
@@ -865,7 +907,7 @@
 
   <url>
     <loc>https://firebean.net/projects/</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
