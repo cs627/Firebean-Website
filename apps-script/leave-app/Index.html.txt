@@ -1204,6 +1204,14 @@ var ZH = {
   "Reject": "拒絕",
   "Cancel": "取消",
   "Contract entitlement": "合約年假額",
+  "This OT date has already been claimed for this same event": "呢個活動日已經用同一個活動申請過補假",
+  "This OT date was already used for another compensation claim": "呢個活動日之前已經用另一個活動申請過補假",
+  "a duplicate claim will be rejected": "重複申請會被拒絕",
+  "please make sure this is a separate event": "請確認係另一個活動",
+  "No previous compensation claim for this OT date": "呢個活動日之前未申請過補假",
+  "You already have a compensation claim for this OT date": "呢個活動日你已經有補假申請紀錄",
+  "If today is a different event, you can continue. Dickson will see both claims.": "如果今次係另一個活動可以繼續；Dickson 會見到兩份申請。",
+  "Continue?": "繼續？",
   "How the balance is calculated": "結餘係點計",
   "your contract gives": "合約每年",
   "days a year, accrued month by month": "日，按月累積",
@@ -1757,9 +1765,9 @@ function render(){
     '</div></div>' +
     '<div class="fld fld-wide"><div id="ot-box" style="display:none">' +
       '<label>OT Date (required)</label>' +
-      '<input type="date" id="f-ot">' +
+      '<input type="date" id="f-ot" oninput="updatePreview()">' +
       '<label>Event Name</label>' +
-      '<input type="text" id="f-event" placeholder="e.g. CMAB District Election \u2013 Lei Yue Mun">' +
+      '<input type="text" id="f-event" oninput="updatePreview()" placeholder="e.g. CMAB District Election \u2013 Lei Yue Mun">' +
     '</div></div>' +
     '<div class="fld"><label>Duration</label>' +
     '<select id="f-dur" onchange="onDurChange()">' +
@@ -1948,6 +1956,28 @@ function updatePreview(){
         ' \u00b7 ' + L('available to book now') + ': ' + num(bl.available) + ' ' + L('day(s)') + '</span>';
     }
   }
+  if (type === 'Compensation Leave') {
+    var otv = $('f-ot') ? $('f-ot').value : '';
+    var evv = $('f-event') ? String($('f-event').value || '').trim().toLowerCase() : '';
+    if (otv && S.data && S.data.requests) {
+      var hist = S.data.requests.filter(function (r) {
+        return r.type === 'Compensation Leave' && r.otDate === otv &&
+               r.status !== 'Rejected' && r.status !== 'Cancelled';
+      });
+      if (hist.length) {
+        var h0 = hist[0];
+        var same = evv && String(h0.eventName || '').trim().toLowerCase() === evv;
+        txt += '<br><span style="color:' + (same ? '#ff3333' : '#b45309') + '">' +
+          (same ? L('This OT date has already been claimed for this same event')
+                : L('This OT date was already used for another compensation claim')) +
+          ': ' + esc(h0.eventName || '\u2014') + ' \u00b7 ' + esc(L(h0.status)) + ' \u00b7 ref ' + esc(h0.id) +
+          (same ? ' \u2014 ' + L('a duplicate claim will be rejected') : ' \u2014 ' + L('please make sure this is a separate event')) +
+          '</span>';
+      } else {
+        txt += '<br><span style="color:#12864a">' + L('No previous compensation claim for this OT date') + '</span>';
+      }
+    }
+  }
   p.innerHTML = txt;
   if (typeof i18nApply === 'function') i18nApply();
 }
@@ -1976,6 +2006,29 @@ function doSubmit(){
     eventName: $('ot-box').style.display !== 'none' ? $('f-event').value : ''
   };
   if (!payload.startDate || !payload.endDate) { toast('Please pick your dates', true); return; }
+
+  // 補假：同一個活動日已有紀錄 → 先講清楚
+  if (payload.leaveType === 'Compensation Leave' && payload.otDate && S.data && S.data.requests) {
+    var evKey2 = String(payload.eventName || '').trim().toLowerCase();
+    var hist2 = S.data.requests.filter(function (r) {
+      return r.type === 'Compensation Leave' && r.otDate === payload.otDate &&
+             r.status !== 'Rejected' && r.status !== 'Cancelled';
+    });
+    var same2 = hist2.filter(function (r) {
+      return String(r.eventName || '').trim().toLowerCase() === evKey2;
+    });
+    if (same2.length) {
+      toast(L('This OT date has already been claimed for this same event') + ' \u2014 ' + same2[0].id, true);
+      return;
+    }
+    if (hist2.length) {
+      var m2 = L('You already have a compensation claim for this OT date') + ':\n' +
+        (hist2[0].eventName || '\u2014') + ' \u00b7 ' + L(hist2[0].status) + ' \u00b7 ref ' + hist2[0].id + '\n\n' +
+        L('If today is a different event, you can continue. Dickson will see both claims.') + '\n\n' +
+        L('Continue?');
+      if (!window.confirm(m2)) { return; }
+    }
+  }
 
   // 年假超出已累積日數：唔阻止，但一定要佢睇清楚個計法先撳落去
   if (payload.leaveType === 'Annual Leave' && S.data && S.data.balance) {
