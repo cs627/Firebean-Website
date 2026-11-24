@@ -1204,6 +1204,8 @@ var ZH = {
   "Reject": "拒絕",
   "Cancel": "取消",
   "Contract entitlement": "合約年假額",
+  "The event date must be earlier than the compensation leave date": "活動日一定要早過補假日期",
+  "you cannot apply in advance for an event that has not happened yet": "未發生嘅活動唔可以預先申請補假",
   "This OT date has already been claimed for this same event": "呢個活動日已經用同一個活動申請過補假",
   "This OT date was already used for another compensation claim": "呢個活動日之前已經用另一個活動申請過補假",
   "a duplicate claim will be rejected": "重複申請會被拒絕",
@@ -1958,6 +1960,15 @@ function updatePreview(){
   }
   if (type === 'Compensation Leave') {
     var otv = $('f-ot') ? $('f-ot').value : '';
+    // 鐵律：活動日一定要早過補假第一日
+    if (otv && s && !(otv < s)) {
+      txt += '<br><span style="color:#ff3333"><b>' +
+        L('The event date must be earlier than the compensation leave date') + '</b> \u2014 ' +
+        L('you cannot apply in advance for an event that has not happened yet') + '.</span>';
+      p.innerHTML = txt;
+      if (typeof i18nApply === 'function') i18nApply();
+      return;
+    }
     var evv = $('f-event') ? String($('f-event').value || '').trim().toLowerCase() : '';
     if (otv && S.data && S.data.requests) {
       var hist = S.data.requests.filter(function (r) {
@@ -2006,6 +2017,14 @@ function doSubmit(){
     eventName: $('ot-box').style.display !== 'none' ? $('f-event').value : ''
   };
   if (!payload.startDate || !payload.endDate) { toast('Please pick your dates', true); return; }
+
+  // 補假鐵律：活動日必須早過補假第一日
+  if (payload.leaveType === 'Compensation Leave' && payload.otDate &&
+      !(payload.otDate < payload.startDate)) {
+    toast(L('The event date must be earlier than the compensation leave date') +
+          ' \u2014 ' + payload.otDate + ' vs ' + payload.startDate, true);
+    return;
+  }
 
   // 補假：同一個活動日已有紀錄 → 先講清楚
   if (payload.leaveType === 'Compensation Leave' && payload.otDate && S.data && S.data.requests) {
