@@ -1,12 +1,12 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-11-24T17:05:05.602446+00:00",
+  "generatedAt": "2026-11-25T17:04:44.335647+00:00",
   "run": {
-    "runDate": "2026-11-25",
+    "runDate": "2026-11-26",
     "dateRange": {
       "from": "2025-06-09",
-      "to": "2026-11-25"
+      "to": "2026-11-26"
     },
     "alerts": [
       {
@@ -4021,6 +4021,18 @@
       "link": "https://hk.news.yahoo.com/%E8%81%96%E8%AA%95%E5%8F%8A%E9%99%A4%E5%A4%95%E9%A4%90%E9%A3%B2%E7%B2%BE%E9%81%B8-babette-chouchou-%E8%88%87-180-060449649.html",
       "branchCount": "1（中環雲咸街單店）",
       "expansion": "2026-09 開業，單店經營；所屬 HORA Hospitality Group 另有 Babette（中環德輔道中南豐 Place）及 Chouchou（灣仔莊士敦道 J Residence）兩品牌，節慶套餐三店同步推"
+    },
+    {
+      "date": "2026-11-26",
+      "competitor": "業界：World's 101 Best Steak Restaurants 2026（Upper Cut Media House）",
+      "type": "活動",
+      "title": "2026 全球 101 最佳牛扒榜出爐　中環 Fireside 主廚 Jaime Ortolá 奪「Meat Master of the Year」　香港首次三間入榜",
+      "summary": "已開官網原文核實（worldbeststeaks.com 2026 榜單頁，2026-11-26 抓取）：SPECIAL AWARDS 一欄列明「MEAT MASTER OF THE YEAR — JAIME ORTOLÁ, FIRESIDE, Hong Kong」；2026 年新增「Hall of Fire — The Best of the Best」制度，首間入選者為連續三年第一的布宜諾斯艾利斯 Parrilla Don Julio。據 Hong Kong Meets America FB 帖（未經獨立核實，榜單第 18／78／80 名未在官網可讀文字中出現）：香港首次三間入榜 —— Fireside 由去年第 50 升至第 18、Carna by Dario Cecchini 首度上榜第 78、香港麗晶酒店 The Steak House 維持第 80。（Fireside 第 18 名早於 2026-10-20 TVB 報道入表。）對 Outback 的意義：國際榜單連續把香港列為牛扒目的地，但「香港牛扒」的敘事由獨立扒房及酒店扒房佔據；Outback 十店連鎖（人均 $201-400）在此類名單完全缺席，旅客及節慶檔期的話語權被上述餐廳吸走。可用的 PR 角度：以「平民價錢、全港 10 間分店」對照「上榜扒房一位難求」，把 Outback 定位為「唔需要 book 一個月都食到靚牛扒」。",
+      "sentiment": "中性",
+      "source": "World's 101 Best Steak Restaurants 官方網站（Upper Cut Media House，2026 榜單）",
+      "link": "https://www.worldbeststeaks.com/",
+      "branchCount": "不適用（行業排名，非單一品牌）",
+      "expansion": "不適用（行業排名；「香港 3 間入榜」屬 FB 轉述、未經獨立核實）"
     }
   ],
   "trend": [
