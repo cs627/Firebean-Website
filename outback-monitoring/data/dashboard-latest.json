@@ -1,12 +1,12 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-11-25T17:04:44.335647+00:00",
+  "generatedAt": "2026-11-26T17:07:46.800035+00:00",
   "run": {
-    "runDate": "2026-11-26",
+    "runDate": "2026-11-27",
     "dateRange": {
       "from": "2025-06-09",
-      "to": "2026-11-26"
+      "to": "2026-11-27"
     },
     "alerts": [
       {
@@ -27,9 +27,9 @@
     ]
   },
   "counts": {
-    "total": 252,
+    "total": 253,
     "media": 79,
-    "social": 173,
+    "social": 174,
     "maps": 58,
     "stores": 10
   },
@@ -2805,6 +2805,17 @@
       "sentiment": "neutral",
       "sentiment_label": "中性",
       "keywords": "Outback, Google Maps, 沙田, 沙田新城市廣場三期, 3星"
+    },
+    {
+      "date": "2026-11-25",
+      "source": "Threads (@netnet_takesabreaky)",
+      "platform": "社交媒體",
+      "title": "Threads 食客大讚 Outback 新出意粉「有蝦、腸仔、雞肉，仲要係好 Creamy」　牛扒照舊 Juicy、焦糖燉蛋唔太甜",
+      "summary": "Threads 用戶 netnet_takesabreaky（帖文標籤「元朗美食」，該帖 6 讚、1 回覆）2026-11-25 18:50 原文：「啱啱個月，個個禮拜都要出trip好似好耐冇喺香港食個飯咁，今晚又可以食返Outback。佢哋仲出咗新嘅意粉呀！有蝦🍤腸仔🍖同雞肉🐣仲要係好Creamy。佢哋嘅牛扒永遠都係咁Juicy🥩今次仲食咗佢個cream Brûlée啊🍮好彩都唔係好甜啫🤣」——帖文所講「新嘅意粉」與官網 2026-11-12 公布的「新奧爾良風味鮮蝦雞肉意粉 HK$188」（鮮蝦、雞肉、煙燻香腸配 Cajun 巴馬臣芝士忌廉醬）完全吻合，屬新菜式在真實顧客端的自發正面口碑；同一帖同時肯定招牌牛扒的 Juicy 口感及甜品甜度控制。屬低觸達但有具體產品指向的正面 UGC。",
+      "link": "https://www.threads.com/@netnet_takesabreaky/post/DgMEllYAT9J",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 澳美客, Outback Steakhouse HK, Threads, 新意粉, 牛扒, 元朗"
     }
   ],
   "stores": [
@@ -2932,7 +2943,7 @@
   "competitors": [
     {
       "date": "2026-10-01",
-      "competitor": "Flat Iron",
+      "competitor": "Flat Iron Steak",
       "type": "新店/擴張",
       "title": "Flat Iron Steak進駐ifc mall開新分店",
       "summary": "Flat Iron Steak將於2026年10月1日在ifc mall開設新分店，為香港第6間分店，繼續擴張中環高級扒房版圖。",
@@ -2944,7 +2955,7 @@
     },
     {
       "date": "2026-04-14",
-      "competitor": "Dan Ryan's",
+      "competitor": "Dan Ryan's Chicago Grill",
       "type": "新店/擴張",
       "title": "Dan Ryan's Chicago Grill銅鑼灣新店開幕",
       "summary": "Dan Ryan's Chicago Grill在銅鑼灣開設新分店，提供豪華nachos、T骨牛扒、燒美國豬肋骨等，消費滿$500送$100餐飲券。",
@@ -3016,7 +3027,7 @@
     },
     {
       "date": "2026-08-26",
-      "competitor": "Dan Ryan's",
+      "competitor": "Dan Ryan's Chicago Grill",
       "type": "新店/擴張",
       "title": "銅鑼灣翡翠明珠廣場新店（品牌最大，260座位）",
       "summary": "新店直接取代Fashion Walk已結業Outback位置，係直接搶客動作",
@@ -3028,7 +3039,7 @@
     },
     {
       "date": "2026-08-26",
-      "competitor": "Dan Ryan's",
+      "competitor": "Dan Ryan's Chicago Grill",
       "type": "活動",
       "title": "開業優惠：每消費$500送$100餐飲券",
       "summary": "4月22至5月31日期間每消費$500送$100餐飲券（已完成，觀察未來會否重推）",
@@ -3040,7 +3051,7 @@
     },
     {
       "date": "2026-08-26",
-      "competitor": "Dan Ryan's",
+      "competitor": "Dan Ryan's Chicago Grill",
       "type": "活動",
       "title": "Father's Day 2026 優惠（6月18-21日）",
       "summary": "父親節推廣：減$71優惠，4日限定；IG Story Highlights 仍保留 Flash Deals",
@@ -3052,7 +3063,7 @@
     },
     {
       "date": "2026-08-26",
-      "competitor": "Dan Ryan's",
+      "competitor": "Dan Ryan's Chicago Grill",
       "type": "新店/擴張",
       "title": "Dan Ryan's IG 983 followers + 3間分店",
       "summary": "IG profile 標示銅鑼灣新店開幕 story highlight。全線3間：太古城/又一城/銅鑼灣",
@@ -3280,7 +3291,7 @@
     },
     {
       "date": "2026-09-06",
-      "competitor": "Dan Ryan's",
+      "competitor": "Dan Ryan's Chicago Grill",
       "type": "推廣/優惠",
       "title": "周年慶・晚市指定菜式75折（2026/9/1-29 逢一至四5pm後）",
       "summary": "Dan Ryan's全線分店於2026年9月1日至29日，逢星期一至四下午5時後推『周年慶・晚市指定菜式75折』，焦點如炭烤封門牛柳/芝加哥拼盤/松露野菌意大利飯，藉周年慶檔期以夜間75折正面搶奪晚餐客。",
@@ -3292,7 +3303,7 @@
     },
     {
       "date": "2026-09-06",
-      "competitor": "Flat Iron",
+      "competitor": "Flat Iron Steak",
       "type": "新店/擴張",
       "title": "集團擴充：Flat Iron Burger海港城開首間九龍分店＋Flat Iron Steak中環IFC第5店",
       "summary": "Hidden Gem餐飲集團旗下人氣品牌持續逆市擴張：Flat Iron Burger於海港城開設首間九龍區分店（主打黑安格斯平鐵堡及300g/200g平鐵牛扒），同集團Flat Iron Steak亦開設中環IFC第5分店（首間維港景點店）。以『平價高質』定位正面攔截Outback的鋸扒客源。",
@@ -3304,7 +3315,7 @@
     },
     {
       "date": "2026-09-07",
-      "competitor": "Flat Iron",
+      "competitor": "Flat Iron Steak",
       "type": "新店/擴張",
       "title": "Flat Iron Steak鰂魚涌糖廠街新店開幕＋首創Flat Iron Bakery烘焙概念（第7間香港扒房）",
       "summary": "Flat Iron Steak再度擴張，進駐鰂魚涌糖廠街31及33號，開設首個烘焙副線Flat Iron Bakery（7am起供應精品咖啡及糕點，買咖啡免費送冬甩），午市7安士平鐵牛扒$168、開幕限時$298享400克T骨牛扒（至8月6日）。連同銅鑼灣/SoHo/灣仔/上環/尖沙咀/中環IFC，香港扒房據點已有約7-8間並持續以『$168平價鋸扒＋烘焙』正面攔截Outback平價客源，擴張勢頭明顯。",
@@ -3340,7 +3351,7 @@
     },
     {
       "date": "2026-09-29",
-      "competitor": "Dan Ryan's",
+      "competitor": "Dan Ryan's Chicago Grill",
       "type": "推廣/優惠",
       "title": "Dan Ryan's 銅鑼灣二人美式套餐低至6折（KKday獨家）",
       "summary": "Dan Ryan's Chicago Grill 銅鑼灣翡翠明珠廣場新店現推KKday獨家「精選2人美式套餐」低至6折：$688/2位（原價$1,148/2位），人均$344。套餐含自家製烘焙、法式雙重芝士洋蔥湯、超營沙律，主菜三選二（炭烤封門牛柳配烤虎蝦／BB豬排骨／味噌比目魚）。",
@@ -3424,7 +3435,7 @@
     },
     {
       "date": "2026-10-16",
-      "competitor": "Dan Ryan's",
+      "competitor": "Dan Ryan's Chicago Grill",
       "type": "活動",
       "title": "Dan Ryan's 萬聖節主題布置登場：海港城分店驚嚇稻草人＋南瓜軍團（另預告10月31日主題彩繪日）",
       "summary": "Dan Ryan's Chicago Grill 官方 Instagram（2026-10-16）公布各分店陸續換上萬聖節鬼馬布置，海港城分店設驚嚇稻草人與南瓜裝飾供打卡，附訂座連結（inline.app/booking/dan_ryans）；官方 Facebook 專頁另公布10月31日「萬聖節主題彩繪日（面／手）」：太古城中心店3:30pm–5:30pm、銅鑼灣翡翠明珠廣場店同步（彩繪日詳情據官方FB專頁帖文）。租戶級節慶活動，爭奪家庭客群。（資料來源：Dan Ryan's 官方 Instagram／Facebook）",
@@ -3568,7 +3579,7 @@
     },
     {
       "date": "2026-10-31",
-      "competitor": "Flat Iron",
+      "competitor": "Flat Iron Steak",
       "type": "推廣/優惠",
       "title": "Flat Iron 追加三款大份量分享扒優惠（官網現行）",
       "summary": "Flat Iron 官網 Promotions 頁現行優惠：1kg Black Angus T-Bone 分享扒 5 折；Mixed Grill 5 折；1.2kg Black Angus Tomahawk 分享扒 HK$849；550g Jack's Creek M9 strip loin 二人分享 HK$788。以上屬官網現行標價，非限期新聞稿。",
@@ -3580,7 +3591,7 @@
     },
     {
       "date": "2026-10-31",
-      "competitor": "Flat Iron",
+      "competitor": "Flat Iron Steak",
       "type": "推廣/優惠",
       "title": "Flat Iron Happy Hour 12:00-19:30 啤酒及 House Wine 半價",
       "summary": "Flat Iron 官網列明全線分店 Happy Hour 為 12:00 至 19:30，啤酒及 House Wine 半價。時段覆蓋午市至晚市前段，直接搶佔 Outback 晚市前客流。",
@@ -3664,7 +3675,7 @@
     },
     {
       "date": "2026-10-31",
-      "competitor": "Dan Ryan's",
+      "competitor": "Dan Ryan's Chicago Grill",
       "type": "推廣/優惠",
       "title": "Dan Ryan's 官網以「Causeway Bay New Store」為主推入口",
       "summary": "Dan Ryan's 官網首頁唯一主推內容為 Newsletter Subscription 及「Causeway Bay New Store」，即銅鑼灣新店仍為品牌首要推廣重點。官網為精簡式 Wix 站，優惠詳情不在首頁披露，需由社交渠道補。",
@@ -4422,6 +4433,10 @@
     },
     {
       "date": "2026-11-17",
+      "count": 1
+    },
+    {
+      "date": "2026-11-25",
       "count": 1
     }
   ],

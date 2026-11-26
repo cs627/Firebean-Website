@@ -2016,6 +2016,14 @@
       "summary": "沙田分店 Google Maps 3星評論（3Y coolsummer，本星期）：黑糖麵包加分。炸洋葱都好食。其他正常啦。可以一試。",
       "link": "https://www.google.com/maps/contrib/117664584619476611877/reviews",
       "sentiment": "neutral"
+    },
+    {
+      "date": "2026-11-25",
+      "source": "Threads (@netnet_takesabreaky)",
+      "title": "Threads 食客大讚 Outback 新出意粉「有蝦、腸仔、雞肉，仲要係好 Creamy」　牛扒照舊 Juicy、焦糖燉蛋唔太甜",
+      "summary": "Threads 用戶 netnet_takesabreaky（帖文標籤「元朗美食」，該帖 6 讚、1 回覆）2026-11-25 18:50 原文：「啱啱個月，個個禮拜都要出trip好似好耐冇喺香港食個飯咁，今晚又可以食返Outback。佢哋仲出咗新嘅意粉呀！有蝦🍤腸仔🍖同雞肉🐣仲要係好Creamy。佢哋嘅牛扒永遠都係咁Juicy🥩今次仲食咗佢個cream Brûlée啊🍮好彩都唔係好甜啫🤣」——帖文所講「新嘅意粉」與官網 2026-11-12 公布的「新奧爾良風味鮮蝦雞肉意粉 HK$188」（鮮蝦、雞肉、煙燻香腸配 Cajun 巴馬臣芝士忌廉醬）完全吻合，屬新菜式在真實顧客端的自發正面口碑；同一帖同時肯定招牌牛扒的 Juicy 口感及甜品甜度控制。屬低觸達但有具體產品指向的正面 UGC。",
+      "link": "https://www.threads.com/@netnet_takesabreaky/post/DgMEllYAT9J",
+      "sentiment": "positive"
     }
   ],
   "alerts": [],
@@ -2024,7 +2032,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 252,
+    "new_records": 253,
     "limitations": []
   }
 }

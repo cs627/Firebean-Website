@@ -1,14 +1,6 @@
 {
-  "week": "2026-11-03 ~ 2026-11-17",
+  "week": "2026-11-05 ~ 2026-11-25",
   "items": [
-    {
-      "date": "2026-11-03",
-      "source": "Jetso101（著數101）",
-      "title": "Outback Prestige 會員優惠獲著數101 收錄：11月30日前入會／升級／續會送前菜拼盤、HK$400 現金券及最多 4 張 75 折券",
-      "summary": "著數101（jetso101.com）自家優惠頁收錄 Outback 現行 Inside Outback 會員推廣：2026年10月20日至11月30日，加入、升級或續期 Prestige 會員（2年 HK$488）可於原有禮遇外額外獲三項獎賞——消費滿 HK$400（堂食或外賣）送前菜拼盤一份、4 張 HK$100 現金券，以及最多 4 張 75 折優惠券（每張最高減 HK$1,000、不設最低消費）；VIP 免費入會可獲香脆薯條混煙肉芝士券。頁面同時標示「尚餘 28 天（至 11 月 30 日止）」，並附官方來源連結（outback.com.hk/news-and-promotions/page/1）。屬第三方著數平台對官方會員推廣的收錄，非官方新公布（官方 article/241 已於 2026-10-20 記錄）。收錄意義：反映 Outback 會員折扣戰繼續被著數媒體持續放大，屬 11 月檔期的持續曝光。",
-      "link": "https://jetso101.com/zh-HK/deals/outback-prestige-membership-hk-488-for-2-years-join-upgrade-or-extend-1cf636a6",
-      "sentiment": "neutral"
-    },
     {
       "date": "2026-11-05",
       "source": "Yahoo Finance HK",
@@ -64,6 +56,14 @@
       "summary": "【本日補獲：文章 2026-11-17 發佈】U Food「11月生日優惠2026｜35個飲食推介」第【27】項為 Outback（標題「Outback生日獎賞」）：會員凡消費滿 HK$400 可享 $88 現金優惠券，壽星另享外賣到會套餐 8 折優惠券（適用 8 位用或 16 位用自選到會套餐），優惠日期「即日起至另行通知」，地址列「Outback各分店」。此為品牌每月固定生日獎賞的 11 月版本，經第三方飲食媒體再度收錄，與本表 8 月（08-11／08-23）及 9 月（09-02）同系列記錄連續，條款與金額未見變動。對品牌的意義：生日獎賞已成為 U Food 每月自動收錄的固定欄目，屬零成本持續曝光；但條款與 8 月完全相同、11 月未見加碼，而在同一份 35 項比較列表中，同行多以「四人同行一人免費」「免費生日蛋糕」等即時可見的著數搶生日客，Outback 以「滿 HK$400 換 $88 券」的門檻相對高，吸引力取決於客人是否已有到訪計劃。",
       "link": "https://ufood.com.hk/restaurant/news/detail/20046882/%E7%94%9F%E6%97%A5%E5%84%AA%E6%83%A0-%E7%94%9F%E6%97%A5%E9%A4%90%E5%BB%B3%E6%8E%A8%E4%BB%8B-%E7%94%9F%E6%97%A5%E5%85%8D%E8%B2%BB%E9%85%92%E5%BA%97%E8%87%AA%E5%8A%A9%E9%A4%90-%E7%94%9C%E5%93%81%E6%8B%BC%E7%9B%A4-%E7%94%9F%E6%97%A5%E8%9B%8B%E7%B3%95-%E7%8F%BE%E9%87%91%E5%88%B8-%E5%85%8D%E8%B2%BB%E9%87%A3%E8%9D%A6",
       "sentiment": "neutral"
+    },
+    {
+      "date": "2026-11-25",
+      "source": "Threads (@netnet_takesabreaky)",
+      "title": "Threads 食客大讚 Outback 新出意粉「有蝦、腸仔、雞肉，仲要係好 Creamy」　牛扒照舊 Juicy、焦糖燉蛋唔太甜",
+      "summary": "Threads 用戶 netnet_takesabreaky（帖文標籤「元朗美食」，該帖 6 讚、1 回覆）2026-11-25 18:50 原文：「啱啱個月，個個禮拜都要出trip好似好耐冇喺香港食個飯咁，今晚又可以食返Outback。佢哋仲出咗新嘅意粉呀！有蝦🍤腸仔🍖同雞肉🐣仲要係好Creamy。佢哋嘅牛扒永遠都係咁Juicy🥩今次仲食咗佢個cream Brûlée啊🍮好彩都唔係好甜啫🤣」——帖文所講「新嘅意粉」與官網 2026-11-12 公布的「新奧爾良風味鮮蝦雞肉意粉 HK$188」（鮮蝦、雞肉、煙燻香腸配 Cajun 巴馬臣芝士忌廉醬）完全吻合，屬新菜式在真實顧客端的自發正面口碑；同一帖同時肯定招牌牛扒的 Juicy 口感及甜品甜度控制。屬低觸達但有具體產品指向的正面 UGC。",
+      "link": "https://www.threads.com/@netnet_takesabreaky/post/DgMEllYAT9J",
+      "sentiment": "positive"
     }
   ],
   "alerts": [],

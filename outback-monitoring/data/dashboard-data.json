@@ -1,20 +1,16 @@
 {
   "meta": {
-    "last_updated": "2026-11-23T01:01:12+08:00",
-    "total_records": 252,
+    "last_updated": "2026-11-27T01:07+08:00",
+    "total_records": 253,
     "daily_avg": 2.6,
-    "date_range": "2025-06-09 → 2026-11-17",
+    "date_range": "2025-06-09 → 2026-11-25",
     "sources_checked": 29,
-    "new_verified": 4,
+    "new_verified": 3,
     "coverage_ratio": "29/46",
     "negative_alerts": 38,
     "positive_pct": 55
   },
   "trend": [
-    {
-      "date": "2026-11-03",
-      "count": 1
-    },
     {
       "date": "2026-11-05",
       "count": 1
@@ -38,6 +34,10 @@
     {
       "date": "2026-11-17",
       "count": 1
+    },
+    {
+      "date": "2026-11-25",
+      "count": 1
     }
   ],
   "source_breakdown": [
@@ -47,7 +47,7 @@
     },
     {
       "source": "Threads",
-      "count": 45
+      "count": 46
     },
     {
       "source": "Instagram",
@@ -103,7 +103,7 @@
     }
   ],
   "sentiment": {
-    "positive": 139,
+    "positive": 140,
     "neutral": 68,
     "negative": 38,
     "mixed": 7
@@ -2880,6 +2880,17 @@
       "sentiment": "neutral",
       "sentiment_label": "中性",
       "keywords": "Outback, Google Maps, 沙田, 沙田新城市廣場三期, 3星"
+    },
+    {
+      "date": "2026-11-25",
+      "source": "Threads (@netnet_takesabreaky)",
+      "platform": "社交媒體",
+      "title": "Threads 食客大讚 Outback 新出意粉「有蝦、腸仔、雞肉，仲要係好 Creamy」　牛扒照舊 Juicy、焦糖燉蛋唔太甜",
+      "summary": "Threads 用戶 netnet_takesabreaky（帖文標籤「元朗美食」，該帖 6 讚、1 回覆）2026-11-25 18:50 原文：「啱啱個月，個個禮拜都要出trip好似好耐冇喺香港食個飯咁，今晚又可以食返Outback。佢哋仲出咗新嘅意粉呀！有蝦🍤腸仔🍖同雞肉🐣仲要係好Creamy。佢哋嘅牛扒永遠都係咁Juicy🥩今次仲食咗佢個cream Brûlée啊🍮好彩都唔係好甜啫🤣」——帖文所講「新嘅意粉」與官網 2026-11-12 公布的「新奧爾良風味鮮蝦雞肉意粉 HK$188」（鮮蝦、雞肉、煙燻香腸配 Cajun 巴馬臣芝士忌廉醬）完全吻合，屬新菜式在真實顧客端的自發正面口碑；同一帖同時肯定招牌牛扒的 Juicy 口感及甜品甜度控制。屬低觸達但有具體產品指向的正面 UGC。",
+      "link": "https://www.threads.com/@netnet_takesabreaky/post/DgMEllYAT9J",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 澳美客, Outback Steakhouse HK, Threads, 新意粉, 牛扒, 元朗"
     }
   ],
   "media_records": [
@@ -5656,6 +5667,17 @@
       "sentiment": "neutral",
       "sentiment_label": "中性",
       "keywords": "Outback, Google Maps, 沙田, 沙田新城市廣場三期, 3星"
+    },
+    {
+      "date": "2026-11-25",
+      "source": "Threads (@netnet_takesabreaky)",
+      "platform": "社交媒體",
+      "title": "Threads 食客大讚 Outback 新出意粉「有蝦、腸仔、雞肉，仲要係好 Creamy」　牛扒照舊 Juicy、焦糖燉蛋唔太甜",
+      "summary": "Threads 用戶 netnet_takesabreaky（帖文標籤「元朗美食」，該帖 6 讚、1 回覆）2026-11-25 18:50 原文：「啱啱個月，個個禮拜都要出trip好似好耐冇喺香港食個飯咁，今晚又可以食返Outback。佢哋仲出咗新嘅意粉呀！有蝦🍤腸仔🍖同雞肉🐣仲要係好Creamy。佢哋嘅牛扒永遠都係咁Juicy🥩今次仲食咗佢個cream Brûlée啊🍮好彩都唔係好甜啫🤣」——帖文所講「新嘅意粉」與官網 2026-11-12 公布的「新奧爾良風味鮮蝦雞肉意粉 HK$188」（鮮蝦、雞肉、煙燻香腸配 Cajun 巴馬臣芝士忌廉醬）完全吻合，屬新菜式在真實顧客端的自發正面口碑；同一帖同時肯定招牌牛扒的 Juicy 口感及甜品甜度控制。屬低觸達但有具體產品指向的正面 UGC。",
+      "link": "https://www.threads.com/@netnet_takesabreaky/post/DgMEllYAT9J",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, 澳美客, Outback Steakhouse HK, Threads, 新意粉, 牛扒, 元朗"
     }
   ],
   "store_ranking": [
