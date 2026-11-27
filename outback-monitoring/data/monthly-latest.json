@@ -2024,6 +2024,14 @@
       "summary": "Threads 用戶 netnet_takesabreaky（帖文標籤「元朗美食」，該帖 6 讚、1 回覆）2026-11-25 18:50 原文：「啱啱個月，個個禮拜都要出trip好似好耐冇喺香港食個飯咁，今晚又可以食返Outback。佢哋仲出咗新嘅意粉呀！有蝦🍤腸仔🍖同雞肉🐣仲要係好Creamy。佢哋嘅牛扒永遠都係咁Juicy🥩今次仲食咗佢個cream Brûlée啊🍮好彩都唔係好甜啫🤣」——帖文所講「新嘅意粉」與官網 2026-11-12 公布的「新奧爾良風味鮮蝦雞肉意粉 HK$188」（鮮蝦、雞肉、煙燻香腸配 Cajun 巴馬臣芝士忌廉醬）完全吻合，屬新菜式在真實顧客端的自發正面口碑；同一帖同時肯定招牌牛扒的 Juicy 口感及甜品甜度控制。屬低觸達但有具體產品指向的正面 UGC。",
       "link": "https://www.threads.com/@netnet_takesabreaky/post/DgMEllYAT9J",
       "sentiment": "positive"
+    },
+    {
+      "date": "2026-11-22",
+      "source": "Google Maps (元朗形點)",
+      "title": "元朗顧客4星評價：【隔咗三年再食，這間餐廳嘅牛肉 依然係咁柴 🥩🙅🏻‍♀️】  於形點一期搵下午茶",
+      "summary": "元朗分店 Google Maps 4星評論（blissful.abitoflife，本星期）：【隔咗三年再食，這間餐廳嘅牛肉 依然係咁柴 🥩🙅🏻‍♀️】  於形點一期搵下午茶食，見到下午茶餐 $78 決定入去試試，點知質素好極端：  😋 芝士白汁燒蝦寬麵，芝士味超濃郁， 蝦仁俾得好足料，寬麵仲啖啖掛汁， 真係有驚喜！  😮‍💨 澳坊芝士漢堡配薯條，漢堡肉雖然有牛味，但肉質偏乾柴、完全冇肉汁，同當年的牛扒一樣咁乾 。 反而配角薯條炸得啱啱好，外脆內軟又唔油膩 🍟。",
+      "link": "https://www.google.com/maps/contrib/107144890219100559644/reviews",
+      "sentiment": "positive"
     }
   ],
   "alerts": [],
@@ -2032,7 +2040,7 @@
   "coverage": {
     "target_sources": 46,
     "checked_sources": 0,
-    "new_records": 253,
+    "new_records": 254,
     "limitations": []
   }
 }

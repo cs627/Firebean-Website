@@ -1,20 +1,16 @@
 {
   "meta": {
-    "last_updated": "2026-11-27T01:07+08:00",
-    "total_records": 253,
+    "last_updated": "2026-11-28T01:00:53+08:00",
+    "total_records": 254,
     "daily_avg": 2.6,
     "date_range": "2025-06-09 → 2026-11-25",
     "sources_checked": 29,
     "new_verified": 3,
     "coverage_ratio": "29/46",
     "negative_alerts": 38,
-    "positive_pct": 55
+    "positive_pct": 56
   },
   "trend": [
-    {
-      "date": "2026-11-05",
-      "count": 1
-    },
     {
       "date": "2026-11-08",
       "count": 1
@@ -36,6 +32,10 @@
       "count": 1
     },
     {
+      "date": "2026-11-22",
+      "count": 1
+    },
+    {
       "date": "2026-11-25",
       "count": 1
     }
@@ -43,7 +43,7 @@
   "source_breakdown": [
     {
       "source": "Google Maps",
-      "count": 58
+      "count": 59
     },
     {
       "source": "Threads",
@@ -103,7 +103,7 @@
     }
   ],
   "sentiment": {
-    "positive": 140,
+    "positive": 141,
     "neutral": 68,
     "negative": 38,
     "mixed": 7
@@ -2891,6 +2891,17 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, 澳美客, Outback Steakhouse HK, Threads, 新意粉, 牛扒, 元朗"
+    },
+    {
+      "date": "2026-11-22",
+      "source": "Google Maps (元朗形點)",
+      "platform": "地圖",
+      "title": "元朗顧客4星評價：【隔咗三年再食，這間餐廳嘅牛肉 依然係咁柴 🥩🙅🏻‍♀️】  於形點一期搵下午茶",
+      "summary": "元朗分店 Google Maps 4星評論（blissful.abitoflife，本星期）：【隔咗三年再食，這間餐廳嘅牛肉 依然係咁柴 🥩🙅🏻‍♀️】  於形點一期搵下午茶食，見到下午茶餐 $78 決定入去試試，點知質素好極端：  😋 芝士白汁燒蝦寬麵，芝士味超濃郁， 蝦仁俾得好足料，寬麵仲啖啖掛汁， 真係有驚喜！  😮‍💨 澳坊芝士漢堡配薯條，漢堡肉雖然有牛味，但肉質偏乾柴、完全冇肉汁，同當年的牛扒一樣咁乾 。 反而配角薯條炸得啱啱好，外脆內軟又唔油膩 🍟。",
+      "link": "https://www.google.com/maps/contrib/107144890219100559644/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 元朗, 元朗形點, 4星"
     }
   ],
   "media_records": [
@@ -5678,6 +5689,17 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, 澳美客, Outback Steakhouse HK, Threads, 新意粉, 牛扒, 元朗"
+    },
+    {
+      "date": "2026-11-22",
+      "source": "Google Maps (元朗形點)",
+      "platform": "地圖",
+      "title": "元朗顧客4星評價：【隔咗三年再食，這間餐廳嘅牛肉 依然係咁柴 🥩🙅🏻‍♀️】  於形點一期搵下午茶",
+      "summary": "元朗分店 Google Maps 4星評論（blissful.abitoflife，本星期）：【隔咗三年再食，這間餐廳嘅牛肉 依然係咁柴 🥩🙅🏻‍♀️】  於形點一期搵下午茶食，見到下午茶餐 $78 決定入去試試，點知質素好極端：  😋 芝士白汁燒蝦寬麵，芝士味超濃郁， 蝦仁俾得好足料，寬麵仲啖啖掛汁， 真係有驚喜！  😮‍💨 澳坊芝士漢堡配薯條，漢堡肉雖然有牛味，但肉質偏乾柴、完全冇肉汁，同當年的牛扒一樣咁乾 。 反而配角薯條炸得啱啱好，外脆內軟又唔油膩 🍟。",
+      "link": "https://www.google.com/maps/contrib/107144890219100559644/reviews",
+      "sentiment": "positive",
+      "sentiment_label": "正面",
+      "keywords": "Outback, Google Maps, 元朗, 元朗形點, 4星"
     }
   ],
   "store_ranking": [
