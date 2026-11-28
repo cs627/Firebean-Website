@@ -1654,6 +1654,27 @@
       // GSAP Animations
       gsap.registerPlugin(ScrollTrigger);
 
+      // --- Pin re-measurement -------------------------------------------------
+      // This page grows after first paint: the project grid comes from projects.json (706 KB),
+      // EDM cards load separately, CJK webfonts reflow the text, and a language switch rebuilds
+      // the whole grid. A pin whose start/end was measured before that growth points at the
+      // wrong scroll offset, so the pinned section goes `position: fixed` while the previous
+      // section is still on screen (the "two sections overlap" / "appears twice" reports).
+      // Everything that changes page height must therefore trigger a ScrollTrigger.refresh().
+      var __pinRefreshTimer = null;
+      function refreshPinsSoon(delay) {
+        clearTimeout(__pinRefreshTimer);
+        __pinRefreshTimer = setTimeout(function () {
+          try { ScrollTrigger.refresh(); } catch (e) {}
+        }, delay || 120);
+      }
+      window.refreshPinsSoon = refreshPinsSoon;
+      window.addEventListener('load', function () { refreshPinsSoon(200); });
+      window.addEventListener('resize', function () { refreshPinsSoon(250); });
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(function () { refreshPinsSoon(60); });
+      }
+
       // Hero Text Reveal
       const heroLines = document.querySelectorAll('.hero-line');
       gsap.from(heroLines, {
@@ -1759,7 +1780,8 @@
             end: '+=250%',
             pin: true,
             scrub: 0.5,
-            anticipatePin: 1,
+            anticipatePin: 0,
+            invalidateOnRefresh: true,
             onLeave: function() {
               // Keep last frame visible when pin releases — no flash
               drawFrame(FRAME_COUNT - 1);
@@ -1919,14 +1941,17 @@
 
       // (Profile card animations are handled after CMS data loads)
 
-      // Newsletter Left Column — GSAP ScrollTrigger pin (CSS sticky doesn't work with Lenis)
+      // Newsletter Left Column — pinned while the EDM cards scroll past.
+      // pinSpacing MUST stay true: with false the column reserves no room, so it visually
+      // "appears twice" (once in flow, once pinned at the top) and leaves a blank gap below.
       ScrollTrigger.create({
         trigger: '#newsletter',
         start: 'top top',
-        end: () => '+=' + (document.querySelector('#newsletter').offsetHeight - window.innerHeight),
+        end: () => '+=' + Math.max(0, document.querySelector('#newsletter').offsetHeight - window.innerHeight),
         pin: '.newsletter-left-col',
-        pinSpacing: false,
-        anticipatePin: 1,
+        pinSpacing: true,
+        anticipatePin: 0,
+        invalidateOnRefresh: true,
       });
 
       gsap.utils.toArray('.parallax-img').forEach(img => {
@@ -3102,6 +3127,9 @@
 
       // --- 6. Refresh ScrollTrigger for dynamic content ---
       ScrollTrigger.refresh();
+      // Images inside the freshly rendered grid finish decoding a moment later; one more
+      // delayed refresh keeps the About/newsletter pins aligned with the final page height.
+      if (window.refreshPinsSoon) window.refreshPinsSoon(400);
     });
 
     // Update categories on language change
@@ -3118,6 +3146,9 @@
       // Rebuild profile grid in the newly selected language (titles + 50-word descriptions)
       if (window.renderGrid) {
         window.renderGrid();
+        // Chinese titles/descriptions are taller than the English ones, so #work and
+        // everything below it changes height — pins must be re-measured or they fire early.
+        if (window.refreshPinsSoon) window.refreshPinsSoon(60);
       }
     });
 
