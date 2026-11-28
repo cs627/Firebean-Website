@@ -1,12 +1,12 @@
 {
   "schema": "outback-hk-v3-hermes/v1",
   "sourceOfTruth": "https://firebean.net/outback-monitoring/",
-  "generatedAt": "2026-11-27T17:03:39.874491+00:00",
+  "generatedAt": "2026-11-28T17:04:37.895416+00:00",
   "run": {
-    "runDate": "2026-11-28",
+    "runDate": "2026-11-29",
     "dateRange": {
       "from": "2025-06-09",
-      "to": "2026-11-28"
+      "to": "2026-11-29"
     },
     "alerts": [
       {
@@ -27,9 +27,9 @@
     ]
   },
   "counts": {
-    "total": 254,
+    "total": 256,
     "media": 79,
-    "social": 175,
+    "social": 177,
     "maps": 59,
     "stores": 10
   },
@@ -2827,6 +2827,28 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, Google Maps, 元朗, 元朗形點, 4星"
+    },
+    {
+      "date": "2026-11-27",
+      "source": "Facebook (官方)",
+      "platform": "社交媒體",
+      "title": "【INSIDE OUTBACK｜總廚Chef Efrem Cutler 快問快答EP 1】（官方 Reel）",
+      "summary": "官方 Facebook 專頁 2026-11-27 10:00（HKT）發佈 Reel「總廚 Chef Efrem Cutler 快問快答 EP 1」，以快問快答形式問「創作新菜式係靈感行先定食材行先」、「跟足規則定依靠直覺」、「一道菜點先算啱啱好」，帶出研發副總裁暨行政總廚 Efrem Cutler 的創作思路。屬 11-11 起四款期間限定新菜（燒法國鴨胸悉尼沙律 HK$178／新奧爾良風味鮮蝦雞肉意粉 HK$188／烤美國牛肋條 HK$208／香煎爆谷挪威三文魚 HK$288）之後的內容延伸，把總廚包裝成品牌人格。發佈後約 1 日 3 個 reactions、0 留言、0 分享，互動明顯低於 11-01 品牌短片（499 reactions）。意義：官方 11 月敘事仍集中在「總廚故事＋新菜」，未見節慶（聖誕）語言，同期對手已陸續公布聖誕／除夕套餐。",
+      "link": "https://www.facebook.com/reel/1461018905576161/",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, Outback Steakhouse HK, Facebook 官方, INSIDE OUTBACK, 總廚 Efrem Cutler, 新菜式, Reel"
+    },
+    {
+      "date": "2026-11-19",
+      "source": "Facebook (官方)",
+      "platform": "社交媒體",
+      "title": "【Outback 限時會員迎新任務🎯】官方帖：VIP／尊尚會籍迎新獎賞（11-30 前）",
+      "summary": "官方 Facebook 2026-11-19 11:07（HKT）發帖，用遊戲語言（「甩開六星通緝」「迎戰敵對幫會」「回復 100% 滿血」）包裝會員迎新：VIP 會籍送香脆薯條混煙肉芝士；尊尚會籍加送 HK$100 迎新券 ×4、烤豬肋骨雞搥芝士薯條拼盤換領券 ×1、75 折券，優惠期至 2026-11-30，導流至 marketing.outback.com.hk/downloadapp。帖文 17 reactions、0 留言、1 分享。屬「10-20 至 11-30 會員獎賞」的社交版本，社交渠道曝光遠低於同期著數媒體轉載（KONGGOK／Jetso Today／Jetso101）。",
+      "link": "https://www.facebook.com/outbacksteakhousehk/posts/pfbid02Tg5A7jkYgG3QWmPjGinS2tjKquQYPthjAYVZexdP8hiSBqHffzpLiy9YUBzHkZt5l",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, 會員迎新, VIP, 尊尚會籍, 75折券, Facebook 官方, 遊戲化文案"
     }
   ],
   "stores": [
@@ -4067,6 +4089,18 @@
       "link": "https://www.stheadline.com/realtime-finance/3630917/57%E5%B9%B4%E9%87%91%E9%B3%B3%E5%A4%A7%E9%A4%90%E5%BB%B3%E6%8B%92%E8%AE%93%E5%93%81%E7%89%8C%E8%80%81%E4%B8%8B%E5%8E%BB-%E9%96%8BApp%E6%8B%93%E8%81%AF%E4%B9%98%E5%85%BC%E6%94%B9%E8%A3%9D%E4%BF%AE-%E7%AC%AC%E4%BA%8C%E4%BB%A3%E6%98%8E%E8%A8%80%E8%A6%81%E6%96%B0%E6%BD%AE%E5%9C%B0%E6%87%B7%E8%88%8A",
       "branchCount": "8",
       "expansion": "維持 8 間（2026 年新開康怡店及元朗形點店，後者 2026-11-23 開業）；策略重心為聯乘、會員 App 及店舖改裝而非短期再擴張"
+    },
+    {
+      "date": "2026-11-29",
+      "competitor": "B&B Oyster Steakhouse（尖沙咀美麗華廣場二期）",
+      "type": "推廣/優惠",
+      "title": "B&B Oyster Steakhouse 招牌二人套餐 5 折：KKday HK$488 歎威靈頓牛柳＋美國生蠔＋龍蝦濃湯（用餐期至 11-30）",
+      "summary": "已開原文核實（Jetso Hub HK 優惠頁，頁面標示「最後更新：2 天前」＝約 2026-11-27；文中優惠用餐日期明列「即日起至 2026 年 11 月 30 日」，故 DATE 以本日收集日記錄）：尖沙咀彌敦道 118-130 號美麗華廣場 2 期 1 樓 167 號舖的 B&B Oyster Steakhouse 經 KKday 推出招牌二人套餐 5 折 HK$488（原價 HK$980／2 位，另須現場支付原價 10% 服務費，平均 HK$244/位），五道菜為香煙三文魚沙律、美國生蠔、龍蝦濃湯、威靈頓牛柳，加熟成巨型芝士輪即席拌炒卡邦尼意粉，甜品朱古力心太軟配咖啡或茶；下單須 2 位倍數，可選 12:00–21:00 每半小時入座。對 Outback 的意義：以「威靈頓牛柳＋生蠔＋龍蝦湯」五道菜人均 HK$244 搶尖沙咀約會／紀念日客，價位直接壓在 Outback 人均 $201-400 帶內，並以 KKday 預付鎖定客量 —— Outback 同區未見同類預付套餐，12 月節慶檔期若無對應方案會繼續被截客。",
+      "sentiment": "中性",
+      "source": "Jetso Hub HK（香港優惠情報網站）",
+      "link": "https://jetsohubhk.com/%E6%89%92%E6%88%BF%E6%8B%9B%E7%89%8C%E4%BA%8C%E4%BA%BA%E5%A5%97%E9%A4%905%E6%8A%98%E5%84%AA%E6%83%A0",
+      "branchCount": "1（尖沙咀美麗華廣場二期單店）",
+      "expansion": "單店經營，未見擴張跡象；以 KKday 預付套餐促銷至 2026-11-30"
     }
   ],
   "trend": [
@@ -4459,11 +4493,19 @@
       "count": 1
     },
     {
+      "date": "2026-11-19",
+      "count": 1
+    },
+    {
       "date": "2026-11-22",
       "count": 1
     },
     {
       "date": "2026-11-25",
+      "count": 1
+    },
+    {
+      "date": "2026-11-27",
       "count": 1
     }
   ],

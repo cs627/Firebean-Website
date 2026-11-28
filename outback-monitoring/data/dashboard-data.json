@@ -1,24 +1,16 @@
 {
   "meta": {
-    "last_updated": "2026-11-28T01:00:53+08:00",
-    "total_records": 254,
-    "daily_avg": 2.6,
-    "date_range": "2025-06-09 → 2026-11-25",
+    "last_updated": "2026-11-29T01:05+08:00",
+    "total_records": 256,
+    "daily_avg": 2.5,
+    "date_range": "2025-06-09 → 2026-11-27",
     "sources_checked": 29,
     "new_verified": 3,
     "coverage_ratio": "29/46",
     "negative_alerts": 38,
-    "positive_pct": 56
+    "positive_pct": 55
   },
   "trend": [
-    {
-      "date": "2026-11-08",
-      "count": 1
-    },
-    {
-      "date": "2026-11-09",
-      "count": 1
-    },
     {
       "date": "2026-11-12",
       "count": 2
@@ -32,11 +24,19 @@
       "count": 1
     },
     {
+      "date": "2026-11-19",
+      "count": 1
+    },
+    {
       "date": "2026-11-22",
       "count": 1
     },
     {
       "date": "2026-11-25",
+      "count": 1
+    },
+    {
+      "date": "2026-11-27",
       "count": 1
     }
   ],
@@ -59,7 +59,7 @@
     },
     {
       "source": "Facebook",
-      "count": 16
+      "count": 18
     },
     {
       "source": "Outback 官方網站",
@@ -104,7 +104,7 @@
   ],
   "sentiment": {
     "positive": 141,
-    "neutral": 68,
+    "neutral": 70,
     "negative": 38,
     "mixed": 7
   },
@@ -2902,6 +2902,28 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, Google Maps, 元朗, 元朗形點, 4星"
+    },
+    {
+      "date": "2026-11-27",
+      "source": "Facebook (官方)",
+      "platform": "社交媒體",
+      "title": "【INSIDE OUTBACK｜總廚Chef Efrem Cutler 快問快答EP 1】（官方 Reel）",
+      "summary": "官方 Facebook 專頁 2026-11-27 10:00（HKT）發佈 Reel「總廚 Chef Efrem Cutler 快問快答 EP 1」，以快問快答形式問「創作新菜式係靈感行先定食材行先」、「跟足規則定依靠直覺」、「一道菜點先算啱啱好」，帶出研發副總裁暨行政總廚 Efrem Cutler 的創作思路。屬 11-11 起四款期間限定新菜（燒法國鴨胸悉尼沙律 HK$178／新奧爾良風味鮮蝦雞肉意粉 HK$188／烤美國牛肋條 HK$208／香煎爆谷挪威三文魚 HK$288）之後的內容延伸，把總廚包裝成品牌人格。發佈後約 1 日 3 個 reactions、0 留言、0 分享，互動明顯低於 11-01 品牌短片（499 reactions）。意義：官方 11 月敘事仍集中在「總廚故事＋新菜」，未見節慶（聖誕）語言，同期對手已陸續公布聖誕／除夕套餐。",
+      "link": "https://www.facebook.com/reel/1461018905576161/",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, Outback Steakhouse HK, Facebook 官方, INSIDE OUTBACK, 總廚 Efrem Cutler, 新菜式, Reel"
+    },
+    {
+      "date": "2026-11-19",
+      "source": "Facebook (官方)",
+      "platform": "社交媒體",
+      "title": "【Outback 限時會員迎新任務🎯】官方帖：VIP／尊尚會籍迎新獎賞（11-30 前）",
+      "summary": "官方 Facebook 2026-11-19 11:07（HKT）發帖，用遊戲語言（「甩開六星通緝」「迎戰敵對幫會」「回復 100% 滿血」）包裝會員迎新：VIP 會籍送香脆薯條混煙肉芝士；尊尚會籍加送 HK$100 迎新券 ×4、烤豬肋骨雞搥芝士薯條拼盤換領券 ×1、75 折券，優惠期至 2026-11-30，導流至 marketing.outback.com.hk/downloadapp。帖文 17 reactions、0 留言、1 分享。屬「10-20 至 11-30 會員獎賞」的社交版本，社交渠道曝光遠低於同期著數媒體轉載（KONGGOK／Jetso Today／Jetso101）。",
+      "link": "https://www.facebook.com/outbacksteakhousehk/posts/pfbid02Tg5A7jkYgG3QWmPjGinS2tjKquQYPthjAYVZexdP8hiSBqHffzpLiy9YUBzHkZt5l",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, 會員迎新, VIP, 尊尚會籍, 75折券, Facebook 官方, 遊戲化文案"
     }
   ],
   "media_records": [
@@ -5700,6 +5722,28 @@
       "sentiment": "positive",
       "sentiment_label": "正面",
       "keywords": "Outback, Google Maps, 元朗, 元朗形點, 4星"
+    },
+    {
+      "date": "2026-11-27",
+      "source": "Facebook (官方)",
+      "platform": "社交媒體",
+      "title": "【INSIDE OUTBACK｜總廚Chef Efrem Cutler 快問快答EP 1】（官方 Reel）",
+      "summary": "官方 Facebook 專頁 2026-11-27 10:00（HKT）發佈 Reel「總廚 Chef Efrem Cutler 快問快答 EP 1」，以快問快答形式問「創作新菜式係靈感行先定食材行先」、「跟足規則定依靠直覺」、「一道菜點先算啱啱好」，帶出研發副總裁暨行政總廚 Efrem Cutler 的創作思路。屬 11-11 起四款期間限定新菜（燒法國鴨胸悉尼沙律 HK$178／新奧爾良風味鮮蝦雞肉意粉 HK$188／烤美國牛肋條 HK$208／香煎爆谷挪威三文魚 HK$288）之後的內容延伸，把總廚包裝成品牌人格。發佈後約 1 日 3 個 reactions、0 留言、0 分享，互動明顯低於 11-01 品牌短片（499 reactions）。意義：官方 11 月敘事仍集中在「總廚故事＋新菜」，未見節慶（聖誕）語言，同期對手已陸續公布聖誕／除夕套餐。",
+      "link": "https://www.facebook.com/reel/1461018905576161/",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, Outback Steakhouse HK, Facebook 官方, INSIDE OUTBACK, 總廚 Efrem Cutler, 新菜式, Reel"
+    },
+    {
+      "date": "2026-11-19",
+      "source": "Facebook (官方)",
+      "platform": "社交媒體",
+      "title": "【Outback 限時會員迎新任務🎯】官方帖：VIP／尊尚會籍迎新獎賞（11-30 前）",
+      "summary": "官方 Facebook 2026-11-19 11:07（HKT）發帖，用遊戲語言（「甩開六星通緝」「迎戰敵對幫會」「回復 100% 滿血」）包裝會員迎新：VIP 會籍送香脆薯條混煙肉芝士；尊尚會籍加送 HK$100 迎新券 ×4、烤豬肋骨雞搥芝士薯條拼盤換領券 ×1、75 折券，優惠期至 2026-11-30，導流至 marketing.outback.com.hk/downloadapp。帖文 17 reactions、0 留言、1 分享。屬「10-20 至 11-30 會員獎賞」的社交版本，社交渠道曝光遠低於同期著數媒體轉載（KONGGOK／Jetso Today／Jetso101）。",
+      "link": "https://www.facebook.com/outbacksteakhousehk/posts/pfbid02Tg5A7jkYgG3QWmPjGinS2tjKquQYPthjAYVZexdP8hiSBqHffzpLiy9YUBzHkZt5l",
+      "sentiment": "neutral",
+      "sentiment_label": "中性",
+      "keywords": "Outback, 會員迎新, VIP, 尊尚會籍, 75折券, Facebook 官方, 遊戲化文案"
     }
   ],
   "store_ranking": [
