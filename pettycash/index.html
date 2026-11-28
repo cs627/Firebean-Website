@@ -100,7 +100,9 @@
   </div>
 
 <script>
-  var TARGET = "https://script.google.com/a/macros/firebean.net/s/AKfycbxyE_dB39flrOjmU7VSrjitwlT3MSIWfFTs0pP2oxdNKXUlo4zVoHj7FU-Nn8-65HOI3A/exec";
+  var APP_ID = "AKfycbxyE_dB39flrOjmU7VSrjitwlT3MSIWfFTs0pP2oxdNKXUlo4zVoHj7FU-Nn8-65HOI3A";
+  // cache-bust：Safari 會死抱舊版 app；每次開都用新查詢字串，保證拿到最新 build
+  var TARGET = "https://script.google.com/a/macros/firebean.net/s/" + APP_ID + "/exec?v=" + Date.now();
 
   document.getElementById("go").href = TARGET;
 
